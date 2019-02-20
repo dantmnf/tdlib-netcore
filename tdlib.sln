@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib", "TDLib\TDLib.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{A87E5CCE-64FF-404B-A705-88503338AFFF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A87E5CCE-64FF-404B-A705-88503338AFFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A87E5CCE-64FF-404B-A705-88503338AFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A87E5CCE-64FF-404B-A705-88503338AFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A87E5CCE-64FF-404B-A705-88503338AFFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

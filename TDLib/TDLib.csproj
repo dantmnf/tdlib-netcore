@@ -21,14 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Api\Types\Generated\pool.dat" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Api\Types\Generated\pool.dat" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="System.Memory" Version="4.5.2" />
   </ItemGroup>

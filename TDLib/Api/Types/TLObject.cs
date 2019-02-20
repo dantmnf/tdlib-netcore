@@ -11,15 +11,14 @@ namespace TDLib.Api.Types
 
     public partial class TLObject
     {
-        [JsonProperty("@extra")]
-        public object Extra { get; set; }
-
-        internal virtual bool TdJsonReadItem(ref TdJsonReader parser, uint hash)
+        internal virtual IntPtr TdCreateCxxObject()
         {
-            if (hash != 0x358751B7u)
-                return false;
-            this.Extra = parser.ReadValue();
-            return true;
+            throw new NotImplementedException();
+        }
+
+        internal virtual void TdFetchCxxObject(IntPtr ptr)
+        {
+            throw new NotImplementedException();
         }
 
     }

@@ -1,0 +1,23 @@
+﻿{
+  "configurations": [
+    {
+      "name": "x64-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "inheritEnvironments": [
+        "msvc_x64_x64"
+      ],
+      "buildRoot": "${projectDir}\\build",
+      "installRoot": "${projectDir}\\install",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "Td_DIR",
+          "value": "D:\\msys64\\home\\dant\\td\\build-msvc\\progfiles\\TDLib\\lib\\cmake\\Td"
+        }
+      ]
+    }
+  ]
+}

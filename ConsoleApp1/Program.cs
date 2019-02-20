@@ -50,7 +50,7 @@ namespace ConsoleApp1
                 }
                 else if (state is AuthorizationStateWaitEncryptionKey)
                 {
-                    await client.CheckDatabaseEncryptionKey(new byte[0]);
+                    await client.CheckDatabaseEncryptionKey();
                 }
                 else if (state is AuthorizationStateWaitPhoneNumber)
                 {

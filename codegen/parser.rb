@@ -1,3 +1,4 @@
+require 'zlib'
 class TDLibTLTypeInfo
   TLClass = Struct.new(:name, :comment) do
     def to_s
@@ -18,6 +19,11 @@ class TDLibTLTypeInfo
       "typeof(TLObjectConverter)"
     end
 
+    def type_id
+      val = Zlib.crc32(source.scan(/[#\?\[\]=]|[A-Za-z0-9:_]+/).join(' '))
+      val -= 0x100000000 if val >= 0x80000000
+      val
+    end
   end
   Property = Struct.new(:name, :type, :comment) do
     def to_s

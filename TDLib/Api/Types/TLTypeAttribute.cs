@@ -4,21 +4,12 @@ using System.Text;
 
 namespace TDLib.Api.Types
 {
-    //public class TLTypeAttribute : Attribute
-    //{
-    //    public TLTypeAttribute(string name)
-    //    {
-    //        TLType = name;
-    //    }
-    //    public string TLType { get; set; }
-    //}
-
-    public class TLTypeHashAttribute : Attribute
+    public class TLTypeIDAttribute : Attribute
     {
-        public TLTypeHashAttribute(uint hash)
+        public TLTypeIDAttribute(int id)
         {
-            Hash = hash;
+            Id = id;
         }
-        public uint Hash { get; set; }
+        public int Id { get; set; }
     }
 }
