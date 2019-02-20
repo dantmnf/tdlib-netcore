@@ -14,6 +14,7 @@ EXPORT void td_bridge_string_setdata(std::string *strptr, const char *data, std:
 	if (strptr == nullptr) {
 		return;
 	}
-	strptr->swap(std::string(data, (size_t)size));
+	std::string str2(data, (size_t)size);
+	strptr->swap(str2);
 }
 
