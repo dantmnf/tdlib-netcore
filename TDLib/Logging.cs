@@ -39,14 +39,13 @@ namespace TDLib
 
         public static unsafe bool SetLogFilePath(string path)
         {
-            if(path == null)
+            if(string.IsNullOrEmpty(path))
             {
                 return td_bridge_log_set_file_path(null, 0);
             }
             else
             {
-                var utf8bytes = new byte[Encoding.UTF8.GetByteCount(path) + 1];
-                Encoding.UTF8.GetBytes(path, 0, path.Length, utf8bytes, 0);
+                var utf8bytes = Encoding.UTF8.GetBytes(path);
                 fixed (byte* cstr = utf8bytes)
                     return td_bridge_log_set_file_path(cstr, utf8bytes.LongLength);
             }

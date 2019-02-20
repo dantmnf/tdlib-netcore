@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Text;
-using System.Runtime.InteropServices;
-using Newtonsoft.Json;
 using TDLib.Api;
 using TDLib.Api.Types;
-using static TDLib.Native;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace TDLib
 {
