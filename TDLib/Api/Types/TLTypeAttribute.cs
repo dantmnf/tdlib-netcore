@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TDLib.Api.Types
 {
-    public class TLTypeIDAttribute : Attribute
+    class TLTypeIDAttribute : Attribute
     {
         public TLTypeIDAttribute(int id)
         {
