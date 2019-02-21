@@ -19,14 +19,13 @@ namespace TDLib
         public static extern void td_bridge_log_set_verbosity_level(int new_verbosity_level);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void FatalErrorCallbackPtr(IntPtr message);
+        public delegate void FatalErrorCallback([MarshalAs(UnmanagedType.LPUTF8Str)]string message);
 
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_log_set_fatal_error_callback(FatalErrorCallbackPtr callback);
+        public static extern void td_bridge_log_set_fatal_error_callback(FatalErrorCallback callback);
 
         private static int loglevelvalue = 5;
-        private static Action<string> usercallback;
-        private static FatalErrorCallbackPtr mappedcallback;
+        private static FatalErrorCallback savedcallback;
         public static int LogLevel
         {
             get => loglevelvalue;
@@ -56,16 +55,10 @@ namespace TDLib
             td_bridge_log_set_max_file_size(maxsize);
         }
 
-        public static void SetLogFatalErrorCallback(Action<string> callback)
+        public static void SetLogFatalErrorCallback(FatalErrorCallback callback)
         {
-            usercallback = callback;
-            mappedcallback = cstrptr =>
-            {
-                var cstr = (byte*)cstrptr;
-                var netstr = Encoding.UTF8.GetString(cstr, strlen(cstr));
-                usercallback(netstr);
-            };
-            td_bridge_log_set_fatal_error_callback(mappedcallback);
+            savedcallback = callback;
+            td_bridge_log_set_fatal_error_callback(savedcallback);
         }
     }
 }
