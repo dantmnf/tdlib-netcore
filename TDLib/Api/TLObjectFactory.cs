@@ -42,7 +42,7 @@ namespace TDLib.Api
         public static TLObject FetchCxxObject(IntPtr objptr)
         {
             var id = td_bridge_object_get_id(objptr);
-            if(_tl_ids.TryGetValue(id, out var type))
+            if (_tl_ids.TryGetValue(id, out var type))
             {
                 var ctor = type.GetConstructor(Type.EmptyTypes);
                 if (ctor != null)

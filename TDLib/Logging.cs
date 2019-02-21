@@ -39,7 +39,7 @@ namespace TDLib
 
         public static unsafe bool SetLogFilePath(string path)
         {
-            if(string.IsNullOrEmpty(path))
+            if (string.IsNullOrEmpty(path))
             {
                 return td_bridge_log_set_file_path(null, 0);
             }

@@ -21,7 +21,7 @@ namespace TDLib.Api.Types.CxxInterop
 
         public unsafe void Set(bool value)
         {
-            if(value)
+            if (value)
                 *(byte*)ptr = 1;
             else
                 *(byte*)ptr = 0;

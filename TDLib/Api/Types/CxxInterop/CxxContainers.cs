@@ -70,7 +70,7 @@ namespace TDLib.Api.Types.CxxInterop
         {
             bytes = new CxxBytes(x);
         }
-       
+
         public string Fetch() => ToString();
         public void Set(string s)
         {
@@ -82,7 +82,7 @@ namespace TDLib.Api.Types.CxxInterop
             var x = Encoding.UTF8.GetBytes(s);
             bytes.Set(x);
         }
-        
+
         public static implicit operator string(CxxString x) => x.ToString();
 
         public static implicit operator IntPtr(CxxString x) => x.bytes.ptr;
@@ -131,7 +131,7 @@ namespace TDLib.Api.Types.CxxInterop
     /// object_ptr&lt;T>* = std::unique_ptr&lt;T>*
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    internal unsafe struct CxxTLObject<T> where T:TLObject
+    internal unsafe struct CxxTLObject<T> where T : TLObject
     {
         public IntPtr ptr;
         public CxxTLObject(IntPtr x)
@@ -148,6 +148,9 @@ namespace TDLib.Api.Types.CxxInterop
         }
         public void Set(T obj)
         {
+            var oldobj = *(IntPtr*)ptr;
+            if (oldobj != IntPtr.Zero)
+                CxxAbi.FreeCxxTLObject(oldobj);
             *(IntPtr*)ptr = obj == null ? IntPtr.Zero : obj.TdCreateCxxObject();
         }
     }
@@ -156,7 +159,7 @@ namespace TDLib.Api.Types.CxxInterop
     /// std::vector&lt;int32_t>*
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    internal unsafe struct CxxVectorInt32 
+    internal unsafe struct CxxVectorInt32
     {
         public IntPtr ptr;
 
@@ -214,7 +217,7 @@ namespace TDLib.Api.Types.CxxInterop
             fixed (long* x = value)
                 td_bridge_vector_int64_assign(ptr, x, value.Length);
         }
-        
+
         public static implicit operator IntPtr(CxxVectorInt64 x) => x.ptr;
 
         public ReadOnlySpan<long> AsSpan()
@@ -238,7 +241,7 @@ namespace TDLib.Api.Types.CxxInterop
         {
             ptr = x;
         }
-        
+
         public static implicit operator IntPtr(CxxVectorObject<T> x) => x.ptr;
 
         public T[] Fetch() => ToArray();
@@ -356,8 +359,6 @@ namespace TDLib.Api.Types.CxxInterop
             }
             return result;
         }
-
-        
     }
 
     /// <summary>

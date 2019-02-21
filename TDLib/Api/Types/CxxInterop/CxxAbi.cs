@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TDLib.Api.Types.CxxInterop
 {
-    class CxxAbi
+    static class CxxAbi
     {
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern void td_bridge_object_destroy(IntPtr client);

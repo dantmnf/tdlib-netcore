@@ -7,8 +7,6 @@ namespace TDLib
 {
     static class Native
     {
-
-
         public static unsafe int strlen(byte* str)
         {
             int result = 0;

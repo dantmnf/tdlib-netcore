@@ -32,7 +32,7 @@ namespace TDLib
         public Client() : this(new ClientImplCxx())
         {
         }
-        
+
         /// <summary>
         /// Execute function <paramref name="func"/> synchronously.
         /// <seealso cref="Execute(Function)"/>
@@ -50,7 +50,7 @@ namespace TDLib
             }
             return obj as T;
         }
-        
+
         private long AddInvoke(TaskCompletionSource<TLObject> tsc)
         {
             while (true)
@@ -120,7 +120,6 @@ namespace TDLib
 
         private void RunLoop()
         {
-            
             while (!ct.IsCancellationRequested)
             {
                 var (seq, obj) = clientImpl.Receive(1.0);
@@ -176,7 +175,7 @@ namespace TDLib
             (clientImpl as IDisposable)?.Dispose();
             GC.SuppressFinalize(this);
         }
-        
+
         ~Client()
         {
             Dispose();
