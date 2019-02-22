@@ -5,8 +5,7 @@ using System.Text;
 
 namespace TDLib.Api
 {
-
-    interface IMessageContentWithCaption
+    public interface IMessageContentWithCaption
     {
         FormattedText Caption { get; set; }
     }
@@ -21,30 +20,28 @@ namespace TDLib.Api
 
     public static class TLObjectExtensions
     {
-        public static bool TryGetTextOrCaption(this MessageContent content, out FormattedText ft)
+        public static FormattedText TryGetTextOrCaption(this MessageContent content)
         {
             switch (content)
             {
                 case MessageText mt:
-                    ft = mt.Text;
-                    return true;
+                    return mt.Text;
                 case IMessageContentWithCaption cap:
-                    ft = cap.Caption;
-                    return true;
+                    return cap.Caption;
                 default:
-                    break;
+                    return null;
             }
-            PropertyInfo prop;
-            ft = null;
-            if ((prop = content.GetType().GetProperty("text")) != null)
-            {
-                ft = (FormattedText)prop.GetValue(content);
-            }
-            else if ((prop = content.GetType().GetProperty("caption")) != null)
-            {
-                ft = (FormattedText)prop.GetValue(content);
-            }
-            return ft != null;
+            //PropertyInfo prop;
+            //FormattedText ft = null;
+            //if ((prop = content.GetType().GetProperty("text")) != null)
+            //{
+            //    ft = (FormattedText)prop.GetValue(content);
+            //}
+            //else if ((prop = content.GetType().GetProperty("caption")) != null)
+            //{
+            //    ft = (FormattedText)prop.GetValue(content);
+            //}
+            //return ft;
         }
     }
 
