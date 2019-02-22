@@ -10,11 +10,12 @@ namespace TDLib
 {
     public class Client : IDisposable
     {
+        public const long UnspecifiedRequestId = 99;
         private readonly ConcurrentDictionary<long, TaskCompletionSource<TLObject>> invokes;
         private readonly CancellationTokenSource cts;
         private readonly CancellationToken ct;
         private Task loopTask;
-        private long invoke_sequence = 100;
+        private long invoke_sequence = 0x80000000;
         private readonly ITdClientImpl clientImpl;
 
         public event EventHandler<Update> Update;
@@ -33,8 +34,36 @@ namespace TDLib
         }
 
         /// <summary>
+        /// Sends request to TDLib. May be called from any thread.
+        /// </summary>
+        /// <param name="func">TDLib API function representing a request to TDLib.</param>
+        /// <param name="id">
+        /// Request identifier.
+        /// Responses to TDLib requests will have the same id as the corresponding request.
+        /// Updates from TDLib will have id == 0, incoming requests are thus disallowed to have id == 0.
+        /// </param>
+        public void Send(Function func, long id = UnspecifiedRequestId) => clientImpl.Send(id, func);
+
+        /// <summary>
+        /// Synchronously executes TDLib requests. Only a few requests can be executed synchronously.
+        /// May be called from any thread.
+        /// </summary>
+        /// <param name="func">Request to the TDLib.</param>
+        /// <returns>The request response.</returns>
+        public TLObject Execute(Function func) => clientImpl.Execute(func);
+
+        /// <summary>
+        /// Receives incoming updates and request responses from TDLib.
+        /// May be called from any thread, but shouldn't be called simultaneously from two different threads.
+        /// </summary>
+        /// <param name="timeout">Maximum number of seconds allowed for this function to wait for new data.</param>
+        /// <returns>An incoming update or request response. The object returned in the response may be null if the timeout expires.</returns>
+        public (long id, TLObject obj) Receive(double timeout) => clientImpl.Receive(timeout);
+
+
+        /// <summary>
         /// Execute function <paramref name="func"/> synchronously.
-        /// <seealso cref="Execute(Function)"/>
+        /// See also <seealso cref="Execute(Function)"/>
         /// </summary>
         /// <typeparam name="T">The return type of <paramref name="func"/>.</typeparam>
         /// <param name="func">The function and parameters.</param>
@@ -42,7 +71,7 @@ namespace TDLib
         /// <exception cref="TDLibError">Thrown if the function returns an <see cref="error"/></exception>
         public T Execute<T>(Function<T> func) where T : TLObject
         {
-            var obj = clientImpl.Execute((Function)func);
+            var obj = Execute((Function)func);
             if (obj is Error e)
             {
                 throw new TDLibError(e);
@@ -56,7 +85,12 @@ namespace TDLib
             {
                 Interlocked.Increment(ref invoke_sequence);
                 var seq = invoke_sequence;
-                if (seq != 0 && invokes.TryAdd(seq, tsc))
+                if (seq < 0)
+                {
+                    Interlocked.Exchange(ref invoke_sequence, 0x80000000);
+                    continue;
+                }
+                if (invokes.TryAdd(seq, tsc))
                     return seq;
             }
         }
@@ -70,7 +104,7 @@ namespace TDLib
         {
             var tsc = new TaskCompletionSource<TLObject>();
             var seq = AddInvoke(tsc);
-            clientImpl.Send(seq, func);
+            Send(func, seq);
 
             return tsc.Task;
         }
@@ -121,7 +155,7 @@ namespace TDLib
         {
             while (!ct.IsCancellationRequested)
             {
-                var (seq, obj) = clientImpl.Receive(1.0);
+                var (seq, obj) = Receive(1.0);
                 if (obj == null) continue;
                 if (obj is Update u)
                 {
@@ -139,7 +173,7 @@ namespace TDLib
         }
 
         /// <summary>
-        /// Starts the tdlib event loop. Required for <see cref="InvokeAsync(Function)"/>, <see cref="InvokeAsync{T}(Function{T})"/>.
+        /// Starts the tdlib event loop. Required for <see cref="Update"/>, <see cref="InvokeAsync(Function)"/>, <see cref="InvokeAsync{T}(Function{T})"/>.
         /// </summary>
         /// <returns>The event loop Task.</returns>
         public Task Run()
