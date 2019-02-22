@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace TDLib.Api.Types.CxxInterop
+namespace TDLib.Api.CxxInterop
 {
     static class CxxAbi
     {

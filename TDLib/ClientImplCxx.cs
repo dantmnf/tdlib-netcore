@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using TDLib.Api;
-using TDLib.Api.Types;
-using TDLib.Api.Types.CxxInterop;
+using TDLib.Api.CxxInterop;
 
 namespace TDLib
 {

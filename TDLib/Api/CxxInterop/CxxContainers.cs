@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 
 
-namespace TDLib.Api.Types.CxxInterop
+namespace TDLib.Api.CxxInterop
 {
     using System.Runtime.CompilerServices;
     using System.Security;

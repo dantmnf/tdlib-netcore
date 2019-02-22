@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using TDLib;
-using TDLib.Api.Types;
+using TDLib.Api;
 
 //////////////////////////////////////
 //// GENERATED FILE! DO NOT EDIT! ////

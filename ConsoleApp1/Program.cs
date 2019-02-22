@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.IO;
 using TDLib.Api;
-using TDLib.Api.Types;
 using System.Linq;
 using System.Text;
 using TDLib.ClientExtensions;

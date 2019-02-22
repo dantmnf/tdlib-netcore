@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Threading.Tasks;
-using TDLib.Api.Types;
+using TDLib.Api;
 using System.Reflection;
 
 namespace ConsoleApp1.Bot

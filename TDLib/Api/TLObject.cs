@@ -5,7 +5,7 @@ using System.Linq;
 using System.IO;
 using System.Reflection;
 
-namespace TDLib.Api.Types
+namespace TDLib.Api
 {
     public abstract class TLObject
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TDLib.Api.Types
+namespace TDLib.Api
 {
     class TLTypeIDAttribute : Attribute
     {

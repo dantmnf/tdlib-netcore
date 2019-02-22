@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace TDLib.Api.Types
+namespace TDLib.Api
 {
 
     interface IMessageContentWithCaption

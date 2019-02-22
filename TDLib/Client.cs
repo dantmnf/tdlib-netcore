@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Text;
 using TDLib.Api;
-using TDLib.Api.Types;
 using System.Threading;
 using System.Threading.Tasks;
 

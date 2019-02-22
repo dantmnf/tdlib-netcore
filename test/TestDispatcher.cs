@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TDLib;
-using TDLib.Api.Types;
+using TDLib.Api;
 using ConsoleApp1.Bot;
 using System.Text.RegularExpressions;
 

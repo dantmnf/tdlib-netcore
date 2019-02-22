@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
 using TDLib;
-using TDLib.Api.Types;
+using TDLib.Api;
 
 //////////////////////////////////////
 //// GENERATED FILE! DO NOT EDIT! ////
 //////////////////////////////////////
 
-namespace TDLib.Api.Types
+namespace TDLib.Api
 {
     public partial class Error
     {

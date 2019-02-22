@@ -1,13 +1,13 @@
 using System;
 using System.Security;
 using System.Runtime.InteropServices;
-using TDLib.Api.Types.CxxInterop;
+using TDLib.Api.CxxInterop;
 
 //////////////////////////////////////
 //// GENERATED FILE! DO NOT EDIT! ////
 //////////////////////////////////////
 
-namespace TDLib.Api.Types
+namespace TDLib.Api
 {
     [TLTypeID(-1679978726)]
     public unsafe partial class Error

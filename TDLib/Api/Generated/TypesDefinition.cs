@@ -4,7 +4,7 @@ using System;
 //// GENERATED FILE! DO NOT EDIT! ////
 //////////////////////////////////////
 
-namespace TDLib.Api.Types
+namespace TDLib.Api
 {
     /// <summary>
     /// Provides information about the method by which an authentication code is delivered to the user

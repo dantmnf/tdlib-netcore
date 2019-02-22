@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TDLib.Api.Types;
+using TDLib.Api;
 
 namespace ConsoleApp1.Bot
 {
