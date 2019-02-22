@@ -1,4 +1,4 @@
-﻿using TDLib.Api;
+using TDLib.Api;
 
 namespace TDLib
 {
