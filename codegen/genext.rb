@@ -33,7 +33,7 @@ def emit_function(io, type)
   end
 
   arglist = props.map do |type, name|
-    argname = name.sub(/[A-Z]/, &:downcase)
+    argname = check_csharp_keyword name.sub(/[A-Z]/, &:downcase)
     "#{type} #{argname} = #{DefaultValue[type]}"
   end
   arglist.unshift "this Client client"
@@ -49,7 +49,7 @@ def emit_function(io, type)
     io.puts "{"
     io.push
     props.each do |type, name|
-      argname = name.sub(/[A-Z]/, &:downcase)
+      argname = check_csharp_keyword name.sub(/[A-Z]/, &:downcase)
       io.puts "#{name} = #{argname},"
     end
     io.pop

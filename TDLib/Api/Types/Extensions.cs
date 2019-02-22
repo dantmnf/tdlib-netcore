@@ -50,12 +50,6 @@ namespace TDLib.Api.Types
 
     public partial class FormattedText
     {
-        public FormattedText() { }
-        public FormattedText(string text)
-        {
-            this.Text = text;
-        }
-
         public static implicit operator FormattedText(string s)
         {
             return new FormattedText(s);

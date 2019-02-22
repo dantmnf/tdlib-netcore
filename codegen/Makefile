@@ -15,3 +15,6 @@ COMMON: td_api.tl common.rb parser.rb
 
 ../TDLib.Native/tlobject.cxx: COMMON gencxxobjects.rb
 	ruby gencxxobjects.rb > ../TDLib.Native/tlobject.cxx
+
+../TDLib/Api/Types/Generated/Constructor.cs: COMMON genctor.rb
+	ruby genctor.rb > ../TDLib/Api/Types/Generated/Constructor.cs
