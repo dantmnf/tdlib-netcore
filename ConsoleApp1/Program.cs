@@ -46,6 +46,7 @@ namespace ConsoleApp1
                             IgnoreFileNames = false
                         }
                     );
+                    await client.SetOption("ignore_inline_thumbnails", new OptionValueBoolean(true));
                 }
                 else if (state is AuthorizationStateWaitEncryptionKey)
                 {
