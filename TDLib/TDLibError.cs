@@ -6,8 +6,8 @@ namespace TDLib
 {
     public class TDLibError : ApplicationException
     {
-        public Api.Types.Error Error { get; }
-        public TDLibError(Api.Types.Error e) : base($"{e.Message} ({e.Code})")
+        public Api.Error Error { get; }
+        public TDLibError(Api.Error e) : base($"{e.Message} ({e.Code})")
         {
             Error = e;
         }
