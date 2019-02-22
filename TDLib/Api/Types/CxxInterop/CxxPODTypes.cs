@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -13,12 +14,14 @@ namespace TDLib.Api.Types.CxxInterop
     {
         public IntPtr ptr;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe bool Fetch()
         {
             var value = *(byte*)ptr;
             return value != 0;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Set(bool value)
         {
             if (value)
@@ -36,12 +39,14 @@ namespace TDLib.Api.Types.CxxInterop
     {
         public IntPtr ptr;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe int Fetch()
         {
             var value = *(int*)ptr;
             return value;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Set(int value)
         {
             *(int*)ptr = value;
@@ -56,12 +61,14 @@ namespace TDLib.Api.Types.CxxInterop
     {
         public IntPtr ptr;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe long Fetch()
         {
             var value = *(long*)ptr;
             return value;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Set(long value)
         {
             *(long*)ptr = value;
@@ -76,12 +83,14 @@ namespace TDLib.Api.Types.CxxInterop
     {
         public IntPtr ptr;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe double Fetch()
         {
             var value = *(double*)ptr;
             return value;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Set(double value)
         {
             *(double*)ptr = value;
