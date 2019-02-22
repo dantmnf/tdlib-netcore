@@ -35,11 +35,11 @@ namespace ConsoleApp1.Bot
         public override void Dispatch(Update u)
         {
             if (!(u is UpdateNewMessage unm)) return;
-            var message = unm.message;
-            if (!message.content.TryGetTextOrCaption(out var ft)) return;
+            var message = unm.Message;
+            if (!message.Content.TryGetTextOrCaption(out var ft)) return;
             foreach(var ((regex, opt), handler) in registered)
             {
-                var match = Regex.Matches(ft.text, regex, opt);
+                var match = Regex.Matches(ft.Text, regex, opt);
                 if(match.Count != 0)
                 {
                     handler(message, match);

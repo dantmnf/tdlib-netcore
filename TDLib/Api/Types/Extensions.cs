@@ -8,7 +8,7 @@ namespace TDLib.Api.Types
 
     interface IMessageContentWithCaption
     {
-        FormattedText caption { get; set; }
+        FormattedText Caption { get; set; }
     }
 
     partial class MessageAnimation : IMessageContentWithCaption { }
@@ -26,10 +26,10 @@ namespace TDLib.Api.Types
             switch (content)
             {
                 case MessageText mt:
-                    ft = mt.text;
+                    ft = mt.Text;
                     return true;
                 case IMessageContentWithCaption cap:
-                    ft = cap.caption;
+                    ft = cap.Caption;
                     return true;
                 default:
                     break;
@@ -53,7 +53,7 @@ namespace TDLib.Api.Types
         public FormattedText() { }
         public FormattedText(string text)
         {
-            this.text = text;
+            this.Text = text;
         }
 
         public static implicit operator FormattedText(string s)
@@ -63,7 +63,7 @@ namespace TDLib.Api.Types
 
         public override string ToString()
         {
-            return text;
+            return Text;
         }
     }
 

@@ -28,21 +28,11 @@ def emit_type(io, type)
       io.puts "/// </summary>"
     end
 
-    json_prop = []
     proptype = prop.type.to_s
-    propname = prop.name
+    propname = prop.capname
     if propname == type.name
       propname = "#{propname}_"
-      json_prop.push %Q("#{prop.name}")
     end
-    json_prop.concat prop.type.json_prop if prop.type.respond_to?(:json_prop)
-    # io.puts %Q{[JsonProperty(#{json_prop.join(", ")})]} unless json_prop.empty?
-    # if prop.type.respond_to?(:extra_attrib) && prop.type.extra_attrib
-    #   io.puts prop.type.extra_attrib
-    # end
-    # if prop.type.respond_to?(:converter) && prop.type.converter
-    #   io.puts %Q{[JsonConverter(#{prop.type.converter})]}
-    # end
     io.puts "public #{check_csharp_keyword proptype} #{check_csharp_keyword propname} { get; set; }"
     io.puts ""
   end

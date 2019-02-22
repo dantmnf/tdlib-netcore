@@ -283,12 +283,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Error code; subject to future changes. If the error code is 406, the error message must not be processed in any way and must not be displayed to the user
         /// </summary>
-        public int code { get; set; }
+        public int Code { get; set; }
 
         /// <summary>
         /// Error message; subject to future changes
         /// </summary>
-        public string message { get; set; }
+        public string Message { get; set; }
 
     }
 
@@ -315,77 +315,77 @@ namespace TDLib.Api.Types
         /// <summary>
         /// If set to true, the Telegram test environment will be used instead of the production environment
         /// </summary>
-        public bool use_test_dc { get; set; }
+        public bool UseTestDc { get; set; }
 
         /// <summary>
         /// The path to the directory for the persistent database; if empty, the current working directory will be used
         /// </summary>
-        public string database_directory { get; set; }
+        public string DatabaseDirectory { get; set; }
 
         /// <summary>
         /// The path to the directory for storing files; if empty, database_directory will be used
         /// </summary>
-        public string files_directory { get; set; }
+        public string FilesDirectory { get; set; }
 
         /// <summary>
         /// If set to true, information about downloaded and uploaded files will be saved between application restarts
         /// </summary>
-        public bool use_file_database { get; set; }
+        public bool UseFileDatabase { get; set; }
 
         /// <summary>
         /// If set to true, the library will maintain a cache of users, basic groups, supergroups, channels and secret chats. Implies use_file_database
         /// </summary>
-        public bool use_chat_info_database { get; set; }
+        public bool UseChatInfoDatabase { get; set; }
 
         /// <summary>
         /// If set to true, the library will maintain a cache of chats and messages. Implies use_chat_info_database
         /// </summary>
-        public bool use_message_database { get; set; }
+        public bool UseMessageDatabase { get; set; }
 
         /// <summary>
         /// If set to true, support for secret chats will be enabled
         /// </summary>
-        public bool use_secret_chats { get; set; }
+        public bool UseSecretChats { get; set; }
 
         /// <summary>
         /// Application identifier for Telegram API access, which can be obtained at https://my.telegram.org
         /// </summary>
-        public int api_id { get; set; }
+        public int ApiId { get; set; }
 
         /// <summary>
         /// Application identifier hash for Telegram API access, which can be obtained at https://my.telegram.org
         /// </summary>
-        public string api_hash { get; set; }
+        public string ApiHash { get; set; }
 
         /// <summary>
         /// IETF language tag of the user's operating system language; must be non-empty
         /// </summary>
-        public string system_language_code { get; set; }
+        public string SystemLanguageCode { get; set; }
 
         /// <summary>
         /// Model of the device the application is being run on; must be non-empty
         /// </summary>
-        public string device_model { get; set; }
+        public string DeviceModel { get; set; }
 
         /// <summary>
         /// Version of the operating system the application is being run on; must be non-empty
         /// </summary>
-        public string system_version { get; set; }
+        public string SystemVersion { get; set; }
 
         /// <summary>
         /// Application version; must be non-empty
         /// </summary>
-        public string application_version { get; set; }
+        public string ApplicationVersion { get; set; }
 
         /// <summary>
         /// If set to true, old files will automatically be deleted
         /// </summary>
-        public bool enable_storage_optimizer { get; set; }
+        public bool EnableStorageOptimizer { get; set; }
 
         /// <summary>
         /// If set to true, original file names will be ignored. Otherwise, downloaded files will be saved under names as close as possible to the original name
         /// </summary>
-        public bool ignore_file_names { get; set; }
+        public bool IgnoreFileNames { get; set; }
 
     }
 
@@ -401,7 +401,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Length of the code
         /// </summary>
-        public int length { get; set; }
+        public int Length { get; set; }
 
     }
 
@@ -417,7 +417,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Length of the code
         /// </summary>
-        public int length { get; set; }
+        public int Length { get; set; }
 
     }
 
@@ -433,7 +433,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Length of the code
         /// </summary>
-        public int length { get; set; }
+        public int Length { get; set; }
 
     }
 
@@ -449,7 +449,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pattern of the phone number from which the call will be made
         /// </summary>
-        public string pattern { get; set; }
+        public string Pattern { get; set; }
 
     }
 
@@ -465,22 +465,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A phone number that is being authenticated
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Describes the way the code was sent to the user
         /// </summary>
-        public AuthenticationCodeType type { get; set; }
+        public AuthenticationCodeType Type { get; set; }
 
         /// <summary>
         /// Describes the way the next code will be sent to the user; may be null
         /// </summary>
-        public AuthenticationCodeType next_type { get; set; }
+        public AuthenticationCodeType NextType { get; set; }
 
         /// <summary>
         /// Timeout before the code should be re-sent, in seconds
         /// </summary>
-        public int timeout { get; set; }
+        public int Timeout { get; set; }
 
     }
 
@@ -496,12 +496,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pattern of the email address to which an authentication code was sent
         /// </summary>
-        public string email_address_pattern { get; set; }
+        public string EmailAddressPattern { get; set; }
 
         /// <summary>
         /// Length of the code; 0 if unknown
         /// </summary>
-        public int length { get; set; }
+        public int Length { get; set; }
 
     }
 
@@ -517,17 +517,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Offset of the entity in UTF-16 code points
         /// </summary>
-        public int offset { get; set; }
+        public int Offset { get; set; }
 
         /// <summary>
         /// Length of the entity, in UTF-16 code points
         /// </summary>
-        public int length { get; set; }
+        public int Length { get; set; }
 
         /// <summary>
         /// Type of the entity
         /// </summary>
-        public TextEntityType type { get; set; }
+        public TextEntityType Type { get; set; }
 
     }
 
@@ -543,7 +543,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of text entities
         /// </summary>
-        public TextEntity[] entities { get; set; }
+        public TextEntity[] Entities { get; set; }
 
     }
 
@@ -559,12 +559,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The text
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// Entities contained in the text
         /// </summary>
-        public TextEntity[] entities { get; set; }
+        public TextEntity[] Entities { get; set; }
 
     }
 
@@ -580,17 +580,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text of the terms of service
         /// </summary>
-        public FormattedText text { get; set; }
+        public FormattedText Text { get; set; }
 
         /// <summary>
         /// Mininum age of a user to be able to accept the terms; 0 if any
         /// </summary>
-        public int min_user_age { get; set; }
+        public int MinUserAge { get; set; }
 
         /// <summary>
         /// True, if a blocking popup with terms of service must be shown to the user
         /// </summary>
-        public bool show_popup { get; set; }
+        public bool ShowPopup { get; set; }
 
     }
 
@@ -617,7 +617,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the database is currently encrypted
         /// </summary>
-        public bool is_encrypted { get; set; }
+        public bool IsEncrypted { get; set; }
 
     }
 
@@ -644,17 +644,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the user is already registered
         /// </summary>
-        public bool is_registered { get; set; }
+        public bool IsRegistered { get; set; }
 
         /// <summary>
         /// Telegram terms of service, which should be accepted before user can continue registration; may be null
         /// </summary>
-        public TermsOfService terms_of_service { get; set; }
+        public TermsOfService TermsOfService { get; set; }
 
         /// <summary>
         /// Information about the authorization code that was sent
         /// </summary>
-        public AuthenticationCodeInfo code_info { get; set; }
+        public AuthenticationCodeInfo CodeInfo { get; set; }
 
     }
 
@@ -670,17 +670,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Hint for the password; can be empty
         /// </summary>
-        public string password_hint { get; set; }
+        public string PasswordHint { get; set; }
 
         /// <summary>
         /// True if a recovery email address has been set up
         /// </summary>
-        public bool has_recovery_email_address { get; set; }
+        public bool HasRecoveryEmailAddress { get; set; }
 
         /// <summary>
         /// Pattern of the email address to which the recovery email was sent; empty until a recovery email has been sent
         /// </summary>
-        public string recovery_email_address_pattern { get; set; }
+        public string RecoveryEmailAddressPattern { get; set; }
 
     }
 
@@ -740,27 +740,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True if a 2-step verification password is set
         /// </summary>
-        public bool has_password { get; set; }
+        public bool HasPassword { get; set; }
 
         /// <summary>
         /// Hint for the password; can be empty
         /// </summary>
-        public string password_hint { get; set; }
+        public string PasswordHint { get; set; }
 
         /// <summary>
         /// True if a recovery email is set
         /// </summary>
-        public bool has_recovery_email_address { get; set; }
+        public bool HasRecoveryEmailAddress { get; set; }
 
         /// <summary>
         /// True if some Telegram Passport elements were saved
         /// </summary>
-        public bool has_passport_data { get; set; }
+        public bool HasPassportData { get; set; }
 
         /// <summary>
         /// Pattern of the email address to which the confirmation email was sent
         /// </summary>
-        public string unconfirmed_recovery_email_address_pattern { get; set; }
+        public string UnconfirmedRecoveryEmailAddressPattern { get; set; }
 
     }
 
@@ -776,7 +776,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Recovery email address
         /// </summary>
-        public string recovery_email_address { get; set; }
+        public string RecoveryEmailAddress_ { get; set; }
 
     }
 
@@ -792,12 +792,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if a temporary password is available
         /// </summary>
-        public bool has_password { get; set; }
+        public bool HasPassword { get; set; }
 
         /// <summary>
         /// Time left before the temporary password expires, in seconds
         /// </summary>
-        public int valid_for { get; set; }
+        public int ValidFor { get; set; }
 
     }
 
@@ -813,37 +813,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Local path to the locally available file part; may be empty
         /// </summary>
-        public string path { get; set; }
+        public string Path { get; set; }
 
         /// <summary>
         /// True, if it is possible to try to download or generate the file
         /// </summary>
-        public bool can_be_downloaded { get; set; }
+        public bool CanBeDownloaded { get; set; }
 
         /// <summary>
         /// True, if the file can be deleted
         /// </summary>
-        public bool can_be_deleted { get; set; }
+        public bool CanBeDeleted { get; set; }
 
         /// <summary>
         /// True, if the file is currently being downloaded (or a local copy is being generated by some other means)
         /// </summary>
-        public bool is_downloading_active { get; set; }
+        public bool IsDownloadingActive { get; set; }
 
         /// <summary>
         /// True, if the local copy is fully available
         /// </summary>
-        public bool is_downloading_completed { get; set; }
+        public bool IsDownloadingCompleted { get; set; }
 
         /// <summary>
         /// If is_downloading_completed is false, then only some prefix of the file is ready to be read. downloaded_prefix_size is the size of that prefix
         /// </summary>
-        public int downloaded_prefix_size { get; set; }
+        public int DownloadedPrefixSize { get; set; }
 
         /// <summary>
         /// Total downloaded file bytes. Should be used only for calculating download progress. The actual file size may be bigger, and some parts of it may contain garbage
         /// </summary>
-        public int downloaded_size { get; set; }
+        public int DownloadedSize { get; set; }
 
     }
 
@@ -859,22 +859,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Remote file identifier; may be empty. Can be used across application restarts or even from other devices for the current user. If the ID starts with "http://" or "https://", it represents the HTTP URL of the file. TDLib is currently unable to download files if only their URL is known. -If downloadFile is called on such a file or if it is sent to a secret chat, TDLib starts a file generation process by sending updateFileGenerationStart to the client with the HTTP URL in the original_path and "#url#" as the conversion string. Clients should generate the file by downloading it to the specified location
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// True, if the file is currently being uploaded (or a remote copy is being generated by some other means)
         /// </summary>
-        public bool is_uploading_active { get; set; }
+        public bool IsUploadingActive { get; set; }
 
         /// <summary>
         /// True, if a remote copy is fully available
         /// </summary>
-        public bool is_uploading_completed { get; set; }
+        public bool IsUploadingCompleted { get; set; }
 
         /// <summary>
         /// Size of the remote available part of the file; 0 if unknown
         /// </summary>
-        public int uploaded_size { get; set; }
+        public int UploadedSize { get; set; }
 
     }
 
@@ -890,27 +890,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique file identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// File size; 0 if unknown
         /// </summary>
-        public int size { get; set; }
+        public int Size { get; set; }
 
         /// <summary>
         /// Expected file size in case the exact file size is unknown, but an approximate size is known. Can be used to show download/upload progress
         /// </summary>
-        public int expected_size { get; set; }
+        public int ExpectedSize { get; set; }
 
         /// <summary>
         /// Information about the local copy of the file
         /// </summary>
-        public LocalFile local { get; set; }
+        public LocalFile Local { get; set; }
 
         /// <summary>
         /// Information about the remote copy of the file
         /// </summary>
-        public RemoteFile remote { get; set; }
+        public RemoteFile Remote { get; set; }
 
     }
 
@@ -926,7 +926,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique file identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
     }
 
@@ -942,7 +942,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Remote file identifier
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
     }
 
@@ -958,7 +958,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Local path to the file
         /// </summary>
-        public string path { get; set; }
+        public string Path { get; set; }
 
     }
 
@@ -974,17 +974,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Local path to a file from which the file is generated; may be empty if there is no such file
         /// </summary>
-        public string original_path { get; set; }
+        public string OriginalPath { get; set; }
 
         /// <summary>
         /// String specifying the conversion applied to the original file; should be persistent across application restarts
         /// </summary>
-        public string conversion { get; set; }
+        public string Conversion { get; set; }
 
         /// <summary>
         /// Expected size of the generated file; 0 if unknown
         /// </summary>
-        public int expected_size { get; set; }
+        public int ExpectedSize { get; set; }
 
     }
 
@@ -1000,22 +1000,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Thumbnail type (see https://core.telegram.org/constructor/photoSize)
         /// </summary>
-        public string type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Information about the photo file
         /// </summary>
-        public File photo { get; set; }
+        public File Photo { get; set; }
 
         /// <summary>
         /// Photo width
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Photo height
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
     }
 
@@ -1075,22 +1075,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Part of the face, relative to which the mask should be placed
         /// </summary>
-        public MaskPoint point { get; set; }
+        public MaskPoint Point { get; set; }
 
         /// <summary>
         /// Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. (For example, -1.0 will place the mask just to the left of the default mask position)
         /// </summary>
-        public double x_shift { get; set; }
+        public double XShift { get; set; }
 
         /// <summary>
         /// Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. (For example, 1.0 will place the mask just below the default mask position)
         /// </summary>
-        public double y_shift { get; set; }
+        public double YShift { get; set; }
 
         /// <summary>
         /// Mask scaling coefficient. (For example, 2.0 means a doubled size)
         /// </summary>
-        public double scale { get; set; }
+        public double Scale { get; set; }
 
     }
 
@@ -1106,37 +1106,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Duration of the animation, in seconds; as defined by the sender
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Width of the animation
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Height of the animation
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Original name of the file; as defined by the sender
         /// </summary>
-        public string file_name { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// MIME type of the file, usually "image/gif" or "video/mp4"
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// Animation thumbnail; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the animation
         /// </summary>
-        public File animation { get; set; }
+        public File Animation_ { get; set; }
 
     }
 
@@ -1152,37 +1152,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Duration of the audio, in seconds; as defined by the sender
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Title of the audio; as defined by the sender
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Performer of the audio; as defined by the sender
         /// </summary>
-        public string performer { get; set; }
+        public string Performer { get; set; }
 
         /// <summary>
         /// Original name of the file; as defined by the sender
         /// </summary>
-        public string file_name { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// The MIME type of the file; as defined by the sender
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// The thumbnail of the album cover; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null
         /// </summary>
-        public PhotoSize album_cover_thumbnail { get; set; }
+        public PhotoSize AlbumCoverThumbnail { get; set; }
 
         /// <summary>
         /// File containing the audio
         /// </summary>
-        public File audio { get; set; }
+        public File Audio_ { get; set; }
 
     }
 
@@ -1198,22 +1198,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Original name of the file; as defined by the sender
         /// </summary>
-        public string file_name { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// MIME type of the file; as defined by the sender
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// Document thumbnail; as defined by the sender; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the document
         /// </summary>
-        public File document { get; set; }
+        public File Document_ { get; set; }
 
     }
 
@@ -1229,17 +1229,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Photo identifier; 0 for deleted photos
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// True, if stickers were added to the photo
         /// </summary>
-        public bool has_stickers { get; set; }
+        public bool HasStickers { get; set; }
 
         /// <summary>
         /// Available variants of the photo, in different sizes
         /// </summary>
-        public PhotoSize[] sizes { get; set; }
+        public PhotoSize[] Sizes { get; set; }
 
     }
 
@@ -1255,42 +1255,42 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The identifier of the sticker set to which the sticker belongs; 0 if none
         /// </summary>
-        public long set_id { get; set; }
+        public long SetId { get; set; }
 
         /// <summary>
         /// Sticker width; as defined by the sender
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Sticker height; as defined by the sender
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Emoji corresponding to the sticker
         /// </summary>
-        public string emoji { get; set; }
+        public string Emoji { get; set; }
 
         /// <summary>
         /// True, if the sticker is a mask
         /// </summary>
-        public bool is_mask { get; set; }
+        public bool IsMask { get; set; }
 
         /// <summary>
         /// Position where the mask should be placed; may be null
         /// </summary>
-        public MaskPosition mask_position { get; set; }
+        public MaskPosition MaskPosition { get; set; }
 
         /// <summary>
         /// Sticker thumbnail in WEBP or JPEG format; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the sticker
         /// </summary>
-        public File sticker { get; set; }
+        public File Sticker_ { get; set; }
 
     }
 
@@ -1306,47 +1306,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Duration of the video, in seconds; as defined by the sender
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Video width; as defined by the sender
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Video height; as defined by the sender
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Original name of the file; as defined by the sender
         /// </summary>
-        public string file_name { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// MIME type of the file; as defined by the sender
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// True, if stickers were added to the photo
         /// </summary>
-        public bool has_stickers { get; set; }
+        public bool HasStickers { get; set; }
 
         /// <summary>
         /// True, if the video should be tried to be streamed
         /// </summary>
-        public bool supports_streaming { get; set; }
+        public bool SupportsStreaming { get; set; }
 
         /// <summary>
         /// Video thumbnail; as defined by the sender; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the video
         /// </summary>
-        public File video { get; set; }
+        public File Video_ { get; set; }
 
     }
 
@@ -1362,22 +1362,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Duration of the video, in seconds; as defined by the sender
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Video width and height; as defined by the sender
         /// </summary>
-        public int length { get; set; }
+        public int Length { get; set; }
 
         /// <summary>
         /// Video thumbnail; as defined by the sender; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the video
         /// </summary>
-        public File video { get; set; }
+        public File Video { get; set; }
 
     }
 
@@ -1393,22 +1393,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Duration of the voice note, in seconds; as defined by the sender
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// A waveform representation of the voice note in 5-bit format
         /// </summary>
-        public byte[] waveform { get; set; }
+        public byte[] Waveform { get; set; }
 
         /// <summary>
         /// MIME type of the file; as defined by the sender
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// File containing the voice note
         /// </summary>
-        public File voice { get; set; }
+        public File Voice { get; set; }
 
     }
 
@@ -1424,27 +1424,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Phone number of the user
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// First name of the user; 1-255 characters in length
         /// </summary>
-        public string first_name { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// Last name of the user
         /// </summary>
-        public string last_name { get; set; }
+        public string LastName { get; set; }
 
         /// <summary>
         /// Additional data about the user in a form of vCard; 0-2048 bytes in length
         /// </summary>
-        public string vcard { get; set; }
+        public string Vcard { get; set; }
 
         /// <summary>
         /// Identifier of the user, if known; otherwise 0
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -1460,12 +1460,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Latitude of the location in degrees; as defined by the sender
         /// </summary>
-        public double latitude { get; set; }
+        public double Latitude { get; set; }
 
         /// <summary>
         /// Longitude of the location, in degrees; as defined by the sender
         /// </summary>
-        public double longitude { get; set; }
+        public double Longitude { get; set; }
 
     }
 
@@ -1481,32 +1481,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Venue location; as defined by the sender
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// Venue name; as defined by the sender
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Venue address; as defined by the sender
         /// </summary>
-        public string address { get; set; }
+        public string Address { get; set; }
 
         /// <summary>
         /// Provider of the venue database; as defined by the sender. Currently only "foursquare" needs to be supported
         /// </summary>
-        public string provider { get; set; }
+        public string Provider { get; set; }
 
         /// <summary>
         /// Identifier of the venue in the provider database; as defined by the sender
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Type of the venue in the provider database; as defined by the sender
         /// </summary>
-        public string type { get; set; }
+        public string Type { get; set; }
 
     }
 
@@ -1522,37 +1522,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Game ID
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name}
         /// </summary>
-        public string short_name { get; set; }
+        public string ShortName { get; set; }
 
         /// <summary>
         /// Game title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Game text, usually containing scoreboards for a game
         /// </summary>
-        public FormattedText text { get; set; }
+        public FormattedText Text { get; set; }
 
         /// <summary>
         /// Describes a game
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Game photo
         /// </summary>
-        public Photo photo { get; set; }
+        public Photo Photo { get; set; }
 
         /// <summary>
         /// Game animation; may be null
         /// </summary>
-        public Animation animation { get; set; }
+        public Animation Animation { get; set; }
 
     }
 
@@ -1568,17 +1568,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Photo identifier; 0 for an empty photo. Can be used to find a photo in a list of userProfilePhotos
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// A small (160x160) user profile photo
         /// </summary>
-        public File small { get; set; }
+        public File Small { get; set; }
 
         /// <summary>
         /// A big (640x640) user profile photo
         /// </summary>
-        public File big { get; set; }
+        public File Big { get; set; }
 
     }
 
@@ -1594,12 +1594,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A small (160x160) chat photo
         /// </summary>
-        public File small { get; set; }
+        public File Small { get; set; }
 
         /// <summary>
         /// A big (640x640) chat photo
         /// </summary>
-        public File big { get; set; }
+        public File Big { get; set; }
 
     }
 
@@ -1670,27 +1670,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the bot can be invited to basic group and supergroup chats
         /// </summary>
-        public bool can_join_groups { get; set; }
+        public bool CanJoinGroups { get; set; }
 
         /// <summary>
         /// True, if the bot can read all messages in basic group or supergroup chats and not just those addressed to the bot. In private and channel chats a bot can always read all messages
         /// </summary>
-        public bool can_read_all_group_messages { get; set; }
+        public bool CanReadAllGroupMessages { get; set; }
 
         /// <summary>
         /// True, if the bot supports inline queries
         /// </summary>
-        public bool is_inline { get; set; }
+        public bool IsInline { get; set; }
 
         /// <summary>
         /// Placeholder for inline queries (displayed on the client input field)
         /// </summary>
-        public string inline_query_placeholder { get; set; }
+        public string InlineQueryPlaceholder { get; set; }
 
         /// <summary>
         /// True, if the location of the user should be sent with every inline query to this bot
         /// </summary>
-        public bool need_location { get; set; }
+        public bool NeedLocation { get; set; }
 
     }
 
@@ -1717,12 +1717,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text of the bot command
         /// </summary>
-        public string command { get; set; }
+        public string Command { get; set; }
 
         /// <summary>
         /// Represents commands supported by a bot
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
     }
 
@@ -1738,12 +1738,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Provides information about a bot and its supported commands
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// A list of commands supported by the bot
         /// </summary>
-        public BotCommand[] commands { get; set; }
+        public BotCommand[] Commands { get; set; }
 
     }
 
@@ -1759,72 +1759,72 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// First name of the user
         /// </summary>
-        public string first_name { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// Last name of the user
         /// </summary>
-        public string last_name { get; set; }
+        public string LastName { get; set; }
 
         /// <summary>
         /// Username of the user
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// Phone number of the user
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Current online status of the user
         /// </summary>
-        public UserStatus status { get; set; }
+        public UserStatus Status { get; set; }
 
         /// <summary>
         /// Profile photo of the user; may be null
         /// </summary>
-        public ProfilePhoto profile_photo { get; set; }
+        public ProfilePhoto ProfilePhoto { get; set; }
 
         /// <summary>
         /// Relationship from the current user to the other user
         /// </summary>
-        public LinkState outgoing_link { get; set; }
+        public LinkState OutgoingLink { get; set; }
 
         /// <summary>
         /// Relationship from the other user to the current user
         /// </summary>
-        public LinkState incoming_link { get; set; }
+        public LinkState IncomingLink { get; set; }
 
         /// <summary>
         /// True, if the user is verified
         /// </summary>
-        public bool is_verified { get; set; }
+        public bool IsVerified { get; set; }
 
         /// <summary>
         /// If non-empty, it contains the reason why access to this user must be restricted. The format of the string is "{type}: {description}". -{type} contains the type of the restriction and at least one of the suffixes "-all", "-ios", "-android", or "-wp", which describe the platforms on which access should be restricted. (For example, "terms-ios-android". {description} contains a human-readable description of the restriction, which can be shown to the user)
         /// </summary>
-        public string restriction_reason { get; set; }
+        public string RestrictionReason { get; set; }
 
         /// <summary>
         /// If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser
         /// </summary>
-        public bool have_access { get; set; }
+        public bool HaveAccess { get; set; }
 
         /// <summary>
         /// Type of the user
         /// </summary>
-        public UserType type { get; set; }
+        public UserType Type { get; set; }
 
         /// <summary>
         /// IETF language tag of the user's language; only available to bots
         /// </summary>
-        public string language_code { get; set; }
+        public string LanguageCode { get; set; }
 
     }
 
@@ -1840,37 +1840,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the user is blacklisted by the current user
         /// </summary>
-        public bool is_blocked { get; set; }
+        public bool IsBlocked { get; set; }
 
         /// <summary>
         /// True, if the user can be called
         /// </summary>
-        public bool can_be_called { get; set; }
+        public bool CanBeCalled { get; set; }
 
         /// <summary>
         /// True, if the user can't be called due to their privacy settings
         /// </summary>
-        public bool has_private_calls { get; set; }
+        public bool HasPrivateCalls { get; set; }
 
         /// <summary>
         /// A short user bio
         /// </summary>
-        public string bio { get; set; }
+        public string Bio { get; set; }
 
         /// <summary>
         /// For bots, the text that is included with the link when users share the bot
         /// </summary>
-        public string share_text { get; set; }
+        public string ShareText { get; set; }
 
         /// <summary>
         /// Number of group chats where both the other user and the current user are a member; 0 for the current user
         /// </summary>
-        public int group_in_common_count { get; set; }
+        public int GroupInCommonCount { get; set; }
 
         /// <summary>
         /// If the user is a bot, information about the bot; may be null
         /// </summary>
-        public BotInfo bot_info { get; set; }
+        public BotInfo BotInfo { get; set; }
 
     }
 
@@ -1886,12 +1886,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Total number of user profile photos
         /// </summary>
-        public int total_count { get; set; }
+        public int TotalCount { get; set; }
 
         /// <summary>
         /// A list of photos
         /// </summary>
-        public Photo[] photos { get; set; }
+        public Photo[] Photos { get; set; }
 
     }
 
@@ -1907,12 +1907,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Approximate total count of users found
         /// </summary>
-        public int total_count { get; set; }
+        public int TotalCount { get; set; }
 
         /// <summary>
         /// A list of user identifiers
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
     }
 
@@ -1928,7 +1928,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the user is a member of the chat
         /// </summary>
-        public bool is_member { get; set; }
+        public bool IsMember { get; set; }
 
     }
 
@@ -1944,47 +1944,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the current user can edit the administrator privileges for the called user
         /// </summary>
-        public bool can_be_edited { get; set; }
+        public bool CanBeEdited { get; set; }
 
         /// <summary>
         /// True, if the administrator can change the chat title, photo, and other settings
         /// </summary>
-        public bool can_change_info { get; set; }
+        public bool CanChangeInfo { get; set; }
 
         /// <summary>
         /// True, if the administrator can create channel posts; applicable to channels only
         /// </summary>
-        public bool can_post_messages { get; set; }
+        public bool CanPostMessages { get; set; }
 
         /// <summary>
         /// True, if the administrator can edit messages of other users and pin messages; applicable to channels only
         /// </summary>
-        public bool can_edit_messages { get; set; }
+        public bool CanEditMessages { get; set; }
 
         /// <summary>
         /// True, if the administrator can delete messages of other users
         /// </summary>
-        public bool can_delete_messages { get; set; }
+        public bool CanDeleteMessages { get; set; }
 
         /// <summary>
         /// True, if the administrator can invite new users to the chat
         /// </summary>
-        public bool can_invite_users { get; set; }
+        public bool CanInviteUsers { get; set; }
 
         /// <summary>
         /// True, if the administrator can restrict, ban, or unban chat members
         /// </summary>
-        public bool can_restrict_members { get; set; }
+        public bool CanRestrictMembers { get; set; }
 
         /// <summary>
         /// True, if the administrator can pin messages; applicable to supergroups only
         /// </summary>
-        public bool can_pin_messages { get; set; }
+        public bool CanPinMessages { get; set; }
 
         /// <summary>
         /// True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that were directly or indirectly promoted by him
         /// </summary>
-        public bool can_promote_members { get; set; }
+        public bool CanPromoteMembers { get; set; }
 
     }
 
@@ -2011,32 +2011,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the user is a member of the chat
         /// </summary>
-        public bool is_member { get; set; }
+        public bool IsMember { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when restrictions will be lifted from the user; 0 if never. If the user is restricted for more than 366 days or for less than 30 seconds from the current time, the user is considered to be restricted forever
         /// </summary>
-        public int restricted_until_date { get; set; }
+        public int RestrictedUntilDate { get; set; }
 
         /// <summary>
         /// True, if the user can send text messages, contacts, locations, and venues
         /// </summary>
-        public bool can_send_messages { get; set; }
+        public bool CanSendMessages { get; set; }
 
         /// <summary>
         /// True, if the user can send audio files, documents, photos, videos, video notes, and voice notes. Implies can_send_messages permissions
         /// </summary>
-        public bool can_send_media_messages { get; set; }
+        public bool CanSendMediaMessages { get; set; }
 
         /// <summary>
         /// True, if the user can send animations, games, and stickers and use inline bots. Implies can_send_media_messages permissions
         /// </summary>
-        public bool can_send_other_messages { get; set; }
+        public bool CanSendOtherMessages { get; set; }
 
         /// <summary>
         /// True, if the user may add a web page preview to his messages. Implies can_send_messages permissions
         /// </summary>
-        public bool can_add_web_page_previews { get; set; }
+        public bool CanAddWebPagePreviews { get; set; }
 
     }
 
@@ -2063,7 +2063,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever
         /// </summary>
-        public int banned_until_date { get; set; }
+        public int BannedUntilDate { get; set; }
 
     }
 
@@ -2079,27 +2079,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier of the chat member
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Identifier of a user that invited/promoted/banned this member in the chat; 0 if unknown
         /// </summary>
-        public int inviter_user_id { get; set; }
+        public int InviterUserId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the user joined a chat
         /// </summary>
-        public int joined_chat_date { get; set; }
+        public int JoinedChatDate { get; set; }
 
         /// <summary>
         /// Status of the member in the chat
         /// </summary>
-        public ChatMemberStatus status { get; set; }
+        public ChatMemberStatus Status { get; set; }
 
         /// <summary>
         /// If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not a chat member
         /// </summary>
-        public BotInfo bot_info { get; set; }
+        public BotInfo BotInfo { get; set; }
 
     }
 
@@ -2115,12 +2115,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Approximate total count of chat members found
         /// </summary>
-        public int total_count { get; set; }
+        public int TotalCount { get; set; }
 
         /// <summary>
         /// A list of chat members
         /// </summary>
-        public ChatMember[] members { get; set; }
+        public ChatMember[] Members { get; set; }
 
     }
 
@@ -2213,7 +2213,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
     }
 
@@ -2229,7 +2229,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
     }
 
@@ -2245,7 +2245,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
     }
 
@@ -2272,32 +2272,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Group identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Number of members in the group
         /// </summary>
-        public int member_count { get; set; }
+        public int MemberCount { get; set; }
 
         /// <summary>
         /// Status of the current user in the group
         /// </summary>
-        public ChatMemberStatus status { get; set; }
+        public ChatMemberStatus Status { get; set; }
 
         /// <summary>
         /// True, if all members have been granted administrator rights in the group
         /// </summary>
-        public bool everyone_is_administrator { get; set; }
+        public bool EveryoneIsAdministrator { get; set; }
 
         /// <summary>
         /// True, if the group is active
         /// </summary>
-        public bool is_active { get; set; }
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Identifier of the supergroup to which this group was upgraded; 0 if none
         /// </summary>
-        public int upgraded_to_supergroup_id { get; set; }
+        public int UpgradedToSupergroupId { get; set; }
 
     }
 
@@ -2313,17 +2313,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier of the creator of the group; 0 if unknown
         /// </summary>
-        public int creator_user_id { get; set; }
+        public int CreatorUserId { get; set; }
 
         /// <summary>
         /// Group members
         /// </summary>
-        public ChatMember[] members { get; set; }
+        public ChatMember[] Members { get; set; }
 
         /// <summary>
         /// Invite link for this group; available only for the group creator and only after it has been generated at least once
         /// </summary>
-        public string invite_link { get; set; }
+        public string InviteLink { get; set; }
 
     }
 
@@ -2339,52 +2339,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Username of the supergroup or channel; empty for private supergroups or channels
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the current user joined, or the point in time when the supergroup or channel was created, in case the user is not a member
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
         /// <summary>
         /// Status of the current user in the supergroup or channel
         /// </summary>
-        public ChatMemberStatus status { get; set; }
+        public ChatMemberStatus Status { get; set; }
 
         /// <summary>
         /// Member count; 0 if unknown. Currently it is guaranteed to be known only if the supergroup or channel was found through SearchPublicChats
         /// </summary>
-        public int member_count { get; set; }
+        public int MemberCount { get; set; }
 
         /// <summary>
         /// True, if any member of the supergroup can invite other members. This field has no meaning for channels
         /// </summary>
-        public bool anyone_can_invite { get; set; }
+        public bool AnyoneCanInvite { get; set; }
 
         /// <summary>
         /// True, if messages sent to the channel should contain information about the sender. This field is only applicable to channels
         /// </summary>
-        public bool sign_messages { get; set; }
+        public bool SignMessages { get; set; }
 
         /// <summary>
         /// True, if the supergroup is a channel
         /// </summary>
-        public bool is_channel { get; set; }
+        public bool IsChannel { get; set; }
 
         /// <summary>
         /// True, if the supergroup or channel is verified
         /// </summary>
-        public bool is_verified { get; set; }
+        public bool IsVerified { get; set; }
 
         /// <summary>
         /// If non-empty, contains the reason why access to this supergroup or channel must be restricted. Format of the string is "{type}: {description}". -{type} Contains the type of the restriction and at least one of the suffixes "-all", "-ios", "-android", or "-wp", which describe the platforms on which access should be restricted. (For example, "terms-ios-android". {description} contains a human-readable description of the restriction, which can be shown to the user)
         /// </summary>
-        public string restriction_reason { get; set; }
+        public string RestrictionReason { get; set; }
 
     }
 
@@ -2400,72 +2400,72 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Contains full information about a supergroup or channel
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Number of members in the supergroup or channel; 0 if unknown
         /// </summary>
-        public int member_count { get; set; }
+        public int MemberCount { get; set; }
 
         /// <summary>
         /// Number of privileged users in the supergroup or channel; 0 if unknown
         /// </summary>
-        public int administrator_count { get; set; }
+        public int AdministratorCount { get; set; }
 
         /// <summary>
         /// Number of restricted users in the supergroup; 0 if unknown
         /// </summary>
-        public int restricted_count { get; set; }
+        public int RestrictedCount { get; set; }
 
         /// <summary>
         /// Number of users banned from chat; 0 if unknown
         /// </summary>
-        public int banned_count { get; set; }
+        public int BannedCount { get; set; }
 
         /// <summary>
         /// True, if members of the chat can be retrieved
         /// </summary>
-        public bool can_get_members { get; set; }
+        public bool CanGetMembers { get; set; }
 
         /// <summary>
         /// True, if the chat can be made public
         /// </summary>
-        public bool can_set_username { get; set; }
+        public bool CanSetUsername { get; set; }
 
         /// <summary>
         /// True, if the supergroup sticker set can be changed
         /// </summary>
-        public bool can_set_sticker_set { get; set; }
+        public bool CanSetStickerSet { get; set; }
 
         /// <summary>
         /// True, if new chat members will have access to old messages. In public supergroups and both public and private channels, old messages are always available, so this option affects only private supergroups. The value of this field is only available for chat administrators
         /// </summary>
-        public bool is_all_history_available { get; set; }
+        public bool IsAllHistoryAvailable { get; set; }
 
         /// <summary>
         /// Identifier of the supergroup sticker set; 0 if none
         /// </summary>
-        public long sticker_set_id { get; set; }
+        public long StickerSetId { get; set; }
 
         /// <summary>
         /// Invite link for this chat
         /// </summary>
-        public string invite_link { get; set; }
+        public string InviteLink { get; set; }
 
         /// <summary>
         /// Identifier of the pinned message in the chat; 0 if none
         /// </summary>
-        public long pinned_message_id { get; set; }
+        public long PinnedMessageId { get; set; }
 
         /// <summary>
         /// Identifier of the basic group from which supergroup was upgraded; 0 if none
         /// </summary>
-        public int upgraded_from_basic_group_id { get; set; }
+        public int UpgradedFromBasicGroupId { get; set; }
 
         /// <summary>
         /// Identifier of the last message in the basic group from which supergroup was upgraded; 0 if none
         /// </summary>
-        public long upgraded_from_max_message_id { get; set; }
+        public long UpgradedFromMaxMessageId { get; set; }
 
     }
 
@@ -2514,37 +2514,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Secret chat identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Identifier of the chat partner
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// State of the secret chat
         /// </summary>
-        public SecretChatState state { get; set; }
+        public SecretChatState State { get; set; }
 
         /// <summary>
         /// True, if the chat was created by the current user; otherwise false
         /// </summary>
-        public bool is_outbound { get; set; }
+        public bool IsOutbound { get; set; }
 
         /// <summary>
         /// Current message Time To Live setting (self-destruct timer) for the chat, in seconds
         /// </summary>
-        public int ttl { get; set; }
+        public int Ttl { get; set; }
 
         /// <summary>
         /// Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 bytes, which must be used to make a 12x12 square image with a color depth of 4. The first 16 bytes should be used to make a central 8x8 square, while the remaining 20 bytes should be used to construct a 2-pixel-wide border around that square. -Alternatively, the first 32 bytes of the hash can be converted to the hexadecimal format and printed as 32 2-digit hex numbers
         /// </summary>
-        public byte[] key_hash { get; set; }
+        public byte[] KeyHash { get; set; }
 
         /// <summary>
         /// Secret chat layer; determines features supported by the other client. Video notes are supported if the layer &gt;= 66
         /// </summary>
-        public int layer { get; set; }
+        public int Layer { get; set; }
 
     }
 
@@ -2560,22 +2560,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the user that originally sent this message
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the message was originally sent
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
         /// <summary>
         /// For messages forwarded to the chat with the current user (saved messages), the identifier of the chat from which the message was forwarded; 0 if unknown
         /// </summary>
-        public long forwarded_from_chat_id { get; set; }
+        public long ForwardedFromChatId { get; set; }
 
         /// <summary>
         /// For messages forwarded to the chat with the current user (saved messages) the identifier of the original message from which the new message was forwarded; 0 if unknown
         /// </summary>
-        public long forwarded_from_message_id { get; set; }
+        public long ForwardedFromMessageId { get; set; }
 
     }
 
@@ -2591,32 +2591,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat from which the message was forwarded
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Post author signature
         /// </summary>
-        public string author_signature { get; set; }
+        public string AuthorSignature { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the message was originally sent
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
         /// <summary>
         /// Message identifier of the original message from which the new message was forwarded; 0 if unknown
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// For messages forwarded to the chat with the current user (saved messages), the identifier of the chat from which the message was forwarded; 0 if unknown
         /// </summary>
-        public long forwarded_from_chat_id { get; set; }
+        public long ForwardedFromChatId { get; set; }
 
         /// <summary>
         /// For messages forwarded to the chat with the current user (saved messages), the identifier of the original message from which the new message was forwarded; 0 if unknown
         /// </summary>
-        public long forwarded_from_message_id { get; set; }
+        public long ForwardedFromMessageId { get; set; }
 
     }
 
@@ -2654,117 +2654,117 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message identifier, unique for the chat to which the message belongs
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Identifier of the user who sent the message; 0 if unknown. It is unknown for channel posts
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Information about the sending state of the message; may be null
         /// </summary>
-        public MessageSendingState sending_state { get; set; }
+        public MessageSendingState SendingState { get; set; }
 
         /// <summary>
         /// True, if the message is outgoing
         /// </summary>
-        public bool is_outgoing { get; set; }
+        public bool IsOutgoing { get; set; }
 
         /// <summary>
         /// True, if the message can be edited
         /// </summary>
-        public bool can_be_edited { get; set; }
+        public bool CanBeEdited { get; set; }
 
         /// <summary>
         /// True, if the message can be forwarded
         /// </summary>
-        public bool can_be_forwarded { get; set; }
+        public bool CanBeForwarded { get; set; }
 
         /// <summary>
         /// True, if the message can be deleted only for the current user while other users will continue to see it
         /// </summary>
-        public bool can_be_deleted_only_for_self { get; set; }
+        public bool CanBeDeletedOnlyForSelf { get; set; }
 
         /// <summary>
         /// True, if the message can be deleted for all users
         /// </summary>
-        public bool can_be_deleted_for_all_users { get; set; }
+        public bool CanBeDeletedForAllUsers { get; set; }
 
         /// <summary>
         /// True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
         /// </summary>
-        public bool is_channel_post { get; set; }
+        public bool IsChannelPost { get; set; }
 
         /// <summary>
         /// True, if the message contains an unread mention for the current user
         /// </summary>
-        public bool contains_unread_mention { get; set; }
+        public bool ContainsUnreadMention { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the message was sent
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the message was last edited
         /// </summary>
-        public int edit_date { get; set; }
+        public int EditDate { get; set; }
 
         /// <summary>
         /// Information about the initial message sender; may be null
         /// </summary>
-        public MessageForwardInfo forward_info { get; set; }
+        public MessageForwardInfo ForwardInfo { get; set; }
 
         /// <summary>
         /// If non-zero, the identifier of the message this message is replying to; can be the identifier of a deleted message
         /// </summary>
-        public long reply_to_message_id { get; set; }
+        public long ReplyToMessageId { get; set; }
 
         /// <summary>
         /// For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the TTL expires
         /// </summary>
-        public int ttl { get; set; }
+        public int Ttl { get; set; }
 
         /// <summary>
         /// Time left before the message expires, in seconds
         /// </summary>
-        public double ttl_expires_in { get; set; }
+        public double TtlExpiresIn { get; set; }
 
         /// <summary>
         /// If non-zero, the user identifier of the bot through which this message was sent
         /// </summary>
-        public int via_bot_user_id { get; set; }
+        public int ViaBotUserId { get; set; }
 
         /// <summary>
         /// For channel posts, optional author signature
         /// </summary>
-        public string author_signature { get; set; }
+        public string AuthorSignature { get; set; }
 
         /// <summary>
         /// Number of times this message was viewed
         /// </summary>
-        public int views { get; set; }
+        public int Views { get; set; }
 
         /// <summary>
         /// Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums
         /// </summary>
-        public long media_album_id { get; set; }
+        public long MediaAlbumId { get; set; }
 
         /// <summary>
         /// Content of the message
         /// </summary>
-        public MessageContent content { get; set; }
+        public MessageContent Content { get; set; }
 
         /// <summary>
         /// Reply markup for the message; may be null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
     }
 
@@ -2780,12 +2780,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Approximate total count of messages found
         /// </summary>
-        public int total_count { get; set; }
+        public int TotalCount { get; set; }
 
         /// <summary>
         /// List of messages; messages may be null
         /// </summary>
-        public Message[] messages { get; set; }
+        public Message[] Messages_ { get; set; }
 
     }
 
@@ -2801,12 +2801,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of messages
         /// </summary>
-        public Message[] messages { get; set; }
+        public Message[] Messages { get; set; }
 
         /// <summary>
         /// Value to pass as from_search_id to get more results
         /// </summary>
-        public long next_from_search_id { get; set; }
+        public long NextFromSearchId { get; set; }
 
     }
 
@@ -2844,32 +2844,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// If true, mute_for is ignored and the value for the relevant type of chat is used instead
         /// </summary>
-        public bool use_default_mute_for { get; set; }
+        public bool UseDefaultMuteFor { get; set; }
 
         /// <summary>
         /// Time left before notifications will be unmuted, in seconds
         /// </summary>
-        public int mute_for { get; set; }
+        public int MuteFor { get; set; }
 
         /// <summary>
         /// If true, sound is ignored and the value for the relevant type of chat is used instead
         /// </summary>
-        public bool use_default_sound { get; set; }
+        public bool UseDefaultSound { get; set; }
 
         /// <summary>
         /// The name of an audio file to be used for notification sounds; only applies to iOS applications
         /// </summary>
-        public string sound { get; set; }
+        public string Sound { get; set; }
 
         /// <summary>
         /// If true, show_preview is ignored and the value for the relevant type of chat is used instead
         /// </summary>
-        public bool use_default_show_preview { get; set; }
+        public bool UseDefaultShowPreview { get; set; }
 
         /// <summary>
         /// True, if message content should be displayed in notifications
         /// </summary>
-        public bool show_preview { get; set; }
+        public bool ShowPreview { get; set; }
 
     }
 
@@ -2885,17 +2885,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Time left before notifications will be unmuted, in seconds
         /// </summary>
-        public int mute_for { get; set; }
+        public int MuteFor { get; set; }
 
         /// <summary>
         /// The name of an audio file to be used for notification sounds; only applies to iOS applications
         /// </summary>
-        public string sound { get; set; }
+        public string Sound { get; set; }
 
         /// <summary>
         /// True, if message content should be displayed in notifications
         /// </summary>
-        public bool show_preview { get; set; }
+        public bool ShowPreview { get; set; }
 
     }
 
@@ -2911,12 +2911,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the message to reply to; 0 if none
         /// </summary>
-        public long reply_to_message_id { get; set; }
+        public long ReplyToMessageId { get; set; }
 
         /// <summary>
         /// Content of the message draft; this should always be of type inputMessageText
         /// </summary>
-        public InputMessageContent input_message_text { get; set; }
+        public InputMessageContent InputMessageText { get; set; }
 
     }
 
@@ -2932,7 +2932,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -2948,7 +2948,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int basic_group_id { get; set; }
+        public int BasicGroupId { get; set; }
 
     }
 
@@ -2964,12 +2964,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// True, if the supergroup is a channel
         /// </summary>
-        public bool is_channel { get; set; }
+        public bool IsChannel { get; set; }
 
     }
 
@@ -2985,12 +2985,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Secret chat identifier
         /// </summary>
-        public int secret_chat_id { get; set; }
+        public int SecretChatId { get; set; }
 
         /// <summary>
         /// User identifier of the secret chat peer
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -3006,97 +3006,97 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat unique identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Type of the chat
         /// </summary>
-        public ChatType type { get; set; }
+        public ChatType Type { get; set; }
 
         /// <summary>
         /// Chat title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Chat photo; may be null
         /// </summary>
-        public ChatPhoto photo { get; set; }
+        public ChatPhoto Photo { get; set; }
 
         /// <summary>
         /// Last message in the chat; may be null
         /// </summary>
-        public Message last_message { get; set; }
+        public Message LastMessage { get; set; }
 
         /// <summary>
         /// Descending parameter by which chats are sorted in the main chat list. If the order number of two chats is the same, they must be sorted in descending order by ID. If 0, the position of the chat in the list is undetermined
         /// </summary>
-        public long order { get; set; }
+        public long Order { get; set; }
 
         /// <summary>
         /// True, if the chat is pinned
         /// </summary>
-        public bool is_pinned { get; set; }
+        public bool IsPinned { get; set; }
 
         /// <summary>
         /// True, if the chat is marked as unread
         /// </summary>
-        public bool is_marked_as_unread { get; set; }
+        public bool IsMarkedAsUnread { get; set; }
 
         /// <summary>
         /// True, if the chat is sponsored by the user's MTProxy server
         /// </summary>
-        public bool is_sponsored { get; set; }
+        public bool IsSponsored { get; set; }
 
         /// <summary>
         /// True, if the chat can be reported to Telegram moderators through reportChat
         /// </summary>
-        public bool can_be_reported { get; set; }
+        public bool CanBeReported { get; set; }
 
         /// <summary>
         /// Default value of the disable_notification parameter, used when a message is sent to the chat
         /// </summary>
-        public bool default_disable_notification { get; set; }
+        public bool DefaultDisableNotification { get; set; }
 
         /// <summary>
         /// Number of unread messages in the chat
         /// </summary>
-        public int unread_count { get; set; }
+        public int UnreadCount { get; set; }
 
         /// <summary>
         /// Identifier of the last read incoming message
         /// </summary>
-        public long last_read_inbox_message_id { get; set; }
+        public long LastReadInboxMessageId { get; set; }
 
         /// <summary>
         /// Identifier of the last read outgoing message
         /// </summary>
-        public long last_read_outbox_message_id { get; set; }
+        public long LastReadOutboxMessageId { get; set; }
 
         /// <summary>
         /// Number of unread messages with a mention/reply in the chat
         /// </summary>
-        public int unread_mention_count { get; set; }
+        public int UnreadMentionCount { get; set; }
 
         /// <summary>
         /// Notification settings for this chat
         /// </summary>
-        public ChatNotificationSettings notification_settings { get; set; }
+        public ChatNotificationSettings NotificationSettings { get; set; }
 
         /// <summary>
         /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
         /// </summary>
-        public long reply_markup_message_id { get; set; }
+        public long ReplyMarkupMessageId { get; set; }
 
         /// <summary>
         /// A draft of a message in the chat; may be null
         /// </summary>
-        public DraftMessage draft_message { get; set; }
+        public DraftMessage DraftMessage { get; set; }
 
         /// <summary>
         /// Contains client-specific data associated with the chat. (For example, the chat position or local chat notification settings can be stored here.) Persistent if a message database is used
         /// </summary>
-        public string client_data { get; set; }
+        public string ClientData { get; set; }
 
     }
 
@@ -3112,7 +3112,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of chat identifiers
         /// </summary>
-        public long[] chat_ids { get; set; }
+        public long[] ChatIds { get; set; }
 
     }
 
@@ -3128,7 +3128,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat invite link
         /// </summary>
-        public string invite_link { get; set; }
+        public string InviteLink { get; set; }
 
     }
 
@@ -3144,37 +3144,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier of the invite link; 0 if the user is not a member of this chat
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Contains information about the type of the chat
         /// </summary>
-        public ChatType type { get; set; }
+        public ChatType Type { get; set; }
 
         /// <summary>
         /// Title of the chat
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Chat photo; may be null
         /// </summary>
-        public ChatPhoto photo { get; set; }
+        public ChatPhoto Photo { get; set; }
 
         /// <summary>
         /// Number of members
         /// </summary>
-        public int member_count { get; set; }
+        public int MemberCount { get; set; }
 
         /// <summary>
         /// User identifiers of some chat members that may be known to the current user
         /// </summary>
-        public int[] member_user_ids { get; set; }
+        public int[] MemberUserIds { get; set; }
 
         /// <summary>
         /// True, if the chat is a public supergroup or channel with a username
         /// </summary>
-        public bool is_public { get; set; }
+        public bool IsPublic { get; set; }
 
     }
 
@@ -3223,12 +3223,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text of the button
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// Type of the button
         /// </summary>
-        public KeyboardButtonType type { get; set; }
+        public KeyboardButtonType Type { get; set; }
 
     }
 
@@ -3244,7 +3244,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// HTTP or tg:// URL to open
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
     }
 
@@ -3260,7 +3260,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Data to be sent to the bot via a callback query
         /// </summary>
-        public byte[] data { get; set; }
+        public byte[] Data { get; set; }
 
     }
 
@@ -3287,12 +3287,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline query to be sent to the bot
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// True, if the inline query should be sent from the current chat
         /// </summary>
-        public bool in_current_chat { get; set; }
+        public bool InCurrentChat { get; set; }
 
     }
 
@@ -3319,12 +3319,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text of the button
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// Type of the button
         /// </summary>
-        public InlineKeyboardButtonType type { get; set; }
+        public InlineKeyboardButtonType Type { get; set; }
 
     }
 
@@ -3340,7 +3340,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the keyboard is removed only for the mentioned users or the target user of a reply
         /// </summary>
-        public bool is_personal { get; set; }
+        public bool IsPersonal { get; set; }
 
     }
 
@@ -3356,7 +3356,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if a forced reply must automatically be shown to the current user. For outgoing messages, specify true to show the forced reply only for the mentioned users and for the target user of a reply
         /// </summary>
-        public bool is_personal { get; set; }
+        public bool IsPersonal { get; set; }
 
     }
 
@@ -3372,22 +3372,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A list of rows of bot keyboard buttons
         /// </summary>
-        public KeyboardButton[][] rows { get; set; }
+        public KeyboardButton[][] Rows { get; set; }
 
         /// <summary>
         /// True, if the client needs to resize the keyboard vertically
         /// </summary>
-        public bool resize_keyboard { get; set; }
+        public bool ResizeKeyboard { get; set; }
 
         /// <summary>
         /// True, if the client needs to hide the keyboard after use
         /// </summary>
-        public bool one_time { get; set; }
+        public bool OneTime { get; set; }
 
         /// <summary>
         /// True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply
         /// </summary>
-        public bool is_personal { get; set; }
+        public bool IsPersonal { get; set; }
 
     }
 
@@ -3403,7 +3403,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A list of rows of inline keyboard buttons
         /// </summary>
-        public InlineKeyboardButton[][] rows { get; set; }
+        public InlineKeyboardButton[][] Rows { get; set; }
 
     }
 
@@ -3419,7 +3419,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
     }
 
@@ -3435,7 +3435,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
     }
 
@@ -3451,7 +3451,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
     }
 
@@ -3467,7 +3467,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
     }
 
@@ -3483,7 +3483,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
     }
 
@@ -3499,7 +3499,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
     }
 
@@ -3515,12 +3515,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
         /// <summary>
         /// URL
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
     }
 
@@ -3536,12 +3536,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
         /// <summary>
         /// Email address
         /// </summary>
-        public string email_address { get; set; }
+        public string EmailAddress { get; set; }
 
     }
 
@@ -3557,7 +3557,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Texts
         /// </summary>
-        public RichText[] texts { get; set; }
+        public RichText[] Texts { get; set; }
 
     }
 
@@ -3573,7 +3573,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Title
         /// </summary>
-        public RichText title { get; set; }
+        public RichText Title { get; set; }
 
     }
 
@@ -3589,7 +3589,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Subtitle
         /// </summary>
-        public RichText subtitle { get; set; }
+        public RichText Subtitle { get; set; }
 
     }
 
@@ -3605,12 +3605,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Author
         /// </summary>
-        public RichText author { get; set; }
+        public RichText Author { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the article was published; 0 if unknown
         /// </summary>
-        public int publish_date { get; set; }
+        public int PublishDate { get; set; }
 
     }
 
@@ -3626,7 +3626,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Header
         /// </summary>
-        public RichText header { get; set; }
+        public RichText Header { get; set; }
 
     }
 
@@ -3642,7 +3642,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Subheader
         /// </summary>
-        public RichText subheader { get; set; }
+        public RichText Subheader { get; set; }
 
     }
 
@@ -3658,7 +3658,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Paragraph text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
     }
 
@@ -3674,12 +3674,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Paragraph text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
         /// <summary>
         /// Programming language for which the text should be formatted
         /// </summary>
-        public string language { get; set; }
+        public string Language { get; set; }
 
     }
 
@@ -3695,7 +3695,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Footer
         /// </summary>
-        public RichText footer { get; set; }
+        public RichText Footer { get; set; }
 
     }
 
@@ -3722,7 +3722,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Name of the anchor
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
     }
 
@@ -3738,12 +3738,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Texts
         /// </summary>
-        public RichText[] items { get; set; }
+        public RichText[] Items { get; set; }
 
         /// <summary>
         /// True, if the items should be marked with numbers
         /// </summary>
-        public bool is_ordered { get; set; }
+        public bool IsOrdered { get; set; }
 
     }
 
@@ -3759,12 +3759,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Quote text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
         /// <summary>
         /// Quote caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
     }
 
@@ -3780,12 +3780,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Quote text
         /// </summary>
-        public RichText text { get; set; }
+        public RichText Text { get; set; }
 
         /// <summary>
         /// Quote caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
     }
 
@@ -3801,17 +3801,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Animation file; may be null
         /// </summary>
-        public Animation animation { get; set; }
+        public Animation Animation { get; set; }
 
         /// <summary>
         /// Animation caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
         /// <summary>
         /// True, if the animation should be played automatically
         /// </summary>
-        public bool need_autoplay { get; set; }
+        public bool NeedAutoplay { get; set; }
 
     }
 
@@ -3827,12 +3827,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Audio file; may be null
         /// </summary>
-        public Audio audio { get; set; }
+        public Audio Audio { get; set; }
 
         /// <summary>
         /// Audio file caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
     }
 
@@ -3848,12 +3848,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Photo file; may be null
         /// </summary>
-        public Photo photo { get; set; }
+        public Photo Photo { get; set; }
 
         /// <summary>
         /// Photo caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
     }
 
@@ -3869,22 +3869,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Video file; may be null
         /// </summary>
-        public Video video { get; set; }
+        public Video Video { get; set; }
 
         /// <summary>
         /// Video caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
         /// <summary>
         /// True, if the video should be played automatically
         /// </summary>
-        public bool need_autoplay { get; set; }
+        public bool NeedAutoplay { get; set; }
 
         /// <summary>
         /// True, if the video should be looped
         /// </summary>
-        public bool is_looped { get; set; }
+        public bool IsLooped { get; set; }
 
     }
 
@@ -3900,7 +3900,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Cover
         /// </summary>
-        public PageBlock cover { get; set; }
+        public PageBlock Cover { get; set; }
 
     }
 
@@ -3916,42 +3916,42 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Web page URL, if available
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// HTML-markup of the embedded page
         /// </summary>
-        public string html { get; set; }
+        public string Html { get; set; }
 
         /// <summary>
         /// Poster photo, if available; may be null
         /// </summary>
-        public Photo poster_photo { get; set; }
+        public Photo PosterPhoto { get; set; }
 
         /// <summary>
         /// Block width
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Block height
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Block caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
         /// <summary>
         /// True, if the block should be full width
         /// </summary>
-        public bool is_full_width { get; set; }
+        public bool IsFullWidth { get; set; }
 
         /// <summary>
         /// True, if scrolling should be allowed
         /// </summary>
-        public bool allow_scrolling { get; set; }
+        public bool AllowScrolling { get; set; }
 
     }
 
@@ -3967,32 +3967,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Web page URL
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// Post author
         /// </summary>
-        public string author { get; set; }
+        public string Author { get; set; }
 
         /// <summary>
         /// Post author photo
         /// </summary>
-        public Photo author_photo { get; set; }
+        public Photo AuthorPhoto { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the post was created; 0 if unknown
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
         /// <summary>
         /// Post content
         /// </summary>
-        public PageBlock[] page_blocks { get; set; }
+        public PageBlock[] PageBlocks { get; set; }
 
         /// <summary>
         /// Post caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
     }
 
@@ -4008,12 +4008,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Collage item contents
         /// </summary>
-        public PageBlock[] page_blocks { get; set; }
+        public PageBlock[] PageBlocks { get; set; }
 
         /// <summary>
         /// Block caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
     }
 
@@ -4029,12 +4029,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Slideshow item contents
         /// </summary>
-        public PageBlock[] page_blocks { get; set; }
+        public PageBlock[] PageBlocks { get; set; }
 
         /// <summary>
         /// Block caption
         /// </summary>
-        public RichText caption { get; set; }
+        public RichText Caption { get; set; }
 
     }
 
@@ -4050,17 +4050,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Chat photo; may be null
         /// </summary>
-        public ChatPhoto photo { get; set; }
+        public ChatPhoto Photo { get; set; }
 
         /// <summary>
         /// Chat username, by which all other information about the chat should be resolved
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
     }
 
@@ -4076,12 +4076,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Content of the web page
         /// </summary>
-        public PageBlock[] page_blocks { get; set; }
+        public PageBlock[] PageBlocks { get; set; }
 
         /// <summary>
         /// True, if the instant view contains the full page. A network request might be needed to get the full web page instant view
         /// </summary>
-        public bool is_full { get; set; }
+        public bool IsFull { get; set; }
 
     }
 
@@ -4097,107 +4097,107 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Original URL of the link
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// URL to display
         /// </summary>
-        public string display_url { get; set; }
+        public string DisplayUrl { get; set; }
 
         /// <summary>
         /// Type of the web page. Can be: article, photo, audio, video, document, profile, app, or something else
         /// </summary>
-        public string type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Short name of the site (e.g., Google Docs, App Store)
         /// </summary>
-        public string site_name { get; set; }
+        public string SiteName { get; set; }
 
         /// <summary>
         /// Title of the content
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Describes a web page preview
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Image representing the content; may be null
         /// </summary>
-        public Photo photo { get; set; }
+        public Photo Photo { get; set; }
 
         /// <summary>
         /// URL to show in the embedded preview
         /// </summary>
-        public string embed_url { get; set; }
+        public string EmbedUrl { get; set; }
 
         /// <summary>
         /// MIME type of the embedded preview, (e.g., text/html or video/mp4)
         /// </summary>
-        public string embed_type { get; set; }
+        public string EmbedType { get; set; }
 
         /// <summary>
         /// Width of the embedded preview
         /// </summary>
-        public int embed_width { get; set; }
+        public int EmbedWidth { get; set; }
 
         /// <summary>
         /// Height of the embedded preview
         /// </summary>
-        public int embed_height { get; set; }
+        public int EmbedHeight { get; set; }
 
         /// <summary>
         /// Duration of the content, in seconds
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Author of the content
         /// </summary>
-        public string author { get; set; }
+        public string Author { get; set; }
 
         /// <summary>
         /// Preview of the content as an animation, if available; may be null
         /// </summary>
-        public Animation animation { get; set; }
+        public Animation Animation { get; set; }
 
         /// <summary>
         /// Preview of the content as an audio file, if available; may be null
         /// </summary>
-        public Audio audio { get; set; }
+        public Audio Audio { get; set; }
 
         /// <summary>
         /// Preview of the content as a document, if available (currently only available for small PDF files and ZIP archives); may be null
         /// </summary>
-        public Document document { get; set; }
+        public Document Document { get; set; }
 
         /// <summary>
         /// Preview of the content as a sticker for small WEBP files, if available; may be null
         /// </summary>
-        public Sticker sticker { get; set; }
+        public Sticker Sticker { get; set; }
 
         /// <summary>
         /// Preview of the content as a video, if available; may be null
         /// </summary>
-        public Video video { get; set; }
+        public Video Video { get; set; }
 
         /// <summary>
         /// Preview of the content as a video note, if available; may be null
         /// </summary>
-        public VideoNote video_note { get; set; }
+        public VideoNote VideoNote { get; set; }
 
         /// <summary>
         /// Preview of the content as a voice note, if available; may be null
         /// </summary>
-        public VoiceNote voice_note { get; set; }
+        public VoiceNote VoiceNote { get; set; }
 
         /// <summary>
         /// True, if the web page has an instant view
         /// </summary>
-        public bool has_instant_view { get; set; }
+        public bool HasInstantView { get; set; }
 
     }
 
@@ -4213,32 +4213,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A two-letter ISO 3166-1 alpha-2 country code
         /// </summary>
-        public string country_code { get; set; }
+        public string CountryCode { get; set; }
 
         /// <summary>
         /// State, if applicable
         /// </summary>
-        public string state { get; set; }
+        public string State { get; set; }
 
         /// <summary>
         /// City
         /// </summary>
-        public string city { get; set; }
+        public string City { get; set; }
 
         /// <summary>
         /// First line of the address
         /// </summary>
-        public string street_line1 { get; set; }
+        public string StreetLine1 { get; set; }
 
         /// <summary>
         /// Second line of the address
         /// </summary>
-        public string street_line2 { get; set; }
+        public string StreetLine2 { get; set; }
 
         /// <summary>
         /// Address postal code
         /// </summary>
-        public string postal_code { get; set; }
+        public string PostalCode { get; set; }
 
     }
 
@@ -4254,12 +4254,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Label for this portion of the product price
         /// </summary>
-        public string label { get; set; }
+        public string Label { get; set; }
 
         /// <summary>
         /// Currency amount in minimal quantity of the currency
         /// </summary>
-        public long amount { get; set; }
+        public long Amount { get; set; }
 
     }
 
@@ -4275,52 +4275,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// ISO 4217 currency code
         /// </summary>
-        public string currency { get; set; }
+        public string Currency { get; set; }
 
         /// <summary>
         /// A list of objects used to calculate the total price of the product
         /// </summary>
-        public LabeledPricePart[] price_parts { get; set; }
+        public LabeledPricePart[] PriceParts { get; set; }
 
         /// <summary>
         /// True, if the payment is a test payment
         /// </summary>
-        public bool is_test { get; set; }
+        public bool IsTest { get; set; }
 
         /// <summary>
         /// True, if the user's name is needed for payment
         /// </summary>
-        public bool need_name { get; set; }
+        public bool NeedName { get; set; }
 
         /// <summary>
         /// True, if the user's phone number is needed for payment
         /// </summary>
-        public bool need_phone_number { get; set; }
+        public bool NeedPhoneNumber { get; set; }
 
         /// <summary>
         /// True, if the user's email address is needed for payment
         /// </summary>
-        public bool need_email_address { get; set; }
+        public bool NeedEmailAddress { get; set; }
 
         /// <summary>
         /// True, if the user's shipping address is needed for payment
         /// </summary>
-        public bool need_shipping_address { get; set; }
+        public bool NeedShippingAddress { get; set; }
 
         /// <summary>
         /// True, if the user's phone number will be sent to the provider
         /// </summary>
-        public bool send_phone_number_to_provider { get; set; }
+        public bool SendPhoneNumberToProvider { get; set; }
 
         /// <summary>
         /// True, if the user's email address will be sent to the provider
         /// </summary>
-        public bool send_email_address_to_provider { get; set; }
+        public bool SendEmailAddressToProvider { get; set; }
 
         /// <summary>
         /// True, if the total price depends on the shipping method
         /// </summary>
-        public bool is_flexible { get; set; }
+        public bool IsFlexible { get; set; }
 
     }
 
@@ -4336,22 +4336,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Name of the user
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Phone number of the user
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Email address of the user
         /// </summary>
-        public string email_address { get; set; }
+        public string EmailAddress { get; set; }
 
         /// <summary>
         /// Shipping address for this order; may be null
         /// </summary>
-        public Address shipping_address { get; set; }
+        public Address ShippingAddress { get; set; }
 
     }
 
@@ -4367,17 +4367,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Shipping option identifier
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Option title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// A list of objects used to calculate the total shipping costs
         /// </summary>
-        public LabeledPricePart[] price_parts { get; set; }
+        public LabeledPricePart[] PriceParts { get; set; }
 
     }
 
@@ -4393,12 +4393,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the saved credentials
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the saved credentials
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -4414,7 +4414,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the saved credentials
         /// </summary>
-        public string saved_credentials_id { get; set; }
+        public string SavedCredentialsId { get; set; }
 
     }
 
@@ -4430,12 +4430,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Contains JSON-encoded data with a credential identifier from the payment provider
         /// </summary>
-        public string data { get; set; }
+        public string Data { get; set; }
 
         /// <summary>
         /// True, if the credential identifier can be saved on the server side
         /// </summary>
-        public bool allow_save { get; set; }
+        public bool AllowSave { get; set; }
 
     }
 
@@ -4451,7 +4451,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// JSON-encoded data with the credential identifier
         /// </summary>
-        public string data { get; set; }
+        public string Data { get; set; }
 
     }
 
@@ -4467,7 +4467,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// JSON-encoded data with the credential identifier
         /// </summary>
-        public string data { get; set; }
+        public string Data { get; set; }
 
     }
 
@@ -4483,22 +4483,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Stripe API publishable key
         /// </summary>
-        public string publishable_key { get; set; }
+        public string PublishableKey { get; set; }
 
         /// <summary>
         /// True, if the user country must be provided
         /// </summary>
-        public bool need_country { get; set; }
+        public bool NeedCountry { get; set; }
 
         /// <summary>
         /// True, if the user ZIP/postal code must be provided
         /// </summary>
-        public bool need_postal_code { get; set; }
+        public bool NeedPostalCode { get; set; }
 
         /// <summary>
         /// True, if the cardholder name must be provided
         /// </summary>
-        public bool need_cardholder_name { get; set; }
+        public bool NeedCardholderName { get; set; }
 
     }
 
@@ -4514,37 +4514,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Full information of the invoice
         /// </summary>
-        public Invoice invoice { get; set; }
+        public Invoice Invoice { get; set; }
 
         /// <summary>
         /// Payment form URL
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// Contains information about the payment provider, if available, to support it natively without the need for opening the URL; may be null
         /// </summary>
-        public PaymentsProviderStripe payments_provider { get; set; }
+        public PaymentsProviderStripe PaymentsProvider { get; set; }
 
         /// <summary>
         /// Saved server-side order information; may be null
         /// </summary>
-        public OrderInfo saved_order_info { get; set; }
+        public OrderInfo SavedOrderInfo { get; set; }
 
         /// <summary>
         /// Contains information about saved card credentials; may be null
         /// </summary>
-        public SavedCredentials saved_credentials { get; set; }
+        public SavedCredentials SavedCredentials { get; set; }
 
         /// <summary>
         /// True, if the user can choose to save credentials
         /// </summary>
-        public bool can_save_credentials { get; set; }
+        public bool CanSaveCredentials { get; set; }
 
         /// <summary>
         /// True, if the user will be able to save credentials protected by a password they set up
         /// </summary>
-        public bool need_password { get; set; }
+        public bool NeedPassword { get; set; }
 
     }
 
@@ -4560,12 +4560,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Temporary identifier of the order information
         /// </summary>
-        public string order_info_id { get; set; }
+        public string OrderInfoId { get; set; }
 
         /// <summary>
         /// Available shipping options
         /// </summary>
-        public ShippingOption[] shipping_options { get; set; }
+        public ShippingOption[] ShippingOptions { get; set; }
 
     }
 
@@ -4581,12 +4581,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the payment request was successful; otherwise the verification_url will be not empty
         /// </summary>
-        public bool success { get; set; }
+        public bool Success { get; set; }
 
         /// <summary>
         /// URL for additional payment credentials verification
         /// </summary>
-        public string verification_url { get; set; }
+        public string VerificationUrl { get; set; }
 
     }
 
@@ -4602,32 +4602,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Point in time (Unix timestamp) when the payment was made
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
         /// <summary>
         /// User identifier of the payment provider bot
         /// </summary>
-        public int payments_provider_user_id { get; set; }
+        public int PaymentsProviderUserId { get; set; }
 
         /// <summary>
         /// Contains information about the invoice
         /// </summary>
-        public Invoice invoice { get; set; }
+        public Invoice Invoice { get; set; }
 
         /// <summary>
         /// Contains order information; may be null
         /// </summary>
-        public OrderInfo order_info { get; set; }
+        public OrderInfo OrderInfo { get; set; }
 
         /// <summary>
         /// Chosen shipping option; may be null
         /// </summary>
-        public ShippingOption shipping_option { get; set; }
+        public ShippingOption ShippingOption { get; set; }
 
         /// <summary>
         /// Title of the saved credentials
         /// </summary>
-        public string credentials_title { get; set; }
+        public string CredentialsTitle { get; set; }
 
     }
 
@@ -4643,12 +4643,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The file
         /// </summary>
-        public File file { get; set; }
+        public File File { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the file was uploaded
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
     }
 
@@ -4807,17 +4807,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Day of the month, 1-31
         /// </summary>
-        public int day { get; set; }
+        public int Day { get; set; }
 
         /// <summary>
         /// Month, 1-12
         /// </summary>
-        public int month { get; set; }
+        public int Month { get; set; }
 
         /// <summary>
         /// Year, 1-9999
         /// </summary>
-        public int year { get; set; }
+        public int Year { get; set; }
 
     }
 
@@ -4833,52 +4833,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// First name of the user written in English; 1-255 characters
         /// </summary>
-        public string first_name { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// Middle name of the user written in English; 0-255 characters
         /// </summary>
-        public string middle_name { get; set; }
+        public string MiddleName { get; set; }
 
         /// <summary>
         /// Last name of the user written in English; 1-255 characters
         /// </summary>
-        public string last_name { get; set; }
+        public string LastName { get; set; }
 
         /// <summary>
         /// Native first name of the user; 1-255 characters
         /// </summary>
-        public string native_first_name { get; set; }
+        public string NativeFirstName { get; set; }
 
         /// <summary>
         /// Native middle name of the user; 0-255 characters
         /// </summary>
-        public string native_middle_name { get; set; }
+        public string NativeMiddleName { get; set; }
 
         /// <summary>
         /// Native last name of the user; 1-255 characters
         /// </summary>
-        public string native_last_name { get; set; }
+        public string NativeLastName { get; set; }
 
         /// <summary>
         /// Birthdate of the user
         /// </summary>
-        public Date birthdate { get; set; }
+        public Date Birthdate { get; set; }
 
         /// <summary>
         /// Gender of the user, "male" or "female"
         /// </summary>
-        public string gender { get; set; }
+        public string Gender { get; set; }
 
         /// <summary>
         /// A two-letter ISO 3166-1 alpha-2 country code of the user's country
         /// </summary>
-        public string country_code { get; set; }
+        public string CountryCode { get; set; }
 
         /// <summary>
         /// A two-letter ISO 3166-1 alpha-2 country code of the user's residence country
         /// </summary>
-        public string residence_country_code { get; set; }
+        public string ResidenceCountryCode { get; set; }
 
     }
 
@@ -4894,32 +4894,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Document number; 1-24 characters
         /// </summary>
-        public string number { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// Document expiry date; may be null
         /// </summary>
-        public Date expiry_date { get; set; }
+        public Date ExpiryDate { get; set; }
 
         /// <summary>
         /// Front side of the document
         /// </summary>
-        public DatedFile front_side { get; set; }
+        public DatedFile FrontSide { get; set; }
 
         /// <summary>
         /// Reverse side of the document; only for driver license and identity card
         /// </summary>
-        public DatedFile reverse_side { get; set; }
+        public DatedFile ReverseSide { get; set; }
 
         /// <summary>
         /// Selfie with the document; may be null
         /// </summary>
-        public DatedFile selfie { get; set; }
+        public DatedFile Selfie { get; set; }
 
         /// <summary>
         /// List of files containing a certified English translation of the document
         /// </summary>
-        public DatedFile[] translation { get; set; }
+        public DatedFile[] Translation { get; set; }
 
     }
 
@@ -4935,32 +4935,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Document number; 1-24 characters
         /// </summary>
-        public string number { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// Document expiry date, if available
         /// </summary>
-        public Date expiry_date { get; set; }
+        public Date ExpiryDate { get; set; }
 
         /// <summary>
         /// Front side of the document
         /// </summary>
-        public InputFile front_side { get; set; }
+        public InputFile FrontSide { get; set; }
 
         /// <summary>
         /// Reverse side of the document; only for driver license and identity card
         /// </summary>
-        public InputFile reverse_side { get; set; }
+        public InputFile ReverseSide { get; set; }
 
         /// <summary>
         /// Selfie with the document, if available
         /// </summary>
-        public InputFile selfie { get; set; }
+        public InputFile Selfie { get; set; }
 
         /// <summary>
         /// List of files containing a certified English translation of the document
         /// </summary>
-        public InputFile[] translation { get; set; }
+        public InputFile[] Translation { get; set; }
 
     }
 
@@ -4976,12 +4976,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of files containing the pages of the document
         /// </summary>
-        public DatedFile[] files { get; set; }
+        public DatedFile[] Files { get; set; }
 
         /// <summary>
         /// List of files containing a certified English translation of the document
         /// </summary>
-        public DatedFile[] translation { get; set; }
+        public DatedFile[] Translation { get; set; }
 
     }
 
@@ -4997,12 +4997,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of files containing the pages of the document
         /// </summary>
-        public InputFile[] files { get; set; }
+        public InputFile[] Files { get; set; }
 
         /// <summary>
         /// List of files containing a certified English translation of the document
         /// </summary>
-        public InputFile[] translation { get; set; }
+        public InputFile[] Translation { get; set; }
 
     }
 
@@ -5018,7 +5018,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Personal details of the user
         /// </summary>
-        public PersonalDetails personal_details { get; set; }
+        public PersonalDetails PersonalDetails { get; set; }
 
     }
 
@@ -5034,7 +5034,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Passport
         /// </summary>
-        public IdentityDocument passport { get; set; }
+        public IdentityDocument Passport { get; set; }
 
     }
 
@@ -5050,7 +5050,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Driver license
         /// </summary>
-        public IdentityDocument driver_license { get; set; }
+        public IdentityDocument DriverLicense { get; set; }
 
     }
 
@@ -5066,7 +5066,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identity card
         /// </summary>
-        public IdentityDocument identity_card { get; set; }
+        public IdentityDocument IdentityCard { get; set; }
 
     }
 
@@ -5082,7 +5082,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Internal passport
         /// </summary>
-        public IdentityDocument internal_passport { get; set; }
+        public IdentityDocument InternalPassport { get; set; }
 
     }
 
@@ -5098,7 +5098,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Address
         /// </summary>
-        public Address address { get; set; }
+        public Address Address { get; set; }
 
     }
 
@@ -5114,7 +5114,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Utility bill
         /// </summary>
-        public PersonalDocument utility_bill { get; set; }
+        public PersonalDocument UtilityBill { get; set; }
 
     }
 
@@ -5130,7 +5130,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Bank statement
         /// </summary>
-        public PersonalDocument bank_statement { get; set; }
+        public PersonalDocument BankStatement { get; set; }
 
     }
 
@@ -5146,7 +5146,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Rental agreement
         /// </summary>
-        public PersonalDocument rental_agreement { get; set; }
+        public PersonalDocument RentalAgreement { get; set; }
 
     }
 
@@ -5162,7 +5162,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Passport registration pages
         /// </summary>
-        public PersonalDocument passport_registration { get; set; }
+        public PersonalDocument PassportRegistration { get; set; }
 
     }
 
@@ -5178,7 +5178,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Temporary registration
         /// </summary>
-        public PersonalDocument temporary_registration { get; set; }
+        public PersonalDocument TemporaryRegistration { get; set; }
 
     }
 
@@ -5194,7 +5194,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Phone number
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
     }
 
@@ -5210,7 +5210,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Email address
         /// </summary>
-        public string email_address { get; set; }
+        public string EmailAddress { get; set; }
 
     }
 
@@ -5226,7 +5226,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Personal details of the user
         /// </summary>
-        public PersonalDetails personal_details { get; set; }
+        public PersonalDetails PersonalDetails { get; set; }
 
     }
 
@@ -5242,7 +5242,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The passport to be saved
         /// </summary>
-        public InputIdentityDocument passport { get; set; }
+        public InputIdentityDocument Passport { get; set; }
 
     }
 
@@ -5258,7 +5258,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The driver license to be saved
         /// </summary>
-        public InputIdentityDocument driver_license { get; set; }
+        public InputIdentityDocument DriverLicense { get; set; }
 
     }
 
@@ -5274,7 +5274,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The identity card to be saved
         /// </summary>
-        public InputIdentityDocument identity_card { get; set; }
+        public InputIdentityDocument IdentityCard { get; set; }
 
     }
 
@@ -5290,7 +5290,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The internal passport to be saved
         /// </summary>
-        public InputIdentityDocument internal_passport { get; set; }
+        public InputIdentityDocument InternalPassport { get; set; }
 
     }
 
@@ -5306,7 +5306,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The address to be saved
         /// </summary>
-        public Address address { get; set; }
+        public Address Address { get; set; }
 
     }
 
@@ -5322,7 +5322,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The utility bill to be saved
         /// </summary>
-        public InputPersonalDocument utility_bill { get; set; }
+        public InputPersonalDocument UtilityBill { get; set; }
 
     }
 
@@ -5338,7 +5338,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The bank statement to be saved
         /// </summary>
-        public InputPersonalDocument bank_statement { get; set; }
+        public InputPersonalDocument BankStatement { get; set; }
 
     }
 
@@ -5354,7 +5354,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The rental agreement to be saved
         /// </summary>
-        public InputPersonalDocument rental_agreement { get; set; }
+        public InputPersonalDocument RentalAgreement { get; set; }
 
     }
 
@@ -5370,7 +5370,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The passport registration page to be saved
         /// </summary>
-        public InputPersonalDocument passport_registration { get; set; }
+        public InputPersonalDocument PassportRegistration { get; set; }
 
     }
 
@@ -5386,7 +5386,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The temporary registration document to be saved
         /// </summary>
-        public InputPersonalDocument temporary_registration { get; set; }
+        public InputPersonalDocument TemporaryRegistration { get; set; }
 
     }
 
@@ -5402,7 +5402,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The phone number to be saved
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
     }
 
@@ -5418,7 +5418,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The email address to be saved
         /// </summary>
-        public string email_address { get; set; }
+        public string EmailAddress { get; set; }
 
     }
 
@@ -5434,7 +5434,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Telegram Passport elements
         /// </summary>
-        public PassportElement[] elements { get; set; }
+        public PassportElement[] Elements { get; set; }
 
     }
 
@@ -5461,7 +5461,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Field name
         /// </summary>
-        public string field_name { get; set; }
+        public string FieldName { get; set; }
 
     }
 
@@ -5554,17 +5554,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Type of the Telegram Passport element which has the error
         /// </summary>
-        public PassportElementType type { get; set; }
+        public PassportElementType Type { get; set; }
 
         /// <summary>
         /// Error message
         /// </summary>
-        public string message { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// Error source
         /// </summary>
-        public PassportElementErrorSource source { get; set; }
+        public PassportElementErrorSource Source { get; set; }
 
     }
 
@@ -5580,22 +5580,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Type of the element
         /// </summary>
-        public PassportElementType type { get; set; }
+        public PassportElementType Type { get; set; }
 
         /// <summary>
         /// True, if a selfie is required with the identity document
         /// </summary>
-        public bool is_selfie_required { get; set; }
+        public bool IsSelfieRequired { get; set; }
 
         /// <summary>
         /// True, if a certified English translation is required with the document
         /// </summary>
-        public bool is_translation_required { get; set; }
+        public bool IsTranslationRequired { get; set; }
 
         /// <summary>
         /// True, if personal details must include the user's name in the language of their country of residence
         /// </summary>
-        public bool is_native_name_required { get; set; }
+        public bool IsNativeNameRequired { get; set; }
 
     }
 
@@ -5611,7 +5611,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of Telegram Passport elements any of which is enough to provide
         /// </summary>
-        public PassportSuitableElement[] suitable_elements { get; set; }
+        public PassportSuitableElement[] SuitableElements { get; set; }
 
     }
 
@@ -5627,27 +5627,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the authorization form
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Information about the Telegram Passport elements that need to be provided to complete the form
         /// </summary>
-        public PassportRequiredElement[] required_elements { get; set; }
+        public PassportRequiredElement[] RequiredElements { get; set; }
 
         /// <summary>
         /// Already available Telegram Passport elements
         /// </summary>
-        public PassportElement[] elements { get; set; }
+        public PassportElement[] Elements { get; set; }
 
         /// <summary>
         /// Errors in the elements that are already available
         /// </summary>
-        public PassportElementError[] errors { get; set; }
+        public PassportElementError[] Errors { get; set; }
 
         /// <summary>
         /// URL for the privacy policy of the service; can be empty
         /// </summary>
-        public string privacy_policy_url { get; set; }
+        public string PrivacyPolicyUrl { get; set; }
 
     }
 
@@ -5663,17 +5663,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The encrypted credentials
         /// </summary>
-        public byte[] data { get; set; }
+        public byte[] Data { get; set; }
 
         /// <summary>
         /// The decrypted data hash
         /// </summary>
-        public byte[] hash { get; set; }
+        public byte[] Hash { get; set; }
 
         /// <summary>
         /// Secret for data decryption, encrypted with the service's public key
         /// </summary>
-        public byte[] secret { get; set; }
+        public byte[] Secret { get; set; }
 
     }
 
@@ -5689,47 +5689,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Type of Telegram Passport element
         /// </summary>
-        public PassportElementType type { get; set; }
+        public PassportElementType Type { get; set; }
 
         /// <summary>
         /// Encrypted JSON-encoded data about the user
         /// </summary>
-        public byte[] data { get; set; }
+        public byte[] Data { get; set; }
 
         /// <summary>
         /// The front side of an identity document
         /// </summary>
-        public DatedFile front_side { get; set; }
+        public DatedFile FrontSide { get; set; }
 
         /// <summary>
         /// The reverse side of an identity document; may be null
         /// </summary>
-        public DatedFile reverse_side { get; set; }
+        public DatedFile ReverseSide { get; set; }
 
         /// <summary>
         /// Selfie with the document; may be null
         /// </summary>
-        public DatedFile selfie { get; set; }
+        public DatedFile Selfie { get; set; }
 
         /// <summary>
         /// List of files containing a certified English translation of the document
         /// </summary>
-        public DatedFile[] translation { get; set; }
+        public DatedFile[] Translation { get; set; }
 
         /// <summary>
         /// List of attached files
         /// </summary>
-        public DatedFile[] files { get; set; }
+        public DatedFile[] Files { get; set; }
 
         /// <summary>
         /// Unencrypted data, phone number or email address
         /// </summary>
-        public string value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Hash of the entire element
         /// </summary>
-        public string hash { get; set; }
+        public string Hash { get; set; }
 
     }
 
@@ -5745,7 +5745,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hash of the entire element
         /// </summary>
-        public byte[] element_hash { get; set; }
+        public byte[] ElementHash { get; set; }
 
     }
 
@@ -5761,12 +5761,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Field name
         /// </summary>
-        public string field_name { get; set; }
+        public string FieldName { get; set; }
 
         /// <summary>
         /// Current data hash
         /// </summary>
-        public byte[] data_hash { get; set; }
+        public byte[] DataHash { get; set; }
 
     }
 
@@ -5782,7 +5782,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hash of the file containing the front side
         /// </summary>
-        public byte[] file_hash { get; set; }
+        public byte[] FileHash { get; set; }
 
     }
 
@@ -5798,7 +5798,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hash of the file containing the reverse side
         /// </summary>
-        public byte[] file_hash { get; set; }
+        public byte[] FileHash { get; set; }
 
     }
 
@@ -5814,7 +5814,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hash of the file containing the selfie
         /// </summary>
-        public byte[] file_hash { get; set; }
+        public byte[] FileHash { get; set; }
 
     }
 
@@ -5830,7 +5830,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hash of the file containing the translation
         /// </summary>
-        public byte[] file_hash { get; set; }
+        public byte[] FileHash { get; set; }
 
     }
 
@@ -5846,7 +5846,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hashes of all files with the translation
         /// </summary>
-        public byte[][] file_hashes { get; set; }
+        public byte[][] FileHashes { get; set; }
 
     }
 
@@ -5862,7 +5862,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hash of the file which has the error
         /// </summary>
-        public byte[] file_hash { get; set; }
+        public byte[] FileHash { get; set; }
 
     }
 
@@ -5878,7 +5878,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Current hashes of all attached files
         /// </summary>
-        public byte[][] file_hashes { get; set; }
+        public byte[][] FileHashes { get; set; }
 
     }
 
@@ -5894,17 +5894,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Type of Telegram Passport element that has the error
         /// </summary>
-        public PassportElementType type { get; set; }
+        public PassportElementType Type { get; set; }
 
         /// <summary>
         /// Error message
         /// </summary>
-        public string message { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// Error source
         /// </summary>
-        public InputPassportElementErrorSource source { get; set; }
+        public InputPassportElementErrorSource Source { get; set; }
 
     }
 
@@ -5920,12 +5920,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text of the message
         /// </summary>
-        public FormattedText text { get; set; }
+        public FormattedText Text { get; set; }
 
         /// <summary>
         /// A preview of the web page that's mentioned in the text; may be null
         /// </summary>
-        public WebPage web_page { get; set; }
+        public WebPage WebPage { get; set; }
 
     }
 
@@ -5941,17 +5941,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Animation animation { get; set; }
+        public Animation Animation { get; set; }
 
         /// <summary>
         /// Animation caption
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
         /// <summary>
         /// True, if the animation thumbnail must be blurred and the animation must be shown only while tapped
         /// </summary>
-        public bool is_secret { get; set; }
+        public bool IsSecret { get; set; }
 
     }
 
@@ -5967,12 +5967,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Audio audio { get; set; }
+        public Audio Audio { get; set; }
 
         /// <summary>
         /// Audio caption
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -5988,12 +5988,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Document document { get; set; }
+        public Document Document { get; set; }
 
         /// <summary>
         /// Document caption
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -6009,17 +6009,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Photo photo { get; set; }
+        public Photo Photo { get; set; }
 
         /// <summary>
         /// Photo caption
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
         /// <summary>
         /// True, if the photo must be blurred and must be shown only while tapped
         /// </summary>
-        public bool is_secret { get; set; }
+        public bool IsSecret { get; set; }
 
     }
 
@@ -6046,7 +6046,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Sticker sticker { get; set; }
+        public Sticker Sticker { get; set; }
 
     }
 
@@ -6062,17 +6062,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Video video { get; set; }
+        public Video Video { get; set; }
 
         /// <summary>
         /// Video caption
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
         /// <summary>
         /// True, if the video thumbnail must be blurred and the video must be shown only while tapped
         /// </summary>
-        public bool is_secret { get; set; }
+        public bool IsSecret { get; set; }
 
     }
 
@@ -6099,17 +6099,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public VideoNote video_note { get; set; }
+        public VideoNote VideoNote { get; set; }
 
         /// <summary>
         /// True, if at least one of the recipients has viewed the video note
         /// </summary>
-        public bool is_viewed { get; set; }
+        public bool IsViewed { get; set; }
 
         /// <summary>
         /// True, if the video note thumbnail must be blurred and the video note must be shown only while tapped
         /// </summary>
-        public bool is_secret { get; set; }
+        public bool IsSecret { get; set; }
 
     }
 
@@ -6125,17 +6125,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public VoiceNote voice_note { get; set; }
+        public VoiceNote VoiceNote { get; set; }
 
         /// <summary>
         /// Voice note caption
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
         /// <summary>
         /// True, if at least one of the recipients has listened to the voice note
         /// </summary>
-        public bool is_listened { get; set; }
+        public bool IsListened { get; set; }
 
     }
 
@@ -6151,17 +6151,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// Time relative to the message sent date until which the location can be updated, in seconds
         /// </summary>
-        public int live_period { get; set; }
+        public int LivePeriod { get; set; }
 
         /// <summary>
         /// Left time for which the location can be updated, in seconds. updateMessageContent is not sent when this field changes
         /// </summary>
-        public int expires_in { get; set; }
+        public int ExpiresIn { get; set; }
 
     }
 
@@ -6177,7 +6177,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Venue venue { get; set; }
+        public Venue Venue { get; set; }
 
     }
 
@@ -6193,7 +6193,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message content
         /// </summary>
-        public Contact contact { get; set; }
+        public Contact Contact { get; set; }
 
     }
 
@@ -6209,7 +6209,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Game
         /// </summary>
-        public Game game { get; set; }
+        public Game Game { get; set; }
 
     }
 
@@ -6225,47 +6225,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Product title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// A message with an invoice from a bot
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Product photo; may be null
         /// </summary>
-        public Photo photo { get; set; }
+        public Photo Photo { get; set; }
 
         /// <summary>
         /// Currency for the product price
         /// </summary>
-        public string currency { get; set; }
+        public string Currency { get; set; }
 
         /// <summary>
         /// Product total price in the minimal quantity of the currency
         /// </summary>
-        public long total_amount { get; set; }
+        public long TotalAmount { get; set; }
 
         /// <summary>
         /// Unique invoice bot start_parameter. To share an invoice use the URL https://t.me/{bot_username}?start={start_parameter}
         /// </summary>
-        public string start_parameter { get; set; }
+        public string StartParameter { get; set; }
 
         /// <summary>
         /// True, if the invoice is a test invoice
         /// </summary>
-        public bool is_test { get; set; }
+        public bool IsTest { get; set; }
 
         /// <summary>
         /// True, if the shipping address should be specified
         /// </summary>
-        public bool need_shipping_address { get; set; }
+        public bool NeedShippingAddress { get; set; }
 
         /// <summary>
         /// The identifier of the message with the receipt, after the product has been purchased
         /// </summary>
-        public long receipt_message_id { get; set; }
+        public long ReceiptMessageId { get; set; }
 
     }
 
@@ -6281,12 +6281,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Reason why the call was discarded
         /// </summary>
-        public CallDiscardReason discard_reason { get; set; }
+        public CallDiscardReason DiscardReason { get; set; }
 
         /// <summary>
         /// Call duration, in seconds
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
     }
 
@@ -6302,12 +6302,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Title of the basic group
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// User identifiers of members in the basic group
         /// </summary>
-        public int[] member_user_ids { get; set; }
+        public int[] MemberUserIds { get; set; }
 
     }
 
@@ -6323,7 +6323,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Title of the supergroup or channel
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -6339,7 +6339,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New chat title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -6355,7 +6355,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New chat photo
         /// </summary>
-        public Photo photo { get; set; }
+        public Photo Photo { get; set; }
 
     }
 
@@ -6382,7 +6382,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifiers of the new members
         /// </summary>
-        public int[] member_user_ids { get; set; }
+        public int[] MemberUserIds { get; set; }
 
     }
 
@@ -6409,7 +6409,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier of the deleted chat member
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -6425,7 +6425,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup to which the basic group was upgraded
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
     }
 
@@ -6441,12 +6441,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Title of the newly created supergroup
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// The identifier of the original basic group
         /// </summary>
-        public int basic_group_id { get; set; }
+        public int BasicGroupId { get; set; }
 
     }
 
@@ -6462,7 +6462,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the pinned message, can be an identifier of a deleted message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -6489,7 +6489,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New TTL
         /// </summary>
-        public int ttl { get; set; }
+        public int Ttl { get; set; }
 
     }
 
@@ -6505,7 +6505,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message text to be shown in the chat
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
     }
 
@@ -6521,17 +6521,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the message with the game, can be an identifier of a deleted message
         /// </summary>
-        public long game_message_id { get; set; }
+        public long GameMessageId { get; set; }
 
         /// <summary>
         /// Identifier of the game, may be different from the games presented in the message with the game
         /// </summary>
-        public long game_id { get; set; }
+        public long GameId { get; set; }
 
         /// <summary>
         /// New score
         /// </summary>
-        public int score { get; set; }
+        public int Score { get; set; }
 
     }
 
@@ -6547,17 +6547,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the message with the corresponding invoice; can be an identifier of a deleted message
         /// </summary>
-        public long invoice_message_id { get; set; }
+        public long InvoiceMessageId { get; set; }
 
         /// <summary>
         /// Currency for the price of the product
         /// </summary>
-        public string currency { get; set; }
+        public string Currency { get; set; }
 
         /// <summary>
         /// Total price for the product, in the minimal quantity of the currency
         /// </summary>
-        public long total_amount { get; set; }
+        public long TotalAmount { get; set; }
 
     }
 
@@ -6573,42 +6573,42 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the message with the corresponding invoice; can be an identifier of a deleted message
         /// </summary>
-        public long invoice_message_id { get; set; }
+        public long InvoiceMessageId { get; set; }
 
         /// <summary>
         /// Currency for price of the product
         /// </summary>
-        public string currency { get; set; }
+        public string Currency { get; set; }
 
         /// <summary>
         /// Total price for the product, in the minimal quantity of the currency
         /// </summary>
-        public long total_amount { get; set; }
+        public long TotalAmount { get; set; }
 
         /// <summary>
         /// Invoice payload
         /// </summary>
-        public byte[] invoice_payload { get; set; }
+        public byte[] InvoicePayload { get; set; }
 
         /// <summary>
         /// Identifier of the shipping option chosen by the user; may be empty if not applicable
         /// </summary>
-        public string shipping_option_id { get; set; }
+        public string ShippingOptionId { get; set; }
 
         /// <summary>
         /// Information about the order; may be null
         /// </summary>
-        public OrderInfo order_info { get; set; }
+        public OrderInfo OrderInfo { get; set; }
 
         /// <summary>
         /// Telegram payment identifier
         /// </summary>
-        public string telegram_payment_charge_id { get; set; }
+        public string TelegramPaymentChargeId { get; set; }
 
         /// <summary>
         /// Provider payment identifier
         /// </summary>
-        public string provider_payment_charge_id { get; set; }
+        public string ProviderPaymentChargeId { get; set; }
 
     }
 
@@ -6635,7 +6635,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Domain name of the connected website
         /// </summary>
-        public string domain_name { get; set; }
+        public string DomainName { get; set; }
 
     }
 
@@ -6651,7 +6651,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of Telegram Passport element types sent
         /// </summary>
-        public PassportElementType[] types { get; set; }
+        public PassportElementType[] Types { get; set; }
 
     }
 
@@ -6667,12 +6667,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of received Telegram Passport elements
         /// </summary>
-        public EncryptedPassportElement[] elements { get; set; }
+        public EncryptedPassportElement[] Elements { get; set; }
 
         /// <summary>
         /// Encrypted data credentials
         /// </summary>
-        public EncryptedCredentials credentials { get; set; }
+        public EncryptedCredentials Credentials { get; set; }
 
     }
 
@@ -6809,7 +6809,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Programming language of the code; as defined by the sender
         /// </summary>
-        public string language { get; set; }
+        public string Language { get; set; }
 
     }
 
@@ -6825,7 +6825,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// HTTP or tg:// URL to be opened when the link is clicked
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
     }
 
@@ -6841,7 +6841,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the mentioned user
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -6868,17 +6868,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Thumbnail file to send. Sending thumbnails by file_id is currently not supported
         /// </summary>
-        public InputFile thumbnail { get; set; }
+        public InputFile Thumbnail { get; set; }
 
         /// <summary>
         /// Thumbnail width, usually shouldn't exceed 90. Use 0 if unknown
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Thumbnail height, usually shouldn't exceed 90. Use 0 if unknown
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
     }
 
@@ -6894,17 +6894,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Formatted text to be sent; 1-GetOption("message_text_length_max") characters. Only Bold, Italic, Code, Pre, PreCode and TextUrl entities are allowed to be specified manually
         /// </summary>
-        public FormattedText text { get; set; }
+        public FormattedText Text { get; set; }
 
         /// <summary>
         /// True, if rich web page previews for URLs in the message text should be disabled
         /// </summary>
-        public bool disable_web_page_preview { get; set; }
+        public bool DisableWebPagePreview { get; set; }
 
         /// <summary>
         /// True, if a chat message draft should be deleted
         /// </summary>
-        public bool clear_draft { get; set; }
+        public bool ClearDraft { get; set; }
 
     }
 
@@ -6920,32 +6920,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Animation file to be sent
         /// </summary>
-        public InputFile animation { get; set; }
+        public InputFile Animation { get; set; }
 
         /// <summary>
         /// Animation thumbnail, if available
         /// </summary>
-        public InputThumbnail thumbnail { get; set; }
+        public InputThumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// Duration of the animation, in seconds
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Width of the animation; may be replaced by the server
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Height of the animation; may be replaced by the server
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Animation caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -6961,32 +6961,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Audio file to be sent
         /// </summary>
-        public InputFile audio { get; set; }
+        public InputFile Audio { get; set; }
 
         /// <summary>
         /// Thumbnail of the cover for the album, if available
         /// </summary>
-        public InputThumbnail album_cover_thumbnail { get; set; }
+        public InputThumbnail AlbumCoverThumbnail { get; set; }
 
         /// <summary>
         /// Duration of the audio, in seconds; may be replaced by the server
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Title of the audio; 0-64 characters; may be replaced by the server
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Performer of the audio; 0-64 characters, may be replaced by the server
         /// </summary>
-        public string performer { get; set; }
+        public string Performer { get; set; }
 
         /// <summary>
         /// Audio caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -7002,17 +7002,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Document to be sent
         /// </summary>
-        public InputFile document { get; set; }
+        public InputFile Document { get; set; }
 
         /// <summary>
         /// Document thumbnail, if available
         /// </summary>
-        public InputThumbnail thumbnail { get; set; }
+        public InputThumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// Document caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -7028,37 +7028,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Photo to send
         /// </summary>
-        public InputFile photo { get; set; }
+        public InputFile Photo { get; set; }
 
         /// <summary>
         /// Photo thumbnail to be sent, this is sent to the other party in secret chats only
         /// </summary>
-        public InputThumbnail thumbnail { get; set; }
+        public InputThumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// File identifiers of the stickers added to the photo, if applicable
         /// </summary>
-        public int[] added_sticker_file_ids { get; set; }
+        public int[] AddedStickerFileIds { get; set; }
 
         /// <summary>
         /// Photo width
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Photo height
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Photo caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
         /// <summary>
         /// Photo TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats
         /// </summary>
-        public int ttl { get; set; }
+        public int Ttl { get; set; }
 
     }
 
@@ -7074,22 +7074,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker to be sent
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
         /// <summary>
         /// Sticker thumbnail, if available
         /// </summary>
-        public InputThumbnail thumbnail { get; set; }
+        public InputThumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// Sticker width
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Sticker height
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
     }
 
@@ -7105,47 +7105,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Video to be sent
         /// </summary>
-        public InputFile video { get; set; }
+        public InputFile Video { get; set; }
 
         /// <summary>
         /// Video thumbnail, if available
         /// </summary>
-        public InputThumbnail thumbnail { get; set; }
+        public InputThumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// File identifiers of the stickers added to the video, if applicable
         /// </summary>
-        public int[] added_sticker_file_ids { get; set; }
+        public int[] AddedStickerFileIds { get; set; }
 
         /// <summary>
         /// Duration of the video, in seconds
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Video width
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Video height
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// True, if the video should be tried to be streamed
         /// </summary>
-        public bool supports_streaming { get; set; }
+        public bool SupportsStreaming { get; set; }
 
         /// <summary>
         /// Video caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
         /// <summary>
         /// Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats
         /// </summary>
-        public int ttl { get; set; }
+        public int Ttl { get; set; }
 
     }
 
@@ -7161,22 +7161,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Video note to be sent
         /// </summary>
-        public InputFile video_note { get; set; }
+        public InputFile VideoNote { get; set; }
 
         /// <summary>
         /// Video thumbnail, if available
         /// </summary>
-        public InputThumbnail thumbnail { get; set; }
+        public InputThumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// Duration of the video, in seconds
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Video width and height; must be positive and not greater than 640
         /// </summary>
-        public int length { get; set; }
+        public int Length { get; set; }
 
     }
 
@@ -7192,22 +7192,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Voice note to be sent
         /// </summary>
-        public InputFile voice_note { get; set; }
+        public InputFile VoiceNote { get; set; }
 
         /// <summary>
         /// Duration of the voice note, in seconds
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Waveform representation of the voice note, in 5-bit format
         /// </summary>
-        public byte[] waveform { get; set; }
+        public byte[] Waveform { get; set; }
 
         /// <summary>
         /// Voice note caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -7223,12 +7223,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Location to be sent
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// Period for which the location can be updated, in seconds; should bebetween 60 and 86400 for a live location and 0 otherwise
         /// </summary>
-        public int live_period { get; set; }
+        public int LivePeriod { get; set; }
 
     }
 
@@ -7244,7 +7244,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Venue to send
         /// </summary>
-        public Venue venue { get; set; }
+        public Venue Venue { get; set; }
 
     }
 
@@ -7260,7 +7260,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Contact to send
         /// </summary>
-        public Contact contact { get; set; }
+        public Contact Contact { get; set; }
 
     }
 
@@ -7276,12 +7276,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier of the bot that owns the game
         /// </summary>
-        public int bot_user_id { get; set; }
+        public int BotUserId { get; set; }
 
         /// <summary>
         /// Short name of the game
         /// </summary>
-        public string game_short_name { get; set; }
+        public string GameShortName { get; set; }
 
     }
 
@@ -7297,57 +7297,57 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Invoice
         /// </summary>
-        public Invoice invoice { get; set; }
+        public Invoice Invoice { get; set; }
 
         /// <summary>
         /// Product title; 1-32 characters
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// A message with an invoice; can be used only by bots and only in private chats
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Product photo URL; optional
         /// </summary>
-        public string photo_url { get; set; }
+        public string PhotoUrl { get; set; }
 
         /// <summary>
         /// Product photo size
         /// </summary>
-        public int photo_size { get; set; }
+        public int PhotoSize { get; set; }
 
         /// <summary>
         /// Product photo width
         /// </summary>
-        public int photo_width { get; set; }
+        public int PhotoWidth { get; set; }
 
         /// <summary>
         /// Product photo height
         /// </summary>
-        public int photo_height { get; set; }
+        public int PhotoHeight { get; set; }
 
         /// <summary>
         /// The invoice payload
         /// </summary>
-        public byte[] payload { get; set; }
+        public byte[] Payload { get; set; }
 
         /// <summary>
         /// Payment provider token
         /// </summary>
-        public string provider_token { get; set; }
+        public string ProviderToken { get; set; }
 
         /// <summary>
         /// JSON-encoded data about the invoice, which will be shared with the payment provider
         /// </summary>
-        public string provider_data { get; set; }
+        public string ProviderData { get; set; }
 
         /// <summary>
         /// Unique invoice bot start_parameter for the generation of this invoice
         /// </summary>
-        public string start_parameter { get; set; }
+        public string StartParameter { get; set; }
 
     }
 
@@ -7363,17 +7363,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier for the chat this forwarded message came from
         /// </summary>
-        public long from_chat_id { get; set; }
+        public long FromChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message to forward
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// True, if a game message should be shared within a launched game; applies only to game messages
         /// </summary>
-        public bool in_game_share { get; set; }
+        public bool InGameShare { get; set; }
 
     }
 
@@ -7587,7 +7587,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Upload progress, as a percentage
         /// </summary>
-        public int progress { get; set; }
+        public int Progress { get; set; }
 
     }
 
@@ -7614,7 +7614,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Upload progress, as a percentage
         /// </summary>
-        public int progress { get; set; }
+        public int Progress { get; set; }
 
     }
 
@@ -7630,7 +7630,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Upload progress, as a percentage
         /// </summary>
-        public int progress { get; set; }
+        public int Progress { get; set; }
 
     }
 
@@ -7646,7 +7646,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Upload progress, as a percentage
         /// </summary>
-        public int progress { get; set; }
+        public int Progress { get; set; }
 
     }
 
@@ -7706,7 +7706,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Upload progress, as a percentage
         /// </summary>
-        public int progress { get; set; }
+        public int Progress { get; set; }
 
     }
 
@@ -7744,7 +7744,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Point in time (Unix timestamp) when the user's online status will expire
         /// </summary>
-        public int expires { get; set; }
+        public int Expires { get; set; }
 
     }
 
@@ -7760,7 +7760,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Point in time (Unix timestamp) when the user was last online
         /// </summary>
-        public int was_online { get; set; }
+        public int WasOnline { get; set; }
 
     }
 
@@ -7809,7 +7809,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of stickers
         /// </summary>
-        public Sticker[] stickers { get; set; }
+        public Sticker[] Stickers_ { get; set; }
 
     }
 
@@ -7825,7 +7825,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of emojis
         /// </summary>
-        public string[] emojis { get; set; }
+        public string[] Emojis { get; set; }
 
     }
 
@@ -7841,52 +7841,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the sticker set
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Title of the sticker set
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Name of the sticker set
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// True, if the sticker set has been installed by the current user
         /// </summary>
-        public bool is_installed { get; set; }
+        public bool IsInstalled { get; set; }
 
         /// <summary>
         /// True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously
         /// </summary>
-        public bool is_archived { get; set; }
+        public bool IsArchived { get; set; }
 
         /// <summary>
         /// True, if the sticker set is official
         /// </summary>
-        public bool is_official { get; set; }
+        public bool IsOfficial { get; set; }
 
         /// <summary>
         /// True, if the stickers in the set are masks
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
         /// <summary>
         /// True for already viewed trending sticker sets
         /// </summary>
-        public bool is_viewed { get; set; }
+        public bool IsViewed { get; set; }
 
         /// <summary>
         /// List of stickers in this set
         /// </summary>
-        public Sticker[] stickers { get; set; }
+        public Sticker[] Stickers { get; set; }
 
         /// <summary>
         /// A list of emoji corresponding to the stickers in the same order
         /// </summary>
-        public StickerEmojis[] emojis { get; set; }
+        public StickerEmojis[] Emojis { get; set; }
 
     }
 
@@ -7902,52 +7902,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the sticker set
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Title of the sticker set
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Name of the sticker set
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// True, if the sticker set has been installed by current user
         /// </summary>
-        public bool is_installed { get; set; }
+        public bool IsInstalled { get; set; }
 
         /// <summary>
         /// True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously
         /// </summary>
-        public bool is_archived { get; set; }
+        public bool IsArchived { get; set; }
 
         /// <summary>
         /// True, if the sticker set is official
         /// </summary>
-        public bool is_official { get; set; }
+        public bool IsOfficial { get; set; }
 
         /// <summary>
         /// True, if the stickers in the set are masks
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
         /// <summary>
         /// True for already viewed trending sticker sets
         /// </summary>
-        public bool is_viewed { get; set; }
+        public bool IsViewed { get; set; }
 
         /// <summary>
         /// Total number of stickers in the set
         /// </summary>
-        public int size { get; set; }
+        public int Size { get; set; }
 
         /// <summary>
         /// Contains up to the first 5 stickers from the set, depending on the context. If the client needs more stickers the full set should be requested
         /// </summary>
-        public Sticker[] covers { get; set; }
+        public Sticker[] Covers { get; set; }
 
     }
 
@@ -7963,12 +7963,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Approximate total number of sticker sets found
         /// </summary>
-        public int total_count { get; set; }
+        public int TotalCount { get; set; }
 
         /// <summary>
         /// List of sticker sets
         /// </summary>
-        public StickerSetInfo[] sets { get; set; }
+        public StickerSetInfo[] Sets { get; set; }
 
     }
 
@@ -8039,22 +8039,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if UDP peer-to-peer connections are supported
         /// </summary>
-        public bool udp_p2p { get; set; }
+        public bool UdpP2p { get; set; }
 
         /// <summary>
         /// True, if connection through UDP reflectors is supported
         /// </summary>
-        public bool udp_reflector { get; set; }
+        public bool UdpReflector { get; set; }
 
         /// <summary>
         /// Minimum supported API layer; use 65
         /// </summary>
-        public int min_layer { get; set; }
+        public int MinLayer { get; set; }
 
         /// <summary>
         /// Maximum supported API layer; use 65
         /// </summary>
-        public int max_layer { get; set; }
+        public int MaxLayer { get; set; }
 
     }
 
@@ -8070,27 +8070,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Reflector identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// IPv4 reflector address
         /// </summary>
-        public string ip { get; set; }
+        public string Ip { get; set; }
 
         /// <summary>
         /// IPv6 reflector address
         /// </summary>
-        public string ipv6 { get; set; }
+        public string Ipv6 { get; set; }
 
         /// <summary>
         /// Reflector port number
         /// </summary>
-        public int port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// Connection peer tag
         /// </summary>
-        public byte[] peer_tag { get; set; }
+        public byte[] PeerTag { get; set; }
 
     }
 
@@ -8106,7 +8106,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Call identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
     }
 
@@ -8122,12 +8122,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the call has already been created by the server
         /// </summary>
-        public bool is_created { get; set; }
+        public bool IsCreated { get; set; }
 
         /// <summary>
         /// True, if the call has already been received by the other party
         /// </summary>
-        public bool is_received { get; set; }
+        public bool IsReceived { get; set; }
 
     }
 
@@ -8154,27 +8154,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Call protocols supported by the peer
         /// </summary>
-        public CallProtocol protocol { get; set; }
+        public CallProtocol Protocol { get; set; }
 
         /// <summary>
         /// Available UDP reflectors
         /// </summary>
-        public CallConnection[] connections { get; set; }
+        public CallConnection[] Connections { get; set; }
 
         /// <summary>
         /// A JSON-encoded call config
         /// </summary>
-        public string config { get; set; }
+        public string Config { get; set; }
 
         /// <summary>
         /// Call encryption key
         /// </summary>
-        public byte[] encryption_key { get; set; }
+        public byte[] EncryptionKey { get; set; }
 
         /// <summary>
         /// Encryption key emojis fingerprint
         /// </summary>
-        public string[] emojis { get; set; }
+        public string[] Emojis { get; set; }
 
     }
 
@@ -8201,17 +8201,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The reason, why the call has ended
         /// </summary>
-        public CallDiscardReason reason { get; set; }
+        public CallDiscardReason Reason { get; set; }
 
         /// <summary>
         /// True, if the call rating should be sent to the server
         /// </summary>
-        public bool need_rating { get; set; }
+        public bool NeedRating { get; set; }
 
         /// <summary>
         /// True, if the call debug information should be sent to the server
         /// </summary>
-        public bool need_debug_information { get; set; }
+        public bool NeedDebugInformation { get; set; }
 
     }
 
@@ -8227,7 +8227,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Error. An error with the code 4005000 will be returned if an outgoing call is missed because of an expired timeout
         /// </summary>
-        public Error error { get; set; }
+        public Error Error { get; set; }
 
     }
 
@@ -8243,22 +8243,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Call identifier, not persistent
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Peer user identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// True, if the call is outgoing
         /// </summary>
-        public bool is_outgoing { get; set; }
+        public bool IsOutgoing { get; set; }
 
         /// <summary>
         /// Call state
         /// </summary>
-        public CallState state { get; set; }
+        public CallState State { get; set; }
 
     }
 
@@ -8274,7 +8274,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of animations
         /// </summary>
-        public Animation[] animations { get; set; }
+        public Animation[] Animations_ { get; set; }
 
     }
 
@@ -8290,12 +8290,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifiers of the imported contacts in the same order as they were specified in the request; 0 if the contact is not yet a registered user
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
         /// <summary>
         /// The number of users that imported the corresponding contact; 0 for already registered users or if unavailable
         /// </summary>
-        public int[] importer_count { get; set; }
+        public int[] ImporterCount { get; set; }
 
     }
 
@@ -8311,47 +8311,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the query result
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// URL of the static result thumbnail (JPEG or GIF), if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// The URL of the GIF-file (file size must not exceed 1MB)
         /// </summary>
-        public string gif_url { get; set; }
+        public string GifUrl { get; set; }
 
         /// <summary>
         /// Duration of the GIF, in seconds
         /// </summary>
-        public int gif_duration { get; set; }
+        public int GifDuration { get; set; }
 
         /// <summary>
         /// Width of the GIF
         /// </summary>
-        public int gif_width { get; set; }
+        public int GifWidth { get; set; }
 
         /// <summary>
         /// Height of the GIF
         /// </summary>
-        public int gif_height { get; set; }
+        public int GifHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8367,47 +8367,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the result
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// URL of the static result thumbnail (JPEG or GIF), if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// The URL of the MPEG4-file (file size must not exceed 1MB)
         /// </summary>
-        public string mpeg4_url { get; set; }
+        public string Mpeg4Url { get; set; }
 
         /// <summary>
         /// Duration of the video, in seconds
         /// </summary>
-        public int mpeg4_duration { get; set; }
+        public int Mpeg4Duration { get; set; }
 
         /// <summary>
         /// Width of the video
         /// </summary>
-        public int mpeg4_width { get; set; }
+        public int Mpeg4Width { get; set; }
 
         /// <summary>
         /// Height of the video
         /// </summary>
-        public int mpeg4_height { get; set; }
+        public int Mpeg4Height { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8423,52 +8423,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// URL of the result, if it exists
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// True, if the URL must be not shown
         /// </summary>
-        public bool hide_url { get; set; }
+        public bool HideUrl { get; set; }
 
         /// <summary>
         /// Title of the result
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents a link to an article or web page
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// URL of the result thumbnail, if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// Thumbnail width, if known
         /// </summary>
-        public int thumbnail_width { get; set; }
+        public int ThumbnailWidth { get; set; }
 
         /// <summary>
         /// Thumbnail height, if known
         /// </summary>
-        public int thumbnail_height { get; set; }
+        public int ThumbnailHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8484,37 +8484,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the audio file
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Performer of the audio file
         /// </summary>
-        public string performer { get; set; }
+        public string Performer { get; set; }
 
         /// <summary>
         /// The URL of the audio file
         /// </summary>
-        public string audio_url { get; set; }
+        public string AudioUrl { get; set; }
 
         /// <summary>
         /// Audio file duration, in seconds
         /// </summary>
-        public int audio_duration { get; set; }
+        public int AudioDuration { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAudio, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8530,37 +8530,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// User contact
         /// </summary>
-        public Contact contact { get; set; }
+        public Contact Contact { get; set; }
 
         /// <summary>
         /// URL of the result thumbnail, if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// Thumbnail width, if known
         /// </summary>
-        public int thumbnail_width { get; set; }
+        public int ThumbnailWidth { get; set; }
 
         /// <summary>
         /// Thumbnail height, if known
         /// </summary>
-        public int thumbnail_height { get; set; }
+        public int ThumbnailHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8576,52 +8576,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the resulting file
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents a link to a file
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// URL of the file
         /// </summary>
-        public string document_url { get; set; }
+        public string DocumentUrl { get; set; }
 
         /// <summary>
         /// MIME type of the file content; only "application/pdf" and "application/zip" are currently allowed
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// The URL of the file thumbnail, if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// Width of the thumbnail
         /// </summary>
-        public int thumbnail_width { get; set; }
+        public int ThumbnailWidth { get; set; }
 
         /// <summary>
         /// Height of the thumbnail
         /// </summary>
-        public int thumbnail_height { get; set; }
+        public int ThumbnailHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageDocument, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8637,17 +8637,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Short name of the game
         /// </summary>
-        public string game_short_name { get; set; }
+        public string GameShortName { get; set; }
 
         /// <summary>
         /// Message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
     }
 
@@ -8663,47 +8663,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Location result
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// Amount of time relative to the message sent time until the location can be updated, in seconds
         /// </summary>
-        public int live_period { get; set; }
+        public int LivePeriod { get; set; }
 
         /// <summary>
         /// Title of the result
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// URL of the result thumbnail, if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// Thumbnail width, if known
         /// </summary>
-        public int thumbnail_width { get; set; }
+        public int ThumbnailWidth { get; set; }
 
         /// <summary>
         /// Thumbnail height, if known
         /// </summary>
-        public int thumbnail_height { get; set; }
+        public int ThumbnailHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8719,47 +8719,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the result, if known
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents link to a JPEG image
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// URL of the photo thumbnail, if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// The URL of the JPEG photo (photo size must not exceed 5MB)
         /// </summary>
-        public string photo_url { get; set; }
+        public string PhotoUrl { get; set; }
 
         /// <summary>
         /// Width of the photo
         /// </summary>
-        public int photo_width { get; set; }
+        public int PhotoWidth { get; set; }
 
         /// <summary>
         /// Height of the photo
         /// </summary>
-        public int photo_height { get; set; }
+        public int PhotoHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessagePhoto, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8775,37 +8775,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// URL of the sticker thumbnail, if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// The URL of the WEBP sticker (sticker file size must not exceed 5MB)
         /// </summary>
-        public string sticker_url { get; set; }
+        public string StickerUrl { get; set; }
 
         /// <summary>
         /// Width of the sticker
         /// </summary>
-        public int sticker_width { get; set; }
+        public int StickerWidth { get; set; }
 
         /// <summary>
         /// Height of the sticker
         /// </summary>
-        public int sticker_height { get; set; }
+        public int StickerHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, inputMessageSticker, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8821,37 +8821,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Venue result
         /// </summary>
-        public Venue venue { get; set; }
+        public Venue Venue { get; set; }
 
         /// <summary>
         /// URL of the result thumbnail, if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// Thumbnail width, if known
         /// </summary>
-        public int thumbnail_width { get; set; }
+        public int ThumbnailWidth { get; set; }
 
         /// <summary>
         /// Thumbnail height, if known
         /// </summary>
-        public int thumbnail_height { get; set; }
+        public int ThumbnailHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8867,57 +8867,57 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the result
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents a link to a page containing an embedded video player or a video file
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// The URL of the video thumbnail (JPEG), if it exists
         /// </summary>
-        public string thumbnail_url { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// URL of the embedded video player or video file
         /// </summary>
-        public string video_url { get; set; }
+        public string VideoUrl { get; set; }
 
         /// <summary>
         /// MIME type of the content of the video URL, only "text/html" or "video/mp4" are currently supported
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// Width of the video
         /// </summary>
-        public int video_width { get; set; }
+        public int VideoWidth { get; set; }
 
         /// <summary>
         /// Height of the video
         /// </summary>
-        public int video_height { get; set; }
+        public int VideoHeight { get; set; }
 
         /// <summary>
         /// Video duration, in seconds
         /// </summary>
-        public int video_duration { get; set; }
+        public int VideoDuration { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageVideo, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8933,32 +8933,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Title of the voice note
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// The URL of the voice note file
         /// </summary>
-        public string voice_note_url { get; set; }
+        public string VoiceNoteUrl { get; set; }
 
         /// <summary>
         /// Duration of the voice note, in seconds
         /// </summary>
-        public int voice_note_duration { get; set; }
+        public int VoiceNoteDuration { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageVoiceNote, InputMessageLocation, InputMessageVenue or InputMessageContact
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -8974,32 +8974,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// URL of the result, if it exists
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// True, if the URL must be not shown
         /// </summary>
-        public bool hide_url { get; set; }
+        public bool HideUrl { get; set; }
 
         /// <summary>
         /// Title of the result
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents a link to an article or web page
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Result thumbnail; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
     }
 
@@ -9015,17 +9015,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// A user contact
         /// </summary>
-        public Contact contact { get; set; }
+        public Contact Contact { get; set; }
 
         /// <summary>
         /// Result thumbnail; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
     }
 
@@ -9041,22 +9041,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Location result
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// Title of the result
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Result thumbnail; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
     }
 
@@ -9072,17 +9072,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Venue result
         /// </summary>
-        public Venue venue { get; set; }
+        public Venue Venue { get; set; }
 
         /// <summary>
         /// Result thumbnail; may be null
         /// </summary>
-        public PhotoSize thumbnail { get; set; }
+        public PhotoSize Thumbnail { get; set; }
 
     }
 
@@ -9098,12 +9098,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Game result
         /// </summary>
-        public Game game { get; set; }
+        public Game Game { get; set; }
 
     }
 
@@ -9119,17 +9119,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Animation file
         /// </summary>
-        public Animation animation { get; set; }
+        public Animation Animation { get; set; }
 
         /// <summary>
         /// Animation title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -9145,12 +9145,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Audio file
         /// </summary>
-        public Audio audio { get; set; }
+        public Audio Audio { get; set; }
 
     }
 
@@ -9166,22 +9166,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Document
         /// </summary>
-        public Document document { get; set; }
+        public Document Document { get; set; }
 
         /// <summary>
         /// Document title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents a document
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
     }
 
@@ -9197,22 +9197,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Photo
         /// </summary>
-        public Photo photo { get; set; }
+        public Photo Photo { get; set; }
 
         /// <summary>
         /// Title of the result, if known
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents a photo
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
     }
 
@@ -9228,12 +9228,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Sticker
         /// </summary>
-        public Sticker sticker { get; set; }
+        public Sticker Sticker { get; set; }
 
     }
 
@@ -9249,22 +9249,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Video
         /// </summary>
-        public Video video { get; set; }
+        public Video Video { get; set; }
 
         /// <summary>
         /// Title of the video
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Represents a video
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
     }
 
@@ -9280,17 +9280,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the query result
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Voice note
         /// </summary>
-        public VoiceNote voice_note { get; set; }
+        public VoiceNote VoiceNote { get; set; }
 
         /// <summary>
         /// Title of the voice note
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -9306,27 +9306,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the inline query
         /// </summary>
-        public long inline_query_id { get; set; }
+        public long InlineQueryId { get; set; }
 
         /// <summary>
         /// The offset for the next request. If empty, there are no more results
         /// </summary>
-        public string next_offset { get; set; }
+        public string NextOffset { get; set; }
 
         /// <summary>
         /// Results of the query
         /// </summary>
-        public InlineQueryResult[] results { get; set; }
+        public InlineQueryResult[] Results { get; set; }
 
         /// <summary>
         /// If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter
         /// </summary>
-        public string switch_pm_text { get; set; }
+        public string SwitchPmText { get; set; }
 
         /// <summary>
         /// Parameter for the bot start message
         /// </summary>
-        public string switch_pm_parameter { get; set; }
+        public string SwitchPmParameter { get; set; }
 
     }
 
@@ -9342,7 +9342,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Data that was attached to the callback button
         /// </summary>
-        public byte[] data { get; set; }
+        public byte[] Data { get; set; }
 
     }
 
@@ -9358,7 +9358,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A short name of the game that was attached to the callback button
         /// </summary>
-        public string game_short_name { get; set; }
+        public string GameShortName { get; set; }
 
     }
 
@@ -9374,17 +9374,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text of the answer
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// True, if an alert should be shown to the user instead of a toast notification
         /// </summary>
-        public bool show_alert { get; set; }
+        public bool ShowAlert { get; set; }
 
         /// <summary>
         /// URL to be opened
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
     }
 
@@ -9400,7 +9400,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A JSON-serialized result
         /// </summary>
-        public string result { get; set; }
+        public string Result { get; set; }
 
     }
 
@@ -9416,17 +9416,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Position in the high score table
         /// </summary>
-        public int position { get; set; }
+        public int Position { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// User score
         /// </summary>
-        public int score { get; set; }
+        public int Score { get; set; }
 
     }
 
@@ -9442,7 +9442,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A list of game high scores
         /// </summary>
-        public GameHighScore[] scores { get; set; }
+        public GameHighScore[] Scores { get; set; }
 
     }
 
@@ -9458,12 +9458,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The original message before the edit
         /// </summary>
-        public Message old_message { get; set; }
+        public Message OldMessage { get; set; }
 
         /// <summary>
         /// The message after it was edited
         /// </summary>
-        public Message new_message { get; set; }
+        public Message NewMessage { get; set; }
 
     }
 
@@ -9479,7 +9479,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Deleted message
         /// </summary>
-        public Message message { get; set; }
+        public Message Message { get; set; }
 
     }
 
@@ -9495,7 +9495,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pinned message
         /// </summary>
-        public Message message { get; set; }
+        public Message Message { get; set; }
 
     }
 
@@ -9544,12 +9544,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New member user identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// New member status
         /// </summary>
-        public ChatMemberStatus status { get; set; }
+        public ChatMemberStatus Status { get; set; }
 
     }
 
@@ -9565,17 +9565,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat member user identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Previous status of the chat member
         /// </summary>
-        public ChatMemberStatus old_status { get; set; }
+        public ChatMemberStatus OldStatus { get; set; }
 
         /// <summary>
         /// New status of the chat member
         /// </summary>
-        public ChatMemberStatus new_status { get; set; }
+        public ChatMemberStatus NewStatus { get; set; }
 
     }
 
@@ -9591,17 +9591,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat member user identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Previous status of the chat member
         /// </summary>
-        public ChatMemberStatus old_status { get; set; }
+        public ChatMemberStatus OldStatus { get; set; }
 
         /// <summary>
         /// New status of the chat member
         /// </summary>
-        public ChatMemberStatus new_status { get; set; }
+        public ChatMemberStatus NewStatus { get; set; }
 
     }
 
@@ -9617,12 +9617,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Previous chat title
         /// </summary>
-        public string old_title { get; set; }
+        public string OldTitle { get; set; }
 
         /// <summary>
         /// New chat title
         /// </summary>
-        public string new_title { get; set; }
+        public string NewTitle { get; set; }
 
     }
 
@@ -9638,12 +9638,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Previous chat description
         /// </summary>
-        public string old_description { get; set; }
+        public string OldDescription { get; set; }
 
         /// <summary>
         /// New chat description
         /// </summary>
-        public string new_description { get; set; }
+        public string NewDescription { get; set; }
 
     }
 
@@ -9659,12 +9659,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Previous chat username
         /// </summary>
-        public string old_username { get; set; }
+        public string OldUsername { get; set; }
 
         /// <summary>
         /// New chat username
         /// </summary>
-        public string new_username { get; set; }
+        public string NewUsername { get; set; }
 
     }
 
@@ -9680,12 +9680,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Previous chat photo value; may be null
         /// </summary>
-        public ChatPhoto old_photo { get; set; }
+        public ChatPhoto OldPhoto { get; set; }
 
         /// <summary>
         /// New chat photo value; may be null
         /// </summary>
-        public ChatPhoto new_photo { get; set; }
+        public ChatPhoto NewPhoto { get; set; }
 
     }
 
@@ -9701,7 +9701,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New value of anyone_can_invite
         /// </summary>
-        public bool anyone_can_invite { get; set; }
+        public bool AnyoneCanInvite { get; set; }
 
     }
 
@@ -9717,7 +9717,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New value of sign_messages
         /// </summary>
-        public bool sign_messages { get; set; }
+        public bool SignMessages { get; set; }
 
     }
 
@@ -9733,12 +9733,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Previous identifier of the chat sticker set; 0 if none
         /// </summary>
-        public long old_sticker_set_id { get; set; }
+        public long OldStickerSetId { get; set; }
 
         /// <summary>
         /// New identifier of the chat sticker set; 0 if none
         /// </summary>
-        public long new_sticker_set_id { get; set; }
+        public long NewStickerSetId { get; set; }
 
     }
 
@@ -9754,7 +9754,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New value of is_all_history_available
         /// </summary>
-        public bool is_all_history_available { get; set; }
+        public bool IsAllHistoryAvailable { get; set; }
 
     }
 
@@ -9770,22 +9770,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat event identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the event happened
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
         /// <summary>
         /// Identifier of the user who performed the action that triggered the event
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Action performed by the user
         /// </summary>
-        public ChatEventAction action { get; set; }
+        public ChatEventAction Action { get; set; }
 
     }
 
@@ -9801,7 +9801,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of events
         /// </summary>
-        public ChatEvent[] events { get; set; }
+        public ChatEvent[] Events { get; set; }
 
     }
 
@@ -9817,52 +9817,52 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if message edits should be returned
         /// </summary>
-        public bool message_edits { get; set; }
+        public bool MessageEdits { get; set; }
 
         /// <summary>
         /// True, if message deletions should be returned
         /// </summary>
-        public bool message_deletions { get; set; }
+        public bool MessageDeletions { get; set; }
 
         /// <summary>
         /// True, if pin/unpin events should be returned
         /// </summary>
-        public bool message_pins { get; set; }
+        public bool MessagePins { get; set; }
 
         /// <summary>
         /// True, if members joining events should be returned
         /// </summary>
-        public bool member_joins { get; set; }
+        public bool MemberJoins { get; set; }
 
         /// <summary>
         /// True, if members leaving events should be returned
         /// </summary>
-        public bool member_leaves { get; set; }
+        public bool MemberLeaves { get; set; }
 
         /// <summary>
         /// True, if invited member events should be returned
         /// </summary>
-        public bool member_invites { get; set; }
+        public bool MemberInvites { get; set; }
 
         /// <summary>
         /// True, if member promotion/demotion events should be returned
         /// </summary>
-        public bool member_promotions { get; set; }
+        public bool MemberPromotions { get; set; }
 
         /// <summary>
         /// True, if member restricted/unrestricted/banned/unbanned events should be returned
         /// </summary>
-        public bool member_restrictions { get; set; }
+        public bool MemberRestrictions { get; set; }
 
         /// <summary>
         /// True, if changes in chat information should be returned
         /// </summary>
-        public bool info_changes { get; set; }
+        public bool InfoChanges { get; set; }
 
         /// <summary>
         /// True, if changes in chat settings should be returned
         /// </summary>
-        public bool setting_changes { get; set; }
+        public bool SettingChanges { get; set; }
 
     }
 
@@ -9878,7 +9878,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// String value
         /// </summary>
-        public string value { get; set; }
+        public string Value { get; set; }
 
     }
 
@@ -9894,32 +9894,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Value for zero objects
         /// </summary>
-        public string zero_value { get; set; }
+        public string ZeroValue { get; set; }
 
         /// <summary>
         /// Value for one object
         /// </summary>
-        public string one_value { get; set; }
+        public string OneValue { get; set; }
 
         /// <summary>
         /// Value for two objects
         /// </summary>
-        public string two_value { get; set; }
+        public string TwoValue { get; set; }
 
         /// <summary>
         /// Value for few objects
         /// </summary>
-        public string few_value { get; set; }
+        public string FewValue { get; set; }
 
         /// <summary>
         /// Value for many objects
         /// </summary>
-        public string many_value { get; set; }
+        public string ManyValue { get; set; }
 
         /// <summary>
         /// Default value
         /// </summary>
-        public string other_value { get; set; }
+        public string OtherValue { get; set; }
 
     }
 
@@ -9946,12 +9946,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// String key
         /// </summary>
-        public string key { get; set; }
+        public string Key { get; set; }
 
         /// <summary>
         /// String value
         /// </summary>
-        public LanguagePackStringValue value { get; set; }
+        public LanguagePackStringValue Value { get; set; }
 
     }
 
@@ -9967,7 +9967,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A list of language pack strings
         /// </summary>
-        public LanguagePackString[] strings { get; set; }
+        public LanguagePackString[] Strings { get; set; }
 
     }
 
@@ -9983,22 +9983,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique language pack identifier
         /// </summary>
-        public string id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Language name
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Name of the language in that language
         /// </summary>
-        public string native_name { get; set; }
+        public string NativeName { get; set; }
 
         /// <summary>
         /// Total number of non-deleted strings from the language pack available locally
         /// </summary>
-        public int local_string_count { get; set; }
+        public int LocalStringCount { get; set; }
 
     }
 
@@ -10014,7 +10014,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of available language packs for this application
         /// </summary>
-        public LanguagePackInfo[] language_packs { get; set; }
+        public LanguagePackInfo[] LanguagePacks { get; set; }
 
     }
 
@@ -10030,7 +10030,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Device registration token; may be empty to de-register a device
         /// </summary>
-        public string token { get; set; }
+        public string Token { get; set; }
 
     }
 
@@ -10046,12 +10046,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Device token; may be empty to de-register a device
         /// </summary>
-        public string device_token { get; set; }
+        public string DeviceToken { get; set; }
 
         /// <summary>
         /// True, if App Sandbox is enabled
         /// </summary>
-        public bool is_app_sandbox { get; set; }
+        public bool IsAppSandbox { get; set; }
 
     }
 
@@ -10067,12 +10067,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Device token; may be empty to de-register a device
         /// </summary>
-        public string device_token { get; set; }
+        public string DeviceToken { get; set; }
 
         /// <summary>
         /// True, if App Sandbox is enabled
         /// </summary>
-        public bool is_app_sandbox { get; set; }
+        public bool IsAppSandbox { get; set; }
 
     }
 
@@ -10088,7 +10088,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The access token that will be used to send notifications; may be empty to de-register a device
         /// </summary>
-        public string access_token { get; set; }
+        public string AccessToken { get; set; }
 
     }
 
@@ -10104,7 +10104,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Push notification channel URI; may be empty to de-register a device
         /// </summary>
-        public string channel_uri { get; set; }
+        public string ChannelUri { get; set; }
 
     }
 
@@ -10120,7 +10120,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Push notification channel URI; may be empty to de-register a device
         /// </summary>
-        public string channel_uri { get; set; }
+        public string ChannelUri { get; set; }
 
     }
 
@@ -10136,17 +10136,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device
         /// </summary>
-        public string endpoint { get; set; }
+        public string Endpoint { get; set; }
 
         /// <summary>
         /// Base64url-encoded P-256 elliptic curve Diffie-Hellman public key
         /// </summary>
-        public string p256dh_base64url { get; set; }
+        public string P256dhBase64url { get; set; }
 
         /// <summary>
         /// Base64url-encoded authentication secret
         /// </summary>
-        public string auth_base64url { get; set; }
+        public string AuthBase64url { get; set; }
 
     }
 
@@ -10162,7 +10162,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device
         /// </summary>
-        public string endpoint { get; set; }
+        public string Endpoint { get; set; }
 
     }
 
@@ -10178,7 +10178,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Token; may be empty to de-register a device
         /// </summary>
-        public string token { get; set; }
+        public string Token { get; set; }
 
     }
 
@@ -10194,7 +10194,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Token; may be empty to de-register a device
         /// </summary>
-        public string token { get; set; }
+        public string Token { get; set; }
 
     }
 
@@ -10210,7 +10210,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Push service registration identifier; may be empty to de-register a device
         /// </summary>
-        public string reg_id { get; set; }
+        public string RegId { get; set; }
 
     }
 
@@ -10226,17 +10226,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique persistent wallpaper identifier
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Available variants of the wallpaper in different sizes. These photos can only be downloaded; they can't be sent in a message
         /// </summary>
-        public PhotoSize[] sizes { get; set; }
+        public PhotoSize[] Sizes { get; set; }
 
         /// <summary>
         /// Main color of the wallpaper in RGB24 format; should be treated as background color if no photos are specified
         /// </summary>
-        public int color { get; set; }
+        public int Color { get; set; }
 
     }
 
@@ -10252,7 +10252,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A list of wallpapers
         /// </summary>
-        public Wallpaper[] wallpapers { get; set; }
+        public Wallpaper[] Wallpapers_ { get; set; }
 
     }
 
@@ -10268,7 +10268,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A list of hashtags
         /// </summary>
-        public string[] hashtags { get; set; }
+        public string[] Hashtags_ { get; set; }
 
     }
 
@@ -10339,7 +10339,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The value of the option
         /// </summary>
-        public bool value { get; set; }
+        public bool Value { get; set; }
 
     }
 
@@ -10366,7 +10366,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The value of the option
         /// </summary>
-        public int value { get; set; }
+        public int Value { get; set; }
 
     }
 
@@ -10382,7 +10382,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The value of the option
         /// </summary>
-        public string value { get; set; }
+        public string Value { get; set; }
 
     }
 
@@ -10420,7 +10420,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The user identifiers
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
     }
 
@@ -10458,7 +10458,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The user identifiers
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
     }
 
@@ -10474,7 +10474,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A list of rules
         /// </summary>
-        public UserPrivacySettingRule[] rules { get; set; }
+        public UserPrivacySettingRule[] Rules { get; set; }
 
     }
 
@@ -10523,7 +10523,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Number of days of inactivity before the account will be flagged for deletion; should range from 30-366 days
         /// </summary>
-        public int days { get; set; }
+        public int Days { get; set; }
 
     }
 
@@ -10539,72 +10539,72 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Session identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// True, if this session is the current session
         /// </summary>
-        public bool is_current { get; set; }
+        public bool IsCurrent { get; set; }
 
         /// <summary>
         /// Telegram API identifier, as provided by the application
         /// </summary>
-        public int api_id { get; set; }
+        public int ApiId { get; set; }
 
         /// <summary>
         /// Name of the application, as provided by the application
         /// </summary>
-        public string application_name { get; set; }
+        public string ApplicationName { get; set; }
 
         /// <summary>
         /// The version of the application, as provided by the application
         /// </summary>
-        public string application_version { get; set; }
+        public string ApplicationVersion { get; set; }
 
         /// <summary>
         /// True, if the application is an official application or uses the api_id of an official application
         /// </summary>
-        public bool is_official_application { get; set; }
+        public bool IsOfficialApplication { get; set; }
 
         /// <summary>
         /// Model of the device the application has been run or is running on, as provided by the application
         /// </summary>
-        public string device_model { get; set; }
+        public string DeviceModel { get; set; }
 
         /// <summary>
         /// Operating system the application has been run or is running on, as provided by the application
         /// </summary>
-        public string platform { get; set; }
+        public string Platform { get; set; }
 
         /// <summary>
         /// Version of the operating system the application has been run or is running on, as provided by the application
         /// </summary>
-        public string system_version { get; set; }
+        public string SystemVersion { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the user has logged in
         /// </summary>
-        public int log_in_date { get; set; }
+        public int LogInDate { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the session was last used
         /// </summary>
-        public int last_active_date { get; set; }
+        public int LastActiveDate { get; set; }
 
         /// <summary>
         /// IP address from which the session was created, in human-readable format
         /// </summary>
-        public string ip { get; set; }
+        public string Ip { get; set; }
 
         /// <summary>
         /// A two-letter country code for the country from which the session was created, based on the IP address
         /// </summary>
-        public string country { get; set; }
+        public string Country { get; set; }
 
         /// <summary>
         /// Region code from which the session was created, based on the IP address
         /// </summary>
-        public string region { get; set; }
+        public string Region { get; set; }
 
     }
 
@@ -10620,7 +10620,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of sessions
         /// </summary>
-        public Session[] sessions { get; set; }
+        public Session[] Sessions_ { get; set; }
 
     }
 
@@ -10636,47 +10636,47 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Website identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The domain name of the website
         /// </summary>
-        public string domain_name { get; set; }
+        public string DomainName { get; set; }
 
         /// <summary>
         /// User identifier of a bot linked with the website
         /// </summary>
-        public int bot_user_id { get; set; }
+        public int BotUserId { get; set; }
 
         /// <summary>
         /// The version of a browser used to log in
         /// </summary>
-        public string browser { get; set; }
+        public string Browser { get; set; }
 
         /// <summary>
         /// Operating system the browser is running on
         /// </summary>
-        public string platform { get; set; }
+        public string Platform { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the user was logged in
         /// </summary>
-        public int log_in_date { get; set; }
+        public int LogInDate { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when obtained authorization was last used
         /// </summary>
-        public int last_active_date { get; set; }
+        public int LastActiveDate { get; set; }
 
         /// <summary>
         /// IP address from which the user was logged in, in human-readable format
         /// </summary>
-        public string ip { get; set; }
+        public string Ip { get; set; }
 
         /// <summary>
         /// Human-readable description of a country and a region, from which the user was logged in, based on the IP address
         /// </summary>
-        public string location { get; set; }
+        public string Location { get; set; }
 
     }
 
@@ -10692,7 +10692,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of connected websites
         /// </summary>
-        public ConnectedWebsite[] websites { get; set; }
+        public ConnectedWebsite[] Websites { get; set; }
 
     }
 
@@ -10708,7 +10708,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if a prompt with the "Report spam" action should be shown to the user
         /// </summary>
-        public bool can_report_spam { get; set; }
+        public bool CanReportSpam { get; set; }
 
     }
 
@@ -10768,7 +10768,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Report text
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
     }
 
@@ -10784,12 +10784,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message link
         /// </summary>
-        public string link { get; set; }
+        public string Link { get; set; }
 
         /// <summary>
         /// HTML-code for embedding the message
         /// </summary>
-        public string html { get; set; }
+        public string Html { get; set; }
 
     }
 
@@ -10981,17 +10981,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// File type
         /// </summary>
-        public FileType file_type { get; set; }
+        public FileType FileType { get; set; }
 
         /// <summary>
         /// Total size of the files
         /// </summary>
-        public long size { get; set; }
+        public long Size { get; set; }
 
         /// <summary>
         /// Total number of files
         /// </summary>
-        public int count { get; set; }
+        public int Count { get; set; }
 
     }
 
@@ -11007,22 +11007,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier; 0 if none
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Total size of the files in the chat
         /// </summary>
-        public long size { get; set; }
+        public long Size { get; set; }
 
         /// <summary>
         /// Total number of files in the chat
         /// </summary>
-        public int count { get; set; }
+        public int Count { get; set; }
 
         /// <summary>
         /// Statistics split by file types
         /// </summary>
-        public StorageStatisticsByFileType[] by_file_type { get; set; }
+        public StorageStatisticsByFileType[] ByFileType { get; set; }
 
     }
 
@@ -11038,17 +11038,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Total size of files
         /// </summary>
-        public long size { get; set; }
+        public long Size { get; set; }
 
         /// <summary>
         /// Total number of files
         /// </summary>
-        public int count { get; set; }
+        public int Count { get; set; }
 
         /// <summary>
         /// Statistics split by chats
         /// </summary>
-        public StorageStatisticsByChat[] by_chat { get; set; }
+        public StorageStatisticsByChat[] ByChat { get; set; }
 
     }
 
@@ -11064,17 +11064,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Approximate total size of files
         /// </summary>
-        public long files_size { get; set; }
+        public long FilesSize { get; set; }
 
         /// <summary>
         /// Approximate number of files
         /// </summary>
-        public int file_count { get; set; }
+        public int FileCount { get; set; }
 
         /// <summary>
         /// Size of the database
         /// </summary>
-        public long database_size { get; set; }
+        public long DatabaseSize { get; set; }
 
     }
 
@@ -11145,22 +11145,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Type of the file the data is part of
         /// </summary>
-        public FileType file_type { get; set; }
+        public FileType FileType { get; set; }
 
         /// <summary>
         /// Type of the network the data was sent through. Call setNetworkType to maintain the actual network type
         /// </summary>
-        public NetworkType network_type { get; set; }
+        public NetworkType NetworkType { get; set; }
 
         /// <summary>
         /// Total number of bytes sent
         /// </summary>
-        public long sent_bytes { get; set; }
+        public long SentBytes { get; set; }
 
         /// <summary>
         /// Total number of bytes received
         /// </summary>
-        public long received_bytes { get; set; }
+        public long ReceivedBytes { get; set; }
 
     }
 
@@ -11176,22 +11176,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Type of the network the data was sent through. Call setNetworkType to maintain the actual network type
         /// </summary>
-        public NetworkType network_type { get; set; }
+        public NetworkType NetworkType { get; set; }
 
         /// <summary>
         /// Total number of bytes sent
         /// </summary>
-        public long sent_bytes { get; set; }
+        public long SentBytes { get; set; }
 
         /// <summary>
         /// Total number of bytes received
         /// </summary>
-        public long received_bytes { get; set; }
+        public long ReceivedBytes { get; set; }
 
         /// <summary>
         /// Total call duration, in seconds
         /// </summary>
-        public double duration { get; set; }
+        public double Duration { get; set; }
 
     }
 
@@ -11207,12 +11207,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Point in time (Unix timestamp) when the app began collecting statistics
         /// </summary>
-        public int since_date { get; set; }
+        public int SinceDate { get; set; }
 
         /// <summary>
         /// Network statistics entries
         /// </summary>
-        public NetworkStatisticsEntry[] entries { get; set; }
+        public NetworkStatisticsEntry[] Entries { get; set; }
 
     }
 
@@ -11349,7 +11349,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the user
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -11365,7 +11365,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public long supergroup_id { get; set; }
+        public long SupergroupId { get; set; }
 
     }
 
@@ -11381,7 +11381,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat invite link info
         /// </summary>
-        public ChatInviteLinkInfo info { get; set; }
+        public ChatInviteLinkInfo Info { get; set; }
 
     }
 
@@ -11397,7 +11397,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the sticker set
         /// </summary>
-        public long sticker_set_id { get; set; }
+        public long StickerSetId { get; set; }
 
     }
 
@@ -11413,12 +11413,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// URL
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// Type of the URL
         /// </summary>
-        public TMeUrlType type { get; set; }
+        public TMeUrlType Type { get; set; }
 
     }
 
@@ -11434,7 +11434,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of URLs
         /// </summary>
-        public TMeUrl[] urls { get; set; }
+        public TMeUrl[] Urls { get; set; }
 
     }
 
@@ -11450,7 +11450,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Count
         /// </summary>
-        public int count { get; set; }
+        public int Count_ { get; set; }
 
     }
 
@@ -11466,7 +11466,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text
         /// </summary>
-        public string text { get; set; }
+        public string Text_ { get; set; }
 
     }
 
@@ -11482,7 +11482,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Number of seconds
         /// </summary>
-        public double seconds { get; set; }
+        public double Seconds_ { get; set; }
 
     }
 
@@ -11498,12 +11498,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Text to be shown to the user
         /// </summary>
-        public FormattedText text { get; set; }
+        public FormattedText Text { get; set; }
 
         /// <summary>
         /// True, if user should be asked to update the application
         /// </summary>
-        public bool need_update_application { get; set; }
+        public bool NeedUpdateApplication { get; set; }
 
     }
 
@@ -11541,12 +11541,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Username for logging in; may be empty
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// Password for logging in; may be empty
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
     }
 
@@ -11562,17 +11562,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Username for logging in; may be empty
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// Password for logging in; may be empty
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// Pass true, if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method
         /// </summary>
-        public bool http_only { get; set; }
+        public bool HttpOnly { get; set; }
 
     }
 
@@ -11588,7 +11588,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The proxy's secret in hexadecimal encoding
         /// </summary>
-        public string secret { get; set; }
+        public string Secret { get; set; }
 
     }
 
@@ -11604,32 +11604,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier of the proxy
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Proxy server IP address
         /// </summary>
-        public string server { get; set; }
+        public string Server { get; set; }
 
         /// <summary>
         /// Proxy server port
         /// </summary>
-        public int port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the proxy was last used; 0 if never
         /// </summary>
-        public int last_used_date { get; set; }
+        public int LastUsedDate { get; set; }
 
         /// <summary>
         /// True, if the proxy is enabled now
         /// </summary>
-        public bool is_enabled { get; set; }
+        public bool IsEnabled { get; set; }
 
         /// <summary>
         /// Type of the proxy
         /// </summary>
-        public ProxyType type { get; set; }
+        public ProxyType Type { get; set; }
 
     }
 
@@ -11645,7 +11645,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// List of proxy servers
         /// </summary>
-        public Proxy[] proxies { get; set; }
+        public Proxy[] Proxies_ { get; set; }
 
     }
 
@@ -11661,17 +11661,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// PNG image with the sticker; must be up to 512 kB in size and fit in a 512x512 square
         /// </summary>
-        public InputFile png_sticker { get; set; }
+        public InputFile PngSticker { get; set; }
 
         /// <summary>
         /// Emoji corresponding to the sticker
         /// </summary>
-        public string emojis { get; set; }
+        public string Emojis { get; set; }
 
         /// <summary>
         /// For masks, position where the mask should be placed; may be null
         /// </summary>
-        public MaskPosition mask_position { get; set; }
+        public MaskPosition MaskPosition { get; set; }
 
     }
 
@@ -11687,7 +11687,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New authorization state
         /// </summary>
-        public AuthorizationState authorization_state { get; set; }
+        public AuthorizationState AuthorizationState { get; set; }
 
     }
 
@@ -11703,17 +11703,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new message
         /// </summary>
-        public Message message { get; set; }
+        public Message Message { get; set; }
 
         /// <summary>
         /// True, if this message must not generate a notification
         /// </summary>
-        public bool disable_notification { get; set; }
+        public bool DisableNotification { get; set; }
 
         /// <summary>
         /// True, if the message contains a mention of the current user
         /// </summary>
-        public bool contains_mention { get; set; }
+        public bool ContainsMention { get; set; }
 
     }
 
@@ -11729,12 +11729,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat identifier of the sent message
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// A temporary message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -11750,12 +11750,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Information about the sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change
         /// </summary>
-        public Message message { get; set; }
+        public Message Message { get; set; }
 
         /// <summary>
         /// The previous temporary message identifier
         /// </summary>
-        public long old_message_id { get; set; }
+        public long OldMessageId { get; set; }
 
     }
 
@@ -11771,22 +11771,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Contains information about the message that failed to send
         /// </summary>
-        public Message message { get; set; }
+        public Message Message { get; set; }
 
         /// <summary>
         /// The previous temporary message identifier
         /// </summary>
-        public long old_message_id { get; set; }
+        public long OldMessageId { get; set; }
 
         /// <summary>
         /// An error code
         /// </summary>
-        public int error_code { get; set; }
+        public int ErrorCode { get; set; }
 
         /// <summary>
         /// Error message
         /// </summary>
-        public string error_message { get; set; }
+        public string ErrorMessage { get; set; }
 
     }
 
@@ -11802,17 +11802,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// New message content
         /// </summary>
-        public MessageContent new_content { get; set; }
+        public MessageContent NewContent { get; set; }
 
     }
 
@@ -11828,22 +11828,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the message was edited
         /// </summary>
-        public int edit_date { get; set; }
+        public int EditDate { get; set; }
 
         /// <summary>
         /// New message reply markup; may be null
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
     }
 
@@ -11859,17 +11859,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// New value of the view count
         /// </summary>
-        public int views { get; set; }
+        public int Views { get; set; }
 
     }
 
@@ -11885,12 +11885,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -11906,17 +11906,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// The new number of unread mention messages left in the chat
         /// </summary>
-        public int unread_mention_count { get; set; }
+        public int UnreadMentionCount { get; set; }
 
     }
 
@@ -11932,7 +11932,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat
         /// </summary>
-        public Chat chat { get; set; }
+        public Chat Chat { get; set; }
 
     }
 
@@ -11948,12 +11948,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The new chat title
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -11969,12 +11969,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The new chat photo; may be null
         /// </summary>
-        public ChatPhoto photo { get; set; }
+        public ChatPhoto Photo { get; set; }
 
     }
 
@@ -11990,17 +11990,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The new last message in the chat; may be null
         /// </summary>
-        public Message last_message { get; set; }
+        public Message LastMessage { get; set; }
 
         /// <summary>
         /// New value of the chat order
         /// </summary>
-        public long order { get; set; }
+        public long Order { get; set; }
 
     }
 
@@ -12016,12 +12016,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of the order
         /// </summary>
-        public long order { get; set; }
+        public long Order { get; set; }
 
     }
 
@@ -12037,17 +12037,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of is_pinned
         /// </summary>
-        public bool is_pinned { get; set; }
+        public bool IsPinned { get; set; }
 
         /// <summary>
         /// New value of the chat order
         /// </summary>
-        public long order { get; set; }
+        public long Order { get; set; }
 
     }
 
@@ -12063,12 +12063,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of is_marked_as_unread
         /// </summary>
-        public bool is_marked_as_unread { get; set; }
+        public bool IsMarkedAsUnread { get; set; }
 
     }
 
@@ -12084,17 +12084,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of is_sponsored
         /// </summary>
-        public bool is_sponsored { get; set; }
+        public bool IsSponsored { get; set; }
 
         /// <summary>
         /// New value of chat order
         /// </summary>
-        public long order { get; set; }
+        public long Order { get; set; }
 
     }
 
@@ -12110,12 +12110,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The new default_disable_notification value
         /// </summary>
-        public bool default_disable_notification { get; set; }
+        public bool DefaultDisableNotification { get; set; }
 
     }
 
@@ -12131,17 +12131,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the last read incoming message
         /// </summary>
-        public long last_read_inbox_message_id { get; set; }
+        public long LastReadInboxMessageId { get; set; }
 
         /// <summary>
         /// The number of unread messages left in the chat
         /// </summary>
-        public int unread_count { get; set; }
+        public int UnreadCount { get; set; }
 
     }
 
@@ -12157,12 +12157,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of last read outgoing message
         /// </summary>
-        public long last_read_outbox_message_id { get; set; }
+        public long LastReadOutboxMessageId { get; set; }
 
     }
 
@@ -12178,12 +12178,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The number of unread mention messages left in the chat
         /// </summary>
-        public int unread_mention_count { get; set; }
+        public int UnreadMentionCount { get; set; }
 
     }
 
@@ -12199,12 +12199,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The new notification settings
         /// </summary>
-        public ChatNotificationSettings notification_settings { get; set; }
+        public ChatNotificationSettings NotificationSettings { get; set; }
 
     }
 
@@ -12220,12 +12220,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Types of chats for which notification settings were updated
         /// </summary>
-        public NotificationSettingsScope scope { get; set; }
+        public NotificationSettingsScope Scope { get; set; }
 
         /// <summary>
         /// The new notification settings
         /// </summary>
-        public ScopeNotificationSettings notification_settings { get; set; }
+        public ScopeNotificationSettings NotificationSettings { get; set; }
 
     }
 
@@ -12241,12 +12241,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
         /// </summary>
-        public long reply_markup_message_id { get; set; }
+        public long ReplyMarkupMessageId { get; set; }
 
     }
 
@@ -12262,17 +12262,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The new draft message; may be null
         /// </summary>
-        public DraftMessage draft_message { get; set; }
+        public DraftMessage DraftMessage { get; set; }
 
         /// <summary>
         /// New value of the chat order
         /// </summary>
-        public long order { get; set; }
+        public long Order { get; set; }
 
     }
 
@@ -12288,22 +12288,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifiers of the deleted messages
         /// </summary>
-        public long[] message_ids { get; set; }
+        public long[] MessageIds { get; set; }
 
         /// <summary>
         /// True, if the messages are permanently deleted by a user (as opposed to just becoming unaccessible)
         /// </summary>
-        public bool is_permanent { get; set; }
+        public bool IsPermanent { get; set; }
 
         /// <summary>
         /// True, if the messages are deleted only from the cache and can possibly be retrieved again in the future
         /// </summary>
-        public bool from_cache { get; set; }
+        public bool FromCache { get; set; }
 
     }
 
@@ -12319,17 +12319,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of a user performing an action
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// The action description
         /// </summary>
-        public ChatAction action { get; set; }
+        public ChatAction Action { get; set; }
 
     }
 
@@ -12345,12 +12345,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// New status of the user
         /// </summary>
-        public UserStatus status { get; set; }
+        public UserStatus Status { get; set; }
 
     }
 
@@ -12366,7 +12366,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New data about the user
         /// </summary>
-        public User user { get; set; }
+        public User User { get; set; }
 
     }
 
@@ -12382,7 +12382,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New data about the group
         /// </summary>
-        public BasicGroup basic_group { get; set; }
+        public BasicGroup BasicGroup { get; set; }
 
     }
 
@@ -12398,7 +12398,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New data about the supergroup
         /// </summary>
-        public Supergroup supergroup { get; set; }
+        public Supergroup Supergroup { get; set; }
 
     }
 
@@ -12414,7 +12414,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New data about the secret chat
         /// </summary>
-        public SecretChat secret_chat { get; set; }
+        public SecretChat SecretChat { get; set; }
 
     }
 
@@ -12430,12 +12430,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// New full information about the user
         /// </summary>
-        public UserFullInfo user_full_info { get; set; }
+        public UserFullInfo UserFullInfo { get; set; }
 
     }
 
@@ -12451,12 +12451,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of a basic group
         /// </summary>
-        public int basic_group_id { get; set; }
+        public int BasicGroupId { get; set; }
 
         /// <summary>
         /// New full information about the group
         /// </summary>
-        public BasicGroupFullInfo basic_group_full_info { get; set; }
+        public BasicGroupFullInfo BasicGroupFullInfo { get; set; }
 
     }
 
@@ -12472,12 +12472,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// New full information about the supergroup
         /// </summary>
-        public SupergroupFullInfo supergroup_full_info { get; set; }
+        public SupergroupFullInfo SupergroupFullInfo { get; set; }
 
     }
 
@@ -12493,12 +12493,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Notification type. If type begins with "AUTH_KEY_DROP_", then two buttons "Cancel" and "Log out" should be shown under notification; if user presses the second, all local data should be destroyed using Destroy method
         /// </summary>
-        public string type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Notification content
         /// </summary>
-        public MessageContent content { get; set; }
+        public MessageContent Content { get; set; }
 
     }
 
@@ -12514,7 +12514,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New data about the file
         /// </summary>
-        public File file { get; set; }
+        public File File { get; set; }
 
     }
 
@@ -12530,22 +12530,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier for the generation process
         /// </summary>
-        public long generation_id { get; set; }
+        public long GenerationId { get; set; }
 
         /// <summary>
         /// The path to a file from which a new file is generated; may be empty
         /// </summary>
-        public string original_path { get; set; }
+        public string OriginalPath { get; set; }
 
         /// <summary>
         /// The path to a file that should be created and where the new file should be generated
         /// </summary>
-        public string destination_path { get; set; }
+        public string DestinationPath { get; set; }
 
         /// <summary>
         /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the client
         /// </summary>
-        public string conversion { get; set; }
+        public string Conversion { get; set; }
 
     }
 
@@ -12561,7 +12561,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique identifier for the generation process
         /// </summary>
-        public long generation_id { get; set; }
+        public long GenerationId { get; set; }
 
     }
 
@@ -12577,7 +12577,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New data about a call
         /// </summary>
-        public Call call { get; set; }
+        public Call Call { get; set; }
 
     }
 
@@ -12593,12 +12593,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The privacy setting
         /// </summary>
-        public UserPrivacySetting setting { get; set; }
+        public UserPrivacySetting Setting { get; set; }
 
         /// <summary>
         /// New privacy rules
         /// </summary>
-        public UserPrivacySettingRules rules { get; set; }
+        public UserPrivacySettingRules Rules { get; set; }
 
     }
 
@@ -12614,12 +12614,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Total number of unread messages
         /// </summary>
-        public int unread_count { get; set; }
+        public int UnreadCount { get; set; }
 
         /// <summary>
         /// Total number of unread messages in unmuted chats
         /// </summary>
-        public int unread_unmuted_count { get; set; }
+        public int UnreadUnmutedCount { get; set; }
 
     }
 
@@ -12635,22 +12635,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Total number of unread chats
         /// </summary>
-        public int unread_count { get; set; }
+        public int UnreadCount { get; set; }
 
         /// <summary>
         /// Total number of unread unmuted chats
         /// </summary>
-        public int unread_unmuted_count { get; set; }
+        public int UnreadUnmutedCount { get; set; }
 
         /// <summary>
         /// Total number of chats marked as unread
         /// </summary>
-        public int marked_as_unread_count { get; set; }
+        public int MarkedAsUnreadCount { get; set; }
 
         /// <summary>
         /// Total number of unmuted chats marked as unread
         /// </summary>
-        public int marked_as_unread_unmuted_count { get; set; }
+        public int MarkedAsUnreadUnmutedCount { get; set; }
 
     }
 
@@ -12666,12 +12666,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The option name
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The new option value
         /// </summary>
-        public OptionValue value { get; set; }
+        public OptionValue Value { get; set; }
 
     }
 
@@ -12687,12 +12687,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the list of installed mask sticker sets was updated
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
         /// <summary>
         /// The new list of installed ordinary sticker sets
         /// </summary>
-        public long[] sticker_set_ids { get; set; }
+        public long[] StickerSetIds { get; set; }
 
     }
 
@@ -12708,7 +12708,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new list of trending sticker sets
         /// </summary>
-        public StickerSets sticker_sets { get; set; }
+        public StickerSets StickerSets { get; set; }
 
     }
 
@@ -12724,12 +12724,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// True, if the list of stickers attached to photo or video files was updated, otherwise the list of sent stickers is updated
         /// </summary>
-        public bool is_attached { get; set; }
+        public bool IsAttached { get; set; }
 
         /// <summary>
         /// The new list of file identifiers of recently used stickers
         /// </summary>
-        public int[] sticker_ids { get; set; }
+        public int[] StickerIds { get; set; }
 
     }
 
@@ -12745,7 +12745,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new list of file identifiers of favorite stickers
         /// </summary>
-        public int[] sticker_ids { get; set; }
+        public int[] StickerIds { get; set; }
 
     }
 
@@ -12761,7 +12761,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new list of file identifiers of saved animations
         /// </summary>
-        public int[] animation_ids { get; set; }
+        public int[] AnimationIds { get; set; }
 
     }
 
@@ -12777,17 +12777,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Localization target to which the language pack belongs
         /// </summary>
-        public string localization_target { get; set; }
+        public string LocalizationTarget { get; set; }
 
         /// <summary>
         /// Identifier of the updated language pack
         /// </summary>
-        public string language_pack_id { get; set; }
+        public string LanguagePackId { get; set; }
 
         /// <summary>
         /// List of changed language pack strings
         /// </summary>
-        public LanguagePackString[] strings { get; set; }
+        public LanguagePackString[] Strings { get; set; }
 
     }
 
@@ -12803,7 +12803,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new connection state
         /// </summary>
-        public ConnectionState state { get; set; }
+        public ConnectionState State { get; set; }
 
     }
 
@@ -12819,12 +12819,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the terms of service
         /// </summary>
-        public string terms_of_service_id { get; set; }
+        public string TermsOfServiceId { get; set; }
 
         /// <summary>
         /// The new terms of service
         /// </summary>
-        public TermsOfService terms_of_service { get; set; }
+        public TermsOfService TermsOfService { get; set; }
 
     }
 
@@ -12840,27 +12840,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique query identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// User location, provided by the client; may be null
         /// </summary>
-        public Location user_location { get; set; }
+        public Location UserLocation { get; set; }
 
         /// <summary>
         /// Text of the query
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Offset of the first entry to return
         /// </summary>
-        public string offset { get; set; }
+        public string Offset { get; set; }
 
     }
 
@@ -12876,27 +12876,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// User location, provided by the client; may be null
         /// </summary>
-        public Location user_location { get; set; }
+        public Location UserLocation { get; set; }
 
         /// <summary>
         /// Text of the query
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Identifier of the chosen result
         /// </summary>
-        public string result_id { get; set; }
+        public string ResultId { get; set; }
 
         /// <summary>
         /// Identifier of the sent inline message, if known
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
     }
 
@@ -12912,32 +12912,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique query identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Identifier of the chat, in which the query was sent
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message, from which the query originated
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// Identifier that uniquely corresponds to the chat to which the message was sent
         /// </summary>
-        public long chat_instance { get; set; }
+        public long ChatInstance { get; set; }
 
         /// <summary>
         /// Query payload
         /// </summary>
-        public CallbackQueryPayload payload { get; set; }
+        public CallbackQueryPayload Payload { get; set; }
 
     }
 
@@ -12953,27 +12953,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique query identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Identifier of the inline message, from which the query originated
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// An identifier uniquely corresponding to the chat a message was sent to
         /// </summary>
-        public long chat_instance { get; set; }
+        public long ChatInstance { get; set; }
 
         /// <summary>
         /// Query payload
         /// </summary>
-        public CallbackQueryPayload payload { get; set; }
+        public CallbackQueryPayload Payload { get; set; }
 
     }
 
@@ -12989,22 +12989,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique query identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Invoice payload
         /// </summary>
-        public string invoice_payload { get; set; }
+        public string InvoicePayload { get; set; }
 
         /// <summary>
         /// User shipping address
         /// </summary>
-        public Address shipping_address { get; set; }
+        public Address ShippingAddress { get; set; }
 
     }
 
@@ -13020,37 +13020,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Unique query identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Currency for the product price
         /// </summary>
-        public string currency { get; set; }
+        public string Currency { get; set; }
 
         /// <summary>
         /// Total price for the product, in the minimal quantity of the currency
         /// </summary>
-        public long total_amount { get; set; }
+        public long TotalAmount { get; set; }
 
         /// <summary>
         /// Invoice payload
         /// </summary>
-        public byte[] invoice_payload { get; set; }
+        public byte[] InvoicePayload { get; set; }
 
         /// <summary>
         /// Identifier of a shipping option chosen by the user; may be empty if not applicable
         /// </summary>
-        public string shipping_option_id { get; set; }
+        public string ShippingOptionId { get; set; }
 
         /// <summary>
         /// Information about the order; may be null
         /// </summary>
-        public OrderInfo order_info { get; set; }
+        public OrderInfo OrderInfo { get; set; }
 
     }
 
@@ -13066,7 +13066,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A JSON-serialized event
         /// </summary>
-        public string @event { get; set; }
+        public string Event { get; set; }
 
     }
 
@@ -13082,17 +13082,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The query identifier
         /// </summary>
-        public long id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// JSON-serialized query data
         /// </summary>
-        public string data { get; set; }
+        public string Data { get; set; }
 
         /// <summary>
         /// Query timeout
         /// </summary>
-        public int timeout { get; set; }
+        public int Timeout { get; set; }
 
     }
 
@@ -13108,7 +13108,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Number
         /// </summary>
-        public int value { get; set; }
+        public int Value { get; set; }
 
     }
 
@@ -13124,7 +13124,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// String
         /// </summary>
-        public string value { get; set; }
+        public string Value { get; set; }
 
     }
 
@@ -13140,7 +13140,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Bytes
         /// </summary>
-        public byte[] value { get; set; }
+        public byte[] Value { get; set; }
 
     }
 
@@ -13156,7 +13156,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of numbers
         /// </summary>
-        public int[] value { get; set; }
+        public int[] Value { get; set; }
 
     }
 
@@ -13172,7 +13172,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of objects
         /// </summary>
-        public TestInt[] value { get; set; }
+        public TestInt[] Value { get; set; }
 
     }
 
@@ -13188,7 +13188,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of strings
         /// </summary>
-        public string[] value { get; set; }
+        public string[] Value { get; set; }
 
     }
 
@@ -13204,7 +13204,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of objects
         /// </summary>
-        public TestString[] value { get; set; }
+        public TestString[] Value { get; set; }
 
     }
 
@@ -13231,7 +13231,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Parameters
         /// </summary>
-        public TdlibParameters parameters { get; set; }
+        public TdlibParameters Parameters { get; set; }
 
     }
 
@@ -13247,7 +13247,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Encryption key to check or set up
         /// </summary>
-        public byte[] encryption_key { get; set; }
+        public byte[] EncryptionKey { get; set; }
 
     }
 
@@ -13263,17 +13263,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The phone number of the user, in international format
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Pass true if the authentication code may be sent via flash call to the specified phone number
         /// </summary>
-        public bool allow_flash_call { get; set; }
+        public bool AllowFlashCall { get; set; }
 
         /// <summary>
         /// Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false
         /// </summary>
-        public bool is_current_phone_number { get; set; }
+        public bool IsCurrentPhoneNumber { get; set; }
 
     }
 
@@ -13300,17 +13300,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The verification code received via SMS, Telegram message, phone call, or flash call
         /// </summary>
-        public string code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// If the user is not yet registered, the first name of the user; 1-255 characters
         /// </summary>
-        public string first_name { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// If the user is not yet registered; the last name of the user; optional; 0-255 characters
         /// </summary>
-        public string last_name { get; set; }
+        public string LastName { get; set; }
 
     }
 
@@ -13326,7 +13326,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The password to check
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
     }
 
@@ -13353,7 +13353,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Recovery code to check
         /// </summary>
-        public string recovery_code { get; set; }
+        public string RecoveryCode { get; set; }
 
     }
 
@@ -13369,7 +13369,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The bot token
         /// </summary>
-        public string token { get; set; }
+        public string Token { get; set; }
 
     }
 
@@ -13418,7 +13418,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New encryption key
         /// </summary>
-        public byte[] new_encryption_key { get; set; }
+        public byte[] NewEncryptionKey { get; set; }
 
     }
 
@@ -13445,27 +13445,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Previous password of the user
         /// </summary>
-        public string old_password { get; set; }
+        public string OldPassword { get; set; }
 
         /// <summary>
         /// New password of the user; may be empty to remove the password
         /// </summary>
-        public string new_password { get; set; }
+        public string NewPassword { get; set; }
 
         /// <summary>
         /// New password hint; may be empty
         /// </summary>
-        public string new_hint { get; set; }
+        public string NewHint { get; set; }
 
         /// <summary>
         /// Pass true if the recovery email address should be changed
         /// </summary>
-        public bool set_recovery_email_address { get; set; }
+        public bool SetRecoveryEmailAddress { get; set; }
 
         /// <summary>
         /// New recovery email address; may be empty
         /// </summary>
-        public string new_recovery_email_address { get; set; }
+        public string NewRecoveryEmailAddress { get; set; }
 
     }
 
@@ -13481,7 +13481,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The password for the current user
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
     }
 
@@ -13497,12 +13497,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Password of the current user
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// New recovery email address
         /// </summary>
-        public string new_recovery_email_address { get; set; }
+        public string NewRecoveryEmailAddress { get; set; }
 
     }
 
@@ -13529,7 +13529,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Recovery code to check
         /// </summary>
-        public string recovery_code { get; set; }
+        public string RecoveryCode { get; set; }
 
     }
 
@@ -13545,12 +13545,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Persistent user password
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// Time during which the temporary password will be valid, in seconds; should be between 60 and 86400
         /// </summary>
-        public int valid_for { get; set; }
+        public int ValidFor { get; set; }
 
     }
 
@@ -13577,12 +13577,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Value of the "dc" parameter of the notification
         /// </summary>
-        public string dc { get; set; }
+        public string Dc { get; set; }
 
         /// <summary>
         /// Value of the "addr" parameter of the notification
         /// </summary>
-        public string addr { get; set; }
+        public string Addr { get; set; }
 
     }
 
@@ -13609,7 +13609,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -13625,7 +13625,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -13641,7 +13641,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int basic_group_id { get; set; }
+        public int BasicGroupId { get; set; }
 
     }
 
@@ -13657,7 +13657,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int basic_group_id { get; set; }
+        public int BasicGroupId { get; set; }
 
     }
 
@@ -13673,7 +13673,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
     }
 
@@ -13689,7 +13689,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
     }
 
@@ -13705,7 +13705,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Secret chat identifier
         /// </summary>
-        public int secret_chat_id { get; set; }
+        public int SecretChatId { get; set; }
 
     }
 
@@ -13721,7 +13721,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -13737,12 +13737,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message to get
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -13758,12 +13758,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message reply to which get
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -13779,7 +13779,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -13795,12 +13795,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat the messages belong to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifiers of the messages to get
         /// </summary>
-        public long[] message_ids { get; set; }
+        public long[] MessageIds { get; set; }
 
     }
 
@@ -13816,7 +13816,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the file to get
         /// </summary>
-        public int file_id { get; set; }
+        public int FileId { get; set; }
 
     }
 
@@ -13832,12 +13832,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Remote identifier of the file to get
         /// </summary>
-        public string remote_file_id { get; set; }
+        public string RemoteFileId { get; set; }
 
         /// <summary>
         /// File type, if known
         /// </summary>
-        public FileType file_type { get; set; }
+        public FileType FileType { get; set; }
 
     }
 
@@ -13853,17 +13853,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat order to return chats from
         /// </summary>
-        public long offset_order { get; set; }
+        public long OffsetOrder { get; set; }
 
         /// <summary>
         /// Chat identifier to return chats from
         /// </summary>
-        public long offset_chat_id { get; set; }
+        public long OffsetChatId { get; set; }
 
         /// <summary>
         /// The maximum number of chats to be returned. It is possible that fewer chats than the limit are returned even if the end of the list is not reached
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -13879,7 +13879,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Username to be resolved
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
     }
 
@@ -13895,7 +13895,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
     }
 
@@ -13911,12 +13911,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for. If the query is empty, returns up to 20 recently found chats
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Maximum number of chats to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -13932,12 +13932,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Maximum number of chats to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -13953,12 +13953,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Category of chats to be returned
         /// </summary>
-        public TopChatCategory category { get; set; }
+        public TopChatCategory Category { get; set; }
 
         /// <summary>
         /// Maximum number of chats to be returned; up to 30
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -13974,12 +13974,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Category of frequently used chats
         /// </summary>
-        public TopChatCategory category { get; set; }
+        public TopChatCategory Category { get; set; }
 
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -13995,7 +13995,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat to add
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -14011,7 +14011,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat to be removed
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -14038,12 +14038,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier; should be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if chat is being created
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Username to be checked
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
     }
 
@@ -14070,17 +14070,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Chat identifier starting from which to return chats; use 0 for the first request
         /// </summary>
-        public long offset_chat_id { get; set; }
+        public long OffsetChatId { get; set; }
 
         /// <summary>
         /// Maximum number of chats to be returned; up to 100
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -14096,27 +14096,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
         /// </summary>
-        public long from_message_id { get; set; }
+        public long FromMessageId { get; set; }
 
         /// <summary>
         /// Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages
         /// </summary>
-        public int offset { get; set; }
+        public int Offset { get; set; }
 
         /// <summary>
         /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// If true, returns only messages that are available locally without sending network requests
         /// </summary>
-        public bool only_local { get; set; }
+        public bool OnlyLocal { get; set; }
 
     }
 
@@ -14132,12 +14132,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Pass true if the chat should be removed from the chats list
         /// </summary>
-        public bool remove_from_chat_list { get; set; }
+        public bool RemoveFromChatList { get; set; }
 
     }
 
@@ -14153,37 +14153,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat in which to search messages
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// If not 0, only messages sent by the specified user will be returned. Not supported in secret chats
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
         /// </summary>
-        public long from_message_id { get; set; }
+        public long FromMessageId { get; set; }
 
         /// <summary>
         /// Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages
         /// </summary>
-        public int offset { get; set; }
+        public int Offset { get; set; }
 
         /// <summary>
         /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// Filter for message content in the search results
         /// </summary>
-        public SearchMessagesFilter filter { get; set; }
+        public SearchMessagesFilter Filter { get; set; }
 
     }
 
@@ -14199,27 +14199,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// The date of the message starting from which the results should be fetched. Use 0 or any date in the future to get results from the last message
         /// </summary>
-        public int offset_date { get; set; }
+        public int OffsetDate { get; set; }
 
         /// <summary>
         /// The chat identifier of the last found message, or 0 for the first request
         /// </summary>
-        public long offset_chat_id { get; set; }
+        public long OffsetChatId { get; set; }
 
         /// <summary>
         /// The message identifier of the last found message, or 0 for the first request
         /// </summary>
-        public long offset_message_id { get; set; }
+        public long OffsetMessageId { get; set; }
 
         /// <summary>
         /// The maximum number of messages to be returned, up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -14235,27 +14235,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat in which to search. Specify 0 to search in all secret chats
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Query to search for. If empty, searchChatMessages should be used instead
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// The identifier from the result of a previous request, use 0 to get results from the last message
         /// </summary>
-        public long from_search_id { get; set; }
+        public long FromSearchId { get; set; }
 
         /// <summary>
         /// Maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// A filter for the content of messages in the search results
         /// </summary>
-        public SearchMessagesFilter filter { get; set; }
+        public SearchMessagesFilter Filter { get; set; }
 
     }
 
@@ -14271,17 +14271,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the message from which to search; use 0 to get results from the last message
         /// </summary>
-        public long from_message_id { get; set; }
+        public long FromMessageId { get; set; }
 
         /// <summary>
         /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// If true, returns only messages with missed calls
         /// </summary>
-        public bool only_missed { get; set; }
+        public bool OnlyMissed { get; set; }
 
     }
 
@@ -14297,12 +14297,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Maximum number of messages to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -14329,12 +14329,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) relative to which to search for messages
         /// </summary>
-        public int date { get; set; }
+        public int Date { get; set; }
 
     }
 
@@ -14350,17 +14350,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat in which to count messages
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Filter for message content; searchMessagesFilterEmpty is unsupported in this function
         /// </summary>
-        public SearchMessagesFilter filter { get; set; }
+        public SearchMessagesFilter Filter { get; set; }
 
         /// <summary>
         /// If true, returns count that is available locally without sending network requests, returning -1 if the number of messages is unknown
         /// </summary>
-        public bool return_local { get; set; }
+        public bool ReturnLocal { get; set; }
 
     }
 
@@ -14376,17 +14376,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat to which the message belongs
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// Pass true if a link for a whole media album should be returned
         /// </summary>
-        public bool for_album { get; set; }
+        public bool ForAlbum { get; set; }
 
     }
 
@@ -14402,32 +14402,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Target chat
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message to reply to or 0
         /// </summary>
-        public long reply_to_message_id { get; set; }
+        public long ReplyToMessageId { get; set; }
 
         /// <summary>
         /// Pass true to disable notification for the message. Not supported in secret chats
         /// </summary>
-        public bool disable_notification { get; set; }
+        public bool DisableNotification { get; set; }
 
         /// <summary>
         /// Pass true if the message is sent from the background
         /// </summary>
-        public bool from_background { get; set; }
+        public bool FromBackground { get; set; }
 
         /// <summary>
         /// Markup for replying to the message; for bots only
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// The content of the message to be sent
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -14443,27 +14443,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Target chat
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of a message to reply to or 0
         /// </summary>
-        public long reply_to_message_id { get; set; }
+        public long ReplyToMessageId { get; set; }
 
         /// <summary>
         /// Pass true to disable notification for the messages. Not supported in secret chats
         /// </summary>
-        public bool disable_notification { get; set; }
+        public bool DisableNotification { get; set; }
 
         /// <summary>
         /// Pass true if the messages are sent from the background
         /// </summary>
-        public bool from_background { get; set; }
+        public bool FromBackground { get; set; }
 
         /// <summary>
         /// Contents of messages to be sent
         /// </summary>
-        public InputMessageContent[] input_message_contents { get; set; }
+        public InputMessageContent[] InputMessageContents { get; set; }
 
     }
 
@@ -14479,17 +14479,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the bot
         /// </summary>
-        public int bot_user_id { get; set; }
+        public int BotUserId { get; set; }
 
         /// <summary>
         /// Identifier of the target chat
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// A hidden parameter sent to the bot for deep linking purposes (https://api.telegram.org/bots#deep-linking)
         /// </summary>
-        public string parameter { get; set; }
+        public string Parameter { get; set; }
 
     }
 
@@ -14505,32 +14505,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Target chat
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of a message to reply to or 0
         /// </summary>
-        public long reply_to_message_id { get; set; }
+        public long ReplyToMessageId { get; set; }
 
         /// <summary>
         /// Pass true to disable notification for the message. Not supported in secret chats
         /// </summary>
-        public bool disable_notification { get; set; }
+        public bool DisableNotification { get; set; }
 
         /// <summary>
         /// Pass true if the message is sent from background
         /// </summary>
-        public bool from_background { get; set; }
+        public bool FromBackground { get; set; }
 
         /// <summary>
         /// Identifier of the inline query
         /// </summary>
-        public long query_id { get; set; }
+        public long QueryId { get; set; }
 
         /// <summary>
         /// Identifier of the inline result
         /// </summary>
-        public string result_id { get; set; }
+        public string ResultId { get; set; }
 
     }
 
@@ -14546,32 +14546,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat to which to forward messages
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the chat from which to forward messages
         /// </summary>
-        public long from_chat_id { get; set; }
+        public long FromChatId { get; set; }
 
         /// <summary>
         /// Identifiers of the messages to forward
         /// </summary>
-        public long[] message_ids { get; set; }
+        public long[] MessageIds { get; set; }
 
         /// <summary>
         /// Pass true to disable notification for the message, doesn't work if messages are forwarded to a secret chat
         /// </summary>
-        public bool disable_notification { get; set; }
+        public bool DisableNotification { get; set; }
 
         /// <summary>
         /// Pass true if the message is sent from the background
         /// </summary>
-        public bool from_background { get; set; }
+        public bool FromBackground { get; set; }
 
         /// <summary>
         /// True, if the messages should be grouped into an album after forwarding. For this to work, no more than 10 messages may be forwarded, and all of them must be photo or video messages
         /// </summary>
-        public bool as_album { get; set; }
+        public bool AsAlbum { get; set; }
 
     }
 
@@ -14587,12 +14587,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New TTL value, in seconds
         /// </summary>
-        public int ttl { get; set; }
+        public int Ttl { get; set; }
 
     }
 
@@ -14608,7 +14608,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -14624,27 +14624,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Target chat
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the user who will be shown as the sender of the message; may be 0 for channel posts
         /// </summary>
-        public int sender_user_id { get; set; }
+        public int SenderUserId { get; set; }
 
         /// <summary>
         /// Identifier of the message to reply to or 0
         /// </summary>
-        public long reply_to_message_id { get; set; }
+        public long ReplyToMessageId { get; set; }
 
         /// <summary>
         /// Pass true to disable notification for the message
         /// </summary>
-        public bool disable_notification { get; set; }
+        public bool DisableNotification { get; set; }
 
         /// <summary>
         /// The content of the message to be added
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -14660,17 +14660,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifiers of the messages to be deleted
         /// </summary>
-        public long[] message_ids { get; set; }
+        public long[] MessageIds { get; set; }
 
         /// <summary>
         /// Pass true to try to delete outgoing messages for all chat members (may fail if messages are too old). Always true for supergroups, channels and secret chats
         /// </summary>
-        public bool revoke { get; set; }
+        public bool Revoke { get; set; }
 
     }
 
@@ -14686,12 +14686,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -14707,22 +14707,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup; for bots only
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New text content of the message. Should be of type InputMessageText
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -14738,22 +14738,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup; for bots only
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New location content of the message; may be null. Pass null to stop sharing the live location
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
     }
 
@@ -14769,22 +14769,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup; for bots only
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -14800,22 +14800,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup; for bots only
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New message content caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -14831,17 +14831,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat the message belongs to
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
     }
 
@@ -14857,17 +14857,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline message identifier
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New text content of the message. Should be of type InputMessageText
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -14883,17 +14883,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline message identifier
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New location content of the message; may be null. Pass null to stop sharing the live location
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
     }
 
@@ -14909,17 +14909,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline message identifier
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup; for bots only
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo
         /// </summary>
-        public InputMessageContent input_message_content { get; set; }
+        public InputMessageContent InputMessageContent { get; set; }
 
     }
 
@@ -14935,17 +14935,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline message identifier
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
         /// New message content caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
-        public FormattedText caption { get; set; }
+        public FormattedText Caption { get; set; }
 
     }
 
@@ -14961,12 +14961,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline message identifier
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// The new message reply markup
         /// </summary>
-        public ReplyMarkup reply_markup { get; set; }
+        public ReplyMarkup ReplyMarkup { get; set; }
 
     }
 
@@ -14982,7 +14982,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The text in which to look for entites
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
     }
 
@@ -14998,12 +14998,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The text which should be parsed
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// Text parse mode
         /// </summary>
-        public TextParseMode parse_mode { get; set; }
+        public TextParseMode ParseMode { get; set; }
 
     }
 
@@ -15019,7 +15019,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The name of the file or path to the file
         /// </summary>
-        public string file_name { get; set; }
+        public string FileName { get; set; }
 
     }
 
@@ -15035,7 +15035,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The MIME type of the file
         /// </summary>
-        public string mime_type { get; set; }
+        public string MimeType { get; set; }
 
     }
 
@@ -15051,7 +15051,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// File name or path to the file
         /// </summary>
-        public string file_name { get; set; }
+        public string FileName { get; set; }
 
     }
 
@@ -15067,22 +15067,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Path to the language pack database in which strings are stored
         /// </summary>
-        public string language_pack_database_path { get; set; }
+        public string LanguagePackDatabasePath { get; set; }
 
         /// <summary>
         /// Localization target to which the language pack belongs
         /// </summary>
-        public string localization_target { get; set; }
+        public string LocalizationTarget { get; set; }
 
         /// <summary>
         /// Language pack identifier
         /// </summary>
-        public string language_pack_id { get; set; }
+        public string LanguagePackId { get; set; }
 
         /// <summary>
         /// Language pack key of the string to be returned
         /// </summary>
-        public string key { get; set; }
+        public string Key { get; set; }
 
     }
 
@@ -15098,27 +15098,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The identifier of the target bot
         /// </summary>
-        public int bot_user_id { get; set; }
+        public int BotUserId { get; set; }
 
         /// <summary>
         /// Identifier of the chat, where the query was sent
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Location of the user, only if needed
         /// </summary>
-        public Location user_location { get; set; }
+        public Location UserLocation { get; set; }
 
         /// <summary>
         /// Text of the query
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Offset of the first entry to return
         /// </summary>
-        public string offset { get; set; }
+        public string Offset { get; set; }
 
     }
 
@@ -15134,37 +15134,37 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the inline query
         /// </summary>
-        public long inline_query_id { get; set; }
+        public long InlineQueryId { get; set; }
 
         /// <summary>
         /// True, if the result of the query can be cached for the specified user
         /// </summary>
-        public bool is_personal { get; set; }
+        public bool IsPersonal { get; set; }
 
         /// <summary>
         /// The results of the query
         /// </summary>
-        public InputInlineQueryResult[] results { get; set; }
+        public InputInlineQueryResult[] Results { get; set; }
 
         /// <summary>
         /// Allowed time to cache the results of the query, in seconds
         /// </summary>
-        public int cache_time { get; set; }
+        public int CacheTime { get; set; }
 
         /// <summary>
         /// Offset for the next inline query; pass an empty string if there are no more results
         /// </summary>
-        public string next_offset { get; set; }
+        public string NextOffset { get; set; }
 
         /// <summary>
         /// If non-empty, this text should be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter
         /// </summary>
-        public string switch_pm_text { get; set; }
+        public string SwitchPmText { get; set; }
 
         /// <summary>
         /// The parameter for the bot start message
         /// </summary>
-        public string switch_pm_parameter { get; set; }
+        public string SwitchPmParameter { get; set; }
 
     }
 
@@ -15180,17 +15180,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat with the message
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message from which the query originated
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// Query payload
         /// </summary>
-        public CallbackQueryPayload payload { get; set; }
+        public CallbackQueryPayload Payload { get; set; }
 
     }
 
@@ -15206,27 +15206,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the callback query
         /// </summary>
-        public long callback_query_id { get; set; }
+        public long CallbackQueryId { get; set; }
 
         /// <summary>
         /// Text of the answer
         /// </summary>
-        public string text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
         /// If true, an alert should be shown to the user instead of a toast notification
         /// </summary>
-        public bool show_alert { get; set; }
+        public bool ShowAlert { get; set; }
 
         /// <summary>
         /// URL to be opened
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// Time during which the result of the query can be cached, in seconds
         /// </summary>
-        public int cache_time { get; set; }
+        public int CacheTime { get; set; }
 
     }
 
@@ -15242,17 +15242,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the shipping query
         /// </summary>
-        public long shipping_query_id { get; set; }
+        public long ShippingQueryId { get; set; }
 
         /// <summary>
         /// Available shipping options
         /// </summary>
-        public ShippingOption[] shipping_options { get; set; }
+        public ShippingOption[] ShippingOptions { get; set; }
 
         /// <summary>
         /// An error message, empty on success
         /// </summary>
-        public string error_message { get; set; }
+        public string ErrorMessage { get; set; }
 
     }
 
@@ -15268,12 +15268,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the pre-checkout query
         /// </summary>
-        public long pre_checkout_query_id { get; set; }
+        public long PreCheckoutQueryId { get; set; }
 
         /// <summary>
         /// An error message, empty on success
         /// </summary>
-        public string error_message { get; set; }
+        public string ErrorMessage { get; set; }
 
     }
 
@@ -15289,32 +15289,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat to which the message with the game
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// True, if the message should be edited
         /// </summary>
-        public bool edit_message { get; set; }
+        public bool EditMessage { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// The new score
         /// </summary>
-        public int score { get; set; }
+        public int Score { get; set; }
 
         /// <summary>
         /// Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table
         /// </summary>
-        public bool force { get; set; }
+        public bool Force { get; set; }
 
     }
 
@@ -15330,27 +15330,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline message identifier
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// True, if the message should be edited
         /// </summary>
-        public bool edit_message { get; set; }
+        public bool EditMessage { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// The new score
         /// </summary>
-        public int score { get; set; }
+        public int Score { get; set; }
 
         /// <summary>
         /// Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table
         /// </summary>
-        public bool force { get; set; }
+        public bool Force { get; set; }
 
     }
 
@@ -15366,17 +15366,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The chat that contains the message with the game
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -15392,12 +15392,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Inline message identifier
         /// </summary>
-        public string inline_message_id { get; set; }
+        public string InlineMessageId { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -15413,12 +15413,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The message identifier of the used keyboard
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -15434,12 +15434,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The action description
         /// </summary>
-        public ChatAction action { get; set; }
+        public ChatAction Action { get; set; }
 
     }
 
@@ -15455,7 +15455,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -15471,7 +15471,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -15487,17 +15487,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The identifiers of the messages being viewed
         /// </summary>
-        public long[] message_ids { get; set; }
+        public long[] MessageIds { get; set; }
 
         /// <summary>
         /// True, if messages in closed chats should be marked as read
         /// </summary>
-        public bool force_read { get; set; }
+        public bool ForceRead { get; set; }
 
     }
 
@@ -15513,12 +15513,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier of the message
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the message with the opened content
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -15534,7 +15534,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -15550,12 +15550,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
         /// </summary>
-        public bool force { get; set; }
+        public bool Force { get; set; }
 
     }
 
@@ -15571,12 +15571,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int basic_group_id { get; set; }
+        public int BasicGroupId { get; set; }
 
         /// <summary>
         /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
         /// </summary>
-        public bool force { get; set; }
+        public bool Force { get; set; }
 
     }
 
@@ -15592,12 +15592,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
         /// </summary>
-        public bool force { get; set; }
+        public bool Force { get; set; }
 
     }
 
@@ -15613,7 +15613,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Secret chat identifier
         /// </summary>
-        public int secret_chat_id { get; set; }
+        public int SecretChatId { get; set; }
 
     }
 
@@ -15629,12 +15629,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifiers of users to be added to the basic group
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
         /// <summary>
         /// Title of the new basic group; 1-255 characters
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -15650,17 +15650,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Title of the new chat; 1-255 characters
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// True, if a channel chat should be created
         /// </summary>
-        public bool is_channel { get; set; }
+        public bool IsChannel { get; set; }
 
         /// <summary>
         /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
     }
 
@@ -15676,7 +15676,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the target user
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -15692,7 +15692,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the chat to upgrade
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -15708,12 +15708,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New title of the chat; 1-255 characters
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
     }
 
@@ -15729,12 +15729,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New chat photo. You can use a zero InputFileId to delete the chat photo. Files that are accessible only by HTTP URL are not acceptable
         /// </summary>
-        public InputFile photo { get; set; }
+        public InputFile Photo { get; set; }
 
     }
 
@@ -15750,12 +15750,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New draft message; may be null
         /// </summary>
-        public DraftMessage draft_message { get; set; }
+        public DraftMessage DraftMessage { get; set; }
 
     }
 
@@ -15771,12 +15771,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New notification settings for the chat
         /// </summary>
-        public ChatNotificationSettings notification_settings { get; set; }
+        public ChatNotificationSettings NotificationSettings { get; set; }
 
     }
 
@@ -15792,12 +15792,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of is_pinned
         /// </summary>
-        public bool is_pinned { get; set; }
+        public bool IsPinned { get; set; }
 
     }
 
@@ -15813,12 +15813,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of is_marked_as_unread
         /// </summary>
-        public bool is_marked_as_unread { get; set; }
+        public bool IsMarkedAsUnread { get; set; }
 
     }
 
@@ -15834,12 +15834,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of default_disable_notification
         /// </summary>
-        public bool default_disable_notification { get; set; }
+        public bool DefaultDisableNotification { get; set; }
 
     }
 
@@ -15855,12 +15855,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// New value of client_data
         /// </summary>
-        public string client_data { get; set; }
+        public string ClientData { get; set; }
 
     }
 
@@ -15876,7 +15876,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -15892,7 +15892,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -15908,17 +15908,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifier of the user
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// The number of earlier messages from the chat to be forwarded to the new member; up to 300. Ignored for supergroups and channels
         /// </summary>
-        public int forward_limit { get; set; }
+        public int ForwardLimit { get; set; }
 
     }
 
@@ -15934,12 +15934,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Identifiers of the users to be added to the chat
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
     }
 
@@ -15955,17 +15955,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// The new status of the member in the chat
         /// </summary>
-        public ChatMemberStatus status { get; set; }
+        public ChatMemberStatus Status { get; set; }
 
     }
 
@@ -15981,12 +15981,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -16002,22 +16002,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// The maximum number of users to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// The type of users to return. By default, chatMembersFilterMembers
         /// </summary>
-        public ChatMembersFilter filter { get; set; }
+        public ChatMembersFilter Filter { get; set; }
 
     }
 
@@ -16033,7 +16033,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -16049,7 +16049,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// If true, local draft messages in secret chats will not be cleared
         /// </summary>
-        public bool exclude_secret_chats { get; set; }
+        public bool ExcludeSecretChats { get; set; }
 
     }
 
@@ -16065,7 +16065,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Types of chats for which to return the notification settings information
         /// </summary>
-        public NotificationSettingsScope scope { get; set; }
+        public NotificationSettingsScope Scope { get; set; }
 
     }
 
@@ -16081,12 +16081,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Types of chats for which to change the notification settings
         /// </summary>
-        public NotificationSettingsScope scope { get; set; }
+        public NotificationSettingsScope Scope { get; set; }
 
         /// <summary>
         /// The new notification settings for the given scope
         /// </summary>
-        public ScopeNotificationSettings notification_settings { get; set; }
+        public ScopeNotificationSettings NotificationSettings { get; set; }
 
     }
 
@@ -16113,7 +16113,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new list of pinned chats
         /// </summary>
-        public long[] chat_ids { get; set; }
+        public long[] ChatIds { get; set; }
 
     }
 
@@ -16129,12 +16129,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the file to download
         /// </summary>
-        public int file_id { get; set; }
+        public int FileId { get; set; }
 
         /// <summary>
         /// Priority of the download (1-32). The higher the priority, the earlier the file will be downloaded. If the priorities of two files are equal, then the last one for which downloadFile was called will be downloaded first
         /// </summary>
-        public int priority { get; set; }
+        public int Priority { get; set; }
 
     }
 
@@ -16150,12 +16150,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of a file to stop downloading
         /// </summary>
-        public int file_id { get; set; }
+        public int FileId { get; set; }
 
         /// <summary>
         /// Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server
         /// </summary>
-        public bool only_if_pending { get; set; }
+        public bool OnlyIfPending { get; set; }
 
     }
 
@@ -16171,17 +16171,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// File to upload
         /// </summary>
-        public InputFile file { get; set; }
+        public InputFile File { get; set; }
 
         /// <summary>
         /// File type
         /// </summary>
-        public FileType file_type { get; set; }
+        public FileType FileType { get; set; }
 
         /// <summary>
         /// Priority of the upload (1-32). The higher the priority, the earlier the file will be uploaded. If the priorities of two files are equal, then the first one for which uploadFile was called will be uploaded first
         /// </summary>
-        public int priority { get; set; }
+        public int Priority { get; set; }
 
     }
 
@@ -16197,7 +16197,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the file to stop uploading
         /// </summary>
-        public int file_id { get; set; }
+        public int FileId { get; set; }
 
     }
 
@@ -16213,17 +16213,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The identifier of the generation process
         /// </summary>
-        public long generation_id { get; set; }
+        public long GenerationId { get; set; }
 
         /// <summary>
         /// Expected size of the generated file, in bytes; 0 if unknown
         /// </summary>
-        public int expected_size { get; set; }
+        public int ExpectedSize { get; set; }
 
         /// <summary>
         /// The number of bytes already generated
         /// </summary>
-        public int local_prefix_size { get; set; }
+        public int LocalPrefixSize { get; set; }
 
     }
 
@@ -16239,12 +16239,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The identifier of the generation process
         /// </summary>
-        public long generation_id { get; set; }
+        public long GenerationId { get; set; }
 
         /// <summary>
         /// If set, means that file generation has failed and should be terminated
         /// </summary>
-        public Error error { get; set; }
+        public Error Error { get; set; }
 
     }
 
@@ -16260,7 +16260,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the file to delete
         /// </summary>
-        public int file_id { get; set; }
+        public int FileId { get; set; }
 
     }
 
@@ -16276,7 +16276,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -16292,7 +16292,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Invite link to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
         /// </summary>
-        public string invite_link { get; set; }
+        public string InviteLink { get; set; }
 
     }
 
@@ -16308,7 +16308,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Invite link to import; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
         /// </summary>
-        public string invite_link { get; set; }
+        public string InviteLink { get; set; }
 
     }
 
@@ -16324,12 +16324,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the user to be called
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Description of the call protocols supported by the client
         /// </summary>
-        public CallProtocol protocol { get; set; }
+        public CallProtocol Protocol { get; set; }
 
     }
 
@@ -16345,12 +16345,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Call identifier
         /// </summary>
-        public int call_id { get; set; }
+        public int CallId { get; set; }
 
         /// <summary>
         /// Description of the call protocols supported by the client
         /// </summary>
-        public CallProtocol protocol { get; set; }
+        public CallProtocol Protocol { get; set; }
 
     }
 
@@ -16366,22 +16366,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Call identifier
         /// </summary>
-        public int call_id { get; set; }
+        public int CallId { get; set; }
 
         /// <summary>
         /// True, if the user was disconnected
         /// </summary>
-        public bool is_disconnected { get; set; }
+        public bool IsDisconnected { get; set; }
 
         /// <summary>
         /// The call duration, in seconds
         /// </summary>
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Identifier of the connection used during the call
         /// </summary>
-        public long connection_id { get; set; }
+        public long ConnectionId { get; set; }
 
     }
 
@@ -16397,17 +16397,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Call identifier
         /// </summary>
-        public int call_id { get; set; }
+        public int CallId { get; set; }
 
         /// <summary>
         /// Call rating; 1-5
         /// </summary>
-        public int rating { get; set; }
+        public int Rating { get; set; }
 
         /// <summary>
         /// An optional user comment if the rating is less than 5
         /// </summary>
-        public string comment { get; set; }
+        public string Comment { get; set; }
 
     }
 
@@ -16423,12 +16423,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Call identifier
         /// </summary>
-        public int call_id { get; set; }
+        public int CallId { get; set; }
 
         /// <summary>
         /// Debug information in application-specific format
         /// </summary>
-        public string debug_information { get; set; }
+        public string DebugInformation { get; set; }
 
     }
 
@@ -16444,7 +16444,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -16460,7 +16460,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
     }
 
@@ -16476,12 +16476,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Number of users to skip in the result; must be non-negative
         /// </summary>
-        public int offset { get; set; }
+        public int Offset { get; set; }
 
         /// <summary>
         /// Maximum number of users to return; up to 100
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -16497,7 +16497,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The list of contacts to import or edit, contact's vCard are ignored and are not imported
         /// </summary>
-        public Contact[] contacts { get; set; }
+        public Contact[] Contacts { get; set; }
 
     }
 
@@ -16524,12 +16524,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for; can be empty to return all contacts
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Maximum number of users to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -16545,7 +16545,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifiers of users to be deleted
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
     }
 
@@ -16572,7 +16572,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new list of contacts, contact's vCard are ignored and are not imported
         /// </summary>
-        public Contact[] contacts { get; set; }
+        public Contact[] Contacts { get; set; }
 
     }
 
@@ -16599,17 +16599,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// The number of photos to skip; must be non-negative
         /// </summary>
-        public int offset { get; set; }
+        public int Offset { get; set; }
 
         /// <summary>
         /// Maximum number of photos to be returned; up to 100
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -16625,12 +16625,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// String representation of emoji. If empty, returns all known installed stickers
         /// </summary>
-        public string emoji { get; set; }
+        public string Emoji { get; set; }
 
         /// <summary>
         /// Maximum number of stickers to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -16646,12 +16646,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// String representation of emoji; must be non-empty
         /// </summary>
-        public string emoji { get; set; }
+        public string Emoji { get; set; }
 
         /// <summary>
         /// Maximum number of stickers to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -16667,7 +16667,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to return mask sticker sets; pass false to return ordinary sticker sets
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
     }
 
@@ -16683,17 +16683,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to return mask stickers sets; pass false to return ordinary sticker sets
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
         /// <summary>
         /// Identifier of the sticker set from which to return the result
         /// </summary>
-        public long offset_sticker_set_id { get; set; }
+        public long OffsetStickerSetId { get; set; }
 
         /// <summary>
         /// Maximum number of sticker sets to return
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -16720,7 +16720,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// File identifier
         /// </summary>
-        public int file_id { get; set; }
+        public int FileId { get; set; }
 
     }
 
@@ -16736,7 +16736,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the sticker set
         /// </summary>
-        public long set_id { get; set; }
+        public long SetId { get; set; }
 
     }
 
@@ -16752,7 +16752,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Name of the sticker set
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
     }
 
@@ -16768,17 +16768,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to return mask sticker sets; pass false to return ordinary sticker sets
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Maximum number of sticker sets to return
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -16794,7 +16794,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Query to search for
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
     }
 
@@ -16810,17 +16810,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the sticker set
         /// </summary>
-        public long set_id { get; set; }
+        public long SetId { get; set; }
 
         /// <summary>
         /// The new value of is_installed
         /// </summary>
-        public bool is_installed { get; set; }
+        public bool IsInstalled { get; set; }
 
         /// <summary>
         /// The new value of is_archived. A sticker set can't be installed and archived simultaneously
         /// </summary>
-        public bool is_archived { get; set; }
+        public bool IsArchived { get; set; }
 
     }
 
@@ -16836,7 +16836,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifiers of viewed trending sticker sets
         /// </summary>
-        public long[] sticker_set_ids { get; set; }
+        public long[] StickerSetIds { get; set; }
 
     }
 
@@ -16852,12 +16852,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to change the order of mask sticker sets; pass false to change the order of ordinary sticker sets
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
         /// <summary>
         /// Identifiers of installed sticker sets in the new correct order
         /// </summary>
-        public long[] sticker_set_ids { get; set; }
+        public long[] StickerSetIds { get; set; }
 
     }
 
@@ -16873,7 +16873,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers
         /// </summary>
-        public bool is_attached { get; set; }
+        public bool IsAttached { get; set; }
 
     }
 
@@ -16889,12 +16889,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to add the sticker to the list of stickers recently attached to photo or video files; pass false to add the sticker to the list of recently sent stickers
         /// </summary>
-        public bool is_attached { get; set; }
+        public bool IsAttached { get; set; }
 
         /// <summary>
         /// Sticker file to add
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
     }
 
@@ -16910,12 +16910,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to remove the sticker from the list of stickers recently attached to photo or video files; pass false to remove the sticker from the list of recently sent stickers
         /// </summary>
-        public bool is_attached { get; set; }
+        public bool IsAttached { get; set; }
 
         /// <summary>
         /// Sticker file to delete
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
     }
 
@@ -16931,7 +16931,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers
         /// </summary>
-        public bool is_attached { get; set; }
+        public bool IsAttached { get; set; }
 
     }
 
@@ -16958,7 +16958,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker file to add
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
     }
 
@@ -16974,7 +16974,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker file to delete from the list
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
     }
 
@@ -16990,7 +16990,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker file identifier
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
     }
 
@@ -17017,7 +17017,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The animation file to be added. Only animations known to the server (i.e. successfully sent via a message) can be added to the list
         /// </summary>
-        public InputFile animation { get; set; }
+        public InputFile Animation { get; set; }
 
     }
 
@@ -17033,7 +17033,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Animation file to be removed
         /// </summary>
-        public InputFile animation { get; set; }
+        public InputFile Animation { get; set; }
 
     }
 
@@ -17060,12 +17060,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Hashtag prefix to search for
         /// </summary>
-        public string prefix { get; set; }
+        public string Prefix { get; set; }
 
         /// <summary>
         /// Maximum number of hashtags to be returned
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -17081,7 +17081,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Hashtag to delete
         /// </summary>
-        public string hashtag { get; set; }
+        public string Hashtag { get; set; }
 
     }
 
@@ -17097,7 +17097,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Message text with formatting
         /// </summary>
-        public FormattedText text { get; set; }
+        public FormattedText Text { get; set; }
 
     }
 
@@ -17113,12 +17113,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The web page URL
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// If true, the full instant view for the web page will be returned
         /// </summary>
-        public bool force_full { get; set; }
+        public bool ForceFull { get; set; }
 
     }
 
@@ -17134,7 +17134,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Profile photo to set. inputFileId and inputFileRemote may still be unsupported
         /// </summary>
-        public InputFile photo { get; set; }
+        public InputFile Photo { get; set; }
 
     }
 
@@ -17150,7 +17150,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the profile photo to delete
         /// </summary>
-        public long profile_photo_id { get; set; }
+        public long ProfilePhotoId { get; set; }
 
     }
 
@@ -17166,12 +17166,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new value of the first name for the user; 1-255 characters
         /// </summary>
-        public string first_name { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
         /// The new value of the optional last name for the user; 0-255 characters
         /// </summary>
-        public string last_name { get; set; }
+        public string LastName { get; set; }
 
     }
 
@@ -17187,7 +17187,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new value of the user bio; 0-70 characters without line feeds
         /// </summary>
-        public string bio { get; set; }
+        public string Bio { get; set; }
 
     }
 
@@ -17203,7 +17203,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new value of the username. Use an empty string to remove the username
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
     }
 
@@ -17219,17 +17219,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new phone number of the user in international format
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Pass true if the code can be sent via flash call to the specified phone number
         /// </summary>
-        public bool allow_flash_call { get; set; }
+        public bool AllowFlashCall { get; set; }
 
         /// <summary>
         /// Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false
         /// </summary>
-        public bool is_current_phone_number { get; set; }
+        public bool IsCurrentPhoneNumber { get; set; }
 
     }
 
@@ -17256,7 +17256,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Verification code received by SMS, phone call or flash call
         /// </summary>
-        public string code { get; set; }
+        public string Code { get; set; }
 
     }
 
@@ -17283,7 +17283,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Session identifier
         /// </summary>
-        public long session_id { get; set; }
+        public long SessionId { get; set; }
 
     }
 
@@ -17321,7 +17321,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Website identifier
         /// </summary>
-        public long website_id { get; set; }
+        public long WebsiteId { get; set; }
 
     }
 
@@ -17348,12 +17348,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the basic group
         /// </summary>
-        public int basic_group_id { get; set; }
+        public int BasicGroupId { get; set; }
 
         /// <summary>
         /// New value of everyone_is_administrator
         /// </summary>
-        public bool everyone_is_administrator { get; set; }
+        public bool EveryoneIsAdministrator { get; set; }
 
     }
 
@@ -17369,12 +17369,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// New value of the username. Use an empty string to remove the username
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
 
     }
 
@@ -17390,12 +17390,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set
         /// </summary>
-        public long sticker_set_id { get; set; }
+        public long StickerSetId { get; set; }
 
     }
 
@@ -17411,12 +17411,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// New value of anyone_can_invite
         /// </summary>
-        public bool anyone_can_invite { get; set; }
+        public bool AnyoneCanInvite { get; set; }
 
     }
 
@@ -17432,12 +17432,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// New value of sign_messages
         /// </summary>
-        public bool sign_messages { get; set; }
+        public bool SignMessages { get; set; }
 
     }
 
@@ -17453,12 +17453,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The identifier of the supergroup
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// The new value of is_all_history_available
         /// </summary>
-        public bool is_all_history_available { get; set; }
+        public bool IsAllHistoryAvailable { get; set; }
 
     }
 
@@ -17474,12 +17474,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// Changes information about a supergroup or channel; requires appropriate administrator rights
         /// </summary>
-        public string description { get; set; }
+        public string Description { get; set; }
 
     }
 
@@ -17495,17 +17495,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// Identifier of the new pinned message
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// True, if there should be no notification about the pinned message
         /// </summary>
-        public bool disable_notification { get; set; }
+        public bool DisableNotification { get; set; }
 
     }
 
@@ -17521,7 +17521,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
     }
 
@@ -17537,17 +17537,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Supergroup identifier
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Identifiers of messages sent in the supergroup by the user. This list must be non-empty
         /// </summary>
-        public long[] message_ids { get; set; }
+        public long[] MessageIds { get; set; }
 
     }
 
@@ -17563,22 +17563,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
         /// <summary>
         /// The type of users to return. By default, supergroupMembersRecent
         /// </summary>
-        public SupergroupMembersFilter filter { get; set; }
+        public SupergroupMembersFilter Filter { get; set; }
 
         /// <summary>
         /// Number of users to skip
         /// </summary>
-        public int offset { get; set; }
+        public int Offset { get; set; }
 
         /// <summary>
         /// The maximum number of users be returned; up to 200
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
     }
 
@@ -17594,7 +17594,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int supergroup_id { get; set; }
+        public int SupergroupId { get; set; }
 
     }
 
@@ -17610,7 +17610,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Secret chat identifier
         /// </summary>
-        public int secret_chat_id { get; set; }
+        public int SecretChatId { get; set; }
 
     }
 
@@ -17626,32 +17626,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Search query by which to filter events
         /// </summary>
-        public string query { get; set; }
+        public string Query { get; set; }
 
         /// <summary>
         /// Identifier of an event from which to return results. Use 0 to get results from the latest events
         /// </summary>
-        public long from_event_id { get; set; }
+        public long FromEventId { get; set; }
 
         /// <summary>
         /// Maximum number of events to return; up to 100
         /// </summary>
-        public int limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// The types of events to return. By default, all types will be returned
         /// </summary>
-        public ChatEventLogFilters filters { get; set; }
+        public ChatEventLogFilters Filters { get; set; }
 
         /// <summary>
         /// User identifiers by which to filter events. By default, events relating to all users will be returned
         /// </summary>
-        public int[] user_ids { get; set; }
+        public int[] UserIds { get; set; }
 
     }
 
@@ -17667,12 +17667,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier of the Invoice message
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -17688,22 +17688,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier of the Invoice message
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// The order information, provided by the user
         /// </summary>
-        public OrderInfo order_info { get; set; }
+        public OrderInfo OrderInfo { get; set; }
 
         /// <summary>
         /// True, if the order information can be saved
         /// </summary>
-        public bool allow_save { get; set; }
+        public bool AllowSave { get; set; }
 
     }
 
@@ -17719,27 +17719,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier of the Invoice message
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// Identifier returned by ValidateOrderInfo, or an empty string
         /// </summary>
-        public string order_info_id { get; set; }
+        public string OrderInfoId { get; set; }
 
         /// <summary>
         /// Identifier of a chosen shipping option, if applicable
         /// </summary>
-        public string shipping_option_id { get; set; }
+        public string ShippingOptionId { get; set; }
 
         /// <summary>
         /// The credentials chosen by user for payment
         /// </summary>
-        public InputCredentials credentials { get; set; }
+        public InputCredentials Credentials { get; set; }
 
     }
 
@@ -17755,12 +17755,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier of the PaymentSuccessful message
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// Message identifier
         /// </summary>
-        public long message_id { get; set; }
+        public long MessageId { get; set; }
 
     }
 
@@ -17831,7 +17831,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// If true, returns only locally available information without sending network requests
         /// </summary>
-        public bool only_local { get; set; }
+        public bool OnlyLocal { get; set; }
 
     }
 
@@ -17847,12 +17847,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Language pack identifier of the strings to be returned
         /// </summary>
-        public string language_pack_id { get; set; }
+        public string LanguagePackId { get; set; }
 
         /// <summary>
         /// Language pack keys of the strings to be returned; leave empty to request all available strings
         /// </summary>
-        public string[] keys { get; set; }
+        public string[] Keys { get; set; }
 
     }
 
@@ -17868,12 +17868,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Information about the language pack. Language pack ID must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters
         /// </summary>
-        public LanguagePackInfo info { get; set; }
+        public LanguagePackInfo Info { get; set; }
 
         /// <summary>
         /// Strings of the new language pack
         /// </summary>
-        public LanguagePackString[] strings { get; set; }
+        public LanguagePackString[] Strings { get; set; }
 
     }
 
@@ -17889,7 +17889,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New information about the custom language pack
         /// </summary>
-        public LanguagePackInfo info { get; set; }
+        public LanguagePackInfo Info { get; set; }
 
     }
 
@@ -17905,12 +17905,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of a previously added custom language pack in the current localization target
         /// </summary>
-        public string language_pack_id { get; set; }
+        public string LanguagePackId { get; set; }
 
         /// <summary>
         /// New language pack string
         /// </summary>
-        public LanguagePackString new_string { get; set; }
+        public LanguagePackString NewString { get; set; }
 
     }
 
@@ -17926,7 +17926,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of the language pack to delete
         /// </summary>
-        public string language_pack_id { get; set; }
+        public string LanguagePackId { get; set; }
 
     }
 
@@ -17942,12 +17942,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Device token
         /// </summary>
-        public DeviceToken device_token { get; set; }
+        public DeviceToken DeviceToken { get; set; }
 
         /// <summary>
         /// List of at most 100 user identifiers of other users currently using the client
         /// </summary>
-        public int[] other_user_ids { get; set; }
+        public int[] OtherUserIds { get; set; }
 
     }
 
@@ -17963,7 +17963,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Google Play referrer to identify the user
         /// </summary>
-        public string referrer { get; set; }
+        public string Referrer { get; set; }
 
     }
 
@@ -17979,12 +17979,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The privacy setting
         /// </summary>
-        public UserPrivacySetting setting { get; set; }
+        public UserPrivacySetting Setting { get; set; }
 
         /// <summary>
         /// The new privacy rules
         /// </summary>
-        public UserPrivacySettingRules rules { get; set; }
+        public UserPrivacySettingRules Rules { get; set; }
 
     }
 
@@ -18000,7 +18000,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The privacy setting
         /// </summary>
-        public UserPrivacySetting setting { get; set; }
+        public UserPrivacySetting Setting { get; set; }
 
     }
 
@@ -18016,7 +18016,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The name of the option
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
     }
 
@@ -18032,12 +18032,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The name of the option
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The new value of the option
         /// </summary>
-        public OptionValue value { get; set; }
+        public OptionValue Value { get; set; }
 
     }
 
@@ -18053,7 +18053,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// New account TTL
         /// </summary>
-        public AccountTtl ttl { get; set; }
+        public AccountTtl Ttl { get; set; }
 
     }
 
@@ -18080,7 +18080,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The reason why the account was deleted; optional
         /// </summary>
-        public string reason { get; set; }
+        public string Reason { get; set; }
 
     }
 
@@ -18096,7 +18096,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -18112,12 +18112,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// If true, the chat will be reported as spam; otherwise it will be marked as not spam
         /// </summary>
-        public bool is_spam_chat { get; set; }
+        public bool IsSpamChat { get; set; }
 
     }
 
@@ -18133,17 +18133,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Chat identifier
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
         /// <summary>
         /// The reason for reporting the chat
         /// </summary>
-        public ChatReportReason reason { get; set; }
+        public ChatReportReason Reason { get; set; }
 
         /// <summary>
         /// Identifiers of reported messages, if any
         /// </summary>
-        public long[] message_ids { get; set; }
+        public long[] MessageIds { get; set; }
 
     }
 
@@ -18159,7 +18159,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Maximum number of chats with the largest storage usage for which separate statistics should be returned. All other chats will be grouped in entries with chat_id == 0. If the chat info database is not used, the chat_limit is ignored and is always set to 0
         /// </summary>
-        public int chat_limit { get; set; }
+        public int ChatLimit { get; set; }
 
     }
 
@@ -18186,42 +18186,42 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Limit on the total size of files after deletion. Pass -1 to use the default limit
         /// </summary>
-        public long size { get; set; }
+        public long Size { get; set; }
 
         /// <summary>
         /// Limit on the time that has passed since the last time a file was accessed (or creation time for some filesystems). Pass -1 to use the default limit
         /// </summary>
-        public int ttl { get; set; }
+        public int Ttl { get; set; }
 
         /// <summary>
         /// Limit on the total count of files after deletion. Pass -1 to use the default limit
         /// </summary>
-        public int count { get; set; }
+        public int Count { get; set; }
 
         /// <summary>
         /// The amount of time after the creation of a file during which it can't be deleted, in seconds. Pass -1 to use the default value
         /// </summary>
-        public int immunity_delay { get; set; }
+        public int ImmunityDelay { get; set; }
 
         /// <summary>
         /// If not empty, only files with the given type(s) are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted
         /// </summary>
-        public FileType[] file_types { get; set; }
+        public FileType[] FileTypes { get; set; }
 
         /// <summary>
         /// If not empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)
         /// </summary>
-        public long[] chat_ids { get; set; }
+        public long[] ChatIds { get; set; }
 
         /// <summary>
         /// If not empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)
         /// </summary>
-        public long[] exclude_chat_ids { get; set; }
+        public long[] ExcludeChatIds { get; set; }
 
         /// <summary>
         /// Same as in getStorageStatistics. Affects only returned statistics
         /// </summary>
-        public int chat_limit { get; set; }
+        public int ChatLimit { get; set; }
 
     }
 
@@ -18237,7 +18237,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The new network type. By default, networkTypeOther
         /// </summary>
-        public NetworkType type { get; set; }
+        public NetworkType Type { get; set; }
 
     }
 
@@ -18253,7 +18253,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// If true, returns only data for the current library launch
         /// </summary>
-        public bool only_current { get; set; }
+        public bool OnlyCurrent { get; set; }
 
     }
 
@@ -18269,7 +18269,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The network statistics entry with the data to be added to statistics
         /// </summary>
-        public NetworkStatisticsEntry entry { get; set; }
+        public NetworkStatisticsEntry Entry { get; set; }
 
     }
 
@@ -18296,12 +18296,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Telegram Passport element type
         /// </summary>
-        public PassportElementType type { get; set; }
+        public PassportElementType Type { get; set; }
 
         /// <summary>
         /// Password of the current user
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
     }
 
@@ -18317,7 +18317,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Password of the current user
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
     }
 
@@ -18333,12 +18333,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Input Telegram Passport element
         /// </summary>
-        public InputPassportElement element { get; set; }
+        public InputPassportElement Element { get; set; }
 
         /// <summary>
         /// Password of the current user
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
     }
 
@@ -18354,7 +18354,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Element type
         /// </summary>
-        public PassportElementType type { get; set; }
+        public PassportElementType Type { get; set; }
 
     }
 
@@ -18370,12 +18370,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// The errors
         /// </summary>
-        public InputPassportElementError[] errors { get; set; }
+        public InputPassportElementError[] Errors { get; set; }
 
     }
 
@@ -18391,7 +18391,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// A two-letter ISO 3166-1 alpha-2 country code
         /// </summary>
-        public string country_code { get; set; }
+        public string CountryCode { get; set; }
 
     }
 
@@ -18407,17 +18407,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The phone number of the user, in international format
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Pass true if the authentication code may be sent via flash call to the specified phone number
         /// </summary>
-        public bool allow_flash_call { get; set; }
+        public bool AllowFlashCall { get; set; }
 
         /// <summary>
         /// Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false
         /// </summary>
-        public bool is_current_phone_number { get; set; }
+        public bool IsCurrentPhoneNumber { get; set; }
 
     }
 
@@ -18444,7 +18444,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Verification code
         /// </summary>
-        public string code { get; set; }
+        public string Code { get; set; }
 
     }
 
@@ -18460,7 +18460,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Email address
         /// </summary>
-        public string email_address { get; set; }
+        public string EmailAddress { get; set; }
 
     }
 
@@ -18487,7 +18487,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Verification code
         /// </summary>
-        public string code { get; set; }
+        public string Code { get; set; }
 
     }
 
@@ -18503,27 +18503,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// User identifier of the service's bot
         /// </summary>
-        public int bot_user_id { get; set; }
+        public int BotUserId { get; set; }
 
         /// <summary>
         /// Telegram Passport element types requested by the service
         /// </summary>
-        public string scope { get; set; }
+        public string Scope { get; set; }
 
         /// <summary>
         /// Service's public_key
         /// </summary>
-        public string public_key { get; set; }
+        public string PublicKey { get; set; }
 
         /// <summary>
         /// Authorization form nonce provided by the service
         /// </summary>
-        public string nonce { get; set; }
+        public string Nonce { get; set; }
 
         /// <summary>
         /// Password of the current user
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
     }
 
@@ -18539,12 +18539,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Authorization form identifier
         /// </summary>
-        public int autorization_form_id { get; set; }
+        public int AutorizationFormId { get; set; }
 
         /// <summary>
         /// Types of Telegram Passport elements chosen by user to complete the authorization form
         /// </summary>
-        public PassportElementType[] types { get; set; }
+        public PassportElementType[] Types { get; set; }
 
     }
 
@@ -18560,22 +18560,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Value of the "hash" parameter from the link
         /// </summary>
-        public string hash { get; set; }
+        public string Hash { get; set; }
 
         /// <summary>
         /// Value of the "phone" parameter from the link
         /// </summary>
-        public string phone_number { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Pass true if the authentication code may be sent via flash call to the specified phone number
         /// </summary>
-        public bool allow_flash_call { get; set; }
+        public bool AllowFlashCall { get; set; }
 
         /// <summary>
         /// Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false
         /// </summary>
-        public bool is_current_phone_number { get; set; }
+        public bool IsCurrentPhoneNumber { get; set; }
 
     }
 
@@ -18602,7 +18602,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The phone number confirmation code
         /// </summary>
-        public string code { get; set; }
+        public string Code { get; set; }
 
     }
 
@@ -18618,12 +18618,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The number of pending updates
         /// </summary>
-        public int pending_update_count { get; set; }
+        public int PendingUpdateCount { get; set; }
 
         /// <summary>
         /// The last error message
         /// </summary>
-        public string error_message { get; set; }
+        public string ErrorMessage { get; set; }
 
     }
 
@@ -18639,12 +18639,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker file owner
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// PNG image with the sticker; must be up to 512 kB in size and fit in 512x512 square
         /// </summary>
-        public InputFile png_sticker { get; set; }
+        public InputFile PngSticker { get; set; }
 
     }
 
@@ -18660,27 +18660,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker set owner
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Sticker set title; 1-64 characters
         /// </summary>
-        public string title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive); 1-64 characters
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// True, if stickers are masks
         /// </summary>
-        public bool is_masks { get; set; }
+        public bool IsMasks { get; set; }
 
         /// <summary>
         /// List of stickers to be added to the set
         /// </summary>
-        public InputSticker[] stickers { get; set; }
+        public InputSticker[] Stickers { get; set; }
 
     }
 
@@ -18696,17 +18696,17 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker set owner
         /// </summary>
-        public int user_id { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Sticker set name
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Sticker to add to the set
         /// </summary>
-        public InputSticker sticker { get; set; }
+        public InputSticker Sticker { get; set; }
 
     }
 
@@ -18722,12 +18722,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
         /// <summary>
         /// New position of the sticker in the set, zero-based
         /// </summary>
-        public int position { get; set; }
+        public int Position { get; set; }
 
     }
 
@@ -18743,7 +18743,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Sticker
         /// </summary>
-        public InputFile sticker { get; set; }
+        public InputFile Sticker { get; set; }
 
     }
 
@@ -18759,32 +18759,32 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Location of the map center
         /// </summary>
-        public Location location { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// Map zoom level; 13-20
         /// </summary>
-        public int zoom { get; set; }
+        public int Zoom { get; set; }
 
         /// <summary>
         /// Map width in pixels before applying scale; 16-1024
         /// </summary>
-        public int width { get; set; }
+        public int Width { get; set; }
 
         /// <summary>
         /// Map height in pixels before applying scale; 16-1024
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Map scale; 1-3
         /// </summary>
-        public int scale { get; set; }
+        public int Scale { get; set; }
 
         /// <summary>
         /// Identifier of a chat, in which the thumbnail will be shown. Use 0 if unknown
         /// </summary>
-        public long chat_id { get; set; }
+        public long ChatId { get; set; }
 
     }
 
@@ -18800,7 +18800,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Terms of service identifier
         /// </summary>
-        public string terms_of_service_id { get; set; }
+        public string TermsOfServiceId { get; set; }
 
     }
 
@@ -18816,12 +18816,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The method name
         /// </summary>
-        public string method { get; set; }
+        public string Method { get; set; }
 
         /// <summary>
         /// JSON-serialized method parameters
         /// </summary>
-        public string parameters { get; set; }
+        public string Parameters { get; set; }
 
     }
 
@@ -18837,12 +18837,12 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Identifier of a custom query
         /// </summary>
-        public long custom_query_id { get; set; }
+        public long CustomQueryId { get; set; }
 
         /// <summary>
         /// JSON-serialized answer to the query
         /// </summary>
-        public string data { get; set; }
+        public string Data { get; set; }
 
     }
 
@@ -18858,7 +18858,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Number of seconds before the function returns
         /// </summary>
-        public double seconds { get; set; }
+        public double Seconds { get; set; }
 
     }
 
@@ -18896,7 +18896,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// The link
         /// </summary>
-        public string link { get; set; }
+        public string Link { get; set; }
 
     }
 
@@ -18912,22 +18912,22 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Proxy server IP address
         /// </summary>
-        public string server { get; set; }
+        public string Server { get; set; }
 
         /// <summary>
         /// Proxy server port
         /// </summary>
-        public int port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// True, if the proxy should be enabled
         /// </summary>
-        public bool enable { get; set; }
+        public bool Enable { get; set; }
 
         /// <summary>
         /// Proxy type
         /// </summary>
-        public ProxyType type { get; set; }
+        public ProxyType Type { get; set; }
 
     }
 
@@ -18943,27 +18943,27 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Proxy identifier
         /// </summary>
-        public int proxy_id { get; set; }
+        public int ProxyId { get; set; }
 
         /// <summary>
         /// Proxy server IP address
         /// </summary>
-        public string server { get; set; }
+        public string Server { get; set; }
 
         /// <summary>
         /// Proxy server port
         /// </summary>
-        public int port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// True, if the proxy should be enabled
         /// </summary>
-        public bool enable { get; set; }
+        public bool Enable { get; set; }
 
         /// <summary>
         /// Proxy type
         /// </summary>
-        public ProxyType type { get; set; }
+        public ProxyType Type { get; set; }
 
     }
 
@@ -18979,7 +18979,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Proxy identifier
         /// </summary>
-        public int proxy_id { get; set; }
+        public int ProxyId { get; set; }
 
     }
 
@@ -19006,7 +19006,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Proxy identifier
         /// </summary>
-        public int proxy_id { get; set; }
+        public int ProxyId { get; set; }
 
     }
 
@@ -19033,7 +19033,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Proxy identifier
         /// </summary>
-        public int proxy_id { get; set; }
+        public int ProxyId { get; set; }
 
     }
 
@@ -19049,7 +19049,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Proxy identifier. Use 0 to ping a Telegram server without a proxy
         /// </summary>
-        public int proxy_id { get; set; }
+        public int ProxyId { get; set; }
 
     }
 
@@ -19076,7 +19076,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// String to return
         /// </summary>
-        public string x { get; set; }
+        public string X { get; set; }
 
     }
 
@@ -19092,7 +19092,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Bytes to return
         /// </summary>
-        public byte[] x { get; set; }
+        public byte[] X { get; set; }
 
     }
 
@@ -19108,7 +19108,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of numbers to return
         /// </summary>
-        public int[] x { get; set; }
+        public int[] X { get; set; }
 
     }
 
@@ -19124,7 +19124,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of objects to return
         /// </summary>
-        public TestInt[] x { get; set; }
+        public TestInt[] X { get; set; }
 
     }
 
@@ -19140,7 +19140,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of strings to return
         /// </summary>
-        public string[] x { get; set; }
+        public string[] X { get; set; }
 
     }
 
@@ -19156,7 +19156,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Vector of objects to return
         /// </summary>
-        public TestString[] x { get; set; }
+        public TestString[] X { get; set; }
 
     }
 
@@ -19172,7 +19172,7 @@ namespace TDLib.Api.Types
         /// <summary>
         /// Number to square
         /// </summary>
-        public int x { get; set; }
+        public int X { get; set; }
 
     }
 

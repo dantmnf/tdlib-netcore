@@ -15,40 +15,40 @@ namespace test
         [TestMethod]
         public void TestCommandDispatcher()
         {
-            var user = new User {  username = "testbot" };
+            var user = new User { Username = "testbot" };
             var disp = new MessageCommandDispatcher(user);
             var matched = false;
             disp.Add("testcmd", m => { matched = true; });
-            disp.Dispatch(new UpdateNewMessage { message = new Message { content = new MessageText { text = new FormattedText { text = "/testcmd@otherbot", entities = new [] { new TextEntity { offset = 0, length = 17, type = new TextEntityTypeBotCommand() } } } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/testcmd@otherbot", Entities = new [] { new TextEntity { Offset = 0, Length = 17, Type = new TextEntityTypeBotCommand() } } } } } });
             Assert.IsFalse(matched);
-            disp.Dispatch(new UpdateNewMessage { message = new Message { content = new MessageText { text = new FormattedText { text = "/nullcmd@testbot", entities = new[] { new TextEntity { offset = 0, length = 16, type = new TextEntityTypeBotCommand() } } } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/nullcmd@testbot", Entities = new[] { new TextEntity { Offset = 0, Length = 16, Type = new TextEntityTypeBotCommand() } } } } } });
             Assert.IsFalse(matched);
-            disp.Dispatch(new UpdateNewMessage { message = new Message { content = new MessageText { text = new FormattedText { text = "/nullcmd", entities = new[] { new TextEntity { offset = 0, length = 8, type = new TextEntityTypeBotCommand() } } } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/nullcmd", Entities = new[] { new TextEntity { Offset = 0, Length = 8, Type = new TextEntityTypeBotCommand() } } } } } });
             Assert.IsFalse(matched);
-            disp.Dispatch(new UpdateNewMessage { message = new Message { content = new MessageText { text = new FormattedText { text = "/testcmd@testbot", entities = new[] { new TextEntity { offset = 0, length = 16, type = new TextEntityTypeBotCommand() } } } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/testcmd@testbot", Entities = new[] { new TextEntity { Offset = 0, Length = 16, Type = new TextEntityTypeBotCommand() } } } } } });
             Assert.IsTrue(matched);
             matched = false;
-            disp.Dispatch(new UpdateNewMessage { message = new Message { content = new MessageText { text = new FormattedText { text = "/testcmd", entities = new[] { new TextEntity { offset = 0, length = 8, type = new TextEntityTypeBotCommand() } } } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/testcmd", Entities = new[] { new TextEntity { Offset = 0, Length = 8, Type = new TextEntityTypeBotCommand() } } } } } });
             Assert.IsTrue(matched);
         }
 
         [TestMethod]
         public void TestRegexDispatcher()
         {
-            var user = new User { username = "testbot" };
+            var user = new User { Username = "testbot" };
             var disp = new MessageRegexDispatcher(user);
             var matched = false;
             disp.Add(@"\d+", RegexOptions.None, (m, _) => { matched = true; });
-            disp.Dispatch(new UpdateNewMessage { message = new Message { content = new MessageText { text = new FormattedText { text = "foo", entities = new TextEntity[0] } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "foo", Entities = new TextEntity[0] } } } });
             Assert.IsFalse(matched);
-            disp.Dispatch(new UpdateNewMessage { message = new Message { content = new MessageText { text = new FormattedText { text = "foo114514foo", entities = new TextEntity[0] } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "foo114514foo", Entities = new TextEntity[0] } } } });
             Assert.IsTrue(matched);
         }
 
         [TestMethod]
         public void TestUpdateTypeDispatcher()
         {
-            var user = new User { username = "testbot" };
+            var user = new User { Username = "testbot" };
             var disp = new UpdateTypeDispatcher(user);
             var matched = false;
             disp.Add(typeof(UpdateChatTitle), u => { matched = true; });

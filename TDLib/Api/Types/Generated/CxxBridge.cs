@@ -24,14 +24,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_error();
-            td_bridge_obj_error_code(obj).Set(this.code);
-            td_bridge_obj_error_message(obj).Set(this.message);
+            td_bridge_obj_error_code(obj).Set(this.Code);
+            td_bridge_obj_error_message(obj).Set(this.Message);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.code = td_bridge_obj_error_code(obj).Fetch();
-            this.message = td_bridge_obj_error_message(obj).Fetch();
+            this.Code = td_bridge_obj_error_code(obj).Fetch();
+            this.Message = td_bridge_obj_error_message(obj).Fetch();
         }
     }
 
@@ -105,40 +105,40 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_tdlibParameters();
-            td_bridge_obj_tdlibParameters_use_test_dc(obj).Set(this.use_test_dc);
-            td_bridge_obj_tdlibParameters_database_directory(obj).Set(this.database_directory);
-            td_bridge_obj_tdlibParameters_files_directory(obj).Set(this.files_directory);
-            td_bridge_obj_tdlibParameters_use_file_database(obj).Set(this.use_file_database);
-            td_bridge_obj_tdlibParameters_use_chat_info_database(obj).Set(this.use_chat_info_database);
-            td_bridge_obj_tdlibParameters_use_message_database(obj).Set(this.use_message_database);
-            td_bridge_obj_tdlibParameters_use_secret_chats(obj).Set(this.use_secret_chats);
-            td_bridge_obj_tdlibParameters_api_id(obj).Set(this.api_id);
-            td_bridge_obj_tdlibParameters_api_hash(obj).Set(this.api_hash);
-            td_bridge_obj_tdlibParameters_system_language_code(obj).Set(this.system_language_code);
-            td_bridge_obj_tdlibParameters_device_model(obj).Set(this.device_model);
-            td_bridge_obj_tdlibParameters_system_version(obj).Set(this.system_version);
-            td_bridge_obj_tdlibParameters_application_version(obj).Set(this.application_version);
-            td_bridge_obj_tdlibParameters_enable_storage_optimizer(obj).Set(this.enable_storage_optimizer);
-            td_bridge_obj_tdlibParameters_ignore_file_names(obj).Set(this.ignore_file_names);
+            td_bridge_obj_tdlibParameters_use_test_dc(obj).Set(this.UseTestDc);
+            td_bridge_obj_tdlibParameters_database_directory(obj).Set(this.DatabaseDirectory);
+            td_bridge_obj_tdlibParameters_files_directory(obj).Set(this.FilesDirectory);
+            td_bridge_obj_tdlibParameters_use_file_database(obj).Set(this.UseFileDatabase);
+            td_bridge_obj_tdlibParameters_use_chat_info_database(obj).Set(this.UseChatInfoDatabase);
+            td_bridge_obj_tdlibParameters_use_message_database(obj).Set(this.UseMessageDatabase);
+            td_bridge_obj_tdlibParameters_use_secret_chats(obj).Set(this.UseSecretChats);
+            td_bridge_obj_tdlibParameters_api_id(obj).Set(this.ApiId);
+            td_bridge_obj_tdlibParameters_api_hash(obj).Set(this.ApiHash);
+            td_bridge_obj_tdlibParameters_system_language_code(obj).Set(this.SystemLanguageCode);
+            td_bridge_obj_tdlibParameters_device_model(obj).Set(this.DeviceModel);
+            td_bridge_obj_tdlibParameters_system_version(obj).Set(this.SystemVersion);
+            td_bridge_obj_tdlibParameters_application_version(obj).Set(this.ApplicationVersion);
+            td_bridge_obj_tdlibParameters_enable_storage_optimizer(obj).Set(this.EnableStorageOptimizer);
+            td_bridge_obj_tdlibParameters_ignore_file_names(obj).Set(this.IgnoreFileNames);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.use_test_dc = td_bridge_obj_tdlibParameters_use_test_dc(obj).Fetch();
-            this.database_directory = td_bridge_obj_tdlibParameters_database_directory(obj).Fetch();
-            this.files_directory = td_bridge_obj_tdlibParameters_files_directory(obj).Fetch();
-            this.use_file_database = td_bridge_obj_tdlibParameters_use_file_database(obj).Fetch();
-            this.use_chat_info_database = td_bridge_obj_tdlibParameters_use_chat_info_database(obj).Fetch();
-            this.use_message_database = td_bridge_obj_tdlibParameters_use_message_database(obj).Fetch();
-            this.use_secret_chats = td_bridge_obj_tdlibParameters_use_secret_chats(obj).Fetch();
-            this.api_id = td_bridge_obj_tdlibParameters_api_id(obj).Fetch();
-            this.api_hash = td_bridge_obj_tdlibParameters_api_hash(obj).Fetch();
-            this.system_language_code = td_bridge_obj_tdlibParameters_system_language_code(obj).Fetch();
-            this.device_model = td_bridge_obj_tdlibParameters_device_model(obj).Fetch();
-            this.system_version = td_bridge_obj_tdlibParameters_system_version(obj).Fetch();
-            this.application_version = td_bridge_obj_tdlibParameters_application_version(obj).Fetch();
-            this.enable_storage_optimizer = td_bridge_obj_tdlibParameters_enable_storage_optimizer(obj).Fetch();
-            this.ignore_file_names = td_bridge_obj_tdlibParameters_ignore_file_names(obj).Fetch();
+            this.UseTestDc = td_bridge_obj_tdlibParameters_use_test_dc(obj).Fetch();
+            this.DatabaseDirectory = td_bridge_obj_tdlibParameters_database_directory(obj).Fetch();
+            this.FilesDirectory = td_bridge_obj_tdlibParameters_files_directory(obj).Fetch();
+            this.UseFileDatabase = td_bridge_obj_tdlibParameters_use_file_database(obj).Fetch();
+            this.UseChatInfoDatabase = td_bridge_obj_tdlibParameters_use_chat_info_database(obj).Fetch();
+            this.UseMessageDatabase = td_bridge_obj_tdlibParameters_use_message_database(obj).Fetch();
+            this.UseSecretChats = td_bridge_obj_tdlibParameters_use_secret_chats(obj).Fetch();
+            this.ApiId = td_bridge_obj_tdlibParameters_api_id(obj).Fetch();
+            this.ApiHash = td_bridge_obj_tdlibParameters_api_hash(obj).Fetch();
+            this.SystemLanguageCode = td_bridge_obj_tdlibParameters_system_language_code(obj).Fetch();
+            this.DeviceModel = td_bridge_obj_tdlibParameters_device_model(obj).Fetch();
+            this.SystemVersion = td_bridge_obj_tdlibParameters_system_version(obj).Fetch();
+            this.ApplicationVersion = td_bridge_obj_tdlibParameters_application_version(obj).Fetch();
+            this.EnableStorageOptimizer = td_bridge_obj_tdlibParameters_enable_storage_optimizer(obj).Fetch();
+            this.IgnoreFileNames = td_bridge_obj_tdlibParameters_ignore_file_names(obj).Fetch();
         }
     }
 
@@ -154,12 +154,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authenticationCodeTypeTelegramMessage();
-            td_bridge_obj_authenticationCodeTypeTelegramMessage_length(obj).Set(this.length);
+            td_bridge_obj_authenticationCodeTypeTelegramMessage_length(obj).Set(this.Length);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.length = td_bridge_obj_authenticationCodeTypeTelegramMessage_length(obj).Fetch();
+            this.Length = td_bridge_obj_authenticationCodeTypeTelegramMessage_length(obj).Fetch();
         }
     }
 
@@ -175,12 +175,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authenticationCodeTypeSms();
-            td_bridge_obj_authenticationCodeTypeSms_length(obj).Set(this.length);
+            td_bridge_obj_authenticationCodeTypeSms_length(obj).Set(this.Length);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.length = td_bridge_obj_authenticationCodeTypeSms_length(obj).Fetch();
+            this.Length = td_bridge_obj_authenticationCodeTypeSms_length(obj).Fetch();
         }
     }
 
@@ -196,12 +196,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authenticationCodeTypeCall();
-            td_bridge_obj_authenticationCodeTypeCall_length(obj).Set(this.length);
+            td_bridge_obj_authenticationCodeTypeCall_length(obj).Set(this.Length);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.length = td_bridge_obj_authenticationCodeTypeCall_length(obj).Fetch();
+            this.Length = td_bridge_obj_authenticationCodeTypeCall_length(obj).Fetch();
         }
     }
 
@@ -217,12 +217,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authenticationCodeTypeFlashCall();
-            td_bridge_obj_authenticationCodeTypeFlashCall_pattern(obj).Set(this.pattern);
+            td_bridge_obj_authenticationCodeTypeFlashCall_pattern(obj).Set(this.Pattern);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.pattern = td_bridge_obj_authenticationCodeTypeFlashCall_pattern(obj).Fetch();
+            this.Pattern = td_bridge_obj_authenticationCodeTypeFlashCall_pattern(obj).Fetch();
         }
     }
 
@@ -247,18 +247,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authenticationCodeInfo();
-            td_bridge_obj_authenticationCodeInfo_phone_number(obj).Set(this.phone_number);
-            new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_type(obj)).Set(this.type);
-            new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_next_type(obj)).Set(this.next_type);
-            td_bridge_obj_authenticationCodeInfo_timeout(obj).Set(this.timeout);
+            td_bridge_obj_authenticationCodeInfo_phone_number(obj).Set(this.PhoneNumber);
+            new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_type(obj)).Set(this.Type);
+            new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_next_type(obj)).Set(this.NextType);
+            td_bridge_obj_authenticationCodeInfo_timeout(obj).Set(this.Timeout);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.phone_number = td_bridge_obj_authenticationCodeInfo_phone_number(obj).Fetch();
-            this.type = new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_type(obj)).Fetch();
-            this.next_type = new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_next_type(obj)).Fetch();
-            this.timeout = td_bridge_obj_authenticationCodeInfo_timeout(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_authenticationCodeInfo_phone_number(obj).Fetch();
+            this.Type = new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_type(obj)).Fetch();
+            this.NextType = new CxxTLObject<AuthenticationCodeType>(td_bridge_obj_authenticationCodeInfo_next_type(obj)).Fetch();
+            this.Timeout = td_bridge_obj_authenticationCodeInfo_timeout(obj).Fetch();
         }
     }
 
@@ -277,14 +277,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_emailAddressAuthenticationCodeInfo();
-            td_bridge_obj_emailAddressAuthenticationCodeInfo_email_address_pattern(obj).Set(this.email_address_pattern);
-            td_bridge_obj_emailAddressAuthenticationCodeInfo_length(obj).Set(this.length);
+            td_bridge_obj_emailAddressAuthenticationCodeInfo_email_address_pattern(obj).Set(this.EmailAddressPattern);
+            td_bridge_obj_emailAddressAuthenticationCodeInfo_length(obj).Set(this.Length);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.email_address_pattern = td_bridge_obj_emailAddressAuthenticationCodeInfo_email_address_pattern(obj).Fetch();
-            this.length = td_bridge_obj_emailAddressAuthenticationCodeInfo_length(obj).Fetch();
+            this.EmailAddressPattern = td_bridge_obj_emailAddressAuthenticationCodeInfo_email_address_pattern(obj).Fetch();
+            this.Length = td_bridge_obj_emailAddressAuthenticationCodeInfo_length(obj).Fetch();
         }
     }
 
@@ -306,16 +306,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_textEntity();
-            td_bridge_obj_textEntity_offset(obj).Set(this.offset);
-            td_bridge_obj_textEntity_length(obj).Set(this.length);
-            new CxxTLObject<TextEntityType>(td_bridge_obj_textEntity_type(obj)).Set(this.type);
+            td_bridge_obj_textEntity_offset(obj).Set(this.Offset);
+            td_bridge_obj_textEntity_length(obj).Set(this.Length);
+            new CxxTLObject<TextEntityType>(td_bridge_obj_textEntity_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.offset = td_bridge_obj_textEntity_offset(obj).Fetch();
-            this.length = td_bridge_obj_textEntity_length(obj).Fetch();
-            this.type = new CxxTLObject<TextEntityType>(td_bridge_obj_textEntity_type(obj)).Fetch();
+            this.Offset = td_bridge_obj_textEntity_offset(obj).Fetch();
+            this.Length = td_bridge_obj_textEntity_length(obj).Fetch();
+            this.Type = new CxxTLObject<TextEntityType>(td_bridge_obj_textEntity_type(obj)).Fetch();
         }
     }
 
@@ -331,12 +331,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_textEntities();
-            new CxxVectorObject<TextEntity>(td_bridge_obj_textEntities_entities(obj)).Set(this.entities);
+            new CxxVectorObject<TextEntity>(td_bridge_obj_textEntities_entities(obj)).Set(this.Entities);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.entities = new CxxVectorObject<TextEntity>(td_bridge_obj_textEntities_entities(obj)).Fetch();
+            this.Entities = new CxxVectorObject<TextEntity>(td_bridge_obj_textEntities_entities(obj)).Fetch();
         }
     }
 
@@ -355,14 +355,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_formattedText();
-            td_bridge_obj_formattedText_text(obj).Set(this.text);
-            new CxxVectorObject<TextEntity>(td_bridge_obj_formattedText_entities(obj)).Set(this.entities);
+            td_bridge_obj_formattedText_text(obj).Set(this.Text);
+            new CxxVectorObject<TextEntity>(td_bridge_obj_formattedText_entities(obj)).Set(this.Entities);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_formattedText_text(obj).Fetch();
-            this.entities = new CxxVectorObject<TextEntity>(td_bridge_obj_formattedText_entities(obj)).Fetch();
+            this.Text = td_bridge_obj_formattedText_text(obj).Fetch();
+            this.Entities = new CxxVectorObject<TextEntity>(td_bridge_obj_formattedText_entities(obj)).Fetch();
         }
     }
 
@@ -384,16 +384,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_termsOfService();
-            new CxxTLObject<FormattedText>(td_bridge_obj_termsOfService_text(obj)).Set(this.text);
-            td_bridge_obj_termsOfService_min_user_age(obj).Set(this.min_user_age);
-            td_bridge_obj_termsOfService_show_popup(obj).Set(this.show_popup);
+            new CxxTLObject<FormattedText>(td_bridge_obj_termsOfService_text(obj)).Set(this.Text);
+            td_bridge_obj_termsOfService_min_user_age(obj).Set(this.MinUserAge);
+            td_bridge_obj_termsOfService_show_popup(obj).Set(this.ShowPopup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<FormattedText>(td_bridge_obj_termsOfService_text(obj)).Fetch();
-            this.min_user_age = td_bridge_obj_termsOfService_min_user_age(obj).Fetch();
-            this.show_popup = td_bridge_obj_termsOfService_show_popup(obj).Fetch();
+            this.Text = new CxxTLObject<FormattedText>(td_bridge_obj_termsOfService_text(obj)).Fetch();
+            this.MinUserAge = td_bridge_obj_termsOfService_min_user_age(obj).Fetch();
+            this.ShowPopup = td_bridge_obj_termsOfService_show_popup(obj).Fetch();
         }
     }
 
@@ -425,12 +425,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authorizationStateWaitEncryptionKey();
-            td_bridge_obj_authorizationStateWaitEncryptionKey_is_encrypted(obj).Set(this.is_encrypted);
+            td_bridge_obj_authorizationStateWaitEncryptionKey_is_encrypted(obj).Set(this.IsEncrypted);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_encrypted = td_bridge_obj_authorizationStateWaitEncryptionKey_is_encrypted(obj).Fetch();
+            this.IsEncrypted = td_bridge_obj_authorizationStateWaitEncryptionKey_is_encrypted(obj).Fetch();
         }
     }
 
@@ -468,16 +468,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authorizationStateWaitCode();
-            td_bridge_obj_authorizationStateWaitCode_is_registered(obj).Set(this.is_registered);
-            new CxxTLObject<TermsOfService>(td_bridge_obj_authorizationStateWaitCode_terms_of_service(obj)).Set(this.terms_of_service);
-            new CxxTLObject<AuthenticationCodeInfo>(td_bridge_obj_authorizationStateWaitCode_code_info(obj)).Set(this.code_info);
+            td_bridge_obj_authorizationStateWaitCode_is_registered(obj).Set(this.IsRegistered);
+            new CxxTLObject<TermsOfService>(td_bridge_obj_authorizationStateWaitCode_terms_of_service(obj)).Set(this.TermsOfService);
+            new CxxTLObject<AuthenticationCodeInfo>(td_bridge_obj_authorizationStateWaitCode_code_info(obj)).Set(this.CodeInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_registered = td_bridge_obj_authorizationStateWaitCode_is_registered(obj).Fetch();
-            this.terms_of_service = new CxxTLObject<TermsOfService>(td_bridge_obj_authorizationStateWaitCode_terms_of_service(obj)).Fetch();
-            this.code_info = new CxxTLObject<AuthenticationCodeInfo>(td_bridge_obj_authorizationStateWaitCode_code_info(obj)).Fetch();
+            this.IsRegistered = td_bridge_obj_authorizationStateWaitCode_is_registered(obj).Fetch();
+            this.TermsOfService = new CxxTLObject<TermsOfService>(td_bridge_obj_authorizationStateWaitCode_terms_of_service(obj)).Fetch();
+            this.CodeInfo = new CxxTLObject<AuthenticationCodeInfo>(td_bridge_obj_authorizationStateWaitCode_code_info(obj)).Fetch();
         }
     }
 
@@ -499,16 +499,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_authorizationStateWaitPassword();
-            td_bridge_obj_authorizationStateWaitPassword_password_hint(obj).Set(this.password_hint);
-            td_bridge_obj_authorizationStateWaitPassword_has_recovery_email_address(obj).Set(this.has_recovery_email_address);
-            td_bridge_obj_authorizationStateWaitPassword_recovery_email_address_pattern(obj).Set(this.recovery_email_address_pattern);
+            td_bridge_obj_authorizationStateWaitPassword_password_hint(obj).Set(this.PasswordHint);
+            td_bridge_obj_authorizationStateWaitPassword_has_recovery_email_address(obj).Set(this.HasRecoveryEmailAddress);
+            td_bridge_obj_authorizationStateWaitPassword_recovery_email_address_pattern(obj).Set(this.RecoveryEmailAddressPattern);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.password_hint = td_bridge_obj_authorizationStateWaitPassword_password_hint(obj).Fetch();
-            this.has_recovery_email_address = td_bridge_obj_authorizationStateWaitPassword_has_recovery_email_address(obj).Fetch();
-            this.recovery_email_address_pattern = td_bridge_obj_authorizationStateWaitPassword_recovery_email_address_pattern(obj).Fetch();
+            this.PasswordHint = td_bridge_obj_authorizationStateWaitPassword_password_hint(obj).Fetch();
+            this.HasRecoveryEmailAddress = td_bridge_obj_authorizationStateWaitPassword_has_recovery_email_address(obj).Fetch();
+            this.RecoveryEmailAddressPattern = td_bridge_obj_authorizationStateWaitPassword_recovery_email_address_pattern(obj).Fetch();
         }
     }
 
@@ -600,20 +600,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passwordState();
-            td_bridge_obj_passwordState_has_password(obj).Set(this.has_password);
-            td_bridge_obj_passwordState_password_hint(obj).Set(this.password_hint);
-            td_bridge_obj_passwordState_has_recovery_email_address(obj).Set(this.has_recovery_email_address);
-            td_bridge_obj_passwordState_has_passport_data(obj).Set(this.has_passport_data);
-            td_bridge_obj_passwordState_unconfirmed_recovery_email_address_pattern(obj).Set(this.unconfirmed_recovery_email_address_pattern);
+            td_bridge_obj_passwordState_has_password(obj).Set(this.HasPassword);
+            td_bridge_obj_passwordState_password_hint(obj).Set(this.PasswordHint);
+            td_bridge_obj_passwordState_has_recovery_email_address(obj).Set(this.HasRecoveryEmailAddress);
+            td_bridge_obj_passwordState_has_passport_data(obj).Set(this.HasPassportData);
+            td_bridge_obj_passwordState_unconfirmed_recovery_email_address_pattern(obj).Set(this.UnconfirmedRecoveryEmailAddressPattern);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.has_password = td_bridge_obj_passwordState_has_password(obj).Fetch();
-            this.password_hint = td_bridge_obj_passwordState_password_hint(obj).Fetch();
-            this.has_recovery_email_address = td_bridge_obj_passwordState_has_recovery_email_address(obj).Fetch();
-            this.has_passport_data = td_bridge_obj_passwordState_has_passport_data(obj).Fetch();
-            this.unconfirmed_recovery_email_address_pattern = td_bridge_obj_passwordState_unconfirmed_recovery_email_address_pattern(obj).Fetch();
+            this.HasPassword = td_bridge_obj_passwordState_has_password(obj).Fetch();
+            this.PasswordHint = td_bridge_obj_passwordState_password_hint(obj).Fetch();
+            this.HasRecoveryEmailAddress = td_bridge_obj_passwordState_has_recovery_email_address(obj).Fetch();
+            this.HasPassportData = td_bridge_obj_passwordState_has_passport_data(obj).Fetch();
+            this.UnconfirmedRecoveryEmailAddressPattern = td_bridge_obj_passwordState_unconfirmed_recovery_email_address_pattern(obj).Fetch();
         }
     }
 
@@ -629,12 +629,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_recoveryEmailAddress();
-            td_bridge_obj_recoveryEmailAddress_recovery_email_address(obj).Set(this.recovery_email_address);
+            td_bridge_obj_recoveryEmailAddress_recovery_email_address(obj).Set(this.RecoveryEmailAddress_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.recovery_email_address = td_bridge_obj_recoveryEmailAddress_recovery_email_address(obj).Fetch();
+            this.RecoveryEmailAddress_ = td_bridge_obj_recoveryEmailAddress_recovery_email_address(obj).Fetch();
         }
     }
 
@@ -653,14 +653,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_temporaryPasswordState();
-            td_bridge_obj_temporaryPasswordState_has_password(obj).Set(this.has_password);
-            td_bridge_obj_temporaryPasswordState_valid_for(obj).Set(this.valid_for);
+            td_bridge_obj_temporaryPasswordState_has_password(obj).Set(this.HasPassword);
+            td_bridge_obj_temporaryPasswordState_valid_for(obj).Set(this.ValidFor);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.has_password = td_bridge_obj_temporaryPasswordState_has_password(obj).Fetch();
-            this.valid_for = td_bridge_obj_temporaryPasswordState_valid_for(obj).Fetch();
+            this.HasPassword = td_bridge_obj_temporaryPasswordState_has_password(obj).Fetch();
+            this.ValidFor = td_bridge_obj_temporaryPasswordState_valid_for(obj).Fetch();
         }
     }
 
@@ -694,24 +694,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_localFile();
-            td_bridge_obj_localFile_path(obj).Set(this.path);
-            td_bridge_obj_localFile_can_be_downloaded(obj).Set(this.can_be_downloaded);
-            td_bridge_obj_localFile_can_be_deleted(obj).Set(this.can_be_deleted);
-            td_bridge_obj_localFile_is_downloading_active(obj).Set(this.is_downloading_active);
-            td_bridge_obj_localFile_is_downloading_completed(obj).Set(this.is_downloading_completed);
-            td_bridge_obj_localFile_downloaded_prefix_size(obj).Set(this.downloaded_prefix_size);
-            td_bridge_obj_localFile_downloaded_size(obj).Set(this.downloaded_size);
+            td_bridge_obj_localFile_path(obj).Set(this.Path);
+            td_bridge_obj_localFile_can_be_downloaded(obj).Set(this.CanBeDownloaded);
+            td_bridge_obj_localFile_can_be_deleted(obj).Set(this.CanBeDeleted);
+            td_bridge_obj_localFile_is_downloading_active(obj).Set(this.IsDownloadingActive);
+            td_bridge_obj_localFile_is_downloading_completed(obj).Set(this.IsDownloadingCompleted);
+            td_bridge_obj_localFile_downloaded_prefix_size(obj).Set(this.DownloadedPrefixSize);
+            td_bridge_obj_localFile_downloaded_size(obj).Set(this.DownloadedSize);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.path = td_bridge_obj_localFile_path(obj).Fetch();
-            this.can_be_downloaded = td_bridge_obj_localFile_can_be_downloaded(obj).Fetch();
-            this.can_be_deleted = td_bridge_obj_localFile_can_be_deleted(obj).Fetch();
-            this.is_downloading_active = td_bridge_obj_localFile_is_downloading_active(obj).Fetch();
-            this.is_downloading_completed = td_bridge_obj_localFile_is_downloading_completed(obj).Fetch();
-            this.downloaded_prefix_size = td_bridge_obj_localFile_downloaded_prefix_size(obj).Fetch();
-            this.downloaded_size = td_bridge_obj_localFile_downloaded_size(obj).Fetch();
+            this.Path = td_bridge_obj_localFile_path(obj).Fetch();
+            this.CanBeDownloaded = td_bridge_obj_localFile_can_be_downloaded(obj).Fetch();
+            this.CanBeDeleted = td_bridge_obj_localFile_can_be_deleted(obj).Fetch();
+            this.IsDownloadingActive = td_bridge_obj_localFile_is_downloading_active(obj).Fetch();
+            this.IsDownloadingCompleted = td_bridge_obj_localFile_is_downloading_completed(obj).Fetch();
+            this.DownloadedPrefixSize = td_bridge_obj_localFile_downloaded_prefix_size(obj).Fetch();
+            this.DownloadedSize = td_bridge_obj_localFile_downloaded_size(obj).Fetch();
         }
     }
 
@@ -736,18 +736,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_remoteFile();
-            td_bridge_obj_remoteFile_id(obj).Set(this.id);
-            td_bridge_obj_remoteFile_is_uploading_active(obj).Set(this.is_uploading_active);
-            td_bridge_obj_remoteFile_is_uploading_completed(obj).Set(this.is_uploading_completed);
-            td_bridge_obj_remoteFile_uploaded_size(obj).Set(this.uploaded_size);
+            td_bridge_obj_remoteFile_id(obj).Set(this.Id);
+            td_bridge_obj_remoteFile_is_uploading_active(obj).Set(this.IsUploadingActive);
+            td_bridge_obj_remoteFile_is_uploading_completed(obj).Set(this.IsUploadingCompleted);
+            td_bridge_obj_remoteFile_uploaded_size(obj).Set(this.UploadedSize);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_remoteFile_id(obj).Fetch();
-            this.is_uploading_active = td_bridge_obj_remoteFile_is_uploading_active(obj).Fetch();
-            this.is_uploading_completed = td_bridge_obj_remoteFile_is_uploading_completed(obj).Fetch();
-            this.uploaded_size = td_bridge_obj_remoteFile_uploaded_size(obj).Fetch();
+            this.Id = td_bridge_obj_remoteFile_id(obj).Fetch();
+            this.IsUploadingActive = td_bridge_obj_remoteFile_is_uploading_active(obj).Fetch();
+            this.IsUploadingCompleted = td_bridge_obj_remoteFile_is_uploading_completed(obj).Fetch();
+            this.UploadedSize = td_bridge_obj_remoteFile_uploaded_size(obj).Fetch();
         }
     }
 
@@ -775,20 +775,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_file();
-            td_bridge_obj_file_id(obj).Set(this.id);
-            td_bridge_obj_file_size(obj).Set(this.size);
-            td_bridge_obj_file_expected_size(obj).Set(this.expected_size);
-            new CxxTLObject<LocalFile>(td_bridge_obj_file_local(obj)).Set(this.local);
-            new CxxTLObject<RemoteFile>(td_bridge_obj_file_remote(obj)).Set(this.remote);
+            td_bridge_obj_file_id(obj).Set(this.Id);
+            td_bridge_obj_file_size(obj).Set(this.Size);
+            td_bridge_obj_file_expected_size(obj).Set(this.ExpectedSize);
+            new CxxTLObject<LocalFile>(td_bridge_obj_file_local(obj)).Set(this.Local);
+            new CxxTLObject<RemoteFile>(td_bridge_obj_file_remote(obj)).Set(this.Remote);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_file_id(obj).Fetch();
-            this.size = td_bridge_obj_file_size(obj).Fetch();
-            this.expected_size = td_bridge_obj_file_expected_size(obj).Fetch();
-            this.local = new CxxTLObject<LocalFile>(td_bridge_obj_file_local(obj)).Fetch();
-            this.remote = new CxxTLObject<RemoteFile>(td_bridge_obj_file_remote(obj)).Fetch();
+            this.Id = td_bridge_obj_file_id(obj).Fetch();
+            this.Size = td_bridge_obj_file_size(obj).Fetch();
+            this.ExpectedSize = td_bridge_obj_file_expected_size(obj).Fetch();
+            this.Local = new CxxTLObject<LocalFile>(td_bridge_obj_file_local(obj)).Fetch();
+            this.Remote = new CxxTLObject<RemoteFile>(td_bridge_obj_file_remote(obj)).Fetch();
         }
     }
 
@@ -804,12 +804,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputFileId();
-            td_bridge_obj_inputFileId_id(obj).Set(this.id);
+            td_bridge_obj_inputFileId_id(obj).Set(this.Id);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputFileId_id(obj).Fetch();
+            this.Id = td_bridge_obj_inputFileId_id(obj).Fetch();
         }
     }
 
@@ -825,12 +825,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputFileRemote();
-            td_bridge_obj_inputFileRemote_id(obj).Set(this.id);
+            td_bridge_obj_inputFileRemote_id(obj).Set(this.Id);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputFileRemote_id(obj).Fetch();
+            this.Id = td_bridge_obj_inputFileRemote_id(obj).Fetch();
         }
     }
 
@@ -846,12 +846,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputFileLocal();
-            td_bridge_obj_inputFileLocal_path(obj).Set(this.path);
+            td_bridge_obj_inputFileLocal_path(obj).Set(this.Path);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.path = td_bridge_obj_inputFileLocal_path(obj).Fetch();
+            this.Path = td_bridge_obj_inputFileLocal_path(obj).Fetch();
         }
     }
 
@@ -873,16 +873,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputFileGenerated();
-            td_bridge_obj_inputFileGenerated_original_path(obj).Set(this.original_path);
-            td_bridge_obj_inputFileGenerated_conversion(obj).Set(this.conversion);
-            td_bridge_obj_inputFileGenerated_expected_size(obj).Set(this.expected_size);
+            td_bridge_obj_inputFileGenerated_original_path(obj).Set(this.OriginalPath);
+            td_bridge_obj_inputFileGenerated_conversion(obj).Set(this.Conversion);
+            td_bridge_obj_inputFileGenerated_expected_size(obj).Set(this.ExpectedSize);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.original_path = td_bridge_obj_inputFileGenerated_original_path(obj).Fetch();
-            this.conversion = td_bridge_obj_inputFileGenerated_conversion(obj).Fetch();
-            this.expected_size = td_bridge_obj_inputFileGenerated_expected_size(obj).Fetch();
+            this.OriginalPath = td_bridge_obj_inputFileGenerated_original_path(obj).Fetch();
+            this.Conversion = td_bridge_obj_inputFileGenerated_conversion(obj).Fetch();
+            this.ExpectedSize = td_bridge_obj_inputFileGenerated_expected_size(obj).Fetch();
         }
     }
 
@@ -907,18 +907,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_photoSize();
-            td_bridge_obj_photoSize_type(obj).Set(this.type);
-            new CxxTLObject<File>(td_bridge_obj_photoSize_photo(obj)).Set(this.photo);
-            td_bridge_obj_photoSize_width(obj).Set(this.width);
-            td_bridge_obj_photoSize_height(obj).Set(this.height);
+            td_bridge_obj_photoSize_type(obj).Set(this.Type);
+            new CxxTLObject<File>(td_bridge_obj_photoSize_photo(obj)).Set(this.Photo);
+            td_bridge_obj_photoSize_width(obj).Set(this.Width);
+            td_bridge_obj_photoSize_height(obj).Set(this.Height);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = td_bridge_obj_photoSize_type(obj).Fetch();
-            this.photo = new CxxTLObject<File>(td_bridge_obj_photoSize_photo(obj)).Fetch();
-            this.width = td_bridge_obj_photoSize_width(obj).Fetch();
-            this.height = td_bridge_obj_photoSize_height(obj).Fetch();
+            this.Type = td_bridge_obj_photoSize_type(obj).Fetch();
+            this.Photo = new CxxTLObject<File>(td_bridge_obj_photoSize_photo(obj)).Fetch();
+            this.Width = td_bridge_obj_photoSize_width(obj).Fetch();
+            this.Height = td_bridge_obj_photoSize_height(obj).Fetch();
         }
     }
 
@@ -1007,18 +1007,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_maskPosition();
-            new CxxTLObject<MaskPoint>(td_bridge_obj_maskPosition_point(obj)).Set(this.point);
-            td_bridge_obj_maskPosition_x_shift(obj).Set(this.x_shift);
-            td_bridge_obj_maskPosition_y_shift(obj).Set(this.y_shift);
-            td_bridge_obj_maskPosition_scale(obj).Set(this.scale);
+            new CxxTLObject<MaskPoint>(td_bridge_obj_maskPosition_point(obj)).Set(this.Point);
+            td_bridge_obj_maskPosition_x_shift(obj).Set(this.XShift);
+            td_bridge_obj_maskPosition_y_shift(obj).Set(this.YShift);
+            td_bridge_obj_maskPosition_scale(obj).Set(this.Scale);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.point = new CxxTLObject<MaskPoint>(td_bridge_obj_maskPosition_point(obj)).Fetch();
-            this.x_shift = td_bridge_obj_maskPosition_x_shift(obj).Fetch();
-            this.y_shift = td_bridge_obj_maskPosition_y_shift(obj).Fetch();
-            this.scale = td_bridge_obj_maskPosition_scale(obj).Fetch();
+            this.Point = new CxxTLObject<MaskPoint>(td_bridge_obj_maskPosition_point(obj)).Fetch();
+            this.XShift = td_bridge_obj_maskPosition_x_shift(obj).Fetch();
+            this.YShift = td_bridge_obj_maskPosition_y_shift(obj).Fetch();
+            this.Scale = td_bridge_obj_maskPosition_scale(obj).Fetch();
         }
     }
 
@@ -1052,24 +1052,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_animation();
-            td_bridge_obj_animation_duration(obj).Set(this.duration);
-            td_bridge_obj_animation_width(obj).Set(this.width);
-            td_bridge_obj_animation_height(obj).Set(this.height);
-            td_bridge_obj_animation_file_name(obj).Set(this.file_name);
-            td_bridge_obj_animation_mime_type(obj).Set(this.mime_type);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_animation_thumbnail(obj)).Set(this.thumbnail);
-            new CxxTLObject<File>(td_bridge_obj_animation_animation(obj)).Set(this.animation);
+            td_bridge_obj_animation_duration(obj).Set(this.Duration);
+            td_bridge_obj_animation_width(obj).Set(this.Width);
+            td_bridge_obj_animation_height(obj).Set(this.Height);
+            td_bridge_obj_animation_file_name(obj).Set(this.FileName);
+            td_bridge_obj_animation_mime_type(obj).Set(this.MimeType);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_animation_thumbnail(obj)).Set(this.Thumbnail);
+            new CxxTLObject<File>(td_bridge_obj_animation_animation(obj)).Set(this.Animation_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.duration = td_bridge_obj_animation_duration(obj).Fetch();
-            this.width = td_bridge_obj_animation_width(obj).Fetch();
-            this.height = td_bridge_obj_animation_height(obj).Fetch();
-            this.file_name = td_bridge_obj_animation_file_name(obj).Fetch();
-            this.mime_type = td_bridge_obj_animation_mime_type(obj).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_animation_thumbnail(obj)).Fetch();
-            this.animation = new CxxTLObject<File>(td_bridge_obj_animation_animation(obj)).Fetch();
+            this.Duration = td_bridge_obj_animation_duration(obj).Fetch();
+            this.Width = td_bridge_obj_animation_width(obj).Fetch();
+            this.Height = td_bridge_obj_animation_height(obj).Fetch();
+            this.FileName = td_bridge_obj_animation_file_name(obj).Fetch();
+            this.MimeType = td_bridge_obj_animation_mime_type(obj).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_animation_thumbnail(obj)).Fetch();
+            this.Animation_ = new CxxTLObject<File>(td_bridge_obj_animation_animation(obj)).Fetch();
         }
     }
 
@@ -1103,24 +1103,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_audio();
-            td_bridge_obj_audio_duration(obj).Set(this.duration);
-            td_bridge_obj_audio_title(obj).Set(this.title);
-            td_bridge_obj_audio_performer(obj).Set(this.performer);
-            td_bridge_obj_audio_file_name(obj).Set(this.file_name);
-            td_bridge_obj_audio_mime_type(obj).Set(this.mime_type);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_audio_album_cover_thumbnail(obj)).Set(this.album_cover_thumbnail);
-            new CxxTLObject<File>(td_bridge_obj_audio_audio(obj)).Set(this.audio);
+            td_bridge_obj_audio_duration(obj).Set(this.Duration);
+            td_bridge_obj_audio_title(obj).Set(this.Title);
+            td_bridge_obj_audio_performer(obj).Set(this.Performer);
+            td_bridge_obj_audio_file_name(obj).Set(this.FileName);
+            td_bridge_obj_audio_mime_type(obj).Set(this.MimeType);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_audio_album_cover_thumbnail(obj)).Set(this.AlbumCoverThumbnail);
+            new CxxTLObject<File>(td_bridge_obj_audio_audio(obj)).Set(this.Audio_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.duration = td_bridge_obj_audio_duration(obj).Fetch();
-            this.title = td_bridge_obj_audio_title(obj).Fetch();
-            this.performer = td_bridge_obj_audio_performer(obj).Fetch();
-            this.file_name = td_bridge_obj_audio_file_name(obj).Fetch();
-            this.mime_type = td_bridge_obj_audio_mime_type(obj).Fetch();
-            this.album_cover_thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_audio_album_cover_thumbnail(obj)).Fetch();
-            this.audio = new CxxTLObject<File>(td_bridge_obj_audio_audio(obj)).Fetch();
+            this.Duration = td_bridge_obj_audio_duration(obj).Fetch();
+            this.Title = td_bridge_obj_audio_title(obj).Fetch();
+            this.Performer = td_bridge_obj_audio_performer(obj).Fetch();
+            this.FileName = td_bridge_obj_audio_file_name(obj).Fetch();
+            this.MimeType = td_bridge_obj_audio_mime_type(obj).Fetch();
+            this.AlbumCoverThumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_audio_album_cover_thumbnail(obj)).Fetch();
+            this.Audio_ = new CxxTLObject<File>(td_bridge_obj_audio_audio(obj)).Fetch();
         }
     }
 
@@ -1145,18 +1145,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_document();
-            td_bridge_obj_document_file_name(obj).Set(this.file_name);
-            td_bridge_obj_document_mime_type(obj).Set(this.mime_type);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_document_thumbnail(obj)).Set(this.thumbnail);
-            new CxxTLObject<File>(td_bridge_obj_document_document(obj)).Set(this.document);
+            td_bridge_obj_document_file_name(obj).Set(this.FileName);
+            td_bridge_obj_document_mime_type(obj).Set(this.MimeType);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_document_thumbnail(obj)).Set(this.Thumbnail);
+            new CxxTLObject<File>(td_bridge_obj_document_document(obj)).Set(this.Document_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_name = td_bridge_obj_document_file_name(obj).Fetch();
-            this.mime_type = td_bridge_obj_document_mime_type(obj).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_document_thumbnail(obj)).Fetch();
-            this.document = new CxxTLObject<File>(td_bridge_obj_document_document(obj)).Fetch();
+            this.FileName = td_bridge_obj_document_file_name(obj).Fetch();
+            this.MimeType = td_bridge_obj_document_mime_type(obj).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_document_thumbnail(obj)).Fetch();
+            this.Document_ = new CxxTLObject<File>(td_bridge_obj_document_document(obj)).Fetch();
         }
     }
 
@@ -1178,16 +1178,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_photo();
-            td_bridge_obj_photo_id(obj).Set(this.id);
-            td_bridge_obj_photo_has_stickers(obj).Set(this.has_stickers);
-            new CxxVectorObject<PhotoSize>(td_bridge_obj_photo_sizes(obj)).Set(this.sizes);
+            td_bridge_obj_photo_id(obj).Set(this.Id);
+            td_bridge_obj_photo_has_stickers(obj).Set(this.HasStickers);
+            new CxxVectorObject<PhotoSize>(td_bridge_obj_photo_sizes(obj)).Set(this.Sizes);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_photo_id(obj).Fetch();
-            this.has_stickers = td_bridge_obj_photo_has_stickers(obj).Fetch();
-            this.sizes = new CxxVectorObject<PhotoSize>(td_bridge_obj_photo_sizes(obj)).Fetch();
+            this.Id = td_bridge_obj_photo_id(obj).Fetch();
+            this.HasStickers = td_bridge_obj_photo_has_stickers(obj).Fetch();
+            this.Sizes = new CxxVectorObject<PhotoSize>(td_bridge_obj_photo_sizes(obj)).Fetch();
         }
     }
 
@@ -1224,26 +1224,26 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sticker();
-            td_bridge_obj_sticker_set_id(obj).Set(this.set_id);
-            td_bridge_obj_sticker_width(obj).Set(this.width);
-            td_bridge_obj_sticker_height(obj).Set(this.height);
-            td_bridge_obj_sticker_emoji(obj).Set(this.emoji);
-            td_bridge_obj_sticker_is_mask(obj).Set(this.is_mask);
-            new CxxTLObject<MaskPosition>(td_bridge_obj_sticker_mask_position(obj)).Set(this.mask_position);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_sticker_thumbnail(obj)).Set(this.thumbnail);
-            new CxxTLObject<File>(td_bridge_obj_sticker_sticker(obj)).Set(this.sticker);
+            td_bridge_obj_sticker_set_id(obj).Set(this.SetId);
+            td_bridge_obj_sticker_width(obj).Set(this.Width);
+            td_bridge_obj_sticker_height(obj).Set(this.Height);
+            td_bridge_obj_sticker_emoji(obj).Set(this.Emoji);
+            td_bridge_obj_sticker_is_mask(obj).Set(this.IsMask);
+            new CxxTLObject<MaskPosition>(td_bridge_obj_sticker_mask_position(obj)).Set(this.MaskPosition);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_sticker_thumbnail(obj)).Set(this.Thumbnail);
+            new CxxTLObject<File>(td_bridge_obj_sticker_sticker(obj)).Set(this.Sticker_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.set_id = td_bridge_obj_sticker_set_id(obj).Fetch();
-            this.width = td_bridge_obj_sticker_width(obj).Fetch();
-            this.height = td_bridge_obj_sticker_height(obj).Fetch();
-            this.emoji = td_bridge_obj_sticker_emoji(obj).Fetch();
-            this.is_mask = td_bridge_obj_sticker_is_mask(obj).Fetch();
-            this.mask_position = new CxxTLObject<MaskPosition>(td_bridge_obj_sticker_mask_position(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_sticker_thumbnail(obj)).Fetch();
-            this.sticker = new CxxTLObject<File>(td_bridge_obj_sticker_sticker(obj)).Fetch();
+            this.SetId = td_bridge_obj_sticker_set_id(obj).Fetch();
+            this.Width = td_bridge_obj_sticker_width(obj).Fetch();
+            this.Height = td_bridge_obj_sticker_height(obj).Fetch();
+            this.Emoji = td_bridge_obj_sticker_emoji(obj).Fetch();
+            this.IsMask = td_bridge_obj_sticker_is_mask(obj).Fetch();
+            this.MaskPosition = new CxxTLObject<MaskPosition>(td_bridge_obj_sticker_mask_position(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_sticker_thumbnail(obj)).Fetch();
+            this.Sticker_ = new CxxTLObject<File>(td_bridge_obj_sticker_sticker(obj)).Fetch();
         }
     }
 
@@ -1283,28 +1283,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_video();
-            td_bridge_obj_video_duration(obj).Set(this.duration);
-            td_bridge_obj_video_width(obj).Set(this.width);
-            td_bridge_obj_video_height(obj).Set(this.height);
-            td_bridge_obj_video_file_name(obj).Set(this.file_name);
-            td_bridge_obj_video_mime_type(obj).Set(this.mime_type);
-            td_bridge_obj_video_has_stickers(obj).Set(this.has_stickers);
-            td_bridge_obj_video_supports_streaming(obj).Set(this.supports_streaming);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_video_thumbnail(obj)).Set(this.thumbnail);
-            new CxxTLObject<File>(td_bridge_obj_video_video(obj)).Set(this.video);
+            td_bridge_obj_video_duration(obj).Set(this.Duration);
+            td_bridge_obj_video_width(obj).Set(this.Width);
+            td_bridge_obj_video_height(obj).Set(this.Height);
+            td_bridge_obj_video_file_name(obj).Set(this.FileName);
+            td_bridge_obj_video_mime_type(obj).Set(this.MimeType);
+            td_bridge_obj_video_has_stickers(obj).Set(this.HasStickers);
+            td_bridge_obj_video_supports_streaming(obj).Set(this.SupportsStreaming);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_video_thumbnail(obj)).Set(this.Thumbnail);
+            new CxxTLObject<File>(td_bridge_obj_video_video(obj)).Set(this.Video_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.duration = td_bridge_obj_video_duration(obj).Fetch();
-            this.width = td_bridge_obj_video_width(obj).Fetch();
-            this.height = td_bridge_obj_video_height(obj).Fetch();
-            this.file_name = td_bridge_obj_video_file_name(obj).Fetch();
-            this.mime_type = td_bridge_obj_video_mime_type(obj).Fetch();
-            this.has_stickers = td_bridge_obj_video_has_stickers(obj).Fetch();
-            this.supports_streaming = td_bridge_obj_video_supports_streaming(obj).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_video_thumbnail(obj)).Fetch();
-            this.video = new CxxTLObject<File>(td_bridge_obj_video_video(obj)).Fetch();
+            this.Duration = td_bridge_obj_video_duration(obj).Fetch();
+            this.Width = td_bridge_obj_video_width(obj).Fetch();
+            this.Height = td_bridge_obj_video_height(obj).Fetch();
+            this.FileName = td_bridge_obj_video_file_name(obj).Fetch();
+            this.MimeType = td_bridge_obj_video_mime_type(obj).Fetch();
+            this.HasStickers = td_bridge_obj_video_has_stickers(obj).Fetch();
+            this.SupportsStreaming = td_bridge_obj_video_supports_streaming(obj).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_video_thumbnail(obj)).Fetch();
+            this.Video_ = new CxxTLObject<File>(td_bridge_obj_video_video(obj)).Fetch();
         }
     }
 
@@ -1329,18 +1329,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_videoNote();
-            td_bridge_obj_videoNote_duration(obj).Set(this.duration);
-            td_bridge_obj_videoNote_length(obj).Set(this.length);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_videoNote_thumbnail(obj)).Set(this.thumbnail);
-            new CxxTLObject<File>(td_bridge_obj_videoNote_video(obj)).Set(this.video);
+            td_bridge_obj_videoNote_duration(obj).Set(this.Duration);
+            td_bridge_obj_videoNote_length(obj).Set(this.Length);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_videoNote_thumbnail(obj)).Set(this.Thumbnail);
+            new CxxTLObject<File>(td_bridge_obj_videoNote_video(obj)).Set(this.Video);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.duration = td_bridge_obj_videoNote_duration(obj).Fetch();
-            this.length = td_bridge_obj_videoNote_length(obj).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_videoNote_thumbnail(obj)).Fetch();
-            this.video = new CxxTLObject<File>(td_bridge_obj_videoNote_video(obj)).Fetch();
+            this.Duration = td_bridge_obj_videoNote_duration(obj).Fetch();
+            this.Length = td_bridge_obj_videoNote_length(obj).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_videoNote_thumbnail(obj)).Fetch();
+            this.Video = new CxxTLObject<File>(td_bridge_obj_videoNote_video(obj)).Fetch();
         }
     }
 
@@ -1365,18 +1365,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_voiceNote();
-            td_bridge_obj_voiceNote_duration(obj).Set(this.duration);
-            td_bridge_obj_voiceNote_waveform(obj).Set(this.waveform);
-            td_bridge_obj_voiceNote_mime_type(obj).Set(this.mime_type);
-            new CxxTLObject<File>(td_bridge_obj_voiceNote_voice(obj)).Set(this.voice);
+            td_bridge_obj_voiceNote_duration(obj).Set(this.Duration);
+            td_bridge_obj_voiceNote_waveform(obj).Set(this.Waveform);
+            td_bridge_obj_voiceNote_mime_type(obj).Set(this.MimeType);
+            new CxxTLObject<File>(td_bridge_obj_voiceNote_voice(obj)).Set(this.Voice);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.duration = td_bridge_obj_voiceNote_duration(obj).Fetch();
-            this.waveform = td_bridge_obj_voiceNote_waveform(obj).Fetch();
-            this.mime_type = td_bridge_obj_voiceNote_mime_type(obj).Fetch();
-            this.voice = new CxxTLObject<File>(td_bridge_obj_voiceNote_voice(obj)).Fetch();
+            this.Duration = td_bridge_obj_voiceNote_duration(obj).Fetch();
+            this.Waveform = td_bridge_obj_voiceNote_waveform(obj).Fetch();
+            this.MimeType = td_bridge_obj_voiceNote_mime_type(obj).Fetch();
+            this.Voice = new CxxTLObject<File>(td_bridge_obj_voiceNote_voice(obj)).Fetch();
         }
     }
 
@@ -1404,20 +1404,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_contact();
-            td_bridge_obj_contact_phone_number(obj).Set(this.phone_number);
-            td_bridge_obj_contact_first_name(obj).Set(this.first_name);
-            td_bridge_obj_contact_last_name(obj).Set(this.last_name);
-            td_bridge_obj_contact_vcard(obj).Set(this.vcard);
-            td_bridge_obj_contact_user_id(obj).Set(this.user_id);
+            td_bridge_obj_contact_phone_number(obj).Set(this.PhoneNumber);
+            td_bridge_obj_contact_first_name(obj).Set(this.FirstName);
+            td_bridge_obj_contact_last_name(obj).Set(this.LastName);
+            td_bridge_obj_contact_vcard(obj).Set(this.Vcard);
+            td_bridge_obj_contact_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.phone_number = td_bridge_obj_contact_phone_number(obj).Fetch();
-            this.first_name = td_bridge_obj_contact_first_name(obj).Fetch();
-            this.last_name = td_bridge_obj_contact_last_name(obj).Fetch();
-            this.vcard = td_bridge_obj_contact_vcard(obj).Fetch();
-            this.user_id = td_bridge_obj_contact_user_id(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_contact_phone_number(obj).Fetch();
+            this.FirstName = td_bridge_obj_contact_first_name(obj).Fetch();
+            this.LastName = td_bridge_obj_contact_last_name(obj).Fetch();
+            this.Vcard = td_bridge_obj_contact_vcard(obj).Fetch();
+            this.UserId = td_bridge_obj_contact_user_id(obj).Fetch();
         }
     }
 
@@ -1436,14 +1436,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_location();
-            td_bridge_obj_location_latitude(obj).Set(this.latitude);
-            td_bridge_obj_location_longitude(obj).Set(this.longitude);
+            td_bridge_obj_location_latitude(obj).Set(this.Latitude);
+            td_bridge_obj_location_longitude(obj).Set(this.Longitude);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.latitude = td_bridge_obj_location_latitude(obj).Fetch();
-            this.longitude = td_bridge_obj_location_longitude(obj).Fetch();
+            this.Latitude = td_bridge_obj_location_latitude(obj).Fetch();
+            this.Longitude = td_bridge_obj_location_longitude(obj).Fetch();
         }
     }
 
@@ -1474,22 +1474,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_venue();
-            new CxxTLObject<Location>(td_bridge_obj_venue_location(obj)).Set(this.location);
-            td_bridge_obj_venue_title(obj).Set(this.title);
-            td_bridge_obj_venue_address(obj).Set(this.address);
-            td_bridge_obj_venue_provider(obj).Set(this.provider);
-            td_bridge_obj_venue_id(obj).Set(this.id);
-            td_bridge_obj_venue_type(obj).Set(this.type);
+            new CxxTLObject<Location>(td_bridge_obj_venue_location(obj)).Set(this.Location);
+            td_bridge_obj_venue_title(obj).Set(this.Title);
+            td_bridge_obj_venue_address(obj).Set(this.Address);
+            td_bridge_obj_venue_provider(obj).Set(this.Provider);
+            td_bridge_obj_venue_id(obj).Set(this.Id);
+            td_bridge_obj_venue_type(obj).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.location = new CxxTLObject<Location>(td_bridge_obj_venue_location(obj)).Fetch();
-            this.title = td_bridge_obj_venue_title(obj).Fetch();
-            this.address = td_bridge_obj_venue_address(obj).Fetch();
-            this.provider = td_bridge_obj_venue_provider(obj).Fetch();
-            this.id = td_bridge_obj_venue_id(obj).Fetch();
-            this.type = td_bridge_obj_venue_type(obj).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_venue_location(obj)).Fetch();
+            this.Title = td_bridge_obj_venue_title(obj).Fetch();
+            this.Address = td_bridge_obj_venue_address(obj).Fetch();
+            this.Provider = td_bridge_obj_venue_provider(obj).Fetch();
+            this.Id = td_bridge_obj_venue_id(obj).Fetch();
+            this.Type = td_bridge_obj_venue_type(obj).Fetch();
         }
     }
 
@@ -1523,24 +1523,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_game();
-            td_bridge_obj_game_id(obj).Set(this.id);
-            td_bridge_obj_game_short_name(obj).Set(this.short_name);
-            td_bridge_obj_game_title(obj).Set(this.title);
-            new CxxTLObject<FormattedText>(td_bridge_obj_game_text(obj)).Set(this.text);
-            td_bridge_obj_game_description(obj).Set(this.description);
-            new CxxTLObject<Photo>(td_bridge_obj_game_photo(obj)).Set(this.photo);
-            new CxxTLObject<Animation>(td_bridge_obj_game_animation(obj)).Set(this.animation);
+            td_bridge_obj_game_id(obj).Set(this.Id);
+            td_bridge_obj_game_short_name(obj).Set(this.ShortName);
+            td_bridge_obj_game_title(obj).Set(this.Title);
+            new CxxTLObject<FormattedText>(td_bridge_obj_game_text(obj)).Set(this.Text);
+            td_bridge_obj_game_description(obj).Set(this.Description);
+            new CxxTLObject<Photo>(td_bridge_obj_game_photo(obj)).Set(this.Photo);
+            new CxxTLObject<Animation>(td_bridge_obj_game_animation(obj)).Set(this.Animation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_game_id(obj).Fetch();
-            this.short_name = td_bridge_obj_game_short_name(obj).Fetch();
-            this.title = td_bridge_obj_game_title(obj).Fetch();
-            this.text = new CxxTLObject<FormattedText>(td_bridge_obj_game_text(obj)).Fetch();
-            this.description = td_bridge_obj_game_description(obj).Fetch();
-            this.photo = new CxxTLObject<Photo>(td_bridge_obj_game_photo(obj)).Fetch();
-            this.animation = new CxxTLObject<Animation>(td_bridge_obj_game_animation(obj)).Fetch();
+            this.Id = td_bridge_obj_game_id(obj).Fetch();
+            this.ShortName = td_bridge_obj_game_short_name(obj).Fetch();
+            this.Title = td_bridge_obj_game_title(obj).Fetch();
+            this.Text = new CxxTLObject<FormattedText>(td_bridge_obj_game_text(obj)).Fetch();
+            this.Description = td_bridge_obj_game_description(obj).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_game_photo(obj)).Fetch();
+            this.Animation = new CxxTLObject<Animation>(td_bridge_obj_game_animation(obj)).Fetch();
         }
     }
 
@@ -1562,16 +1562,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_profilePhoto();
-            td_bridge_obj_profilePhoto_id(obj).Set(this.id);
-            new CxxTLObject<File>(td_bridge_obj_profilePhoto_small(obj)).Set(this.small);
-            new CxxTLObject<File>(td_bridge_obj_profilePhoto_big(obj)).Set(this.big);
+            td_bridge_obj_profilePhoto_id(obj).Set(this.Id);
+            new CxxTLObject<File>(td_bridge_obj_profilePhoto_small(obj)).Set(this.Small);
+            new CxxTLObject<File>(td_bridge_obj_profilePhoto_big(obj)).Set(this.Big);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_profilePhoto_id(obj).Fetch();
-            this.small = new CxxTLObject<File>(td_bridge_obj_profilePhoto_small(obj)).Fetch();
-            this.big = new CxxTLObject<File>(td_bridge_obj_profilePhoto_big(obj)).Fetch();
+            this.Id = td_bridge_obj_profilePhoto_id(obj).Fetch();
+            this.Small = new CxxTLObject<File>(td_bridge_obj_profilePhoto_small(obj)).Fetch();
+            this.Big = new CxxTLObject<File>(td_bridge_obj_profilePhoto_big(obj)).Fetch();
         }
     }
 
@@ -1590,14 +1590,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatPhoto();
-            new CxxTLObject<File>(td_bridge_obj_chatPhoto_small(obj)).Set(this.small);
-            new CxxTLObject<File>(td_bridge_obj_chatPhoto_big(obj)).Set(this.big);
+            new CxxTLObject<File>(td_bridge_obj_chatPhoto_small(obj)).Set(this.Small);
+            new CxxTLObject<File>(td_bridge_obj_chatPhoto_big(obj)).Set(this.Big);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.small = new CxxTLObject<File>(td_bridge_obj_chatPhoto_small(obj)).Fetch();
-            this.big = new CxxTLObject<File>(td_bridge_obj_chatPhoto_big(obj)).Fetch();
+            this.Small = new CxxTLObject<File>(td_bridge_obj_chatPhoto_small(obj)).Fetch();
+            this.Big = new CxxTLObject<File>(td_bridge_obj_chatPhoto_big(obj)).Fetch();
         }
     }
 
@@ -1705,20 +1705,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userTypeBot();
-            td_bridge_obj_userTypeBot_can_join_groups(obj).Set(this.can_join_groups);
-            td_bridge_obj_userTypeBot_can_read_all_group_messages(obj).Set(this.can_read_all_group_messages);
-            td_bridge_obj_userTypeBot_is_inline(obj).Set(this.is_inline);
-            td_bridge_obj_userTypeBot_inline_query_placeholder(obj).Set(this.inline_query_placeholder);
-            td_bridge_obj_userTypeBot_need_location(obj).Set(this.need_location);
+            td_bridge_obj_userTypeBot_can_join_groups(obj).Set(this.CanJoinGroups);
+            td_bridge_obj_userTypeBot_can_read_all_group_messages(obj).Set(this.CanReadAllGroupMessages);
+            td_bridge_obj_userTypeBot_is_inline(obj).Set(this.IsInline);
+            td_bridge_obj_userTypeBot_inline_query_placeholder(obj).Set(this.InlineQueryPlaceholder);
+            td_bridge_obj_userTypeBot_need_location(obj).Set(this.NeedLocation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.can_join_groups = td_bridge_obj_userTypeBot_can_join_groups(obj).Fetch();
-            this.can_read_all_group_messages = td_bridge_obj_userTypeBot_can_read_all_group_messages(obj).Fetch();
-            this.is_inline = td_bridge_obj_userTypeBot_is_inline(obj).Fetch();
-            this.inline_query_placeholder = td_bridge_obj_userTypeBot_inline_query_placeholder(obj).Fetch();
-            this.need_location = td_bridge_obj_userTypeBot_need_location(obj).Fetch();
+            this.CanJoinGroups = td_bridge_obj_userTypeBot_can_join_groups(obj).Fetch();
+            this.CanReadAllGroupMessages = td_bridge_obj_userTypeBot_can_read_all_group_messages(obj).Fetch();
+            this.IsInline = td_bridge_obj_userTypeBot_is_inline(obj).Fetch();
+            this.InlineQueryPlaceholder = td_bridge_obj_userTypeBot_inline_query_placeholder(obj).Fetch();
+            this.NeedLocation = td_bridge_obj_userTypeBot_need_location(obj).Fetch();
         }
     }
 
@@ -1753,14 +1753,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_botCommand();
-            td_bridge_obj_botCommand_command(obj).Set(this.command);
-            td_bridge_obj_botCommand_description(obj).Set(this.description);
+            td_bridge_obj_botCommand_command(obj).Set(this.Command);
+            td_bridge_obj_botCommand_description(obj).Set(this.Description);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.command = td_bridge_obj_botCommand_command(obj).Fetch();
-            this.description = td_bridge_obj_botCommand_description(obj).Fetch();
+            this.Command = td_bridge_obj_botCommand_command(obj).Fetch();
+            this.Description = td_bridge_obj_botCommand_description(obj).Fetch();
         }
     }
 
@@ -1779,14 +1779,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_botInfo();
-            td_bridge_obj_botInfo_description(obj).Set(this.description);
-            new CxxVectorObject<BotCommand>(td_bridge_obj_botInfo_commands(obj)).Set(this.commands);
+            td_bridge_obj_botInfo_description(obj).Set(this.Description);
+            new CxxVectorObject<BotCommand>(td_bridge_obj_botInfo_commands(obj)).Set(this.Commands);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.description = td_bridge_obj_botInfo_description(obj).Fetch();
-            this.commands = new CxxVectorObject<BotCommand>(td_bridge_obj_botInfo_commands(obj)).Fetch();
+            this.Description = td_bridge_obj_botInfo_description(obj).Fetch();
+            this.Commands = new CxxVectorObject<BotCommand>(td_bridge_obj_botInfo_commands(obj)).Fetch();
         }
     }
 
@@ -1841,38 +1841,38 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_user();
-            td_bridge_obj_user_id(obj).Set(this.id);
-            td_bridge_obj_user_first_name(obj).Set(this.first_name);
-            td_bridge_obj_user_last_name(obj).Set(this.last_name);
-            td_bridge_obj_user_username(obj).Set(this.username);
-            td_bridge_obj_user_phone_number(obj).Set(this.phone_number);
-            new CxxTLObject<UserStatus>(td_bridge_obj_user_status(obj)).Set(this.status);
-            new CxxTLObject<ProfilePhoto>(td_bridge_obj_user_profile_photo(obj)).Set(this.profile_photo);
-            new CxxTLObject<LinkState>(td_bridge_obj_user_outgoing_link(obj)).Set(this.outgoing_link);
-            new CxxTLObject<LinkState>(td_bridge_obj_user_incoming_link(obj)).Set(this.incoming_link);
-            td_bridge_obj_user_is_verified(obj).Set(this.is_verified);
-            td_bridge_obj_user_restriction_reason(obj).Set(this.restriction_reason);
-            td_bridge_obj_user_have_access(obj).Set(this.have_access);
-            new CxxTLObject<UserType>(td_bridge_obj_user_type(obj)).Set(this.type);
-            td_bridge_obj_user_language_code(obj).Set(this.language_code);
+            td_bridge_obj_user_id(obj).Set(this.Id);
+            td_bridge_obj_user_first_name(obj).Set(this.FirstName);
+            td_bridge_obj_user_last_name(obj).Set(this.LastName);
+            td_bridge_obj_user_username(obj).Set(this.Username);
+            td_bridge_obj_user_phone_number(obj).Set(this.PhoneNumber);
+            new CxxTLObject<UserStatus>(td_bridge_obj_user_status(obj)).Set(this.Status);
+            new CxxTLObject<ProfilePhoto>(td_bridge_obj_user_profile_photo(obj)).Set(this.ProfilePhoto);
+            new CxxTLObject<LinkState>(td_bridge_obj_user_outgoing_link(obj)).Set(this.OutgoingLink);
+            new CxxTLObject<LinkState>(td_bridge_obj_user_incoming_link(obj)).Set(this.IncomingLink);
+            td_bridge_obj_user_is_verified(obj).Set(this.IsVerified);
+            td_bridge_obj_user_restriction_reason(obj).Set(this.RestrictionReason);
+            td_bridge_obj_user_have_access(obj).Set(this.HaveAccess);
+            new CxxTLObject<UserType>(td_bridge_obj_user_type(obj)).Set(this.Type);
+            td_bridge_obj_user_language_code(obj).Set(this.LanguageCode);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_user_id(obj).Fetch();
-            this.first_name = td_bridge_obj_user_first_name(obj).Fetch();
-            this.last_name = td_bridge_obj_user_last_name(obj).Fetch();
-            this.username = td_bridge_obj_user_username(obj).Fetch();
-            this.phone_number = td_bridge_obj_user_phone_number(obj).Fetch();
-            this.status = new CxxTLObject<UserStatus>(td_bridge_obj_user_status(obj)).Fetch();
-            this.profile_photo = new CxxTLObject<ProfilePhoto>(td_bridge_obj_user_profile_photo(obj)).Fetch();
-            this.outgoing_link = new CxxTLObject<LinkState>(td_bridge_obj_user_outgoing_link(obj)).Fetch();
-            this.incoming_link = new CxxTLObject<LinkState>(td_bridge_obj_user_incoming_link(obj)).Fetch();
-            this.is_verified = td_bridge_obj_user_is_verified(obj).Fetch();
-            this.restriction_reason = td_bridge_obj_user_restriction_reason(obj).Fetch();
-            this.have_access = td_bridge_obj_user_have_access(obj).Fetch();
-            this.type = new CxxTLObject<UserType>(td_bridge_obj_user_type(obj)).Fetch();
-            this.language_code = td_bridge_obj_user_language_code(obj).Fetch();
+            this.Id = td_bridge_obj_user_id(obj).Fetch();
+            this.FirstName = td_bridge_obj_user_first_name(obj).Fetch();
+            this.LastName = td_bridge_obj_user_last_name(obj).Fetch();
+            this.Username = td_bridge_obj_user_username(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_user_phone_number(obj).Fetch();
+            this.Status = new CxxTLObject<UserStatus>(td_bridge_obj_user_status(obj)).Fetch();
+            this.ProfilePhoto = new CxxTLObject<ProfilePhoto>(td_bridge_obj_user_profile_photo(obj)).Fetch();
+            this.OutgoingLink = new CxxTLObject<LinkState>(td_bridge_obj_user_outgoing_link(obj)).Fetch();
+            this.IncomingLink = new CxxTLObject<LinkState>(td_bridge_obj_user_incoming_link(obj)).Fetch();
+            this.IsVerified = td_bridge_obj_user_is_verified(obj).Fetch();
+            this.RestrictionReason = td_bridge_obj_user_restriction_reason(obj).Fetch();
+            this.HaveAccess = td_bridge_obj_user_have_access(obj).Fetch();
+            this.Type = new CxxTLObject<UserType>(td_bridge_obj_user_type(obj)).Fetch();
+            this.LanguageCode = td_bridge_obj_user_language_code(obj).Fetch();
         }
     }
 
@@ -1906,24 +1906,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userFullInfo();
-            td_bridge_obj_userFullInfo_is_blocked(obj).Set(this.is_blocked);
-            td_bridge_obj_userFullInfo_can_be_called(obj).Set(this.can_be_called);
-            td_bridge_obj_userFullInfo_has_private_calls(obj).Set(this.has_private_calls);
-            td_bridge_obj_userFullInfo_bio(obj).Set(this.bio);
-            td_bridge_obj_userFullInfo_share_text(obj).Set(this.share_text);
-            td_bridge_obj_userFullInfo_group_in_common_count(obj).Set(this.group_in_common_count);
-            new CxxTLObject<BotInfo>(td_bridge_obj_userFullInfo_bot_info(obj)).Set(this.bot_info);
+            td_bridge_obj_userFullInfo_is_blocked(obj).Set(this.IsBlocked);
+            td_bridge_obj_userFullInfo_can_be_called(obj).Set(this.CanBeCalled);
+            td_bridge_obj_userFullInfo_has_private_calls(obj).Set(this.HasPrivateCalls);
+            td_bridge_obj_userFullInfo_bio(obj).Set(this.Bio);
+            td_bridge_obj_userFullInfo_share_text(obj).Set(this.ShareText);
+            td_bridge_obj_userFullInfo_group_in_common_count(obj).Set(this.GroupInCommonCount);
+            new CxxTLObject<BotInfo>(td_bridge_obj_userFullInfo_bot_info(obj)).Set(this.BotInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_blocked = td_bridge_obj_userFullInfo_is_blocked(obj).Fetch();
-            this.can_be_called = td_bridge_obj_userFullInfo_can_be_called(obj).Fetch();
-            this.has_private_calls = td_bridge_obj_userFullInfo_has_private_calls(obj).Fetch();
-            this.bio = td_bridge_obj_userFullInfo_bio(obj).Fetch();
-            this.share_text = td_bridge_obj_userFullInfo_share_text(obj).Fetch();
-            this.group_in_common_count = td_bridge_obj_userFullInfo_group_in_common_count(obj).Fetch();
-            this.bot_info = new CxxTLObject<BotInfo>(td_bridge_obj_userFullInfo_bot_info(obj)).Fetch();
+            this.IsBlocked = td_bridge_obj_userFullInfo_is_blocked(obj).Fetch();
+            this.CanBeCalled = td_bridge_obj_userFullInfo_can_be_called(obj).Fetch();
+            this.HasPrivateCalls = td_bridge_obj_userFullInfo_has_private_calls(obj).Fetch();
+            this.Bio = td_bridge_obj_userFullInfo_bio(obj).Fetch();
+            this.ShareText = td_bridge_obj_userFullInfo_share_text(obj).Fetch();
+            this.GroupInCommonCount = td_bridge_obj_userFullInfo_group_in_common_count(obj).Fetch();
+            this.BotInfo = new CxxTLObject<BotInfo>(td_bridge_obj_userFullInfo_bot_info(obj)).Fetch();
         }
     }
 
@@ -1942,14 +1942,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userProfilePhotos();
-            td_bridge_obj_userProfilePhotos_total_count(obj).Set(this.total_count);
-            new CxxVectorObject<Photo>(td_bridge_obj_userProfilePhotos_photos(obj)).Set(this.photos);
+            td_bridge_obj_userProfilePhotos_total_count(obj).Set(this.TotalCount);
+            new CxxVectorObject<Photo>(td_bridge_obj_userProfilePhotos_photos(obj)).Set(this.Photos);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.total_count = td_bridge_obj_userProfilePhotos_total_count(obj).Fetch();
-            this.photos = new CxxVectorObject<Photo>(td_bridge_obj_userProfilePhotos_photos(obj)).Fetch();
+            this.TotalCount = td_bridge_obj_userProfilePhotos_total_count(obj).Fetch();
+            this.Photos = new CxxVectorObject<Photo>(td_bridge_obj_userProfilePhotos_photos(obj)).Fetch();
         }
     }
 
@@ -1968,14 +1968,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_users();
-            td_bridge_obj_users_total_count(obj).Set(this.total_count);
-            td_bridge_obj_users_user_ids(obj).Set(this.user_ids);
+            td_bridge_obj_users_total_count(obj).Set(this.TotalCount);
+            td_bridge_obj_users_user_ids(obj).Set(this.UserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.total_count = td_bridge_obj_users_total_count(obj).Fetch();
-            this.user_ids = td_bridge_obj_users_user_ids(obj).Fetch();
+            this.TotalCount = td_bridge_obj_users_total_count(obj).Fetch();
+            this.UserIds = td_bridge_obj_users_user_ids(obj).Fetch();
         }
     }
 
@@ -1991,12 +1991,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatMemberStatusCreator();
-            td_bridge_obj_chatMemberStatusCreator_is_member(obj).Set(this.is_member);
+            td_bridge_obj_chatMemberStatusCreator_is_member(obj).Set(this.IsMember);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_member = td_bridge_obj_chatMemberStatusCreator_is_member(obj).Fetch();
+            this.IsMember = td_bridge_obj_chatMemberStatusCreator_is_member(obj).Fetch();
         }
     }
 
@@ -2036,28 +2036,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatMemberStatusAdministrator();
-            td_bridge_obj_chatMemberStatusAdministrator_can_be_edited(obj).Set(this.can_be_edited);
-            td_bridge_obj_chatMemberStatusAdministrator_can_change_info(obj).Set(this.can_change_info);
-            td_bridge_obj_chatMemberStatusAdministrator_can_post_messages(obj).Set(this.can_post_messages);
-            td_bridge_obj_chatMemberStatusAdministrator_can_edit_messages(obj).Set(this.can_edit_messages);
-            td_bridge_obj_chatMemberStatusAdministrator_can_delete_messages(obj).Set(this.can_delete_messages);
-            td_bridge_obj_chatMemberStatusAdministrator_can_invite_users(obj).Set(this.can_invite_users);
-            td_bridge_obj_chatMemberStatusAdministrator_can_restrict_members(obj).Set(this.can_restrict_members);
-            td_bridge_obj_chatMemberStatusAdministrator_can_pin_messages(obj).Set(this.can_pin_messages);
-            td_bridge_obj_chatMemberStatusAdministrator_can_promote_members(obj).Set(this.can_promote_members);
+            td_bridge_obj_chatMemberStatusAdministrator_can_be_edited(obj).Set(this.CanBeEdited);
+            td_bridge_obj_chatMemberStatusAdministrator_can_change_info(obj).Set(this.CanChangeInfo);
+            td_bridge_obj_chatMemberStatusAdministrator_can_post_messages(obj).Set(this.CanPostMessages);
+            td_bridge_obj_chatMemberStatusAdministrator_can_edit_messages(obj).Set(this.CanEditMessages);
+            td_bridge_obj_chatMemberStatusAdministrator_can_delete_messages(obj).Set(this.CanDeleteMessages);
+            td_bridge_obj_chatMemberStatusAdministrator_can_invite_users(obj).Set(this.CanInviteUsers);
+            td_bridge_obj_chatMemberStatusAdministrator_can_restrict_members(obj).Set(this.CanRestrictMembers);
+            td_bridge_obj_chatMemberStatusAdministrator_can_pin_messages(obj).Set(this.CanPinMessages);
+            td_bridge_obj_chatMemberStatusAdministrator_can_promote_members(obj).Set(this.CanPromoteMembers);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.can_be_edited = td_bridge_obj_chatMemberStatusAdministrator_can_be_edited(obj).Fetch();
-            this.can_change_info = td_bridge_obj_chatMemberStatusAdministrator_can_change_info(obj).Fetch();
-            this.can_post_messages = td_bridge_obj_chatMemberStatusAdministrator_can_post_messages(obj).Fetch();
-            this.can_edit_messages = td_bridge_obj_chatMemberStatusAdministrator_can_edit_messages(obj).Fetch();
-            this.can_delete_messages = td_bridge_obj_chatMemberStatusAdministrator_can_delete_messages(obj).Fetch();
-            this.can_invite_users = td_bridge_obj_chatMemberStatusAdministrator_can_invite_users(obj).Fetch();
-            this.can_restrict_members = td_bridge_obj_chatMemberStatusAdministrator_can_restrict_members(obj).Fetch();
-            this.can_pin_messages = td_bridge_obj_chatMemberStatusAdministrator_can_pin_messages(obj).Fetch();
-            this.can_promote_members = td_bridge_obj_chatMemberStatusAdministrator_can_promote_members(obj).Fetch();
+            this.CanBeEdited = td_bridge_obj_chatMemberStatusAdministrator_can_be_edited(obj).Fetch();
+            this.CanChangeInfo = td_bridge_obj_chatMemberStatusAdministrator_can_change_info(obj).Fetch();
+            this.CanPostMessages = td_bridge_obj_chatMemberStatusAdministrator_can_post_messages(obj).Fetch();
+            this.CanEditMessages = td_bridge_obj_chatMemberStatusAdministrator_can_edit_messages(obj).Fetch();
+            this.CanDeleteMessages = td_bridge_obj_chatMemberStatusAdministrator_can_delete_messages(obj).Fetch();
+            this.CanInviteUsers = td_bridge_obj_chatMemberStatusAdministrator_can_invite_users(obj).Fetch();
+            this.CanRestrictMembers = td_bridge_obj_chatMemberStatusAdministrator_can_restrict_members(obj).Fetch();
+            this.CanPinMessages = td_bridge_obj_chatMemberStatusAdministrator_can_pin_messages(obj).Fetch();
+            this.CanPromoteMembers = td_bridge_obj_chatMemberStatusAdministrator_can_promote_members(obj).Fetch();
         }
     }
 
@@ -2104,22 +2104,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatMemberStatusRestricted();
-            td_bridge_obj_chatMemberStatusRestricted_is_member(obj).Set(this.is_member);
-            td_bridge_obj_chatMemberStatusRestricted_restricted_until_date(obj).Set(this.restricted_until_date);
-            td_bridge_obj_chatMemberStatusRestricted_can_send_messages(obj).Set(this.can_send_messages);
-            td_bridge_obj_chatMemberStatusRestricted_can_send_media_messages(obj).Set(this.can_send_media_messages);
-            td_bridge_obj_chatMemberStatusRestricted_can_send_other_messages(obj).Set(this.can_send_other_messages);
-            td_bridge_obj_chatMemberStatusRestricted_can_add_web_page_previews(obj).Set(this.can_add_web_page_previews);
+            td_bridge_obj_chatMemberStatusRestricted_is_member(obj).Set(this.IsMember);
+            td_bridge_obj_chatMemberStatusRestricted_restricted_until_date(obj).Set(this.RestrictedUntilDate);
+            td_bridge_obj_chatMemberStatusRestricted_can_send_messages(obj).Set(this.CanSendMessages);
+            td_bridge_obj_chatMemberStatusRestricted_can_send_media_messages(obj).Set(this.CanSendMediaMessages);
+            td_bridge_obj_chatMemberStatusRestricted_can_send_other_messages(obj).Set(this.CanSendOtherMessages);
+            td_bridge_obj_chatMemberStatusRestricted_can_add_web_page_previews(obj).Set(this.CanAddWebPagePreviews);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_member = td_bridge_obj_chatMemberStatusRestricted_is_member(obj).Fetch();
-            this.restricted_until_date = td_bridge_obj_chatMemberStatusRestricted_restricted_until_date(obj).Fetch();
-            this.can_send_messages = td_bridge_obj_chatMemberStatusRestricted_can_send_messages(obj).Fetch();
-            this.can_send_media_messages = td_bridge_obj_chatMemberStatusRestricted_can_send_media_messages(obj).Fetch();
-            this.can_send_other_messages = td_bridge_obj_chatMemberStatusRestricted_can_send_other_messages(obj).Fetch();
-            this.can_add_web_page_previews = td_bridge_obj_chatMemberStatusRestricted_can_add_web_page_previews(obj).Fetch();
+            this.IsMember = td_bridge_obj_chatMemberStatusRestricted_is_member(obj).Fetch();
+            this.RestrictedUntilDate = td_bridge_obj_chatMemberStatusRestricted_restricted_until_date(obj).Fetch();
+            this.CanSendMessages = td_bridge_obj_chatMemberStatusRestricted_can_send_messages(obj).Fetch();
+            this.CanSendMediaMessages = td_bridge_obj_chatMemberStatusRestricted_can_send_media_messages(obj).Fetch();
+            this.CanSendOtherMessages = td_bridge_obj_chatMemberStatusRestricted_can_send_other_messages(obj).Fetch();
+            this.CanAddWebPagePreviews = td_bridge_obj_chatMemberStatusRestricted_can_add_web_page_previews(obj).Fetch();
         }
     }
 
@@ -2151,12 +2151,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatMemberStatusBanned();
-            td_bridge_obj_chatMemberStatusBanned_banned_until_date(obj).Set(this.banned_until_date);
+            td_bridge_obj_chatMemberStatusBanned_banned_until_date(obj).Set(this.BannedUntilDate);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.banned_until_date = td_bridge_obj_chatMemberStatusBanned_banned_until_date(obj).Fetch();
+            this.BannedUntilDate = td_bridge_obj_chatMemberStatusBanned_banned_until_date(obj).Fetch();
         }
     }
 
@@ -2184,20 +2184,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatMember();
-            td_bridge_obj_chatMember_user_id(obj).Set(this.user_id);
-            td_bridge_obj_chatMember_inviter_user_id(obj).Set(this.inviter_user_id);
-            td_bridge_obj_chatMember_joined_chat_date(obj).Set(this.joined_chat_date);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatMember_status(obj)).Set(this.status);
-            new CxxTLObject<BotInfo>(td_bridge_obj_chatMember_bot_info(obj)).Set(this.bot_info);
+            td_bridge_obj_chatMember_user_id(obj).Set(this.UserId);
+            td_bridge_obj_chatMember_inviter_user_id(obj).Set(this.InviterUserId);
+            td_bridge_obj_chatMember_joined_chat_date(obj).Set(this.JoinedChatDate);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatMember_status(obj)).Set(this.Status);
+            new CxxTLObject<BotInfo>(td_bridge_obj_chatMember_bot_info(obj)).Set(this.BotInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_chatMember_user_id(obj).Fetch();
-            this.inviter_user_id = td_bridge_obj_chatMember_inviter_user_id(obj).Fetch();
-            this.joined_chat_date = td_bridge_obj_chatMember_joined_chat_date(obj).Fetch();
-            this.status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatMember_status(obj)).Fetch();
-            this.bot_info = new CxxTLObject<BotInfo>(td_bridge_obj_chatMember_bot_info(obj)).Fetch();
+            this.UserId = td_bridge_obj_chatMember_user_id(obj).Fetch();
+            this.InviterUserId = td_bridge_obj_chatMember_inviter_user_id(obj).Fetch();
+            this.JoinedChatDate = td_bridge_obj_chatMember_joined_chat_date(obj).Fetch();
+            this.Status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatMember_status(obj)).Fetch();
+            this.BotInfo = new CxxTLObject<BotInfo>(td_bridge_obj_chatMember_bot_info(obj)).Fetch();
         }
     }
 
@@ -2216,14 +2216,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatMembers();
-            td_bridge_obj_chatMembers_total_count(obj).Set(this.total_count);
-            new CxxVectorObject<ChatMember>(td_bridge_obj_chatMembers_members(obj)).Set(this.members);
+            td_bridge_obj_chatMembers_total_count(obj).Set(this.TotalCount);
+            new CxxVectorObject<ChatMember>(td_bridge_obj_chatMembers_members(obj)).Set(this.Members);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.total_count = td_bridge_obj_chatMembers_total_count(obj).Fetch();
-            this.members = new CxxVectorObject<ChatMember>(td_bridge_obj_chatMembers_members(obj)).Fetch();
+            this.TotalCount = td_bridge_obj_chatMembers_total_count(obj).Fetch();
+            this.Members = new CxxVectorObject<ChatMember>(td_bridge_obj_chatMembers_members(obj)).Fetch();
         }
     }
 
@@ -2351,12 +2351,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_supergroupMembersFilterSearch();
-            td_bridge_obj_supergroupMembersFilterSearch_query(obj).Set(this.query);
+            td_bridge_obj_supergroupMembersFilterSearch_query(obj).Set(this.Query);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_supergroupMembersFilterSearch_query(obj).Fetch();
+            this.Query = td_bridge_obj_supergroupMembersFilterSearch_query(obj).Fetch();
         }
     }
 
@@ -2372,12 +2372,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_supergroupMembersFilterRestricted();
-            td_bridge_obj_supergroupMembersFilterRestricted_query(obj).Set(this.query);
+            td_bridge_obj_supergroupMembersFilterRestricted_query(obj).Set(this.Query);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_supergroupMembersFilterRestricted_query(obj).Fetch();
+            this.Query = td_bridge_obj_supergroupMembersFilterRestricted_query(obj).Fetch();
         }
     }
 
@@ -2393,12 +2393,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_supergroupMembersFilterBanned();
-            td_bridge_obj_supergroupMembersFilterBanned_query(obj).Set(this.query);
+            td_bridge_obj_supergroupMembersFilterBanned_query(obj).Set(this.Query);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_supergroupMembersFilterBanned_query(obj).Fetch();
+            this.Query = td_bridge_obj_supergroupMembersFilterBanned_query(obj).Fetch();
         }
     }
 
@@ -2445,22 +2445,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_basicGroup();
-            td_bridge_obj_basicGroup_id(obj).Set(this.id);
-            td_bridge_obj_basicGroup_member_count(obj).Set(this.member_count);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_basicGroup_status(obj)).Set(this.status);
-            td_bridge_obj_basicGroup_everyone_is_administrator(obj).Set(this.everyone_is_administrator);
-            td_bridge_obj_basicGroup_is_active(obj).Set(this.is_active);
-            td_bridge_obj_basicGroup_upgraded_to_supergroup_id(obj).Set(this.upgraded_to_supergroup_id);
+            td_bridge_obj_basicGroup_id(obj).Set(this.Id);
+            td_bridge_obj_basicGroup_member_count(obj).Set(this.MemberCount);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_basicGroup_status(obj)).Set(this.Status);
+            td_bridge_obj_basicGroup_everyone_is_administrator(obj).Set(this.EveryoneIsAdministrator);
+            td_bridge_obj_basicGroup_is_active(obj).Set(this.IsActive);
+            td_bridge_obj_basicGroup_upgraded_to_supergroup_id(obj).Set(this.UpgradedToSupergroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_basicGroup_id(obj).Fetch();
-            this.member_count = td_bridge_obj_basicGroup_member_count(obj).Fetch();
-            this.status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_basicGroup_status(obj)).Fetch();
-            this.everyone_is_administrator = td_bridge_obj_basicGroup_everyone_is_administrator(obj).Fetch();
-            this.is_active = td_bridge_obj_basicGroup_is_active(obj).Fetch();
-            this.upgraded_to_supergroup_id = td_bridge_obj_basicGroup_upgraded_to_supergroup_id(obj).Fetch();
+            this.Id = td_bridge_obj_basicGroup_id(obj).Fetch();
+            this.MemberCount = td_bridge_obj_basicGroup_member_count(obj).Fetch();
+            this.Status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_basicGroup_status(obj)).Fetch();
+            this.EveryoneIsAdministrator = td_bridge_obj_basicGroup_everyone_is_administrator(obj).Fetch();
+            this.IsActive = td_bridge_obj_basicGroup_is_active(obj).Fetch();
+            this.UpgradedToSupergroupId = td_bridge_obj_basicGroup_upgraded_to_supergroup_id(obj).Fetch();
         }
     }
 
@@ -2482,16 +2482,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_basicGroupFullInfo();
-            td_bridge_obj_basicGroupFullInfo_creator_user_id(obj).Set(this.creator_user_id);
-            new CxxVectorObject<ChatMember>(td_bridge_obj_basicGroupFullInfo_members(obj)).Set(this.members);
-            td_bridge_obj_basicGroupFullInfo_invite_link(obj).Set(this.invite_link);
+            td_bridge_obj_basicGroupFullInfo_creator_user_id(obj).Set(this.CreatorUserId);
+            new CxxVectorObject<ChatMember>(td_bridge_obj_basicGroupFullInfo_members(obj)).Set(this.Members);
+            td_bridge_obj_basicGroupFullInfo_invite_link(obj).Set(this.InviteLink);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.creator_user_id = td_bridge_obj_basicGroupFullInfo_creator_user_id(obj).Fetch();
-            this.members = new CxxVectorObject<ChatMember>(td_bridge_obj_basicGroupFullInfo_members(obj)).Fetch();
-            this.invite_link = td_bridge_obj_basicGroupFullInfo_invite_link(obj).Fetch();
+            this.CreatorUserId = td_bridge_obj_basicGroupFullInfo_creator_user_id(obj).Fetch();
+            this.Members = new CxxVectorObject<ChatMember>(td_bridge_obj_basicGroupFullInfo_members(obj)).Fetch();
+            this.InviteLink = td_bridge_obj_basicGroupFullInfo_invite_link(obj).Fetch();
         }
     }
 
@@ -2534,30 +2534,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_supergroup();
-            td_bridge_obj_supergroup_id(obj).Set(this.id);
-            td_bridge_obj_supergroup_username(obj).Set(this.username);
-            td_bridge_obj_supergroup_date(obj).Set(this.date);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_supergroup_status(obj)).Set(this.status);
-            td_bridge_obj_supergroup_member_count(obj).Set(this.member_count);
-            td_bridge_obj_supergroup_anyone_can_invite(obj).Set(this.anyone_can_invite);
-            td_bridge_obj_supergroup_sign_messages(obj).Set(this.sign_messages);
-            td_bridge_obj_supergroup_is_channel(obj).Set(this.is_channel);
-            td_bridge_obj_supergroup_is_verified(obj).Set(this.is_verified);
-            td_bridge_obj_supergroup_restriction_reason(obj).Set(this.restriction_reason);
+            td_bridge_obj_supergroup_id(obj).Set(this.Id);
+            td_bridge_obj_supergroup_username(obj).Set(this.Username);
+            td_bridge_obj_supergroup_date(obj).Set(this.Date);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_supergroup_status(obj)).Set(this.Status);
+            td_bridge_obj_supergroup_member_count(obj).Set(this.MemberCount);
+            td_bridge_obj_supergroup_anyone_can_invite(obj).Set(this.AnyoneCanInvite);
+            td_bridge_obj_supergroup_sign_messages(obj).Set(this.SignMessages);
+            td_bridge_obj_supergroup_is_channel(obj).Set(this.IsChannel);
+            td_bridge_obj_supergroup_is_verified(obj).Set(this.IsVerified);
+            td_bridge_obj_supergroup_restriction_reason(obj).Set(this.RestrictionReason);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_supergroup_id(obj).Fetch();
-            this.username = td_bridge_obj_supergroup_username(obj).Fetch();
-            this.date = td_bridge_obj_supergroup_date(obj).Fetch();
-            this.status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_supergroup_status(obj)).Fetch();
-            this.member_count = td_bridge_obj_supergroup_member_count(obj).Fetch();
-            this.anyone_can_invite = td_bridge_obj_supergroup_anyone_can_invite(obj).Fetch();
-            this.sign_messages = td_bridge_obj_supergroup_sign_messages(obj).Fetch();
-            this.is_channel = td_bridge_obj_supergroup_is_channel(obj).Fetch();
-            this.is_verified = td_bridge_obj_supergroup_is_verified(obj).Fetch();
-            this.restriction_reason = td_bridge_obj_supergroup_restriction_reason(obj).Fetch();
+            this.Id = td_bridge_obj_supergroup_id(obj).Fetch();
+            this.Username = td_bridge_obj_supergroup_username(obj).Fetch();
+            this.Date = td_bridge_obj_supergroup_date(obj).Fetch();
+            this.Status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_supergroup_status(obj)).Fetch();
+            this.MemberCount = td_bridge_obj_supergroup_member_count(obj).Fetch();
+            this.AnyoneCanInvite = td_bridge_obj_supergroup_anyone_can_invite(obj).Fetch();
+            this.SignMessages = td_bridge_obj_supergroup_sign_messages(obj).Fetch();
+            this.IsChannel = td_bridge_obj_supergroup_is_channel(obj).Fetch();
+            this.IsVerified = td_bridge_obj_supergroup_is_verified(obj).Fetch();
+            this.RestrictionReason = td_bridge_obj_supergroup_restriction_reason(obj).Fetch();
         }
     }
 
@@ -2612,38 +2612,38 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_supergroupFullInfo();
-            td_bridge_obj_supergroupFullInfo_description(obj).Set(this.description);
-            td_bridge_obj_supergroupFullInfo_member_count(obj).Set(this.member_count);
-            td_bridge_obj_supergroupFullInfo_administrator_count(obj).Set(this.administrator_count);
-            td_bridge_obj_supergroupFullInfo_restricted_count(obj).Set(this.restricted_count);
-            td_bridge_obj_supergroupFullInfo_banned_count(obj).Set(this.banned_count);
-            td_bridge_obj_supergroupFullInfo_can_get_members(obj).Set(this.can_get_members);
-            td_bridge_obj_supergroupFullInfo_can_set_username(obj).Set(this.can_set_username);
-            td_bridge_obj_supergroupFullInfo_can_set_sticker_set(obj).Set(this.can_set_sticker_set);
-            td_bridge_obj_supergroupFullInfo_is_all_history_available(obj).Set(this.is_all_history_available);
-            td_bridge_obj_supergroupFullInfo_sticker_set_id(obj).Set(this.sticker_set_id);
-            td_bridge_obj_supergroupFullInfo_invite_link(obj).Set(this.invite_link);
-            td_bridge_obj_supergroupFullInfo_pinned_message_id(obj).Set(this.pinned_message_id);
-            td_bridge_obj_supergroupFullInfo_upgraded_from_basic_group_id(obj).Set(this.upgraded_from_basic_group_id);
-            td_bridge_obj_supergroupFullInfo_upgraded_from_max_message_id(obj).Set(this.upgraded_from_max_message_id);
+            td_bridge_obj_supergroupFullInfo_description(obj).Set(this.Description);
+            td_bridge_obj_supergroupFullInfo_member_count(obj).Set(this.MemberCount);
+            td_bridge_obj_supergroupFullInfo_administrator_count(obj).Set(this.AdministratorCount);
+            td_bridge_obj_supergroupFullInfo_restricted_count(obj).Set(this.RestrictedCount);
+            td_bridge_obj_supergroupFullInfo_banned_count(obj).Set(this.BannedCount);
+            td_bridge_obj_supergroupFullInfo_can_get_members(obj).Set(this.CanGetMembers);
+            td_bridge_obj_supergroupFullInfo_can_set_username(obj).Set(this.CanSetUsername);
+            td_bridge_obj_supergroupFullInfo_can_set_sticker_set(obj).Set(this.CanSetStickerSet);
+            td_bridge_obj_supergroupFullInfo_is_all_history_available(obj).Set(this.IsAllHistoryAvailable);
+            td_bridge_obj_supergroupFullInfo_sticker_set_id(obj).Set(this.StickerSetId);
+            td_bridge_obj_supergroupFullInfo_invite_link(obj).Set(this.InviteLink);
+            td_bridge_obj_supergroupFullInfo_pinned_message_id(obj).Set(this.PinnedMessageId);
+            td_bridge_obj_supergroupFullInfo_upgraded_from_basic_group_id(obj).Set(this.UpgradedFromBasicGroupId);
+            td_bridge_obj_supergroupFullInfo_upgraded_from_max_message_id(obj).Set(this.UpgradedFromMaxMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.description = td_bridge_obj_supergroupFullInfo_description(obj).Fetch();
-            this.member_count = td_bridge_obj_supergroupFullInfo_member_count(obj).Fetch();
-            this.administrator_count = td_bridge_obj_supergroupFullInfo_administrator_count(obj).Fetch();
-            this.restricted_count = td_bridge_obj_supergroupFullInfo_restricted_count(obj).Fetch();
-            this.banned_count = td_bridge_obj_supergroupFullInfo_banned_count(obj).Fetch();
-            this.can_get_members = td_bridge_obj_supergroupFullInfo_can_get_members(obj).Fetch();
-            this.can_set_username = td_bridge_obj_supergroupFullInfo_can_set_username(obj).Fetch();
-            this.can_set_sticker_set = td_bridge_obj_supergroupFullInfo_can_set_sticker_set(obj).Fetch();
-            this.is_all_history_available = td_bridge_obj_supergroupFullInfo_is_all_history_available(obj).Fetch();
-            this.sticker_set_id = td_bridge_obj_supergroupFullInfo_sticker_set_id(obj).Fetch();
-            this.invite_link = td_bridge_obj_supergroupFullInfo_invite_link(obj).Fetch();
-            this.pinned_message_id = td_bridge_obj_supergroupFullInfo_pinned_message_id(obj).Fetch();
-            this.upgraded_from_basic_group_id = td_bridge_obj_supergroupFullInfo_upgraded_from_basic_group_id(obj).Fetch();
-            this.upgraded_from_max_message_id = td_bridge_obj_supergroupFullInfo_upgraded_from_max_message_id(obj).Fetch();
+            this.Description = td_bridge_obj_supergroupFullInfo_description(obj).Fetch();
+            this.MemberCount = td_bridge_obj_supergroupFullInfo_member_count(obj).Fetch();
+            this.AdministratorCount = td_bridge_obj_supergroupFullInfo_administrator_count(obj).Fetch();
+            this.RestrictedCount = td_bridge_obj_supergroupFullInfo_restricted_count(obj).Fetch();
+            this.BannedCount = td_bridge_obj_supergroupFullInfo_banned_count(obj).Fetch();
+            this.CanGetMembers = td_bridge_obj_supergroupFullInfo_can_get_members(obj).Fetch();
+            this.CanSetUsername = td_bridge_obj_supergroupFullInfo_can_set_username(obj).Fetch();
+            this.CanSetStickerSet = td_bridge_obj_supergroupFullInfo_can_set_sticker_set(obj).Fetch();
+            this.IsAllHistoryAvailable = td_bridge_obj_supergroupFullInfo_is_all_history_available(obj).Fetch();
+            this.StickerSetId = td_bridge_obj_supergroupFullInfo_sticker_set_id(obj).Fetch();
+            this.InviteLink = td_bridge_obj_supergroupFullInfo_invite_link(obj).Fetch();
+            this.PinnedMessageId = td_bridge_obj_supergroupFullInfo_pinned_message_id(obj).Fetch();
+            this.UpgradedFromBasicGroupId = td_bridge_obj_supergroupFullInfo_upgraded_from_basic_group_id(obj).Fetch();
+            this.UpgradedFromMaxMessageId = td_bridge_obj_supergroupFullInfo_upgraded_from_max_message_id(obj).Fetch();
         }
     }
 
@@ -2725,24 +2725,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_secretChat();
-            td_bridge_obj_secretChat_id(obj).Set(this.id);
-            td_bridge_obj_secretChat_user_id(obj).Set(this.user_id);
-            new CxxTLObject<SecretChatState>(td_bridge_obj_secretChat_state(obj)).Set(this.state);
-            td_bridge_obj_secretChat_is_outbound(obj).Set(this.is_outbound);
-            td_bridge_obj_secretChat_ttl(obj).Set(this.ttl);
-            td_bridge_obj_secretChat_key_hash(obj).Set(this.key_hash);
-            td_bridge_obj_secretChat_layer(obj).Set(this.layer);
+            td_bridge_obj_secretChat_id(obj).Set(this.Id);
+            td_bridge_obj_secretChat_user_id(obj).Set(this.UserId);
+            new CxxTLObject<SecretChatState>(td_bridge_obj_secretChat_state(obj)).Set(this.State);
+            td_bridge_obj_secretChat_is_outbound(obj).Set(this.IsOutbound);
+            td_bridge_obj_secretChat_ttl(obj).Set(this.Ttl);
+            td_bridge_obj_secretChat_key_hash(obj).Set(this.KeyHash);
+            td_bridge_obj_secretChat_layer(obj).Set(this.Layer);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_secretChat_id(obj).Fetch();
-            this.user_id = td_bridge_obj_secretChat_user_id(obj).Fetch();
-            this.state = new CxxTLObject<SecretChatState>(td_bridge_obj_secretChat_state(obj)).Fetch();
-            this.is_outbound = td_bridge_obj_secretChat_is_outbound(obj).Fetch();
-            this.ttl = td_bridge_obj_secretChat_ttl(obj).Fetch();
-            this.key_hash = td_bridge_obj_secretChat_key_hash(obj).Fetch();
-            this.layer = td_bridge_obj_secretChat_layer(obj).Fetch();
+            this.Id = td_bridge_obj_secretChat_id(obj).Fetch();
+            this.UserId = td_bridge_obj_secretChat_user_id(obj).Fetch();
+            this.State = new CxxTLObject<SecretChatState>(td_bridge_obj_secretChat_state(obj)).Fetch();
+            this.IsOutbound = td_bridge_obj_secretChat_is_outbound(obj).Fetch();
+            this.Ttl = td_bridge_obj_secretChat_ttl(obj).Fetch();
+            this.KeyHash = td_bridge_obj_secretChat_key_hash(obj).Fetch();
+            this.Layer = td_bridge_obj_secretChat_layer(obj).Fetch();
         }
     }
 
@@ -2767,18 +2767,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageForwardedFromUser();
-            td_bridge_obj_messageForwardedFromUser_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_messageForwardedFromUser_date(obj).Set(this.date);
-            td_bridge_obj_messageForwardedFromUser_forwarded_from_chat_id(obj).Set(this.forwarded_from_chat_id);
-            td_bridge_obj_messageForwardedFromUser_forwarded_from_message_id(obj).Set(this.forwarded_from_message_id);
+            td_bridge_obj_messageForwardedFromUser_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_messageForwardedFromUser_date(obj).Set(this.Date);
+            td_bridge_obj_messageForwardedFromUser_forwarded_from_chat_id(obj).Set(this.ForwardedFromChatId);
+            td_bridge_obj_messageForwardedFromUser_forwarded_from_message_id(obj).Set(this.ForwardedFromMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sender_user_id = td_bridge_obj_messageForwardedFromUser_sender_user_id(obj).Fetch();
-            this.date = td_bridge_obj_messageForwardedFromUser_date(obj).Fetch();
-            this.forwarded_from_chat_id = td_bridge_obj_messageForwardedFromUser_forwarded_from_chat_id(obj).Fetch();
-            this.forwarded_from_message_id = td_bridge_obj_messageForwardedFromUser_forwarded_from_message_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_messageForwardedFromUser_sender_user_id(obj).Fetch();
+            this.Date = td_bridge_obj_messageForwardedFromUser_date(obj).Fetch();
+            this.ForwardedFromChatId = td_bridge_obj_messageForwardedFromUser_forwarded_from_chat_id(obj).Fetch();
+            this.ForwardedFromMessageId = td_bridge_obj_messageForwardedFromUser_forwarded_from_message_id(obj).Fetch();
         }
     }
 
@@ -2809,22 +2809,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageForwardedPost();
-            td_bridge_obj_messageForwardedPost_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_messageForwardedPost_author_signature(obj).Set(this.author_signature);
-            td_bridge_obj_messageForwardedPost_date(obj).Set(this.date);
-            td_bridge_obj_messageForwardedPost_message_id(obj).Set(this.message_id);
-            td_bridge_obj_messageForwardedPost_forwarded_from_chat_id(obj).Set(this.forwarded_from_chat_id);
-            td_bridge_obj_messageForwardedPost_forwarded_from_message_id(obj).Set(this.forwarded_from_message_id);
+            td_bridge_obj_messageForwardedPost_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_messageForwardedPost_author_signature(obj).Set(this.AuthorSignature);
+            td_bridge_obj_messageForwardedPost_date(obj).Set(this.Date);
+            td_bridge_obj_messageForwardedPost_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_messageForwardedPost_forwarded_from_chat_id(obj).Set(this.ForwardedFromChatId);
+            td_bridge_obj_messageForwardedPost_forwarded_from_message_id(obj).Set(this.ForwardedFromMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_messageForwardedPost_chat_id(obj).Fetch();
-            this.author_signature = td_bridge_obj_messageForwardedPost_author_signature(obj).Fetch();
-            this.date = td_bridge_obj_messageForwardedPost_date(obj).Fetch();
-            this.message_id = td_bridge_obj_messageForwardedPost_message_id(obj).Fetch();
-            this.forwarded_from_chat_id = td_bridge_obj_messageForwardedPost_forwarded_from_chat_id(obj).Fetch();
-            this.forwarded_from_message_id = td_bridge_obj_messageForwardedPost_forwarded_from_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_messageForwardedPost_chat_id(obj).Fetch();
+            this.AuthorSignature = td_bridge_obj_messageForwardedPost_author_signature(obj).Fetch();
+            this.Date = td_bridge_obj_messageForwardedPost_date(obj).Fetch();
+            this.MessageId = td_bridge_obj_messageForwardedPost_message_id(obj).Fetch();
+            this.ForwardedFromChatId = td_bridge_obj_messageForwardedPost_forwarded_from_chat_id(obj).Fetch();
+            this.ForwardedFromMessageId = td_bridge_obj_messageForwardedPost_forwarded_from_message_id(obj).Fetch();
         }
     }
 
@@ -2938,56 +2938,56 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_message();
-            td_bridge_obj_message_id(obj).Set(this.id);
-            td_bridge_obj_message_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_message_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<MessageSendingState>(td_bridge_obj_message_sending_state(obj)).Set(this.sending_state);
-            td_bridge_obj_message_is_outgoing(obj).Set(this.is_outgoing);
-            td_bridge_obj_message_can_be_edited(obj).Set(this.can_be_edited);
-            td_bridge_obj_message_can_be_forwarded(obj).Set(this.can_be_forwarded);
-            td_bridge_obj_message_can_be_deleted_only_for_self(obj).Set(this.can_be_deleted_only_for_self);
-            td_bridge_obj_message_can_be_deleted_for_all_users(obj).Set(this.can_be_deleted_for_all_users);
-            td_bridge_obj_message_is_channel_post(obj).Set(this.is_channel_post);
-            td_bridge_obj_message_contains_unread_mention(obj).Set(this.contains_unread_mention);
-            td_bridge_obj_message_date(obj).Set(this.date);
-            td_bridge_obj_message_edit_date(obj).Set(this.edit_date);
-            new CxxTLObject<MessageForwardInfo>(td_bridge_obj_message_forward_info(obj)).Set(this.forward_info);
-            td_bridge_obj_message_reply_to_message_id(obj).Set(this.reply_to_message_id);
-            td_bridge_obj_message_ttl(obj).Set(this.ttl);
-            td_bridge_obj_message_ttl_expires_in(obj).Set(this.ttl_expires_in);
-            td_bridge_obj_message_via_bot_user_id(obj).Set(this.via_bot_user_id);
-            td_bridge_obj_message_author_signature(obj).Set(this.author_signature);
-            td_bridge_obj_message_views(obj).Set(this.views);
-            td_bridge_obj_message_media_album_id(obj).Set(this.media_album_id);
-            new CxxTLObject<MessageContent>(td_bridge_obj_message_content(obj)).Set(this.content);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_message_reply_markup(obj)).Set(this.reply_markup);
+            td_bridge_obj_message_id(obj).Set(this.Id);
+            td_bridge_obj_message_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_message_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<MessageSendingState>(td_bridge_obj_message_sending_state(obj)).Set(this.SendingState);
+            td_bridge_obj_message_is_outgoing(obj).Set(this.IsOutgoing);
+            td_bridge_obj_message_can_be_edited(obj).Set(this.CanBeEdited);
+            td_bridge_obj_message_can_be_forwarded(obj).Set(this.CanBeForwarded);
+            td_bridge_obj_message_can_be_deleted_only_for_self(obj).Set(this.CanBeDeletedOnlyForSelf);
+            td_bridge_obj_message_can_be_deleted_for_all_users(obj).Set(this.CanBeDeletedForAllUsers);
+            td_bridge_obj_message_is_channel_post(obj).Set(this.IsChannelPost);
+            td_bridge_obj_message_contains_unread_mention(obj).Set(this.ContainsUnreadMention);
+            td_bridge_obj_message_date(obj).Set(this.Date);
+            td_bridge_obj_message_edit_date(obj).Set(this.EditDate);
+            new CxxTLObject<MessageForwardInfo>(td_bridge_obj_message_forward_info(obj)).Set(this.ForwardInfo);
+            td_bridge_obj_message_reply_to_message_id(obj).Set(this.ReplyToMessageId);
+            td_bridge_obj_message_ttl(obj).Set(this.Ttl);
+            td_bridge_obj_message_ttl_expires_in(obj).Set(this.TtlExpiresIn);
+            td_bridge_obj_message_via_bot_user_id(obj).Set(this.ViaBotUserId);
+            td_bridge_obj_message_author_signature(obj).Set(this.AuthorSignature);
+            td_bridge_obj_message_views(obj).Set(this.Views);
+            td_bridge_obj_message_media_album_id(obj).Set(this.MediaAlbumId);
+            new CxxTLObject<MessageContent>(td_bridge_obj_message_content(obj)).Set(this.Content);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_message_reply_markup(obj)).Set(this.ReplyMarkup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_message_id(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_message_sender_user_id(obj).Fetch();
-            this.chat_id = td_bridge_obj_message_chat_id(obj).Fetch();
-            this.sending_state = new CxxTLObject<MessageSendingState>(td_bridge_obj_message_sending_state(obj)).Fetch();
-            this.is_outgoing = td_bridge_obj_message_is_outgoing(obj).Fetch();
-            this.can_be_edited = td_bridge_obj_message_can_be_edited(obj).Fetch();
-            this.can_be_forwarded = td_bridge_obj_message_can_be_forwarded(obj).Fetch();
-            this.can_be_deleted_only_for_self = td_bridge_obj_message_can_be_deleted_only_for_self(obj).Fetch();
-            this.can_be_deleted_for_all_users = td_bridge_obj_message_can_be_deleted_for_all_users(obj).Fetch();
-            this.is_channel_post = td_bridge_obj_message_is_channel_post(obj).Fetch();
-            this.contains_unread_mention = td_bridge_obj_message_contains_unread_mention(obj).Fetch();
-            this.date = td_bridge_obj_message_date(obj).Fetch();
-            this.edit_date = td_bridge_obj_message_edit_date(obj).Fetch();
-            this.forward_info = new CxxTLObject<MessageForwardInfo>(td_bridge_obj_message_forward_info(obj)).Fetch();
-            this.reply_to_message_id = td_bridge_obj_message_reply_to_message_id(obj).Fetch();
-            this.ttl = td_bridge_obj_message_ttl(obj).Fetch();
-            this.ttl_expires_in = td_bridge_obj_message_ttl_expires_in(obj).Fetch();
-            this.via_bot_user_id = td_bridge_obj_message_via_bot_user_id(obj).Fetch();
-            this.author_signature = td_bridge_obj_message_author_signature(obj).Fetch();
-            this.views = td_bridge_obj_message_views(obj).Fetch();
-            this.media_album_id = td_bridge_obj_message_media_album_id(obj).Fetch();
-            this.content = new CxxTLObject<MessageContent>(td_bridge_obj_message_content(obj)).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_message_reply_markup(obj)).Fetch();
+            this.Id = td_bridge_obj_message_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_message_sender_user_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_message_chat_id(obj).Fetch();
+            this.SendingState = new CxxTLObject<MessageSendingState>(td_bridge_obj_message_sending_state(obj)).Fetch();
+            this.IsOutgoing = td_bridge_obj_message_is_outgoing(obj).Fetch();
+            this.CanBeEdited = td_bridge_obj_message_can_be_edited(obj).Fetch();
+            this.CanBeForwarded = td_bridge_obj_message_can_be_forwarded(obj).Fetch();
+            this.CanBeDeletedOnlyForSelf = td_bridge_obj_message_can_be_deleted_only_for_self(obj).Fetch();
+            this.CanBeDeletedForAllUsers = td_bridge_obj_message_can_be_deleted_for_all_users(obj).Fetch();
+            this.IsChannelPost = td_bridge_obj_message_is_channel_post(obj).Fetch();
+            this.ContainsUnreadMention = td_bridge_obj_message_contains_unread_mention(obj).Fetch();
+            this.Date = td_bridge_obj_message_date(obj).Fetch();
+            this.EditDate = td_bridge_obj_message_edit_date(obj).Fetch();
+            this.ForwardInfo = new CxxTLObject<MessageForwardInfo>(td_bridge_obj_message_forward_info(obj)).Fetch();
+            this.ReplyToMessageId = td_bridge_obj_message_reply_to_message_id(obj).Fetch();
+            this.Ttl = td_bridge_obj_message_ttl(obj).Fetch();
+            this.TtlExpiresIn = td_bridge_obj_message_ttl_expires_in(obj).Fetch();
+            this.ViaBotUserId = td_bridge_obj_message_via_bot_user_id(obj).Fetch();
+            this.AuthorSignature = td_bridge_obj_message_author_signature(obj).Fetch();
+            this.Views = td_bridge_obj_message_views(obj).Fetch();
+            this.MediaAlbumId = td_bridge_obj_message_media_album_id(obj).Fetch();
+            this.Content = new CxxTLObject<MessageContent>(td_bridge_obj_message_content(obj)).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_message_reply_markup(obj)).Fetch();
         }
     }
 
@@ -3006,14 +3006,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messages();
-            td_bridge_obj_messages_total_count(obj).Set(this.total_count);
-            new CxxVectorObject<Message>(td_bridge_obj_messages_messages(obj)).Set(this.messages);
+            td_bridge_obj_messages_total_count(obj).Set(this.TotalCount);
+            new CxxVectorObject<Message>(td_bridge_obj_messages_messages(obj)).Set(this.Messages_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.total_count = td_bridge_obj_messages_total_count(obj).Fetch();
-            this.messages = new CxxVectorObject<Message>(td_bridge_obj_messages_messages(obj)).Fetch();
+            this.TotalCount = td_bridge_obj_messages_total_count(obj).Fetch();
+            this.Messages_ = new CxxVectorObject<Message>(td_bridge_obj_messages_messages(obj)).Fetch();
         }
     }
 
@@ -3032,14 +3032,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_foundMessages();
-            new CxxVectorObject<Message>(td_bridge_obj_foundMessages_messages(obj)).Set(this.messages);
-            td_bridge_obj_foundMessages_next_from_search_id(obj).Set(this.next_from_search_id);
+            new CxxVectorObject<Message>(td_bridge_obj_foundMessages_messages(obj)).Set(this.Messages);
+            td_bridge_obj_foundMessages_next_from_search_id(obj).Set(this.NextFromSearchId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.messages = new CxxVectorObject<Message>(td_bridge_obj_foundMessages_messages(obj)).Fetch();
-            this.next_from_search_id = td_bridge_obj_foundMessages_next_from_search_id(obj).Fetch();
+            this.Messages = new CxxVectorObject<Message>(td_bridge_obj_foundMessages_messages(obj)).Fetch();
+            this.NextFromSearchId = td_bridge_obj_foundMessages_next_from_search_id(obj).Fetch();
         }
     }
 
@@ -3102,22 +3102,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatNotificationSettings();
-            td_bridge_obj_chatNotificationSettings_use_default_mute_for(obj).Set(this.use_default_mute_for);
-            td_bridge_obj_chatNotificationSettings_mute_for(obj).Set(this.mute_for);
-            td_bridge_obj_chatNotificationSettings_use_default_sound(obj).Set(this.use_default_sound);
-            td_bridge_obj_chatNotificationSettings_sound(obj).Set(this.sound);
-            td_bridge_obj_chatNotificationSettings_use_default_show_preview(obj).Set(this.use_default_show_preview);
-            td_bridge_obj_chatNotificationSettings_show_preview(obj).Set(this.show_preview);
+            td_bridge_obj_chatNotificationSettings_use_default_mute_for(obj).Set(this.UseDefaultMuteFor);
+            td_bridge_obj_chatNotificationSettings_mute_for(obj).Set(this.MuteFor);
+            td_bridge_obj_chatNotificationSettings_use_default_sound(obj).Set(this.UseDefaultSound);
+            td_bridge_obj_chatNotificationSettings_sound(obj).Set(this.Sound);
+            td_bridge_obj_chatNotificationSettings_use_default_show_preview(obj).Set(this.UseDefaultShowPreview);
+            td_bridge_obj_chatNotificationSettings_show_preview(obj).Set(this.ShowPreview);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.use_default_mute_for = td_bridge_obj_chatNotificationSettings_use_default_mute_for(obj).Fetch();
-            this.mute_for = td_bridge_obj_chatNotificationSettings_mute_for(obj).Fetch();
-            this.use_default_sound = td_bridge_obj_chatNotificationSettings_use_default_sound(obj).Fetch();
-            this.sound = td_bridge_obj_chatNotificationSettings_sound(obj).Fetch();
-            this.use_default_show_preview = td_bridge_obj_chatNotificationSettings_use_default_show_preview(obj).Fetch();
-            this.show_preview = td_bridge_obj_chatNotificationSettings_show_preview(obj).Fetch();
+            this.UseDefaultMuteFor = td_bridge_obj_chatNotificationSettings_use_default_mute_for(obj).Fetch();
+            this.MuteFor = td_bridge_obj_chatNotificationSettings_mute_for(obj).Fetch();
+            this.UseDefaultSound = td_bridge_obj_chatNotificationSettings_use_default_sound(obj).Fetch();
+            this.Sound = td_bridge_obj_chatNotificationSettings_sound(obj).Fetch();
+            this.UseDefaultShowPreview = td_bridge_obj_chatNotificationSettings_use_default_show_preview(obj).Fetch();
+            this.ShowPreview = td_bridge_obj_chatNotificationSettings_show_preview(obj).Fetch();
         }
     }
 
@@ -3139,16 +3139,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_scopeNotificationSettings();
-            td_bridge_obj_scopeNotificationSettings_mute_for(obj).Set(this.mute_for);
-            td_bridge_obj_scopeNotificationSettings_sound(obj).Set(this.sound);
-            td_bridge_obj_scopeNotificationSettings_show_preview(obj).Set(this.show_preview);
+            td_bridge_obj_scopeNotificationSettings_mute_for(obj).Set(this.MuteFor);
+            td_bridge_obj_scopeNotificationSettings_sound(obj).Set(this.Sound);
+            td_bridge_obj_scopeNotificationSettings_show_preview(obj).Set(this.ShowPreview);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.mute_for = td_bridge_obj_scopeNotificationSettings_mute_for(obj).Fetch();
-            this.sound = td_bridge_obj_scopeNotificationSettings_sound(obj).Fetch();
-            this.show_preview = td_bridge_obj_scopeNotificationSettings_show_preview(obj).Fetch();
+            this.MuteFor = td_bridge_obj_scopeNotificationSettings_mute_for(obj).Fetch();
+            this.Sound = td_bridge_obj_scopeNotificationSettings_sound(obj).Fetch();
+            this.ShowPreview = td_bridge_obj_scopeNotificationSettings_show_preview(obj).Fetch();
         }
     }
 
@@ -3167,14 +3167,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_draftMessage();
-            td_bridge_obj_draftMessage_reply_to_message_id(obj).Set(this.reply_to_message_id);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_draftMessage_input_message_text(obj)).Set(this.input_message_text);
+            td_bridge_obj_draftMessage_reply_to_message_id(obj).Set(this.ReplyToMessageId);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_draftMessage_input_message_text(obj)).Set(this.InputMessageText);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.reply_to_message_id = td_bridge_obj_draftMessage_reply_to_message_id(obj).Fetch();
-            this.input_message_text = new CxxTLObject<InputMessageContent>(td_bridge_obj_draftMessage_input_message_text(obj)).Fetch();
+            this.ReplyToMessageId = td_bridge_obj_draftMessage_reply_to_message_id(obj).Fetch();
+            this.InputMessageText = new CxxTLObject<InputMessageContent>(td_bridge_obj_draftMessage_input_message_text(obj)).Fetch();
         }
     }
 
@@ -3190,12 +3190,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatTypePrivate();
-            td_bridge_obj_chatTypePrivate_user_id(obj).Set(this.user_id);
+            td_bridge_obj_chatTypePrivate_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_chatTypePrivate_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_chatTypePrivate_user_id(obj).Fetch();
         }
     }
 
@@ -3211,12 +3211,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatTypeBasicGroup();
-            td_bridge_obj_chatTypeBasicGroup_basic_group_id(obj).Set(this.basic_group_id);
+            td_bridge_obj_chatTypeBasicGroup_basic_group_id(obj).Set(this.BasicGroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.basic_group_id = td_bridge_obj_chatTypeBasicGroup_basic_group_id(obj).Fetch();
+            this.BasicGroupId = td_bridge_obj_chatTypeBasicGroup_basic_group_id(obj).Fetch();
         }
     }
 
@@ -3235,14 +3235,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatTypeSupergroup();
-            td_bridge_obj_chatTypeSupergroup_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_chatTypeSupergroup_is_channel(obj).Set(this.is_channel);
+            td_bridge_obj_chatTypeSupergroup_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_chatTypeSupergroup_is_channel(obj).Set(this.IsChannel);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_chatTypeSupergroup_supergroup_id(obj).Fetch();
-            this.is_channel = td_bridge_obj_chatTypeSupergroup_is_channel(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_chatTypeSupergroup_supergroup_id(obj).Fetch();
+            this.IsChannel = td_bridge_obj_chatTypeSupergroup_is_channel(obj).Fetch();
         }
     }
 
@@ -3261,14 +3261,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatTypeSecret();
-            td_bridge_obj_chatTypeSecret_secret_chat_id(obj).Set(this.secret_chat_id);
-            td_bridge_obj_chatTypeSecret_user_id(obj).Set(this.user_id);
+            td_bridge_obj_chatTypeSecret_secret_chat_id(obj).Set(this.SecretChatId);
+            td_bridge_obj_chatTypeSecret_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.secret_chat_id = td_bridge_obj_chatTypeSecret_secret_chat_id(obj).Fetch();
-            this.user_id = td_bridge_obj_chatTypeSecret_user_id(obj).Fetch();
+            this.SecretChatId = td_bridge_obj_chatTypeSecret_secret_chat_id(obj).Fetch();
+            this.UserId = td_bridge_obj_chatTypeSecret_user_id(obj).Fetch();
         }
     }
 
@@ -3338,48 +3338,48 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chat();
-            td_bridge_obj_chat_id(obj).Set(this.id);
-            new CxxTLObject<ChatType>(td_bridge_obj_chat_type(obj)).Set(this.type);
-            td_bridge_obj_chat_title(obj).Set(this.title);
-            new CxxTLObject<ChatPhoto>(td_bridge_obj_chat_photo(obj)).Set(this.photo);
-            new CxxTLObject<Message>(td_bridge_obj_chat_last_message(obj)).Set(this.last_message);
-            td_bridge_obj_chat_order(obj).Set(this.order);
-            td_bridge_obj_chat_is_pinned(obj).Set(this.is_pinned);
-            td_bridge_obj_chat_is_marked_as_unread(obj).Set(this.is_marked_as_unread);
-            td_bridge_obj_chat_is_sponsored(obj).Set(this.is_sponsored);
-            td_bridge_obj_chat_can_be_reported(obj).Set(this.can_be_reported);
-            td_bridge_obj_chat_default_disable_notification(obj).Set(this.default_disable_notification);
-            td_bridge_obj_chat_unread_count(obj).Set(this.unread_count);
-            td_bridge_obj_chat_last_read_inbox_message_id(obj).Set(this.last_read_inbox_message_id);
-            td_bridge_obj_chat_last_read_outbox_message_id(obj).Set(this.last_read_outbox_message_id);
-            td_bridge_obj_chat_unread_mention_count(obj).Set(this.unread_mention_count);
-            new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_chat_notification_settings(obj)).Set(this.notification_settings);
-            td_bridge_obj_chat_reply_markup_message_id(obj).Set(this.reply_markup_message_id);
-            new CxxTLObject<DraftMessage>(td_bridge_obj_chat_draft_message(obj)).Set(this.draft_message);
-            td_bridge_obj_chat_client_data(obj).Set(this.client_data);
+            td_bridge_obj_chat_id(obj).Set(this.Id);
+            new CxxTLObject<ChatType>(td_bridge_obj_chat_type(obj)).Set(this.Type);
+            td_bridge_obj_chat_title(obj).Set(this.Title);
+            new CxxTLObject<ChatPhoto>(td_bridge_obj_chat_photo(obj)).Set(this.Photo);
+            new CxxTLObject<Message>(td_bridge_obj_chat_last_message(obj)).Set(this.LastMessage);
+            td_bridge_obj_chat_order(obj).Set(this.Order);
+            td_bridge_obj_chat_is_pinned(obj).Set(this.IsPinned);
+            td_bridge_obj_chat_is_marked_as_unread(obj).Set(this.IsMarkedAsUnread);
+            td_bridge_obj_chat_is_sponsored(obj).Set(this.IsSponsored);
+            td_bridge_obj_chat_can_be_reported(obj).Set(this.CanBeReported);
+            td_bridge_obj_chat_default_disable_notification(obj).Set(this.DefaultDisableNotification);
+            td_bridge_obj_chat_unread_count(obj).Set(this.UnreadCount);
+            td_bridge_obj_chat_last_read_inbox_message_id(obj).Set(this.LastReadInboxMessageId);
+            td_bridge_obj_chat_last_read_outbox_message_id(obj).Set(this.LastReadOutboxMessageId);
+            td_bridge_obj_chat_unread_mention_count(obj).Set(this.UnreadMentionCount);
+            new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_chat_notification_settings(obj)).Set(this.NotificationSettings);
+            td_bridge_obj_chat_reply_markup_message_id(obj).Set(this.ReplyMarkupMessageId);
+            new CxxTLObject<DraftMessage>(td_bridge_obj_chat_draft_message(obj)).Set(this.DraftMessage);
+            td_bridge_obj_chat_client_data(obj).Set(this.ClientData);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_chat_id(obj).Fetch();
-            this.type = new CxxTLObject<ChatType>(td_bridge_obj_chat_type(obj)).Fetch();
-            this.title = td_bridge_obj_chat_title(obj).Fetch();
-            this.photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_chat_photo(obj)).Fetch();
-            this.last_message = new CxxTLObject<Message>(td_bridge_obj_chat_last_message(obj)).Fetch();
-            this.order = td_bridge_obj_chat_order(obj).Fetch();
-            this.is_pinned = td_bridge_obj_chat_is_pinned(obj).Fetch();
-            this.is_marked_as_unread = td_bridge_obj_chat_is_marked_as_unread(obj).Fetch();
-            this.is_sponsored = td_bridge_obj_chat_is_sponsored(obj).Fetch();
-            this.can_be_reported = td_bridge_obj_chat_can_be_reported(obj).Fetch();
-            this.default_disable_notification = td_bridge_obj_chat_default_disable_notification(obj).Fetch();
-            this.unread_count = td_bridge_obj_chat_unread_count(obj).Fetch();
-            this.last_read_inbox_message_id = td_bridge_obj_chat_last_read_inbox_message_id(obj).Fetch();
-            this.last_read_outbox_message_id = td_bridge_obj_chat_last_read_outbox_message_id(obj).Fetch();
-            this.unread_mention_count = td_bridge_obj_chat_unread_mention_count(obj).Fetch();
-            this.notification_settings = new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_chat_notification_settings(obj)).Fetch();
-            this.reply_markup_message_id = td_bridge_obj_chat_reply_markup_message_id(obj).Fetch();
-            this.draft_message = new CxxTLObject<DraftMessage>(td_bridge_obj_chat_draft_message(obj)).Fetch();
-            this.client_data = td_bridge_obj_chat_client_data(obj).Fetch();
+            this.Id = td_bridge_obj_chat_id(obj).Fetch();
+            this.Type = new CxxTLObject<ChatType>(td_bridge_obj_chat_type(obj)).Fetch();
+            this.Title = td_bridge_obj_chat_title(obj).Fetch();
+            this.Photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_chat_photo(obj)).Fetch();
+            this.LastMessage = new CxxTLObject<Message>(td_bridge_obj_chat_last_message(obj)).Fetch();
+            this.Order = td_bridge_obj_chat_order(obj).Fetch();
+            this.IsPinned = td_bridge_obj_chat_is_pinned(obj).Fetch();
+            this.IsMarkedAsUnread = td_bridge_obj_chat_is_marked_as_unread(obj).Fetch();
+            this.IsSponsored = td_bridge_obj_chat_is_sponsored(obj).Fetch();
+            this.CanBeReported = td_bridge_obj_chat_can_be_reported(obj).Fetch();
+            this.DefaultDisableNotification = td_bridge_obj_chat_default_disable_notification(obj).Fetch();
+            this.UnreadCount = td_bridge_obj_chat_unread_count(obj).Fetch();
+            this.LastReadInboxMessageId = td_bridge_obj_chat_last_read_inbox_message_id(obj).Fetch();
+            this.LastReadOutboxMessageId = td_bridge_obj_chat_last_read_outbox_message_id(obj).Fetch();
+            this.UnreadMentionCount = td_bridge_obj_chat_unread_mention_count(obj).Fetch();
+            this.NotificationSettings = new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_chat_notification_settings(obj)).Fetch();
+            this.ReplyMarkupMessageId = td_bridge_obj_chat_reply_markup_message_id(obj).Fetch();
+            this.DraftMessage = new CxxTLObject<DraftMessage>(td_bridge_obj_chat_draft_message(obj)).Fetch();
+            this.ClientData = td_bridge_obj_chat_client_data(obj).Fetch();
         }
     }
 
@@ -3395,12 +3395,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chats();
-            td_bridge_obj_chats_chat_ids(obj).Set(this.chat_ids);
+            td_bridge_obj_chats_chat_ids(obj).Set(this.ChatIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_ids = td_bridge_obj_chats_chat_ids(obj).Fetch();
+            this.ChatIds = td_bridge_obj_chats_chat_ids(obj).Fetch();
         }
     }
 
@@ -3416,12 +3416,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatInviteLink();
-            td_bridge_obj_chatInviteLink_invite_link(obj).Set(this.invite_link);
+            td_bridge_obj_chatInviteLink_invite_link(obj).Set(this.InviteLink);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.invite_link = td_bridge_obj_chatInviteLink_invite_link(obj).Fetch();
+            this.InviteLink = td_bridge_obj_chatInviteLink_invite_link(obj).Fetch();
         }
     }
 
@@ -3455,24 +3455,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatInviteLinkInfo();
-            td_bridge_obj_chatInviteLinkInfo_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<ChatType>(td_bridge_obj_chatInviteLinkInfo_type(obj)).Set(this.type);
-            td_bridge_obj_chatInviteLinkInfo_title(obj).Set(this.title);
-            new CxxTLObject<ChatPhoto>(td_bridge_obj_chatInviteLinkInfo_photo(obj)).Set(this.photo);
-            td_bridge_obj_chatInviteLinkInfo_member_count(obj).Set(this.member_count);
-            td_bridge_obj_chatInviteLinkInfo_member_user_ids(obj).Set(this.member_user_ids);
-            td_bridge_obj_chatInviteLinkInfo_is_public(obj).Set(this.is_public);
+            td_bridge_obj_chatInviteLinkInfo_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<ChatType>(td_bridge_obj_chatInviteLinkInfo_type(obj)).Set(this.Type);
+            td_bridge_obj_chatInviteLinkInfo_title(obj).Set(this.Title);
+            new CxxTLObject<ChatPhoto>(td_bridge_obj_chatInviteLinkInfo_photo(obj)).Set(this.Photo);
+            td_bridge_obj_chatInviteLinkInfo_member_count(obj).Set(this.MemberCount);
+            td_bridge_obj_chatInviteLinkInfo_member_user_ids(obj).Set(this.MemberUserIds);
+            td_bridge_obj_chatInviteLinkInfo_is_public(obj).Set(this.IsPublic);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_chatInviteLinkInfo_chat_id(obj).Fetch();
-            this.type = new CxxTLObject<ChatType>(td_bridge_obj_chatInviteLinkInfo_type(obj)).Fetch();
-            this.title = td_bridge_obj_chatInviteLinkInfo_title(obj).Fetch();
-            this.photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_chatInviteLinkInfo_photo(obj)).Fetch();
-            this.member_count = td_bridge_obj_chatInviteLinkInfo_member_count(obj).Fetch();
-            this.member_user_ids = td_bridge_obj_chatInviteLinkInfo_member_user_ids(obj).Fetch();
-            this.is_public = td_bridge_obj_chatInviteLinkInfo_is_public(obj).Fetch();
+            this.ChatId = td_bridge_obj_chatInviteLinkInfo_chat_id(obj).Fetch();
+            this.Type = new CxxTLObject<ChatType>(td_bridge_obj_chatInviteLinkInfo_type(obj)).Fetch();
+            this.Title = td_bridge_obj_chatInviteLinkInfo_title(obj).Fetch();
+            this.Photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_chatInviteLinkInfo_photo(obj)).Fetch();
+            this.MemberCount = td_bridge_obj_chatInviteLinkInfo_member_count(obj).Fetch();
+            this.MemberUserIds = td_bridge_obj_chatInviteLinkInfo_member_user_ids(obj).Fetch();
+            this.IsPublic = td_bridge_obj_chatInviteLinkInfo_is_public(obj).Fetch();
         }
     }
 
@@ -3539,14 +3539,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_keyboardButton();
-            td_bridge_obj_keyboardButton_text(obj).Set(this.text);
-            new CxxTLObject<KeyboardButtonType>(td_bridge_obj_keyboardButton_type(obj)).Set(this.type);
+            td_bridge_obj_keyboardButton_text(obj).Set(this.Text);
+            new CxxTLObject<KeyboardButtonType>(td_bridge_obj_keyboardButton_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_keyboardButton_text(obj).Fetch();
-            this.type = new CxxTLObject<KeyboardButtonType>(td_bridge_obj_keyboardButton_type(obj)).Fetch();
+            this.Text = td_bridge_obj_keyboardButton_text(obj).Fetch();
+            this.Type = new CxxTLObject<KeyboardButtonType>(td_bridge_obj_keyboardButton_type(obj)).Fetch();
         }
     }
 
@@ -3562,12 +3562,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineKeyboardButtonTypeUrl();
-            td_bridge_obj_inlineKeyboardButtonTypeUrl_url(obj).Set(this.url);
+            td_bridge_obj_inlineKeyboardButtonTypeUrl_url(obj).Set(this.Url);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.url = td_bridge_obj_inlineKeyboardButtonTypeUrl_url(obj).Fetch();
+            this.Url = td_bridge_obj_inlineKeyboardButtonTypeUrl_url(obj).Fetch();
         }
     }
 
@@ -3583,12 +3583,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineKeyboardButtonTypeCallback();
-            td_bridge_obj_inlineKeyboardButtonTypeCallback_data(obj).Set(this.data);
+            td_bridge_obj_inlineKeyboardButtonTypeCallback_data(obj).Set(this.Data);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.data = td_bridge_obj_inlineKeyboardButtonTypeCallback_data(obj).Fetch();
+            this.Data = td_bridge_obj_inlineKeyboardButtonTypeCallback_data(obj).Fetch();
         }
     }
 
@@ -3623,14 +3623,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineKeyboardButtonTypeSwitchInline();
-            td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_query(obj).Set(this.query);
-            td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_in_current_chat(obj).Set(this.in_current_chat);
+            td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_query(obj).Set(this.Query);
+            td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_in_current_chat(obj).Set(this.InCurrentChat);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_query(obj).Fetch();
-            this.in_current_chat = td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_in_current_chat(obj).Fetch();
+            this.Query = td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_query(obj).Fetch();
+            this.InCurrentChat = td_bridge_obj_inlineKeyboardButtonTypeSwitchInline_in_current_chat(obj).Fetch();
         }
     }
 
@@ -3665,14 +3665,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineKeyboardButton();
-            td_bridge_obj_inlineKeyboardButton_text(obj).Set(this.text);
-            new CxxTLObject<InlineKeyboardButtonType>(td_bridge_obj_inlineKeyboardButton_type(obj)).Set(this.type);
+            td_bridge_obj_inlineKeyboardButton_text(obj).Set(this.Text);
+            new CxxTLObject<InlineKeyboardButtonType>(td_bridge_obj_inlineKeyboardButton_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_inlineKeyboardButton_text(obj).Fetch();
-            this.type = new CxxTLObject<InlineKeyboardButtonType>(td_bridge_obj_inlineKeyboardButton_type(obj)).Fetch();
+            this.Text = td_bridge_obj_inlineKeyboardButton_text(obj).Fetch();
+            this.Type = new CxxTLObject<InlineKeyboardButtonType>(td_bridge_obj_inlineKeyboardButton_type(obj)).Fetch();
         }
     }
 
@@ -3688,12 +3688,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_replyMarkupRemoveKeyboard();
-            td_bridge_obj_replyMarkupRemoveKeyboard_is_personal(obj).Set(this.is_personal);
+            td_bridge_obj_replyMarkupRemoveKeyboard_is_personal(obj).Set(this.IsPersonal);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_personal = td_bridge_obj_replyMarkupRemoveKeyboard_is_personal(obj).Fetch();
+            this.IsPersonal = td_bridge_obj_replyMarkupRemoveKeyboard_is_personal(obj).Fetch();
         }
     }
 
@@ -3709,12 +3709,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_replyMarkupForceReply();
-            td_bridge_obj_replyMarkupForceReply_is_personal(obj).Set(this.is_personal);
+            td_bridge_obj_replyMarkupForceReply_is_personal(obj).Set(this.IsPersonal);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_personal = td_bridge_obj_replyMarkupForceReply_is_personal(obj).Fetch();
+            this.IsPersonal = td_bridge_obj_replyMarkupForceReply_is_personal(obj).Fetch();
         }
     }
 
@@ -3739,18 +3739,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_replyMarkupShowKeyboard();
-            new CxxVectorVectorObject<KeyboardButton>(td_bridge_obj_replyMarkupShowKeyboard_rows(obj)).Set(this.rows);
-            td_bridge_obj_replyMarkupShowKeyboard_resize_keyboard(obj).Set(this.resize_keyboard);
-            td_bridge_obj_replyMarkupShowKeyboard_one_time(obj).Set(this.one_time);
-            td_bridge_obj_replyMarkupShowKeyboard_is_personal(obj).Set(this.is_personal);
+            new CxxVectorVectorObject<KeyboardButton>(td_bridge_obj_replyMarkupShowKeyboard_rows(obj)).Set(this.Rows);
+            td_bridge_obj_replyMarkupShowKeyboard_resize_keyboard(obj).Set(this.ResizeKeyboard);
+            td_bridge_obj_replyMarkupShowKeyboard_one_time(obj).Set(this.OneTime);
+            td_bridge_obj_replyMarkupShowKeyboard_is_personal(obj).Set(this.IsPersonal);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.rows = new CxxVectorVectorObject<KeyboardButton>(td_bridge_obj_replyMarkupShowKeyboard_rows(obj)).Fetch();
-            this.resize_keyboard = td_bridge_obj_replyMarkupShowKeyboard_resize_keyboard(obj).Fetch();
-            this.one_time = td_bridge_obj_replyMarkupShowKeyboard_one_time(obj).Fetch();
-            this.is_personal = td_bridge_obj_replyMarkupShowKeyboard_is_personal(obj).Fetch();
+            this.Rows = new CxxVectorVectorObject<KeyboardButton>(td_bridge_obj_replyMarkupShowKeyboard_rows(obj)).Fetch();
+            this.ResizeKeyboard = td_bridge_obj_replyMarkupShowKeyboard_resize_keyboard(obj).Fetch();
+            this.OneTime = td_bridge_obj_replyMarkupShowKeyboard_one_time(obj).Fetch();
+            this.IsPersonal = td_bridge_obj_replyMarkupShowKeyboard_is_personal(obj).Fetch();
         }
     }
 
@@ -3766,12 +3766,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_replyMarkupInlineKeyboard();
-            new CxxVectorVectorObject<InlineKeyboardButton>(td_bridge_obj_replyMarkupInlineKeyboard_rows(obj)).Set(this.rows);
+            new CxxVectorVectorObject<InlineKeyboardButton>(td_bridge_obj_replyMarkupInlineKeyboard_rows(obj)).Set(this.Rows);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.rows = new CxxVectorVectorObject<InlineKeyboardButton>(td_bridge_obj_replyMarkupInlineKeyboard_rows(obj)).Fetch();
+            this.Rows = new CxxVectorVectorObject<InlineKeyboardButton>(td_bridge_obj_replyMarkupInlineKeyboard_rows(obj)).Fetch();
         }
     }
 
@@ -3787,12 +3787,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextPlain();
-            td_bridge_obj_richTextPlain_text(obj).Set(this.text);
+            td_bridge_obj_richTextPlain_text(obj).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_richTextPlain_text(obj).Fetch();
+            this.Text = td_bridge_obj_richTextPlain_text(obj).Fetch();
         }
     }
 
@@ -3808,12 +3808,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextBold();
-            new CxxTLObject<RichText>(td_bridge_obj_richTextBold_text(obj)).Set(this.text);
+            new CxxTLObject<RichText>(td_bridge_obj_richTextBold_text(obj)).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_richTextBold_text(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextBold_text(obj)).Fetch();
         }
     }
 
@@ -3829,12 +3829,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextItalic();
-            new CxxTLObject<RichText>(td_bridge_obj_richTextItalic_text(obj)).Set(this.text);
+            new CxxTLObject<RichText>(td_bridge_obj_richTextItalic_text(obj)).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_richTextItalic_text(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextItalic_text(obj)).Fetch();
         }
     }
 
@@ -3850,12 +3850,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextUnderline();
-            new CxxTLObject<RichText>(td_bridge_obj_richTextUnderline_text(obj)).Set(this.text);
+            new CxxTLObject<RichText>(td_bridge_obj_richTextUnderline_text(obj)).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_richTextUnderline_text(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextUnderline_text(obj)).Fetch();
         }
     }
 
@@ -3871,12 +3871,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextStrikethrough();
-            new CxxTLObject<RichText>(td_bridge_obj_richTextStrikethrough_text(obj)).Set(this.text);
+            new CxxTLObject<RichText>(td_bridge_obj_richTextStrikethrough_text(obj)).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_richTextStrikethrough_text(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextStrikethrough_text(obj)).Fetch();
         }
     }
 
@@ -3892,12 +3892,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextFixed();
-            new CxxTLObject<RichText>(td_bridge_obj_richTextFixed_text(obj)).Set(this.text);
+            new CxxTLObject<RichText>(td_bridge_obj_richTextFixed_text(obj)).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_richTextFixed_text(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextFixed_text(obj)).Fetch();
         }
     }
 
@@ -3916,14 +3916,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextUrl();
-            new CxxTLObject<RichText>(td_bridge_obj_richTextUrl_text(obj)).Set(this.text);
-            td_bridge_obj_richTextUrl_url(obj).Set(this.url);
+            new CxxTLObject<RichText>(td_bridge_obj_richTextUrl_text(obj)).Set(this.Text);
+            td_bridge_obj_richTextUrl_url(obj).Set(this.Url);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_richTextUrl_text(obj)).Fetch();
-            this.url = td_bridge_obj_richTextUrl_url(obj).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextUrl_text(obj)).Fetch();
+            this.Url = td_bridge_obj_richTextUrl_url(obj).Fetch();
         }
     }
 
@@ -3942,14 +3942,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTextEmailAddress();
-            new CxxTLObject<RichText>(td_bridge_obj_richTextEmailAddress_text(obj)).Set(this.text);
-            td_bridge_obj_richTextEmailAddress_email_address(obj).Set(this.email_address);
+            new CxxTLObject<RichText>(td_bridge_obj_richTextEmailAddress_text(obj)).Set(this.Text);
+            td_bridge_obj_richTextEmailAddress_email_address(obj).Set(this.EmailAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_richTextEmailAddress_text(obj)).Fetch();
-            this.email_address = td_bridge_obj_richTextEmailAddress_email_address(obj).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextEmailAddress_text(obj)).Fetch();
+            this.EmailAddress = td_bridge_obj_richTextEmailAddress_email_address(obj).Fetch();
         }
     }
 
@@ -3965,12 +3965,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_richTexts();
-            new CxxVectorObject<RichText>(td_bridge_obj_richTexts_texts(obj)).Set(this.texts);
+            new CxxVectorObject<RichText>(td_bridge_obj_richTexts_texts(obj)).Set(this.Texts);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.texts = new CxxVectorObject<RichText>(td_bridge_obj_richTexts_texts(obj)).Fetch();
+            this.Texts = new CxxVectorObject<RichText>(td_bridge_obj_richTexts_texts(obj)).Fetch();
         }
     }
 
@@ -3986,12 +3986,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockTitle();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockTitle_title(obj)).Set(this.title);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockTitle_title(obj)).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = new CxxTLObject<RichText>(td_bridge_obj_pageBlockTitle_title(obj)).Fetch();
+            this.Title = new CxxTLObject<RichText>(td_bridge_obj_pageBlockTitle_title(obj)).Fetch();
         }
     }
 
@@ -4007,12 +4007,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockSubtitle();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubtitle_subtitle(obj)).Set(this.subtitle);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubtitle_subtitle(obj)).Set(this.Subtitle);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.subtitle = new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubtitle_subtitle(obj)).Fetch();
+            this.Subtitle = new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubtitle_subtitle(obj)).Fetch();
         }
     }
 
@@ -4031,14 +4031,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockAuthorDate();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAuthorDate_author(obj)).Set(this.author);
-            td_bridge_obj_pageBlockAuthorDate_publish_date(obj).Set(this.publish_date);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAuthorDate_author(obj)).Set(this.Author);
+            td_bridge_obj_pageBlockAuthorDate_publish_date(obj).Set(this.PublishDate);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.author = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAuthorDate_author(obj)).Fetch();
-            this.publish_date = td_bridge_obj_pageBlockAuthorDate_publish_date(obj).Fetch();
+            this.Author = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAuthorDate_author(obj)).Fetch();
+            this.PublishDate = td_bridge_obj_pageBlockAuthorDate_publish_date(obj).Fetch();
         }
     }
 
@@ -4054,12 +4054,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockHeader();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockHeader_header(obj)).Set(this.header);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockHeader_header(obj)).Set(this.Header);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.header = new CxxTLObject<RichText>(td_bridge_obj_pageBlockHeader_header(obj)).Fetch();
+            this.Header = new CxxTLObject<RichText>(td_bridge_obj_pageBlockHeader_header(obj)).Fetch();
         }
     }
 
@@ -4075,12 +4075,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockSubheader();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubheader_subheader(obj)).Set(this.subheader);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubheader_subheader(obj)).Set(this.Subheader);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.subheader = new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubheader_subheader(obj)).Fetch();
+            this.Subheader = new CxxTLObject<RichText>(td_bridge_obj_pageBlockSubheader_subheader(obj)).Fetch();
         }
     }
 
@@ -4096,12 +4096,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockParagraph();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockParagraph_text(obj)).Set(this.text);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockParagraph_text(obj)).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockParagraph_text(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockParagraph_text(obj)).Fetch();
         }
     }
 
@@ -4120,14 +4120,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockPreformatted();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPreformatted_text(obj)).Set(this.text);
-            td_bridge_obj_pageBlockPreformatted_language(obj).Set(this.language);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPreformatted_text(obj)).Set(this.Text);
+            td_bridge_obj_pageBlockPreformatted_language(obj).Set(this.Language);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPreformatted_text(obj)).Fetch();
-            this.language = td_bridge_obj_pageBlockPreformatted_language(obj).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPreformatted_text(obj)).Fetch();
+            this.Language = td_bridge_obj_pageBlockPreformatted_language(obj).Fetch();
         }
     }
 
@@ -4143,12 +4143,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockFooter();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockFooter_footer(obj)).Set(this.footer);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockFooter_footer(obj)).Set(this.Footer);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.footer = new CxxTLObject<RichText>(td_bridge_obj_pageBlockFooter_footer(obj)).Fetch();
+            this.Footer = new CxxTLObject<RichText>(td_bridge_obj_pageBlockFooter_footer(obj)).Fetch();
         }
     }
 
@@ -4180,12 +4180,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockAnchor();
-            td_bridge_obj_pageBlockAnchor_name(obj).Set(this.name);
+            td_bridge_obj_pageBlockAnchor_name(obj).Set(this.Name);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.name = td_bridge_obj_pageBlockAnchor_name(obj).Fetch();
+            this.Name = td_bridge_obj_pageBlockAnchor_name(obj).Fetch();
         }
     }
 
@@ -4204,14 +4204,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockList();
-            new CxxVectorObject<RichText>(td_bridge_obj_pageBlockList_items(obj)).Set(this.items);
-            td_bridge_obj_pageBlockList_is_ordered(obj).Set(this.is_ordered);
+            new CxxVectorObject<RichText>(td_bridge_obj_pageBlockList_items(obj)).Set(this.Items);
+            td_bridge_obj_pageBlockList_is_ordered(obj).Set(this.IsOrdered);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.items = new CxxVectorObject<RichText>(td_bridge_obj_pageBlockList_items(obj)).Fetch();
-            this.is_ordered = td_bridge_obj_pageBlockList_is_ordered(obj).Fetch();
+            this.Items = new CxxVectorObject<RichText>(td_bridge_obj_pageBlockList_items(obj)).Fetch();
+            this.IsOrdered = td_bridge_obj_pageBlockList_is_ordered(obj).Fetch();
         }
     }
 
@@ -4230,14 +4230,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockBlockQuote();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_text(obj)).Set(this.text);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_caption(obj)).Set(this.caption);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_text(obj)).Set(this.Text);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_text(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_caption(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_text(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_caption(obj)).Fetch();
         }
     }
 
@@ -4256,14 +4256,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockPullQuote();
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_text(obj)).Set(this.text);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_caption(obj)).Set(this.caption);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_text(obj)).Set(this.Text);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_text(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_caption(obj)).Fetch();
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_text(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_caption(obj)).Fetch();
         }
     }
 
@@ -4285,16 +4285,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockAnimation();
-            new CxxTLObject<Animation>(td_bridge_obj_pageBlockAnimation_animation(obj)).Set(this.animation);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAnimation_caption(obj)).Set(this.caption);
-            td_bridge_obj_pageBlockAnimation_need_autoplay(obj).Set(this.need_autoplay);
+            new CxxTLObject<Animation>(td_bridge_obj_pageBlockAnimation_animation(obj)).Set(this.Animation);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAnimation_caption(obj)).Set(this.Caption);
+            td_bridge_obj_pageBlockAnimation_need_autoplay(obj).Set(this.NeedAutoplay);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.animation = new CxxTLObject<Animation>(td_bridge_obj_pageBlockAnimation_animation(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAnimation_caption(obj)).Fetch();
-            this.need_autoplay = td_bridge_obj_pageBlockAnimation_need_autoplay(obj).Fetch();
+            this.Animation = new CxxTLObject<Animation>(td_bridge_obj_pageBlockAnimation_animation(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAnimation_caption(obj)).Fetch();
+            this.NeedAutoplay = td_bridge_obj_pageBlockAnimation_need_autoplay(obj).Fetch();
         }
     }
 
@@ -4313,14 +4313,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockAudio();
-            new CxxTLObject<Audio>(td_bridge_obj_pageBlockAudio_audio(obj)).Set(this.audio);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAudio_caption(obj)).Set(this.caption);
+            new CxxTLObject<Audio>(td_bridge_obj_pageBlockAudio_audio(obj)).Set(this.Audio);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAudio_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.audio = new CxxTLObject<Audio>(td_bridge_obj_pageBlockAudio_audio(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAudio_caption(obj)).Fetch();
+            this.Audio = new CxxTLObject<Audio>(td_bridge_obj_pageBlockAudio_audio(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAudio_caption(obj)).Fetch();
         }
     }
 
@@ -4339,14 +4339,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockPhoto();
-            new CxxTLObject<Photo>(td_bridge_obj_pageBlockPhoto_photo(obj)).Set(this.photo);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPhoto_caption(obj)).Set(this.caption);
+            new CxxTLObject<Photo>(td_bridge_obj_pageBlockPhoto_photo(obj)).Set(this.Photo);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPhoto_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.photo = new CxxTLObject<Photo>(td_bridge_obj_pageBlockPhoto_photo(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPhoto_caption(obj)).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_pageBlockPhoto_photo(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPhoto_caption(obj)).Fetch();
         }
     }
 
@@ -4371,18 +4371,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockVideo();
-            new CxxTLObject<Video>(td_bridge_obj_pageBlockVideo_video(obj)).Set(this.video);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockVideo_caption(obj)).Set(this.caption);
-            td_bridge_obj_pageBlockVideo_need_autoplay(obj).Set(this.need_autoplay);
-            td_bridge_obj_pageBlockVideo_is_looped(obj).Set(this.is_looped);
+            new CxxTLObject<Video>(td_bridge_obj_pageBlockVideo_video(obj)).Set(this.Video);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockVideo_caption(obj)).Set(this.Caption);
+            td_bridge_obj_pageBlockVideo_need_autoplay(obj).Set(this.NeedAutoplay);
+            td_bridge_obj_pageBlockVideo_is_looped(obj).Set(this.IsLooped);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.video = new CxxTLObject<Video>(td_bridge_obj_pageBlockVideo_video(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockVideo_caption(obj)).Fetch();
-            this.need_autoplay = td_bridge_obj_pageBlockVideo_need_autoplay(obj).Fetch();
-            this.is_looped = td_bridge_obj_pageBlockVideo_is_looped(obj).Fetch();
+            this.Video = new CxxTLObject<Video>(td_bridge_obj_pageBlockVideo_video(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockVideo_caption(obj)).Fetch();
+            this.NeedAutoplay = td_bridge_obj_pageBlockVideo_need_autoplay(obj).Fetch();
+            this.IsLooped = td_bridge_obj_pageBlockVideo_is_looped(obj).Fetch();
         }
     }
 
@@ -4398,12 +4398,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockCover();
-            new CxxTLObject<PageBlock>(td_bridge_obj_pageBlockCover_cover(obj)).Set(this.cover);
+            new CxxTLObject<PageBlock>(td_bridge_obj_pageBlockCover_cover(obj)).Set(this.Cover);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.cover = new CxxTLObject<PageBlock>(td_bridge_obj_pageBlockCover_cover(obj)).Fetch();
+            this.Cover = new CxxTLObject<PageBlock>(td_bridge_obj_pageBlockCover_cover(obj)).Fetch();
         }
     }
 
@@ -4440,26 +4440,26 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockEmbedded();
-            td_bridge_obj_pageBlockEmbedded_url(obj).Set(this.url);
-            td_bridge_obj_pageBlockEmbedded_html(obj).Set(this.html);
-            new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbedded_poster_photo(obj)).Set(this.poster_photo);
-            td_bridge_obj_pageBlockEmbedded_width(obj).Set(this.width);
-            td_bridge_obj_pageBlockEmbedded_height(obj).Set(this.height);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Set(this.caption);
-            td_bridge_obj_pageBlockEmbedded_is_full_width(obj).Set(this.is_full_width);
-            td_bridge_obj_pageBlockEmbedded_allow_scrolling(obj).Set(this.allow_scrolling);
+            td_bridge_obj_pageBlockEmbedded_url(obj).Set(this.Url);
+            td_bridge_obj_pageBlockEmbedded_html(obj).Set(this.Html);
+            new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbedded_poster_photo(obj)).Set(this.PosterPhoto);
+            td_bridge_obj_pageBlockEmbedded_width(obj).Set(this.Width);
+            td_bridge_obj_pageBlockEmbedded_height(obj).Set(this.Height);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Set(this.Caption);
+            td_bridge_obj_pageBlockEmbedded_is_full_width(obj).Set(this.IsFullWidth);
+            td_bridge_obj_pageBlockEmbedded_allow_scrolling(obj).Set(this.AllowScrolling);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.url = td_bridge_obj_pageBlockEmbedded_url(obj).Fetch();
-            this.html = td_bridge_obj_pageBlockEmbedded_html(obj).Fetch();
-            this.poster_photo = new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbedded_poster_photo(obj)).Fetch();
-            this.width = td_bridge_obj_pageBlockEmbedded_width(obj).Fetch();
-            this.height = td_bridge_obj_pageBlockEmbedded_height(obj).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Fetch();
-            this.is_full_width = td_bridge_obj_pageBlockEmbedded_is_full_width(obj).Fetch();
-            this.allow_scrolling = td_bridge_obj_pageBlockEmbedded_allow_scrolling(obj).Fetch();
+            this.Url = td_bridge_obj_pageBlockEmbedded_url(obj).Fetch();
+            this.Html = td_bridge_obj_pageBlockEmbedded_html(obj).Fetch();
+            this.PosterPhoto = new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbedded_poster_photo(obj)).Fetch();
+            this.Width = td_bridge_obj_pageBlockEmbedded_width(obj).Fetch();
+            this.Height = td_bridge_obj_pageBlockEmbedded_height(obj).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Fetch();
+            this.IsFullWidth = td_bridge_obj_pageBlockEmbedded_is_full_width(obj).Fetch();
+            this.AllowScrolling = td_bridge_obj_pageBlockEmbedded_allow_scrolling(obj).Fetch();
         }
     }
 
@@ -4490,22 +4490,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockEmbeddedPost();
-            td_bridge_obj_pageBlockEmbeddedPost_url(obj).Set(this.url);
-            td_bridge_obj_pageBlockEmbeddedPost_author(obj).Set(this.author);
-            new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbeddedPost_author_photo(obj)).Set(this.author_photo);
-            td_bridge_obj_pageBlockEmbeddedPost_date(obj).Set(this.date);
-            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockEmbeddedPost_page_blocks(obj)).Set(this.page_blocks);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Set(this.caption);
+            td_bridge_obj_pageBlockEmbeddedPost_url(obj).Set(this.Url);
+            td_bridge_obj_pageBlockEmbeddedPost_author(obj).Set(this.Author);
+            new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbeddedPost_author_photo(obj)).Set(this.AuthorPhoto);
+            td_bridge_obj_pageBlockEmbeddedPost_date(obj).Set(this.Date);
+            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockEmbeddedPost_page_blocks(obj)).Set(this.PageBlocks);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.url = td_bridge_obj_pageBlockEmbeddedPost_url(obj).Fetch();
-            this.author = td_bridge_obj_pageBlockEmbeddedPost_author(obj).Fetch();
-            this.author_photo = new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbeddedPost_author_photo(obj)).Fetch();
-            this.date = td_bridge_obj_pageBlockEmbeddedPost_date(obj).Fetch();
-            this.page_blocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockEmbeddedPost_page_blocks(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Fetch();
+            this.Url = td_bridge_obj_pageBlockEmbeddedPost_url(obj).Fetch();
+            this.Author = td_bridge_obj_pageBlockEmbeddedPost_author(obj).Fetch();
+            this.AuthorPhoto = new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbeddedPost_author_photo(obj)).Fetch();
+            this.Date = td_bridge_obj_pageBlockEmbeddedPost_date(obj).Fetch();
+            this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockEmbeddedPost_page_blocks(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Fetch();
         }
     }
 
@@ -4524,14 +4524,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockCollage();
-            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockCollage_page_blocks(obj)).Set(this.page_blocks);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockCollage_caption(obj)).Set(this.caption);
+            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockCollage_page_blocks(obj)).Set(this.PageBlocks);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockCollage_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.page_blocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockCollage_page_blocks(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockCollage_caption(obj)).Fetch();
+            this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockCollage_page_blocks(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockCollage_caption(obj)).Fetch();
         }
     }
 
@@ -4550,14 +4550,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockSlideshow();
-            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockSlideshow_page_blocks(obj)).Set(this.page_blocks);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Set(this.caption);
+            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockSlideshow_page_blocks(obj)).Set(this.PageBlocks);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.page_blocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockSlideshow_page_blocks(obj)).Fetch();
-            this.caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Fetch();
+            this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockSlideshow_page_blocks(obj)).Fetch();
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Fetch();
         }
     }
 
@@ -4579,16 +4579,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockChatLink();
-            td_bridge_obj_pageBlockChatLink_title(obj).Set(this.title);
-            new CxxTLObject<ChatPhoto>(td_bridge_obj_pageBlockChatLink_photo(obj)).Set(this.photo);
-            td_bridge_obj_pageBlockChatLink_username(obj).Set(this.username);
+            td_bridge_obj_pageBlockChatLink_title(obj).Set(this.Title);
+            new CxxTLObject<ChatPhoto>(td_bridge_obj_pageBlockChatLink_photo(obj)).Set(this.Photo);
+            td_bridge_obj_pageBlockChatLink_username(obj).Set(this.Username);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = td_bridge_obj_pageBlockChatLink_title(obj).Fetch();
-            this.photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_pageBlockChatLink_photo(obj)).Fetch();
-            this.username = td_bridge_obj_pageBlockChatLink_username(obj).Fetch();
+            this.Title = td_bridge_obj_pageBlockChatLink_title(obj).Fetch();
+            this.Photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_pageBlockChatLink_photo(obj)).Fetch();
+            this.Username = td_bridge_obj_pageBlockChatLink_username(obj).Fetch();
         }
     }
 
@@ -4607,14 +4607,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_webPageInstantView();
-            new CxxVectorObject<PageBlock>(td_bridge_obj_webPageInstantView_page_blocks(obj)).Set(this.page_blocks);
-            td_bridge_obj_webPageInstantView_is_full(obj).Set(this.is_full);
+            new CxxVectorObject<PageBlock>(td_bridge_obj_webPageInstantView_page_blocks(obj)).Set(this.PageBlocks);
+            td_bridge_obj_webPageInstantView_is_full(obj).Set(this.IsFull);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.page_blocks = new CxxVectorObject<PageBlock>(td_bridge_obj_webPageInstantView_page_blocks(obj)).Fetch();
-            this.is_full = td_bridge_obj_webPageInstantView_is_full(obj).Fetch();
+            this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_webPageInstantView_page_blocks(obj)).Fetch();
+            this.IsFull = td_bridge_obj_webPageInstantView_is_full(obj).Fetch();
         }
     }
 
@@ -4690,52 +4690,52 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_webPage();
-            td_bridge_obj_webPage_url(obj).Set(this.url);
-            td_bridge_obj_webPage_display_url(obj).Set(this.display_url);
-            td_bridge_obj_webPage_type(obj).Set(this.type);
-            td_bridge_obj_webPage_site_name(obj).Set(this.site_name);
-            td_bridge_obj_webPage_title(obj).Set(this.title);
-            td_bridge_obj_webPage_description(obj).Set(this.description);
-            new CxxTLObject<Photo>(td_bridge_obj_webPage_photo(obj)).Set(this.photo);
-            td_bridge_obj_webPage_embed_url(obj).Set(this.embed_url);
-            td_bridge_obj_webPage_embed_type(obj).Set(this.embed_type);
-            td_bridge_obj_webPage_embed_width(obj).Set(this.embed_width);
-            td_bridge_obj_webPage_embed_height(obj).Set(this.embed_height);
-            td_bridge_obj_webPage_duration(obj).Set(this.duration);
-            td_bridge_obj_webPage_author(obj).Set(this.author);
-            new CxxTLObject<Animation>(td_bridge_obj_webPage_animation(obj)).Set(this.animation);
-            new CxxTLObject<Audio>(td_bridge_obj_webPage_audio(obj)).Set(this.audio);
-            new CxxTLObject<Document>(td_bridge_obj_webPage_document(obj)).Set(this.document);
-            new CxxTLObject<Sticker>(td_bridge_obj_webPage_sticker(obj)).Set(this.sticker);
-            new CxxTLObject<Video>(td_bridge_obj_webPage_video(obj)).Set(this.video);
-            new CxxTLObject<VideoNote>(td_bridge_obj_webPage_video_note(obj)).Set(this.video_note);
-            new CxxTLObject<VoiceNote>(td_bridge_obj_webPage_voice_note(obj)).Set(this.voice_note);
-            td_bridge_obj_webPage_has_instant_view(obj).Set(this.has_instant_view);
+            td_bridge_obj_webPage_url(obj).Set(this.Url);
+            td_bridge_obj_webPage_display_url(obj).Set(this.DisplayUrl);
+            td_bridge_obj_webPage_type(obj).Set(this.Type);
+            td_bridge_obj_webPage_site_name(obj).Set(this.SiteName);
+            td_bridge_obj_webPage_title(obj).Set(this.Title);
+            td_bridge_obj_webPage_description(obj).Set(this.Description);
+            new CxxTLObject<Photo>(td_bridge_obj_webPage_photo(obj)).Set(this.Photo);
+            td_bridge_obj_webPage_embed_url(obj).Set(this.EmbedUrl);
+            td_bridge_obj_webPage_embed_type(obj).Set(this.EmbedType);
+            td_bridge_obj_webPage_embed_width(obj).Set(this.EmbedWidth);
+            td_bridge_obj_webPage_embed_height(obj).Set(this.EmbedHeight);
+            td_bridge_obj_webPage_duration(obj).Set(this.Duration);
+            td_bridge_obj_webPage_author(obj).Set(this.Author);
+            new CxxTLObject<Animation>(td_bridge_obj_webPage_animation(obj)).Set(this.Animation);
+            new CxxTLObject<Audio>(td_bridge_obj_webPage_audio(obj)).Set(this.Audio);
+            new CxxTLObject<Document>(td_bridge_obj_webPage_document(obj)).Set(this.Document);
+            new CxxTLObject<Sticker>(td_bridge_obj_webPage_sticker(obj)).Set(this.Sticker);
+            new CxxTLObject<Video>(td_bridge_obj_webPage_video(obj)).Set(this.Video);
+            new CxxTLObject<VideoNote>(td_bridge_obj_webPage_video_note(obj)).Set(this.VideoNote);
+            new CxxTLObject<VoiceNote>(td_bridge_obj_webPage_voice_note(obj)).Set(this.VoiceNote);
+            td_bridge_obj_webPage_has_instant_view(obj).Set(this.HasInstantView);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.url = td_bridge_obj_webPage_url(obj).Fetch();
-            this.display_url = td_bridge_obj_webPage_display_url(obj).Fetch();
-            this.type = td_bridge_obj_webPage_type(obj).Fetch();
-            this.site_name = td_bridge_obj_webPage_site_name(obj).Fetch();
-            this.title = td_bridge_obj_webPage_title(obj).Fetch();
-            this.description = td_bridge_obj_webPage_description(obj).Fetch();
-            this.photo = new CxxTLObject<Photo>(td_bridge_obj_webPage_photo(obj)).Fetch();
-            this.embed_url = td_bridge_obj_webPage_embed_url(obj).Fetch();
-            this.embed_type = td_bridge_obj_webPage_embed_type(obj).Fetch();
-            this.embed_width = td_bridge_obj_webPage_embed_width(obj).Fetch();
-            this.embed_height = td_bridge_obj_webPage_embed_height(obj).Fetch();
-            this.duration = td_bridge_obj_webPage_duration(obj).Fetch();
-            this.author = td_bridge_obj_webPage_author(obj).Fetch();
-            this.animation = new CxxTLObject<Animation>(td_bridge_obj_webPage_animation(obj)).Fetch();
-            this.audio = new CxxTLObject<Audio>(td_bridge_obj_webPage_audio(obj)).Fetch();
-            this.document = new CxxTLObject<Document>(td_bridge_obj_webPage_document(obj)).Fetch();
-            this.sticker = new CxxTLObject<Sticker>(td_bridge_obj_webPage_sticker(obj)).Fetch();
-            this.video = new CxxTLObject<Video>(td_bridge_obj_webPage_video(obj)).Fetch();
-            this.video_note = new CxxTLObject<VideoNote>(td_bridge_obj_webPage_video_note(obj)).Fetch();
-            this.voice_note = new CxxTLObject<VoiceNote>(td_bridge_obj_webPage_voice_note(obj)).Fetch();
-            this.has_instant_view = td_bridge_obj_webPage_has_instant_view(obj).Fetch();
+            this.Url = td_bridge_obj_webPage_url(obj).Fetch();
+            this.DisplayUrl = td_bridge_obj_webPage_display_url(obj).Fetch();
+            this.Type = td_bridge_obj_webPage_type(obj).Fetch();
+            this.SiteName = td_bridge_obj_webPage_site_name(obj).Fetch();
+            this.Title = td_bridge_obj_webPage_title(obj).Fetch();
+            this.Description = td_bridge_obj_webPage_description(obj).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_webPage_photo(obj)).Fetch();
+            this.EmbedUrl = td_bridge_obj_webPage_embed_url(obj).Fetch();
+            this.EmbedType = td_bridge_obj_webPage_embed_type(obj).Fetch();
+            this.EmbedWidth = td_bridge_obj_webPage_embed_width(obj).Fetch();
+            this.EmbedHeight = td_bridge_obj_webPage_embed_height(obj).Fetch();
+            this.Duration = td_bridge_obj_webPage_duration(obj).Fetch();
+            this.Author = td_bridge_obj_webPage_author(obj).Fetch();
+            this.Animation = new CxxTLObject<Animation>(td_bridge_obj_webPage_animation(obj)).Fetch();
+            this.Audio = new CxxTLObject<Audio>(td_bridge_obj_webPage_audio(obj)).Fetch();
+            this.Document = new CxxTLObject<Document>(td_bridge_obj_webPage_document(obj)).Fetch();
+            this.Sticker = new CxxTLObject<Sticker>(td_bridge_obj_webPage_sticker(obj)).Fetch();
+            this.Video = new CxxTLObject<Video>(td_bridge_obj_webPage_video(obj)).Fetch();
+            this.VideoNote = new CxxTLObject<VideoNote>(td_bridge_obj_webPage_video_note(obj)).Fetch();
+            this.VoiceNote = new CxxTLObject<VoiceNote>(td_bridge_obj_webPage_voice_note(obj)).Fetch();
+            this.HasInstantView = td_bridge_obj_webPage_has_instant_view(obj).Fetch();
         }
     }
 
@@ -4766,22 +4766,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_address();
-            td_bridge_obj_address_country_code(obj).Set(this.country_code);
-            td_bridge_obj_address_state(obj).Set(this.state);
-            td_bridge_obj_address_city(obj).Set(this.city);
-            td_bridge_obj_address_street_line1(obj).Set(this.street_line1);
-            td_bridge_obj_address_street_line2(obj).Set(this.street_line2);
-            td_bridge_obj_address_postal_code(obj).Set(this.postal_code);
+            td_bridge_obj_address_country_code(obj).Set(this.CountryCode);
+            td_bridge_obj_address_state(obj).Set(this.State);
+            td_bridge_obj_address_city(obj).Set(this.City);
+            td_bridge_obj_address_street_line1(obj).Set(this.StreetLine1);
+            td_bridge_obj_address_street_line2(obj).Set(this.StreetLine2);
+            td_bridge_obj_address_postal_code(obj).Set(this.PostalCode);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.country_code = td_bridge_obj_address_country_code(obj).Fetch();
-            this.state = td_bridge_obj_address_state(obj).Fetch();
-            this.city = td_bridge_obj_address_city(obj).Fetch();
-            this.street_line1 = td_bridge_obj_address_street_line1(obj).Fetch();
-            this.street_line2 = td_bridge_obj_address_street_line2(obj).Fetch();
-            this.postal_code = td_bridge_obj_address_postal_code(obj).Fetch();
+            this.CountryCode = td_bridge_obj_address_country_code(obj).Fetch();
+            this.State = td_bridge_obj_address_state(obj).Fetch();
+            this.City = td_bridge_obj_address_city(obj).Fetch();
+            this.StreetLine1 = td_bridge_obj_address_street_line1(obj).Fetch();
+            this.StreetLine2 = td_bridge_obj_address_street_line2(obj).Fetch();
+            this.PostalCode = td_bridge_obj_address_postal_code(obj).Fetch();
         }
     }
 
@@ -4800,14 +4800,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_labeledPricePart();
-            td_bridge_obj_labeledPricePart_label(obj).Set(this.label);
-            td_bridge_obj_labeledPricePart_amount(obj).Set(this.amount);
+            td_bridge_obj_labeledPricePart_label(obj).Set(this.Label);
+            td_bridge_obj_labeledPricePart_amount(obj).Set(this.Amount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.label = td_bridge_obj_labeledPricePart_label(obj).Fetch();
-            this.amount = td_bridge_obj_labeledPricePart_amount(obj).Fetch();
+            this.Label = td_bridge_obj_labeledPricePart_label(obj).Fetch();
+            this.Amount = td_bridge_obj_labeledPricePart_amount(obj).Fetch();
         }
     }
 
@@ -4850,30 +4850,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_invoice();
-            td_bridge_obj_invoice_currency(obj).Set(this.currency);
-            new CxxVectorObject<LabeledPricePart>(td_bridge_obj_invoice_price_parts(obj)).Set(this.price_parts);
-            td_bridge_obj_invoice_is_test(obj).Set(this.is_test);
-            td_bridge_obj_invoice_need_name(obj).Set(this.need_name);
-            td_bridge_obj_invoice_need_phone_number(obj).Set(this.need_phone_number);
-            td_bridge_obj_invoice_need_email_address(obj).Set(this.need_email_address);
-            td_bridge_obj_invoice_need_shipping_address(obj).Set(this.need_shipping_address);
-            td_bridge_obj_invoice_send_phone_number_to_provider(obj).Set(this.send_phone_number_to_provider);
-            td_bridge_obj_invoice_send_email_address_to_provider(obj).Set(this.send_email_address_to_provider);
-            td_bridge_obj_invoice_is_flexible(obj).Set(this.is_flexible);
+            td_bridge_obj_invoice_currency(obj).Set(this.Currency);
+            new CxxVectorObject<LabeledPricePart>(td_bridge_obj_invoice_price_parts(obj)).Set(this.PriceParts);
+            td_bridge_obj_invoice_is_test(obj).Set(this.IsTest);
+            td_bridge_obj_invoice_need_name(obj).Set(this.NeedName);
+            td_bridge_obj_invoice_need_phone_number(obj).Set(this.NeedPhoneNumber);
+            td_bridge_obj_invoice_need_email_address(obj).Set(this.NeedEmailAddress);
+            td_bridge_obj_invoice_need_shipping_address(obj).Set(this.NeedShippingAddress);
+            td_bridge_obj_invoice_send_phone_number_to_provider(obj).Set(this.SendPhoneNumberToProvider);
+            td_bridge_obj_invoice_send_email_address_to_provider(obj).Set(this.SendEmailAddressToProvider);
+            td_bridge_obj_invoice_is_flexible(obj).Set(this.IsFlexible);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.currency = td_bridge_obj_invoice_currency(obj).Fetch();
-            this.price_parts = new CxxVectorObject<LabeledPricePart>(td_bridge_obj_invoice_price_parts(obj)).Fetch();
-            this.is_test = td_bridge_obj_invoice_is_test(obj).Fetch();
-            this.need_name = td_bridge_obj_invoice_need_name(obj).Fetch();
-            this.need_phone_number = td_bridge_obj_invoice_need_phone_number(obj).Fetch();
-            this.need_email_address = td_bridge_obj_invoice_need_email_address(obj).Fetch();
-            this.need_shipping_address = td_bridge_obj_invoice_need_shipping_address(obj).Fetch();
-            this.send_phone_number_to_provider = td_bridge_obj_invoice_send_phone_number_to_provider(obj).Fetch();
-            this.send_email_address_to_provider = td_bridge_obj_invoice_send_email_address_to_provider(obj).Fetch();
-            this.is_flexible = td_bridge_obj_invoice_is_flexible(obj).Fetch();
+            this.Currency = td_bridge_obj_invoice_currency(obj).Fetch();
+            this.PriceParts = new CxxVectorObject<LabeledPricePart>(td_bridge_obj_invoice_price_parts(obj)).Fetch();
+            this.IsTest = td_bridge_obj_invoice_is_test(obj).Fetch();
+            this.NeedName = td_bridge_obj_invoice_need_name(obj).Fetch();
+            this.NeedPhoneNumber = td_bridge_obj_invoice_need_phone_number(obj).Fetch();
+            this.NeedEmailAddress = td_bridge_obj_invoice_need_email_address(obj).Fetch();
+            this.NeedShippingAddress = td_bridge_obj_invoice_need_shipping_address(obj).Fetch();
+            this.SendPhoneNumberToProvider = td_bridge_obj_invoice_send_phone_number_to_provider(obj).Fetch();
+            this.SendEmailAddressToProvider = td_bridge_obj_invoice_send_email_address_to_provider(obj).Fetch();
+            this.IsFlexible = td_bridge_obj_invoice_is_flexible(obj).Fetch();
         }
     }
 
@@ -4898,18 +4898,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_orderInfo();
-            td_bridge_obj_orderInfo_name(obj).Set(this.name);
-            td_bridge_obj_orderInfo_phone_number(obj).Set(this.phone_number);
-            td_bridge_obj_orderInfo_email_address(obj).Set(this.email_address);
-            new CxxTLObject<Address>(td_bridge_obj_orderInfo_shipping_address(obj)).Set(this.shipping_address);
+            td_bridge_obj_orderInfo_name(obj).Set(this.Name);
+            td_bridge_obj_orderInfo_phone_number(obj).Set(this.PhoneNumber);
+            td_bridge_obj_orderInfo_email_address(obj).Set(this.EmailAddress);
+            new CxxTLObject<Address>(td_bridge_obj_orderInfo_shipping_address(obj)).Set(this.ShippingAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.name = td_bridge_obj_orderInfo_name(obj).Fetch();
-            this.phone_number = td_bridge_obj_orderInfo_phone_number(obj).Fetch();
-            this.email_address = td_bridge_obj_orderInfo_email_address(obj).Fetch();
-            this.shipping_address = new CxxTLObject<Address>(td_bridge_obj_orderInfo_shipping_address(obj)).Fetch();
+            this.Name = td_bridge_obj_orderInfo_name(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_orderInfo_phone_number(obj).Fetch();
+            this.EmailAddress = td_bridge_obj_orderInfo_email_address(obj).Fetch();
+            this.ShippingAddress = new CxxTLObject<Address>(td_bridge_obj_orderInfo_shipping_address(obj)).Fetch();
         }
     }
 
@@ -4931,16 +4931,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_shippingOption();
-            td_bridge_obj_shippingOption_id(obj).Set(this.id);
-            td_bridge_obj_shippingOption_title(obj).Set(this.title);
-            new CxxVectorObject<LabeledPricePart>(td_bridge_obj_shippingOption_price_parts(obj)).Set(this.price_parts);
+            td_bridge_obj_shippingOption_id(obj).Set(this.Id);
+            td_bridge_obj_shippingOption_title(obj).Set(this.Title);
+            new CxxVectorObject<LabeledPricePart>(td_bridge_obj_shippingOption_price_parts(obj)).Set(this.PriceParts);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_shippingOption_id(obj).Fetch();
-            this.title = td_bridge_obj_shippingOption_title(obj).Fetch();
-            this.price_parts = new CxxVectorObject<LabeledPricePart>(td_bridge_obj_shippingOption_price_parts(obj)).Fetch();
+            this.Id = td_bridge_obj_shippingOption_id(obj).Fetch();
+            this.Title = td_bridge_obj_shippingOption_title(obj).Fetch();
+            this.PriceParts = new CxxVectorObject<LabeledPricePart>(td_bridge_obj_shippingOption_price_parts(obj)).Fetch();
         }
     }
 
@@ -4959,14 +4959,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_savedCredentials();
-            td_bridge_obj_savedCredentials_id(obj).Set(this.id);
-            td_bridge_obj_savedCredentials_title(obj).Set(this.title);
+            td_bridge_obj_savedCredentials_id(obj).Set(this.Id);
+            td_bridge_obj_savedCredentials_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_savedCredentials_id(obj).Fetch();
-            this.title = td_bridge_obj_savedCredentials_title(obj).Fetch();
+            this.Id = td_bridge_obj_savedCredentials_id(obj).Fetch();
+            this.Title = td_bridge_obj_savedCredentials_title(obj).Fetch();
         }
     }
 
@@ -4982,12 +4982,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputCredentialsSaved();
-            td_bridge_obj_inputCredentialsSaved_saved_credentials_id(obj).Set(this.saved_credentials_id);
+            td_bridge_obj_inputCredentialsSaved_saved_credentials_id(obj).Set(this.SavedCredentialsId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.saved_credentials_id = td_bridge_obj_inputCredentialsSaved_saved_credentials_id(obj).Fetch();
+            this.SavedCredentialsId = td_bridge_obj_inputCredentialsSaved_saved_credentials_id(obj).Fetch();
         }
     }
 
@@ -5006,14 +5006,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputCredentialsNew();
-            td_bridge_obj_inputCredentialsNew_data(obj).Set(this.data);
-            td_bridge_obj_inputCredentialsNew_allow_save(obj).Set(this.allow_save);
+            td_bridge_obj_inputCredentialsNew_data(obj).Set(this.Data);
+            td_bridge_obj_inputCredentialsNew_allow_save(obj).Set(this.AllowSave);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.data = td_bridge_obj_inputCredentialsNew_data(obj).Fetch();
-            this.allow_save = td_bridge_obj_inputCredentialsNew_allow_save(obj).Fetch();
+            this.Data = td_bridge_obj_inputCredentialsNew_data(obj).Fetch();
+            this.AllowSave = td_bridge_obj_inputCredentialsNew_allow_save(obj).Fetch();
         }
     }
 
@@ -5029,12 +5029,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputCredentialsAndroidPay();
-            td_bridge_obj_inputCredentialsAndroidPay_data(obj).Set(this.data);
+            td_bridge_obj_inputCredentialsAndroidPay_data(obj).Set(this.Data);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.data = td_bridge_obj_inputCredentialsAndroidPay_data(obj).Fetch();
+            this.Data = td_bridge_obj_inputCredentialsAndroidPay_data(obj).Fetch();
         }
     }
 
@@ -5050,12 +5050,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputCredentialsApplePay();
-            td_bridge_obj_inputCredentialsApplePay_data(obj).Set(this.data);
+            td_bridge_obj_inputCredentialsApplePay_data(obj).Set(this.Data);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.data = td_bridge_obj_inputCredentialsApplePay_data(obj).Fetch();
+            this.Data = td_bridge_obj_inputCredentialsApplePay_data(obj).Fetch();
         }
     }
 
@@ -5080,18 +5080,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_paymentsProviderStripe();
-            td_bridge_obj_paymentsProviderStripe_publishable_key(obj).Set(this.publishable_key);
-            td_bridge_obj_paymentsProviderStripe_need_country(obj).Set(this.need_country);
-            td_bridge_obj_paymentsProviderStripe_need_postal_code(obj).Set(this.need_postal_code);
-            td_bridge_obj_paymentsProviderStripe_need_cardholder_name(obj).Set(this.need_cardholder_name);
+            td_bridge_obj_paymentsProviderStripe_publishable_key(obj).Set(this.PublishableKey);
+            td_bridge_obj_paymentsProviderStripe_need_country(obj).Set(this.NeedCountry);
+            td_bridge_obj_paymentsProviderStripe_need_postal_code(obj).Set(this.NeedPostalCode);
+            td_bridge_obj_paymentsProviderStripe_need_cardholder_name(obj).Set(this.NeedCardholderName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.publishable_key = td_bridge_obj_paymentsProviderStripe_publishable_key(obj).Fetch();
-            this.need_country = td_bridge_obj_paymentsProviderStripe_need_country(obj).Fetch();
-            this.need_postal_code = td_bridge_obj_paymentsProviderStripe_need_postal_code(obj).Fetch();
-            this.need_cardholder_name = td_bridge_obj_paymentsProviderStripe_need_cardholder_name(obj).Fetch();
+            this.PublishableKey = td_bridge_obj_paymentsProviderStripe_publishable_key(obj).Fetch();
+            this.NeedCountry = td_bridge_obj_paymentsProviderStripe_need_country(obj).Fetch();
+            this.NeedPostalCode = td_bridge_obj_paymentsProviderStripe_need_postal_code(obj).Fetch();
+            this.NeedCardholderName = td_bridge_obj_paymentsProviderStripe_need_cardholder_name(obj).Fetch();
         }
     }
 
@@ -5125,24 +5125,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_paymentForm();
-            new CxxTLObject<Invoice>(td_bridge_obj_paymentForm_invoice(obj)).Set(this.invoice);
-            td_bridge_obj_paymentForm_url(obj).Set(this.url);
-            new CxxTLObject<PaymentsProviderStripe>(td_bridge_obj_paymentForm_payments_provider(obj)).Set(this.payments_provider);
-            new CxxTLObject<OrderInfo>(td_bridge_obj_paymentForm_saved_order_info(obj)).Set(this.saved_order_info);
-            new CxxTLObject<SavedCredentials>(td_bridge_obj_paymentForm_saved_credentials(obj)).Set(this.saved_credentials);
-            td_bridge_obj_paymentForm_can_save_credentials(obj).Set(this.can_save_credentials);
-            td_bridge_obj_paymentForm_need_password(obj).Set(this.need_password);
+            new CxxTLObject<Invoice>(td_bridge_obj_paymentForm_invoice(obj)).Set(this.Invoice);
+            td_bridge_obj_paymentForm_url(obj).Set(this.Url);
+            new CxxTLObject<PaymentsProviderStripe>(td_bridge_obj_paymentForm_payments_provider(obj)).Set(this.PaymentsProvider);
+            new CxxTLObject<OrderInfo>(td_bridge_obj_paymentForm_saved_order_info(obj)).Set(this.SavedOrderInfo);
+            new CxxTLObject<SavedCredentials>(td_bridge_obj_paymentForm_saved_credentials(obj)).Set(this.SavedCredentials);
+            td_bridge_obj_paymentForm_can_save_credentials(obj).Set(this.CanSaveCredentials);
+            td_bridge_obj_paymentForm_need_password(obj).Set(this.NeedPassword);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.invoice = new CxxTLObject<Invoice>(td_bridge_obj_paymentForm_invoice(obj)).Fetch();
-            this.url = td_bridge_obj_paymentForm_url(obj).Fetch();
-            this.payments_provider = new CxxTLObject<PaymentsProviderStripe>(td_bridge_obj_paymentForm_payments_provider(obj)).Fetch();
-            this.saved_order_info = new CxxTLObject<OrderInfo>(td_bridge_obj_paymentForm_saved_order_info(obj)).Fetch();
-            this.saved_credentials = new CxxTLObject<SavedCredentials>(td_bridge_obj_paymentForm_saved_credentials(obj)).Fetch();
-            this.can_save_credentials = td_bridge_obj_paymentForm_can_save_credentials(obj).Fetch();
-            this.need_password = td_bridge_obj_paymentForm_need_password(obj).Fetch();
+            this.Invoice = new CxxTLObject<Invoice>(td_bridge_obj_paymentForm_invoice(obj)).Fetch();
+            this.Url = td_bridge_obj_paymentForm_url(obj).Fetch();
+            this.PaymentsProvider = new CxxTLObject<PaymentsProviderStripe>(td_bridge_obj_paymentForm_payments_provider(obj)).Fetch();
+            this.SavedOrderInfo = new CxxTLObject<OrderInfo>(td_bridge_obj_paymentForm_saved_order_info(obj)).Fetch();
+            this.SavedCredentials = new CxxTLObject<SavedCredentials>(td_bridge_obj_paymentForm_saved_credentials(obj)).Fetch();
+            this.CanSaveCredentials = td_bridge_obj_paymentForm_can_save_credentials(obj).Fetch();
+            this.NeedPassword = td_bridge_obj_paymentForm_need_password(obj).Fetch();
         }
     }
 
@@ -5161,14 +5161,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_validatedOrderInfo();
-            td_bridge_obj_validatedOrderInfo_order_info_id(obj).Set(this.order_info_id);
-            new CxxVectorObject<ShippingOption>(td_bridge_obj_validatedOrderInfo_shipping_options(obj)).Set(this.shipping_options);
+            td_bridge_obj_validatedOrderInfo_order_info_id(obj).Set(this.OrderInfoId);
+            new CxxVectorObject<ShippingOption>(td_bridge_obj_validatedOrderInfo_shipping_options(obj)).Set(this.ShippingOptions);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.order_info_id = td_bridge_obj_validatedOrderInfo_order_info_id(obj).Fetch();
-            this.shipping_options = new CxxVectorObject<ShippingOption>(td_bridge_obj_validatedOrderInfo_shipping_options(obj)).Fetch();
+            this.OrderInfoId = td_bridge_obj_validatedOrderInfo_order_info_id(obj).Fetch();
+            this.ShippingOptions = new CxxVectorObject<ShippingOption>(td_bridge_obj_validatedOrderInfo_shipping_options(obj)).Fetch();
         }
     }
 
@@ -5187,14 +5187,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_paymentResult();
-            td_bridge_obj_paymentResult_success(obj).Set(this.success);
-            td_bridge_obj_paymentResult_verification_url(obj).Set(this.verification_url);
+            td_bridge_obj_paymentResult_success(obj).Set(this.Success);
+            td_bridge_obj_paymentResult_verification_url(obj).Set(this.VerificationUrl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.success = td_bridge_obj_paymentResult_success(obj).Fetch();
-            this.verification_url = td_bridge_obj_paymentResult_verification_url(obj).Fetch();
+            this.Success = td_bridge_obj_paymentResult_success(obj).Fetch();
+            this.VerificationUrl = td_bridge_obj_paymentResult_verification_url(obj).Fetch();
         }
     }
 
@@ -5225,22 +5225,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_paymentReceipt();
-            td_bridge_obj_paymentReceipt_date(obj).Set(this.date);
-            td_bridge_obj_paymentReceipt_payments_provider_user_id(obj).Set(this.payments_provider_user_id);
-            new CxxTLObject<Invoice>(td_bridge_obj_paymentReceipt_invoice(obj)).Set(this.invoice);
-            new CxxTLObject<OrderInfo>(td_bridge_obj_paymentReceipt_order_info(obj)).Set(this.order_info);
-            new CxxTLObject<ShippingOption>(td_bridge_obj_paymentReceipt_shipping_option(obj)).Set(this.shipping_option);
-            td_bridge_obj_paymentReceipt_credentials_title(obj).Set(this.credentials_title);
+            td_bridge_obj_paymentReceipt_date(obj).Set(this.Date);
+            td_bridge_obj_paymentReceipt_payments_provider_user_id(obj).Set(this.PaymentsProviderUserId);
+            new CxxTLObject<Invoice>(td_bridge_obj_paymentReceipt_invoice(obj)).Set(this.Invoice);
+            new CxxTLObject<OrderInfo>(td_bridge_obj_paymentReceipt_order_info(obj)).Set(this.OrderInfo);
+            new CxxTLObject<ShippingOption>(td_bridge_obj_paymentReceipt_shipping_option(obj)).Set(this.ShippingOption);
+            td_bridge_obj_paymentReceipt_credentials_title(obj).Set(this.CredentialsTitle);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.date = td_bridge_obj_paymentReceipt_date(obj).Fetch();
-            this.payments_provider_user_id = td_bridge_obj_paymentReceipt_payments_provider_user_id(obj).Fetch();
-            this.invoice = new CxxTLObject<Invoice>(td_bridge_obj_paymentReceipt_invoice(obj)).Fetch();
-            this.order_info = new CxxTLObject<OrderInfo>(td_bridge_obj_paymentReceipt_order_info(obj)).Fetch();
-            this.shipping_option = new CxxTLObject<ShippingOption>(td_bridge_obj_paymentReceipt_shipping_option(obj)).Fetch();
-            this.credentials_title = td_bridge_obj_paymentReceipt_credentials_title(obj).Fetch();
+            this.Date = td_bridge_obj_paymentReceipt_date(obj).Fetch();
+            this.PaymentsProviderUserId = td_bridge_obj_paymentReceipt_payments_provider_user_id(obj).Fetch();
+            this.Invoice = new CxxTLObject<Invoice>(td_bridge_obj_paymentReceipt_invoice(obj)).Fetch();
+            this.OrderInfo = new CxxTLObject<OrderInfo>(td_bridge_obj_paymentReceipt_order_info(obj)).Fetch();
+            this.ShippingOption = new CxxTLObject<ShippingOption>(td_bridge_obj_paymentReceipt_shipping_option(obj)).Fetch();
+            this.CredentialsTitle = td_bridge_obj_paymentReceipt_credentials_title(obj).Fetch();
         }
     }
 
@@ -5259,14 +5259,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_datedFile();
-            new CxxTLObject<File>(td_bridge_obj_datedFile_file(obj)).Set(this.file);
-            td_bridge_obj_datedFile_date(obj).Set(this.date);
+            new CxxTLObject<File>(td_bridge_obj_datedFile_file(obj)).Set(this.File);
+            td_bridge_obj_datedFile_date(obj).Set(this.Date);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file = new CxxTLObject<File>(td_bridge_obj_datedFile_file(obj)).Fetch();
-            this.date = td_bridge_obj_datedFile_date(obj).Fetch();
+            this.File = new CxxTLObject<File>(td_bridge_obj_datedFile_file(obj)).Fetch();
+            this.Date = td_bridge_obj_datedFile_date(obj).Fetch();
         }
     }
 
@@ -5496,16 +5496,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_date();
-            td_bridge_obj_date_day(obj).Set(this.day);
-            td_bridge_obj_date_month(obj).Set(this.month);
-            td_bridge_obj_date_year(obj).Set(this.year);
+            td_bridge_obj_date_day(obj).Set(this.Day);
+            td_bridge_obj_date_month(obj).Set(this.Month);
+            td_bridge_obj_date_year(obj).Set(this.Year);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.day = td_bridge_obj_date_day(obj).Fetch();
-            this.month = td_bridge_obj_date_month(obj).Fetch();
-            this.year = td_bridge_obj_date_year(obj).Fetch();
+            this.Day = td_bridge_obj_date_day(obj).Fetch();
+            this.Month = td_bridge_obj_date_month(obj).Fetch();
+            this.Year = td_bridge_obj_date_year(obj).Fetch();
         }
     }
 
@@ -5548,30 +5548,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_personalDetails();
-            td_bridge_obj_personalDetails_first_name(obj).Set(this.first_name);
-            td_bridge_obj_personalDetails_middle_name(obj).Set(this.middle_name);
-            td_bridge_obj_personalDetails_last_name(obj).Set(this.last_name);
-            td_bridge_obj_personalDetails_native_first_name(obj).Set(this.native_first_name);
-            td_bridge_obj_personalDetails_native_middle_name(obj).Set(this.native_middle_name);
-            td_bridge_obj_personalDetails_native_last_name(obj).Set(this.native_last_name);
-            new CxxTLObject<Date>(td_bridge_obj_personalDetails_birthdate(obj)).Set(this.birthdate);
-            td_bridge_obj_personalDetails_gender(obj).Set(this.gender);
-            td_bridge_obj_personalDetails_country_code(obj).Set(this.country_code);
-            td_bridge_obj_personalDetails_residence_country_code(obj).Set(this.residence_country_code);
+            td_bridge_obj_personalDetails_first_name(obj).Set(this.FirstName);
+            td_bridge_obj_personalDetails_middle_name(obj).Set(this.MiddleName);
+            td_bridge_obj_personalDetails_last_name(obj).Set(this.LastName);
+            td_bridge_obj_personalDetails_native_first_name(obj).Set(this.NativeFirstName);
+            td_bridge_obj_personalDetails_native_middle_name(obj).Set(this.NativeMiddleName);
+            td_bridge_obj_personalDetails_native_last_name(obj).Set(this.NativeLastName);
+            new CxxTLObject<Date>(td_bridge_obj_personalDetails_birthdate(obj)).Set(this.Birthdate);
+            td_bridge_obj_personalDetails_gender(obj).Set(this.Gender);
+            td_bridge_obj_personalDetails_country_code(obj).Set(this.CountryCode);
+            td_bridge_obj_personalDetails_residence_country_code(obj).Set(this.ResidenceCountryCode);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.first_name = td_bridge_obj_personalDetails_first_name(obj).Fetch();
-            this.middle_name = td_bridge_obj_personalDetails_middle_name(obj).Fetch();
-            this.last_name = td_bridge_obj_personalDetails_last_name(obj).Fetch();
-            this.native_first_name = td_bridge_obj_personalDetails_native_first_name(obj).Fetch();
-            this.native_middle_name = td_bridge_obj_personalDetails_native_middle_name(obj).Fetch();
-            this.native_last_name = td_bridge_obj_personalDetails_native_last_name(obj).Fetch();
-            this.birthdate = new CxxTLObject<Date>(td_bridge_obj_personalDetails_birthdate(obj)).Fetch();
-            this.gender = td_bridge_obj_personalDetails_gender(obj).Fetch();
-            this.country_code = td_bridge_obj_personalDetails_country_code(obj).Fetch();
-            this.residence_country_code = td_bridge_obj_personalDetails_residence_country_code(obj).Fetch();
+            this.FirstName = td_bridge_obj_personalDetails_first_name(obj).Fetch();
+            this.MiddleName = td_bridge_obj_personalDetails_middle_name(obj).Fetch();
+            this.LastName = td_bridge_obj_personalDetails_last_name(obj).Fetch();
+            this.NativeFirstName = td_bridge_obj_personalDetails_native_first_name(obj).Fetch();
+            this.NativeMiddleName = td_bridge_obj_personalDetails_native_middle_name(obj).Fetch();
+            this.NativeLastName = td_bridge_obj_personalDetails_native_last_name(obj).Fetch();
+            this.Birthdate = new CxxTLObject<Date>(td_bridge_obj_personalDetails_birthdate(obj)).Fetch();
+            this.Gender = td_bridge_obj_personalDetails_gender(obj).Fetch();
+            this.CountryCode = td_bridge_obj_personalDetails_country_code(obj).Fetch();
+            this.ResidenceCountryCode = td_bridge_obj_personalDetails_residence_country_code(obj).Fetch();
         }
     }
 
@@ -5602,22 +5602,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_identityDocument();
-            td_bridge_obj_identityDocument_number(obj).Set(this.number);
-            new CxxTLObject<Date>(td_bridge_obj_identityDocument_expiry_date(obj)).Set(this.expiry_date);
-            new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_front_side(obj)).Set(this.front_side);
-            new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_reverse_side(obj)).Set(this.reverse_side);
-            new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_selfie(obj)).Set(this.selfie);
-            new CxxVectorObject<DatedFile>(td_bridge_obj_identityDocument_translation(obj)).Set(this.translation);
+            td_bridge_obj_identityDocument_number(obj).Set(this.Number);
+            new CxxTLObject<Date>(td_bridge_obj_identityDocument_expiry_date(obj)).Set(this.ExpiryDate);
+            new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_front_side(obj)).Set(this.FrontSide);
+            new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_reverse_side(obj)).Set(this.ReverseSide);
+            new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_selfie(obj)).Set(this.Selfie);
+            new CxxVectorObject<DatedFile>(td_bridge_obj_identityDocument_translation(obj)).Set(this.Translation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.number = td_bridge_obj_identityDocument_number(obj).Fetch();
-            this.expiry_date = new CxxTLObject<Date>(td_bridge_obj_identityDocument_expiry_date(obj)).Fetch();
-            this.front_side = new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_front_side(obj)).Fetch();
-            this.reverse_side = new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_reverse_side(obj)).Fetch();
-            this.selfie = new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_selfie(obj)).Fetch();
-            this.translation = new CxxVectorObject<DatedFile>(td_bridge_obj_identityDocument_translation(obj)).Fetch();
+            this.Number = td_bridge_obj_identityDocument_number(obj).Fetch();
+            this.ExpiryDate = new CxxTLObject<Date>(td_bridge_obj_identityDocument_expiry_date(obj)).Fetch();
+            this.FrontSide = new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_front_side(obj)).Fetch();
+            this.ReverseSide = new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_reverse_side(obj)).Fetch();
+            this.Selfie = new CxxTLObject<DatedFile>(td_bridge_obj_identityDocument_selfie(obj)).Fetch();
+            this.Translation = new CxxVectorObject<DatedFile>(td_bridge_obj_identityDocument_translation(obj)).Fetch();
         }
     }
 
@@ -5648,22 +5648,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputIdentityDocument();
-            td_bridge_obj_inputIdentityDocument_number(obj).Set(this.number);
-            new CxxTLObject<Date>(td_bridge_obj_inputIdentityDocument_expiry_date(obj)).Set(this.expiry_date);
-            new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_front_side(obj)).Set(this.front_side);
-            new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_reverse_side(obj)).Set(this.reverse_side);
-            new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_selfie(obj)).Set(this.selfie);
-            new CxxVectorObject<InputFile>(td_bridge_obj_inputIdentityDocument_translation(obj)).Set(this.translation);
+            td_bridge_obj_inputIdentityDocument_number(obj).Set(this.Number);
+            new CxxTLObject<Date>(td_bridge_obj_inputIdentityDocument_expiry_date(obj)).Set(this.ExpiryDate);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_front_side(obj)).Set(this.FrontSide);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_reverse_side(obj)).Set(this.ReverseSide);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_selfie(obj)).Set(this.Selfie);
+            new CxxVectorObject<InputFile>(td_bridge_obj_inputIdentityDocument_translation(obj)).Set(this.Translation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.number = td_bridge_obj_inputIdentityDocument_number(obj).Fetch();
-            this.expiry_date = new CxxTLObject<Date>(td_bridge_obj_inputIdentityDocument_expiry_date(obj)).Fetch();
-            this.front_side = new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_front_side(obj)).Fetch();
-            this.reverse_side = new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_reverse_side(obj)).Fetch();
-            this.selfie = new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_selfie(obj)).Fetch();
-            this.translation = new CxxVectorObject<InputFile>(td_bridge_obj_inputIdentityDocument_translation(obj)).Fetch();
+            this.Number = td_bridge_obj_inputIdentityDocument_number(obj).Fetch();
+            this.ExpiryDate = new CxxTLObject<Date>(td_bridge_obj_inputIdentityDocument_expiry_date(obj)).Fetch();
+            this.FrontSide = new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_front_side(obj)).Fetch();
+            this.ReverseSide = new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_reverse_side(obj)).Fetch();
+            this.Selfie = new CxxTLObject<InputFile>(td_bridge_obj_inputIdentityDocument_selfie(obj)).Fetch();
+            this.Translation = new CxxVectorObject<InputFile>(td_bridge_obj_inputIdentityDocument_translation(obj)).Fetch();
         }
     }
 
@@ -5682,14 +5682,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_personalDocument();
-            new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_files(obj)).Set(this.files);
-            new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_translation(obj)).Set(this.translation);
+            new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_files(obj)).Set(this.Files);
+            new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_translation(obj)).Set(this.Translation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.files = new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_files(obj)).Fetch();
-            this.translation = new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_translation(obj)).Fetch();
+            this.Files = new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_files(obj)).Fetch();
+            this.Translation = new CxxVectorObject<DatedFile>(td_bridge_obj_personalDocument_translation(obj)).Fetch();
         }
     }
 
@@ -5708,14 +5708,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPersonalDocument();
-            new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_files(obj)).Set(this.files);
-            new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_translation(obj)).Set(this.translation);
+            new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_files(obj)).Set(this.Files);
+            new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_translation(obj)).Set(this.Translation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.files = new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_files(obj)).Fetch();
-            this.translation = new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_translation(obj)).Fetch();
+            this.Files = new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_files(obj)).Fetch();
+            this.Translation = new CxxVectorObject<InputFile>(td_bridge_obj_inputPersonalDocument_translation(obj)).Fetch();
         }
     }
 
@@ -5731,12 +5731,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementPersonalDetails();
-            new CxxTLObject<PersonalDetails>(td_bridge_obj_passportElementPersonalDetails_personal_details(obj)).Set(this.personal_details);
+            new CxxTLObject<PersonalDetails>(td_bridge_obj_passportElementPersonalDetails_personal_details(obj)).Set(this.PersonalDetails);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.personal_details = new CxxTLObject<PersonalDetails>(td_bridge_obj_passportElementPersonalDetails_personal_details(obj)).Fetch();
+            this.PersonalDetails = new CxxTLObject<PersonalDetails>(td_bridge_obj_passportElementPersonalDetails_personal_details(obj)).Fetch();
         }
     }
 
@@ -5752,12 +5752,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementPassport();
-            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementPassport_passport(obj)).Set(this.passport);
+            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementPassport_passport(obj)).Set(this.Passport);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.passport = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementPassport_passport(obj)).Fetch();
+            this.Passport = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementPassport_passport(obj)).Fetch();
         }
     }
 
@@ -5773,12 +5773,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementDriverLicense();
-            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementDriverLicense_driver_license(obj)).Set(this.driver_license);
+            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementDriverLicense_driver_license(obj)).Set(this.DriverLicense);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.driver_license = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementDriverLicense_driver_license(obj)).Fetch();
+            this.DriverLicense = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementDriverLicense_driver_license(obj)).Fetch();
         }
     }
 
@@ -5794,12 +5794,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementIdentityCard();
-            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementIdentityCard_identity_card(obj)).Set(this.identity_card);
+            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementIdentityCard_identity_card(obj)).Set(this.IdentityCard);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.identity_card = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementIdentityCard_identity_card(obj)).Fetch();
+            this.IdentityCard = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementIdentityCard_identity_card(obj)).Fetch();
         }
     }
 
@@ -5815,12 +5815,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementInternalPassport();
-            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementInternalPassport_internal_passport(obj)).Set(this.internal_passport);
+            new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementInternalPassport_internal_passport(obj)).Set(this.InternalPassport);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.internal_passport = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementInternalPassport_internal_passport(obj)).Fetch();
+            this.InternalPassport = new CxxTLObject<IdentityDocument>(td_bridge_obj_passportElementInternalPassport_internal_passport(obj)).Fetch();
         }
     }
 
@@ -5836,12 +5836,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementAddress();
-            new CxxTLObject<Address>(td_bridge_obj_passportElementAddress_address(obj)).Set(this.address);
+            new CxxTLObject<Address>(td_bridge_obj_passportElementAddress_address(obj)).Set(this.Address);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.address = new CxxTLObject<Address>(td_bridge_obj_passportElementAddress_address(obj)).Fetch();
+            this.Address = new CxxTLObject<Address>(td_bridge_obj_passportElementAddress_address(obj)).Fetch();
         }
     }
 
@@ -5857,12 +5857,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementUtilityBill();
-            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementUtilityBill_utility_bill(obj)).Set(this.utility_bill);
+            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementUtilityBill_utility_bill(obj)).Set(this.UtilityBill);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.utility_bill = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementUtilityBill_utility_bill(obj)).Fetch();
+            this.UtilityBill = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementUtilityBill_utility_bill(obj)).Fetch();
         }
     }
 
@@ -5878,12 +5878,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementBankStatement();
-            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementBankStatement_bank_statement(obj)).Set(this.bank_statement);
+            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementBankStatement_bank_statement(obj)).Set(this.BankStatement);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.bank_statement = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementBankStatement_bank_statement(obj)).Fetch();
+            this.BankStatement = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementBankStatement_bank_statement(obj)).Fetch();
         }
     }
 
@@ -5899,12 +5899,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementRentalAgreement();
-            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementRentalAgreement_rental_agreement(obj)).Set(this.rental_agreement);
+            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementRentalAgreement_rental_agreement(obj)).Set(this.RentalAgreement);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.rental_agreement = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementRentalAgreement_rental_agreement(obj)).Fetch();
+            this.RentalAgreement = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementRentalAgreement_rental_agreement(obj)).Fetch();
         }
     }
 
@@ -5920,12 +5920,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementPassportRegistration();
-            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementPassportRegistration_passport_registration(obj)).Set(this.passport_registration);
+            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementPassportRegistration_passport_registration(obj)).Set(this.PassportRegistration);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.passport_registration = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementPassportRegistration_passport_registration(obj)).Fetch();
+            this.PassportRegistration = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementPassportRegistration_passport_registration(obj)).Fetch();
         }
     }
 
@@ -5941,12 +5941,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementTemporaryRegistration();
-            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementTemporaryRegistration_temporary_registration(obj)).Set(this.temporary_registration);
+            new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementTemporaryRegistration_temporary_registration(obj)).Set(this.TemporaryRegistration);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.temporary_registration = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementTemporaryRegistration_temporary_registration(obj)).Fetch();
+            this.TemporaryRegistration = new CxxTLObject<PersonalDocument>(td_bridge_obj_passportElementTemporaryRegistration_temporary_registration(obj)).Fetch();
         }
     }
 
@@ -5962,12 +5962,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementPhoneNumber();
-            td_bridge_obj_passportElementPhoneNumber_phone_number(obj).Set(this.phone_number);
+            td_bridge_obj_passportElementPhoneNumber_phone_number(obj).Set(this.PhoneNumber);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.phone_number = td_bridge_obj_passportElementPhoneNumber_phone_number(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_passportElementPhoneNumber_phone_number(obj).Fetch();
         }
     }
 
@@ -5983,12 +5983,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementEmailAddress();
-            td_bridge_obj_passportElementEmailAddress_email_address(obj).Set(this.email_address);
+            td_bridge_obj_passportElementEmailAddress_email_address(obj).Set(this.EmailAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.email_address = td_bridge_obj_passportElementEmailAddress_email_address(obj).Fetch();
+            this.EmailAddress = td_bridge_obj_passportElementEmailAddress_email_address(obj).Fetch();
         }
     }
 
@@ -6004,12 +6004,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementPersonalDetails();
-            new CxxTLObject<PersonalDetails>(td_bridge_obj_inputPassportElementPersonalDetails_personal_details(obj)).Set(this.personal_details);
+            new CxxTLObject<PersonalDetails>(td_bridge_obj_inputPassportElementPersonalDetails_personal_details(obj)).Set(this.PersonalDetails);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.personal_details = new CxxTLObject<PersonalDetails>(td_bridge_obj_inputPassportElementPersonalDetails_personal_details(obj)).Fetch();
+            this.PersonalDetails = new CxxTLObject<PersonalDetails>(td_bridge_obj_inputPassportElementPersonalDetails_personal_details(obj)).Fetch();
         }
     }
 
@@ -6025,12 +6025,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementPassport();
-            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementPassport_passport(obj)).Set(this.passport);
+            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementPassport_passport(obj)).Set(this.Passport);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.passport = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementPassport_passport(obj)).Fetch();
+            this.Passport = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementPassport_passport(obj)).Fetch();
         }
     }
 
@@ -6046,12 +6046,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementDriverLicense();
-            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementDriverLicense_driver_license(obj)).Set(this.driver_license);
+            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementDriverLicense_driver_license(obj)).Set(this.DriverLicense);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.driver_license = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementDriverLicense_driver_license(obj)).Fetch();
+            this.DriverLicense = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementDriverLicense_driver_license(obj)).Fetch();
         }
     }
 
@@ -6067,12 +6067,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementIdentityCard();
-            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementIdentityCard_identity_card(obj)).Set(this.identity_card);
+            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementIdentityCard_identity_card(obj)).Set(this.IdentityCard);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.identity_card = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementIdentityCard_identity_card(obj)).Fetch();
+            this.IdentityCard = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementIdentityCard_identity_card(obj)).Fetch();
         }
     }
 
@@ -6088,12 +6088,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementInternalPassport();
-            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementInternalPassport_internal_passport(obj)).Set(this.internal_passport);
+            new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementInternalPassport_internal_passport(obj)).Set(this.InternalPassport);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.internal_passport = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementInternalPassport_internal_passport(obj)).Fetch();
+            this.InternalPassport = new CxxTLObject<InputIdentityDocument>(td_bridge_obj_inputPassportElementInternalPassport_internal_passport(obj)).Fetch();
         }
     }
 
@@ -6109,12 +6109,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementAddress();
-            new CxxTLObject<Address>(td_bridge_obj_inputPassportElementAddress_address(obj)).Set(this.address);
+            new CxxTLObject<Address>(td_bridge_obj_inputPassportElementAddress_address(obj)).Set(this.Address);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.address = new CxxTLObject<Address>(td_bridge_obj_inputPassportElementAddress_address(obj)).Fetch();
+            this.Address = new CxxTLObject<Address>(td_bridge_obj_inputPassportElementAddress_address(obj)).Fetch();
         }
     }
 
@@ -6130,12 +6130,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementUtilityBill();
-            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementUtilityBill_utility_bill(obj)).Set(this.utility_bill);
+            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementUtilityBill_utility_bill(obj)).Set(this.UtilityBill);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.utility_bill = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementUtilityBill_utility_bill(obj)).Fetch();
+            this.UtilityBill = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementUtilityBill_utility_bill(obj)).Fetch();
         }
     }
 
@@ -6151,12 +6151,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementBankStatement();
-            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementBankStatement_bank_statement(obj)).Set(this.bank_statement);
+            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementBankStatement_bank_statement(obj)).Set(this.BankStatement);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.bank_statement = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementBankStatement_bank_statement(obj)).Fetch();
+            this.BankStatement = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementBankStatement_bank_statement(obj)).Fetch();
         }
     }
 
@@ -6172,12 +6172,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementRentalAgreement();
-            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementRentalAgreement_rental_agreement(obj)).Set(this.rental_agreement);
+            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementRentalAgreement_rental_agreement(obj)).Set(this.RentalAgreement);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.rental_agreement = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementRentalAgreement_rental_agreement(obj)).Fetch();
+            this.RentalAgreement = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementRentalAgreement_rental_agreement(obj)).Fetch();
         }
     }
 
@@ -6193,12 +6193,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementPassportRegistration();
-            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementPassportRegistration_passport_registration(obj)).Set(this.passport_registration);
+            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementPassportRegistration_passport_registration(obj)).Set(this.PassportRegistration);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.passport_registration = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementPassportRegistration_passport_registration(obj)).Fetch();
+            this.PassportRegistration = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementPassportRegistration_passport_registration(obj)).Fetch();
         }
     }
 
@@ -6214,12 +6214,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementTemporaryRegistration();
-            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementTemporaryRegistration_temporary_registration(obj)).Set(this.temporary_registration);
+            new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementTemporaryRegistration_temporary_registration(obj)).Set(this.TemporaryRegistration);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.temporary_registration = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementTemporaryRegistration_temporary_registration(obj)).Fetch();
+            this.TemporaryRegistration = new CxxTLObject<InputPersonalDocument>(td_bridge_obj_inputPassportElementTemporaryRegistration_temporary_registration(obj)).Fetch();
         }
     }
 
@@ -6235,12 +6235,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementPhoneNumber();
-            td_bridge_obj_inputPassportElementPhoneNumber_phone_number(obj).Set(this.phone_number);
+            td_bridge_obj_inputPassportElementPhoneNumber_phone_number(obj).Set(this.PhoneNumber);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.phone_number = td_bridge_obj_inputPassportElementPhoneNumber_phone_number(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_inputPassportElementPhoneNumber_phone_number(obj).Fetch();
         }
     }
 
@@ -6256,12 +6256,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementEmailAddress();
-            td_bridge_obj_inputPassportElementEmailAddress_email_address(obj).Set(this.email_address);
+            td_bridge_obj_inputPassportElementEmailAddress_email_address(obj).Set(this.EmailAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.email_address = td_bridge_obj_inputPassportElementEmailAddress_email_address(obj).Fetch();
+            this.EmailAddress = td_bridge_obj_inputPassportElementEmailAddress_email_address(obj).Fetch();
         }
     }
 
@@ -6277,12 +6277,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElements();
-            new CxxVectorObject<PassportElement>(td_bridge_obj_passportElements_elements(obj)).Set(this.elements);
+            new CxxVectorObject<PassportElement>(td_bridge_obj_passportElements_elements(obj)).Set(this.Elements);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.elements = new CxxVectorObject<PassportElement>(td_bridge_obj_passportElements_elements(obj)).Fetch();
+            this.Elements = new CxxVectorObject<PassportElement>(td_bridge_obj_passportElements_elements(obj)).Fetch();
         }
     }
 
@@ -6314,12 +6314,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementErrorSourceDataField();
-            td_bridge_obj_passportElementErrorSourceDataField_field_name(obj).Set(this.field_name);
+            td_bridge_obj_passportElementErrorSourceDataField_field_name(obj).Set(this.FieldName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.field_name = td_bridge_obj_passportElementErrorSourceDataField_field_name(obj).Fetch();
+            this.FieldName = td_bridge_obj_passportElementErrorSourceDataField_field_name(obj).Fetch();
         }
     }
 
@@ -6453,16 +6453,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementError();
-            new CxxTLObject<PassportElementType>(td_bridge_obj_passportElementError_type(obj)).Set(this.type);
-            td_bridge_obj_passportElementError_message(obj).Set(this.message);
-            new CxxTLObject<PassportElementErrorSource>(td_bridge_obj_passportElementError_source(obj)).Set(this.source);
+            new CxxTLObject<PassportElementType>(td_bridge_obj_passportElementError_type(obj)).Set(this.Type);
+            td_bridge_obj_passportElementError_message(obj).Set(this.Message);
+            new CxxTLObject<PassportElementErrorSource>(td_bridge_obj_passportElementError_source(obj)).Set(this.Source);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = new CxxTLObject<PassportElementType>(td_bridge_obj_passportElementError_type(obj)).Fetch();
-            this.message = td_bridge_obj_passportElementError_message(obj).Fetch();
-            this.source = new CxxTLObject<PassportElementErrorSource>(td_bridge_obj_passportElementError_source(obj)).Fetch();
+            this.Type = new CxxTLObject<PassportElementType>(td_bridge_obj_passportElementError_type(obj)).Fetch();
+            this.Message = td_bridge_obj_passportElementError_message(obj).Fetch();
+            this.Source = new CxxTLObject<PassportElementErrorSource>(td_bridge_obj_passportElementError_source(obj)).Fetch();
         }
     }
 
@@ -6487,18 +6487,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportSuitableElement();
-            new CxxTLObject<PassportElementType>(td_bridge_obj_passportSuitableElement_type(obj)).Set(this.type);
-            td_bridge_obj_passportSuitableElement_is_selfie_required(obj).Set(this.is_selfie_required);
-            td_bridge_obj_passportSuitableElement_is_translation_required(obj).Set(this.is_translation_required);
-            td_bridge_obj_passportSuitableElement_is_native_name_required(obj).Set(this.is_native_name_required);
+            new CxxTLObject<PassportElementType>(td_bridge_obj_passportSuitableElement_type(obj)).Set(this.Type);
+            td_bridge_obj_passportSuitableElement_is_selfie_required(obj).Set(this.IsSelfieRequired);
+            td_bridge_obj_passportSuitableElement_is_translation_required(obj).Set(this.IsTranslationRequired);
+            td_bridge_obj_passportSuitableElement_is_native_name_required(obj).Set(this.IsNativeNameRequired);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = new CxxTLObject<PassportElementType>(td_bridge_obj_passportSuitableElement_type(obj)).Fetch();
-            this.is_selfie_required = td_bridge_obj_passportSuitableElement_is_selfie_required(obj).Fetch();
-            this.is_translation_required = td_bridge_obj_passportSuitableElement_is_translation_required(obj).Fetch();
-            this.is_native_name_required = td_bridge_obj_passportSuitableElement_is_native_name_required(obj).Fetch();
+            this.Type = new CxxTLObject<PassportElementType>(td_bridge_obj_passportSuitableElement_type(obj)).Fetch();
+            this.IsSelfieRequired = td_bridge_obj_passportSuitableElement_is_selfie_required(obj).Fetch();
+            this.IsTranslationRequired = td_bridge_obj_passportSuitableElement_is_translation_required(obj).Fetch();
+            this.IsNativeNameRequired = td_bridge_obj_passportSuitableElement_is_native_name_required(obj).Fetch();
         }
     }
 
@@ -6514,12 +6514,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportRequiredElement();
-            new CxxVectorObject<PassportSuitableElement>(td_bridge_obj_passportRequiredElement_suitable_elements(obj)).Set(this.suitable_elements);
+            new CxxVectorObject<PassportSuitableElement>(td_bridge_obj_passportRequiredElement_suitable_elements(obj)).Set(this.SuitableElements);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.suitable_elements = new CxxVectorObject<PassportSuitableElement>(td_bridge_obj_passportRequiredElement_suitable_elements(obj)).Fetch();
+            this.SuitableElements = new CxxVectorObject<PassportSuitableElement>(td_bridge_obj_passportRequiredElement_suitable_elements(obj)).Fetch();
         }
     }
 
@@ -6547,20 +6547,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportAuthorizationForm();
-            td_bridge_obj_passportAuthorizationForm_id(obj).Set(this.id);
-            new CxxVectorObject<PassportRequiredElement>(td_bridge_obj_passportAuthorizationForm_required_elements(obj)).Set(this.required_elements);
-            new CxxVectorObject<PassportElement>(td_bridge_obj_passportAuthorizationForm_elements(obj)).Set(this.elements);
-            new CxxVectorObject<PassportElementError>(td_bridge_obj_passportAuthorizationForm_errors(obj)).Set(this.errors);
-            td_bridge_obj_passportAuthorizationForm_privacy_policy_url(obj).Set(this.privacy_policy_url);
+            td_bridge_obj_passportAuthorizationForm_id(obj).Set(this.Id);
+            new CxxVectorObject<PassportRequiredElement>(td_bridge_obj_passportAuthorizationForm_required_elements(obj)).Set(this.RequiredElements);
+            new CxxVectorObject<PassportElement>(td_bridge_obj_passportAuthorizationForm_elements(obj)).Set(this.Elements);
+            new CxxVectorObject<PassportElementError>(td_bridge_obj_passportAuthorizationForm_errors(obj)).Set(this.Errors);
+            td_bridge_obj_passportAuthorizationForm_privacy_policy_url(obj).Set(this.PrivacyPolicyUrl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_passportAuthorizationForm_id(obj).Fetch();
-            this.required_elements = new CxxVectorObject<PassportRequiredElement>(td_bridge_obj_passportAuthorizationForm_required_elements(obj)).Fetch();
-            this.elements = new CxxVectorObject<PassportElement>(td_bridge_obj_passportAuthorizationForm_elements(obj)).Fetch();
-            this.errors = new CxxVectorObject<PassportElementError>(td_bridge_obj_passportAuthorizationForm_errors(obj)).Fetch();
-            this.privacy_policy_url = td_bridge_obj_passportAuthorizationForm_privacy_policy_url(obj).Fetch();
+            this.Id = td_bridge_obj_passportAuthorizationForm_id(obj).Fetch();
+            this.RequiredElements = new CxxVectorObject<PassportRequiredElement>(td_bridge_obj_passportAuthorizationForm_required_elements(obj)).Fetch();
+            this.Elements = new CxxVectorObject<PassportElement>(td_bridge_obj_passportAuthorizationForm_elements(obj)).Fetch();
+            this.Errors = new CxxVectorObject<PassportElementError>(td_bridge_obj_passportAuthorizationForm_errors(obj)).Fetch();
+            this.PrivacyPolicyUrl = td_bridge_obj_passportAuthorizationForm_privacy_policy_url(obj).Fetch();
         }
     }
 
@@ -6582,16 +6582,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_encryptedCredentials();
-            td_bridge_obj_encryptedCredentials_data(obj).Set(this.data);
-            td_bridge_obj_encryptedCredentials_hash(obj).Set(this.hash);
-            td_bridge_obj_encryptedCredentials_secret(obj).Set(this.secret);
+            td_bridge_obj_encryptedCredentials_data(obj).Set(this.Data);
+            td_bridge_obj_encryptedCredentials_hash(obj).Set(this.Hash);
+            td_bridge_obj_encryptedCredentials_secret(obj).Set(this.Secret);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.data = td_bridge_obj_encryptedCredentials_data(obj).Fetch();
-            this.hash = td_bridge_obj_encryptedCredentials_hash(obj).Fetch();
-            this.secret = td_bridge_obj_encryptedCredentials_secret(obj).Fetch();
+            this.Data = td_bridge_obj_encryptedCredentials_data(obj).Fetch();
+            this.Hash = td_bridge_obj_encryptedCredentials_hash(obj).Fetch();
+            this.Secret = td_bridge_obj_encryptedCredentials_secret(obj).Fetch();
         }
     }
 
@@ -6631,28 +6631,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_encryptedPassportElement();
-            new CxxTLObject<PassportElementType>(td_bridge_obj_encryptedPassportElement_type(obj)).Set(this.type);
-            td_bridge_obj_encryptedPassportElement_data(obj).Set(this.data);
-            new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_front_side(obj)).Set(this.front_side);
-            new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_reverse_side(obj)).Set(this.reverse_side);
-            new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_selfie(obj)).Set(this.selfie);
-            new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_translation(obj)).Set(this.translation);
-            new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_files(obj)).Set(this.files);
-            td_bridge_obj_encryptedPassportElement_value(obj).Set(this.value);
-            td_bridge_obj_encryptedPassportElement_hash(obj).Set(this.hash);
+            new CxxTLObject<PassportElementType>(td_bridge_obj_encryptedPassportElement_type(obj)).Set(this.Type);
+            td_bridge_obj_encryptedPassportElement_data(obj).Set(this.Data);
+            new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_front_side(obj)).Set(this.FrontSide);
+            new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_reverse_side(obj)).Set(this.ReverseSide);
+            new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_selfie(obj)).Set(this.Selfie);
+            new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_translation(obj)).Set(this.Translation);
+            new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_files(obj)).Set(this.Files);
+            td_bridge_obj_encryptedPassportElement_value(obj).Set(this.Value);
+            td_bridge_obj_encryptedPassportElement_hash(obj).Set(this.Hash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = new CxxTLObject<PassportElementType>(td_bridge_obj_encryptedPassportElement_type(obj)).Fetch();
-            this.data = td_bridge_obj_encryptedPassportElement_data(obj).Fetch();
-            this.front_side = new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_front_side(obj)).Fetch();
-            this.reverse_side = new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_reverse_side(obj)).Fetch();
-            this.selfie = new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_selfie(obj)).Fetch();
-            this.translation = new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_translation(obj)).Fetch();
-            this.files = new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_files(obj)).Fetch();
-            this.value = td_bridge_obj_encryptedPassportElement_value(obj).Fetch();
-            this.hash = td_bridge_obj_encryptedPassportElement_hash(obj).Fetch();
+            this.Type = new CxxTLObject<PassportElementType>(td_bridge_obj_encryptedPassportElement_type(obj)).Fetch();
+            this.Data = td_bridge_obj_encryptedPassportElement_data(obj).Fetch();
+            this.FrontSide = new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_front_side(obj)).Fetch();
+            this.ReverseSide = new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_reverse_side(obj)).Fetch();
+            this.Selfie = new CxxTLObject<DatedFile>(td_bridge_obj_encryptedPassportElement_selfie(obj)).Fetch();
+            this.Translation = new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_translation(obj)).Fetch();
+            this.Files = new CxxVectorObject<DatedFile>(td_bridge_obj_encryptedPassportElement_files(obj)).Fetch();
+            this.Value = td_bridge_obj_encryptedPassportElement_value(obj).Fetch();
+            this.Hash = td_bridge_obj_encryptedPassportElement_hash(obj).Fetch();
         }
     }
 
@@ -6668,12 +6668,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceUnspecified();
-            td_bridge_obj_inputPassportElementErrorSourceUnspecified_element_hash(obj).Set(this.element_hash);
+            td_bridge_obj_inputPassportElementErrorSourceUnspecified_element_hash(obj).Set(this.ElementHash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.element_hash = td_bridge_obj_inputPassportElementErrorSourceUnspecified_element_hash(obj).Fetch();
+            this.ElementHash = td_bridge_obj_inputPassportElementErrorSourceUnspecified_element_hash(obj).Fetch();
         }
     }
 
@@ -6692,14 +6692,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceDataField();
-            td_bridge_obj_inputPassportElementErrorSourceDataField_field_name(obj).Set(this.field_name);
-            td_bridge_obj_inputPassportElementErrorSourceDataField_data_hash(obj).Set(this.data_hash);
+            td_bridge_obj_inputPassportElementErrorSourceDataField_field_name(obj).Set(this.FieldName);
+            td_bridge_obj_inputPassportElementErrorSourceDataField_data_hash(obj).Set(this.DataHash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.field_name = td_bridge_obj_inputPassportElementErrorSourceDataField_field_name(obj).Fetch();
-            this.data_hash = td_bridge_obj_inputPassportElementErrorSourceDataField_data_hash(obj).Fetch();
+            this.FieldName = td_bridge_obj_inputPassportElementErrorSourceDataField_field_name(obj).Fetch();
+            this.DataHash = td_bridge_obj_inputPassportElementErrorSourceDataField_data_hash(obj).Fetch();
         }
     }
 
@@ -6715,12 +6715,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceFrontSide();
-            td_bridge_obj_inputPassportElementErrorSourceFrontSide_file_hash(obj).Set(this.file_hash);
+            td_bridge_obj_inputPassportElementErrorSourceFrontSide_file_hash(obj).Set(this.FileHash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_hash = td_bridge_obj_inputPassportElementErrorSourceFrontSide_file_hash(obj).Fetch();
+            this.FileHash = td_bridge_obj_inputPassportElementErrorSourceFrontSide_file_hash(obj).Fetch();
         }
     }
 
@@ -6736,12 +6736,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceReverseSide();
-            td_bridge_obj_inputPassportElementErrorSourceReverseSide_file_hash(obj).Set(this.file_hash);
+            td_bridge_obj_inputPassportElementErrorSourceReverseSide_file_hash(obj).Set(this.FileHash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_hash = td_bridge_obj_inputPassportElementErrorSourceReverseSide_file_hash(obj).Fetch();
+            this.FileHash = td_bridge_obj_inputPassportElementErrorSourceReverseSide_file_hash(obj).Fetch();
         }
     }
 
@@ -6757,12 +6757,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceSelfie();
-            td_bridge_obj_inputPassportElementErrorSourceSelfie_file_hash(obj).Set(this.file_hash);
+            td_bridge_obj_inputPassportElementErrorSourceSelfie_file_hash(obj).Set(this.FileHash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_hash = td_bridge_obj_inputPassportElementErrorSourceSelfie_file_hash(obj).Fetch();
+            this.FileHash = td_bridge_obj_inputPassportElementErrorSourceSelfie_file_hash(obj).Fetch();
         }
     }
 
@@ -6778,12 +6778,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceTranslationFile();
-            td_bridge_obj_inputPassportElementErrorSourceTranslationFile_file_hash(obj).Set(this.file_hash);
+            td_bridge_obj_inputPassportElementErrorSourceTranslationFile_file_hash(obj).Set(this.FileHash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_hash = td_bridge_obj_inputPassportElementErrorSourceTranslationFile_file_hash(obj).Fetch();
+            this.FileHash = td_bridge_obj_inputPassportElementErrorSourceTranslationFile_file_hash(obj).Fetch();
         }
     }
 
@@ -6799,12 +6799,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceTranslationFiles();
-            td_bridge_obj_inputPassportElementErrorSourceTranslationFiles_file_hashes(obj).Set(this.file_hashes);
+            td_bridge_obj_inputPassportElementErrorSourceTranslationFiles_file_hashes(obj).Set(this.FileHashes);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_hashes = td_bridge_obj_inputPassportElementErrorSourceTranslationFiles_file_hashes(obj).Fetch();
+            this.FileHashes = td_bridge_obj_inputPassportElementErrorSourceTranslationFiles_file_hashes(obj).Fetch();
         }
     }
 
@@ -6820,12 +6820,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceFile();
-            td_bridge_obj_inputPassportElementErrorSourceFile_file_hash(obj).Set(this.file_hash);
+            td_bridge_obj_inputPassportElementErrorSourceFile_file_hash(obj).Set(this.FileHash);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_hash = td_bridge_obj_inputPassportElementErrorSourceFile_file_hash(obj).Fetch();
+            this.FileHash = td_bridge_obj_inputPassportElementErrorSourceFile_file_hash(obj).Fetch();
         }
     }
 
@@ -6841,12 +6841,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementErrorSourceFiles();
-            td_bridge_obj_inputPassportElementErrorSourceFiles_file_hashes(obj).Set(this.file_hashes);
+            td_bridge_obj_inputPassportElementErrorSourceFiles_file_hashes(obj).Set(this.FileHashes);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_hashes = td_bridge_obj_inputPassportElementErrorSourceFiles_file_hashes(obj).Fetch();
+            this.FileHashes = td_bridge_obj_inputPassportElementErrorSourceFiles_file_hashes(obj).Fetch();
         }
     }
 
@@ -6868,16 +6868,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputPassportElementError();
-            new CxxTLObject<PassportElementType>(td_bridge_obj_inputPassportElementError_type(obj)).Set(this.type);
-            td_bridge_obj_inputPassportElementError_message(obj).Set(this.message);
-            new CxxTLObject<InputPassportElementErrorSource>(td_bridge_obj_inputPassportElementError_source(obj)).Set(this.source);
+            new CxxTLObject<PassportElementType>(td_bridge_obj_inputPassportElementError_type(obj)).Set(this.Type);
+            td_bridge_obj_inputPassportElementError_message(obj).Set(this.Message);
+            new CxxTLObject<InputPassportElementErrorSource>(td_bridge_obj_inputPassportElementError_source(obj)).Set(this.Source);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = new CxxTLObject<PassportElementType>(td_bridge_obj_inputPassportElementError_type(obj)).Fetch();
-            this.message = td_bridge_obj_inputPassportElementError_message(obj).Fetch();
-            this.source = new CxxTLObject<InputPassportElementErrorSource>(td_bridge_obj_inputPassportElementError_source(obj)).Fetch();
+            this.Type = new CxxTLObject<PassportElementType>(td_bridge_obj_inputPassportElementError_type(obj)).Fetch();
+            this.Message = td_bridge_obj_inputPassportElementError_message(obj).Fetch();
+            this.Source = new CxxTLObject<InputPassportElementErrorSource>(td_bridge_obj_inputPassportElementError_source(obj)).Fetch();
         }
     }
 
@@ -6896,14 +6896,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageText();
-            new CxxTLObject<FormattedText>(td_bridge_obj_messageText_text(obj)).Set(this.text);
-            new CxxTLObject<WebPage>(td_bridge_obj_messageText_web_page(obj)).Set(this.web_page);
+            new CxxTLObject<FormattedText>(td_bridge_obj_messageText_text(obj)).Set(this.Text);
+            new CxxTLObject<WebPage>(td_bridge_obj_messageText_web_page(obj)).Set(this.WebPage);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<FormattedText>(td_bridge_obj_messageText_text(obj)).Fetch();
-            this.web_page = new CxxTLObject<WebPage>(td_bridge_obj_messageText_web_page(obj)).Fetch();
+            this.Text = new CxxTLObject<FormattedText>(td_bridge_obj_messageText_text(obj)).Fetch();
+            this.WebPage = new CxxTLObject<WebPage>(td_bridge_obj_messageText_web_page(obj)).Fetch();
         }
     }
 
@@ -6925,16 +6925,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageAnimation();
-            new CxxTLObject<Animation>(td_bridge_obj_messageAnimation_animation(obj)).Set(this.animation);
-            new CxxTLObject<FormattedText>(td_bridge_obj_messageAnimation_caption(obj)).Set(this.caption);
-            td_bridge_obj_messageAnimation_is_secret(obj).Set(this.is_secret);
+            new CxxTLObject<Animation>(td_bridge_obj_messageAnimation_animation(obj)).Set(this.Animation);
+            new CxxTLObject<FormattedText>(td_bridge_obj_messageAnimation_caption(obj)).Set(this.Caption);
+            td_bridge_obj_messageAnimation_is_secret(obj).Set(this.IsSecret);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.animation = new CxxTLObject<Animation>(td_bridge_obj_messageAnimation_animation(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageAnimation_caption(obj)).Fetch();
-            this.is_secret = td_bridge_obj_messageAnimation_is_secret(obj).Fetch();
+            this.Animation = new CxxTLObject<Animation>(td_bridge_obj_messageAnimation_animation(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageAnimation_caption(obj)).Fetch();
+            this.IsSecret = td_bridge_obj_messageAnimation_is_secret(obj).Fetch();
         }
     }
 
@@ -6953,14 +6953,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageAudio();
-            new CxxTLObject<Audio>(td_bridge_obj_messageAudio_audio(obj)).Set(this.audio);
-            new CxxTLObject<FormattedText>(td_bridge_obj_messageAudio_caption(obj)).Set(this.caption);
+            new CxxTLObject<Audio>(td_bridge_obj_messageAudio_audio(obj)).Set(this.Audio);
+            new CxxTLObject<FormattedText>(td_bridge_obj_messageAudio_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.audio = new CxxTLObject<Audio>(td_bridge_obj_messageAudio_audio(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageAudio_caption(obj)).Fetch();
+            this.Audio = new CxxTLObject<Audio>(td_bridge_obj_messageAudio_audio(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageAudio_caption(obj)).Fetch();
         }
     }
 
@@ -6979,14 +6979,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageDocument();
-            new CxxTLObject<Document>(td_bridge_obj_messageDocument_document(obj)).Set(this.document);
-            new CxxTLObject<FormattedText>(td_bridge_obj_messageDocument_caption(obj)).Set(this.caption);
+            new CxxTLObject<Document>(td_bridge_obj_messageDocument_document(obj)).Set(this.Document);
+            new CxxTLObject<FormattedText>(td_bridge_obj_messageDocument_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.document = new CxxTLObject<Document>(td_bridge_obj_messageDocument_document(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageDocument_caption(obj)).Fetch();
+            this.Document = new CxxTLObject<Document>(td_bridge_obj_messageDocument_document(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageDocument_caption(obj)).Fetch();
         }
     }
 
@@ -7008,16 +7008,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messagePhoto();
-            new CxxTLObject<Photo>(td_bridge_obj_messagePhoto_photo(obj)).Set(this.photo);
-            new CxxTLObject<FormattedText>(td_bridge_obj_messagePhoto_caption(obj)).Set(this.caption);
-            td_bridge_obj_messagePhoto_is_secret(obj).Set(this.is_secret);
+            new CxxTLObject<Photo>(td_bridge_obj_messagePhoto_photo(obj)).Set(this.Photo);
+            new CxxTLObject<FormattedText>(td_bridge_obj_messagePhoto_caption(obj)).Set(this.Caption);
+            td_bridge_obj_messagePhoto_is_secret(obj).Set(this.IsSecret);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.photo = new CxxTLObject<Photo>(td_bridge_obj_messagePhoto_photo(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_messagePhoto_caption(obj)).Fetch();
-            this.is_secret = td_bridge_obj_messagePhoto_is_secret(obj).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_messagePhoto_photo(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_messagePhoto_caption(obj)).Fetch();
+            this.IsSecret = td_bridge_obj_messagePhoto_is_secret(obj).Fetch();
         }
     }
 
@@ -7049,12 +7049,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageSticker();
-            new CxxTLObject<Sticker>(td_bridge_obj_messageSticker_sticker(obj)).Set(this.sticker);
+            new CxxTLObject<Sticker>(td_bridge_obj_messageSticker_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker = new CxxTLObject<Sticker>(td_bridge_obj_messageSticker_sticker(obj)).Fetch();
+            this.Sticker = new CxxTLObject<Sticker>(td_bridge_obj_messageSticker_sticker(obj)).Fetch();
         }
     }
 
@@ -7076,16 +7076,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageVideo();
-            new CxxTLObject<Video>(td_bridge_obj_messageVideo_video(obj)).Set(this.video);
-            new CxxTLObject<FormattedText>(td_bridge_obj_messageVideo_caption(obj)).Set(this.caption);
-            td_bridge_obj_messageVideo_is_secret(obj).Set(this.is_secret);
+            new CxxTLObject<Video>(td_bridge_obj_messageVideo_video(obj)).Set(this.Video);
+            new CxxTLObject<FormattedText>(td_bridge_obj_messageVideo_caption(obj)).Set(this.Caption);
+            td_bridge_obj_messageVideo_is_secret(obj).Set(this.IsSecret);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.video = new CxxTLObject<Video>(td_bridge_obj_messageVideo_video(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageVideo_caption(obj)).Fetch();
-            this.is_secret = td_bridge_obj_messageVideo_is_secret(obj).Fetch();
+            this.Video = new CxxTLObject<Video>(td_bridge_obj_messageVideo_video(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageVideo_caption(obj)).Fetch();
+            this.IsSecret = td_bridge_obj_messageVideo_is_secret(obj).Fetch();
         }
     }
 
@@ -7123,16 +7123,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageVideoNote();
-            new CxxTLObject<VideoNote>(td_bridge_obj_messageVideoNote_video_note(obj)).Set(this.video_note);
-            td_bridge_obj_messageVideoNote_is_viewed(obj).Set(this.is_viewed);
-            td_bridge_obj_messageVideoNote_is_secret(obj).Set(this.is_secret);
+            new CxxTLObject<VideoNote>(td_bridge_obj_messageVideoNote_video_note(obj)).Set(this.VideoNote);
+            td_bridge_obj_messageVideoNote_is_viewed(obj).Set(this.IsViewed);
+            td_bridge_obj_messageVideoNote_is_secret(obj).Set(this.IsSecret);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.video_note = new CxxTLObject<VideoNote>(td_bridge_obj_messageVideoNote_video_note(obj)).Fetch();
-            this.is_viewed = td_bridge_obj_messageVideoNote_is_viewed(obj).Fetch();
-            this.is_secret = td_bridge_obj_messageVideoNote_is_secret(obj).Fetch();
+            this.VideoNote = new CxxTLObject<VideoNote>(td_bridge_obj_messageVideoNote_video_note(obj)).Fetch();
+            this.IsViewed = td_bridge_obj_messageVideoNote_is_viewed(obj).Fetch();
+            this.IsSecret = td_bridge_obj_messageVideoNote_is_secret(obj).Fetch();
         }
     }
 
@@ -7154,16 +7154,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageVoiceNote();
-            new CxxTLObject<VoiceNote>(td_bridge_obj_messageVoiceNote_voice_note(obj)).Set(this.voice_note);
-            new CxxTLObject<FormattedText>(td_bridge_obj_messageVoiceNote_caption(obj)).Set(this.caption);
-            td_bridge_obj_messageVoiceNote_is_listened(obj).Set(this.is_listened);
+            new CxxTLObject<VoiceNote>(td_bridge_obj_messageVoiceNote_voice_note(obj)).Set(this.VoiceNote);
+            new CxxTLObject<FormattedText>(td_bridge_obj_messageVoiceNote_caption(obj)).Set(this.Caption);
+            td_bridge_obj_messageVoiceNote_is_listened(obj).Set(this.IsListened);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.voice_note = new CxxTLObject<VoiceNote>(td_bridge_obj_messageVoiceNote_voice_note(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageVoiceNote_caption(obj)).Fetch();
-            this.is_listened = td_bridge_obj_messageVoiceNote_is_listened(obj).Fetch();
+            this.VoiceNote = new CxxTLObject<VoiceNote>(td_bridge_obj_messageVoiceNote_voice_note(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_messageVoiceNote_caption(obj)).Fetch();
+            this.IsListened = td_bridge_obj_messageVoiceNote_is_listened(obj).Fetch();
         }
     }
 
@@ -7185,16 +7185,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageLocation();
-            new CxxTLObject<Location>(td_bridge_obj_messageLocation_location(obj)).Set(this.location);
-            td_bridge_obj_messageLocation_live_period(obj).Set(this.live_period);
-            td_bridge_obj_messageLocation_expires_in(obj).Set(this.expires_in);
+            new CxxTLObject<Location>(td_bridge_obj_messageLocation_location(obj)).Set(this.Location);
+            td_bridge_obj_messageLocation_live_period(obj).Set(this.LivePeriod);
+            td_bridge_obj_messageLocation_expires_in(obj).Set(this.ExpiresIn);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.location = new CxxTLObject<Location>(td_bridge_obj_messageLocation_location(obj)).Fetch();
-            this.live_period = td_bridge_obj_messageLocation_live_period(obj).Fetch();
-            this.expires_in = td_bridge_obj_messageLocation_expires_in(obj).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_messageLocation_location(obj)).Fetch();
+            this.LivePeriod = td_bridge_obj_messageLocation_live_period(obj).Fetch();
+            this.ExpiresIn = td_bridge_obj_messageLocation_expires_in(obj).Fetch();
         }
     }
 
@@ -7210,12 +7210,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageVenue();
-            new CxxTLObject<Venue>(td_bridge_obj_messageVenue_venue(obj)).Set(this.venue);
+            new CxxTLObject<Venue>(td_bridge_obj_messageVenue_venue(obj)).Set(this.Venue);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.venue = new CxxTLObject<Venue>(td_bridge_obj_messageVenue_venue(obj)).Fetch();
+            this.Venue = new CxxTLObject<Venue>(td_bridge_obj_messageVenue_venue(obj)).Fetch();
         }
     }
 
@@ -7231,12 +7231,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageContact();
-            new CxxTLObject<Contact>(td_bridge_obj_messageContact_contact(obj)).Set(this.contact);
+            new CxxTLObject<Contact>(td_bridge_obj_messageContact_contact(obj)).Set(this.Contact);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.contact = new CxxTLObject<Contact>(td_bridge_obj_messageContact_contact(obj)).Fetch();
+            this.Contact = new CxxTLObject<Contact>(td_bridge_obj_messageContact_contact(obj)).Fetch();
         }
     }
 
@@ -7252,12 +7252,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageGame();
-            new CxxTLObject<Game>(td_bridge_obj_messageGame_game(obj)).Set(this.game);
+            new CxxTLObject<Game>(td_bridge_obj_messageGame_game(obj)).Set(this.Game);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.game = new CxxTLObject<Game>(td_bridge_obj_messageGame_game(obj)).Fetch();
+            this.Game = new CxxTLObject<Game>(td_bridge_obj_messageGame_game(obj)).Fetch();
         }
     }
 
@@ -7297,28 +7297,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageInvoice();
-            td_bridge_obj_messageInvoice_title(obj).Set(this.title);
-            td_bridge_obj_messageInvoice_description(obj).Set(this.description);
-            new CxxTLObject<Photo>(td_bridge_obj_messageInvoice_photo(obj)).Set(this.photo);
-            td_bridge_obj_messageInvoice_currency(obj).Set(this.currency);
-            td_bridge_obj_messageInvoice_total_amount(obj).Set(this.total_amount);
-            td_bridge_obj_messageInvoice_start_parameter(obj).Set(this.start_parameter);
-            td_bridge_obj_messageInvoice_is_test(obj).Set(this.is_test);
-            td_bridge_obj_messageInvoice_need_shipping_address(obj).Set(this.need_shipping_address);
-            td_bridge_obj_messageInvoice_receipt_message_id(obj).Set(this.receipt_message_id);
+            td_bridge_obj_messageInvoice_title(obj).Set(this.Title);
+            td_bridge_obj_messageInvoice_description(obj).Set(this.Description);
+            new CxxTLObject<Photo>(td_bridge_obj_messageInvoice_photo(obj)).Set(this.Photo);
+            td_bridge_obj_messageInvoice_currency(obj).Set(this.Currency);
+            td_bridge_obj_messageInvoice_total_amount(obj).Set(this.TotalAmount);
+            td_bridge_obj_messageInvoice_start_parameter(obj).Set(this.StartParameter);
+            td_bridge_obj_messageInvoice_is_test(obj).Set(this.IsTest);
+            td_bridge_obj_messageInvoice_need_shipping_address(obj).Set(this.NeedShippingAddress);
+            td_bridge_obj_messageInvoice_receipt_message_id(obj).Set(this.ReceiptMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = td_bridge_obj_messageInvoice_title(obj).Fetch();
-            this.description = td_bridge_obj_messageInvoice_description(obj).Fetch();
-            this.photo = new CxxTLObject<Photo>(td_bridge_obj_messageInvoice_photo(obj)).Fetch();
-            this.currency = td_bridge_obj_messageInvoice_currency(obj).Fetch();
-            this.total_amount = td_bridge_obj_messageInvoice_total_amount(obj).Fetch();
-            this.start_parameter = td_bridge_obj_messageInvoice_start_parameter(obj).Fetch();
-            this.is_test = td_bridge_obj_messageInvoice_is_test(obj).Fetch();
-            this.need_shipping_address = td_bridge_obj_messageInvoice_need_shipping_address(obj).Fetch();
-            this.receipt_message_id = td_bridge_obj_messageInvoice_receipt_message_id(obj).Fetch();
+            this.Title = td_bridge_obj_messageInvoice_title(obj).Fetch();
+            this.Description = td_bridge_obj_messageInvoice_description(obj).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_messageInvoice_photo(obj)).Fetch();
+            this.Currency = td_bridge_obj_messageInvoice_currency(obj).Fetch();
+            this.TotalAmount = td_bridge_obj_messageInvoice_total_amount(obj).Fetch();
+            this.StartParameter = td_bridge_obj_messageInvoice_start_parameter(obj).Fetch();
+            this.IsTest = td_bridge_obj_messageInvoice_is_test(obj).Fetch();
+            this.NeedShippingAddress = td_bridge_obj_messageInvoice_need_shipping_address(obj).Fetch();
+            this.ReceiptMessageId = td_bridge_obj_messageInvoice_receipt_message_id(obj).Fetch();
         }
     }
 
@@ -7337,14 +7337,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageCall();
-            new CxxTLObject<CallDiscardReason>(td_bridge_obj_messageCall_discard_reason(obj)).Set(this.discard_reason);
-            td_bridge_obj_messageCall_duration(obj).Set(this.duration);
+            new CxxTLObject<CallDiscardReason>(td_bridge_obj_messageCall_discard_reason(obj)).Set(this.DiscardReason);
+            td_bridge_obj_messageCall_duration(obj).Set(this.Duration);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.discard_reason = new CxxTLObject<CallDiscardReason>(td_bridge_obj_messageCall_discard_reason(obj)).Fetch();
-            this.duration = td_bridge_obj_messageCall_duration(obj).Fetch();
+            this.DiscardReason = new CxxTLObject<CallDiscardReason>(td_bridge_obj_messageCall_discard_reason(obj)).Fetch();
+            this.Duration = td_bridge_obj_messageCall_duration(obj).Fetch();
         }
     }
 
@@ -7363,14 +7363,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageBasicGroupChatCreate();
-            td_bridge_obj_messageBasicGroupChatCreate_title(obj).Set(this.title);
-            td_bridge_obj_messageBasicGroupChatCreate_member_user_ids(obj).Set(this.member_user_ids);
+            td_bridge_obj_messageBasicGroupChatCreate_title(obj).Set(this.Title);
+            td_bridge_obj_messageBasicGroupChatCreate_member_user_ids(obj).Set(this.MemberUserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = td_bridge_obj_messageBasicGroupChatCreate_title(obj).Fetch();
-            this.member_user_ids = td_bridge_obj_messageBasicGroupChatCreate_member_user_ids(obj).Fetch();
+            this.Title = td_bridge_obj_messageBasicGroupChatCreate_title(obj).Fetch();
+            this.MemberUserIds = td_bridge_obj_messageBasicGroupChatCreate_member_user_ids(obj).Fetch();
         }
     }
 
@@ -7386,12 +7386,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageSupergroupChatCreate();
-            td_bridge_obj_messageSupergroupChatCreate_title(obj).Set(this.title);
+            td_bridge_obj_messageSupergroupChatCreate_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = td_bridge_obj_messageSupergroupChatCreate_title(obj).Fetch();
+            this.Title = td_bridge_obj_messageSupergroupChatCreate_title(obj).Fetch();
         }
     }
 
@@ -7407,12 +7407,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageChatChangeTitle();
-            td_bridge_obj_messageChatChangeTitle_title(obj).Set(this.title);
+            td_bridge_obj_messageChatChangeTitle_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = td_bridge_obj_messageChatChangeTitle_title(obj).Fetch();
+            this.Title = td_bridge_obj_messageChatChangeTitle_title(obj).Fetch();
         }
     }
 
@@ -7428,12 +7428,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageChatChangePhoto();
-            new CxxTLObject<Photo>(td_bridge_obj_messageChatChangePhoto_photo(obj)).Set(this.photo);
+            new CxxTLObject<Photo>(td_bridge_obj_messageChatChangePhoto_photo(obj)).Set(this.Photo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.photo = new CxxTLObject<Photo>(td_bridge_obj_messageChatChangePhoto_photo(obj)).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_messageChatChangePhoto_photo(obj)).Fetch();
         }
     }
 
@@ -7465,12 +7465,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageChatAddMembers();
-            td_bridge_obj_messageChatAddMembers_member_user_ids(obj).Set(this.member_user_ids);
+            td_bridge_obj_messageChatAddMembers_member_user_ids(obj).Set(this.MemberUserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.member_user_ids = td_bridge_obj_messageChatAddMembers_member_user_ids(obj).Fetch();
+            this.MemberUserIds = td_bridge_obj_messageChatAddMembers_member_user_ids(obj).Fetch();
         }
     }
 
@@ -7502,12 +7502,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageChatDeleteMember();
-            td_bridge_obj_messageChatDeleteMember_user_id(obj).Set(this.user_id);
+            td_bridge_obj_messageChatDeleteMember_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_messageChatDeleteMember_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_messageChatDeleteMember_user_id(obj).Fetch();
         }
     }
 
@@ -7523,12 +7523,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageChatUpgradeTo();
-            td_bridge_obj_messageChatUpgradeTo_supergroup_id(obj).Set(this.supergroup_id);
+            td_bridge_obj_messageChatUpgradeTo_supergroup_id(obj).Set(this.SupergroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_messageChatUpgradeTo_supergroup_id(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_messageChatUpgradeTo_supergroup_id(obj).Fetch();
         }
     }
 
@@ -7547,14 +7547,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageChatUpgradeFrom();
-            td_bridge_obj_messageChatUpgradeFrom_title(obj).Set(this.title);
-            td_bridge_obj_messageChatUpgradeFrom_basic_group_id(obj).Set(this.basic_group_id);
+            td_bridge_obj_messageChatUpgradeFrom_title(obj).Set(this.Title);
+            td_bridge_obj_messageChatUpgradeFrom_basic_group_id(obj).Set(this.BasicGroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = td_bridge_obj_messageChatUpgradeFrom_title(obj).Fetch();
-            this.basic_group_id = td_bridge_obj_messageChatUpgradeFrom_basic_group_id(obj).Fetch();
+            this.Title = td_bridge_obj_messageChatUpgradeFrom_title(obj).Fetch();
+            this.BasicGroupId = td_bridge_obj_messageChatUpgradeFrom_basic_group_id(obj).Fetch();
         }
     }
 
@@ -7570,12 +7570,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messagePinMessage();
-            td_bridge_obj_messagePinMessage_message_id(obj).Set(this.message_id);
+            td_bridge_obj_messagePinMessage_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.message_id = td_bridge_obj_messagePinMessage_message_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_messagePinMessage_message_id(obj).Fetch();
         }
     }
 
@@ -7607,12 +7607,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageChatSetTtl();
-            td_bridge_obj_messageChatSetTtl_ttl(obj).Set(this.ttl);
+            td_bridge_obj_messageChatSetTtl_ttl(obj).Set(this.Ttl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.ttl = td_bridge_obj_messageChatSetTtl_ttl(obj).Fetch();
+            this.Ttl = td_bridge_obj_messageChatSetTtl_ttl(obj).Fetch();
         }
     }
 
@@ -7628,12 +7628,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageCustomServiceAction();
-            td_bridge_obj_messageCustomServiceAction_text(obj).Set(this.text);
+            td_bridge_obj_messageCustomServiceAction_text(obj).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_messageCustomServiceAction_text(obj).Fetch();
+            this.Text = td_bridge_obj_messageCustomServiceAction_text(obj).Fetch();
         }
     }
 
@@ -7655,16 +7655,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageGameScore();
-            td_bridge_obj_messageGameScore_game_message_id(obj).Set(this.game_message_id);
-            td_bridge_obj_messageGameScore_game_id(obj).Set(this.game_id);
-            td_bridge_obj_messageGameScore_score(obj).Set(this.score);
+            td_bridge_obj_messageGameScore_game_message_id(obj).Set(this.GameMessageId);
+            td_bridge_obj_messageGameScore_game_id(obj).Set(this.GameId);
+            td_bridge_obj_messageGameScore_score(obj).Set(this.Score);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.game_message_id = td_bridge_obj_messageGameScore_game_message_id(obj).Fetch();
-            this.game_id = td_bridge_obj_messageGameScore_game_id(obj).Fetch();
-            this.score = td_bridge_obj_messageGameScore_score(obj).Fetch();
+            this.GameMessageId = td_bridge_obj_messageGameScore_game_message_id(obj).Fetch();
+            this.GameId = td_bridge_obj_messageGameScore_game_id(obj).Fetch();
+            this.Score = td_bridge_obj_messageGameScore_score(obj).Fetch();
         }
     }
 
@@ -7686,16 +7686,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messagePaymentSuccessful();
-            td_bridge_obj_messagePaymentSuccessful_invoice_message_id(obj).Set(this.invoice_message_id);
-            td_bridge_obj_messagePaymentSuccessful_currency(obj).Set(this.currency);
-            td_bridge_obj_messagePaymentSuccessful_total_amount(obj).Set(this.total_amount);
+            td_bridge_obj_messagePaymentSuccessful_invoice_message_id(obj).Set(this.InvoiceMessageId);
+            td_bridge_obj_messagePaymentSuccessful_currency(obj).Set(this.Currency);
+            td_bridge_obj_messagePaymentSuccessful_total_amount(obj).Set(this.TotalAmount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.invoice_message_id = td_bridge_obj_messagePaymentSuccessful_invoice_message_id(obj).Fetch();
-            this.currency = td_bridge_obj_messagePaymentSuccessful_currency(obj).Fetch();
-            this.total_amount = td_bridge_obj_messagePaymentSuccessful_total_amount(obj).Fetch();
+            this.InvoiceMessageId = td_bridge_obj_messagePaymentSuccessful_invoice_message_id(obj).Fetch();
+            this.Currency = td_bridge_obj_messagePaymentSuccessful_currency(obj).Fetch();
+            this.TotalAmount = td_bridge_obj_messagePaymentSuccessful_total_amount(obj).Fetch();
         }
     }
 
@@ -7732,26 +7732,26 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messagePaymentSuccessfulBot();
-            td_bridge_obj_messagePaymentSuccessfulBot_invoice_message_id(obj).Set(this.invoice_message_id);
-            td_bridge_obj_messagePaymentSuccessfulBot_currency(obj).Set(this.currency);
-            td_bridge_obj_messagePaymentSuccessfulBot_total_amount(obj).Set(this.total_amount);
-            td_bridge_obj_messagePaymentSuccessfulBot_invoice_payload(obj).Set(this.invoice_payload);
-            td_bridge_obj_messagePaymentSuccessfulBot_shipping_option_id(obj).Set(this.shipping_option_id);
-            new CxxTLObject<OrderInfo>(td_bridge_obj_messagePaymentSuccessfulBot_order_info(obj)).Set(this.order_info);
-            td_bridge_obj_messagePaymentSuccessfulBot_telegram_payment_charge_id(obj).Set(this.telegram_payment_charge_id);
-            td_bridge_obj_messagePaymentSuccessfulBot_provider_payment_charge_id(obj).Set(this.provider_payment_charge_id);
+            td_bridge_obj_messagePaymentSuccessfulBot_invoice_message_id(obj).Set(this.InvoiceMessageId);
+            td_bridge_obj_messagePaymentSuccessfulBot_currency(obj).Set(this.Currency);
+            td_bridge_obj_messagePaymentSuccessfulBot_total_amount(obj).Set(this.TotalAmount);
+            td_bridge_obj_messagePaymentSuccessfulBot_invoice_payload(obj).Set(this.InvoicePayload);
+            td_bridge_obj_messagePaymentSuccessfulBot_shipping_option_id(obj).Set(this.ShippingOptionId);
+            new CxxTLObject<OrderInfo>(td_bridge_obj_messagePaymentSuccessfulBot_order_info(obj)).Set(this.OrderInfo);
+            td_bridge_obj_messagePaymentSuccessfulBot_telegram_payment_charge_id(obj).Set(this.TelegramPaymentChargeId);
+            td_bridge_obj_messagePaymentSuccessfulBot_provider_payment_charge_id(obj).Set(this.ProviderPaymentChargeId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.invoice_message_id = td_bridge_obj_messagePaymentSuccessfulBot_invoice_message_id(obj).Fetch();
-            this.currency = td_bridge_obj_messagePaymentSuccessfulBot_currency(obj).Fetch();
-            this.total_amount = td_bridge_obj_messagePaymentSuccessfulBot_total_amount(obj).Fetch();
-            this.invoice_payload = td_bridge_obj_messagePaymentSuccessfulBot_invoice_payload(obj).Fetch();
-            this.shipping_option_id = td_bridge_obj_messagePaymentSuccessfulBot_shipping_option_id(obj).Fetch();
-            this.order_info = new CxxTLObject<OrderInfo>(td_bridge_obj_messagePaymentSuccessfulBot_order_info(obj)).Fetch();
-            this.telegram_payment_charge_id = td_bridge_obj_messagePaymentSuccessfulBot_telegram_payment_charge_id(obj).Fetch();
-            this.provider_payment_charge_id = td_bridge_obj_messagePaymentSuccessfulBot_provider_payment_charge_id(obj).Fetch();
+            this.InvoiceMessageId = td_bridge_obj_messagePaymentSuccessfulBot_invoice_message_id(obj).Fetch();
+            this.Currency = td_bridge_obj_messagePaymentSuccessfulBot_currency(obj).Fetch();
+            this.TotalAmount = td_bridge_obj_messagePaymentSuccessfulBot_total_amount(obj).Fetch();
+            this.InvoicePayload = td_bridge_obj_messagePaymentSuccessfulBot_invoice_payload(obj).Fetch();
+            this.ShippingOptionId = td_bridge_obj_messagePaymentSuccessfulBot_shipping_option_id(obj).Fetch();
+            this.OrderInfo = new CxxTLObject<OrderInfo>(td_bridge_obj_messagePaymentSuccessfulBot_order_info(obj)).Fetch();
+            this.TelegramPaymentChargeId = td_bridge_obj_messagePaymentSuccessfulBot_telegram_payment_charge_id(obj).Fetch();
+            this.ProviderPaymentChargeId = td_bridge_obj_messagePaymentSuccessfulBot_provider_payment_charge_id(obj).Fetch();
         }
     }
 
@@ -7783,12 +7783,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messageWebsiteConnected();
-            td_bridge_obj_messageWebsiteConnected_domain_name(obj).Set(this.domain_name);
+            td_bridge_obj_messageWebsiteConnected_domain_name(obj).Set(this.DomainName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.domain_name = td_bridge_obj_messageWebsiteConnected_domain_name(obj).Fetch();
+            this.DomainName = td_bridge_obj_messageWebsiteConnected_domain_name(obj).Fetch();
         }
     }
 
@@ -7804,12 +7804,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messagePassportDataSent();
-            new CxxVectorObject<PassportElementType>(td_bridge_obj_messagePassportDataSent_types(obj)).Set(this.types);
+            new CxxVectorObject<PassportElementType>(td_bridge_obj_messagePassportDataSent_types(obj)).Set(this.Types);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.types = new CxxVectorObject<PassportElementType>(td_bridge_obj_messagePassportDataSent_types(obj)).Fetch();
+            this.Types = new CxxVectorObject<PassportElementType>(td_bridge_obj_messagePassportDataSent_types(obj)).Fetch();
         }
     }
 
@@ -7828,14 +7828,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_messagePassportDataReceived();
-            new CxxVectorObject<EncryptedPassportElement>(td_bridge_obj_messagePassportDataReceived_elements(obj)).Set(this.elements);
-            new CxxTLObject<EncryptedCredentials>(td_bridge_obj_messagePassportDataReceived_credentials(obj)).Set(this.credentials);
+            new CxxVectorObject<EncryptedPassportElement>(td_bridge_obj_messagePassportDataReceived_elements(obj)).Set(this.Elements);
+            new CxxTLObject<EncryptedCredentials>(td_bridge_obj_messagePassportDataReceived_credentials(obj)).Set(this.Credentials);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.elements = new CxxVectorObject<EncryptedPassportElement>(td_bridge_obj_messagePassportDataReceived_elements(obj)).Fetch();
-            this.credentials = new CxxTLObject<EncryptedCredentials>(td_bridge_obj_messagePassportDataReceived_credentials(obj)).Fetch();
+            this.Elements = new CxxVectorObject<EncryptedPassportElement>(td_bridge_obj_messagePassportDataReceived_elements(obj)).Fetch();
+            this.Credentials = new CxxTLObject<EncryptedCredentials>(td_bridge_obj_messagePassportDataReceived_credentials(obj)).Fetch();
         }
     }
 
@@ -8027,12 +8027,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_textEntityTypePreCode();
-            td_bridge_obj_textEntityTypePreCode_language(obj).Set(this.language);
+            td_bridge_obj_textEntityTypePreCode_language(obj).Set(this.Language);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.language = td_bridge_obj_textEntityTypePreCode_language(obj).Fetch();
+            this.Language = td_bridge_obj_textEntityTypePreCode_language(obj).Fetch();
         }
     }
 
@@ -8048,12 +8048,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_textEntityTypeTextUrl();
-            td_bridge_obj_textEntityTypeTextUrl_url(obj).Set(this.url);
+            td_bridge_obj_textEntityTypeTextUrl_url(obj).Set(this.Url);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.url = td_bridge_obj_textEntityTypeTextUrl_url(obj).Fetch();
+            this.Url = td_bridge_obj_textEntityTypeTextUrl_url(obj).Fetch();
         }
     }
 
@@ -8069,12 +8069,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_textEntityTypeMentionName();
-            td_bridge_obj_textEntityTypeMentionName_user_id(obj).Set(this.user_id);
+            td_bridge_obj_textEntityTypeMentionName_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_textEntityTypeMentionName_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_textEntityTypeMentionName_user_id(obj).Fetch();
         }
     }
 
@@ -8112,16 +8112,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputThumbnail();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputThumbnail_thumbnail(obj)).Set(this.thumbnail);
-            td_bridge_obj_inputThumbnail_width(obj).Set(this.width);
-            td_bridge_obj_inputThumbnail_height(obj).Set(this.height);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputThumbnail_thumbnail(obj)).Set(this.Thumbnail);
+            td_bridge_obj_inputThumbnail_width(obj).Set(this.Width);
+            td_bridge_obj_inputThumbnail_height(obj).Set(this.Height);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.thumbnail = new CxxTLObject<InputFile>(td_bridge_obj_inputThumbnail_thumbnail(obj)).Fetch();
-            this.width = td_bridge_obj_inputThumbnail_width(obj).Fetch();
-            this.height = td_bridge_obj_inputThumbnail_height(obj).Fetch();
+            this.Thumbnail = new CxxTLObject<InputFile>(td_bridge_obj_inputThumbnail_thumbnail(obj)).Fetch();
+            this.Width = td_bridge_obj_inputThumbnail_width(obj).Fetch();
+            this.Height = td_bridge_obj_inputThumbnail_height(obj).Fetch();
         }
     }
 
@@ -8143,16 +8143,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageText();
-            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageText_text(obj)).Set(this.text);
-            td_bridge_obj_inputMessageText_disable_web_page_preview(obj).Set(this.disable_web_page_preview);
-            td_bridge_obj_inputMessageText_clear_draft(obj).Set(this.clear_draft);
+            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageText_text(obj)).Set(this.Text);
+            td_bridge_obj_inputMessageText_disable_web_page_preview(obj).Set(this.DisableWebPagePreview);
+            td_bridge_obj_inputMessageText_clear_draft(obj).Set(this.ClearDraft);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageText_text(obj)).Fetch();
-            this.disable_web_page_preview = td_bridge_obj_inputMessageText_disable_web_page_preview(obj).Fetch();
-            this.clear_draft = td_bridge_obj_inputMessageText_clear_draft(obj).Fetch();
+            this.Text = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageText_text(obj)).Fetch();
+            this.DisableWebPagePreview = td_bridge_obj_inputMessageText_disable_web_page_preview(obj).Fetch();
+            this.ClearDraft = td_bridge_obj_inputMessageText_clear_draft(obj).Fetch();
         }
     }
 
@@ -8183,22 +8183,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageAnimation();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAnimation_animation(obj)).Set(this.animation);
-            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAnimation_thumbnail(obj)).Set(this.thumbnail);
-            td_bridge_obj_inputMessageAnimation_duration(obj).Set(this.duration);
-            td_bridge_obj_inputMessageAnimation_width(obj).Set(this.width);
-            td_bridge_obj_inputMessageAnimation_height(obj).Set(this.height);
-            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAnimation_caption(obj)).Set(this.caption);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAnimation_animation(obj)).Set(this.Animation);
+            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAnimation_thumbnail(obj)).Set(this.Thumbnail);
+            td_bridge_obj_inputMessageAnimation_duration(obj).Set(this.Duration);
+            td_bridge_obj_inputMessageAnimation_width(obj).Set(this.Width);
+            td_bridge_obj_inputMessageAnimation_height(obj).Set(this.Height);
+            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAnimation_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.animation = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAnimation_animation(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAnimation_thumbnail(obj)).Fetch();
-            this.duration = td_bridge_obj_inputMessageAnimation_duration(obj).Fetch();
-            this.width = td_bridge_obj_inputMessageAnimation_width(obj).Fetch();
-            this.height = td_bridge_obj_inputMessageAnimation_height(obj).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAnimation_caption(obj)).Fetch();
+            this.Animation = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAnimation_animation(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAnimation_thumbnail(obj)).Fetch();
+            this.Duration = td_bridge_obj_inputMessageAnimation_duration(obj).Fetch();
+            this.Width = td_bridge_obj_inputMessageAnimation_width(obj).Fetch();
+            this.Height = td_bridge_obj_inputMessageAnimation_height(obj).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAnimation_caption(obj)).Fetch();
         }
     }
 
@@ -8229,22 +8229,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageAudio();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAudio_audio(obj)).Set(this.audio);
-            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAudio_album_cover_thumbnail(obj)).Set(this.album_cover_thumbnail);
-            td_bridge_obj_inputMessageAudio_duration(obj).Set(this.duration);
-            td_bridge_obj_inputMessageAudio_title(obj).Set(this.title);
-            td_bridge_obj_inputMessageAudio_performer(obj).Set(this.performer);
-            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAudio_caption(obj)).Set(this.caption);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAudio_audio(obj)).Set(this.Audio);
+            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAudio_album_cover_thumbnail(obj)).Set(this.AlbumCoverThumbnail);
+            td_bridge_obj_inputMessageAudio_duration(obj).Set(this.Duration);
+            td_bridge_obj_inputMessageAudio_title(obj).Set(this.Title);
+            td_bridge_obj_inputMessageAudio_performer(obj).Set(this.Performer);
+            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAudio_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.audio = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAudio_audio(obj)).Fetch();
-            this.album_cover_thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAudio_album_cover_thumbnail(obj)).Fetch();
-            this.duration = td_bridge_obj_inputMessageAudio_duration(obj).Fetch();
-            this.title = td_bridge_obj_inputMessageAudio_title(obj).Fetch();
-            this.performer = td_bridge_obj_inputMessageAudio_performer(obj).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAudio_caption(obj)).Fetch();
+            this.Audio = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageAudio_audio(obj)).Fetch();
+            this.AlbumCoverThumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageAudio_album_cover_thumbnail(obj)).Fetch();
+            this.Duration = td_bridge_obj_inputMessageAudio_duration(obj).Fetch();
+            this.Title = td_bridge_obj_inputMessageAudio_title(obj).Fetch();
+            this.Performer = td_bridge_obj_inputMessageAudio_performer(obj).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageAudio_caption(obj)).Fetch();
         }
     }
 
@@ -8266,16 +8266,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageDocument();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageDocument_document(obj)).Set(this.document);
-            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageDocument_thumbnail(obj)).Set(this.thumbnail);
-            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageDocument_caption(obj)).Set(this.caption);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageDocument_document(obj)).Set(this.Document);
+            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageDocument_thumbnail(obj)).Set(this.Thumbnail);
+            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageDocument_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.document = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageDocument_document(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageDocument_thumbnail(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageDocument_caption(obj)).Fetch();
+            this.Document = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageDocument_document(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageDocument_thumbnail(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageDocument_caption(obj)).Fetch();
         }
     }
 
@@ -8309,24 +8309,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessagePhoto();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessagePhoto_photo(obj)).Set(this.photo);
-            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessagePhoto_thumbnail(obj)).Set(this.thumbnail);
-            td_bridge_obj_inputMessagePhoto_added_sticker_file_ids(obj).Set(this.added_sticker_file_ids);
-            td_bridge_obj_inputMessagePhoto_width(obj).Set(this.width);
-            td_bridge_obj_inputMessagePhoto_height(obj).Set(this.height);
-            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessagePhoto_caption(obj)).Set(this.caption);
-            td_bridge_obj_inputMessagePhoto_ttl(obj).Set(this.ttl);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessagePhoto_photo(obj)).Set(this.Photo);
+            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessagePhoto_thumbnail(obj)).Set(this.Thumbnail);
+            td_bridge_obj_inputMessagePhoto_added_sticker_file_ids(obj).Set(this.AddedStickerFileIds);
+            td_bridge_obj_inputMessagePhoto_width(obj).Set(this.Width);
+            td_bridge_obj_inputMessagePhoto_height(obj).Set(this.Height);
+            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessagePhoto_caption(obj)).Set(this.Caption);
+            td_bridge_obj_inputMessagePhoto_ttl(obj).Set(this.Ttl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.photo = new CxxTLObject<InputFile>(td_bridge_obj_inputMessagePhoto_photo(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessagePhoto_thumbnail(obj)).Fetch();
-            this.added_sticker_file_ids = td_bridge_obj_inputMessagePhoto_added_sticker_file_ids(obj).Fetch();
-            this.width = td_bridge_obj_inputMessagePhoto_width(obj).Fetch();
-            this.height = td_bridge_obj_inputMessagePhoto_height(obj).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessagePhoto_caption(obj)).Fetch();
-            this.ttl = td_bridge_obj_inputMessagePhoto_ttl(obj).Fetch();
+            this.Photo = new CxxTLObject<InputFile>(td_bridge_obj_inputMessagePhoto_photo(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessagePhoto_thumbnail(obj)).Fetch();
+            this.AddedStickerFileIds = td_bridge_obj_inputMessagePhoto_added_sticker_file_ids(obj).Fetch();
+            this.Width = td_bridge_obj_inputMessagePhoto_width(obj).Fetch();
+            this.Height = td_bridge_obj_inputMessagePhoto_height(obj).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessagePhoto_caption(obj)).Fetch();
+            this.Ttl = td_bridge_obj_inputMessagePhoto_ttl(obj).Fetch();
         }
     }
 
@@ -8351,18 +8351,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageSticker();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageSticker_sticker(obj)).Set(this.sticker);
-            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageSticker_thumbnail(obj)).Set(this.thumbnail);
-            td_bridge_obj_inputMessageSticker_width(obj).Set(this.width);
-            td_bridge_obj_inputMessageSticker_height(obj).Set(this.height);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageSticker_sticker(obj)).Set(this.Sticker);
+            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageSticker_thumbnail(obj)).Set(this.Thumbnail);
+            td_bridge_obj_inputMessageSticker_width(obj).Set(this.Width);
+            td_bridge_obj_inputMessageSticker_height(obj).Set(this.Height);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageSticker_sticker(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageSticker_thumbnail(obj)).Fetch();
-            this.width = td_bridge_obj_inputMessageSticker_width(obj).Fetch();
-            this.height = td_bridge_obj_inputMessageSticker_height(obj).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageSticker_sticker(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageSticker_thumbnail(obj)).Fetch();
+            this.Width = td_bridge_obj_inputMessageSticker_width(obj).Fetch();
+            this.Height = td_bridge_obj_inputMessageSticker_height(obj).Fetch();
         }
     }
 
@@ -8402,28 +8402,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageVideo();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideo_video(obj)).Set(this.video);
-            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideo_thumbnail(obj)).Set(this.thumbnail);
-            td_bridge_obj_inputMessageVideo_added_sticker_file_ids(obj).Set(this.added_sticker_file_ids);
-            td_bridge_obj_inputMessageVideo_duration(obj).Set(this.duration);
-            td_bridge_obj_inputMessageVideo_width(obj).Set(this.width);
-            td_bridge_obj_inputMessageVideo_height(obj).Set(this.height);
-            td_bridge_obj_inputMessageVideo_supports_streaming(obj).Set(this.supports_streaming);
-            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVideo_caption(obj)).Set(this.caption);
-            td_bridge_obj_inputMessageVideo_ttl(obj).Set(this.ttl);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideo_video(obj)).Set(this.Video);
+            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideo_thumbnail(obj)).Set(this.Thumbnail);
+            td_bridge_obj_inputMessageVideo_added_sticker_file_ids(obj).Set(this.AddedStickerFileIds);
+            td_bridge_obj_inputMessageVideo_duration(obj).Set(this.Duration);
+            td_bridge_obj_inputMessageVideo_width(obj).Set(this.Width);
+            td_bridge_obj_inputMessageVideo_height(obj).Set(this.Height);
+            td_bridge_obj_inputMessageVideo_supports_streaming(obj).Set(this.SupportsStreaming);
+            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVideo_caption(obj)).Set(this.Caption);
+            td_bridge_obj_inputMessageVideo_ttl(obj).Set(this.Ttl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.video = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideo_video(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideo_thumbnail(obj)).Fetch();
-            this.added_sticker_file_ids = td_bridge_obj_inputMessageVideo_added_sticker_file_ids(obj).Fetch();
-            this.duration = td_bridge_obj_inputMessageVideo_duration(obj).Fetch();
-            this.width = td_bridge_obj_inputMessageVideo_width(obj).Fetch();
-            this.height = td_bridge_obj_inputMessageVideo_height(obj).Fetch();
-            this.supports_streaming = td_bridge_obj_inputMessageVideo_supports_streaming(obj).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVideo_caption(obj)).Fetch();
-            this.ttl = td_bridge_obj_inputMessageVideo_ttl(obj).Fetch();
+            this.Video = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideo_video(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideo_thumbnail(obj)).Fetch();
+            this.AddedStickerFileIds = td_bridge_obj_inputMessageVideo_added_sticker_file_ids(obj).Fetch();
+            this.Duration = td_bridge_obj_inputMessageVideo_duration(obj).Fetch();
+            this.Width = td_bridge_obj_inputMessageVideo_width(obj).Fetch();
+            this.Height = td_bridge_obj_inputMessageVideo_height(obj).Fetch();
+            this.SupportsStreaming = td_bridge_obj_inputMessageVideo_supports_streaming(obj).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVideo_caption(obj)).Fetch();
+            this.Ttl = td_bridge_obj_inputMessageVideo_ttl(obj).Fetch();
         }
     }
 
@@ -8448,18 +8448,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageVideoNote();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideoNote_video_note(obj)).Set(this.video_note);
-            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideoNote_thumbnail(obj)).Set(this.thumbnail);
-            td_bridge_obj_inputMessageVideoNote_duration(obj).Set(this.duration);
-            td_bridge_obj_inputMessageVideoNote_length(obj).Set(this.length);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideoNote_video_note(obj)).Set(this.VideoNote);
+            new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideoNote_thumbnail(obj)).Set(this.Thumbnail);
+            td_bridge_obj_inputMessageVideoNote_duration(obj).Set(this.Duration);
+            td_bridge_obj_inputMessageVideoNote_length(obj).Set(this.Length);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.video_note = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideoNote_video_note(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideoNote_thumbnail(obj)).Fetch();
-            this.duration = td_bridge_obj_inputMessageVideoNote_duration(obj).Fetch();
-            this.length = td_bridge_obj_inputMessageVideoNote_length(obj).Fetch();
+            this.VideoNote = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVideoNote_video_note(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<InputThumbnail>(td_bridge_obj_inputMessageVideoNote_thumbnail(obj)).Fetch();
+            this.Duration = td_bridge_obj_inputMessageVideoNote_duration(obj).Fetch();
+            this.Length = td_bridge_obj_inputMessageVideoNote_length(obj).Fetch();
         }
     }
 
@@ -8484,18 +8484,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageVoiceNote();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVoiceNote_voice_note(obj)).Set(this.voice_note);
-            td_bridge_obj_inputMessageVoiceNote_duration(obj).Set(this.duration);
-            td_bridge_obj_inputMessageVoiceNote_waveform(obj).Set(this.waveform);
-            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVoiceNote_caption(obj)).Set(this.caption);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVoiceNote_voice_note(obj)).Set(this.VoiceNote);
+            td_bridge_obj_inputMessageVoiceNote_duration(obj).Set(this.Duration);
+            td_bridge_obj_inputMessageVoiceNote_waveform(obj).Set(this.Waveform);
+            new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVoiceNote_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.voice_note = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVoiceNote_voice_note(obj)).Fetch();
-            this.duration = td_bridge_obj_inputMessageVoiceNote_duration(obj).Fetch();
-            this.waveform = td_bridge_obj_inputMessageVoiceNote_waveform(obj).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVoiceNote_caption(obj)).Fetch();
+            this.VoiceNote = new CxxTLObject<InputFile>(td_bridge_obj_inputMessageVoiceNote_voice_note(obj)).Fetch();
+            this.Duration = td_bridge_obj_inputMessageVoiceNote_duration(obj).Fetch();
+            this.Waveform = td_bridge_obj_inputMessageVoiceNote_waveform(obj).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_inputMessageVoiceNote_caption(obj)).Fetch();
         }
     }
 
@@ -8514,14 +8514,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageLocation();
-            new CxxTLObject<Location>(td_bridge_obj_inputMessageLocation_location(obj)).Set(this.location);
-            td_bridge_obj_inputMessageLocation_live_period(obj).Set(this.live_period);
+            new CxxTLObject<Location>(td_bridge_obj_inputMessageLocation_location(obj)).Set(this.Location);
+            td_bridge_obj_inputMessageLocation_live_period(obj).Set(this.LivePeriod);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.location = new CxxTLObject<Location>(td_bridge_obj_inputMessageLocation_location(obj)).Fetch();
-            this.live_period = td_bridge_obj_inputMessageLocation_live_period(obj).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_inputMessageLocation_location(obj)).Fetch();
+            this.LivePeriod = td_bridge_obj_inputMessageLocation_live_period(obj).Fetch();
         }
     }
 
@@ -8537,12 +8537,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageVenue();
-            new CxxTLObject<Venue>(td_bridge_obj_inputMessageVenue_venue(obj)).Set(this.venue);
+            new CxxTLObject<Venue>(td_bridge_obj_inputMessageVenue_venue(obj)).Set(this.Venue);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.venue = new CxxTLObject<Venue>(td_bridge_obj_inputMessageVenue_venue(obj)).Fetch();
+            this.Venue = new CxxTLObject<Venue>(td_bridge_obj_inputMessageVenue_venue(obj)).Fetch();
         }
     }
 
@@ -8558,12 +8558,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageContact();
-            new CxxTLObject<Contact>(td_bridge_obj_inputMessageContact_contact(obj)).Set(this.contact);
+            new CxxTLObject<Contact>(td_bridge_obj_inputMessageContact_contact(obj)).Set(this.Contact);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.contact = new CxxTLObject<Contact>(td_bridge_obj_inputMessageContact_contact(obj)).Fetch();
+            this.Contact = new CxxTLObject<Contact>(td_bridge_obj_inputMessageContact_contact(obj)).Fetch();
         }
     }
 
@@ -8582,14 +8582,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageGame();
-            td_bridge_obj_inputMessageGame_bot_user_id(obj).Set(this.bot_user_id);
-            td_bridge_obj_inputMessageGame_game_short_name(obj).Set(this.game_short_name);
+            td_bridge_obj_inputMessageGame_bot_user_id(obj).Set(this.BotUserId);
+            td_bridge_obj_inputMessageGame_game_short_name(obj).Set(this.GameShortName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.bot_user_id = td_bridge_obj_inputMessageGame_bot_user_id(obj).Fetch();
-            this.game_short_name = td_bridge_obj_inputMessageGame_game_short_name(obj).Fetch();
+            this.BotUserId = td_bridge_obj_inputMessageGame_bot_user_id(obj).Fetch();
+            this.GameShortName = td_bridge_obj_inputMessageGame_game_short_name(obj).Fetch();
         }
     }
 
@@ -8635,32 +8635,32 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageInvoice();
-            new CxxTLObject<Invoice>(td_bridge_obj_inputMessageInvoice_invoice(obj)).Set(this.invoice);
-            td_bridge_obj_inputMessageInvoice_title(obj).Set(this.title);
-            td_bridge_obj_inputMessageInvoice_description(obj).Set(this.description);
-            td_bridge_obj_inputMessageInvoice_photo_url(obj).Set(this.photo_url);
-            td_bridge_obj_inputMessageInvoice_photo_size(obj).Set(this.photo_size);
-            td_bridge_obj_inputMessageInvoice_photo_width(obj).Set(this.photo_width);
-            td_bridge_obj_inputMessageInvoice_photo_height(obj).Set(this.photo_height);
-            td_bridge_obj_inputMessageInvoice_payload(obj).Set(this.payload);
-            td_bridge_obj_inputMessageInvoice_provider_token(obj).Set(this.provider_token);
-            td_bridge_obj_inputMessageInvoice_provider_data(obj).Set(this.provider_data);
-            td_bridge_obj_inputMessageInvoice_start_parameter(obj).Set(this.start_parameter);
+            new CxxTLObject<Invoice>(td_bridge_obj_inputMessageInvoice_invoice(obj)).Set(this.Invoice);
+            td_bridge_obj_inputMessageInvoice_title(obj).Set(this.Title);
+            td_bridge_obj_inputMessageInvoice_description(obj).Set(this.Description);
+            td_bridge_obj_inputMessageInvoice_photo_url(obj).Set(this.PhotoUrl);
+            td_bridge_obj_inputMessageInvoice_photo_size(obj).Set(this.PhotoSize);
+            td_bridge_obj_inputMessageInvoice_photo_width(obj).Set(this.PhotoWidth);
+            td_bridge_obj_inputMessageInvoice_photo_height(obj).Set(this.PhotoHeight);
+            td_bridge_obj_inputMessageInvoice_payload(obj).Set(this.Payload);
+            td_bridge_obj_inputMessageInvoice_provider_token(obj).Set(this.ProviderToken);
+            td_bridge_obj_inputMessageInvoice_provider_data(obj).Set(this.ProviderData);
+            td_bridge_obj_inputMessageInvoice_start_parameter(obj).Set(this.StartParameter);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.invoice = new CxxTLObject<Invoice>(td_bridge_obj_inputMessageInvoice_invoice(obj)).Fetch();
-            this.title = td_bridge_obj_inputMessageInvoice_title(obj).Fetch();
-            this.description = td_bridge_obj_inputMessageInvoice_description(obj).Fetch();
-            this.photo_url = td_bridge_obj_inputMessageInvoice_photo_url(obj).Fetch();
-            this.photo_size = td_bridge_obj_inputMessageInvoice_photo_size(obj).Fetch();
-            this.photo_width = td_bridge_obj_inputMessageInvoice_photo_width(obj).Fetch();
-            this.photo_height = td_bridge_obj_inputMessageInvoice_photo_height(obj).Fetch();
-            this.payload = td_bridge_obj_inputMessageInvoice_payload(obj).Fetch();
-            this.provider_token = td_bridge_obj_inputMessageInvoice_provider_token(obj).Fetch();
-            this.provider_data = td_bridge_obj_inputMessageInvoice_provider_data(obj).Fetch();
-            this.start_parameter = td_bridge_obj_inputMessageInvoice_start_parameter(obj).Fetch();
+            this.Invoice = new CxxTLObject<Invoice>(td_bridge_obj_inputMessageInvoice_invoice(obj)).Fetch();
+            this.Title = td_bridge_obj_inputMessageInvoice_title(obj).Fetch();
+            this.Description = td_bridge_obj_inputMessageInvoice_description(obj).Fetch();
+            this.PhotoUrl = td_bridge_obj_inputMessageInvoice_photo_url(obj).Fetch();
+            this.PhotoSize = td_bridge_obj_inputMessageInvoice_photo_size(obj).Fetch();
+            this.PhotoWidth = td_bridge_obj_inputMessageInvoice_photo_width(obj).Fetch();
+            this.PhotoHeight = td_bridge_obj_inputMessageInvoice_photo_height(obj).Fetch();
+            this.Payload = td_bridge_obj_inputMessageInvoice_payload(obj).Fetch();
+            this.ProviderToken = td_bridge_obj_inputMessageInvoice_provider_token(obj).Fetch();
+            this.ProviderData = td_bridge_obj_inputMessageInvoice_provider_data(obj).Fetch();
+            this.StartParameter = td_bridge_obj_inputMessageInvoice_start_parameter(obj).Fetch();
         }
     }
 
@@ -8682,16 +8682,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputMessageForwarded();
-            td_bridge_obj_inputMessageForwarded_from_chat_id(obj).Set(this.from_chat_id);
-            td_bridge_obj_inputMessageForwarded_message_id(obj).Set(this.message_id);
-            td_bridge_obj_inputMessageForwarded_in_game_share(obj).Set(this.in_game_share);
+            td_bridge_obj_inputMessageForwarded_from_chat_id(obj).Set(this.FromChatId);
+            td_bridge_obj_inputMessageForwarded_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_inputMessageForwarded_in_game_share(obj).Set(this.InGameShare);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.from_chat_id = td_bridge_obj_inputMessageForwarded_from_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_inputMessageForwarded_message_id(obj).Fetch();
-            this.in_game_share = td_bridge_obj_inputMessageForwarded_in_game_share(obj).Fetch();
+            this.FromChatId = td_bridge_obj_inputMessageForwarded_from_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_inputMessageForwarded_message_id(obj).Fetch();
+            this.InGameShare = td_bridge_obj_inputMessageForwarded_in_game_share(obj).Fetch();
         }
     }
 
@@ -8995,12 +8995,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatActionUploadingVideo();
-            td_bridge_obj_chatActionUploadingVideo_progress(obj).Set(this.progress);
+            td_bridge_obj_chatActionUploadingVideo_progress(obj).Set(this.Progress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.progress = td_bridge_obj_chatActionUploadingVideo_progress(obj).Fetch();
+            this.Progress = td_bridge_obj_chatActionUploadingVideo_progress(obj).Fetch();
         }
     }
 
@@ -9032,12 +9032,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatActionUploadingVoiceNote();
-            td_bridge_obj_chatActionUploadingVoiceNote_progress(obj).Set(this.progress);
+            td_bridge_obj_chatActionUploadingVoiceNote_progress(obj).Set(this.Progress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.progress = td_bridge_obj_chatActionUploadingVoiceNote_progress(obj).Fetch();
+            this.Progress = td_bridge_obj_chatActionUploadingVoiceNote_progress(obj).Fetch();
         }
     }
 
@@ -9053,12 +9053,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatActionUploadingPhoto();
-            td_bridge_obj_chatActionUploadingPhoto_progress(obj).Set(this.progress);
+            td_bridge_obj_chatActionUploadingPhoto_progress(obj).Set(this.Progress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.progress = td_bridge_obj_chatActionUploadingPhoto_progress(obj).Fetch();
+            this.Progress = td_bridge_obj_chatActionUploadingPhoto_progress(obj).Fetch();
         }
     }
 
@@ -9074,12 +9074,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatActionUploadingDocument();
-            td_bridge_obj_chatActionUploadingDocument_progress(obj).Set(this.progress);
+            td_bridge_obj_chatActionUploadingDocument_progress(obj).Set(this.Progress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.progress = td_bridge_obj_chatActionUploadingDocument_progress(obj).Fetch();
+            this.Progress = td_bridge_obj_chatActionUploadingDocument_progress(obj).Fetch();
         }
     }
 
@@ -9159,12 +9159,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatActionUploadingVideoNote();
-            td_bridge_obj_chatActionUploadingVideoNote_progress(obj).Set(this.progress);
+            td_bridge_obj_chatActionUploadingVideoNote_progress(obj).Set(this.Progress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.progress = td_bridge_obj_chatActionUploadingVideoNote_progress(obj).Fetch();
+            this.Progress = td_bridge_obj_chatActionUploadingVideoNote_progress(obj).Fetch();
         }
     }
 
@@ -9212,12 +9212,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userStatusOnline();
-            td_bridge_obj_userStatusOnline_expires(obj).Set(this.expires);
+            td_bridge_obj_userStatusOnline_expires(obj).Set(this.Expires);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.expires = td_bridge_obj_userStatusOnline_expires(obj).Fetch();
+            this.Expires = td_bridge_obj_userStatusOnline_expires(obj).Fetch();
         }
     }
 
@@ -9233,12 +9233,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userStatusOffline();
-            td_bridge_obj_userStatusOffline_was_online(obj).Set(this.was_online);
+            td_bridge_obj_userStatusOffline_was_online(obj).Set(this.WasOnline);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.was_online = td_bridge_obj_userStatusOffline_was_online(obj).Fetch();
+            this.WasOnline = td_bridge_obj_userStatusOffline_was_online(obj).Fetch();
         }
     }
 
@@ -9302,12 +9302,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_stickers();
-            new CxxVectorObject<Sticker>(td_bridge_obj_stickers_stickers(obj)).Set(this.stickers);
+            new CxxVectorObject<Sticker>(td_bridge_obj_stickers_stickers(obj)).Set(this.Stickers_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.stickers = new CxxVectorObject<Sticker>(td_bridge_obj_stickers_stickers(obj)).Fetch();
+            this.Stickers_ = new CxxVectorObject<Sticker>(td_bridge_obj_stickers_stickers(obj)).Fetch();
         }
     }
 
@@ -9323,12 +9323,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_stickerEmojis();
-            td_bridge_obj_stickerEmojis_emojis(obj).Set(this.emojis);
+            td_bridge_obj_stickerEmojis_emojis(obj).Set(this.Emojis);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.emojis = td_bridge_obj_stickerEmojis_emojis(obj).Fetch();
+            this.Emojis = td_bridge_obj_stickerEmojis_emojis(obj).Fetch();
         }
     }
 
@@ -9371,30 +9371,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_stickerSet();
-            td_bridge_obj_stickerSet_id(obj).Set(this.id);
-            td_bridge_obj_stickerSet_title(obj).Set(this.title);
-            td_bridge_obj_stickerSet_name(obj).Set(this.name);
-            td_bridge_obj_stickerSet_is_installed(obj).Set(this.is_installed);
-            td_bridge_obj_stickerSet_is_archived(obj).Set(this.is_archived);
-            td_bridge_obj_stickerSet_is_official(obj).Set(this.is_official);
-            td_bridge_obj_stickerSet_is_masks(obj).Set(this.is_masks);
-            td_bridge_obj_stickerSet_is_viewed(obj).Set(this.is_viewed);
-            new CxxVectorObject<Sticker>(td_bridge_obj_stickerSet_stickers(obj)).Set(this.stickers);
-            new CxxVectorObject<StickerEmojis>(td_bridge_obj_stickerSet_emojis(obj)).Set(this.emojis);
+            td_bridge_obj_stickerSet_id(obj).Set(this.Id);
+            td_bridge_obj_stickerSet_title(obj).Set(this.Title);
+            td_bridge_obj_stickerSet_name(obj).Set(this.Name);
+            td_bridge_obj_stickerSet_is_installed(obj).Set(this.IsInstalled);
+            td_bridge_obj_stickerSet_is_archived(obj).Set(this.IsArchived);
+            td_bridge_obj_stickerSet_is_official(obj).Set(this.IsOfficial);
+            td_bridge_obj_stickerSet_is_masks(obj).Set(this.IsMasks);
+            td_bridge_obj_stickerSet_is_viewed(obj).Set(this.IsViewed);
+            new CxxVectorObject<Sticker>(td_bridge_obj_stickerSet_stickers(obj)).Set(this.Stickers);
+            new CxxVectorObject<StickerEmojis>(td_bridge_obj_stickerSet_emojis(obj)).Set(this.Emojis);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_stickerSet_id(obj).Fetch();
-            this.title = td_bridge_obj_stickerSet_title(obj).Fetch();
-            this.name = td_bridge_obj_stickerSet_name(obj).Fetch();
-            this.is_installed = td_bridge_obj_stickerSet_is_installed(obj).Fetch();
-            this.is_archived = td_bridge_obj_stickerSet_is_archived(obj).Fetch();
-            this.is_official = td_bridge_obj_stickerSet_is_official(obj).Fetch();
-            this.is_masks = td_bridge_obj_stickerSet_is_masks(obj).Fetch();
-            this.is_viewed = td_bridge_obj_stickerSet_is_viewed(obj).Fetch();
-            this.stickers = new CxxVectorObject<Sticker>(td_bridge_obj_stickerSet_stickers(obj)).Fetch();
-            this.emojis = new CxxVectorObject<StickerEmojis>(td_bridge_obj_stickerSet_emojis(obj)).Fetch();
+            this.Id = td_bridge_obj_stickerSet_id(obj).Fetch();
+            this.Title = td_bridge_obj_stickerSet_title(obj).Fetch();
+            this.Name = td_bridge_obj_stickerSet_name(obj).Fetch();
+            this.IsInstalled = td_bridge_obj_stickerSet_is_installed(obj).Fetch();
+            this.IsArchived = td_bridge_obj_stickerSet_is_archived(obj).Fetch();
+            this.IsOfficial = td_bridge_obj_stickerSet_is_official(obj).Fetch();
+            this.IsMasks = td_bridge_obj_stickerSet_is_masks(obj).Fetch();
+            this.IsViewed = td_bridge_obj_stickerSet_is_viewed(obj).Fetch();
+            this.Stickers = new CxxVectorObject<Sticker>(td_bridge_obj_stickerSet_stickers(obj)).Fetch();
+            this.Emojis = new CxxVectorObject<StickerEmojis>(td_bridge_obj_stickerSet_emojis(obj)).Fetch();
         }
     }
 
@@ -9437,30 +9437,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_stickerSetInfo();
-            td_bridge_obj_stickerSetInfo_id(obj).Set(this.id);
-            td_bridge_obj_stickerSetInfo_title(obj).Set(this.title);
-            td_bridge_obj_stickerSetInfo_name(obj).Set(this.name);
-            td_bridge_obj_stickerSetInfo_is_installed(obj).Set(this.is_installed);
-            td_bridge_obj_stickerSetInfo_is_archived(obj).Set(this.is_archived);
-            td_bridge_obj_stickerSetInfo_is_official(obj).Set(this.is_official);
-            td_bridge_obj_stickerSetInfo_is_masks(obj).Set(this.is_masks);
-            td_bridge_obj_stickerSetInfo_is_viewed(obj).Set(this.is_viewed);
-            td_bridge_obj_stickerSetInfo_size(obj).Set(this.size);
-            new CxxVectorObject<Sticker>(td_bridge_obj_stickerSetInfo_covers(obj)).Set(this.covers);
+            td_bridge_obj_stickerSetInfo_id(obj).Set(this.Id);
+            td_bridge_obj_stickerSetInfo_title(obj).Set(this.Title);
+            td_bridge_obj_stickerSetInfo_name(obj).Set(this.Name);
+            td_bridge_obj_stickerSetInfo_is_installed(obj).Set(this.IsInstalled);
+            td_bridge_obj_stickerSetInfo_is_archived(obj).Set(this.IsArchived);
+            td_bridge_obj_stickerSetInfo_is_official(obj).Set(this.IsOfficial);
+            td_bridge_obj_stickerSetInfo_is_masks(obj).Set(this.IsMasks);
+            td_bridge_obj_stickerSetInfo_is_viewed(obj).Set(this.IsViewed);
+            td_bridge_obj_stickerSetInfo_size(obj).Set(this.Size);
+            new CxxVectorObject<Sticker>(td_bridge_obj_stickerSetInfo_covers(obj)).Set(this.Covers);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_stickerSetInfo_id(obj).Fetch();
-            this.title = td_bridge_obj_stickerSetInfo_title(obj).Fetch();
-            this.name = td_bridge_obj_stickerSetInfo_name(obj).Fetch();
-            this.is_installed = td_bridge_obj_stickerSetInfo_is_installed(obj).Fetch();
-            this.is_archived = td_bridge_obj_stickerSetInfo_is_archived(obj).Fetch();
-            this.is_official = td_bridge_obj_stickerSetInfo_is_official(obj).Fetch();
-            this.is_masks = td_bridge_obj_stickerSetInfo_is_masks(obj).Fetch();
-            this.is_viewed = td_bridge_obj_stickerSetInfo_is_viewed(obj).Fetch();
-            this.size = td_bridge_obj_stickerSetInfo_size(obj).Fetch();
-            this.covers = new CxxVectorObject<Sticker>(td_bridge_obj_stickerSetInfo_covers(obj)).Fetch();
+            this.Id = td_bridge_obj_stickerSetInfo_id(obj).Fetch();
+            this.Title = td_bridge_obj_stickerSetInfo_title(obj).Fetch();
+            this.Name = td_bridge_obj_stickerSetInfo_name(obj).Fetch();
+            this.IsInstalled = td_bridge_obj_stickerSetInfo_is_installed(obj).Fetch();
+            this.IsArchived = td_bridge_obj_stickerSetInfo_is_archived(obj).Fetch();
+            this.IsOfficial = td_bridge_obj_stickerSetInfo_is_official(obj).Fetch();
+            this.IsMasks = td_bridge_obj_stickerSetInfo_is_masks(obj).Fetch();
+            this.IsViewed = td_bridge_obj_stickerSetInfo_is_viewed(obj).Fetch();
+            this.Size = td_bridge_obj_stickerSetInfo_size(obj).Fetch();
+            this.Covers = new CxxVectorObject<Sticker>(td_bridge_obj_stickerSetInfo_covers(obj)).Fetch();
         }
     }
 
@@ -9479,14 +9479,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_stickerSets();
-            td_bridge_obj_stickerSets_total_count(obj).Set(this.total_count);
-            new CxxVectorObject<StickerSetInfo>(td_bridge_obj_stickerSets_sets(obj)).Set(this.sets);
+            td_bridge_obj_stickerSets_total_count(obj).Set(this.TotalCount);
+            new CxxVectorObject<StickerSetInfo>(td_bridge_obj_stickerSets_sets(obj)).Set(this.Sets);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.total_count = td_bridge_obj_stickerSets_total_count(obj).Fetch();
-            this.sets = new CxxVectorObject<StickerSetInfo>(td_bridge_obj_stickerSets_sets(obj)).Fetch();
+            this.TotalCount = td_bridge_obj_stickerSets_total_count(obj).Fetch();
+            this.Sets = new CxxVectorObject<StickerSetInfo>(td_bridge_obj_stickerSets_sets(obj)).Fetch();
         }
     }
 
@@ -9591,18 +9591,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callProtocol();
-            td_bridge_obj_callProtocol_udp_p2p(obj).Set(this.udp_p2p);
-            td_bridge_obj_callProtocol_udp_reflector(obj).Set(this.udp_reflector);
-            td_bridge_obj_callProtocol_min_layer(obj).Set(this.min_layer);
-            td_bridge_obj_callProtocol_max_layer(obj).Set(this.max_layer);
+            td_bridge_obj_callProtocol_udp_p2p(obj).Set(this.UdpP2p);
+            td_bridge_obj_callProtocol_udp_reflector(obj).Set(this.UdpReflector);
+            td_bridge_obj_callProtocol_min_layer(obj).Set(this.MinLayer);
+            td_bridge_obj_callProtocol_max_layer(obj).Set(this.MaxLayer);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.udp_p2p = td_bridge_obj_callProtocol_udp_p2p(obj).Fetch();
-            this.udp_reflector = td_bridge_obj_callProtocol_udp_reflector(obj).Fetch();
-            this.min_layer = td_bridge_obj_callProtocol_min_layer(obj).Fetch();
-            this.max_layer = td_bridge_obj_callProtocol_max_layer(obj).Fetch();
+            this.UdpP2p = td_bridge_obj_callProtocol_udp_p2p(obj).Fetch();
+            this.UdpReflector = td_bridge_obj_callProtocol_udp_reflector(obj).Fetch();
+            this.MinLayer = td_bridge_obj_callProtocol_min_layer(obj).Fetch();
+            this.MaxLayer = td_bridge_obj_callProtocol_max_layer(obj).Fetch();
         }
     }
 
@@ -9630,20 +9630,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callConnection();
-            td_bridge_obj_callConnection_id(obj).Set(this.id);
-            td_bridge_obj_callConnection_ip(obj).Set(this.ip);
-            td_bridge_obj_callConnection_ipv6(obj).Set(this.ipv6);
-            td_bridge_obj_callConnection_port(obj).Set(this.port);
-            td_bridge_obj_callConnection_peer_tag(obj).Set(this.peer_tag);
+            td_bridge_obj_callConnection_id(obj).Set(this.Id);
+            td_bridge_obj_callConnection_ip(obj).Set(this.Ip);
+            td_bridge_obj_callConnection_ipv6(obj).Set(this.Ipv6);
+            td_bridge_obj_callConnection_port(obj).Set(this.Port);
+            td_bridge_obj_callConnection_peer_tag(obj).Set(this.PeerTag);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_callConnection_id(obj).Fetch();
-            this.ip = td_bridge_obj_callConnection_ip(obj).Fetch();
-            this.ipv6 = td_bridge_obj_callConnection_ipv6(obj).Fetch();
-            this.port = td_bridge_obj_callConnection_port(obj).Fetch();
-            this.peer_tag = td_bridge_obj_callConnection_peer_tag(obj).Fetch();
+            this.Id = td_bridge_obj_callConnection_id(obj).Fetch();
+            this.Ip = td_bridge_obj_callConnection_ip(obj).Fetch();
+            this.Ipv6 = td_bridge_obj_callConnection_ipv6(obj).Fetch();
+            this.Port = td_bridge_obj_callConnection_port(obj).Fetch();
+            this.PeerTag = td_bridge_obj_callConnection_peer_tag(obj).Fetch();
         }
     }
 
@@ -9659,12 +9659,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callId();
-            td_bridge_obj_callId_id(obj).Set(this.id);
+            td_bridge_obj_callId_id(obj).Set(this.Id);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_callId_id(obj).Fetch();
+            this.Id = td_bridge_obj_callId_id(obj).Fetch();
         }
     }
 
@@ -9683,14 +9683,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callStatePending();
-            td_bridge_obj_callStatePending_is_created(obj).Set(this.is_created);
-            td_bridge_obj_callStatePending_is_received(obj).Set(this.is_received);
+            td_bridge_obj_callStatePending_is_created(obj).Set(this.IsCreated);
+            td_bridge_obj_callStatePending_is_received(obj).Set(this.IsReceived);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_created = td_bridge_obj_callStatePending_is_created(obj).Fetch();
-            this.is_received = td_bridge_obj_callStatePending_is_received(obj).Fetch();
+            this.IsCreated = td_bridge_obj_callStatePending_is_created(obj).Fetch();
+            this.IsReceived = td_bridge_obj_callStatePending_is_received(obj).Fetch();
         }
     }
 
@@ -9734,20 +9734,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callStateReady();
-            new CxxTLObject<CallProtocol>(td_bridge_obj_callStateReady_protocol(obj)).Set(this.protocol);
-            new CxxVectorObject<CallConnection>(td_bridge_obj_callStateReady_connections(obj)).Set(this.connections);
-            td_bridge_obj_callStateReady_config(obj).Set(this.config);
-            td_bridge_obj_callStateReady_encryption_key(obj).Set(this.encryption_key);
-            td_bridge_obj_callStateReady_emojis(obj).Set(this.emojis);
+            new CxxTLObject<CallProtocol>(td_bridge_obj_callStateReady_protocol(obj)).Set(this.Protocol);
+            new CxxVectorObject<CallConnection>(td_bridge_obj_callStateReady_connections(obj)).Set(this.Connections);
+            td_bridge_obj_callStateReady_config(obj).Set(this.Config);
+            td_bridge_obj_callStateReady_encryption_key(obj).Set(this.EncryptionKey);
+            td_bridge_obj_callStateReady_emojis(obj).Set(this.Emojis);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.protocol = new CxxTLObject<CallProtocol>(td_bridge_obj_callStateReady_protocol(obj)).Fetch();
-            this.connections = new CxxVectorObject<CallConnection>(td_bridge_obj_callStateReady_connections(obj)).Fetch();
-            this.config = td_bridge_obj_callStateReady_config(obj).Fetch();
-            this.encryption_key = td_bridge_obj_callStateReady_encryption_key(obj).Fetch();
-            this.emojis = td_bridge_obj_callStateReady_emojis(obj).Fetch();
+            this.Protocol = new CxxTLObject<CallProtocol>(td_bridge_obj_callStateReady_protocol(obj)).Fetch();
+            this.Connections = new CxxVectorObject<CallConnection>(td_bridge_obj_callStateReady_connections(obj)).Fetch();
+            this.Config = td_bridge_obj_callStateReady_config(obj).Fetch();
+            this.EncryptionKey = td_bridge_obj_callStateReady_encryption_key(obj).Fetch();
+            this.Emojis = td_bridge_obj_callStateReady_emojis(obj).Fetch();
         }
     }
 
@@ -9785,16 +9785,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callStateDiscarded();
-            new CxxTLObject<CallDiscardReason>(td_bridge_obj_callStateDiscarded_reason(obj)).Set(this.reason);
-            td_bridge_obj_callStateDiscarded_need_rating(obj).Set(this.need_rating);
-            td_bridge_obj_callStateDiscarded_need_debug_information(obj).Set(this.need_debug_information);
+            new CxxTLObject<CallDiscardReason>(td_bridge_obj_callStateDiscarded_reason(obj)).Set(this.Reason);
+            td_bridge_obj_callStateDiscarded_need_rating(obj).Set(this.NeedRating);
+            td_bridge_obj_callStateDiscarded_need_debug_information(obj).Set(this.NeedDebugInformation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.reason = new CxxTLObject<CallDiscardReason>(td_bridge_obj_callStateDiscarded_reason(obj)).Fetch();
-            this.need_rating = td_bridge_obj_callStateDiscarded_need_rating(obj).Fetch();
-            this.need_debug_information = td_bridge_obj_callStateDiscarded_need_debug_information(obj).Fetch();
+            this.Reason = new CxxTLObject<CallDiscardReason>(td_bridge_obj_callStateDiscarded_reason(obj)).Fetch();
+            this.NeedRating = td_bridge_obj_callStateDiscarded_need_rating(obj).Fetch();
+            this.NeedDebugInformation = td_bridge_obj_callStateDiscarded_need_debug_information(obj).Fetch();
         }
     }
 
@@ -9810,12 +9810,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callStateError();
-            new CxxTLObject<Error>(td_bridge_obj_callStateError_error(obj)).Set(this.error);
+            new CxxTLObject<Error>(td_bridge_obj_callStateError_error(obj)).Set(this.Error);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.error = new CxxTLObject<Error>(td_bridge_obj_callStateError_error(obj)).Fetch();
+            this.Error = new CxxTLObject<Error>(td_bridge_obj_callStateError_error(obj)).Fetch();
         }
     }
 
@@ -9840,18 +9840,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_call();
-            td_bridge_obj_call_id(obj).Set(this.id);
-            td_bridge_obj_call_user_id(obj).Set(this.user_id);
-            td_bridge_obj_call_is_outgoing(obj).Set(this.is_outgoing);
-            new CxxTLObject<CallState>(td_bridge_obj_call_state(obj)).Set(this.state);
+            td_bridge_obj_call_id(obj).Set(this.Id);
+            td_bridge_obj_call_user_id(obj).Set(this.UserId);
+            td_bridge_obj_call_is_outgoing(obj).Set(this.IsOutgoing);
+            new CxxTLObject<CallState>(td_bridge_obj_call_state(obj)).Set(this.State);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_call_id(obj).Fetch();
-            this.user_id = td_bridge_obj_call_user_id(obj).Fetch();
-            this.is_outgoing = td_bridge_obj_call_is_outgoing(obj).Fetch();
-            this.state = new CxxTLObject<CallState>(td_bridge_obj_call_state(obj)).Fetch();
+            this.Id = td_bridge_obj_call_id(obj).Fetch();
+            this.UserId = td_bridge_obj_call_user_id(obj).Fetch();
+            this.IsOutgoing = td_bridge_obj_call_is_outgoing(obj).Fetch();
+            this.State = new CxxTLObject<CallState>(td_bridge_obj_call_state(obj)).Fetch();
         }
     }
 
@@ -9867,12 +9867,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_animations();
-            new CxxVectorObject<Animation>(td_bridge_obj_animations_animations(obj)).Set(this.animations);
+            new CxxVectorObject<Animation>(td_bridge_obj_animations_animations(obj)).Set(this.Animations_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.animations = new CxxVectorObject<Animation>(td_bridge_obj_animations_animations(obj)).Fetch();
+            this.Animations_ = new CxxVectorObject<Animation>(td_bridge_obj_animations_animations(obj)).Fetch();
         }
     }
 
@@ -9891,14 +9891,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_importedContacts();
-            td_bridge_obj_importedContacts_user_ids(obj).Set(this.user_ids);
-            td_bridge_obj_importedContacts_importer_count(obj).Set(this.importer_count);
+            td_bridge_obj_importedContacts_user_ids(obj).Set(this.UserIds);
+            td_bridge_obj_importedContacts_importer_count(obj).Set(this.ImporterCount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_ids = td_bridge_obj_importedContacts_user_ids(obj).Fetch();
-            this.importer_count = td_bridge_obj_importedContacts_importer_count(obj).Fetch();
+            this.UserIds = td_bridge_obj_importedContacts_user_ids(obj).Fetch();
+            this.ImporterCount = td_bridge_obj_importedContacts_importer_count(obj).Fetch();
         }
     }
 
@@ -9938,28 +9938,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultAnimatedGif();
-            td_bridge_obj_inputInlineQueryResultAnimatedGif_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultAnimatedGif_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultAnimatedGif_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_url(obj).Set(this.gif_url);
-            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_duration(obj).Set(this.gif_duration);
-            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_width(obj).Set(this.gif_width);
-            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_height(obj).Set(this.gif_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedGif_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedGif_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultAnimatedGif_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultAnimatedGif_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultAnimatedGif_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_url(obj).Set(this.GifUrl);
+            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_duration(obj).Set(this.GifDuration);
+            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_width(obj).Set(this.GifWidth);
+            td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_height(obj).Set(this.GifHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedGif_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedGif_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultAnimatedGif_id(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultAnimatedGif_title(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultAnimatedGif_thumbnail_url(obj).Fetch();
-            this.gif_url = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_url(obj).Fetch();
-            this.gif_duration = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_duration(obj).Fetch();
-            this.gif_width = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_width(obj).Fetch();
-            this.gif_height = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedGif_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedGif_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultAnimatedGif_id(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultAnimatedGif_title(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultAnimatedGif_thumbnail_url(obj).Fetch();
+            this.GifUrl = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_url(obj).Fetch();
+            this.GifDuration = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_duration(obj).Fetch();
+            this.GifWidth = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_width(obj).Fetch();
+            this.GifHeight = td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedGif_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedGif_input_message_content(obj)).Fetch();
         }
     }
 
@@ -9999,28 +9999,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultAnimatedMpeg4();
-            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_url(obj).Set(this.mpeg4_url);
-            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_duration(obj).Set(this.mpeg4_duration);
-            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_width(obj).Set(this.mpeg4_width);
-            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_height(obj).Set(this.mpeg4_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_url(obj).Set(this.Mpeg4Url);
+            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_duration(obj).Set(this.Mpeg4Duration);
+            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_width(obj).Set(this.Mpeg4Width);
+            td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_height(obj).Set(this.Mpeg4Height);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_id(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_title(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_thumbnail_url(obj).Fetch();
-            this.mpeg4_url = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_url(obj).Fetch();
-            this.mpeg4_duration = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_duration(obj).Fetch();
-            this.mpeg4_width = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_width(obj).Fetch();
-            this.mpeg4_height = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_id(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_title(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_thumbnail_url(obj).Fetch();
+            this.Mpeg4Url = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_url(obj).Fetch();
+            this.Mpeg4Duration = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_duration(obj).Fetch();
+            this.Mpeg4Width = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_width(obj).Fetch();
+            this.Mpeg4Height = td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10063,30 +10063,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultArticle();
-            td_bridge_obj_inputInlineQueryResultArticle_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultArticle_url(obj).Set(this.url);
-            td_bridge_obj_inputInlineQueryResultArticle_hide_url(obj).Set(this.hide_url);
-            td_bridge_obj_inputInlineQueryResultArticle_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultArticle_description(obj).Set(this.description);
-            td_bridge_obj_inputInlineQueryResultArticle_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultArticle_thumbnail_width(obj).Set(this.thumbnail_width);
-            td_bridge_obj_inputInlineQueryResultArticle_thumbnail_height(obj).Set(this.thumbnail_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultArticle_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultArticle_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultArticle_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultArticle_url(obj).Set(this.Url);
+            td_bridge_obj_inputInlineQueryResultArticle_hide_url(obj).Set(this.HideUrl);
+            td_bridge_obj_inputInlineQueryResultArticle_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultArticle_description(obj).Set(this.Description);
+            td_bridge_obj_inputInlineQueryResultArticle_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultArticle_thumbnail_width(obj).Set(this.ThumbnailWidth);
+            td_bridge_obj_inputInlineQueryResultArticle_thumbnail_height(obj).Set(this.ThumbnailHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultArticle_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultArticle_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultArticle_id(obj).Fetch();
-            this.url = td_bridge_obj_inputInlineQueryResultArticle_url(obj).Fetch();
-            this.hide_url = td_bridge_obj_inputInlineQueryResultArticle_hide_url(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultArticle_title(obj).Fetch();
-            this.description = td_bridge_obj_inputInlineQueryResultArticle_description(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultArticle_thumbnail_url(obj).Fetch();
-            this.thumbnail_width = td_bridge_obj_inputInlineQueryResultArticle_thumbnail_width(obj).Fetch();
-            this.thumbnail_height = td_bridge_obj_inputInlineQueryResultArticle_thumbnail_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultArticle_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultArticle_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultArticle_id(obj).Fetch();
+            this.Url = td_bridge_obj_inputInlineQueryResultArticle_url(obj).Fetch();
+            this.HideUrl = td_bridge_obj_inputInlineQueryResultArticle_hide_url(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultArticle_title(obj).Fetch();
+            this.Description = td_bridge_obj_inputInlineQueryResultArticle_description(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultArticle_thumbnail_url(obj).Fetch();
+            this.ThumbnailWidth = td_bridge_obj_inputInlineQueryResultArticle_thumbnail_width(obj).Fetch();
+            this.ThumbnailHeight = td_bridge_obj_inputInlineQueryResultArticle_thumbnail_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultArticle_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultArticle_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10120,24 +10120,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultAudio();
-            td_bridge_obj_inputInlineQueryResultAudio_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultAudio_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultAudio_performer(obj).Set(this.performer);
-            td_bridge_obj_inputInlineQueryResultAudio_audio_url(obj).Set(this.audio_url);
-            td_bridge_obj_inputInlineQueryResultAudio_audio_duration(obj).Set(this.audio_duration);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAudio_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAudio_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultAudio_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultAudio_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultAudio_performer(obj).Set(this.Performer);
+            td_bridge_obj_inputInlineQueryResultAudio_audio_url(obj).Set(this.AudioUrl);
+            td_bridge_obj_inputInlineQueryResultAudio_audio_duration(obj).Set(this.AudioDuration);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAudio_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAudio_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultAudio_id(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultAudio_title(obj).Fetch();
-            this.performer = td_bridge_obj_inputInlineQueryResultAudio_performer(obj).Fetch();
-            this.audio_url = td_bridge_obj_inputInlineQueryResultAudio_audio_url(obj).Fetch();
-            this.audio_duration = td_bridge_obj_inputInlineQueryResultAudio_audio_duration(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAudio_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAudio_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultAudio_id(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultAudio_title(obj).Fetch();
+            this.Performer = td_bridge_obj_inputInlineQueryResultAudio_performer(obj).Fetch();
+            this.AudioUrl = td_bridge_obj_inputInlineQueryResultAudio_audio_url(obj).Fetch();
+            this.AudioDuration = td_bridge_obj_inputInlineQueryResultAudio_audio_duration(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultAudio_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultAudio_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10171,24 +10171,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultContact();
-            td_bridge_obj_inputInlineQueryResultContact_id(obj).Set(this.id);
-            new CxxTLObject<Contact>(td_bridge_obj_inputInlineQueryResultContact_contact(obj)).Set(this.contact);
-            td_bridge_obj_inputInlineQueryResultContact_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultContact_thumbnail_width(obj).Set(this.thumbnail_width);
-            td_bridge_obj_inputInlineQueryResultContact_thumbnail_height(obj).Set(this.thumbnail_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultContact_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultContact_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultContact_id(obj).Set(this.Id);
+            new CxxTLObject<Contact>(td_bridge_obj_inputInlineQueryResultContact_contact(obj)).Set(this.Contact);
+            td_bridge_obj_inputInlineQueryResultContact_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultContact_thumbnail_width(obj).Set(this.ThumbnailWidth);
+            td_bridge_obj_inputInlineQueryResultContact_thumbnail_height(obj).Set(this.ThumbnailHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultContact_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultContact_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultContact_id(obj).Fetch();
-            this.contact = new CxxTLObject<Contact>(td_bridge_obj_inputInlineQueryResultContact_contact(obj)).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultContact_thumbnail_url(obj).Fetch();
-            this.thumbnail_width = td_bridge_obj_inputInlineQueryResultContact_thumbnail_width(obj).Fetch();
-            this.thumbnail_height = td_bridge_obj_inputInlineQueryResultContact_thumbnail_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultContact_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultContact_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultContact_id(obj).Fetch();
+            this.Contact = new CxxTLObject<Contact>(td_bridge_obj_inputInlineQueryResultContact_contact(obj)).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultContact_thumbnail_url(obj).Fetch();
+            this.ThumbnailWidth = td_bridge_obj_inputInlineQueryResultContact_thumbnail_width(obj).Fetch();
+            this.ThumbnailHeight = td_bridge_obj_inputInlineQueryResultContact_thumbnail_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultContact_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultContact_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10231,30 +10231,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultDocument();
-            td_bridge_obj_inputInlineQueryResultDocument_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultDocument_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultDocument_description(obj).Set(this.description);
-            td_bridge_obj_inputInlineQueryResultDocument_document_url(obj).Set(this.document_url);
-            td_bridge_obj_inputInlineQueryResultDocument_mime_type(obj).Set(this.mime_type);
-            td_bridge_obj_inputInlineQueryResultDocument_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultDocument_thumbnail_width(obj).Set(this.thumbnail_width);
-            td_bridge_obj_inputInlineQueryResultDocument_thumbnail_height(obj).Set(this.thumbnail_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultDocument_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultDocument_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultDocument_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultDocument_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultDocument_description(obj).Set(this.Description);
+            td_bridge_obj_inputInlineQueryResultDocument_document_url(obj).Set(this.DocumentUrl);
+            td_bridge_obj_inputInlineQueryResultDocument_mime_type(obj).Set(this.MimeType);
+            td_bridge_obj_inputInlineQueryResultDocument_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultDocument_thumbnail_width(obj).Set(this.ThumbnailWidth);
+            td_bridge_obj_inputInlineQueryResultDocument_thumbnail_height(obj).Set(this.ThumbnailHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultDocument_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultDocument_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultDocument_id(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultDocument_title(obj).Fetch();
-            this.description = td_bridge_obj_inputInlineQueryResultDocument_description(obj).Fetch();
-            this.document_url = td_bridge_obj_inputInlineQueryResultDocument_document_url(obj).Fetch();
-            this.mime_type = td_bridge_obj_inputInlineQueryResultDocument_mime_type(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultDocument_thumbnail_url(obj).Fetch();
-            this.thumbnail_width = td_bridge_obj_inputInlineQueryResultDocument_thumbnail_width(obj).Fetch();
-            this.thumbnail_height = td_bridge_obj_inputInlineQueryResultDocument_thumbnail_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultDocument_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultDocument_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultDocument_id(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultDocument_title(obj).Fetch();
+            this.Description = td_bridge_obj_inputInlineQueryResultDocument_description(obj).Fetch();
+            this.DocumentUrl = td_bridge_obj_inputInlineQueryResultDocument_document_url(obj).Fetch();
+            this.MimeType = td_bridge_obj_inputInlineQueryResultDocument_mime_type(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultDocument_thumbnail_url(obj).Fetch();
+            this.ThumbnailWidth = td_bridge_obj_inputInlineQueryResultDocument_thumbnail_width(obj).Fetch();
+            this.ThumbnailHeight = td_bridge_obj_inputInlineQueryResultDocument_thumbnail_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultDocument_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultDocument_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10276,16 +10276,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultGame();
-            td_bridge_obj_inputInlineQueryResultGame_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultGame_game_short_name(obj).Set(this.game_short_name);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultGame_reply_markup(obj)).Set(this.reply_markup);
+            td_bridge_obj_inputInlineQueryResultGame_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultGame_game_short_name(obj).Set(this.GameShortName);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultGame_reply_markup(obj)).Set(this.ReplyMarkup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultGame_id(obj).Fetch();
-            this.game_short_name = td_bridge_obj_inputInlineQueryResultGame_game_short_name(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultGame_reply_markup(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultGame_id(obj).Fetch();
+            this.GameShortName = td_bridge_obj_inputInlineQueryResultGame_game_short_name(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultGame_reply_markup(obj)).Fetch();
         }
     }
 
@@ -10325,28 +10325,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultLocation();
-            td_bridge_obj_inputInlineQueryResultLocation_id(obj).Set(this.id);
-            new CxxTLObject<Location>(td_bridge_obj_inputInlineQueryResultLocation_location(obj)).Set(this.location);
-            td_bridge_obj_inputInlineQueryResultLocation_live_period(obj).Set(this.live_period);
-            td_bridge_obj_inputInlineQueryResultLocation_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultLocation_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultLocation_thumbnail_width(obj).Set(this.thumbnail_width);
-            td_bridge_obj_inputInlineQueryResultLocation_thumbnail_height(obj).Set(this.thumbnail_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultLocation_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultLocation_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultLocation_id(obj).Set(this.Id);
+            new CxxTLObject<Location>(td_bridge_obj_inputInlineQueryResultLocation_location(obj)).Set(this.Location);
+            td_bridge_obj_inputInlineQueryResultLocation_live_period(obj).Set(this.LivePeriod);
+            td_bridge_obj_inputInlineQueryResultLocation_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultLocation_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultLocation_thumbnail_width(obj).Set(this.ThumbnailWidth);
+            td_bridge_obj_inputInlineQueryResultLocation_thumbnail_height(obj).Set(this.ThumbnailHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultLocation_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultLocation_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultLocation_id(obj).Fetch();
-            this.location = new CxxTLObject<Location>(td_bridge_obj_inputInlineQueryResultLocation_location(obj)).Fetch();
-            this.live_period = td_bridge_obj_inputInlineQueryResultLocation_live_period(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultLocation_title(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultLocation_thumbnail_url(obj).Fetch();
-            this.thumbnail_width = td_bridge_obj_inputInlineQueryResultLocation_thumbnail_width(obj).Fetch();
-            this.thumbnail_height = td_bridge_obj_inputInlineQueryResultLocation_thumbnail_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultLocation_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultLocation_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultLocation_id(obj).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_inputInlineQueryResultLocation_location(obj)).Fetch();
+            this.LivePeriod = td_bridge_obj_inputInlineQueryResultLocation_live_period(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultLocation_title(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultLocation_thumbnail_url(obj).Fetch();
+            this.ThumbnailWidth = td_bridge_obj_inputInlineQueryResultLocation_thumbnail_width(obj).Fetch();
+            this.ThumbnailHeight = td_bridge_obj_inputInlineQueryResultLocation_thumbnail_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultLocation_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultLocation_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10386,28 +10386,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultPhoto();
-            td_bridge_obj_inputInlineQueryResultPhoto_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultPhoto_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultPhoto_description(obj).Set(this.description);
-            td_bridge_obj_inputInlineQueryResultPhoto_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultPhoto_photo_url(obj).Set(this.photo_url);
-            td_bridge_obj_inputInlineQueryResultPhoto_photo_width(obj).Set(this.photo_width);
-            td_bridge_obj_inputInlineQueryResultPhoto_photo_height(obj).Set(this.photo_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultPhoto_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultPhoto_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultPhoto_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultPhoto_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultPhoto_description(obj).Set(this.Description);
+            td_bridge_obj_inputInlineQueryResultPhoto_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultPhoto_photo_url(obj).Set(this.PhotoUrl);
+            td_bridge_obj_inputInlineQueryResultPhoto_photo_width(obj).Set(this.PhotoWidth);
+            td_bridge_obj_inputInlineQueryResultPhoto_photo_height(obj).Set(this.PhotoHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultPhoto_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultPhoto_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultPhoto_id(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultPhoto_title(obj).Fetch();
-            this.description = td_bridge_obj_inputInlineQueryResultPhoto_description(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultPhoto_thumbnail_url(obj).Fetch();
-            this.photo_url = td_bridge_obj_inputInlineQueryResultPhoto_photo_url(obj).Fetch();
-            this.photo_width = td_bridge_obj_inputInlineQueryResultPhoto_photo_width(obj).Fetch();
-            this.photo_height = td_bridge_obj_inputInlineQueryResultPhoto_photo_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultPhoto_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultPhoto_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultPhoto_id(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultPhoto_title(obj).Fetch();
+            this.Description = td_bridge_obj_inputInlineQueryResultPhoto_description(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultPhoto_thumbnail_url(obj).Fetch();
+            this.PhotoUrl = td_bridge_obj_inputInlineQueryResultPhoto_photo_url(obj).Fetch();
+            this.PhotoWidth = td_bridge_obj_inputInlineQueryResultPhoto_photo_width(obj).Fetch();
+            this.PhotoHeight = td_bridge_obj_inputInlineQueryResultPhoto_photo_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultPhoto_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultPhoto_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10441,24 +10441,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultSticker();
-            td_bridge_obj_inputInlineQueryResultSticker_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultSticker_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultSticker_sticker_url(obj).Set(this.sticker_url);
-            td_bridge_obj_inputInlineQueryResultSticker_sticker_width(obj).Set(this.sticker_width);
-            td_bridge_obj_inputInlineQueryResultSticker_sticker_height(obj).Set(this.sticker_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultSticker_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultSticker_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultSticker_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultSticker_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultSticker_sticker_url(obj).Set(this.StickerUrl);
+            td_bridge_obj_inputInlineQueryResultSticker_sticker_width(obj).Set(this.StickerWidth);
+            td_bridge_obj_inputInlineQueryResultSticker_sticker_height(obj).Set(this.StickerHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultSticker_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultSticker_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultSticker_id(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultSticker_thumbnail_url(obj).Fetch();
-            this.sticker_url = td_bridge_obj_inputInlineQueryResultSticker_sticker_url(obj).Fetch();
-            this.sticker_width = td_bridge_obj_inputInlineQueryResultSticker_sticker_width(obj).Fetch();
-            this.sticker_height = td_bridge_obj_inputInlineQueryResultSticker_sticker_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultSticker_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultSticker_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultSticker_id(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultSticker_thumbnail_url(obj).Fetch();
+            this.StickerUrl = td_bridge_obj_inputInlineQueryResultSticker_sticker_url(obj).Fetch();
+            this.StickerWidth = td_bridge_obj_inputInlineQueryResultSticker_sticker_width(obj).Fetch();
+            this.StickerHeight = td_bridge_obj_inputInlineQueryResultSticker_sticker_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultSticker_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultSticker_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10492,24 +10492,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultVenue();
-            td_bridge_obj_inputInlineQueryResultVenue_id(obj).Set(this.id);
-            new CxxTLObject<Venue>(td_bridge_obj_inputInlineQueryResultVenue_venue(obj)).Set(this.venue);
-            td_bridge_obj_inputInlineQueryResultVenue_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultVenue_thumbnail_width(obj).Set(this.thumbnail_width);
-            td_bridge_obj_inputInlineQueryResultVenue_thumbnail_height(obj).Set(this.thumbnail_height);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVenue_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVenue_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultVenue_id(obj).Set(this.Id);
+            new CxxTLObject<Venue>(td_bridge_obj_inputInlineQueryResultVenue_venue(obj)).Set(this.Venue);
+            td_bridge_obj_inputInlineQueryResultVenue_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultVenue_thumbnail_width(obj).Set(this.ThumbnailWidth);
+            td_bridge_obj_inputInlineQueryResultVenue_thumbnail_height(obj).Set(this.ThumbnailHeight);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVenue_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVenue_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultVenue_id(obj).Fetch();
-            this.venue = new CxxTLObject<Venue>(td_bridge_obj_inputInlineQueryResultVenue_venue(obj)).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultVenue_thumbnail_url(obj).Fetch();
-            this.thumbnail_width = td_bridge_obj_inputInlineQueryResultVenue_thumbnail_width(obj).Fetch();
-            this.thumbnail_height = td_bridge_obj_inputInlineQueryResultVenue_thumbnail_height(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVenue_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVenue_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultVenue_id(obj).Fetch();
+            this.Venue = new CxxTLObject<Venue>(td_bridge_obj_inputInlineQueryResultVenue_venue(obj)).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultVenue_thumbnail_url(obj).Fetch();
+            this.ThumbnailWidth = td_bridge_obj_inputInlineQueryResultVenue_thumbnail_width(obj).Fetch();
+            this.ThumbnailHeight = td_bridge_obj_inputInlineQueryResultVenue_thumbnail_height(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVenue_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVenue_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10555,32 +10555,32 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultVideo();
-            td_bridge_obj_inputInlineQueryResultVideo_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultVideo_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultVideo_description(obj).Set(this.description);
-            td_bridge_obj_inputInlineQueryResultVideo_thumbnail_url(obj).Set(this.thumbnail_url);
-            td_bridge_obj_inputInlineQueryResultVideo_video_url(obj).Set(this.video_url);
-            td_bridge_obj_inputInlineQueryResultVideo_mime_type(obj).Set(this.mime_type);
-            td_bridge_obj_inputInlineQueryResultVideo_video_width(obj).Set(this.video_width);
-            td_bridge_obj_inputInlineQueryResultVideo_video_height(obj).Set(this.video_height);
-            td_bridge_obj_inputInlineQueryResultVideo_video_duration(obj).Set(this.video_duration);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVideo_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVideo_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultVideo_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultVideo_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultVideo_description(obj).Set(this.Description);
+            td_bridge_obj_inputInlineQueryResultVideo_thumbnail_url(obj).Set(this.ThumbnailUrl);
+            td_bridge_obj_inputInlineQueryResultVideo_video_url(obj).Set(this.VideoUrl);
+            td_bridge_obj_inputInlineQueryResultVideo_mime_type(obj).Set(this.MimeType);
+            td_bridge_obj_inputInlineQueryResultVideo_video_width(obj).Set(this.VideoWidth);
+            td_bridge_obj_inputInlineQueryResultVideo_video_height(obj).Set(this.VideoHeight);
+            td_bridge_obj_inputInlineQueryResultVideo_video_duration(obj).Set(this.VideoDuration);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVideo_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVideo_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultVideo_id(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultVideo_title(obj).Fetch();
-            this.description = td_bridge_obj_inputInlineQueryResultVideo_description(obj).Fetch();
-            this.thumbnail_url = td_bridge_obj_inputInlineQueryResultVideo_thumbnail_url(obj).Fetch();
-            this.video_url = td_bridge_obj_inputInlineQueryResultVideo_video_url(obj).Fetch();
-            this.mime_type = td_bridge_obj_inputInlineQueryResultVideo_mime_type(obj).Fetch();
-            this.video_width = td_bridge_obj_inputInlineQueryResultVideo_video_width(obj).Fetch();
-            this.video_height = td_bridge_obj_inputInlineQueryResultVideo_video_height(obj).Fetch();
-            this.video_duration = td_bridge_obj_inputInlineQueryResultVideo_video_duration(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVideo_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVideo_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultVideo_id(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultVideo_title(obj).Fetch();
+            this.Description = td_bridge_obj_inputInlineQueryResultVideo_description(obj).Fetch();
+            this.ThumbnailUrl = td_bridge_obj_inputInlineQueryResultVideo_thumbnail_url(obj).Fetch();
+            this.VideoUrl = td_bridge_obj_inputInlineQueryResultVideo_video_url(obj).Fetch();
+            this.MimeType = td_bridge_obj_inputInlineQueryResultVideo_mime_type(obj).Fetch();
+            this.VideoWidth = td_bridge_obj_inputInlineQueryResultVideo_video_width(obj).Fetch();
+            this.VideoHeight = td_bridge_obj_inputInlineQueryResultVideo_video_height(obj).Fetch();
+            this.VideoDuration = td_bridge_obj_inputInlineQueryResultVideo_video_duration(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVideo_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVideo_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10611,22 +10611,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputInlineQueryResultVoiceNote();
-            td_bridge_obj_inputInlineQueryResultVoiceNote_id(obj).Set(this.id);
-            td_bridge_obj_inputInlineQueryResultVoiceNote_title(obj).Set(this.title);
-            td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_url(obj).Set(this.voice_note_url);
-            td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_duration(obj).Set(this.voice_note_duration);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVoiceNote_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVoiceNote_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_inputInlineQueryResultVoiceNote_id(obj).Set(this.Id);
+            td_bridge_obj_inputInlineQueryResultVoiceNote_title(obj).Set(this.Title);
+            td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_url(obj).Set(this.VoiceNoteUrl);
+            td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_duration(obj).Set(this.VoiceNoteDuration);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVoiceNote_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVoiceNote_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inputInlineQueryResultVoiceNote_id(obj).Fetch();
-            this.title = td_bridge_obj_inputInlineQueryResultVoiceNote_title(obj).Fetch();
-            this.voice_note_url = td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_url(obj).Fetch();
-            this.voice_note_duration = td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_duration(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVoiceNote_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVoiceNote_input_message_content(obj)).Fetch();
+            this.Id = td_bridge_obj_inputInlineQueryResultVoiceNote_id(obj).Fetch();
+            this.Title = td_bridge_obj_inputInlineQueryResultVoiceNote_title(obj).Fetch();
+            this.VoiceNoteUrl = td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_url(obj).Fetch();
+            this.VoiceNoteDuration = td_bridge_obj_inputInlineQueryResultVoiceNote_voice_note_duration(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_inputInlineQueryResultVoiceNote_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_inputInlineQueryResultVoiceNote_input_message_content(obj)).Fetch();
         }
     }
 
@@ -10657,22 +10657,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultArticle();
-            td_bridge_obj_inlineQueryResultArticle_id(obj).Set(this.id);
-            td_bridge_obj_inlineQueryResultArticle_url(obj).Set(this.url);
-            td_bridge_obj_inlineQueryResultArticle_hide_url(obj).Set(this.hide_url);
-            td_bridge_obj_inlineQueryResultArticle_title(obj).Set(this.title);
-            td_bridge_obj_inlineQueryResultArticle_description(obj).Set(this.description);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultArticle_thumbnail(obj)).Set(this.thumbnail);
+            td_bridge_obj_inlineQueryResultArticle_id(obj).Set(this.Id);
+            td_bridge_obj_inlineQueryResultArticle_url(obj).Set(this.Url);
+            td_bridge_obj_inlineQueryResultArticle_hide_url(obj).Set(this.HideUrl);
+            td_bridge_obj_inlineQueryResultArticle_title(obj).Set(this.Title);
+            td_bridge_obj_inlineQueryResultArticle_description(obj).Set(this.Description);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultArticle_thumbnail(obj)).Set(this.Thumbnail);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultArticle_id(obj).Fetch();
-            this.url = td_bridge_obj_inlineQueryResultArticle_url(obj).Fetch();
-            this.hide_url = td_bridge_obj_inlineQueryResultArticle_hide_url(obj).Fetch();
-            this.title = td_bridge_obj_inlineQueryResultArticle_title(obj).Fetch();
-            this.description = td_bridge_obj_inlineQueryResultArticle_description(obj).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultArticle_thumbnail(obj)).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultArticle_id(obj).Fetch();
+            this.Url = td_bridge_obj_inlineQueryResultArticle_url(obj).Fetch();
+            this.HideUrl = td_bridge_obj_inlineQueryResultArticle_hide_url(obj).Fetch();
+            this.Title = td_bridge_obj_inlineQueryResultArticle_title(obj).Fetch();
+            this.Description = td_bridge_obj_inlineQueryResultArticle_description(obj).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultArticle_thumbnail(obj)).Fetch();
         }
     }
 
@@ -10694,16 +10694,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultContact();
-            td_bridge_obj_inlineQueryResultContact_id(obj).Set(this.id);
-            new CxxTLObject<Contact>(td_bridge_obj_inlineQueryResultContact_contact(obj)).Set(this.contact);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultContact_thumbnail(obj)).Set(this.thumbnail);
+            td_bridge_obj_inlineQueryResultContact_id(obj).Set(this.Id);
+            new CxxTLObject<Contact>(td_bridge_obj_inlineQueryResultContact_contact(obj)).Set(this.Contact);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultContact_thumbnail(obj)).Set(this.Thumbnail);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultContact_id(obj).Fetch();
-            this.contact = new CxxTLObject<Contact>(td_bridge_obj_inlineQueryResultContact_contact(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultContact_thumbnail(obj)).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultContact_id(obj).Fetch();
+            this.Contact = new CxxTLObject<Contact>(td_bridge_obj_inlineQueryResultContact_contact(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultContact_thumbnail(obj)).Fetch();
         }
     }
 
@@ -10728,18 +10728,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultLocation();
-            td_bridge_obj_inlineQueryResultLocation_id(obj).Set(this.id);
-            new CxxTLObject<Location>(td_bridge_obj_inlineQueryResultLocation_location(obj)).Set(this.location);
-            td_bridge_obj_inlineQueryResultLocation_title(obj).Set(this.title);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultLocation_thumbnail(obj)).Set(this.thumbnail);
+            td_bridge_obj_inlineQueryResultLocation_id(obj).Set(this.Id);
+            new CxxTLObject<Location>(td_bridge_obj_inlineQueryResultLocation_location(obj)).Set(this.Location);
+            td_bridge_obj_inlineQueryResultLocation_title(obj).Set(this.Title);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultLocation_thumbnail(obj)).Set(this.Thumbnail);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultLocation_id(obj).Fetch();
-            this.location = new CxxTLObject<Location>(td_bridge_obj_inlineQueryResultLocation_location(obj)).Fetch();
-            this.title = td_bridge_obj_inlineQueryResultLocation_title(obj).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultLocation_thumbnail(obj)).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultLocation_id(obj).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_inlineQueryResultLocation_location(obj)).Fetch();
+            this.Title = td_bridge_obj_inlineQueryResultLocation_title(obj).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultLocation_thumbnail(obj)).Fetch();
         }
     }
 
@@ -10761,16 +10761,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultVenue();
-            td_bridge_obj_inlineQueryResultVenue_id(obj).Set(this.id);
-            new CxxTLObject<Venue>(td_bridge_obj_inlineQueryResultVenue_venue(obj)).Set(this.venue);
-            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultVenue_thumbnail(obj)).Set(this.thumbnail);
+            td_bridge_obj_inlineQueryResultVenue_id(obj).Set(this.Id);
+            new CxxTLObject<Venue>(td_bridge_obj_inlineQueryResultVenue_venue(obj)).Set(this.Venue);
+            new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultVenue_thumbnail(obj)).Set(this.Thumbnail);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultVenue_id(obj).Fetch();
-            this.venue = new CxxTLObject<Venue>(td_bridge_obj_inlineQueryResultVenue_venue(obj)).Fetch();
-            this.thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultVenue_thumbnail(obj)).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultVenue_id(obj).Fetch();
+            this.Venue = new CxxTLObject<Venue>(td_bridge_obj_inlineQueryResultVenue_venue(obj)).Fetch();
+            this.Thumbnail = new CxxTLObject<PhotoSize>(td_bridge_obj_inlineQueryResultVenue_thumbnail(obj)).Fetch();
         }
     }
 
@@ -10789,14 +10789,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultGame();
-            td_bridge_obj_inlineQueryResultGame_id(obj).Set(this.id);
-            new CxxTLObject<Game>(td_bridge_obj_inlineQueryResultGame_game(obj)).Set(this.game);
+            td_bridge_obj_inlineQueryResultGame_id(obj).Set(this.Id);
+            new CxxTLObject<Game>(td_bridge_obj_inlineQueryResultGame_game(obj)).Set(this.Game);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultGame_id(obj).Fetch();
-            this.game = new CxxTLObject<Game>(td_bridge_obj_inlineQueryResultGame_game(obj)).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultGame_id(obj).Fetch();
+            this.Game = new CxxTLObject<Game>(td_bridge_obj_inlineQueryResultGame_game(obj)).Fetch();
         }
     }
 
@@ -10818,16 +10818,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultAnimation();
-            td_bridge_obj_inlineQueryResultAnimation_id(obj).Set(this.id);
-            new CxxTLObject<Animation>(td_bridge_obj_inlineQueryResultAnimation_animation(obj)).Set(this.animation);
-            td_bridge_obj_inlineQueryResultAnimation_title(obj).Set(this.title);
+            td_bridge_obj_inlineQueryResultAnimation_id(obj).Set(this.Id);
+            new CxxTLObject<Animation>(td_bridge_obj_inlineQueryResultAnimation_animation(obj)).Set(this.Animation);
+            td_bridge_obj_inlineQueryResultAnimation_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultAnimation_id(obj).Fetch();
-            this.animation = new CxxTLObject<Animation>(td_bridge_obj_inlineQueryResultAnimation_animation(obj)).Fetch();
-            this.title = td_bridge_obj_inlineQueryResultAnimation_title(obj).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultAnimation_id(obj).Fetch();
+            this.Animation = new CxxTLObject<Animation>(td_bridge_obj_inlineQueryResultAnimation_animation(obj)).Fetch();
+            this.Title = td_bridge_obj_inlineQueryResultAnimation_title(obj).Fetch();
         }
     }
 
@@ -10846,14 +10846,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultAudio();
-            td_bridge_obj_inlineQueryResultAudio_id(obj).Set(this.id);
-            new CxxTLObject<Audio>(td_bridge_obj_inlineQueryResultAudio_audio(obj)).Set(this.audio);
+            td_bridge_obj_inlineQueryResultAudio_id(obj).Set(this.Id);
+            new CxxTLObject<Audio>(td_bridge_obj_inlineQueryResultAudio_audio(obj)).Set(this.Audio);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultAudio_id(obj).Fetch();
-            this.audio = new CxxTLObject<Audio>(td_bridge_obj_inlineQueryResultAudio_audio(obj)).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultAudio_id(obj).Fetch();
+            this.Audio = new CxxTLObject<Audio>(td_bridge_obj_inlineQueryResultAudio_audio(obj)).Fetch();
         }
     }
 
@@ -10878,18 +10878,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultDocument();
-            td_bridge_obj_inlineQueryResultDocument_id(obj).Set(this.id);
-            new CxxTLObject<Document>(td_bridge_obj_inlineQueryResultDocument_document(obj)).Set(this.document);
-            td_bridge_obj_inlineQueryResultDocument_title(obj).Set(this.title);
-            td_bridge_obj_inlineQueryResultDocument_description(obj).Set(this.description);
+            td_bridge_obj_inlineQueryResultDocument_id(obj).Set(this.Id);
+            new CxxTLObject<Document>(td_bridge_obj_inlineQueryResultDocument_document(obj)).Set(this.Document);
+            td_bridge_obj_inlineQueryResultDocument_title(obj).Set(this.Title);
+            td_bridge_obj_inlineQueryResultDocument_description(obj).Set(this.Description);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultDocument_id(obj).Fetch();
-            this.document = new CxxTLObject<Document>(td_bridge_obj_inlineQueryResultDocument_document(obj)).Fetch();
-            this.title = td_bridge_obj_inlineQueryResultDocument_title(obj).Fetch();
-            this.description = td_bridge_obj_inlineQueryResultDocument_description(obj).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultDocument_id(obj).Fetch();
+            this.Document = new CxxTLObject<Document>(td_bridge_obj_inlineQueryResultDocument_document(obj)).Fetch();
+            this.Title = td_bridge_obj_inlineQueryResultDocument_title(obj).Fetch();
+            this.Description = td_bridge_obj_inlineQueryResultDocument_description(obj).Fetch();
         }
     }
 
@@ -10914,18 +10914,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultPhoto();
-            td_bridge_obj_inlineQueryResultPhoto_id(obj).Set(this.id);
-            new CxxTLObject<Photo>(td_bridge_obj_inlineQueryResultPhoto_photo(obj)).Set(this.photo);
-            td_bridge_obj_inlineQueryResultPhoto_title(obj).Set(this.title);
-            td_bridge_obj_inlineQueryResultPhoto_description(obj).Set(this.description);
+            td_bridge_obj_inlineQueryResultPhoto_id(obj).Set(this.Id);
+            new CxxTLObject<Photo>(td_bridge_obj_inlineQueryResultPhoto_photo(obj)).Set(this.Photo);
+            td_bridge_obj_inlineQueryResultPhoto_title(obj).Set(this.Title);
+            td_bridge_obj_inlineQueryResultPhoto_description(obj).Set(this.Description);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultPhoto_id(obj).Fetch();
-            this.photo = new CxxTLObject<Photo>(td_bridge_obj_inlineQueryResultPhoto_photo(obj)).Fetch();
-            this.title = td_bridge_obj_inlineQueryResultPhoto_title(obj).Fetch();
-            this.description = td_bridge_obj_inlineQueryResultPhoto_description(obj).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultPhoto_id(obj).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_inlineQueryResultPhoto_photo(obj)).Fetch();
+            this.Title = td_bridge_obj_inlineQueryResultPhoto_title(obj).Fetch();
+            this.Description = td_bridge_obj_inlineQueryResultPhoto_description(obj).Fetch();
         }
     }
 
@@ -10944,14 +10944,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultSticker();
-            td_bridge_obj_inlineQueryResultSticker_id(obj).Set(this.id);
-            new CxxTLObject<Sticker>(td_bridge_obj_inlineQueryResultSticker_sticker(obj)).Set(this.sticker);
+            td_bridge_obj_inlineQueryResultSticker_id(obj).Set(this.Id);
+            new CxxTLObject<Sticker>(td_bridge_obj_inlineQueryResultSticker_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultSticker_id(obj).Fetch();
-            this.sticker = new CxxTLObject<Sticker>(td_bridge_obj_inlineQueryResultSticker_sticker(obj)).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultSticker_id(obj).Fetch();
+            this.Sticker = new CxxTLObject<Sticker>(td_bridge_obj_inlineQueryResultSticker_sticker(obj)).Fetch();
         }
     }
 
@@ -10976,18 +10976,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultVideo();
-            td_bridge_obj_inlineQueryResultVideo_id(obj).Set(this.id);
-            new CxxTLObject<Video>(td_bridge_obj_inlineQueryResultVideo_video(obj)).Set(this.video);
-            td_bridge_obj_inlineQueryResultVideo_title(obj).Set(this.title);
-            td_bridge_obj_inlineQueryResultVideo_description(obj).Set(this.description);
+            td_bridge_obj_inlineQueryResultVideo_id(obj).Set(this.Id);
+            new CxxTLObject<Video>(td_bridge_obj_inlineQueryResultVideo_video(obj)).Set(this.Video);
+            td_bridge_obj_inlineQueryResultVideo_title(obj).Set(this.Title);
+            td_bridge_obj_inlineQueryResultVideo_description(obj).Set(this.Description);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultVideo_id(obj).Fetch();
-            this.video = new CxxTLObject<Video>(td_bridge_obj_inlineQueryResultVideo_video(obj)).Fetch();
-            this.title = td_bridge_obj_inlineQueryResultVideo_title(obj).Fetch();
-            this.description = td_bridge_obj_inlineQueryResultVideo_description(obj).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultVideo_id(obj).Fetch();
+            this.Video = new CxxTLObject<Video>(td_bridge_obj_inlineQueryResultVideo_video(obj)).Fetch();
+            this.Title = td_bridge_obj_inlineQueryResultVideo_title(obj).Fetch();
+            this.Description = td_bridge_obj_inlineQueryResultVideo_description(obj).Fetch();
         }
     }
 
@@ -11009,16 +11009,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResultVoiceNote();
-            td_bridge_obj_inlineQueryResultVoiceNote_id(obj).Set(this.id);
-            new CxxTLObject<VoiceNote>(td_bridge_obj_inlineQueryResultVoiceNote_voice_note(obj)).Set(this.voice_note);
-            td_bridge_obj_inlineQueryResultVoiceNote_title(obj).Set(this.title);
+            td_bridge_obj_inlineQueryResultVoiceNote_id(obj).Set(this.Id);
+            new CxxTLObject<VoiceNote>(td_bridge_obj_inlineQueryResultVoiceNote_voice_note(obj)).Set(this.VoiceNote);
+            td_bridge_obj_inlineQueryResultVoiceNote_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_inlineQueryResultVoiceNote_id(obj).Fetch();
-            this.voice_note = new CxxTLObject<VoiceNote>(td_bridge_obj_inlineQueryResultVoiceNote_voice_note(obj)).Fetch();
-            this.title = td_bridge_obj_inlineQueryResultVoiceNote_title(obj).Fetch();
+            this.Id = td_bridge_obj_inlineQueryResultVoiceNote_id(obj).Fetch();
+            this.VoiceNote = new CxxTLObject<VoiceNote>(td_bridge_obj_inlineQueryResultVoiceNote_voice_note(obj)).Fetch();
+            this.Title = td_bridge_obj_inlineQueryResultVoiceNote_title(obj).Fetch();
         }
     }
 
@@ -11046,20 +11046,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inlineQueryResults();
-            td_bridge_obj_inlineQueryResults_inline_query_id(obj).Set(this.inline_query_id);
-            td_bridge_obj_inlineQueryResults_next_offset(obj).Set(this.next_offset);
-            new CxxVectorObject<InlineQueryResult>(td_bridge_obj_inlineQueryResults_results(obj)).Set(this.results);
-            td_bridge_obj_inlineQueryResults_switch_pm_text(obj).Set(this.switch_pm_text);
-            td_bridge_obj_inlineQueryResults_switch_pm_parameter(obj).Set(this.switch_pm_parameter);
+            td_bridge_obj_inlineQueryResults_inline_query_id(obj).Set(this.InlineQueryId);
+            td_bridge_obj_inlineQueryResults_next_offset(obj).Set(this.NextOffset);
+            new CxxVectorObject<InlineQueryResult>(td_bridge_obj_inlineQueryResults_results(obj)).Set(this.Results);
+            td_bridge_obj_inlineQueryResults_switch_pm_text(obj).Set(this.SwitchPmText);
+            td_bridge_obj_inlineQueryResults_switch_pm_parameter(obj).Set(this.SwitchPmParameter);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_query_id = td_bridge_obj_inlineQueryResults_inline_query_id(obj).Fetch();
-            this.next_offset = td_bridge_obj_inlineQueryResults_next_offset(obj).Fetch();
-            this.results = new CxxVectorObject<InlineQueryResult>(td_bridge_obj_inlineQueryResults_results(obj)).Fetch();
-            this.switch_pm_text = td_bridge_obj_inlineQueryResults_switch_pm_text(obj).Fetch();
-            this.switch_pm_parameter = td_bridge_obj_inlineQueryResults_switch_pm_parameter(obj).Fetch();
+            this.InlineQueryId = td_bridge_obj_inlineQueryResults_inline_query_id(obj).Fetch();
+            this.NextOffset = td_bridge_obj_inlineQueryResults_next_offset(obj).Fetch();
+            this.Results = new CxxVectorObject<InlineQueryResult>(td_bridge_obj_inlineQueryResults_results(obj)).Fetch();
+            this.SwitchPmText = td_bridge_obj_inlineQueryResults_switch_pm_text(obj).Fetch();
+            this.SwitchPmParameter = td_bridge_obj_inlineQueryResults_switch_pm_parameter(obj).Fetch();
         }
     }
 
@@ -11075,12 +11075,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callbackQueryPayloadData();
-            td_bridge_obj_callbackQueryPayloadData_data(obj).Set(this.data);
+            td_bridge_obj_callbackQueryPayloadData_data(obj).Set(this.Data);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.data = td_bridge_obj_callbackQueryPayloadData_data(obj).Fetch();
+            this.Data = td_bridge_obj_callbackQueryPayloadData_data(obj).Fetch();
         }
     }
 
@@ -11096,12 +11096,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callbackQueryPayloadGame();
-            td_bridge_obj_callbackQueryPayloadGame_game_short_name(obj).Set(this.game_short_name);
+            td_bridge_obj_callbackQueryPayloadGame_game_short_name(obj).Set(this.GameShortName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.game_short_name = td_bridge_obj_callbackQueryPayloadGame_game_short_name(obj).Fetch();
+            this.GameShortName = td_bridge_obj_callbackQueryPayloadGame_game_short_name(obj).Fetch();
         }
     }
 
@@ -11123,16 +11123,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callbackQueryAnswer();
-            td_bridge_obj_callbackQueryAnswer_text(obj).Set(this.text);
-            td_bridge_obj_callbackQueryAnswer_show_alert(obj).Set(this.show_alert);
-            td_bridge_obj_callbackQueryAnswer_url(obj).Set(this.url);
+            td_bridge_obj_callbackQueryAnswer_text(obj).Set(this.Text);
+            td_bridge_obj_callbackQueryAnswer_show_alert(obj).Set(this.ShowAlert);
+            td_bridge_obj_callbackQueryAnswer_url(obj).Set(this.Url);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_callbackQueryAnswer_text(obj).Fetch();
-            this.show_alert = td_bridge_obj_callbackQueryAnswer_show_alert(obj).Fetch();
-            this.url = td_bridge_obj_callbackQueryAnswer_url(obj).Fetch();
+            this.Text = td_bridge_obj_callbackQueryAnswer_text(obj).Fetch();
+            this.ShowAlert = td_bridge_obj_callbackQueryAnswer_show_alert(obj).Fetch();
+            this.Url = td_bridge_obj_callbackQueryAnswer_url(obj).Fetch();
         }
     }
 
@@ -11148,12 +11148,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_customRequestResult();
-            td_bridge_obj_customRequestResult_result(obj).Set(this.result);
+            td_bridge_obj_customRequestResult_result(obj).Set(this.Result);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.result = td_bridge_obj_customRequestResult_result(obj).Fetch();
+            this.Result = td_bridge_obj_customRequestResult_result(obj).Fetch();
         }
     }
 
@@ -11175,16 +11175,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_gameHighScore();
-            td_bridge_obj_gameHighScore_position(obj).Set(this.position);
-            td_bridge_obj_gameHighScore_user_id(obj).Set(this.user_id);
-            td_bridge_obj_gameHighScore_score(obj).Set(this.score);
+            td_bridge_obj_gameHighScore_position(obj).Set(this.Position);
+            td_bridge_obj_gameHighScore_user_id(obj).Set(this.UserId);
+            td_bridge_obj_gameHighScore_score(obj).Set(this.Score);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.position = td_bridge_obj_gameHighScore_position(obj).Fetch();
-            this.user_id = td_bridge_obj_gameHighScore_user_id(obj).Fetch();
-            this.score = td_bridge_obj_gameHighScore_score(obj).Fetch();
+            this.Position = td_bridge_obj_gameHighScore_position(obj).Fetch();
+            this.UserId = td_bridge_obj_gameHighScore_user_id(obj).Fetch();
+            this.Score = td_bridge_obj_gameHighScore_score(obj).Fetch();
         }
     }
 
@@ -11200,12 +11200,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_gameHighScores();
-            new CxxVectorObject<GameHighScore>(td_bridge_obj_gameHighScores_scores(obj)).Set(this.scores);
+            new CxxVectorObject<GameHighScore>(td_bridge_obj_gameHighScores_scores(obj)).Set(this.Scores);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.scores = new CxxVectorObject<GameHighScore>(td_bridge_obj_gameHighScores_scores(obj)).Fetch();
+            this.Scores = new CxxVectorObject<GameHighScore>(td_bridge_obj_gameHighScores_scores(obj)).Fetch();
         }
     }
 
@@ -11224,14 +11224,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventMessageEdited();
-            new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_old_message(obj)).Set(this.old_message);
-            new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_new_message(obj)).Set(this.new_message);
+            new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_old_message(obj)).Set(this.OldMessage);
+            new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_new_message(obj)).Set(this.NewMessage);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.old_message = new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_old_message(obj)).Fetch();
-            this.new_message = new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_new_message(obj)).Fetch();
+            this.OldMessage = new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_old_message(obj)).Fetch();
+            this.NewMessage = new CxxTLObject<Message>(td_bridge_obj_chatEventMessageEdited_new_message(obj)).Fetch();
         }
     }
 
@@ -11247,12 +11247,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventMessageDeleted();
-            new CxxTLObject<Message>(td_bridge_obj_chatEventMessageDeleted_message(obj)).Set(this.message);
+            new CxxTLObject<Message>(td_bridge_obj_chatEventMessageDeleted_message(obj)).Set(this.Message);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.message = new CxxTLObject<Message>(td_bridge_obj_chatEventMessageDeleted_message(obj)).Fetch();
+            this.Message = new CxxTLObject<Message>(td_bridge_obj_chatEventMessageDeleted_message(obj)).Fetch();
         }
     }
 
@@ -11268,12 +11268,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventMessagePinned();
-            new CxxTLObject<Message>(td_bridge_obj_chatEventMessagePinned_message(obj)).Set(this.message);
+            new CxxTLObject<Message>(td_bridge_obj_chatEventMessagePinned_message(obj)).Set(this.Message);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.message = new CxxTLObject<Message>(td_bridge_obj_chatEventMessagePinned_message(obj)).Fetch();
+            this.Message = new CxxTLObject<Message>(td_bridge_obj_chatEventMessagePinned_message(obj)).Fetch();
         }
     }
 
@@ -11340,14 +11340,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventMemberInvited();
-            td_bridge_obj_chatEventMemberInvited_user_id(obj).Set(this.user_id);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberInvited_status(obj)).Set(this.status);
+            td_bridge_obj_chatEventMemberInvited_user_id(obj).Set(this.UserId);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberInvited_status(obj)).Set(this.Status);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_chatEventMemberInvited_user_id(obj).Fetch();
-            this.status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberInvited_status(obj)).Fetch();
+            this.UserId = td_bridge_obj_chatEventMemberInvited_user_id(obj).Fetch();
+            this.Status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberInvited_status(obj)).Fetch();
         }
     }
 
@@ -11369,16 +11369,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventMemberPromoted();
-            td_bridge_obj_chatEventMemberPromoted_user_id(obj).Set(this.user_id);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_old_status(obj)).Set(this.old_status);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_new_status(obj)).Set(this.new_status);
+            td_bridge_obj_chatEventMemberPromoted_user_id(obj).Set(this.UserId);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_old_status(obj)).Set(this.OldStatus);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_new_status(obj)).Set(this.NewStatus);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_chatEventMemberPromoted_user_id(obj).Fetch();
-            this.old_status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_old_status(obj)).Fetch();
-            this.new_status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_new_status(obj)).Fetch();
+            this.UserId = td_bridge_obj_chatEventMemberPromoted_user_id(obj).Fetch();
+            this.OldStatus = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_old_status(obj)).Fetch();
+            this.NewStatus = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberPromoted_new_status(obj)).Fetch();
         }
     }
 
@@ -11400,16 +11400,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventMemberRestricted();
-            td_bridge_obj_chatEventMemberRestricted_user_id(obj).Set(this.user_id);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_old_status(obj)).Set(this.old_status);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_new_status(obj)).Set(this.new_status);
+            td_bridge_obj_chatEventMemberRestricted_user_id(obj).Set(this.UserId);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_old_status(obj)).Set(this.OldStatus);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_new_status(obj)).Set(this.NewStatus);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_chatEventMemberRestricted_user_id(obj).Fetch();
-            this.old_status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_old_status(obj)).Fetch();
-            this.new_status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_new_status(obj)).Fetch();
+            this.UserId = td_bridge_obj_chatEventMemberRestricted_user_id(obj).Fetch();
+            this.OldStatus = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_old_status(obj)).Fetch();
+            this.NewStatus = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_chatEventMemberRestricted_new_status(obj)).Fetch();
         }
     }
 
@@ -11428,14 +11428,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventTitleChanged();
-            td_bridge_obj_chatEventTitleChanged_old_title(obj).Set(this.old_title);
-            td_bridge_obj_chatEventTitleChanged_new_title(obj).Set(this.new_title);
+            td_bridge_obj_chatEventTitleChanged_old_title(obj).Set(this.OldTitle);
+            td_bridge_obj_chatEventTitleChanged_new_title(obj).Set(this.NewTitle);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.old_title = td_bridge_obj_chatEventTitleChanged_old_title(obj).Fetch();
-            this.new_title = td_bridge_obj_chatEventTitleChanged_new_title(obj).Fetch();
+            this.OldTitle = td_bridge_obj_chatEventTitleChanged_old_title(obj).Fetch();
+            this.NewTitle = td_bridge_obj_chatEventTitleChanged_new_title(obj).Fetch();
         }
     }
 
@@ -11454,14 +11454,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventDescriptionChanged();
-            td_bridge_obj_chatEventDescriptionChanged_old_description(obj).Set(this.old_description);
-            td_bridge_obj_chatEventDescriptionChanged_new_description(obj).Set(this.new_description);
+            td_bridge_obj_chatEventDescriptionChanged_old_description(obj).Set(this.OldDescription);
+            td_bridge_obj_chatEventDescriptionChanged_new_description(obj).Set(this.NewDescription);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.old_description = td_bridge_obj_chatEventDescriptionChanged_old_description(obj).Fetch();
-            this.new_description = td_bridge_obj_chatEventDescriptionChanged_new_description(obj).Fetch();
+            this.OldDescription = td_bridge_obj_chatEventDescriptionChanged_old_description(obj).Fetch();
+            this.NewDescription = td_bridge_obj_chatEventDescriptionChanged_new_description(obj).Fetch();
         }
     }
 
@@ -11480,14 +11480,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventUsernameChanged();
-            td_bridge_obj_chatEventUsernameChanged_old_username(obj).Set(this.old_username);
-            td_bridge_obj_chatEventUsernameChanged_new_username(obj).Set(this.new_username);
+            td_bridge_obj_chatEventUsernameChanged_old_username(obj).Set(this.OldUsername);
+            td_bridge_obj_chatEventUsernameChanged_new_username(obj).Set(this.NewUsername);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.old_username = td_bridge_obj_chatEventUsernameChanged_old_username(obj).Fetch();
-            this.new_username = td_bridge_obj_chatEventUsernameChanged_new_username(obj).Fetch();
+            this.OldUsername = td_bridge_obj_chatEventUsernameChanged_old_username(obj).Fetch();
+            this.NewUsername = td_bridge_obj_chatEventUsernameChanged_new_username(obj).Fetch();
         }
     }
 
@@ -11506,14 +11506,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventPhotoChanged();
-            new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_old_photo(obj)).Set(this.old_photo);
-            new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_new_photo(obj)).Set(this.new_photo);
+            new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_old_photo(obj)).Set(this.OldPhoto);
+            new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_new_photo(obj)).Set(this.NewPhoto);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.old_photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_old_photo(obj)).Fetch();
-            this.new_photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_new_photo(obj)).Fetch();
+            this.OldPhoto = new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_old_photo(obj)).Fetch();
+            this.NewPhoto = new CxxTLObject<ChatPhoto>(td_bridge_obj_chatEventPhotoChanged_new_photo(obj)).Fetch();
         }
     }
 
@@ -11529,12 +11529,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventInvitesToggled();
-            td_bridge_obj_chatEventInvitesToggled_anyone_can_invite(obj).Set(this.anyone_can_invite);
+            td_bridge_obj_chatEventInvitesToggled_anyone_can_invite(obj).Set(this.AnyoneCanInvite);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.anyone_can_invite = td_bridge_obj_chatEventInvitesToggled_anyone_can_invite(obj).Fetch();
+            this.AnyoneCanInvite = td_bridge_obj_chatEventInvitesToggled_anyone_can_invite(obj).Fetch();
         }
     }
 
@@ -11550,12 +11550,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventSignMessagesToggled();
-            td_bridge_obj_chatEventSignMessagesToggled_sign_messages(obj).Set(this.sign_messages);
+            td_bridge_obj_chatEventSignMessagesToggled_sign_messages(obj).Set(this.SignMessages);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sign_messages = td_bridge_obj_chatEventSignMessagesToggled_sign_messages(obj).Fetch();
+            this.SignMessages = td_bridge_obj_chatEventSignMessagesToggled_sign_messages(obj).Fetch();
         }
     }
 
@@ -11574,14 +11574,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventStickerSetChanged();
-            td_bridge_obj_chatEventStickerSetChanged_old_sticker_set_id(obj).Set(this.old_sticker_set_id);
-            td_bridge_obj_chatEventStickerSetChanged_new_sticker_set_id(obj).Set(this.new_sticker_set_id);
+            td_bridge_obj_chatEventStickerSetChanged_old_sticker_set_id(obj).Set(this.OldStickerSetId);
+            td_bridge_obj_chatEventStickerSetChanged_new_sticker_set_id(obj).Set(this.NewStickerSetId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.old_sticker_set_id = td_bridge_obj_chatEventStickerSetChanged_old_sticker_set_id(obj).Fetch();
-            this.new_sticker_set_id = td_bridge_obj_chatEventStickerSetChanged_new_sticker_set_id(obj).Fetch();
+            this.OldStickerSetId = td_bridge_obj_chatEventStickerSetChanged_old_sticker_set_id(obj).Fetch();
+            this.NewStickerSetId = td_bridge_obj_chatEventStickerSetChanged_new_sticker_set_id(obj).Fetch();
         }
     }
 
@@ -11597,12 +11597,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventIsAllHistoryAvailableToggled();
-            td_bridge_obj_chatEventIsAllHistoryAvailableToggled_is_all_history_available(obj).Set(this.is_all_history_available);
+            td_bridge_obj_chatEventIsAllHistoryAvailableToggled_is_all_history_available(obj).Set(this.IsAllHistoryAvailable);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_all_history_available = td_bridge_obj_chatEventIsAllHistoryAvailableToggled_is_all_history_available(obj).Fetch();
+            this.IsAllHistoryAvailable = td_bridge_obj_chatEventIsAllHistoryAvailableToggled_is_all_history_available(obj).Fetch();
         }
     }
 
@@ -11627,18 +11627,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEvent();
-            td_bridge_obj_chatEvent_id(obj).Set(this.id);
-            td_bridge_obj_chatEvent_date(obj).Set(this.date);
-            td_bridge_obj_chatEvent_user_id(obj).Set(this.user_id);
-            new CxxTLObject<ChatEventAction>(td_bridge_obj_chatEvent_action(obj)).Set(this.action);
+            td_bridge_obj_chatEvent_id(obj).Set(this.Id);
+            td_bridge_obj_chatEvent_date(obj).Set(this.Date);
+            td_bridge_obj_chatEvent_user_id(obj).Set(this.UserId);
+            new CxxTLObject<ChatEventAction>(td_bridge_obj_chatEvent_action(obj)).Set(this.Action);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_chatEvent_id(obj).Fetch();
-            this.date = td_bridge_obj_chatEvent_date(obj).Fetch();
-            this.user_id = td_bridge_obj_chatEvent_user_id(obj).Fetch();
-            this.action = new CxxTLObject<ChatEventAction>(td_bridge_obj_chatEvent_action(obj)).Fetch();
+            this.Id = td_bridge_obj_chatEvent_id(obj).Fetch();
+            this.Date = td_bridge_obj_chatEvent_date(obj).Fetch();
+            this.UserId = td_bridge_obj_chatEvent_user_id(obj).Fetch();
+            this.Action = new CxxTLObject<ChatEventAction>(td_bridge_obj_chatEvent_action(obj)).Fetch();
         }
     }
 
@@ -11654,12 +11654,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEvents();
-            new CxxVectorObject<ChatEvent>(td_bridge_obj_chatEvents_events(obj)).Set(this.events);
+            new CxxVectorObject<ChatEvent>(td_bridge_obj_chatEvents_events(obj)).Set(this.Events);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.events = new CxxVectorObject<ChatEvent>(td_bridge_obj_chatEvents_events(obj)).Fetch();
+            this.Events = new CxxVectorObject<ChatEvent>(td_bridge_obj_chatEvents_events(obj)).Fetch();
         }
     }
 
@@ -11702,30 +11702,30 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatEventLogFilters();
-            td_bridge_obj_chatEventLogFilters_message_edits(obj).Set(this.message_edits);
-            td_bridge_obj_chatEventLogFilters_message_deletions(obj).Set(this.message_deletions);
-            td_bridge_obj_chatEventLogFilters_message_pins(obj).Set(this.message_pins);
-            td_bridge_obj_chatEventLogFilters_member_joins(obj).Set(this.member_joins);
-            td_bridge_obj_chatEventLogFilters_member_leaves(obj).Set(this.member_leaves);
-            td_bridge_obj_chatEventLogFilters_member_invites(obj).Set(this.member_invites);
-            td_bridge_obj_chatEventLogFilters_member_promotions(obj).Set(this.member_promotions);
-            td_bridge_obj_chatEventLogFilters_member_restrictions(obj).Set(this.member_restrictions);
-            td_bridge_obj_chatEventLogFilters_info_changes(obj).Set(this.info_changes);
-            td_bridge_obj_chatEventLogFilters_setting_changes(obj).Set(this.setting_changes);
+            td_bridge_obj_chatEventLogFilters_message_edits(obj).Set(this.MessageEdits);
+            td_bridge_obj_chatEventLogFilters_message_deletions(obj).Set(this.MessageDeletions);
+            td_bridge_obj_chatEventLogFilters_message_pins(obj).Set(this.MessagePins);
+            td_bridge_obj_chatEventLogFilters_member_joins(obj).Set(this.MemberJoins);
+            td_bridge_obj_chatEventLogFilters_member_leaves(obj).Set(this.MemberLeaves);
+            td_bridge_obj_chatEventLogFilters_member_invites(obj).Set(this.MemberInvites);
+            td_bridge_obj_chatEventLogFilters_member_promotions(obj).Set(this.MemberPromotions);
+            td_bridge_obj_chatEventLogFilters_member_restrictions(obj).Set(this.MemberRestrictions);
+            td_bridge_obj_chatEventLogFilters_info_changes(obj).Set(this.InfoChanges);
+            td_bridge_obj_chatEventLogFilters_setting_changes(obj).Set(this.SettingChanges);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.message_edits = td_bridge_obj_chatEventLogFilters_message_edits(obj).Fetch();
-            this.message_deletions = td_bridge_obj_chatEventLogFilters_message_deletions(obj).Fetch();
-            this.message_pins = td_bridge_obj_chatEventLogFilters_message_pins(obj).Fetch();
-            this.member_joins = td_bridge_obj_chatEventLogFilters_member_joins(obj).Fetch();
-            this.member_leaves = td_bridge_obj_chatEventLogFilters_member_leaves(obj).Fetch();
-            this.member_invites = td_bridge_obj_chatEventLogFilters_member_invites(obj).Fetch();
-            this.member_promotions = td_bridge_obj_chatEventLogFilters_member_promotions(obj).Fetch();
-            this.member_restrictions = td_bridge_obj_chatEventLogFilters_member_restrictions(obj).Fetch();
-            this.info_changes = td_bridge_obj_chatEventLogFilters_info_changes(obj).Fetch();
-            this.setting_changes = td_bridge_obj_chatEventLogFilters_setting_changes(obj).Fetch();
+            this.MessageEdits = td_bridge_obj_chatEventLogFilters_message_edits(obj).Fetch();
+            this.MessageDeletions = td_bridge_obj_chatEventLogFilters_message_deletions(obj).Fetch();
+            this.MessagePins = td_bridge_obj_chatEventLogFilters_message_pins(obj).Fetch();
+            this.MemberJoins = td_bridge_obj_chatEventLogFilters_member_joins(obj).Fetch();
+            this.MemberLeaves = td_bridge_obj_chatEventLogFilters_member_leaves(obj).Fetch();
+            this.MemberInvites = td_bridge_obj_chatEventLogFilters_member_invites(obj).Fetch();
+            this.MemberPromotions = td_bridge_obj_chatEventLogFilters_member_promotions(obj).Fetch();
+            this.MemberRestrictions = td_bridge_obj_chatEventLogFilters_member_restrictions(obj).Fetch();
+            this.InfoChanges = td_bridge_obj_chatEventLogFilters_info_changes(obj).Fetch();
+            this.SettingChanges = td_bridge_obj_chatEventLogFilters_setting_changes(obj).Fetch();
         }
     }
 
@@ -11741,12 +11741,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_languagePackStringValueOrdinary();
-            td_bridge_obj_languagePackStringValueOrdinary_value(obj).Set(this.value);
+            td_bridge_obj_languagePackStringValueOrdinary_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_languagePackStringValueOrdinary_value(obj).Fetch();
+            this.Value = td_bridge_obj_languagePackStringValueOrdinary_value(obj).Fetch();
         }
     }
 
@@ -11777,22 +11777,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_languagePackStringValuePluralized();
-            td_bridge_obj_languagePackStringValuePluralized_zero_value(obj).Set(this.zero_value);
-            td_bridge_obj_languagePackStringValuePluralized_one_value(obj).Set(this.one_value);
-            td_bridge_obj_languagePackStringValuePluralized_two_value(obj).Set(this.two_value);
-            td_bridge_obj_languagePackStringValuePluralized_few_value(obj).Set(this.few_value);
-            td_bridge_obj_languagePackStringValuePluralized_many_value(obj).Set(this.many_value);
-            td_bridge_obj_languagePackStringValuePluralized_other_value(obj).Set(this.other_value);
+            td_bridge_obj_languagePackStringValuePluralized_zero_value(obj).Set(this.ZeroValue);
+            td_bridge_obj_languagePackStringValuePluralized_one_value(obj).Set(this.OneValue);
+            td_bridge_obj_languagePackStringValuePluralized_two_value(obj).Set(this.TwoValue);
+            td_bridge_obj_languagePackStringValuePluralized_few_value(obj).Set(this.FewValue);
+            td_bridge_obj_languagePackStringValuePluralized_many_value(obj).Set(this.ManyValue);
+            td_bridge_obj_languagePackStringValuePluralized_other_value(obj).Set(this.OtherValue);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.zero_value = td_bridge_obj_languagePackStringValuePluralized_zero_value(obj).Fetch();
-            this.one_value = td_bridge_obj_languagePackStringValuePluralized_one_value(obj).Fetch();
-            this.two_value = td_bridge_obj_languagePackStringValuePluralized_two_value(obj).Fetch();
-            this.few_value = td_bridge_obj_languagePackStringValuePluralized_few_value(obj).Fetch();
-            this.many_value = td_bridge_obj_languagePackStringValuePluralized_many_value(obj).Fetch();
-            this.other_value = td_bridge_obj_languagePackStringValuePluralized_other_value(obj).Fetch();
+            this.ZeroValue = td_bridge_obj_languagePackStringValuePluralized_zero_value(obj).Fetch();
+            this.OneValue = td_bridge_obj_languagePackStringValuePluralized_one_value(obj).Fetch();
+            this.TwoValue = td_bridge_obj_languagePackStringValuePluralized_two_value(obj).Fetch();
+            this.FewValue = td_bridge_obj_languagePackStringValuePluralized_few_value(obj).Fetch();
+            this.ManyValue = td_bridge_obj_languagePackStringValuePluralized_many_value(obj).Fetch();
+            this.OtherValue = td_bridge_obj_languagePackStringValuePluralized_other_value(obj).Fetch();
         }
     }
 
@@ -11827,14 +11827,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_languagePackString();
-            td_bridge_obj_languagePackString_key(obj).Set(this.key);
-            new CxxTLObject<LanguagePackStringValue>(td_bridge_obj_languagePackString_value(obj)).Set(this.value);
+            td_bridge_obj_languagePackString_key(obj).Set(this.Key);
+            new CxxTLObject<LanguagePackStringValue>(td_bridge_obj_languagePackString_value(obj)).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.key = td_bridge_obj_languagePackString_key(obj).Fetch();
-            this.value = new CxxTLObject<LanguagePackStringValue>(td_bridge_obj_languagePackString_value(obj)).Fetch();
+            this.Key = td_bridge_obj_languagePackString_key(obj).Fetch();
+            this.Value = new CxxTLObject<LanguagePackStringValue>(td_bridge_obj_languagePackString_value(obj)).Fetch();
         }
     }
 
@@ -11850,12 +11850,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_languagePackStrings();
-            new CxxVectorObject<LanguagePackString>(td_bridge_obj_languagePackStrings_strings(obj)).Set(this.strings);
+            new CxxVectorObject<LanguagePackString>(td_bridge_obj_languagePackStrings_strings(obj)).Set(this.Strings);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.strings = new CxxVectorObject<LanguagePackString>(td_bridge_obj_languagePackStrings_strings(obj)).Fetch();
+            this.Strings = new CxxVectorObject<LanguagePackString>(td_bridge_obj_languagePackStrings_strings(obj)).Fetch();
         }
     }
 
@@ -11880,18 +11880,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_languagePackInfo();
-            td_bridge_obj_languagePackInfo_id(obj).Set(this.id);
-            td_bridge_obj_languagePackInfo_name(obj).Set(this.name);
-            td_bridge_obj_languagePackInfo_native_name(obj).Set(this.native_name);
-            td_bridge_obj_languagePackInfo_local_string_count(obj).Set(this.local_string_count);
+            td_bridge_obj_languagePackInfo_id(obj).Set(this.Id);
+            td_bridge_obj_languagePackInfo_name(obj).Set(this.Name);
+            td_bridge_obj_languagePackInfo_native_name(obj).Set(this.NativeName);
+            td_bridge_obj_languagePackInfo_local_string_count(obj).Set(this.LocalStringCount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_languagePackInfo_id(obj).Fetch();
-            this.name = td_bridge_obj_languagePackInfo_name(obj).Fetch();
-            this.native_name = td_bridge_obj_languagePackInfo_native_name(obj).Fetch();
-            this.local_string_count = td_bridge_obj_languagePackInfo_local_string_count(obj).Fetch();
+            this.Id = td_bridge_obj_languagePackInfo_id(obj).Fetch();
+            this.Name = td_bridge_obj_languagePackInfo_name(obj).Fetch();
+            this.NativeName = td_bridge_obj_languagePackInfo_native_name(obj).Fetch();
+            this.LocalStringCount = td_bridge_obj_languagePackInfo_local_string_count(obj).Fetch();
         }
     }
 
@@ -11907,12 +11907,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_localizationTargetInfo();
-            new CxxVectorObject<LanguagePackInfo>(td_bridge_obj_localizationTargetInfo_language_packs(obj)).Set(this.language_packs);
+            new CxxVectorObject<LanguagePackInfo>(td_bridge_obj_localizationTargetInfo_language_packs(obj)).Set(this.LanguagePacks);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.language_packs = new CxxVectorObject<LanguagePackInfo>(td_bridge_obj_localizationTargetInfo_language_packs(obj)).Fetch();
+            this.LanguagePacks = new CxxVectorObject<LanguagePackInfo>(td_bridge_obj_localizationTargetInfo_language_packs(obj)).Fetch();
         }
     }
 
@@ -11928,12 +11928,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenGoogleCloudMessaging();
-            td_bridge_obj_deviceTokenGoogleCloudMessaging_token(obj).Set(this.token);
+            td_bridge_obj_deviceTokenGoogleCloudMessaging_token(obj).Set(this.Token);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.token = td_bridge_obj_deviceTokenGoogleCloudMessaging_token(obj).Fetch();
+            this.Token = td_bridge_obj_deviceTokenGoogleCloudMessaging_token(obj).Fetch();
         }
     }
 
@@ -11952,14 +11952,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenApplePush();
-            td_bridge_obj_deviceTokenApplePush_device_token(obj).Set(this.device_token);
-            td_bridge_obj_deviceTokenApplePush_is_app_sandbox(obj).Set(this.is_app_sandbox);
+            td_bridge_obj_deviceTokenApplePush_device_token(obj).Set(this.DeviceToken);
+            td_bridge_obj_deviceTokenApplePush_is_app_sandbox(obj).Set(this.IsAppSandbox);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.device_token = td_bridge_obj_deviceTokenApplePush_device_token(obj).Fetch();
-            this.is_app_sandbox = td_bridge_obj_deviceTokenApplePush_is_app_sandbox(obj).Fetch();
+            this.DeviceToken = td_bridge_obj_deviceTokenApplePush_device_token(obj).Fetch();
+            this.IsAppSandbox = td_bridge_obj_deviceTokenApplePush_is_app_sandbox(obj).Fetch();
         }
     }
 
@@ -11978,14 +11978,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenApplePushVoIP();
-            td_bridge_obj_deviceTokenApplePushVoIP_device_token(obj).Set(this.device_token);
-            td_bridge_obj_deviceTokenApplePushVoIP_is_app_sandbox(obj).Set(this.is_app_sandbox);
+            td_bridge_obj_deviceTokenApplePushVoIP_device_token(obj).Set(this.DeviceToken);
+            td_bridge_obj_deviceTokenApplePushVoIP_is_app_sandbox(obj).Set(this.IsAppSandbox);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.device_token = td_bridge_obj_deviceTokenApplePushVoIP_device_token(obj).Fetch();
-            this.is_app_sandbox = td_bridge_obj_deviceTokenApplePushVoIP_is_app_sandbox(obj).Fetch();
+            this.DeviceToken = td_bridge_obj_deviceTokenApplePushVoIP_device_token(obj).Fetch();
+            this.IsAppSandbox = td_bridge_obj_deviceTokenApplePushVoIP_is_app_sandbox(obj).Fetch();
         }
     }
 
@@ -12001,12 +12001,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenWindowsPush();
-            td_bridge_obj_deviceTokenWindowsPush_access_token(obj).Set(this.access_token);
+            td_bridge_obj_deviceTokenWindowsPush_access_token(obj).Set(this.AccessToken);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.access_token = td_bridge_obj_deviceTokenWindowsPush_access_token(obj).Fetch();
+            this.AccessToken = td_bridge_obj_deviceTokenWindowsPush_access_token(obj).Fetch();
         }
     }
 
@@ -12022,12 +12022,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenMicrosoftPush();
-            td_bridge_obj_deviceTokenMicrosoftPush_channel_uri(obj).Set(this.channel_uri);
+            td_bridge_obj_deviceTokenMicrosoftPush_channel_uri(obj).Set(this.ChannelUri);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.channel_uri = td_bridge_obj_deviceTokenMicrosoftPush_channel_uri(obj).Fetch();
+            this.ChannelUri = td_bridge_obj_deviceTokenMicrosoftPush_channel_uri(obj).Fetch();
         }
     }
 
@@ -12043,12 +12043,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenMicrosoftPushVoIP();
-            td_bridge_obj_deviceTokenMicrosoftPushVoIP_channel_uri(obj).Set(this.channel_uri);
+            td_bridge_obj_deviceTokenMicrosoftPushVoIP_channel_uri(obj).Set(this.ChannelUri);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.channel_uri = td_bridge_obj_deviceTokenMicrosoftPushVoIP_channel_uri(obj).Fetch();
+            this.ChannelUri = td_bridge_obj_deviceTokenMicrosoftPushVoIP_channel_uri(obj).Fetch();
         }
     }
 
@@ -12070,16 +12070,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenWebPush();
-            td_bridge_obj_deviceTokenWebPush_endpoint(obj).Set(this.endpoint);
-            td_bridge_obj_deviceTokenWebPush_p256dh_base64url(obj).Set(this.p256dh_base64url);
-            td_bridge_obj_deviceTokenWebPush_auth_base64url(obj).Set(this.auth_base64url);
+            td_bridge_obj_deviceTokenWebPush_endpoint(obj).Set(this.Endpoint);
+            td_bridge_obj_deviceTokenWebPush_p256dh_base64url(obj).Set(this.P256dhBase64url);
+            td_bridge_obj_deviceTokenWebPush_auth_base64url(obj).Set(this.AuthBase64url);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.endpoint = td_bridge_obj_deviceTokenWebPush_endpoint(obj).Fetch();
-            this.p256dh_base64url = td_bridge_obj_deviceTokenWebPush_p256dh_base64url(obj).Fetch();
-            this.auth_base64url = td_bridge_obj_deviceTokenWebPush_auth_base64url(obj).Fetch();
+            this.Endpoint = td_bridge_obj_deviceTokenWebPush_endpoint(obj).Fetch();
+            this.P256dhBase64url = td_bridge_obj_deviceTokenWebPush_p256dh_base64url(obj).Fetch();
+            this.AuthBase64url = td_bridge_obj_deviceTokenWebPush_auth_base64url(obj).Fetch();
         }
     }
 
@@ -12095,12 +12095,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenSimplePush();
-            td_bridge_obj_deviceTokenSimplePush_endpoint(obj).Set(this.endpoint);
+            td_bridge_obj_deviceTokenSimplePush_endpoint(obj).Set(this.Endpoint);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.endpoint = td_bridge_obj_deviceTokenSimplePush_endpoint(obj).Fetch();
+            this.Endpoint = td_bridge_obj_deviceTokenSimplePush_endpoint(obj).Fetch();
         }
     }
 
@@ -12116,12 +12116,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenUbuntuPush();
-            td_bridge_obj_deviceTokenUbuntuPush_token(obj).Set(this.token);
+            td_bridge_obj_deviceTokenUbuntuPush_token(obj).Set(this.Token);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.token = td_bridge_obj_deviceTokenUbuntuPush_token(obj).Fetch();
+            this.Token = td_bridge_obj_deviceTokenUbuntuPush_token(obj).Fetch();
         }
     }
 
@@ -12137,12 +12137,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenBlackBerryPush();
-            td_bridge_obj_deviceTokenBlackBerryPush_token(obj).Set(this.token);
+            td_bridge_obj_deviceTokenBlackBerryPush_token(obj).Set(this.Token);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.token = td_bridge_obj_deviceTokenBlackBerryPush_token(obj).Fetch();
+            this.Token = td_bridge_obj_deviceTokenBlackBerryPush_token(obj).Fetch();
         }
     }
 
@@ -12158,12 +12158,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenTizenPush();
-            td_bridge_obj_deviceTokenTizenPush_reg_id(obj).Set(this.reg_id);
+            td_bridge_obj_deviceTokenTizenPush_reg_id(obj).Set(this.RegId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.reg_id = td_bridge_obj_deviceTokenTizenPush_reg_id(obj).Fetch();
+            this.RegId = td_bridge_obj_deviceTokenTizenPush_reg_id(obj).Fetch();
         }
     }
 
@@ -12185,16 +12185,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_wallpaper();
-            td_bridge_obj_wallpaper_id(obj).Set(this.id);
-            new CxxVectorObject<PhotoSize>(td_bridge_obj_wallpaper_sizes(obj)).Set(this.sizes);
-            td_bridge_obj_wallpaper_color(obj).Set(this.color);
+            td_bridge_obj_wallpaper_id(obj).Set(this.Id);
+            new CxxVectorObject<PhotoSize>(td_bridge_obj_wallpaper_sizes(obj)).Set(this.Sizes);
+            td_bridge_obj_wallpaper_color(obj).Set(this.Color);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_wallpaper_id(obj).Fetch();
-            this.sizes = new CxxVectorObject<PhotoSize>(td_bridge_obj_wallpaper_sizes(obj)).Fetch();
-            this.color = td_bridge_obj_wallpaper_color(obj).Fetch();
+            this.Id = td_bridge_obj_wallpaper_id(obj).Fetch();
+            this.Sizes = new CxxVectorObject<PhotoSize>(td_bridge_obj_wallpaper_sizes(obj)).Fetch();
+            this.Color = td_bridge_obj_wallpaper_color(obj).Fetch();
         }
     }
 
@@ -12210,12 +12210,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_wallpapers();
-            new CxxVectorObject<Wallpaper>(td_bridge_obj_wallpapers_wallpapers(obj)).Set(this.wallpapers);
+            new CxxVectorObject<Wallpaper>(td_bridge_obj_wallpapers_wallpapers(obj)).Set(this.Wallpapers_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.wallpapers = new CxxVectorObject<Wallpaper>(td_bridge_obj_wallpapers_wallpapers(obj)).Fetch();
+            this.Wallpapers_ = new CxxVectorObject<Wallpaper>(td_bridge_obj_wallpapers_wallpapers(obj)).Fetch();
         }
     }
 
@@ -12231,12 +12231,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_hashtags();
-            td_bridge_obj_hashtags_hashtags(obj).Set(this.hashtags);
+            td_bridge_obj_hashtags_hashtags(obj).Set(this.Hashtags_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.hashtags = td_bridge_obj_hashtags_hashtags(obj).Fetch();
+            this.Hashtags_ = td_bridge_obj_hashtags_hashtags(obj).Fetch();
         }
     }
 
@@ -12332,12 +12332,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_optionValueBoolean();
-            td_bridge_obj_optionValueBoolean_value(obj).Set(this.value);
+            td_bridge_obj_optionValueBoolean_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_optionValueBoolean_value(obj).Fetch();
+            this.Value = td_bridge_obj_optionValueBoolean_value(obj).Fetch();
         }
     }
 
@@ -12369,12 +12369,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_optionValueInteger();
-            td_bridge_obj_optionValueInteger_value(obj).Set(this.value);
+            td_bridge_obj_optionValueInteger_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_optionValueInteger_value(obj).Fetch();
+            this.Value = td_bridge_obj_optionValueInteger_value(obj).Fetch();
         }
     }
 
@@ -12390,12 +12390,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_optionValueString();
-            td_bridge_obj_optionValueString_value(obj).Set(this.value);
+            td_bridge_obj_optionValueString_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_optionValueString_value(obj).Fetch();
+            this.Value = td_bridge_obj_optionValueString_value(obj).Fetch();
         }
     }
 
@@ -12443,12 +12443,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userPrivacySettingRuleAllowUsers();
-            td_bridge_obj_userPrivacySettingRuleAllowUsers_user_ids(obj).Set(this.user_ids);
+            td_bridge_obj_userPrivacySettingRuleAllowUsers_user_ids(obj).Set(this.UserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_ids = td_bridge_obj_userPrivacySettingRuleAllowUsers_user_ids(obj).Fetch();
+            this.UserIds = td_bridge_obj_userPrivacySettingRuleAllowUsers_user_ids(obj).Fetch();
         }
     }
 
@@ -12496,12 +12496,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userPrivacySettingRuleRestrictUsers();
-            td_bridge_obj_userPrivacySettingRuleRestrictUsers_user_ids(obj).Set(this.user_ids);
+            td_bridge_obj_userPrivacySettingRuleRestrictUsers_user_ids(obj).Set(this.UserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_ids = td_bridge_obj_userPrivacySettingRuleRestrictUsers_user_ids(obj).Fetch();
+            this.UserIds = td_bridge_obj_userPrivacySettingRuleRestrictUsers_user_ids(obj).Fetch();
         }
     }
 
@@ -12517,12 +12517,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_userPrivacySettingRules();
-            new CxxVectorObject<UserPrivacySettingRule>(td_bridge_obj_userPrivacySettingRules_rules(obj)).Set(this.rules);
+            new CxxVectorObject<UserPrivacySettingRule>(td_bridge_obj_userPrivacySettingRules_rules(obj)).Set(this.Rules);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.rules = new CxxVectorObject<UserPrivacySettingRule>(td_bridge_obj_userPrivacySettingRules_rules(obj)).Fetch();
+            this.Rules = new CxxVectorObject<UserPrivacySettingRule>(td_bridge_obj_userPrivacySettingRules_rules(obj)).Fetch();
         }
     }
 
@@ -12586,12 +12586,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_accountTtl();
-            td_bridge_obj_accountTtl_days(obj).Set(this.days);
+            td_bridge_obj_accountTtl_days(obj).Set(this.Days);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.days = td_bridge_obj_accountTtl_days(obj).Fetch();
+            this.Days = td_bridge_obj_accountTtl_days(obj).Fetch();
         }
     }
 
@@ -12646,38 +12646,38 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_session();
-            td_bridge_obj_session_id(obj).Set(this.id);
-            td_bridge_obj_session_is_current(obj).Set(this.is_current);
-            td_bridge_obj_session_api_id(obj).Set(this.api_id);
-            td_bridge_obj_session_application_name(obj).Set(this.application_name);
-            td_bridge_obj_session_application_version(obj).Set(this.application_version);
-            td_bridge_obj_session_is_official_application(obj).Set(this.is_official_application);
-            td_bridge_obj_session_device_model(obj).Set(this.device_model);
-            td_bridge_obj_session_platform(obj).Set(this.platform);
-            td_bridge_obj_session_system_version(obj).Set(this.system_version);
-            td_bridge_obj_session_log_in_date(obj).Set(this.log_in_date);
-            td_bridge_obj_session_last_active_date(obj).Set(this.last_active_date);
-            td_bridge_obj_session_ip(obj).Set(this.ip);
-            td_bridge_obj_session_country(obj).Set(this.country);
-            td_bridge_obj_session_region(obj).Set(this.region);
+            td_bridge_obj_session_id(obj).Set(this.Id);
+            td_bridge_obj_session_is_current(obj).Set(this.IsCurrent);
+            td_bridge_obj_session_api_id(obj).Set(this.ApiId);
+            td_bridge_obj_session_application_name(obj).Set(this.ApplicationName);
+            td_bridge_obj_session_application_version(obj).Set(this.ApplicationVersion);
+            td_bridge_obj_session_is_official_application(obj).Set(this.IsOfficialApplication);
+            td_bridge_obj_session_device_model(obj).Set(this.DeviceModel);
+            td_bridge_obj_session_platform(obj).Set(this.Platform);
+            td_bridge_obj_session_system_version(obj).Set(this.SystemVersion);
+            td_bridge_obj_session_log_in_date(obj).Set(this.LogInDate);
+            td_bridge_obj_session_last_active_date(obj).Set(this.LastActiveDate);
+            td_bridge_obj_session_ip(obj).Set(this.Ip);
+            td_bridge_obj_session_country(obj).Set(this.Country);
+            td_bridge_obj_session_region(obj).Set(this.Region);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_session_id(obj).Fetch();
-            this.is_current = td_bridge_obj_session_is_current(obj).Fetch();
-            this.api_id = td_bridge_obj_session_api_id(obj).Fetch();
-            this.application_name = td_bridge_obj_session_application_name(obj).Fetch();
-            this.application_version = td_bridge_obj_session_application_version(obj).Fetch();
-            this.is_official_application = td_bridge_obj_session_is_official_application(obj).Fetch();
-            this.device_model = td_bridge_obj_session_device_model(obj).Fetch();
-            this.platform = td_bridge_obj_session_platform(obj).Fetch();
-            this.system_version = td_bridge_obj_session_system_version(obj).Fetch();
-            this.log_in_date = td_bridge_obj_session_log_in_date(obj).Fetch();
-            this.last_active_date = td_bridge_obj_session_last_active_date(obj).Fetch();
-            this.ip = td_bridge_obj_session_ip(obj).Fetch();
-            this.country = td_bridge_obj_session_country(obj).Fetch();
-            this.region = td_bridge_obj_session_region(obj).Fetch();
+            this.Id = td_bridge_obj_session_id(obj).Fetch();
+            this.IsCurrent = td_bridge_obj_session_is_current(obj).Fetch();
+            this.ApiId = td_bridge_obj_session_api_id(obj).Fetch();
+            this.ApplicationName = td_bridge_obj_session_application_name(obj).Fetch();
+            this.ApplicationVersion = td_bridge_obj_session_application_version(obj).Fetch();
+            this.IsOfficialApplication = td_bridge_obj_session_is_official_application(obj).Fetch();
+            this.DeviceModel = td_bridge_obj_session_device_model(obj).Fetch();
+            this.Platform = td_bridge_obj_session_platform(obj).Fetch();
+            this.SystemVersion = td_bridge_obj_session_system_version(obj).Fetch();
+            this.LogInDate = td_bridge_obj_session_log_in_date(obj).Fetch();
+            this.LastActiveDate = td_bridge_obj_session_last_active_date(obj).Fetch();
+            this.Ip = td_bridge_obj_session_ip(obj).Fetch();
+            this.Country = td_bridge_obj_session_country(obj).Fetch();
+            this.Region = td_bridge_obj_session_region(obj).Fetch();
         }
     }
 
@@ -12693,12 +12693,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sessions();
-            new CxxVectorObject<Session>(td_bridge_obj_sessions_sessions(obj)).Set(this.sessions);
+            new CxxVectorObject<Session>(td_bridge_obj_sessions_sessions(obj)).Set(this.Sessions_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sessions = new CxxVectorObject<Session>(td_bridge_obj_sessions_sessions(obj)).Fetch();
+            this.Sessions_ = new CxxVectorObject<Session>(td_bridge_obj_sessions_sessions(obj)).Fetch();
         }
     }
 
@@ -12738,28 +12738,28 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_connectedWebsite();
-            td_bridge_obj_connectedWebsite_id(obj).Set(this.id);
-            td_bridge_obj_connectedWebsite_domain_name(obj).Set(this.domain_name);
-            td_bridge_obj_connectedWebsite_bot_user_id(obj).Set(this.bot_user_id);
-            td_bridge_obj_connectedWebsite_browser(obj).Set(this.browser);
-            td_bridge_obj_connectedWebsite_platform(obj).Set(this.platform);
-            td_bridge_obj_connectedWebsite_log_in_date(obj).Set(this.log_in_date);
-            td_bridge_obj_connectedWebsite_last_active_date(obj).Set(this.last_active_date);
-            td_bridge_obj_connectedWebsite_ip(obj).Set(this.ip);
-            td_bridge_obj_connectedWebsite_location(obj).Set(this.location);
+            td_bridge_obj_connectedWebsite_id(obj).Set(this.Id);
+            td_bridge_obj_connectedWebsite_domain_name(obj).Set(this.DomainName);
+            td_bridge_obj_connectedWebsite_bot_user_id(obj).Set(this.BotUserId);
+            td_bridge_obj_connectedWebsite_browser(obj).Set(this.Browser);
+            td_bridge_obj_connectedWebsite_platform(obj).Set(this.Platform);
+            td_bridge_obj_connectedWebsite_log_in_date(obj).Set(this.LogInDate);
+            td_bridge_obj_connectedWebsite_last_active_date(obj).Set(this.LastActiveDate);
+            td_bridge_obj_connectedWebsite_ip(obj).Set(this.Ip);
+            td_bridge_obj_connectedWebsite_location(obj).Set(this.Location);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_connectedWebsite_id(obj).Fetch();
-            this.domain_name = td_bridge_obj_connectedWebsite_domain_name(obj).Fetch();
-            this.bot_user_id = td_bridge_obj_connectedWebsite_bot_user_id(obj).Fetch();
-            this.browser = td_bridge_obj_connectedWebsite_browser(obj).Fetch();
-            this.platform = td_bridge_obj_connectedWebsite_platform(obj).Fetch();
-            this.log_in_date = td_bridge_obj_connectedWebsite_log_in_date(obj).Fetch();
-            this.last_active_date = td_bridge_obj_connectedWebsite_last_active_date(obj).Fetch();
-            this.ip = td_bridge_obj_connectedWebsite_ip(obj).Fetch();
-            this.location = td_bridge_obj_connectedWebsite_location(obj).Fetch();
+            this.Id = td_bridge_obj_connectedWebsite_id(obj).Fetch();
+            this.DomainName = td_bridge_obj_connectedWebsite_domain_name(obj).Fetch();
+            this.BotUserId = td_bridge_obj_connectedWebsite_bot_user_id(obj).Fetch();
+            this.Browser = td_bridge_obj_connectedWebsite_browser(obj).Fetch();
+            this.Platform = td_bridge_obj_connectedWebsite_platform(obj).Fetch();
+            this.LogInDate = td_bridge_obj_connectedWebsite_log_in_date(obj).Fetch();
+            this.LastActiveDate = td_bridge_obj_connectedWebsite_last_active_date(obj).Fetch();
+            this.Ip = td_bridge_obj_connectedWebsite_ip(obj).Fetch();
+            this.Location = td_bridge_obj_connectedWebsite_location(obj).Fetch();
         }
     }
 
@@ -12775,12 +12775,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_connectedWebsites();
-            new CxxVectorObject<ConnectedWebsite>(td_bridge_obj_connectedWebsites_websites(obj)).Set(this.websites);
+            new CxxVectorObject<ConnectedWebsite>(td_bridge_obj_connectedWebsites_websites(obj)).Set(this.Websites);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.websites = new CxxVectorObject<ConnectedWebsite>(td_bridge_obj_connectedWebsites_websites(obj)).Fetch();
+            this.Websites = new CxxVectorObject<ConnectedWebsite>(td_bridge_obj_connectedWebsites_websites(obj)).Fetch();
         }
     }
 
@@ -12796,12 +12796,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatReportSpamState();
-            td_bridge_obj_chatReportSpamState_can_report_spam(obj).Set(this.can_report_spam);
+            td_bridge_obj_chatReportSpamState_can_report_spam(obj).Set(this.CanReportSpam);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.can_report_spam = td_bridge_obj_chatReportSpamState_can_report_spam(obj).Fetch();
+            this.CanReportSpam = td_bridge_obj_chatReportSpamState_can_report_spam(obj).Fetch();
         }
     }
 
@@ -12881,12 +12881,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatReportReasonCustom();
-            td_bridge_obj_chatReportReasonCustom_text(obj).Set(this.text);
+            td_bridge_obj_chatReportReasonCustom_text(obj).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_chatReportReasonCustom_text(obj).Fetch();
+            this.Text = td_bridge_obj_chatReportReasonCustom_text(obj).Fetch();
         }
     }
 
@@ -12905,14 +12905,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_publicMessageLink();
-            td_bridge_obj_publicMessageLink_link(obj).Set(this.link);
-            td_bridge_obj_publicMessageLink_html(obj).Set(this.html);
+            td_bridge_obj_publicMessageLink_link(obj).Set(this.Link);
+            td_bridge_obj_publicMessageLink_html(obj).Set(this.Html);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.link = td_bridge_obj_publicMessageLink_link(obj).Fetch();
-            this.html = td_bridge_obj_publicMessageLink_html(obj).Fetch();
+            this.Link = td_bridge_obj_publicMessageLink_link(obj).Fetch();
+            this.Html = td_bridge_obj_publicMessageLink_html(obj).Fetch();
         }
     }
 
@@ -13190,16 +13190,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_storageStatisticsByFileType();
-            new CxxTLObject<FileType>(td_bridge_obj_storageStatisticsByFileType_file_type(obj)).Set(this.file_type);
-            td_bridge_obj_storageStatisticsByFileType_size(obj).Set(this.size);
-            td_bridge_obj_storageStatisticsByFileType_count(obj).Set(this.count);
+            new CxxTLObject<FileType>(td_bridge_obj_storageStatisticsByFileType_file_type(obj)).Set(this.FileType);
+            td_bridge_obj_storageStatisticsByFileType_size(obj).Set(this.Size);
+            td_bridge_obj_storageStatisticsByFileType_count(obj).Set(this.Count);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_type = new CxxTLObject<FileType>(td_bridge_obj_storageStatisticsByFileType_file_type(obj)).Fetch();
-            this.size = td_bridge_obj_storageStatisticsByFileType_size(obj).Fetch();
-            this.count = td_bridge_obj_storageStatisticsByFileType_count(obj).Fetch();
+            this.FileType = new CxxTLObject<FileType>(td_bridge_obj_storageStatisticsByFileType_file_type(obj)).Fetch();
+            this.Size = td_bridge_obj_storageStatisticsByFileType_size(obj).Fetch();
+            this.Count = td_bridge_obj_storageStatisticsByFileType_count(obj).Fetch();
         }
     }
 
@@ -13224,18 +13224,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_storageStatisticsByChat();
-            td_bridge_obj_storageStatisticsByChat_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_storageStatisticsByChat_size(obj).Set(this.size);
-            td_bridge_obj_storageStatisticsByChat_count(obj).Set(this.count);
-            new CxxVectorObject<StorageStatisticsByFileType>(td_bridge_obj_storageStatisticsByChat_by_file_type(obj)).Set(this.by_file_type);
+            td_bridge_obj_storageStatisticsByChat_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_storageStatisticsByChat_size(obj).Set(this.Size);
+            td_bridge_obj_storageStatisticsByChat_count(obj).Set(this.Count);
+            new CxxVectorObject<StorageStatisticsByFileType>(td_bridge_obj_storageStatisticsByChat_by_file_type(obj)).Set(this.ByFileType);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_storageStatisticsByChat_chat_id(obj).Fetch();
-            this.size = td_bridge_obj_storageStatisticsByChat_size(obj).Fetch();
-            this.count = td_bridge_obj_storageStatisticsByChat_count(obj).Fetch();
-            this.by_file_type = new CxxVectorObject<StorageStatisticsByFileType>(td_bridge_obj_storageStatisticsByChat_by_file_type(obj)).Fetch();
+            this.ChatId = td_bridge_obj_storageStatisticsByChat_chat_id(obj).Fetch();
+            this.Size = td_bridge_obj_storageStatisticsByChat_size(obj).Fetch();
+            this.Count = td_bridge_obj_storageStatisticsByChat_count(obj).Fetch();
+            this.ByFileType = new CxxVectorObject<StorageStatisticsByFileType>(td_bridge_obj_storageStatisticsByChat_by_file_type(obj)).Fetch();
         }
     }
 
@@ -13257,16 +13257,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_storageStatistics();
-            td_bridge_obj_storageStatistics_size(obj).Set(this.size);
-            td_bridge_obj_storageStatistics_count(obj).Set(this.count);
-            new CxxVectorObject<StorageStatisticsByChat>(td_bridge_obj_storageStatistics_by_chat(obj)).Set(this.by_chat);
+            td_bridge_obj_storageStatistics_size(obj).Set(this.Size);
+            td_bridge_obj_storageStatistics_count(obj).Set(this.Count);
+            new CxxVectorObject<StorageStatisticsByChat>(td_bridge_obj_storageStatistics_by_chat(obj)).Set(this.ByChat);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.size = td_bridge_obj_storageStatistics_size(obj).Fetch();
-            this.count = td_bridge_obj_storageStatistics_count(obj).Fetch();
-            this.by_chat = new CxxVectorObject<StorageStatisticsByChat>(td_bridge_obj_storageStatistics_by_chat(obj)).Fetch();
+            this.Size = td_bridge_obj_storageStatistics_size(obj).Fetch();
+            this.Count = td_bridge_obj_storageStatistics_count(obj).Fetch();
+            this.ByChat = new CxxVectorObject<StorageStatisticsByChat>(td_bridge_obj_storageStatistics_by_chat(obj)).Fetch();
         }
     }
 
@@ -13288,16 +13288,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_storageStatisticsFast();
-            td_bridge_obj_storageStatisticsFast_files_size(obj).Set(this.files_size);
-            td_bridge_obj_storageStatisticsFast_file_count(obj).Set(this.file_count);
-            td_bridge_obj_storageStatisticsFast_database_size(obj).Set(this.database_size);
+            td_bridge_obj_storageStatisticsFast_files_size(obj).Set(this.FilesSize);
+            td_bridge_obj_storageStatisticsFast_file_count(obj).Set(this.FileCount);
+            td_bridge_obj_storageStatisticsFast_database_size(obj).Set(this.DatabaseSize);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.files_size = td_bridge_obj_storageStatisticsFast_files_size(obj).Fetch();
-            this.file_count = td_bridge_obj_storageStatisticsFast_file_count(obj).Fetch();
-            this.database_size = td_bridge_obj_storageStatisticsFast_database_size(obj).Fetch();
+            this.FilesSize = td_bridge_obj_storageStatisticsFast_files_size(obj).Fetch();
+            this.FileCount = td_bridge_obj_storageStatisticsFast_file_count(obj).Fetch();
+            this.DatabaseSize = td_bridge_obj_storageStatisticsFast_database_size(obj).Fetch();
         }
     }
 
@@ -13402,18 +13402,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_networkStatisticsEntryFile();
-            new CxxTLObject<FileType>(td_bridge_obj_networkStatisticsEntryFile_file_type(obj)).Set(this.file_type);
-            new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryFile_network_type(obj)).Set(this.network_type);
-            td_bridge_obj_networkStatisticsEntryFile_sent_bytes(obj).Set(this.sent_bytes);
-            td_bridge_obj_networkStatisticsEntryFile_received_bytes(obj).Set(this.received_bytes);
+            new CxxTLObject<FileType>(td_bridge_obj_networkStatisticsEntryFile_file_type(obj)).Set(this.FileType);
+            new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryFile_network_type(obj)).Set(this.NetworkType);
+            td_bridge_obj_networkStatisticsEntryFile_sent_bytes(obj).Set(this.SentBytes);
+            td_bridge_obj_networkStatisticsEntryFile_received_bytes(obj).Set(this.ReceivedBytes);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_type = new CxxTLObject<FileType>(td_bridge_obj_networkStatisticsEntryFile_file_type(obj)).Fetch();
-            this.network_type = new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryFile_network_type(obj)).Fetch();
-            this.sent_bytes = td_bridge_obj_networkStatisticsEntryFile_sent_bytes(obj).Fetch();
-            this.received_bytes = td_bridge_obj_networkStatisticsEntryFile_received_bytes(obj).Fetch();
+            this.FileType = new CxxTLObject<FileType>(td_bridge_obj_networkStatisticsEntryFile_file_type(obj)).Fetch();
+            this.NetworkType = new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryFile_network_type(obj)).Fetch();
+            this.SentBytes = td_bridge_obj_networkStatisticsEntryFile_sent_bytes(obj).Fetch();
+            this.ReceivedBytes = td_bridge_obj_networkStatisticsEntryFile_received_bytes(obj).Fetch();
         }
     }
 
@@ -13438,18 +13438,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_networkStatisticsEntryCall();
-            new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryCall_network_type(obj)).Set(this.network_type);
-            td_bridge_obj_networkStatisticsEntryCall_sent_bytes(obj).Set(this.sent_bytes);
-            td_bridge_obj_networkStatisticsEntryCall_received_bytes(obj).Set(this.received_bytes);
-            td_bridge_obj_networkStatisticsEntryCall_duration(obj).Set(this.duration);
+            new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryCall_network_type(obj)).Set(this.NetworkType);
+            td_bridge_obj_networkStatisticsEntryCall_sent_bytes(obj).Set(this.SentBytes);
+            td_bridge_obj_networkStatisticsEntryCall_received_bytes(obj).Set(this.ReceivedBytes);
+            td_bridge_obj_networkStatisticsEntryCall_duration(obj).Set(this.Duration);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.network_type = new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryCall_network_type(obj)).Fetch();
-            this.sent_bytes = td_bridge_obj_networkStatisticsEntryCall_sent_bytes(obj).Fetch();
-            this.received_bytes = td_bridge_obj_networkStatisticsEntryCall_received_bytes(obj).Fetch();
-            this.duration = td_bridge_obj_networkStatisticsEntryCall_duration(obj).Fetch();
+            this.NetworkType = new CxxTLObject<NetworkType>(td_bridge_obj_networkStatisticsEntryCall_network_type(obj)).Fetch();
+            this.SentBytes = td_bridge_obj_networkStatisticsEntryCall_sent_bytes(obj).Fetch();
+            this.ReceivedBytes = td_bridge_obj_networkStatisticsEntryCall_received_bytes(obj).Fetch();
+            this.Duration = td_bridge_obj_networkStatisticsEntryCall_duration(obj).Fetch();
         }
     }
 
@@ -13468,14 +13468,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_networkStatistics();
-            td_bridge_obj_networkStatistics_since_date(obj).Set(this.since_date);
-            new CxxVectorObject<NetworkStatisticsEntry>(td_bridge_obj_networkStatistics_entries(obj)).Set(this.entries);
+            td_bridge_obj_networkStatistics_since_date(obj).Set(this.SinceDate);
+            new CxxVectorObject<NetworkStatisticsEntry>(td_bridge_obj_networkStatistics_entries(obj)).Set(this.Entries);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.since_date = td_bridge_obj_networkStatistics_since_date(obj).Fetch();
-            this.entries = new CxxVectorObject<NetworkStatisticsEntry>(td_bridge_obj_networkStatistics_entries(obj)).Fetch();
+            this.SinceDate = td_bridge_obj_networkStatistics_since_date(obj).Fetch();
+            this.Entries = new CxxVectorObject<NetworkStatisticsEntry>(td_bridge_obj_networkStatistics_entries(obj)).Fetch();
         }
     }
 
@@ -13667,12 +13667,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_tMeUrlTypeUser();
-            td_bridge_obj_tMeUrlTypeUser_user_id(obj).Set(this.user_id);
+            td_bridge_obj_tMeUrlTypeUser_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_tMeUrlTypeUser_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_tMeUrlTypeUser_user_id(obj).Fetch();
         }
     }
 
@@ -13688,12 +13688,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_tMeUrlTypeSupergroup();
-            td_bridge_obj_tMeUrlTypeSupergroup_supergroup_id(obj).Set(this.supergroup_id);
+            td_bridge_obj_tMeUrlTypeSupergroup_supergroup_id(obj).Set(this.SupergroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_tMeUrlTypeSupergroup_supergroup_id(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_tMeUrlTypeSupergroup_supergroup_id(obj).Fetch();
         }
     }
 
@@ -13709,12 +13709,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_tMeUrlTypeChatInvite();
-            new CxxTLObject<ChatInviteLinkInfo>(td_bridge_obj_tMeUrlTypeChatInvite_info(obj)).Set(this.info);
+            new CxxTLObject<ChatInviteLinkInfo>(td_bridge_obj_tMeUrlTypeChatInvite_info(obj)).Set(this.Info);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.info = new CxxTLObject<ChatInviteLinkInfo>(td_bridge_obj_tMeUrlTypeChatInvite_info(obj)).Fetch();
+            this.Info = new CxxTLObject<ChatInviteLinkInfo>(td_bridge_obj_tMeUrlTypeChatInvite_info(obj)).Fetch();
         }
     }
 
@@ -13730,12 +13730,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_tMeUrlTypeStickerSet();
-            td_bridge_obj_tMeUrlTypeStickerSet_sticker_set_id(obj).Set(this.sticker_set_id);
+            td_bridge_obj_tMeUrlTypeStickerSet_sticker_set_id(obj).Set(this.StickerSetId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker_set_id = td_bridge_obj_tMeUrlTypeStickerSet_sticker_set_id(obj).Fetch();
+            this.StickerSetId = td_bridge_obj_tMeUrlTypeStickerSet_sticker_set_id(obj).Fetch();
         }
     }
 
@@ -13754,14 +13754,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_tMeUrl();
-            td_bridge_obj_tMeUrl_url(obj).Set(this.url);
-            new CxxTLObject<TMeUrlType>(td_bridge_obj_tMeUrl_type(obj)).Set(this.type);
+            td_bridge_obj_tMeUrl_url(obj).Set(this.Url);
+            new CxxTLObject<TMeUrlType>(td_bridge_obj_tMeUrl_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.url = td_bridge_obj_tMeUrl_url(obj).Fetch();
-            this.type = new CxxTLObject<TMeUrlType>(td_bridge_obj_tMeUrl_type(obj)).Fetch();
+            this.Url = td_bridge_obj_tMeUrl_url(obj).Fetch();
+            this.Type = new CxxTLObject<TMeUrlType>(td_bridge_obj_tMeUrl_type(obj)).Fetch();
         }
     }
 
@@ -13777,12 +13777,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_tMeUrls();
-            new CxxVectorObject<TMeUrl>(td_bridge_obj_tMeUrls_urls(obj)).Set(this.urls);
+            new CxxVectorObject<TMeUrl>(td_bridge_obj_tMeUrls_urls(obj)).Set(this.Urls);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.urls = new CxxVectorObject<TMeUrl>(td_bridge_obj_tMeUrls_urls(obj)).Fetch();
+            this.Urls = new CxxVectorObject<TMeUrl>(td_bridge_obj_tMeUrls_urls(obj)).Fetch();
         }
     }
 
@@ -13798,12 +13798,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_count();
-            td_bridge_obj_count_count(obj).Set(this.count);
+            td_bridge_obj_count_count(obj).Set(this.Count_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.count = td_bridge_obj_count_count(obj).Fetch();
+            this.Count_ = td_bridge_obj_count_count(obj).Fetch();
         }
     }
 
@@ -13819,12 +13819,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_text();
-            td_bridge_obj_text_text(obj).Set(this.text);
+            td_bridge_obj_text_text(obj).Set(this.Text_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_text_text(obj).Fetch();
+            this.Text_ = td_bridge_obj_text_text(obj).Fetch();
         }
     }
 
@@ -13840,12 +13840,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_seconds();
-            td_bridge_obj_seconds_seconds(obj).Set(this.seconds);
+            td_bridge_obj_seconds_seconds(obj).Set(this.Seconds_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.seconds = td_bridge_obj_seconds_seconds(obj).Fetch();
+            this.Seconds_ = td_bridge_obj_seconds_seconds(obj).Fetch();
         }
     }
 
@@ -13864,14 +13864,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deepLinkInfo();
-            new CxxTLObject<FormattedText>(td_bridge_obj_deepLinkInfo_text(obj)).Set(this.text);
-            td_bridge_obj_deepLinkInfo_need_update_application(obj).Set(this.need_update_application);
+            new CxxTLObject<FormattedText>(td_bridge_obj_deepLinkInfo_text(obj)).Set(this.Text);
+            td_bridge_obj_deepLinkInfo_need_update_application(obj).Set(this.NeedUpdateApplication);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<FormattedText>(td_bridge_obj_deepLinkInfo_text(obj)).Fetch();
-            this.need_update_application = td_bridge_obj_deepLinkInfo_need_update_application(obj).Fetch();
+            this.Text = new CxxTLObject<FormattedText>(td_bridge_obj_deepLinkInfo_text(obj)).Fetch();
+            this.NeedUpdateApplication = td_bridge_obj_deepLinkInfo_need_update_application(obj).Fetch();
         }
     }
 
@@ -13922,14 +13922,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_proxyTypeSocks5();
-            td_bridge_obj_proxyTypeSocks5_username(obj).Set(this.username);
-            td_bridge_obj_proxyTypeSocks5_password(obj).Set(this.password);
+            td_bridge_obj_proxyTypeSocks5_username(obj).Set(this.Username);
+            td_bridge_obj_proxyTypeSocks5_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.username = td_bridge_obj_proxyTypeSocks5_username(obj).Fetch();
-            this.password = td_bridge_obj_proxyTypeSocks5_password(obj).Fetch();
+            this.Username = td_bridge_obj_proxyTypeSocks5_username(obj).Fetch();
+            this.Password = td_bridge_obj_proxyTypeSocks5_password(obj).Fetch();
         }
     }
 
@@ -13951,16 +13951,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_proxyTypeHttp();
-            td_bridge_obj_proxyTypeHttp_username(obj).Set(this.username);
-            td_bridge_obj_proxyTypeHttp_password(obj).Set(this.password);
-            td_bridge_obj_proxyTypeHttp_http_only(obj).Set(this.http_only);
+            td_bridge_obj_proxyTypeHttp_username(obj).Set(this.Username);
+            td_bridge_obj_proxyTypeHttp_password(obj).Set(this.Password);
+            td_bridge_obj_proxyTypeHttp_http_only(obj).Set(this.HttpOnly);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.username = td_bridge_obj_proxyTypeHttp_username(obj).Fetch();
-            this.password = td_bridge_obj_proxyTypeHttp_password(obj).Fetch();
-            this.http_only = td_bridge_obj_proxyTypeHttp_http_only(obj).Fetch();
+            this.Username = td_bridge_obj_proxyTypeHttp_username(obj).Fetch();
+            this.Password = td_bridge_obj_proxyTypeHttp_password(obj).Fetch();
+            this.HttpOnly = td_bridge_obj_proxyTypeHttp_http_only(obj).Fetch();
         }
     }
 
@@ -13976,12 +13976,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_proxyTypeMtproto();
-            td_bridge_obj_proxyTypeMtproto_secret(obj).Set(this.secret);
+            td_bridge_obj_proxyTypeMtproto_secret(obj).Set(this.Secret);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.secret = td_bridge_obj_proxyTypeMtproto_secret(obj).Fetch();
+            this.Secret = td_bridge_obj_proxyTypeMtproto_secret(obj).Fetch();
         }
     }
 
@@ -14012,22 +14012,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_proxy();
-            td_bridge_obj_proxy_id(obj).Set(this.id);
-            td_bridge_obj_proxy_server(obj).Set(this.server);
-            td_bridge_obj_proxy_port(obj).Set(this.port);
-            td_bridge_obj_proxy_last_used_date(obj).Set(this.last_used_date);
-            td_bridge_obj_proxy_is_enabled(obj).Set(this.is_enabled);
-            new CxxTLObject<ProxyType>(td_bridge_obj_proxy_type(obj)).Set(this.type);
+            td_bridge_obj_proxy_id(obj).Set(this.Id);
+            td_bridge_obj_proxy_server(obj).Set(this.Server);
+            td_bridge_obj_proxy_port(obj).Set(this.Port);
+            td_bridge_obj_proxy_last_used_date(obj).Set(this.LastUsedDate);
+            td_bridge_obj_proxy_is_enabled(obj).Set(this.IsEnabled);
+            new CxxTLObject<ProxyType>(td_bridge_obj_proxy_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_proxy_id(obj).Fetch();
-            this.server = td_bridge_obj_proxy_server(obj).Fetch();
-            this.port = td_bridge_obj_proxy_port(obj).Fetch();
-            this.last_used_date = td_bridge_obj_proxy_last_used_date(obj).Fetch();
-            this.is_enabled = td_bridge_obj_proxy_is_enabled(obj).Fetch();
-            this.type = new CxxTLObject<ProxyType>(td_bridge_obj_proxy_type(obj)).Fetch();
+            this.Id = td_bridge_obj_proxy_id(obj).Fetch();
+            this.Server = td_bridge_obj_proxy_server(obj).Fetch();
+            this.Port = td_bridge_obj_proxy_port(obj).Fetch();
+            this.LastUsedDate = td_bridge_obj_proxy_last_used_date(obj).Fetch();
+            this.IsEnabled = td_bridge_obj_proxy_is_enabled(obj).Fetch();
+            this.Type = new CxxTLObject<ProxyType>(td_bridge_obj_proxy_type(obj)).Fetch();
         }
     }
 
@@ -14043,12 +14043,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_proxies();
-            new CxxVectorObject<Proxy>(td_bridge_obj_proxies_proxies(obj)).Set(this.proxies);
+            new CxxVectorObject<Proxy>(td_bridge_obj_proxies_proxies(obj)).Set(this.Proxies_);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.proxies = new CxxVectorObject<Proxy>(td_bridge_obj_proxies_proxies(obj)).Fetch();
+            this.Proxies_ = new CxxVectorObject<Proxy>(td_bridge_obj_proxies_proxies(obj)).Fetch();
         }
     }
 
@@ -14070,16 +14070,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_inputSticker();
-            new CxxTLObject<InputFile>(td_bridge_obj_inputSticker_png_sticker(obj)).Set(this.png_sticker);
-            td_bridge_obj_inputSticker_emojis(obj).Set(this.emojis);
-            new CxxTLObject<MaskPosition>(td_bridge_obj_inputSticker_mask_position(obj)).Set(this.mask_position);
+            new CxxTLObject<InputFile>(td_bridge_obj_inputSticker_png_sticker(obj)).Set(this.PngSticker);
+            td_bridge_obj_inputSticker_emojis(obj).Set(this.Emojis);
+            new CxxTLObject<MaskPosition>(td_bridge_obj_inputSticker_mask_position(obj)).Set(this.MaskPosition);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.png_sticker = new CxxTLObject<InputFile>(td_bridge_obj_inputSticker_png_sticker(obj)).Fetch();
-            this.emojis = td_bridge_obj_inputSticker_emojis(obj).Fetch();
-            this.mask_position = new CxxTLObject<MaskPosition>(td_bridge_obj_inputSticker_mask_position(obj)).Fetch();
+            this.PngSticker = new CxxTLObject<InputFile>(td_bridge_obj_inputSticker_png_sticker(obj)).Fetch();
+            this.Emojis = td_bridge_obj_inputSticker_emojis(obj).Fetch();
+            this.MaskPosition = new CxxTLObject<MaskPosition>(td_bridge_obj_inputSticker_mask_position(obj)).Fetch();
         }
     }
 
@@ -14095,12 +14095,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateAuthorizationState();
-            new CxxTLObject<AuthorizationState>(td_bridge_obj_updateAuthorizationState_authorization_state(obj)).Set(this.authorization_state);
+            new CxxTLObject<AuthorizationState>(td_bridge_obj_updateAuthorizationState_authorization_state(obj)).Set(this.AuthorizationState);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.authorization_state = new CxxTLObject<AuthorizationState>(td_bridge_obj_updateAuthorizationState_authorization_state(obj)).Fetch();
+            this.AuthorizationState = new CxxTLObject<AuthorizationState>(td_bridge_obj_updateAuthorizationState_authorization_state(obj)).Fetch();
         }
     }
 
@@ -14122,16 +14122,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewMessage();
-            new CxxTLObject<Message>(td_bridge_obj_updateNewMessage_message(obj)).Set(this.message);
-            td_bridge_obj_updateNewMessage_disable_notification(obj).Set(this.disable_notification);
-            td_bridge_obj_updateNewMessage_contains_mention(obj).Set(this.contains_mention);
+            new CxxTLObject<Message>(td_bridge_obj_updateNewMessage_message(obj)).Set(this.Message);
+            td_bridge_obj_updateNewMessage_disable_notification(obj).Set(this.DisableNotification);
+            td_bridge_obj_updateNewMessage_contains_mention(obj).Set(this.ContainsMention);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.message = new CxxTLObject<Message>(td_bridge_obj_updateNewMessage_message(obj)).Fetch();
-            this.disable_notification = td_bridge_obj_updateNewMessage_disable_notification(obj).Fetch();
-            this.contains_mention = td_bridge_obj_updateNewMessage_contains_mention(obj).Fetch();
+            this.Message = new CxxTLObject<Message>(td_bridge_obj_updateNewMessage_message(obj)).Fetch();
+            this.DisableNotification = td_bridge_obj_updateNewMessage_disable_notification(obj).Fetch();
+            this.ContainsMention = td_bridge_obj_updateNewMessage_contains_mention(obj).Fetch();
         }
     }
 
@@ -14150,14 +14150,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageSendAcknowledged();
-            td_bridge_obj_updateMessageSendAcknowledged_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateMessageSendAcknowledged_message_id(obj).Set(this.message_id);
+            td_bridge_obj_updateMessageSendAcknowledged_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateMessageSendAcknowledged_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateMessageSendAcknowledged_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_updateMessageSendAcknowledged_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateMessageSendAcknowledged_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_updateMessageSendAcknowledged_message_id(obj).Fetch();
         }
     }
 
@@ -14176,14 +14176,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageSendSucceeded();
-            new CxxTLObject<Message>(td_bridge_obj_updateMessageSendSucceeded_message(obj)).Set(this.message);
-            td_bridge_obj_updateMessageSendSucceeded_old_message_id(obj).Set(this.old_message_id);
+            new CxxTLObject<Message>(td_bridge_obj_updateMessageSendSucceeded_message(obj)).Set(this.Message);
+            td_bridge_obj_updateMessageSendSucceeded_old_message_id(obj).Set(this.OldMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.message = new CxxTLObject<Message>(td_bridge_obj_updateMessageSendSucceeded_message(obj)).Fetch();
-            this.old_message_id = td_bridge_obj_updateMessageSendSucceeded_old_message_id(obj).Fetch();
+            this.Message = new CxxTLObject<Message>(td_bridge_obj_updateMessageSendSucceeded_message(obj)).Fetch();
+            this.OldMessageId = td_bridge_obj_updateMessageSendSucceeded_old_message_id(obj).Fetch();
         }
     }
 
@@ -14208,18 +14208,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageSendFailed();
-            new CxxTLObject<Message>(td_bridge_obj_updateMessageSendFailed_message(obj)).Set(this.message);
-            td_bridge_obj_updateMessageSendFailed_old_message_id(obj).Set(this.old_message_id);
-            td_bridge_obj_updateMessageSendFailed_error_code(obj).Set(this.error_code);
-            td_bridge_obj_updateMessageSendFailed_error_message(obj).Set(this.error_message);
+            new CxxTLObject<Message>(td_bridge_obj_updateMessageSendFailed_message(obj)).Set(this.Message);
+            td_bridge_obj_updateMessageSendFailed_old_message_id(obj).Set(this.OldMessageId);
+            td_bridge_obj_updateMessageSendFailed_error_code(obj).Set(this.ErrorCode);
+            td_bridge_obj_updateMessageSendFailed_error_message(obj).Set(this.ErrorMessage);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.message = new CxxTLObject<Message>(td_bridge_obj_updateMessageSendFailed_message(obj)).Fetch();
-            this.old_message_id = td_bridge_obj_updateMessageSendFailed_old_message_id(obj).Fetch();
-            this.error_code = td_bridge_obj_updateMessageSendFailed_error_code(obj).Fetch();
-            this.error_message = td_bridge_obj_updateMessageSendFailed_error_message(obj).Fetch();
+            this.Message = new CxxTLObject<Message>(td_bridge_obj_updateMessageSendFailed_message(obj)).Fetch();
+            this.OldMessageId = td_bridge_obj_updateMessageSendFailed_old_message_id(obj).Fetch();
+            this.ErrorCode = td_bridge_obj_updateMessageSendFailed_error_code(obj).Fetch();
+            this.ErrorMessage = td_bridge_obj_updateMessageSendFailed_error_message(obj).Fetch();
         }
     }
 
@@ -14241,16 +14241,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageContent();
-            td_bridge_obj_updateMessageContent_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateMessageContent_message_id(obj).Set(this.message_id);
-            new CxxTLObject<MessageContent>(td_bridge_obj_updateMessageContent_new_content(obj)).Set(this.new_content);
+            td_bridge_obj_updateMessageContent_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateMessageContent_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<MessageContent>(td_bridge_obj_updateMessageContent_new_content(obj)).Set(this.NewContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateMessageContent_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_updateMessageContent_message_id(obj).Fetch();
-            this.new_content = new CxxTLObject<MessageContent>(td_bridge_obj_updateMessageContent_new_content(obj)).Fetch();
+            this.ChatId = td_bridge_obj_updateMessageContent_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_updateMessageContent_message_id(obj).Fetch();
+            this.NewContent = new CxxTLObject<MessageContent>(td_bridge_obj_updateMessageContent_new_content(obj)).Fetch();
         }
     }
 
@@ -14275,18 +14275,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageEdited();
-            td_bridge_obj_updateMessageEdited_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateMessageEdited_message_id(obj).Set(this.message_id);
-            td_bridge_obj_updateMessageEdited_edit_date(obj).Set(this.edit_date);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_updateMessageEdited_reply_markup(obj)).Set(this.reply_markup);
+            td_bridge_obj_updateMessageEdited_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateMessageEdited_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_updateMessageEdited_edit_date(obj).Set(this.EditDate);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_updateMessageEdited_reply_markup(obj)).Set(this.ReplyMarkup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateMessageEdited_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_updateMessageEdited_message_id(obj).Fetch();
-            this.edit_date = td_bridge_obj_updateMessageEdited_edit_date(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_updateMessageEdited_reply_markup(obj)).Fetch();
+            this.ChatId = td_bridge_obj_updateMessageEdited_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_updateMessageEdited_message_id(obj).Fetch();
+            this.EditDate = td_bridge_obj_updateMessageEdited_edit_date(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_updateMessageEdited_reply_markup(obj)).Fetch();
         }
     }
 
@@ -14308,16 +14308,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageViews();
-            td_bridge_obj_updateMessageViews_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateMessageViews_message_id(obj).Set(this.message_id);
-            td_bridge_obj_updateMessageViews_views(obj).Set(this.views);
+            td_bridge_obj_updateMessageViews_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateMessageViews_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_updateMessageViews_views(obj).Set(this.Views);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateMessageViews_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_updateMessageViews_message_id(obj).Fetch();
-            this.views = td_bridge_obj_updateMessageViews_views(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateMessageViews_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_updateMessageViews_message_id(obj).Fetch();
+            this.Views = td_bridge_obj_updateMessageViews_views(obj).Fetch();
         }
     }
 
@@ -14336,14 +14336,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageContentOpened();
-            td_bridge_obj_updateMessageContentOpened_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateMessageContentOpened_message_id(obj).Set(this.message_id);
+            td_bridge_obj_updateMessageContentOpened_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateMessageContentOpened_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateMessageContentOpened_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_updateMessageContentOpened_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateMessageContentOpened_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_updateMessageContentOpened_message_id(obj).Fetch();
         }
     }
 
@@ -14365,16 +14365,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateMessageMentionRead();
-            td_bridge_obj_updateMessageMentionRead_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateMessageMentionRead_message_id(obj).Set(this.message_id);
-            td_bridge_obj_updateMessageMentionRead_unread_mention_count(obj).Set(this.unread_mention_count);
+            td_bridge_obj_updateMessageMentionRead_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateMessageMentionRead_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_updateMessageMentionRead_unread_mention_count(obj).Set(this.UnreadMentionCount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateMessageMentionRead_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_updateMessageMentionRead_message_id(obj).Fetch();
-            this.unread_mention_count = td_bridge_obj_updateMessageMentionRead_unread_mention_count(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateMessageMentionRead_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_updateMessageMentionRead_message_id(obj).Fetch();
+            this.UnreadMentionCount = td_bridge_obj_updateMessageMentionRead_unread_mention_count(obj).Fetch();
         }
     }
 
@@ -14390,12 +14390,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewChat();
-            new CxxTLObject<Chat>(td_bridge_obj_updateNewChat_chat(obj)).Set(this.chat);
+            new CxxTLObject<Chat>(td_bridge_obj_updateNewChat_chat(obj)).Set(this.Chat);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat = new CxxTLObject<Chat>(td_bridge_obj_updateNewChat_chat(obj)).Fetch();
+            this.Chat = new CxxTLObject<Chat>(td_bridge_obj_updateNewChat_chat(obj)).Fetch();
         }
     }
 
@@ -14414,14 +14414,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatTitle();
-            td_bridge_obj_updateChatTitle_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatTitle_title(obj).Set(this.title);
+            td_bridge_obj_updateChatTitle_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatTitle_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatTitle_chat_id(obj).Fetch();
-            this.title = td_bridge_obj_updateChatTitle_title(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatTitle_chat_id(obj).Fetch();
+            this.Title = td_bridge_obj_updateChatTitle_title(obj).Fetch();
         }
     }
 
@@ -14440,14 +14440,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatPhoto();
-            td_bridge_obj_updateChatPhoto_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<ChatPhoto>(td_bridge_obj_updateChatPhoto_photo(obj)).Set(this.photo);
+            td_bridge_obj_updateChatPhoto_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<ChatPhoto>(td_bridge_obj_updateChatPhoto_photo(obj)).Set(this.Photo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatPhoto_chat_id(obj).Fetch();
-            this.photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_updateChatPhoto_photo(obj)).Fetch();
+            this.ChatId = td_bridge_obj_updateChatPhoto_chat_id(obj).Fetch();
+            this.Photo = new CxxTLObject<ChatPhoto>(td_bridge_obj_updateChatPhoto_photo(obj)).Fetch();
         }
     }
 
@@ -14469,16 +14469,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatLastMessage();
-            td_bridge_obj_updateChatLastMessage_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<Message>(td_bridge_obj_updateChatLastMessage_last_message(obj)).Set(this.last_message);
-            td_bridge_obj_updateChatLastMessage_order(obj).Set(this.order);
+            td_bridge_obj_updateChatLastMessage_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<Message>(td_bridge_obj_updateChatLastMessage_last_message(obj)).Set(this.LastMessage);
+            td_bridge_obj_updateChatLastMessage_order(obj).Set(this.Order);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatLastMessage_chat_id(obj).Fetch();
-            this.last_message = new CxxTLObject<Message>(td_bridge_obj_updateChatLastMessage_last_message(obj)).Fetch();
-            this.order = td_bridge_obj_updateChatLastMessage_order(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatLastMessage_chat_id(obj).Fetch();
+            this.LastMessage = new CxxTLObject<Message>(td_bridge_obj_updateChatLastMessage_last_message(obj)).Fetch();
+            this.Order = td_bridge_obj_updateChatLastMessage_order(obj).Fetch();
         }
     }
 
@@ -14497,14 +14497,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatOrder();
-            td_bridge_obj_updateChatOrder_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatOrder_order(obj).Set(this.order);
+            td_bridge_obj_updateChatOrder_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatOrder_order(obj).Set(this.Order);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatOrder_chat_id(obj).Fetch();
-            this.order = td_bridge_obj_updateChatOrder_order(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatOrder_chat_id(obj).Fetch();
+            this.Order = td_bridge_obj_updateChatOrder_order(obj).Fetch();
         }
     }
 
@@ -14526,16 +14526,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatIsPinned();
-            td_bridge_obj_updateChatIsPinned_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatIsPinned_is_pinned(obj).Set(this.is_pinned);
-            td_bridge_obj_updateChatIsPinned_order(obj).Set(this.order);
+            td_bridge_obj_updateChatIsPinned_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatIsPinned_is_pinned(obj).Set(this.IsPinned);
+            td_bridge_obj_updateChatIsPinned_order(obj).Set(this.Order);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatIsPinned_chat_id(obj).Fetch();
-            this.is_pinned = td_bridge_obj_updateChatIsPinned_is_pinned(obj).Fetch();
-            this.order = td_bridge_obj_updateChatIsPinned_order(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatIsPinned_chat_id(obj).Fetch();
+            this.IsPinned = td_bridge_obj_updateChatIsPinned_is_pinned(obj).Fetch();
+            this.Order = td_bridge_obj_updateChatIsPinned_order(obj).Fetch();
         }
     }
 
@@ -14554,14 +14554,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatIsMarkedAsUnread();
-            td_bridge_obj_updateChatIsMarkedAsUnread_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatIsMarkedAsUnread_is_marked_as_unread(obj).Set(this.is_marked_as_unread);
+            td_bridge_obj_updateChatIsMarkedAsUnread_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatIsMarkedAsUnread_is_marked_as_unread(obj).Set(this.IsMarkedAsUnread);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatIsMarkedAsUnread_chat_id(obj).Fetch();
-            this.is_marked_as_unread = td_bridge_obj_updateChatIsMarkedAsUnread_is_marked_as_unread(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatIsMarkedAsUnread_chat_id(obj).Fetch();
+            this.IsMarkedAsUnread = td_bridge_obj_updateChatIsMarkedAsUnread_is_marked_as_unread(obj).Fetch();
         }
     }
 
@@ -14583,16 +14583,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatIsSponsored();
-            td_bridge_obj_updateChatIsSponsored_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatIsSponsored_is_sponsored(obj).Set(this.is_sponsored);
-            td_bridge_obj_updateChatIsSponsored_order(obj).Set(this.order);
+            td_bridge_obj_updateChatIsSponsored_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatIsSponsored_is_sponsored(obj).Set(this.IsSponsored);
+            td_bridge_obj_updateChatIsSponsored_order(obj).Set(this.Order);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatIsSponsored_chat_id(obj).Fetch();
-            this.is_sponsored = td_bridge_obj_updateChatIsSponsored_is_sponsored(obj).Fetch();
-            this.order = td_bridge_obj_updateChatIsSponsored_order(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatIsSponsored_chat_id(obj).Fetch();
+            this.IsSponsored = td_bridge_obj_updateChatIsSponsored_is_sponsored(obj).Fetch();
+            this.Order = td_bridge_obj_updateChatIsSponsored_order(obj).Fetch();
         }
     }
 
@@ -14611,14 +14611,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatDefaultDisableNotification();
-            td_bridge_obj_updateChatDefaultDisableNotification_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatDefaultDisableNotification_default_disable_notification(obj).Set(this.default_disable_notification);
+            td_bridge_obj_updateChatDefaultDisableNotification_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatDefaultDisableNotification_default_disable_notification(obj).Set(this.DefaultDisableNotification);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatDefaultDisableNotification_chat_id(obj).Fetch();
-            this.default_disable_notification = td_bridge_obj_updateChatDefaultDisableNotification_default_disable_notification(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatDefaultDisableNotification_chat_id(obj).Fetch();
+            this.DefaultDisableNotification = td_bridge_obj_updateChatDefaultDisableNotification_default_disable_notification(obj).Fetch();
         }
     }
 
@@ -14640,16 +14640,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatReadInbox();
-            td_bridge_obj_updateChatReadInbox_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatReadInbox_last_read_inbox_message_id(obj).Set(this.last_read_inbox_message_id);
-            td_bridge_obj_updateChatReadInbox_unread_count(obj).Set(this.unread_count);
+            td_bridge_obj_updateChatReadInbox_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatReadInbox_last_read_inbox_message_id(obj).Set(this.LastReadInboxMessageId);
+            td_bridge_obj_updateChatReadInbox_unread_count(obj).Set(this.UnreadCount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatReadInbox_chat_id(obj).Fetch();
-            this.last_read_inbox_message_id = td_bridge_obj_updateChatReadInbox_last_read_inbox_message_id(obj).Fetch();
-            this.unread_count = td_bridge_obj_updateChatReadInbox_unread_count(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatReadInbox_chat_id(obj).Fetch();
+            this.LastReadInboxMessageId = td_bridge_obj_updateChatReadInbox_last_read_inbox_message_id(obj).Fetch();
+            this.UnreadCount = td_bridge_obj_updateChatReadInbox_unread_count(obj).Fetch();
         }
     }
 
@@ -14668,14 +14668,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatReadOutbox();
-            td_bridge_obj_updateChatReadOutbox_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatReadOutbox_last_read_outbox_message_id(obj).Set(this.last_read_outbox_message_id);
+            td_bridge_obj_updateChatReadOutbox_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatReadOutbox_last_read_outbox_message_id(obj).Set(this.LastReadOutboxMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatReadOutbox_chat_id(obj).Fetch();
-            this.last_read_outbox_message_id = td_bridge_obj_updateChatReadOutbox_last_read_outbox_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatReadOutbox_chat_id(obj).Fetch();
+            this.LastReadOutboxMessageId = td_bridge_obj_updateChatReadOutbox_last_read_outbox_message_id(obj).Fetch();
         }
     }
 
@@ -14694,14 +14694,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatUnreadMentionCount();
-            td_bridge_obj_updateChatUnreadMentionCount_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatUnreadMentionCount_unread_mention_count(obj).Set(this.unread_mention_count);
+            td_bridge_obj_updateChatUnreadMentionCount_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatUnreadMentionCount_unread_mention_count(obj).Set(this.UnreadMentionCount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatUnreadMentionCount_chat_id(obj).Fetch();
-            this.unread_mention_count = td_bridge_obj_updateChatUnreadMentionCount_unread_mention_count(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatUnreadMentionCount_chat_id(obj).Fetch();
+            this.UnreadMentionCount = td_bridge_obj_updateChatUnreadMentionCount_unread_mention_count(obj).Fetch();
         }
     }
 
@@ -14720,14 +14720,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatNotificationSettings();
-            td_bridge_obj_updateChatNotificationSettings_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_updateChatNotificationSettings_notification_settings(obj)).Set(this.notification_settings);
+            td_bridge_obj_updateChatNotificationSettings_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_updateChatNotificationSettings_notification_settings(obj)).Set(this.NotificationSettings);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatNotificationSettings_chat_id(obj).Fetch();
-            this.notification_settings = new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_updateChatNotificationSettings_notification_settings(obj)).Fetch();
+            this.ChatId = td_bridge_obj_updateChatNotificationSettings_chat_id(obj).Fetch();
+            this.NotificationSettings = new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_updateChatNotificationSettings_notification_settings(obj)).Fetch();
         }
     }
 
@@ -14746,14 +14746,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateScopeNotificationSettings();
-            new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_updateScopeNotificationSettings_scope(obj)).Set(this.scope);
-            new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_updateScopeNotificationSettings_notification_settings(obj)).Set(this.notification_settings);
+            new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_updateScopeNotificationSettings_scope(obj)).Set(this.Scope);
+            new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_updateScopeNotificationSettings_notification_settings(obj)).Set(this.NotificationSettings);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.scope = new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_updateScopeNotificationSettings_scope(obj)).Fetch();
-            this.notification_settings = new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_updateScopeNotificationSettings_notification_settings(obj)).Fetch();
+            this.Scope = new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_updateScopeNotificationSettings_scope(obj)).Fetch();
+            this.NotificationSettings = new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_updateScopeNotificationSettings_notification_settings(obj)).Fetch();
         }
     }
 
@@ -14772,14 +14772,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatReplyMarkup();
-            td_bridge_obj_updateChatReplyMarkup_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateChatReplyMarkup_reply_markup_message_id(obj).Set(this.reply_markup_message_id);
+            td_bridge_obj_updateChatReplyMarkup_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatReplyMarkup_reply_markup_message_id(obj).Set(this.ReplyMarkupMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatReplyMarkup_chat_id(obj).Fetch();
-            this.reply_markup_message_id = td_bridge_obj_updateChatReplyMarkup_reply_markup_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatReplyMarkup_chat_id(obj).Fetch();
+            this.ReplyMarkupMessageId = td_bridge_obj_updateChatReplyMarkup_reply_markup_message_id(obj).Fetch();
         }
     }
 
@@ -14801,16 +14801,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateChatDraftMessage();
-            td_bridge_obj_updateChatDraftMessage_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<DraftMessage>(td_bridge_obj_updateChatDraftMessage_draft_message(obj)).Set(this.draft_message);
-            td_bridge_obj_updateChatDraftMessage_order(obj).Set(this.order);
+            td_bridge_obj_updateChatDraftMessage_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<DraftMessage>(td_bridge_obj_updateChatDraftMessage_draft_message(obj)).Set(this.DraftMessage);
+            td_bridge_obj_updateChatDraftMessage_order(obj).Set(this.Order);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateChatDraftMessage_chat_id(obj).Fetch();
-            this.draft_message = new CxxTLObject<DraftMessage>(td_bridge_obj_updateChatDraftMessage_draft_message(obj)).Fetch();
-            this.order = td_bridge_obj_updateChatDraftMessage_order(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateChatDraftMessage_chat_id(obj).Fetch();
+            this.DraftMessage = new CxxTLObject<DraftMessage>(td_bridge_obj_updateChatDraftMessage_draft_message(obj)).Fetch();
+            this.Order = td_bridge_obj_updateChatDraftMessage_order(obj).Fetch();
         }
     }
 
@@ -14835,18 +14835,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateDeleteMessages();
-            td_bridge_obj_updateDeleteMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateDeleteMessages_message_ids(obj).Set(this.message_ids);
-            td_bridge_obj_updateDeleteMessages_is_permanent(obj).Set(this.is_permanent);
-            td_bridge_obj_updateDeleteMessages_from_cache(obj).Set(this.from_cache);
+            td_bridge_obj_updateDeleteMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateDeleteMessages_message_ids(obj).Set(this.MessageIds);
+            td_bridge_obj_updateDeleteMessages_is_permanent(obj).Set(this.IsPermanent);
+            td_bridge_obj_updateDeleteMessages_from_cache(obj).Set(this.FromCache);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateDeleteMessages_chat_id(obj).Fetch();
-            this.message_ids = td_bridge_obj_updateDeleteMessages_message_ids(obj).Fetch();
-            this.is_permanent = td_bridge_obj_updateDeleteMessages_is_permanent(obj).Fetch();
-            this.from_cache = td_bridge_obj_updateDeleteMessages_from_cache(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateDeleteMessages_chat_id(obj).Fetch();
+            this.MessageIds = td_bridge_obj_updateDeleteMessages_message_ids(obj).Fetch();
+            this.IsPermanent = td_bridge_obj_updateDeleteMessages_is_permanent(obj).Fetch();
+            this.FromCache = td_bridge_obj_updateDeleteMessages_from_cache(obj).Fetch();
         }
     }
 
@@ -14868,16 +14868,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateUserChatAction();
-            td_bridge_obj_updateUserChatAction_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateUserChatAction_user_id(obj).Set(this.user_id);
-            new CxxTLObject<ChatAction>(td_bridge_obj_updateUserChatAction_action(obj)).Set(this.action);
+            td_bridge_obj_updateUserChatAction_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateUserChatAction_user_id(obj).Set(this.UserId);
+            new CxxTLObject<ChatAction>(td_bridge_obj_updateUserChatAction_action(obj)).Set(this.Action);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_updateUserChatAction_chat_id(obj).Fetch();
-            this.user_id = td_bridge_obj_updateUserChatAction_user_id(obj).Fetch();
-            this.action = new CxxTLObject<ChatAction>(td_bridge_obj_updateUserChatAction_action(obj)).Fetch();
+            this.ChatId = td_bridge_obj_updateUserChatAction_chat_id(obj).Fetch();
+            this.UserId = td_bridge_obj_updateUserChatAction_user_id(obj).Fetch();
+            this.Action = new CxxTLObject<ChatAction>(td_bridge_obj_updateUserChatAction_action(obj)).Fetch();
         }
     }
 
@@ -14896,14 +14896,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateUserStatus();
-            td_bridge_obj_updateUserStatus_user_id(obj).Set(this.user_id);
-            new CxxTLObject<UserStatus>(td_bridge_obj_updateUserStatus_status(obj)).Set(this.status);
+            td_bridge_obj_updateUserStatus_user_id(obj).Set(this.UserId);
+            new CxxTLObject<UserStatus>(td_bridge_obj_updateUserStatus_status(obj)).Set(this.Status);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_updateUserStatus_user_id(obj).Fetch();
-            this.status = new CxxTLObject<UserStatus>(td_bridge_obj_updateUserStatus_status(obj)).Fetch();
+            this.UserId = td_bridge_obj_updateUserStatus_user_id(obj).Fetch();
+            this.Status = new CxxTLObject<UserStatus>(td_bridge_obj_updateUserStatus_status(obj)).Fetch();
         }
     }
 
@@ -14919,12 +14919,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateUser();
-            new CxxTLObject<User>(td_bridge_obj_updateUser_user(obj)).Set(this.user);
+            new CxxTLObject<User>(td_bridge_obj_updateUser_user(obj)).Set(this.User);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user = new CxxTLObject<User>(td_bridge_obj_updateUser_user(obj)).Fetch();
+            this.User = new CxxTLObject<User>(td_bridge_obj_updateUser_user(obj)).Fetch();
         }
     }
 
@@ -14940,12 +14940,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateBasicGroup();
-            new CxxTLObject<BasicGroup>(td_bridge_obj_updateBasicGroup_basic_group(obj)).Set(this.basic_group);
+            new CxxTLObject<BasicGroup>(td_bridge_obj_updateBasicGroup_basic_group(obj)).Set(this.BasicGroup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.basic_group = new CxxTLObject<BasicGroup>(td_bridge_obj_updateBasicGroup_basic_group(obj)).Fetch();
+            this.BasicGroup = new CxxTLObject<BasicGroup>(td_bridge_obj_updateBasicGroup_basic_group(obj)).Fetch();
         }
     }
 
@@ -14961,12 +14961,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateSupergroup();
-            new CxxTLObject<Supergroup>(td_bridge_obj_updateSupergroup_supergroup(obj)).Set(this.supergroup);
+            new CxxTLObject<Supergroup>(td_bridge_obj_updateSupergroup_supergroup(obj)).Set(this.Supergroup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup = new CxxTLObject<Supergroup>(td_bridge_obj_updateSupergroup_supergroup(obj)).Fetch();
+            this.Supergroup = new CxxTLObject<Supergroup>(td_bridge_obj_updateSupergroup_supergroup(obj)).Fetch();
         }
     }
 
@@ -14982,12 +14982,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateSecretChat();
-            new CxxTLObject<SecretChat>(td_bridge_obj_updateSecretChat_secret_chat(obj)).Set(this.secret_chat);
+            new CxxTLObject<SecretChat>(td_bridge_obj_updateSecretChat_secret_chat(obj)).Set(this.SecretChat);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.secret_chat = new CxxTLObject<SecretChat>(td_bridge_obj_updateSecretChat_secret_chat(obj)).Fetch();
+            this.SecretChat = new CxxTLObject<SecretChat>(td_bridge_obj_updateSecretChat_secret_chat(obj)).Fetch();
         }
     }
 
@@ -15006,14 +15006,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateUserFullInfo();
-            td_bridge_obj_updateUserFullInfo_user_id(obj).Set(this.user_id);
-            new CxxTLObject<UserFullInfo>(td_bridge_obj_updateUserFullInfo_user_full_info(obj)).Set(this.user_full_info);
+            td_bridge_obj_updateUserFullInfo_user_id(obj).Set(this.UserId);
+            new CxxTLObject<UserFullInfo>(td_bridge_obj_updateUserFullInfo_user_full_info(obj)).Set(this.UserFullInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_updateUserFullInfo_user_id(obj).Fetch();
-            this.user_full_info = new CxxTLObject<UserFullInfo>(td_bridge_obj_updateUserFullInfo_user_full_info(obj)).Fetch();
+            this.UserId = td_bridge_obj_updateUserFullInfo_user_id(obj).Fetch();
+            this.UserFullInfo = new CxxTLObject<UserFullInfo>(td_bridge_obj_updateUserFullInfo_user_full_info(obj)).Fetch();
         }
     }
 
@@ -15032,14 +15032,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateBasicGroupFullInfo();
-            td_bridge_obj_updateBasicGroupFullInfo_basic_group_id(obj).Set(this.basic_group_id);
-            new CxxTLObject<BasicGroupFullInfo>(td_bridge_obj_updateBasicGroupFullInfo_basic_group_full_info(obj)).Set(this.basic_group_full_info);
+            td_bridge_obj_updateBasicGroupFullInfo_basic_group_id(obj).Set(this.BasicGroupId);
+            new CxxTLObject<BasicGroupFullInfo>(td_bridge_obj_updateBasicGroupFullInfo_basic_group_full_info(obj)).Set(this.BasicGroupFullInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.basic_group_id = td_bridge_obj_updateBasicGroupFullInfo_basic_group_id(obj).Fetch();
-            this.basic_group_full_info = new CxxTLObject<BasicGroupFullInfo>(td_bridge_obj_updateBasicGroupFullInfo_basic_group_full_info(obj)).Fetch();
+            this.BasicGroupId = td_bridge_obj_updateBasicGroupFullInfo_basic_group_id(obj).Fetch();
+            this.BasicGroupFullInfo = new CxxTLObject<BasicGroupFullInfo>(td_bridge_obj_updateBasicGroupFullInfo_basic_group_full_info(obj)).Fetch();
         }
     }
 
@@ -15058,14 +15058,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateSupergroupFullInfo();
-            td_bridge_obj_updateSupergroupFullInfo_supergroup_id(obj).Set(this.supergroup_id);
-            new CxxTLObject<SupergroupFullInfo>(td_bridge_obj_updateSupergroupFullInfo_supergroup_full_info(obj)).Set(this.supergroup_full_info);
+            td_bridge_obj_updateSupergroupFullInfo_supergroup_id(obj).Set(this.SupergroupId);
+            new CxxTLObject<SupergroupFullInfo>(td_bridge_obj_updateSupergroupFullInfo_supergroup_full_info(obj)).Set(this.SupergroupFullInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_updateSupergroupFullInfo_supergroup_id(obj).Fetch();
-            this.supergroup_full_info = new CxxTLObject<SupergroupFullInfo>(td_bridge_obj_updateSupergroupFullInfo_supergroup_full_info(obj)).Fetch();
+            this.SupergroupId = td_bridge_obj_updateSupergroupFullInfo_supergroup_id(obj).Fetch();
+            this.SupergroupFullInfo = new CxxTLObject<SupergroupFullInfo>(td_bridge_obj_updateSupergroupFullInfo_supergroup_full_info(obj)).Fetch();
         }
     }
 
@@ -15084,14 +15084,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateServiceNotification();
-            td_bridge_obj_updateServiceNotification_type(obj).Set(this.type);
-            new CxxTLObject<MessageContent>(td_bridge_obj_updateServiceNotification_content(obj)).Set(this.content);
+            td_bridge_obj_updateServiceNotification_type(obj).Set(this.Type);
+            new CxxTLObject<MessageContent>(td_bridge_obj_updateServiceNotification_content(obj)).Set(this.Content);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = td_bridge_obj_updateServiceNotification_type(obj).Fetch();
-            this.content = new CxxTLObject<MessageContent>(td_bridge_obj_updateServiceNotification_content(obj)).Fetch();
+            this.Type = td_bridge_obj_updateServiceNotification_type(obj).Fetch();
+            this.Content = new CxxTLObject<MessageContent>(td_bridge_obj_updateServiceNotification_content(obj)).Fetch();
         }
     }
 
@@ -15107,12 +15107,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateFile();
-            new CxxTLObject<File>(td_bridge_obj_updateFile_file(obj)).Set(this.file);
+            new CxxTLObject<File>(td_bridge_obj_updateFile_file(obj)).Set(this.File);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file = new CxxTLObject<File>(td_bridge_obj_updateFile_file(obj)).Fetch();
+            this.File = new CxxTLObject<File>(td_bridge_obj_updateFile_file(obj)).Fetch();
         }
     }
 
@@ -15137,18 +15137,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateFileGenerationStart();
-            td_bridge_obj_updateFileGenerationStart_generation_id(obj).Set(this.generation_id);
-            td_bridge_obj_updateFileGenerationStart_original_path(obj).Set(this.original_path);
-            td_bridge_obj_updateFileGenerationStart_destination_path(obj).Set(this.destination_path);
-            td_bridge_obj_updateFileGenerationStart_conversion(obj).Set(this.conversion);
+            td_bridge_obj_updateFileGenerationStart_generation_id(obj).Set(this.GenerationId);
+            td_bridge_obj_updateFileGenerationStart_original_path(obj).Set(this.OriginalPath);
+            td_bridge_obj_updateFileGenerationStart_destination_path(obj).Set(this.DestinationPath);
+            td_bridge_obj_updateFileGenerationStart_conversion(obj).Set(this.Conversion);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.generation_id = td_bridge_obj_updateFileGenerationStart_generation_id(obj).Fetch();
-            this.original_path = td_bridge_obj_updateFileGenerationStart_original_path(obj).Fetch();
-            this.destination_path = td_bridge_obj_updateFileGenerationStart_destination_path(obj).Fetch();
-            this.conversion = td_bridge_obj_updateFileGenerationStart_conversion(obj).Fetch();
+            this.GenerationId = td_bridge_obj_updateFileGenerationStart_generation_id(obj).Fetch();
+            this.OriginalPath = td_bridge_obj_updateFileGenerationStart_original_path(obj).Fetch();
+            this.DestinationPath = td_bridge_obj_updateFileGenerationStart_destination_path(obj).Fetch();
+            this.Conversion = td_bridge_obj_updateFileGenerationStart_conversion(obj).Fetch();
         }
     }
 
@@ -15164,12 +15164,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateFileGenerationStop();
-            td_bridge_obj_updateFileGenerationStop_generation_id(obj).Set(this.generation_id);
+            td_bridge_obj_updateFileGenerationStop_generation_id(obj).Set(this.GenerationId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.generation_id = td_bridge_obj_updateFileGenerationStop_generation_id(obj).Fetch();
+            this.GenerationId = td_bridge_obj_updateFileGenerationStop_generation_id(obj).Fetch();
         }
     }
 
@@ -15185,12 +15185,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateCall();
-            new CxxTLObject<Call>(td_bridge_obj_updateCall_call(obj)).Set(this.call);
+            new CxxTLObject<Call>(td_bridge_obj_updateCall_call(obj)).Set(this.Call);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.call = new CxxTLObject<Call>(td_bridge_obj_updateCall_call(obj)).Fetch();
+            this.Call = new CxxTLObject<Call>(td_bridge_obj_updateCall_call(obj)).Fetch();
         }
     }
 
@@ -15209,14 +15209,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateUserPrivacySettingRules();
-            new CxxTLObject<UserPrivacySetting>(td_bridge_obj_updateUserPrivacySettingRules_setting(obj)).Set(this.setting);
-            new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_updateUserPrivacySettingRules_rules(obj)).Set(this.rules);
+            new CxxTLObject<UserPrivacySetting>(td_bridge_obj_updateUserPrivacySettingRules_setting(obj)).Set(this.Setting);
+            new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_updateUserPrivacySettingRules_rules(obj)).Set(this.Rules);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.setting = new CxxTLObject<UserPrivacySetting>(td_bridge_obj_updateUserPrivacySettingRules_setting(obj)).Fetch();
-            this.rules = new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_updateUserPrivacySettingRules_rules(obj)).Fetch();
+            this.Setting = new CxxTLObject<UserPrivacySetting>(td_bridge_obj_updateUserPrivacySettingRules_setting(obj)).Fetch();
+            this.Rules = new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_updateUserPrivacySettingRules_rules(obj)).Fetch();
         }
     }
 
@@ -15235,14 +15235,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateUnreadMessageCount();
-            td_bridge_obj_updateUnreadMessageCount_unread_count(obj).Set(this.unread_count);
-            td_bridge_obj_updateUnreadMessageCount_unread_unmuted_count(obj).Set(this.unread_unmuted_count);
+            td_bridge_obj_updateUnreadMessageCount_unread_count(obj).Set(this.UnreadCount);
+            td_bridge_obj_updateUnreadMessageCount_unread_unmuted_count(obj).Set(this.UnreadUnmutedCount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.unread_count = td_bridge_obj_updateUnreadMessageCount_unread_count(obj).Fetch();
-            this.unread_unmuted_count = td_bridge_obj_updateUnreadMessageCount_unread_unmuted_count(obj).Fetch();
+            this.UnreadCount = td_bridge_obj_updateUnreadMessageCount_unread_count(obj).Fetch();
+            this.UnreadUnmutedCount = td_bridge_obj_updateUnreadMessageCount_unread_unmuted_count(obj).Fetch();
         }
     }
 
@@ -15267,18 +15267,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateUnreadChatCount();
-            td_bridge_obj_updateUnreadChatCount_unread_count(obj).Set(this.unread_count);
-            td_bridge_obj_updateUnreadChatCount_unread_unmuted_count(obj).Set(this.unread_unmuted_count);
-            td_bridge_obj_updateUnreadChatCount_marked_as_unread_count(obj).Set(this.marked_as_unread_count);
-            td_bridge_obj_updateUnreadChatCount_marked_as_unread_unmuted_count(obj).Set(this.marked_as_unread_unmuted_count);
+            td_bridge_obj_updateUnreadChatCount_unread_count(obj).Set(this.UnreadCount);
+            td_bridge_obj_updateUnreadChatCount_unread_unmuted_count(obj).Set(this.UnreadUnmutedCount);
+            td_bridge_obj_updateUnreadChatCount_marked_as_unread_count(obj).Set(this.MarkedAsUnreadCount);
+            td_bridge_obj_updateUnreadChatCount_marked_as_unread_unmuted_count(obj).Set(this.MarkedAsUnreadUnmutedCount);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.unread_count = td_bridge_obj_updateUnreadChatCount_unread_count(obj).Fetch();
-            this.unread_unmuted_count = td_bridge_obj_updateUnreadChatCount_unread_unmuted_count(obj).Fetch();
-            this.marked_as_unread_count = td_bridge_obj_updateUnreadChatCount_marked_as_unread_count(obj).Fetch();
-            this.marked_as_unread_unmuted_count = td_bridge_obj_updateUnreadChatCount_marked_as_unread_unmuted_count(obj).Fetch();
+            this.UnreadCount = td_bridge_obj_updateUnreadChatCount_unread_count(obj).Fetch();
+            this.UnreadUnmutedCount = td_bridge_obj_updateUnreadChatCount_unread_unmuted_count(obj).Fetch();
+            this.MarkedAsUnreadCount = td_bridge_obj_updateUnreadChatCount_marked_as_unread_count(obj).Fetch();
+            this.MarkedAsUnreadUnmutedCount = td_bridge_obj_updateUnreadChatCount_marked_as_unread_unmuted_count(obj).Fetch();
         }
     }
 
@@ -15297,14 +15297,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateOption();
-            td_bridge_obj_updateOption_name(obj).Set(this.name);
-            new CxxTLObject<OptionValue>(td_bridge_obj_updateOption_value(obj)).Set(this.value);
+            td_bridge_obj_updateOption_name(obj).Set(this.Name);
+            new CxxTLObject<OptionValue>(td_bridge_obj_updateOption_value(obj)).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.name = td_bridge_obj_updateOption_name(obj).Fetch();
-            this.value = new CxxTLObject<OptionValue>(td_bridge_obj_updateOption_value(obj)).Fetch();
+            this.Name = td_bridge_obj_updateOption_name(obj).Fetch();
+            this.Value = new CxxTLObject<OptionValue>(td_bridge_obj_updateOption_value(obj)).Fetch();
         }
     }
 
@@ -15323,14 +15323,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateInstalledStickerSets();
-            td_bridge_obj_updateInstalledStickerSets_is_masks(obj).Set(this.is_masks);
-            td_bridge_obj_updateInstalledStickerSets_sticker_set_ids(obj).Set(this.sticker_set_ids);
+            td_bridge_obj_updateInstalledStickerSets_is_masks(obj).Set(this.IsMasks);
+            td_bridge_obj_updateInstalledStickerSets_sticker_set_ids(obj).Set(this.StickerSetIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_masks = td_bridge_obj_updateInstalledStickerSets_is_masks(obj).Fetch();
-            this.sticker_set_ids = td_bridge_obj_updateInstalledStickerSets_sticker_set_ids(obj).Fetch();
+            this.IsMasks = td_bridge_obj_updateInstalledStickerSets_is_masks(obj).Fetch();
+            this.StickerSetIds = td_bridge_obj_updateInstalledStickerSets_sticker_set_ids(obj).Fetch();
         }
     }
 
@@ -15346,12 +15346,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateTrendingStickerSets();
-            new CxxTLObject<StickerSets>(td_bridge_obj_updateTrendingStickerSets_sticker_sets(obj)).Set(this.sticker_sets);
+            new CxxTLObject<StickerSets>(td_bridge_obj_updateTrendingStickerSets_sticker_sets(obj)).Set(this.StickerSets);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker_sets = new CxxTLObject<StickerSets>(td_bridge_obj_updateTrendingStickerSets_sticker_sets(obj)).Fetch();
+            this.StickerSets = new CxxTLObject<StickerSets>(td_bridge_obj_updateTrendingStickerSets_sticker_sets(obj)).Fetch();
         }
     }
 
@@ -15370,14 +15370,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateRecentStickers();
-            td_bridge_obj_updateRecentStickers_is_attached(obj).Set(this.is_attached);
-            td_bridge_obj_updateRecentStickers_sticker_ids(obj).Set(this.sticker_ids);
+            td_bridge_obj_updateRecentStickers_is_attached(obj).Set(this.IsAttached);
+            td_bridge_obj_updateRecentStickers_sticker_ids(obj).Set(this.StickerIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_attached = td_bridge_obj_updateRecentStickers_is_attached(obj).Fetch();
-            this.sticker_ids = td_bridge_obj_updateRecentStickers_sticker_ids(obj).Fetch();
+            this.IsAttached = td_bridge_obj_updateRecentStickers_is_attached(obj).Fetch();
+            this.StickerIds = td_bridge_obj_updateRecentStickers_sticker_ids(obj).Fetch();
         }
     }
 
@@ -15393,12 +15393,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateFavoriteStickers();
-            td_bridge_obj_updateFavoriteStickers_sticker_ids(obj).Set(this.sticker_ids);
+            td_bridge_obj_updateFavoriteStickers_sticker_ids(obj).Set(this.StickerIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker_ids = td_bridge_obj_updateFavoriteStickers_sticker_ids(obj).Fetch();
+            this.StickerIds = td_bridge_obj_updateFavoriteStickers_sticker_ids(obj).Fetch();
         }
     }
 
@@ -15414,12 +15414,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateSavedAnimations();
-            td_bridge_obj_updateSavedAnimations_animation_ids(obj).Set(this.animation_ids);
+            td_bridge_obj_updateSavedAnimations_animation_ids(obj).Set(this.AnimationIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.animation_ids = td_bridge_obj_updateSavedAnimations_animation_ids(obj).Fetch();
+            this.AnimationIds = td_bridge_obj_updateSavedAnimations_animation_ids(obj).Fetch();
         }
     }
 
@@ -15441,16 +15441,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateLanguagePackStrings();
-            td_bridge_obj_updateLanguagePackStrings_localization_target(obj).Set(this.localization_target);
-            td_bridge_obj_updateLanguagePackStrings_language_pack_id(obj).Set(this.language_pack_id);
-            new CxxVectorObject<LanguagePackString>(td_bridge_obj_updateLanguagePackStrings_strings(obj)).Set(this.strings);
+            td_bridge_obj_updateLanguagePackStrings_localization_target(obj).Set(this.LocalizationTarget);
+            td_bridge_obj_updateLanguagePackStrings_language_pack_id(obj).Set(this.LanguagePackId);
+            new CxxVectorObject<LanguagePackString>(td_bridge_obj_updateLanguagePackStrings_strings(obj)).Set(this.Strings);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.localization_target = td_bridge_obj_updateLanguagePackStrings_localization_target(obj).Fetch();
-            this.language_pack_id = td_bridge_obj_updateLanguagePackStrings_language_pack_id(obj).Fetch();
-            this.strings = new CxxVectorObject<LanguagePackString>(td_bridge_obj_updateLanguagePackStrings_strings(obj)).Fetch();
+            this.LocalizationTarget = td_bridge_obj_updateLanguagePackStrings_localization_target(obj).Fetch();
+            this.LanguagePackId = td_bridge_obj_updateLanguagePackStrings_language_pack_id(obj).Fetch();
+            this.Strings = new CxxVectorObject<LanguagePackString>(td_bridge_obj_updateLanguagePackStrings_strings(obj)).Fetch();
         }
     }
 
@@ -15466,12 +15466,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateConnectionState();
-            new CxxTLObject<ConnectionState>(td_bridge_obj_updateConnectionState_state(obj)).Set(this.state);
+            new CxxTLObject<ConnectionState>(td_bridge_obj_updateConnectionState_state(obj)).Set(this.State);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.state = new CxxTLObject<ConnectionState>(td_bridge_obj_updateConnectionState_state(obj)).Fetch();
+            this.State = new CxxTLObject<ConnectionState>(td_bridge_obj_updateConnectionState_state(obj)).Fetch();
         }
     }
 
@@ -15490,14 +15490,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateTermsOfService();
-            td_bridge_obj_updateTermsOfService_terms_of_service_id(obj).Set(this.terms_of_service_id);
-            new CxxTLObject<TermsOfService>(td_bridge_obj_updateTermsOfService_terms_of_service(obj)).Set(this.terms_of_service);
+            td_bridge_obj_updateTermsOfService_terms_of_service_id(obj).Set(this.TermsOfServiceId);
+            new CxxTLObject<TermsOfService>(td_bridge_obj_updateTermsOfService_terms_of_service(obj)).Set(this.TermsOfService);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.terms_of_service_id = td_bridge_obj_updateTermsOfService_terms_of_service_id(obj).Fetch();
-            this.terms_of_service = new CxxTLObject<TermsOfService>(td_bridge_obj_updateTermsOfService_terms_of_service(obj)).Fetch();
+            this.TermsOfServiceId = td_bridge_obj_updateTermsOfService_terms_of_service_id(obj).Fetch();
+            this.TermsOfService = new CxxTLObject<TermsOfService>(td_bridge_obj_updateTermsOfService_terms_of_service(obj)).Fetch();
         }
     }
 
@@ -15525,20 +15525,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewInlineQuery();
-            td_bridge_obj_updateNewInlineQuery_id(obj).Set(this.id);
-            td_bridge_obj_updateNewInlineQuery_sender_user_id(obj).Set(this.sender_user_id);
-            new CxxTLObject<Location>(td_bridge_obj_updateNewInlineQuery_user_location(obj)).Set(this.user_location);
-            td_bridge_obj_updateNewInlineQuery_query(obj).Set(this.query);
-            td_bridge_obj_updateNewInlineQuery_offset(obj).Set(this.offset);
+            td_bridge_obj_updateNewInlineQuery_id(obj).Set(this.Id);
+            td_bridge_obj_updateNewInlineQuery_sender_user_id(obj).Set(this.SenderUserId);
+            new CxxTLObject<Location>(td_bridge_obj_updateNewInlineQuery_user_location(obj)).Set(this.UserLocation);
+            td_bridge_obj_updateNewInlineQuery_query(obj).Set(this.Query);
+            td_bridge_obj_updateNewInlineQuery_offset(obj).Set(this.Offset);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_updateNewInlineQuery_id(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_updateNewInlineQuery_sender_user_id(obj).Fetch();
-            this.user_location = new CxxTLObject<Location>(td_bridge_obj_updateNewInlineQuery_user_location(obj)).Fetch();
-            this.query = td_bridge_obj_updateNewInlineQuery_query(obj).Fetch();
-            this.offset = td_bridge_obj_updateNewInlineQuery_offset(obj).Fetch();
+            this.Id = td_bridge_obj_updateNewInlineQuery_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_updateNewInlineQuery_sender_user_id(obj).Fetch();
+            this.UserLocation = new CxxTLObject<Location>(td_bridge_obj_updateNewInlineQuery_user_location(obj)).Fetch();
+            this.Query = td_bridge_obj_updateNewInlineQuery_query(obj).Fetch();
+            this.Offset = td_bridge_obj_updateNewInlineQuery_offset(obj).Fetch();
         }
     }
 
@@ -15566,20 +15566,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewChosenInlineResult();
-            td_bridge_obj_updateNewChosenInlineResult_sender_user_id(obj).Set(this.sender_user_id);
-            new CxxTLObject<Location>(td_bridge_obj_updateNewChosenInlineResult_user_location(obj)).Set(this.user_location);
-            td_bridge_obj_updateNewChosenInlineResult_query(obj).Set(this.query);
-            td_bridge_obj_updateNewChosenInlineResult_result_id(obj).Set(this.result_id);
-            td_bridge_obj_updateNewChosenInlineResult_inline_message_id(obj).Set(this.inline_message_id);
+            td_bridge_obj_updateNewChosenInlineResult_sender_user_id(obj).Set(this.SenderUserId);
+            new CxxTLObject<Location>(td_bridge_obj_updateNewChosenInlineResult_user_location(obj)).Set(this.UserLocation);
+            td_bridge_obj_updateNewChosenInlineResult_query(obj).Set(this.Query);
+            td_bridge_obj_updateNewChosenInlineResult_result_id(obj).Set(this.ResultId);
+            td_bridge_obj_updateNewChosenInlineResult_inline_message_id(obj).Set(this.InlineMessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sender_user_id = td_bridge_obj_updateNewChosenInlineResult_sender_user_id(obj).Fetch();
-            this.user_location = new CxxTLObject<Location>(td_bridge_obj_updateNewChosenInlineResult_user_location(obj)).Fetch();
-            this.query = td_bridge_obj_updateNewChosenInlineResult_query(obj).Fetch();
-            this.result_id = td_bridge_obj_updateNewChosenInlineResult_result_id(obj).Fetch();
-            this.inline_message_id = td_bridge_obj_updateNewChosenInlineResult_inline_message_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_updateNewChosenInlineResult_sender_user_id(obj).Fetch();
+            this.UserLocation = new CxxTLObject<Location>(td_bridge_obj_updateNewChosenInlineResult_user_location(obj)).Fetch();
+            this.Query = td_bridge_obj_updateNewChosenInlineResult_query(obj).Fetch();
+            this.ResultId = td_bridge_obj_updateNewChosenInlineResult_result_id(obj).Fetch();
+            this.InlineMessageId = td_bridge_obj_updateNewChosenInlineResult_inline_message_id(obj).Fetch();
         }
     }
 
@@ -15610,22 +15610,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewCallbackQuery();
-            td_bridge_obj_updateNewCallbackQuery_id(obj).Set(this.id);
-            td_bridge_obj_updateNewCallbackQuery_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_updateNewCallbackQuery_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_updateNewCallbackQuery_message_id(obj).Set(this.message_id);
-            td_bridge_obj_updateNewCallbackQuery_chat_instance(obj).Set(this.chat_instance);
-            new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewCallbackQuery_payload(obj)).Set(this.payload);
+            td_bridge_obj_updateNewCallbackQuery_id(obj).Set(this.Id);
+            td_bridge_obj_updateNewCallbackQuery_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_updateNewCallbackQuery_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateNewCallbackQuery_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_updateNewCallbackQuery_chat_instance(obj).Set(this.ChatInstance);
+            new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewCallbackQuery_payload(obj)).Set(this.Payload);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_updateNewCallbackQuery_id(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_updateNewCallbackQuery_sender_user_id(obj).Fetch();
-            this.chat_id = td_bridge_obj_updateNewCallbackQuery_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_updateNewCallbackQuery_message_id(obj).Fetch();
-            this.chat_instance = td_bridge_obj_updateNewCallbackQuery_chat_instance(obj).Fetch();
-            this.payload = new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewCallbackQuery_payload(obj)).Fetch();
+            this.Id = td_bridge_obj_updateNewCallbackQuery_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_updateNewCallbackQuery_sender_user_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_updateNewCallbackQuery_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_updateNewCallbackQuery_message_id(obj).Fetch();
+            this.ChatInstance = td_bridge_obj_updateNewCallbackQuery_chat_instance(obj).Fetch();
+            this.Payload = new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewCallbackQuery_payload(obj)).Fetch();
         }
     }
 
@@ -15653,20 +15653,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewInlineCallbackQuery();
-            td_bridge_obj_updateNewInlineCallbackQuery_id(obj).Set(this.id);
-            td_bridge_obj_updateNewInlineCallbackQuery_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_updateNewInlineCallbackQuery_inline_message_id(obj).Set(this.inline_message_id);
-            td_bridge_obj_updateNewInlineCallbackQuery_chat_instance(obj).Set(this.chat_instance);
-            new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewInlineCallbackQuery_payload(obj)).Set(this.payload);
+            td_bridge_obj_updateNewInlineCallbackQuery_id(obj).Set(this.Id);
+            td_bridge_obj_updateNewInlineCallbackQuery_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_updateNewInlineCallbackQuery_inline_message_id(obj).Set(this.InlineMessageId);
+            td_bridge_obj_updateNewInlineCallbackQuery_chat_instance(obj).Set(this.ChatInstance);
+            new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewInlineCallbackQuery_payload(obj)).Set(this.Payload);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_updateNewInlineCallbackQuery_id(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_updateNewInlineCallbackQuery_sender_user_id(obj).Fetch();
-            this.inline_message_id = td_bridge_obj_updateNewInlineCallbackQuery_inline_message_id(obj).Fetch();
-            this.chat_instance = td_bridge_obj_updateNewInlineCallbackQuery_chat_instance(obj).Fetch();
-            this.payload = new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewInlineCallbackQuery_payload(obj)).Fetch();
+            this.Id = td_bridge_obj_updateNewInlineCallbackQuery_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_updateNewInlineCallbackQuery_sender_user_id(obj).Fetch();
+            this.InlineMessageId = td_bridge_obj_updateNewInlineCallbackQuery_inline_message_id(obj).Fetch();
+            this.ChatInstance = td_bridge_obj_updateNewInlineCallbackQuery_chat_instance(obj).Fetch();
+            this.Payload = new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_updateNewInlineCallbackQuery_payload(obj)).Fetch();
         }
     }
 
@@ -15691,18 +15691,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewShippingQuery();
-            td_bridge_obj_updateNewShippingQuery_id(obj).Set(this.id);
-            td_bridge_obj_updateNewShippingQuery_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_updateNewShippingQuery_invoice_payload(obj).Set(this.invoice_payload);
-            new CxxTLObject<Address>(td_bridge_obj_updateNewShippingQuery_shipping_address(obj)).Set(this.shipping_address);
+            td_bridge_obj_updateNewShippingQuery_id(obj).Set(this.Id);
+            td_bridge_obj_updateNewShippingQuery_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_updateNewShippingQuery_invoice_payload(obj).Set(this.InvoicePayload);
+            new CxxTLObject<Address>(td_bridge_obj_updateNewShippingQuery_shipping_address(obj)).Set(this.ShippingAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_updateNewShippingQuery_id(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_updateNewShippingQuery_sender_user_id(obj).Fetch();
-            this.invoice_payload = td_bridge_obj_updateNewShippingQuery_invoice_payload(obj).Fetch();
-            this.shipping_address = new CxxTLObject<Address>(td_bridge_obj_updateNewShippingQuery_shipping_address(obj)).Fetch();
+            this.Id = td_bridge_obj_updateNewShippingQuery_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_updateNewShippingQuery_sender_user_id(obj).Fetch();
+            this.InvoicePayload = td_bridge_obj_updateNewShippingQuery_invoice_payload(obj).Fetch();
+            this.ShippingAddress = new CxxTLObject<Address>(td_bridge_obj_updateNewShippingQuery_shipping_address(obj)).Fetch();
         }
     }
 
@@ -15736,24 +15736,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewPreCheckoutQuery();
-            td_bridge_obj_updateNewPreCheckoutQuery_id(obj).Set(this.id);
-            td_bridge_obj_updateNewPreCheckoutQuery_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_updateNewPreCheckoutQuery_currency(obj).Set(this.currency);
-            td_bridge_obj_updateNewPreCheckoutQuery_total_amount(obj).Set(this.total_amount);
-            td_bridge_obj_updateNewPreCheckoutQuery_invoice_payload(obj).Set(this.invoice_payload);
-            td_bridge_obj_updateNewPreCheckoutQuery_shipping_option_id(obj).Set(this.shipping_option_id);
-            new CxxTLObject<OrderInfo>(td_bridge_obj_updateNewPreCheckoutQuery_order_info(obj)).Set(this.order_info);
+            td_bridge_obj_updateNewPreCheckoutQuery_id(obj).Set(this.Id);
+            td_bridge_obj_updateNewPreCheckoutQuery_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_updateNewPreCheckoutQuery_currency(obj).Set(this.Currency);
+            td_bridge_obj_updateNewPreCheckoutQuery_total_amount(obj).Set(this.TotalAmount);
+            td_bridge_obj_updateNewPreCheckoutQuery_invoice_payload(obj).Set(this.InvoicePayload);
+            td_bridge_obj_updateNewPreCheckoutQuery_shipping_option_id(obj).Set(this.ShippingOptionId);
+            new CxxTLObject<OrderInfo>(td_bridge_obj_updateNewPreCheckoutQuery_order_info(obj)).Set(this.OrderInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_updateNewPreCheckoutQuery_id(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_updateNewPreCheckoutQuery_sender_user_id(obj).Fetch();
-            this.currency = td_bridge_obj_updateNewPreCheckoutQuery_currency(obj).Fetch();
-            this.total_amount = td_bridge_obj_updateNewPreCheckoutQuery_total_amount(obj).Fetch();
-            this.invoice_payload = td_bridge_obj_updateNewPreCheckoutQuery_invoice_payload(obj).Fetch();
-            this.shipping_option_id = td_bridge_obj_updateNewPreCheckoutQuery_shipping_option_id(obj).Fetch();
-            this.order_info = new CxxTLObject<OrderInfo>(td_bridge_obj_updateNewPreCheckoutQuery_order_info(obj)).Fetch();
+            this.Id = td_bridge_obj_updateNewPreCheckoutQuery_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_updateNewPreCheckoutQuery_sender_user_id(obj).Fetch();
+            this.Currency = td_bridge_obj_updateNewPreCheckoutQuery_currency(obj).Fetch();
+            this.TotalAmount = td_bridge_obj_updateNewPreCheckoutQuery_total_amount(obj).Fetch();
+            this.InvoicePayload = td_bridge_obj_updateNewPreCheckoutQuery_invoice_payload(obj).Fetch();
+            this.ShippingOptionId = td_bridge_obj_updateNewPreCheckoutQuery_shipping_option_id(obj).Fetch();
+            this.OrderInfo = new CxxTLObject<OrderInfo>(td_bridge_obj_updateNewPreCheckoutQuery_order_info(obj)).Fetch();
         }
     }
 
@@ -15769,12 +15769,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewCustomEvent();
-            td_bridge_obj_updateNewCustomEvent_event(obj).Set(this.@event);
+            td_bridge_obj_updateNewCustomEvent_event(obj).Set(this.Event);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.@event = td_bridge_obj_updateNewCustomEvent_event(obj).Fetch();
+            this.Event = td_bridge_obj_updateNewCustomEvent_event(obj).Fetch();
         }
     }
 
@@ -15796,16 +15796,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewCustomQuery();
-            td_bridge_obj_updateNewCustomQuery_id(obj).Set(this.id);
-            td_bridge_obj_updateNewCustomQuery_data(obj).Set(this.data);
-            td_bridge_obj_updateNewCustomQuery_timeout(obj).Set(this.timeout);
+            td_bridge_obj_updateNewCustomQuery_id(obj).Set(this.Id);
+            td_bridge_obj_updateNewCustomQuery_data(obj).Set(this.Data);
+            td_bridge_obj_updateNewCustomQuery_timeout(obj).Set(this.Timeout);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.id = td_bridge_obj_updateNewCustomQuery_id(obj).Fetch();
-            this.data = td_bridge_obj_updateNewCustomQuery_data(obj).Fetch();
-            this.timeout = td_bridge_obj_updateNewCustomQuery_timeout(obj).Fetch();
+            this.Id = td_bridge_obj_updateNewCustomQuery_id(obj).Fetch();
+            this.Data = td_bridge_obj_updateNewCustomQuery_data(obj).Fetch();
+            this.Timeout = td_bridge_obj_updateNewCustomQuery_timeout(obj).Fetch();
         }
     }
 
@@ -15821,12 +15821,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testInt();
-            td_bridge_obj_testInt_value(obj).Set(this.value);
+            td_bridge_obj_testInt_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_testInt_value(obj).Fetch();
+            this.Value = td_bridge_obj_testInt_value(obj).Fetch();
         }
     }
 
@@ -15842,12 +15842,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testString();
-            td_bridge_obj_testString_value(obj).Set(this.value);
+            td_bridge_obj_testString_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_testString_value(obj).Fetch();
+            this.Value = td_bridge_obj_testString_value(obj).Fetch();
         }
     }
 
@@ -15863,12 +15863,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testBytes();
-            td_bridge_obj_testBytes_value(obj).Set(this.value);
+            td_bridge_obj_testBytes_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_testBytes_value(obj).Fetch();
+            this.Value = td_bridge_obj_testBytes_value(obj).Fetch();
         }
     }
 
@@ -15884,12 +15884,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testVectorInt();
-            td_bridge_obj_testVectorInt_value(obj).Set(this.value);
+            td_bridge_obj_testVectorInt_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_testVectorInt_value(obj).Fetch();
+            this.Value = td_bridge_obj_testVectorInt_value(obj).Fetch();
         }
     }
 
@@ -15905,12 +15905,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testVectorIntObject();
-            new CxxVectorObject<TestInt>(td_bridge_obj_testVectorIntObject_value(obj)).Set(this.value);
+            new CxxVectorObject<TestInt>(td_bridge_obj_testVectorIntObject_value(obj)).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = new CxxVectorObject<TestInt>(td_bridge_obj_testVectorIntObject_value(obj)).Fetch();
+            this.Value = new CxxVectorObject<TestInt>(td_bridge_obj_testVectorIntObject_value(obj)).Fetch();
         }
     }
 
@@ -15926,12 +15926,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testVectorString();
-            td_bridge_obj_testVectorString_value(obj).Set(this.value);
+            td_bridge_obj_testVectorString_value(obj).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = td_bridge_obj_testVectorString_value(obj).Fetch();
+            this.Value = td_bridge_obj_testVectorString_value(obj).Fetch();
         }
     }
 
@@ -15947,12 +15947,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testVectorStringObject();
-            new CxxVectorObject<TestString>(td_bridge_obj_testVectorStringObject_value(obj)).Set(this.value);
+            new CxxVectorObject<TestString>(td_bridge_obj_testVectorStringObject_value(obj)).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.value = new CxxVectorObject<TestString>(td_bridge_obj_testVectorStringObject_value(obj)).Fetch();
+            this.Value = new CxxVectorObject<TestString>(td_bridge_obj_testVectorStringObject_value(obj)).Fetch();
         }
     }
 
@@ -15984,12 +15984,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setTdlibParameters();
-            new CxxTLObject<TdlibParameters>(td_bridge_obj_setTdlibParameters_parameters(obj)).Set(this.parameters);
+            new CxxTLObject<TdlibParameters>(td_bridge_obj_setTdlibParameters_parameters(obj)).Set(this.Parameters);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.parameters = new CxxTLObject<TdlibParameters>(td_bridge_obj_setTdlibParameters_parameters(obj)).Fetch();
+            this.Parameters = new CxxTLObject<TdlibParameters>(td_bridge_obj_setTdlibParameters_parameters(obj)).Fetch();
         }
     }
 
@@ -16005,12 +16005,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkDatabaseEncryptionKey();
-            td_bridge_obj_checkDatabaseEncryptionKey_encryption_key(obj).Set(this.encryption_key);
+            td_bridge_obj_checkDatabaseEncryptionKey_encryption_key(obj).Set(this.EncryptionKey);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.encryption_key = td_bridge_obj_checkDatabaseEncryptionKey_encryption_key(obj).Fetch();
+            this.EncryptionKey = td_bridge_obj_checkDatabaseEncryptionKey_encryption_key(obj).Fetch();
         }
     }
 
@@ -16032,16 +16032,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setAuthenticationPhoneNumber();
-            td_bridge_obj_setAuthenticationPhoneNumber_phone_number(obj).Set(this.phone_number);
-            td_bridge_obj_setAuthenticationPhoneNumber_allow_flash_call(obj).Set(this.allow_flash_call);
-            td_bridge_obj_setAuthenticationPhoneNumber_is_current_phone_number(obj).Set(this.is_current_phone_number);
+            td_bridge_obj_setAuthenticationPhoneNumber_phone_number(obj).Set(this.PhoneNumber);
+            td_bridge_obj_setAuthenticationPhoneNumber_allow_flash_call(obj).Set(this.AllowFlashCall);
+            td_bridge_obj_setAuthenticationPhoneNumber_is_current_phone_number(obj).Set(this.IsCurrentPhoneNumber);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.phone_number = td_bridge_obj_setAuthenticationPhoneNumber_phone_number(obj).Fetch();
-            this.allow_flash_call = td_bridge_obj_setAuthenticationPhoneNumber_allow_flash_call(obj).Fetch();
-            this.is_current_phone_number = td_bridge_obj_setAuthenticationPhoneNumber_is_current_phone_number(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_setAuthenticationPhoneNumber_phone_number(obj).Fetch();
+            this.AllowFlashCall = td_bridge_obj_setAuthenticationPhoneNumber_allow_flash_call(obj).Fetch();
+            this.IsCurrentPhoneNumber = td_bridge_obj_setAuthenticationPhoneNumber_is_current_phone_number(obj).Fetch();
         }
     }
 
@@ -16079,16 +16079,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkAuthenticationCode();
-            td_bridge_obj_checkAuthenticationCode_code(obj).Set(this.code);
-            td_bridge_obj_checkAuthenticationCode_first_name(obj).Set(this.first_name);
-            td_bridge_obj_checkAuthenticationCode_last_name(obj).Set(this.last_name);
+            td_bridge_obj_checkAuthenticationCode_code(obj).Set(this.Code);
+            td_bridge_obj_checkAuthenticationCode_first_name(obj).Set(this.FirstName);
+            td_bridge_obj_checkAuthenticationCode_last_name(obj).Set(this.LastName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.code = td_bridge_obj_checkAuthenticationCode_code(obj).Fetch();
-            this.first_name = td_bridge_obj_checkAuthenticationCode_first_name(obj).Fetch();
-            this.last_name = td_bridge_obj_checkAuthenticationCode_last_name(obj).Fetch();
+            this.Code = td_bridge_obj_checkAuthenticationCode_code(obj).Fetch();
+            this.FirstName = td_bridge_obj_checkAuthenticationCode_first_name(obj).Fetch();
+            this.LastName = td_bridge_obj_checkAuthenticationCode_last_name(obj).Fetch();
         }
     }
 
@@ -16104,12 +16104,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkAuthenticationPassword();
-            td_bridge_obj_checkAuthenticationPassword_password(obj).Set(this.password);
+            td_bridge_obj_checkAuthenticationPassword_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.password = td_bridge_obj_checkAuthenticationPassword_password(obj).Fetch();
+            this.Password = td_bridge_obj_checkAuthenticationPassword_password(obj).Fetch();
         }
     }
 
@@ -16141,12 +16141,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_recoverAuthenticationPassword();
-            td_bridge_obj_recoverAuthenticationPassword_recovery_code(obj).Set(this.recovery_code);
+            td_bridge_obj_recoverAuthenticationPassword_recovery_code(obj).Set(this.RecoveryCode);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.recovery_code = td_bridge_obj_recoverAuthenticationPassword_recovery_code(obj).Fetch();
+            this.RecoveryCode = td_bridge_obj_recoverAuthenticationPassword_recovery_code(obj).Fetch();
         }
     }
 
@@ -16162,12 +16162,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkAuthenticationBotToken();
-            td_bridge_obj_checkAuthenticationBotToken_token(obj).Set(this.token);
+            td_bridge_obj_checkAuthenticationBotToken_token(obj).Set(this.Token);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.token = td_bridge_obj_checkAuthenticationBotToken_token(obj).Fetch();
+            this.Token = td_bridge_obj_checkAuthenticationBotToken_token(obj).Fetch();
         }
     }
 
@@ -16231,12 +16231,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setDatabaseEncryptionKey();
-            td_bridge_obj_setDatabaseEncryptionKey_new_encryption_key(obj).Set(this.new_encryption_key);
+            td_bridge_obj_setDatabaseEncryptionKey_new_encryption_key(obj).Set(this.NewEncryptionKey);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.new_encryption_key = td_bridge_obj_setDatabaseEncryptionKey_new_encryption_key(obj).Fetch();
+            this.NewEncryptionKey = td_bridge_obj_setDatabaseEncryptionKey_new_encryption_key(obj).Fetch();
         }
     }
 
@@ -16280,20 +16280,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setPassword();
-            td_bridge_obj_setPassword_old_password(obj).Set(this.old_password);
-            td_bridge_obj_setPassword_new_password(obj).Set(this.new_password);
-            td_bridge_obj_setPassword_new_hint(obj).Set(this.new_hint);
-            td_bridge_obj_setPassword_set_recovery_email_address(obj).Set(this.set_recovery_email_address);
-            td_bridge_obj_setPassword_new_recovery_email_address(obj).Set(this.new_recovery_email_address);
+            td_bridge_obj_setPassword_old_password(obj).Set(this.OldPassword);
+            td_bridge_obj_setPassword_new_password(obj).Set(this.NewPassword);
+            td_bridge_obj_setPassword_new_hint(obj).Set(this.NewHint);
+            td_bridge_obj_setPassword_set_recovery_email_address(obj).Set(this.SetRecoveryEmailAddress);
+            td_bridge_obj_setPassword_new_recovery_email_address(obj).Set(this.NewRecoveryEmailAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.old_password = td_bridge_obj_setPassword_old_password(obj).Fetch();
-            this.new_password = td_bridge_obj_setPassword_new_password(obj).Fetch();
-            this.new_hint = td_bridge_obj_setPassword_new_hint(obj).Fetch();
-            this.set_recovery_email_address = td_bridge_obj_setPassword_set_recovery_email_address(obj).Fetch();
-            this.new_recovery_email_address = td_bridge_obj_setPassword_new_recovery_email_address(obj).Fetch();
+            this.OldPassword = td_bridge_obj_setPassword_old_password(obj).Fetch();
+            this.NewPassword = td_bridge_obj_setPassword_new_password(obj).Fetch();
+            this.NewHint = td_bridge_obj_setPassword_new_hint(obj).Fetch();
+            this.SetRecoveryEmailAddress = td_bridge_obj_setPassword_set_recovery_email_address(obj).Fetch();
+            this.NewRecoveryEmailAddress = td_bridge_obj_setPassword_new_recovery_email_address(obj).Fetch();
         }
     }
 
@@ -16309,12 +16309,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getRecoveryEmailAddress();
-            td_bridge_obj_getRecoveryEmailAddress_password(obj).Set(this.password);
+            td_bridge_obj_getRecoveryEmailAddress_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.password = td_bridge_obj_getRecoveryEmailAddress_password(obj).Fetch();
+            this.Password = td_bridge_obj_getRecoveryEmailAddress_password(obj).Fetch();
         }
     }
 
@@ -16333,14 +16333,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setRecoveryEmailAddress();
-            td_bridge_obj_setRecoveryEmailAddress_password(obj).Set(this.password);
-            td_bridge_obj_setRecoveryEmailAddress_new_recovery_email_address(obj).Set(this.new_recovery_email_address);
+            td_bridge_obj_setRecoveryEmailAddress_password(obj).Set(this.Password);
+            td_bridge_obj_setRecoveryEmailAddress_new_recovery_email_address(obj).Set(this.NewRecoveryEmailAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.password = td_bridge_obj_setRecoveryEmailAddress_password(obj).Fetch();
-            this.new_recovery_email_address = td_bridge_obj_setRecoveryEmailAddress_new_recovery_email_address(obj).Fetch();
+            this.Password = td_bridge_obj_setRecoveryEmailAddress_password(obj).Fetch();
+            this.NewRecoveryEmailAddress = td_bridge_obj_setRecoveryEmailAddress_new_recovery_email_address(obj).Fetch();
         }
     }
 
@@ -16372,12 +16372,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_recoverPassword();
-            td_bridge_obj_recoverPassword_recovery_code(obj).Set(this.recovery_code);
+            td_bridge_obj_recoverPassword_recovery_code(obj).Set(this.RecoveryCode);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.recovery_code = td_bridge_obj_recoverPassword_recovery_code(obj).Fetch();
+            this.RecoveryCode = td_bridge_obj_recoverPassword_recovery_code(obj).Fetch();
         }
     }
 
@@ -16396,14 +16396,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createTemporaryPassword();
-            td_bridge_obj_createTemporaryPassword_password(obj).Set(this.password);
-            td_bridge_obj_createTemporaryPassword_valid_for(obj).Set(this.valid_for);
+            td_bridge_obj_createTemporaryPassword_password(obj).Set(this.Password);
+            td_bridge_obj_createTemporaryPassword_valid_for(obj).Set(this.ValidFor);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.password = td_bridge_obj_createTemporaryPassword_password(obj).Fetch();
-            this.valid_for = td_bridge_obj_createTemporaryPassword_valid_for(obj).Fetch();
+            this.Password = td_bridge_obj_createTemporaryPassword_password(obj).Fetch();
+            this.ValidFor = td_bridge_obj_createTemporaryPassword_valid_for(obj).Fetch();
         }
     }
 
@@ -16438,14 +16438,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_processDcUpdate();
-            td_bridge_obj_processDcUpdate_dc(obj).Set(this.dc);
-            td_bridge_obj_processDcUpdate_addr(obj).Set(this.addr);
+            td_bridge_obj_processDcUpdate_dc(obj).Set(this.Dc);
+            td_bridge_obj_processDcUpdate_addr(obj).Set(this.Addr);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.dc = td_bridge_obj_processDcUpdate_dc(obj).Fetch();
-            this.addr = td_bridge_obj_processDcUpdate_addr(obj).Fetch();
+            this.Dc = td_bridge_obj_processDcUpdate_dc(obj).Fetch();
+            this.Addr = td_bridge_obj_processDcUpdate_addr(obj).Fetch();
         }
     }
 
@@ -16477,12 +16477,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getUser();
-            td_bridge_obj_getUser_user_id(obj).Set(this.user_id);
+            td_bridge_obj_getUser_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_getUser_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_getUser_user_id(obj).Fetch();
         }
     }
 
@@ -16498,12 +16498,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getUserFullInfo();
-            td_bridge_obj_getUserFullInfo_user_id(obj).Set(this.user_id);
+            td_bridge_obj_getUserFullInfo_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_getUserFullInfo_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_getUserFullInfo_user_id(obj).Fetch();
         }
     }
 
@@ -16519,12 +16519,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getBasicGroup();
-            td_bridge_obj_getBasicGroup_basic_group_id(obj).Set(this.basic_group_id);
+            td_bridge_obj_getBasicGroup_basic_group_id(obj).Set(this.BasicGroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.basic_group_id = td_bridge_obj_getBasicGroup_basic_group_id(obj).Fetch();
+            this.BasicGroupId = td_bridge_obj_getBasicGroup_basic_group_id(obj).Fetch();
         }
     }
 
@@ -16540,12 +16540,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getBasicGroupFullInfo();
-            td_bridge_obj_getBasicGroupFullInfo_basic_group_id(obj).Set(this.basic_group_id);
+            td_bridge_obj_getBasicGroupFullInfo_basic_group_id(obj).Set(this.BasicGroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.basic_group_id = td_bridge_obj_getBasicGroupFullInfo_basic_group_id(obj).Fetch();
+            this.BasicGroupId = td_bridge_obj_getBasicGroupFullInfo_basic_group_id(obj).Fetch();
         }
     }
 
@@ -16561,12 +16561,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getSupergroup();
-            td_bridge_obj_getSupergroup_supergroup_id(obj).Set(this.supergroup_id);
+            td_bridge_obj_getSupergroup_supergroup_id(obj).Set(this.SupergroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_getSupergroup_supergroup_id(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_getSupergroup_supergroup_id(obj).Fetch();
         }
     }
 
@@ -16582,12 +16582,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getSupergroupFullInfo();
-            td_bridge_obj_getSupergroupFullInfo_supergroup_id(obj).Set(this.supergroup_id);
+            td_bridge_obj_getSupergroupFullInfo_supergroup_id(obj).Set(this.SupergroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_getSupergroupFullInfo_supergroup_id(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_getSupergroupFullInfo_supergroup_id(obj).Fetch();
         }
     }
 
@@ -16603,12 +16603,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getSecretChat();
-            td_bridge_obj_getSecretChat_secret_chat_id(obj).Set(this.secret_chat_id);
+            td_bridge_obj_getSecretChat_secret_chat_id(obj).Set(this.SecretChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.secret_chat_id = td_bridge_obj_getSecretChat_secret_chat_id(obj).Fetch();
+            this.SecretChatId = td_bridge_obj_getSecretChat_secret_chat_id(obj).Fetch();
         }
     }
 
@@ -16624,12 +16624,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChat();
-            td_bridge_obj_getChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_getChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChat_chat_id(obj).Fetch();
         }
     }
 
@@ -16648,14 +16648,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getMessage();
-            td_bridge_obj_getMessage_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getMessage_message_id(obj).Set(this.message_id);
+            td_bridge_obj_getMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getMessage_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getMessage_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_getMessage_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getMessage_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getMessage_message_id(obj).Fetch();
         }
     }
 
@@ -16674,14 +16674,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getRepliedMessage();
-            td_bridge_obj_getRepliedMessage_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getRepliedMessage_message_id(obj).Set(this.message_id);
+            td_bridge_obj_getRepliedMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getRepliedMessage_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getRepliedMessage_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_getRepliedMessage_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getRepliedMessage_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getRepliedMessage_message_id(obj).Fetch();
         }
     }
 
@@ -16697,12 +16697,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatPinnedMessage();
-            td_bridge_obj_getChatPinnedMessage_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_getChatPinnedMessage_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatPinnedMessage_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatPinnedMessage_chat_id(obj).Fetch();
         }
     }
 
@@ -16721,14 +16721,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getMessages();
-            td_bridge_obj_getMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getMessages_message_ids(obj).Set(this.message_ids);
+            td_bridge_obj_getMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getMessages_message_ids(obj).Set(this.MessageIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getMessages_chat_id(obj).Fetch();
-            this.message_ids = td_bridge_obj_getMessages_message_ids(obj).Fetch();
+            this.ChatId = td_bridge_obj_getMessages_chat_id(obj).Fetch();
+            this.MessageIds = td_bridge_obj_getMessages_message_ids(obj).Fetch();
         }
     }
 
@@ -16744,12 +16744,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getFile();
-            td_bridge_obj_getFile_file_id(obj).Set(this.file_id);
+            td_bridge_obj_getFile_file_id(obj).Set(this.FileId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_id = td_bridge_obj_getFile_file_id(obj).Fetch();
+            this.FileId = td_bridge_obj_getFile_file_id(obj).Fetch();
         }
     }
 
@@ -16768,14 +16768,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getRemoteFile();
-            td_bridge_obj_getRemoteFile_remote_file_id(obj).Set(this.remote_file_id);
-            new CxxTLObject<FileType>(td_bridge_obj_getRemoteFile_file_type(obj)).Set(this.file_type);
+            td_bridge_obj_getRemoteFile_remote_file_id(obj).Set(this.RemoteFileId);
+            new CxxTLObject<FileType>(td_bridge_obj_getRemoteFile_file_type(obj)).Set(this.FileType);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.remote_file_id = td_bridge_obj_getRemoteFile_remote_file_id(obj).Fetch();
-            this.file_type = new CxxTLObject<FileType>(td_bridge_obj_getRemoteFile_file_type(obj)).Fetch();
+            this.RemoteFileId = td_bridge_obj_getRemoteFile_remote_file_id(obj).Fetch();
+            this.FileType = new CxxTLObject<FileType>(td_bridge_obj_getRemoteFile_file_type(obj)).Fetch();
         }
     }
 
@@ -16797,16 +16797,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChats();
-            td_bridge_obj_getChats_offset_order(obj).Set(this.offset_order);
-            td_bridge_obj_getChats_offset_chat_id(obj).Set(this.offset_chat_id);
-            td_bridge_obj_getChats_limit(obj).Set(this.limit);
+            td_bridge_obj_getChats_offset_order(obj).Set(this.OffsetOrder);
+            td_bridge_obj_getChats_offset_chat_id(obj).Set(this.OffsetChatId);
+            td_bridge_obj_getChats_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.offset_order = td_bridge_obj_getChats_offset_order(obj).Fetch();
-            this.offset_chat_id = td_bridge_obj_getChats_offset_chat_id(obj).Fetch();
-            this.limit = td_bridge_obj_getChats_limit(obj).Fetch();
+            this.OffsetOrder = td_bridge_obj_getChats_offset_order(obj).Fetch();
+            this.OffsetChatId = td_bridge_obj_getChats_offset_chat_id(obj).Fetch();
+            this.Limit = td_bridge_obj_getChats_limit(obj).Fetch();
         }
     }
 
@@ -16822,12 +16822,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchPublicChat();
-            td_bridge_obj_searchPublicChat_username(obj).Set(this.username);
+            td_bridge_obj_searchPublicChat_username(obj).Set(this.Username);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.username = td_bridge_obj_searchPublicChat_username(obj).Fetch();
+            this.Username = td_bridge_obj_searchPublicChat_username(obj).Fetch();
         }
     }
 
@@ -16843,12 +16843,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchPublicChats();
-            td_bridge_obj_searchPublicChats_query(obj).Set(this.query);
+            td_bridge_obj_searchPublicChats_query(obj).Set(this.Query);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_searchPublicChats_query(obj).Fetch();
+            this.Query = td_bridge_obj_searchPublicChats_query(obj).Fetch();
         }
     }
 
@@ -16867,14 +16867,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchChats();
-            td_bridge_obj_searchChats_query(obj).Set(this.query);
-            td_bridge_obj_searchChats_limit(obj).Set(this.limit);
+            td_bridge_obj_searchChats_query(obj).Set(this.Query);
+            td_bridge_obj_searchChats_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_searchChats_query(obj).Fetch();
-            this.limit = td_bridge_obj_searchChats_limit(obj).Fetch();
+            this.Query = td_bridge_obj_searchChats_query(obj).Fetch();
+            this.Limit = td_bridge_obj_searchChats_limit(obj).Fetch();
         }
     }
 
@@ -16893,14 +16893,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchChatsOnServer();
-            td_bridge_obj_searchChatsOnServer_query(obj).Set(this.query);
-            td_bridge_obj_searchChatsOnServer_limit(obj).Set(this.limit);
+            td_bridge_obj_searchChatsOnServer_query(obj).Set(this.Query);
+            td_bridge_obj_searchChatsOnServer_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_searchChatsOnServer_query(obj).Fetch();
-            this.limit = td_bridge_obj_searchChatsOnServer_limit(obj).Fetch();
+            this.Query = td_bridge_obj_searchChatsOnServer_query(obj).Fetch();
+            this.Limit = td_bridge_obj_searchChatsOnServer_limit(obj).Fetch();
         }
     }
 
@@ -16919,14 +16919,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getTopChats();
-            new CxxTLObject<TopChatCategory>(td_bridge_obj_getTopChats_category(obj)).Set(this.category);
-            td_bridge_obj_getTopChats_limit(obj).Set(this.limit);
+            new CxxTLObject<TopChatCategory>(td_bridge_obj_getTopChats_category(obj)).Set(this.Category);
+            td_bridge_obj_getTopChats_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.category = new CxxTLObject<TopChatCategory>(td_bridge_obj_getTopChats_category(obj)).Fetch();
-            this.limit = td_bridge_obj_getTopChats_limit(obj).Fetch();
+            this.Category = new CxxTLObject<TopChatCategory>(td_bridge_obj_getTopChats_category(obj)).Fetch();
+            this.Limit = td_bridge_obj_getTopChats_limit(obj).Fetch();
         }
     }
 
@@ -16945,14 +16945,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeTopChat();
-            new CxxTLObject<TopChatCategory>(td_bridge_obj_removeTopChat_category(obj)).Set(this.category);
-            td_bridge_obj_removeTopChat_chat_id(obj).Set(this.chat_id);
+            new CxxTLObject<TopChatCategory>(td_bridge_obj_removeTopChat_category(obj)).Set(this.Category);
+            td_bridge_obj_removeTopChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.category = new CxxTLObject<TopChatCategory>(td_bridge_obj_removeTopChat_category(obj)).Fetch();
-            this.chat_id = td_bridge_obj_removeTopChat_chat_id(obj).Fetch();
+            this.Category = new CxxTLObject<TopChatCategory>(td_bridge_obj_removeTopChat_category(obj)).Fetch();
+            this.ChatId = td_bridge_obj_removeTopChat_chat_id(obj).Fetch();
         }
     }
 
@@ -16968,12 +16968,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addRecentlyFoundChat();
-            td_bridge_obj_addRecentlyFoundChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_addRecentlyFoundChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_addRecentlyFoundChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_addRecentlyFoundChat_chat_id(obj).Fetch();
         }
     }
 
@@ -16989,12 +16989,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeRecentlyFoundChat();
-            td_bridge_obj_removeRecentlyFoundChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_removeRecentlyFoundChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_removeRecentlyFoundChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_removeRecentlyFoundChat_chat_id(obj).Fetch();
         }
     }
 
@@ -17029,14 +17029,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkChatUsername();
-            td_bridge_obj_checkChatUsername_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_checkChatUsername_username(obj).Set(this.username);
+            td_bridge_obj_checkChatUsername_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_checkChatUsername_username(obj).Set(this.Username);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_checkChatUsername_chat_id(obj).Fetch();
-            this.username = td_bridge_obj_checkChatUsername_username(obj).Fetch();
+            this.ChatId = td_bridge_obj_checkChatUsername_chat_id(obj).Fetch();
+            this.Username = td_bridge_obj_checkChatUsername_username(obj).Fetch();
         }
     }
 
@@ -17074,16 +17074,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getGroupsInCommon();
-            td_bridge_obj_getGroupsInCommon_user_id(obj).Set(this.user_id);
-            td_bridge_obj_getGroupsInCommon_offset_chat_id(obj).Set(this.offset_chat_id);
-            td_bridge_obj_getGroupsInCommon_limit(obj).Set(this.limit);
+            td_bridge_obj_getGroupsInCommon_user_id(obj).Set(this.UserId);
+            td_bridge_obj_getGroupsInCommon_offset_chat_id(obj).Set(this.OffsetChatId);
+            td_bridge_obj_getGroupsInCommon_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_getGroupsInCommon_user_id(obj).Fetch();
-            this.offset_chat_id = td_bridge_obj_getGroupsInCommon_offset_chat_id(obj).Fetch();
-            this.limit = td_bridge_obj_getGroupsInCommon_limit(obj).Fetch();
+            this.UserId = td_bridge_obj_getGroupsInCommon_user_id(obj).Fetch();
+            this.OffsetChatId = td_bridge_obj_getGroupsInCommon_offset_chat_id(obj).Fetch();
+            this.Limit = td_bridge_obj_getGroupsInCommon_limit(obj).Fetch();
         }
     }
 
@@ -17111,20 +17111,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatHistory();
-            td_bridge_obj_getChatHistory_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getChatHistory_from_message_id(obj).Set(this.from_message_id);
-            td_bridge_obj_getChatHistory_offset(obj).Set(this.offset);
-            td_bridge_obj_getChatHistory_limit(obj).Set(this.limit);
-            td_bridge_obj_getChatHistory_only_local(obj).Set(this.only_local);
+            td_bridge_obj_getChatHistory_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getChatHistory_from_message_id(obj).Set(this.FromMessageId);
+            td_bridge_obj_getChatHistory_offset(obj).Set(this.Offset);
+            td_bridge_obj_getChatHistory_limit(obj).Set(this.Limit);
+            td_bridge_obj_getChatHistory_only_local(obj).Set(this.OnlyLocal);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatHistory_chat_id(obj).Fetch();
-            this.from_message_id = td_bridge_obj_getChatHistory_from_message_id(obj).Fetch();
-            this.offset = td_bridge_obj_getChatHistory_offset(obj).Fetch();
-            this.limit = td_bridge_obj_getChatHistory_limit(obj).Fetch();
-            this.only_local = td_bridge_obj_getChatHistory_only_local(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatHistory_chat_id(obj).Fetch();
+            this.FromMessageId = td_bridge_obj_getChatHistory_from_message_id(obj).Fetch();
+            this.Offset = td_bridge_obj_getChatHistory_offset(obj).Fetch();
+            this.Limit = td_bridge_obj_getChatHistory_limit(obj).Fetch();
+            this.OnlyLocal = td_bridge_obj_getChatHistory_only_local(obj).Fetch();
         }
     }
 
@@ -17143,14 +17143,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteChatHistory();
-            td_bridge_obj_deleteChatHistory_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_deleteChatHistory_remove_from_chat_list(obj).Set(this.remove_from_chat_list);
+            td_bridge_obj_deleteChatHistory_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_deleteChatHistory_remove_from_chat_list(obj).Set(this.RemoveFromChatList);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_deleteChatHistory_chat_id(obj).Fetch();
-            this.remove_from_chat_list = td_bridge_obj_deleteChatHistory_remove_from_chat_list(obj).Fetch();
+            this.ChatId = td_bridge_obj_deleteChatHistory_chat_id(obj).Fetch();
+            this.RemoveFromChatList = td_bridge_obj_deleteChatHistory_remove_from_chat_list(obj).Fetch();
         }
     }
 
@@ -17184,24 +17184,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchChatMessages();
-            td_bridge_obj_searchChatMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_searchChatMessages_query(obj).Set(this.query);
-            td_bridge_obj_searchChatMessages_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_searchChatMessages_from_message_id(obj).Set(this.from_message_id);
-            td_bridge_obj_searchChatMessages_offset(obj).Set(this.offset);
-            td_bridge_obj_searchChatMessages_limit(obj).Set(this.limit);
-            new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchChatMessages_filter(obj)).Set(this.filter);
+            td_bridge_obj_searchChatMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_searchChatMessages_query(obj).Set(this.Query);
+            td_bridge_obj_searchChatMessages_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_searchChatMessages_from_message_id(obj).Set(this.FromMessageId);
+            td_bridge_obj_searchChatMessages_offset(obj).Set(this.Offset);
+            td_bridge_obj_searchChatMessages_limit(obj).Set(this.Limit);
+            new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchChatMessages_filter(obj)).Set(this.Filter);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_searchChatMessages_chat_id(obj).Fetch();
-            this.query = td_bridge_obj_searchChatMessages_query(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_searchChatMessages_sender_user_id(obj).Fetch();
-            this.from_message_id = td_bridge_obj_searchChatMessages_from_message_id(obj).Fetch();
-            this.offset = td_bridge_obj_searchChatMessages_offset(obj).Fetch();
-            this.limit = td_bridge_obj_searchChatMessages_limit(obj).Fetch();
-            this.filter = new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchChatMessages_filter(obj)).Fetch();
+            this.ChatId = td_bridge_obj_searchChatMessages_chat_id(obj).Fetch();
+            this.Query = td_bridge_obj_searchChatMessages_query(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_searchChatMessages_sender_user_id(obj).Fetch();
+            this.FromMessageId = td_bridge_obj_searchChatMessages_from_message_id(obj).Fetch();
+            this.Offset = td_bridge_obj_searchChatMessages_offset(obj).Fetch();
+            this.Limit = td_bridge_obj_searchChatMessages_limit(obj).Fetch();
+            this.Filter = new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchChatMessages_filter(obj)).Fetch();
         }
     }
 
@@ -17229,20 +17229,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchMessages();
-            td_bridge_obj_searchMessages_query(obj).Set(this.query);
-            td_bridge_obj_searchMessages_offset_date(obj).Set(this.offset_date);
-            td_bridge_obj_searchMessages_offset_chat_id(obj).Set(this.offset_chat_id);
-            td_bridge_obj_searchMessages_offset_message_id(obj).Set(this.offset_message_id);
-            td_bridge_obj_searchMessages_limit(obj).Set(this.limit);
+            td_bridge_obj_searchMessages_query(obj).Set(this.Query);
+            td_bridge_obj_searchMessages_offset_date(obj).Set(this.OffsetDate);
+            td_bridge_obj_searchMessages_offset_chat_id(obj).Set(this.OffsetChatId);
+            td_bridge_obj_searchMessages_offset_message_id(obj).Set(this.OffsetMessageId);
+            td_bridge_obj_searchMessages_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_searchMessages_query(obj).Fetch();
-            this.offset_date = td_bridge_obj_searchMessages_offset_date(obj).Fetch();
-            this.offset_chat_id = td_bridge_obj_searchMessages_offset_chat_id(obj).Fetch();
-            this.offset_message_id = td_bridge_obj_searchMessages_offset_message_id(obj).Fetch();
-            this.limit = td_bridge_obj_searchMessages_limit(obj).Fetch();
+            this.Query = td_bridge_obj_searchMessages_query(obj).Fetch();
+            this.OffsetDate = td_bridge_obj_searchMessages_offset_date(obj).Fetch();
+            this.OffsetChatId = td_bridge_obj_searchMessages_offset_chat_id(obj).Fetch();
+            this.OffsetMessageId = td_bridge_obj_searchMessages_offset_message_id(obj).Fetch();
+            this.Limit = td_bridge_obj_searchMessages_limit(obj).Fetch();
         }
     }
 
@@ -17270,20 +17270,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchSecretMessages();
-            td_bridge_obj_searchSecretMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_searchSecretMessages_query(obj).Set(this.query);
-            td_bridge_obj_searchSecretMessages_from_search_id(obj).Set(this.from_search_id);
-            td_bridge_obj_searchSecretMessages_limit(obj).Set(this.limit);
-            new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchSecretMessages_filter(obj)).Set(this.filter);
+            td_bridge_obj_searchSecretMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_searchSecretMessages_query(obj).Set(this.Query);
+            td_bridge_obj_searchSecretMessages_from_search_id(obj).Set(this.FromSearchId);
+            td_bridge_obj_searchSecretMessages_limit(obj).Set(this.Limit);
+            new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchSecretMessages_filter(obj)).Set(this.Filter);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_searchSecretMessages_chat_id(obj).Fetch();
-            this.query = td_bridge_obj_searchSecretMessages_query(obj).Fetch();
-            this.from_search_id = td_bridge_obj_searchSecretMessages_from_search_id(obj).Fetch();
-            this.limit = td_bridge_obj_searchSecretMessages_limit(obj).Fetch();
-            this.filter = new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchSecretMessages_filter(obj)).Fetch();
+            this.ChatId = td_bridge_obj_searchSecretMessages_chat_id(obj).Fetch();
+            this.Query = td_bridge_obj_searchSecretMessages_query(obj).Fetch();
+            this.FromSearchId = td_bridge_obj_searchSecretMessages_from_search_id(obj).Fetch();
+            this.Limit = td_bridge_obj_searchSecretMessages_limit(obj).Fetch();
+            this.Filter = new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_searchSecretMessages_filter(obj)).Fetch();
         }
     }
 
@@ -17305,16 +17305,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchCallMessages();
-            td_bridge_obj_searchCallMessages_from_message_id(obj).Set(this.from_message_id);
-            td_bridge_obj_searchCallMessages_limit(obj).Set(this.limit);
-            td_bridge_obj_searchCallMessages_only_missed(obj).Set(this.only_missed);
+            td_bridge_obj_searchCallMessages_from_message_id(obj).Set(this.FromMessageId);
+            td_bridge_obj_searchCallMessages_limit(obj).Set(this.Limit);
+            td_bridge_obj_searchCallMessages_only_missed(obj).Set(this.OnlyMissed);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.from_message_id = td_bridge_obj_searchCallMessages_from_message_id(obj).Fetch();
-            this.limit = td_bridge_obj_searchCallMessages_limit(obj).Fetch();
-            this.only_missed = td_bridge_obj_searchCallMessages_only_missed(obj).Fetch();
+            this.FromMessageId = td_bridge_obj_searchCallMessages_from_message_id(obj).Fetch();
+            this.Limit = td_bridge_obj_searchCallMessages_limit(obj).Fetch();
+            this.OnlyMissed = td_bridge_obj_searchCallMessages_only_missed(obj).Fetch();
         }
     }
 
@@ -17333,14 +17333,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchChatRecentLocationMessages();
-            td_bridge_obj_searchChatRecentLocationMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_searchChatRecentLocationMessages_limit(obj).Set(this.limit);
+            td_bridge_obj_searchChatRecentLocationMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_searchChatRecentLocationMessages_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_searchChatRecentLocationMessages_chat_id(obj).Fetch();
-            this.limit = td_bridge_obj_searchChatRecentLocationMessages_limit(obj).Fetch();
+            this.ChatId = td_bridge_obj_searchChatRecentLocationMessages_chat_id(obj).Fetch();
+            this.Limit = td_bridge_obj_searchChatRecentLocationMessages_limit(obj).Fetch();
         }
     }
 
@@ -17375,14 +17375,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatMessageByDate();
-            td_bridge_obj_getChatMessageByDate_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getChatMessageByDate_date(obj).Set(this.date);
+            td_bridge_obj_getChatMessageByDate_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getChatMessageByDate_date(obj).Set(this.Date);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatMessageByDate_chat_id(obj).Fetch();
-            this.date = td_bridge_obj_getChatMessageByDate_date(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatMessageByDate_chat_id(obj).Fetch();
+            this.Date = td_bridge_obj_getChatMessageByDate_date(obj).Fetch();
         }
     }
 
@@ -17404,16 +17404,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatMessageCount();
-            td_bridge_obj_getChatMessageCount_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_getChatMessageCount_filter(obj)).Set(this.filter);
-            td_bridge_obj_getChatMessageCount_return_local(obj).Set(this.return_local);
+            td_bridge_obj_getChatMessageCount_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_getChatMessageCount_filter(obj)).Set(this.Filter);
+            td_bridge_obj_getChatMessageCount_return_local(obj).Set(this.ReturnLocal);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatMessageCount_chat_id(obj).Fetch();
-            this.filter = new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_getChatMessageCount_filter(obj)).Fetch();
-            this.return_local = td_bridge_obj_getChatMessageCount_return_local(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatMessageCount_chat_id(obj).Fetch();
+            this.Filter = new CxxTLObject<SearchMessagesFilter>(td_bridge_obj_getChatMessageCount_filter(obj)).Fetch();
+            this.ReturnLocal = td_bridge_obj_getChatMessageCount_return_local(obj).Fetch();
         }
     }
 
@@ -17435,16 +17435,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getPublicMessageLink();
-            td_bridge_obj_getPublicMessageLink_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getPublicMessageLink_message_id(obj).Set(this.message_id);
-            td_bridge_obj_getPublicMessageLink_for_album(obj).Set(this.for_album);
+            td_bridge_obj_getPublicMessageLink_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getPublicMessageLink_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_getPublicMessageLink_for_album(obj).Set(this.ForAlbum);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getPublicMessageLink_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_getPublicMessageLink_message_id(obj).Fetch();
-            this.for_album = td_bridge_obj_getPublicMessageLink_for_album(obj).Fetch();
+            this.ChatId = td_bridge_obj_getPublicMessageLink_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getPublicMessageLink_message_id(obj).Fetch();
+            this.ForAlbum = td_bridge_obj_getPublicMessageLink_for_album(obj).Fetch();
         }
     }
 
@@ -17475,22 +17475,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendMessage();
-            td_bridge_obj_sendMessage_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_sendMessage_reply_to_message_id(obj).Set(this.reply_to_message_id);
-            td_bridge_obj_sendMessage_disable_notification(obj).Set(this.disable_notification);
-            td_bridge_obj_sendMessage_from_background(obj).Set(this.from_background);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_sendMessage_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_sendMessage_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_sendMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_sendMessage_reply_to_message_id(obj).Set(this.ReplyToMessageId);
+            td_bridge_obj_sendMessage_disable_notification(obj).Set(this.DisableNotification);
+            td_bridge_obj_sendMessage_from_background(obj).Set(this.FromBackground);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_sendMessage_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_sendMessage_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_sendMessage_chat_id(obj).Fetch();
-            this.reply_to_message_id = td_bridge_obj_sendMessage_reply_to_message_id(obj).Fetch();
-            this.disable_notification = td_bridge_obj_sendMessage_disable_notification(obj).Fetch();
-            this.from_background = td_bridge_obj_sendMessage_from_background(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_sendMessage_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_sendMessage_input_message_content(obj)).Fetch();
+            this.ChatId = td_bridge_obj_sendMessage_chat_id(obj).Fetch();
+            this.ReplyToMessageId = td_bridge_obj_sendMessage_reply_to_message_id(obj).Fetch();
+            this.DisableNotification = td_bridge_obj_sendMessage_disable_notification(obj).Fetch();
+            this.FromBackground = td_bridge_obj_sendMessage_from_background(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_sendMessage_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_sendMessage_input_message_content(obj)).Fetch();
         }
     }
 
@@ -17518,20 +17518,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendMessageAlbum();
-            td_bridge_obj_sendMessageAlbum_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_sendMessageAlbum_reply_to_message_id(obj).Set(this.reply_to_message_id);
-            td_bridge_obj_sendMessageAlbum_disable_notification(obj).Set(this.disable_notification);
-            td_bridge_obj_sendMessageAlbum_from_background(obj).Set(this.from_background);
-            new CxxVectorObject<InputMessageContent>(td_bridge_obj_sendMessageAlbum_input_message_contents(obj)).Set(this.input_message_contents);
+            td_bridge_obj_sendMessageAlbum_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_sendMessageAlbum_reply_to_message_id(obj).Set(this.ReplyToMessageId);
+            td_bridge_obj_sendMessageAlbum_disable_notification(obj).Set(this.DisableNotification);
+            td_bridge_obj_sendMessageAlbum_from_background(obj).Set(this.FromBackground);
+            new CxxVectorObject<InputMessageContent>(td_bridge_obj_sendMessageAlbum_input_message_contents(obj)).Set(this.InputMessageContents);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_sendMessageAlbum_chat_id(obj).Fetch();
-            this.reply_to_message_id = td_bridge_obj_sendMessageAlbum_reply_to_message_id(obj).Fetch();
-            this.disable_notification = td_bridge_obj_sendMessageAlbum_disable_notification(obj).Fetch();
-            this.from_background = td_bridge_obj_sendMessageAlbum_from_background(obj).Fetch();
-            this.input_message_contents = new CxxVectorObject<InputMessageContent>(td_bridge_obj_sendMessageAlbum_input_message_contents(obj)).Fetch();
+            this.ChatId = td_bridge_obj_sendMessageAlbum_chat_id(obj).Fetch();
+            this.ReplyToMessageId = td_bridge_obj_sendMessageAlbum_reply_to_message_id(obj).Fetch();
+            this.DisableNotification = td_bridge_obj_sendMessageAlbum_disable_notification(obj).Fetch();
+            this.FromBackground = td_bridge_obj_sendMessageAlbum_from_background(obj).Fetch();
+            this.InputMessageContents = new CxxVectorObject<InputMessageContent>(td_bridge_obj_sendMessageAlbum_input_message_contents(obj)).Fetch();
         }
     }
 
@@ -17553,16 +17553,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendBotStartMessage();
-            td_bridge_obj_sendBotStartMessage_bot_user_id(obj).Set(this.bot_user_id);
-            td_bridge_obj_sendBotStartMessage_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_sendBotStartMessage_parameter(obj).Set(this.parameter);
+            td_bridge_obj_sendBotStartMessage_bot_user_id(obj).Set(this.BotUserId);
+            td_bridge_obj_sendBotStartMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_sendBotStartMessage_parameter(obj).Set(this.Parameter);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.bot_user_id = td_bridge_obj_sendBotStartMessage_bot_user_id(obj).Fetch();
-            this.chat_id = td_bridge_obj_sendBotStartMessage_chat_id(obj).Fetch();
-            this.parameter = td_bridge_obj_sendBotStartMessage_parameter(obj).Fetch();
+            this.BotUserId = td_bridge_obj_sendBotStartMessage_bot_user_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_sendBotStartMessage_chat_id(obj).Fetch();
+            this.Parameter = td_bridge_obj_sendBotStartMessage_parameter(obj).Fetch();
         }
     }
 
@@ -17593,22 +17593,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendInlineQueryResultMessage();
-            td_bridge_obj_sendInlineQueryResultMessage_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_sendInlineQueryResultMessage_reply_to_message_id(obj).Set(this.reply_to_message_id);
-            td_bridge_obj_sendInlineQueryResultMessage_disable_notification(obj).Set(this.disable_notification);
-            td_bridge_obj_sendInlineQueryResultMessage_from_background(obj).Set(this.from_background);
-            td_bridge_obj_sendInlineQueryResultMessage_query_id(obj).Set(this.query_id);
-            td_bridge_obj_sendInlineQueryResultMessage_result_id(obj).Set(this.result_id);
+            td_bridge_obj_sendInlineQueryResultMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_sendInlineQueryResultMessage_reply_to_message_id(obj).Set(this.ReplyToMessageId);
+            td_bridge_obj_sendInlineQueryResultMessage_disable_notification(obj).Set(this.DisableNotification);
+            td_bridge_obj_sendInlineQueryResultMessage_from_background(obj).Set(this.FromBackground);
+            td_bridge_obj_sendInlineQueryResultMessage_query_id(obj).Set(this.QueryId);
+            td_bridge_obj_sendInlineQueryResultMessage_result_id(obj).Set(this.ResultId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_sendInlineQueryResultMessage_chat_id(obj).Fetch();
-            this.reply_to_message_id = td_bridge_obj_sendInlineQueryResultMessage_reply_to_message_id(obj).Fetch();
-            this.disable_notification = td_bridge_obj_sendInlineQueryResultMessage_disable_notification(obj).Fetch();
-            this.from_background = td_bridge_obj_sendInlineQueryResultMessage_from_background(obj).Fetch();
-            this.query_id = td_bridge_obj_sendInlineQueryResultMessage_query_id(obj).Fetch();
-            this.result_id = td_bridge_obj_sendInlineQueryResultMessage_result_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_sendInlineQueryResultMessage_chat_id(obj).Fetch();
+            this.ReplyToMessageId = td_bridge_obj_sendInlineQueryResultMessage_reply_to_message_id(obj).Fetch();
+            this.DisableNotification = td_bridge_obj_sendInlineQueryResultMessage_disable_notification(obj).Fetch();
+            this.FromBackground = td_bridge_obj_sendInlineQueryResultMessage_from_background(obj).Fetch();
+            this.QueryId = td_bridge_obj_sendInlineQueryResultMessage_query_id(obj).Fetch();
+            this.ResultId = td_bridge_obj_sendInlineQueryResultMessage_result_id(obj).Fetch();
         }
     }
 
@@ -17639,22 +17639,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_forwardMessages();
-            td_bridge_obj_forwardMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_forwardMessages_from_chat_id(obj).Set(this.from_chat_id);
-            td_bridge_obj_forwardMessages_message_ids(obj).Set(this.message_ids);
-            td_bridge_obj_forwardMessages_disable_notification(obj).Set(this.disable_notification);
-            td_bridge_obj_forwardMessages_from_background(obj).Set(this.from_background);
-            td_bridge_obj_forwardMessages_as_album(obj).Set(this.as_album);
+            td_bridge_obj_forwardMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_forwardMessages_from_chat_id(obj).Set(this.FromChatId);
+            td_bridge_obj_forwardMessages_message_ids(obj).Set(this.MessageIds);
+            td_bridge_obj_forwardMessages_disable_notification(obj).Set(this.DisableNotification);
+            td_bridge_obj_forwardMessages_from_background(obj).Set(this.FromBackground);
+            td_bridge_obj_forwardMessages_as_album(obj).Set(this.AsAlbum);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_forwardMessages_chat_id(obj).Fetch();
-            this.from_chat_id = td_bridge_obj_forwardMessages_from_chat_id(obj).Fetch();
-            this.message_ids = td_bridge_obj_forwardMessages_message_ids(obj).Fetch();
-            this.disable_notification = td_bridge_obj_forwardMessages_disable_notification(obj).Fetch();
-            this.from_background = td_bridge_obj_forwardMessages_from_background(obj).Fetch();
-            this.as_album = td_bridge_obj_forwardMessages_as_album(obj).Fetch();
+            this.ChatId = td_bridge_obj_forwardMessages_chat_id(obj).Fetch();
+            this.FromChatId = td_bridge_obj_forwardMessages_from_chat_id(obj).Fetch();
+            this.MessageIds = td_bridge_obj_forwardMessages_message_ids(obj).Fetch();
+            this.DisableNotification = td_bridge_obj_forwardMessages_disable_notification(obj).Fetch();
+            this.FromBackground = td_bridge_obj_forwardMessages_from_background(obj).Fetch();
+            this.AsAlbum = td_bridge_obj_forwardMessages_as_album(obj).Fetch();
         }
     }
 
@@ -17673,14 +17673,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendChatSetTtlMessage();
-            td_bridge_obj_sendChatSetTtlMessage_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_sendChatSetTtlMessage_ttl(obj).Set(this.ttl);
+            td_bridge_obj_sendChatSetTtlMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_sendChatSetTtlMessage_ttl(obj).Set(this.Ttl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_sendChatSetTtlMessage_chat_id(obj).Fetch();
-            this.ttl = td_bridge_obj_sendChatSetTtlMessage_ttl(obj).Fetch();
+            this.ChatId = td_bridge_obj_sendChatSetTtlMessage_chat_id(obj).Fetch();
+            this.Ttl = td_bridge_obj_sendChatSetTtlMessage_ttl(obj).Fetch();
         }
     }
 
@@ -17696,12 +17696,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendChatScreenshotTakenNotification();
-            td_bridge_obj_sendChatScreenshotTakenNotification_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_sendChatScreenshotTakenNotification_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_sendChatScreenshotTakenNotification_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_sendChatScreenshotTakenNotification_chat_id(obj).Fetch();
         }
     }
 
@@ -17729,20 +17729,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addLocalMessage();
-            td_bridge_obj_addLocalMessage_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_addLocalMessage_sender_user_id(obj).Set(this.sender_user_id);
-            td_bridge_obj_addLocalMessage_reply_to_message_id(obj).Set(this.reply_to_message_id);
-            td_bridge_obj_addLocalMessage_disable_notification(obj).Set(this.disable_notification);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_addLocalMessage_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_addLocalMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_addLocalMessage_sender_user_id(obj).Set(this.SenderUserId);
+            td_bridge_obj_addLocalMessage_reply_to_message_id(obj).Set(this.ReplyToMessageId);
+            td_bridge_obj_addLocalMessage_disable_notification(obj).Set(this.DisableNotification);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_addLocalMessage_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_addLocalMessage_chat_id(obj).Fetch();
-            this.sender_user_id = td_bridge_obj_addLocalMessage_sender_user_id(obj).Fetch();
-            this.reply_to_message_id = td_bridge_obj_addLocalMessage_reply_to_message_id(obj).Fetch();
-            this.disable_notification = td_bridge_obj_addLocalMessage_disable_notification(obj).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_addLocalMessage_input_message_content(obj)).Fetch();
+            this.ChatId = td_bridge_obj_addLocalMessage_chat_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_addLocalMessage_sender_user_id(obj).Fetch();
+            this.ReplyToMessageId = td_bridge_obj_addLocalMessage_reply_to_message_id(obj).Fetch();
+            this.DisableNotification = td_bridge_obj_addLocalMessage_disable_notification(obj).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_addLocalMessage_input_message_content(obj)).Fetch();
         }
     }
 
@@ -17764,16 +17764,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteMessages();
-            td_bridge_obj_deleteMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_deleteMessages_message_ids(obj).Set(this.message_ids);
-            td_bridge_obj_deleteMessages_revoke(obj).Set(this.revoke);
+            td_bridge_obj_deleteMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_deleteMessages_message_ids(obj).Set(this.MessageIds);
+            td_bridge_obj_deleteMessages_revoke(obj).Set(this.Revoke);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_deleteMessages_chat_id(obj).Fetch();
-            this.message_ids = td_bridge_obj_deleteMessages_message_ids(obj).Fetch();
-            this.revoke = td_bridge_obj_deleteMessages_revoke(obj).Fetch();
+            this.ChatId = td_bridge_obj_deleteMessages_chat_id(obj).Fetch();
+            this.MessageIds = td_bridge_obj_deleteMessages_message_ids(obj).Fetch();
+            this.Revoke = td_bridge_obj_deleteMessages_revoke(obj).Fetch();
         }
     }
 
@@ -17792,14 +17792,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteChatMessagesFromUser();
-            td_bridge_obj_deleteChatMessagesFromUser_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_deleteChatMessagesFromUser_user_id(obj).Set(this.user_id);
+            td_bridge_obj_deleteChatMessagesFromUser_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_deleteChatMessagesFromUser_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_deleteChatMessagesFromUser_chat_id(obj).Fetch();
-            this.user_id = td_bridge_obj_deleteChatMessagesFromUser_user_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_deleteChatMessagesFromUser_chat_id(obj).Fetch();
+            this.UserId = td_bridge_obj_deleteChatMessagesFromUser_user_id(obj).Fetch();
         }
     }
 
@@ -17824,18 +17824,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editMessageText();
-            td_bridge_obj_editMessageText_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_editMessageText_message_id(obj).Set(this.message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageText_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageText_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_editMessageText_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_editMessageText_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageText_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageText_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_editMessageText_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_editMessageText_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageText_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageText_input_message_content(obj)).Fetch();
+            this.ChatId = td_bridge_obj_editMessageText_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_editMessageText_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageText_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageText_input_message_content(obj)).Fetch();
         }
     }
 
@@ -17860,18 +17860,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editMessageLiveLocation();
-            td_bridge_obj_editMessageLiveLocation_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_editMessageLiveLocation_message_id(obj).Set(this.message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageLiveLocation_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<Location>(td_bridge_obj_editMessageLiveLocation_location(obj)).Set(this.location);
+            td_bridge_obj_editMessageLiveLocation_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_editMessageLiveLocation_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageLiveLocation_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<Location>(td_bridge_obj_editMessageLiveLocation_location(obj)).Set(this.Location);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_editMessageLiveLocation_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_editMessageLiveLocation_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageLiveLocation_reply_markup(obj)).Fetch();
-            this.location = new CxxTLObject<Location>(td_bridge_obj_editMessageLiveLocation_location(obj)).Fetch();
+            this.ChatId = td_bridge_obj_editMessageLiveLocation_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_editMessageLiveLocation_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageLiveLocation_reply_markup(obj)).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_editMessageLiveLocation_location(obj)).Fetch();
         }
     }
 
@@ -17896,18 +17896,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editMessageMedia();
-            td_bridge_obj_editMessageMedia_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_editMessageMedia_message_id(obj).Set(this.message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageMedia_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageMedia_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_editMessageMedia_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_editMessageMedia_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageMedia_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageMedia_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_editMessageMedia_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_editMessageMedia_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageMedia_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageMedia_input_message_content(obj)).Fetch();
+            this.ChatId = td_bridge_obj_editMessageMedia_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_editMessageMedia_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageMedia_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_editMessageMedia_input_message_content(obj)).Fetch();
         }
     }
 
@@ -17932,18 +17932,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editMessageCaption();
-            td_bridge_obj_editMessageCaption_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_editMessageCaption_message_id(obj).Set(this.message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageCaption_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<FormattedText>(td_bridge_obj_editMessageCaption_caption(obj)).Set(this.caption);
+            td_bridge_obj_editMessageCaption_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_editMessageCaption_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageCaption_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<FormattedText>(td_bridge_obj_editMessageCaption_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_editMessageCaption_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_editMessageCaption_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageCaption_reply_markup(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_editMessageCaption_caption(obj)).Fetch();
+            this.ChatId = td_bridge_obj_editMessageCaption_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_editMessageCaption_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageCaption_reply_markup(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_editMessageCaption_caption(obj)).Fetch();
         }
     }
 
@@ -17965,16 +17965,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editMessageReplyMarkup();
-            td_bridge_obj_editMessageReplyMarkup_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_editMessageReplyMarkup_message_id(obj).Set(this.message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageReplyMarkup_reply_markup(obj)).Set(this.reply_markup);
+            td_bridge_obj_editMessageReplyMarkup_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_editMessageReplyMarkup_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageReplyMarkup_reply_markup(obj)).Set(this.ReplyMarkup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_editMessageReplyMarkup_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_editMessageReplyMarkup_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageReplyMarkup_reply_markup(obj)).Fetch();
+            this.ChatId = td_bridge_obj_editMessageReplyMarkup_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_editMessageReplyMarkup_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editMessageReplyMarkup_reply_markup(obj)).Fetch();
         }
     }
 
@@ -17996,16 +17996,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editInlineMessageText();
-            td_bridge_obj_editInlineMessageText_inline_message_id(obj).Set(this.inline_message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageText_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageText_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_editInlineMessageText_inline_message_id(obj).Set(this.InlineMessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageText_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageText_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_message_id = td_bridge_obj_editInlineMessageText_inline_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageText_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageText_input_message_content(obj)).Fetch();
+            this.InlineMessageId = td_bridge_obj_editInlineMessageText_inline_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageText_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageText_input_message_content(obj)).Fetch();
         }
     }
 
@@ -18027,16 +18027,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editInlineMessageLiveLocation();
-            td_bridge_obj_editInlineMessageLiveLocation_inline_message_id(obj).Set(this.inline_message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageLiveLocation_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<Location>(td_bridge_obj_editInlineMessageLiveLocation_location(obj)).Set(this.location);
+            td_bridge_obj_editInlineMessageLiveLocation_inline_message_id(obj).Set(this.InlineMessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageLiveLocation_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<Location>(td_bridge_obj_editInlineMessageLiveLocation_location(obj)).Set(this.Location);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_message_id = td_bridge_obj_editInlineMessageLiveLocation_inline_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageLiveLocation_reply_markup(obj)).Fetch();
-            this.location = new CxxTLObject<Location>(td_bridge_obj_editInlineMessageLiveLocation_location(obj)).Fetch();
+            this.InlineMessageId = td_bridge_obj_editInlineMessageLiveLocation_inline_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageLiveLocation_reply_markup(obj)).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_editInlineMessageLiveLocation_location(obj)).Fetch();
         }
     }
 
@@ -18058,16 +18058,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editInlineMessageMedia();
-            td_bridge_obj_editInlineMessageMedia_inline_message_id(obj).Set(this.inline_message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageMedia_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageMedia_input_message_content(obj)).Set(this.input_message_content);
+            td_bridge_obj_editInlineMessageMedia_inline_message_id(obj).Set(this.InlineMessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageMedia_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageMedia_input_message_content(obj)).Set(this.InputMessageContent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_message_id = td_bridge_obj_editInlineMessageMedia_inline_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageMedia_reply_markup(obj)).Fetch();
-            this.input_message_content = new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageMedia_input_message_content(obj)).Fetch();
+            this.InlineMessageId = td_bridge_obj_editInlineMessageMedia_inline_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageMedia_reply_markup(obj)).Fetch();
+            this.InputMessageContent = new CxxTLObject<InputMessageContent>(td_bridge_obj_editInlineMessageMedia_input_message_content(obj)).Fetch();
         }
     }
 
@@ -18089,16 +18089,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editInlineMessageCaption();
-            td_bridge_obj_editInlineMessageCaption_inline_message_id(obj).Set(this.inline_message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageCaption_reply_markup(obj)).Set(this.reply_markup);
-            new CxxTLObject<FormattedText>(td_bridge_obj_editInlineMessageCaption_caption(obj)).Set(this.caption);
+            td_bridge_obj_editInlineMessageCaption_inline_message_id(obj).Set(this.InlineMessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageCaption_reply_markup(obj)).Set(this.ReplyMarkup);
+            new CxxTLObject<FormattedText>(td_bridge_obj_editInlineMessageCaption_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_message_id = td_bridge_obj_editInlineMessageCaption_inline_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageCaption_reply_markup(obj)).Fetch();
-            this.caption = new CxxTLObject<FormattedText>(td_bridge_obj_editInlineMessageCaption_caption(obj)).Fetch();
+            this.InlineMessageId = td_bridge_obj_editInlineMessageCaption_inline_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageCaption_reply_markup(obj)).Fetch();
+            this.Caption = new CxxTLObject<FormattedText>(td_bridge_obj_editInlineMessageCaption_caption(obj)).Fetch();
         }
     }
 
@@ -18117,14 +18117,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editInlineMessageReplyMarkup();
-            td_bridge_obj_editInlineMessageReplyMarkup_inline_message_id(obj).Set(this.inline_message_id);
-            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageReplyMarkup_reply_markup(obj)).Set(this.reply_markup);
+            td_bridge_obj_editInlineMessageReplyMarkup_inline_message_id(obj).Set(this.InlineMessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageReplyMarkup_reply_markup(obj)).Set(this.ReplyMarkup);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_message_id = td_bridge_obj_editInlineMessageReplyMarkup_inline_message_id(obj).Fetch();
-            this.reply_markup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageReplyMarkup_reply_markup(obj)).Fetch();
+            this.InlineMessageId = td_bridge_obj_editInlineMessageReplyMarkup_inline_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_editInlineMessageReplyMarkup_reply_markup(obj)).Fetch();
         }
     }
 
@@ -18140,12 +18140,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getTextEntities();
-            td_bridge_obj_getTextEntities_text(obj).Set(this.text);
+            td_bridge_obj_getTextEntities_text(obj).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_getTextEntities_text(obj).Fetch();
+            this.Text = td_bridge_obj_getTextEntities_text(obj).Fetch();
         }
     }
 
@@ -18164,14 +18164,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_parseTextEntities();
-            td_bridge_obj_parseTextEntities_text(obj).Set(this.text);
-            new CxxTLObject<TextParseMode>(td_bridge_obj_parseTextEntities_parse_mode(obj)).Set(this.parse_mode);
+            td_bridge_obj_parseTextEntities_text(obj).Set(this.Text);
+            new CxxTLObject<TextParseMode>(td_bridge_obj_parseTextEntities_parse_mode(obj)).Set(this.ParseMode);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = td_bridge_obj_parseTextEntities_text(obj).Fetch();
-            this.parse_mode = new CxxTLObject<TextParseMode>(td_bridge_obj_parseTextEntities_parse_mode(obj)).Fetch();
+            this.Text = td_bridge_obj_parseTextEntities_text(obj).Fetch();
+            this.ParseMode = new CxxTLObject<TextParseMode>(td_bridge_obj_parseTextEntities_parse_mode(obj)).Fetch();
         }
     }
 
@@ -18187,12 +18187,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getFileMimeType();
-            td_bridge_obj_getFileMimeType_file_name(obj).Set(this.file_name);
+            td_bridge_obj_getFileMimeType_file_name(obj).Set(this.FileName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_name = td_bridge_obj_getFileMimeType_file_name(obj).Fetch();
+            this.FileName = td_bridge_obj_getFileMimeType_file_name(obj).Fetch();
         }
     }
 
@@ -18208,12 +18208,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getFileExtension();
-            td_bridge_obj_getFileExtension_mime_type(obj).Set(this.mime_type);
+            td_bridge_obj_getFileExtension_mime_type(obj).Set(this.MimeType);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.mime_type = td_bridge_obj_getFileExtension_mime_type(obj).Fetch();
+            this.MimeType = td_bridge_obj_getFileExtension_mime_type(obj).Fetch();
         }
     }
 
@@ -18229,12 +18229,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_cleanFileName();
-            td_bridge_obj_cleanFileName_file_name(obj).Set(this.file_name);
+            td_bridge_obj_cleanFileName_file_name(obj).Set(this.FileName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_name = td_bridge_obj_cleanFileName_file_name(obj).Fetch();
+            this.FileName = td_bridge_obj_cleanFileName_file_name(obj).Fetch();
         }
     }
 
@@ -18259,18 +18259,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getLanguagePackString();
-            td_bridge_obj_getLanguagePackString_language_pack_database_path(obj).Set(this.language_pack_database_path);
-            td_bridge_obj_getLanguagePackString_localization_target(obj).Set(this.localization_target);
-            td_bridge_obj_getLanguagePackString_language_pack_id(obj).Set(this.language_pack_id);
-            td_bridge_obj_getLanguagePackString_key(obj).Set(this.key);
+            td_bridge_obj_getLanguagePackString_language_pack_database_path(obj).Set(this.LanguagePackDatabasePath);
+            td_bridge_obj_getLanguagePackString_localization_target(obj).Set(this.LocalizationTarget);
+            td_bridge_obj_getLanguagePackString_language_pack_id(obj).Set(this.LanguagePackId);
+            td_bridge_obj_getLanguagePackString_key(obj).Set(this.Key);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.language_pack_database_path = td_bridge_obj_getLanguagePackString_language_pack_database_path(obj).Fetch();
-            this.localization_target = td_bridge_obj_getLanguagePackString_localization_target(obj).Fetch();
-            this.language_pack_id = td_bridge_obj_getLanguagePackString_language_pack_id(obj).Fetch();
-            this.key = td_bridge_obj_getLanguagePackString_key(obj).Fetch();
+            this.LanguagePackDatabasePath = td_bridge_obj_getLanguagePackString_language_pack_database_path(obj).Fetch();
+            this.LocalizationTarget = td_bridge_obj_getLanguagePackString_localization_target(obj).Fetch();
+            this.LanguagePackId = td_bridge_obj_getLanguagePackString_language_pack_id(obj).Fetch();
+            this.Key = td_bridge_obj_getLanguagePackString_key(obj).Fetch();
         }
     }
 
@@ -18298,20 +18298,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getInlineQueryResults();
-            td_bridge_obj_getInlineQueryResults_bot_user_id(obj).Set(this.bot_user_id);
-            td_bridge_obj_getInlineQueryResults_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<Location>(td_bridge_obj_getInlineQueryResults_user_location(obj)).Set(this.user_location);
-            td_bridge_obj_getInlineQueryResults_query(obj).Set(this.query);
-            td_bridge_obj_getInlineQueryResults_offset(obj).Set(this.offset);
+            td_bridge_obj_getInlineQueryResults_bot_user_id(obj).Set(this.BotUserId);
+            td_bridge_obj_getInlineQueryResults_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<Location>(td_bridge_obj_getInlineQueryResults_user_location(obj)).Set(this.UserLocation);
+            td_bridge_obj_getInlineQueryResults_query(obj).Set(this.Query);
+            td_bridge_obj_getInlineQueryResults_offset(obj).Set(this.Offset);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.bot_user_id = td_bridge_obj_getInlineQueryResults_bot_user_id(obj).Fetch();
-            this.chat_id = td_bridge_obj_getInlineQueryResults_chat_id(obj).Fetch();
-            this.user_location = new CxxTLObject<Location>(td_bridge_obj_getInlineQueryResults_user_location(obj)).Fetch();
-            this.query = td_bridge_obj_getInlineQueryResults_query(obj).Fetch();
-            this.offset = td_bridge_obj_getInlineQueryResults_offset(obj).Fetch();
+            this.BotUserId = td_bridge_obj_getInlineQueryResults_bot_user_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getInlineQueryResults_chat_id(obj).Fetch();
+            this.UserLocation = new CxxTLObject<Location>(td_bridge_obj_getInlineQueryResults_user_location(obj)).Fetch();
+            this.Query = td_bridge_obj_getInlineQueryResults_query(obj).Fetch();
+            this.Offset = td_bridge_obj_getInlineQueryResults_offset(obj).Fetch();
         }
     }
 
@@ -18345,24 +18345,24 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_answerInlineQuery();
-            td_bridge_obj_answerInlineQuery_inline_query_id(obj).Set(this.inline_query_id);
-            td_bridge_obj_answerInlineQuery_is_personal(obj).Set(this.is_personal);
-            new CxxVectorObject<InputInlineQueryResult>(td_bridge_obj_answerInlineQuery_results(obj)).Set(this.results);
-            td_bridge_obj_answerInlineQuery_cache_time(obj).Set(this.cache_time);
-            td_bridge_obj_answerInlineQuery_next_offset(obj).Set(this.next_offset);
-            td_bridge_obj_answerInlineQuery_switch_pm_text(obj).Set(this.switch_pm_text);
-            td_bridge_obj_answerInlineQuery_switch_pm_parameter(obj).Set(this.switch_pm_parameter);
+            td_bridge_obj_answerInlineQuery_inline_query_id(obj).Set(this.InlineQueryId);
+            td_bridge_obj_answerInlineQuery_is_personal(obj).Set(this.IsPersonal);
+            new CxxVectorObject<InputInlineQueryResult>(td_bridge_obj_answerInlineQuery_results(obj)).Set(this.Results);
+            td_bridge_obj_answerInlineQuery_cache_time(obj).Set(this.CacheTime);
+            td_bridge_obj_answerInlineQuery_next_offset(obj).Set(this.NextOffset);
+            td_bridge_obj_answerInlineQuery_switch_pm_text(obj).Set(this.SwitchPmText);
+            td_bridge_obj_answerInlineQuery_switch_pm_parameter(obj).Set(this.SwitchPmParameter);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_query_id = td_bridge_obj_answerInlineQuery_inline_query_id(obj).Fetch();
-            this.is_personal = td_bridge_obj_answerInlineQuery_is_personal(obj).Fetch();
-            this.results = new CxxVectorObject<InputInlineQueryResult>(td_bridge_obj_answerInlineQuery_results(obj)).Fetch();
-            this.cache_time = td_bridge_obj_answerInlineQuery_cache_time(obj).Fetch();
-            this.next_offset = td_bridge_obj_answerInlineQuery_next_offset(obj).Fetch();
-            this.switch_pm_text = td_bridge_obj_answerInlineQuery_switch_pm_text(obj).Fetch();
-            this.switch_pm_parameter = td_bridge_obj_answerInlineQuery_switch_pm_parameter(obj).Fetch();
+            this.InlineQueryId = td_bridge_obj_answerInlineQuery_inline_query_id(obj).Fetch();
+            this.IsPersonal = td_bridge_obj_answerInlineQuery_is_personal(obj).Fetch();
+            this.Results = new CxxVectorObject<InputInlineQueryResult>(td_bridge_obj_answerInlineQuery_results(obj)).Fetch();
+            this.CacheTime = td_bridge_obj_answerInlineQuery_cache_time(obj).Fetch();
+            this.NextOffset = td_bridge_obj_answerInlineQuery_next_offset(obj).Fetch();
+            this.SwitchPmText = td_bridge_obj_answerInlineQuery_switch_pm_text(obj).Fetch();
+            this.SwitchPmParameter = td_bridge_obj_answerInlineQuery_switch_pm_parameter(obj).Fetch();
         }
     }
 
@@ -18384,16 +18384,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getCallbackQueryAnswer();
-            td_bridge_obj_getCallbackQueryAnswer_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getCallbackQueryAnswer_message_id(obj).Set(this.message_id);
-            new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_getCallbackQueryAnswer_payload(obj)).Set(this.payload);
+            td_bridge_obj_getCallbackQueryAnswer_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getCallbackQueryAnswer_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_getCallbackQueryAnswer_payload(obj)).Set(this.Payload);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getCallbackQueryAnswer_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_getCallbackQueryAnswer_message_id(obj).Fetch();
-            this.payload = new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_getCallbackQueryAnswer_payload(obj)).Fetch();
+            this.ChatId = td_bridge_obj_getCallbackQueryAnswer_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getCallbackQueryAnswer_message_id(obj).Fetch();
+            this.Payload = new CxxTLObject<CallbackQueryPayload>(td_bridge_obj_getCallbackQueryAnswer_payload(obj)).Fetch();
         }
     }
 
@@ -18421,20 +18421,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_answerCallbackQuery();
-            td_bridge_obj_answerCallbackQuery_callback_query_id(obj).Set(this.callback_query_id);
-            td_bridge_obj_answerCallbackQuery_text(obj).Set(this.text);
-            td_bridge_obj_answerCallbackQuery_show_alert(obj).Set(this.show_alert);
-            td_bridge_obj_answerCallbackQuery_url(obj).Set(this.url);
-            td_bridge_obj_answerCallbackQuery_cache_time(obj).Set(this.cache_time);
+            td_bridge_obj_answerCallbackQuery_callback_query_id(obj).Set(this.CallbackQueryId);
+            td_bridge_obj_answerCallbackQuery_text(obj).Set(this.Text);
+            td_bridge_obj_answerCallbackQuery_show_alert(obj).Set(this.ShowAlert);
+            td_bridge_obj_answerCallbackQuery_url(obj).Set(this.Url);
+            td_bridge_obj_answerCallbackQuery_cache_time(obj).Set(this.CacheTime);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.callback_query_id = td_bridge_obj_answerCallbackQuery_callback_query_id(obj).Fetch();
-            this.text = td_bridge_obj_answerCallbackQuery_text(obj).Fetch();
-            this.show_alert = td_bridge_obj_answerCallbackQuery_show_alert(obj).Fetch();
-            this.url = td_bridge_obj_answerCallbackQuery_url(obj).Fetch();
-            this.cache_time = td_bridge_obj_answerCallbackQuery_cache_time(obj).Fetch();
+            this.CallbackQueryId = td_bridge_obj_answerCallbackQuery_callback_query_id(obj).Fetch();
+            this.Text = td_bridge_obj_answerCallbackQuery_text(obj).Fetch();
+            this.ShowAlert = td_bridge_obj_answerCallbackQuery_show_alert(obj).Fetch();
+            this.Url = td_bridge_obj_answerCallbackQuery_url(obj).Fetch();
+            this.CacheTime = td_bridge_obj_answerCallbackQuery_cache_time(obj).Fetch();
         }
     }
 
@@ -18456,16 +18456,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_answerShippingQuery();
-            td_bridge_obj_answerShippingQuery_shipping_query_id(obj).Set(this.shipping_query_id);
-            new CxxVectorObject<ShippingOption>(td_bridge_obj_answerShippingQuery_shipping_options(obj)).Set(this.shipping_options);
-            td_bridge_obj_answerShippingQuery_error_message(obj).Set(this.error_message);
+            td_bridge_obj_answerShippingQuery_shipping_query_id(obj).Set(this.ShippingQueryId);
+            new CxxVectorObject<ShippingOption>(td_bridge_obj_answerShippingQuery_shipping_options(obj)).Set(this.ShippingOptions);
+            td_bridge_obj_answerShippingQuery_error_message(obj).Set(this.ErrorMessage);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.shipping_query_id = td_bridge_obj_answerShippingQuery_shipping_query_id(obj).Fetch();
-            this.shipping_options = new CxxVectorObject<ShippingOption>(td_bridge_obj_answerShippingQuery_shipping_options(obj)).Fetch();
-            this.error_message = td_bridge_obj_answerShippingQuery_error_message(obj).Fetch();
+            this.ShippingQueryId = td_bridge_obj_answerShippingQuery_shipping_query_id(obj).Fetch();
+            this.ShippingOptions = new CxxVectorObject<ShippingOption>(td_bridge_obj_answerShippingQuery_shipping_options(obj)).Fetch();
+            this.ErrorMessage = td_bridge_obj_answerShippingQuery_error_message(obj).Fetch();
         }
     }
 
@@ -18484,14 +18484,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_answerPreCheckoutQuery();
-            td_bridge_obj_answerPreCheckoutQuery_pre_checkout_query_id(obj).Set(this.pre_checkout_query_id);
-            td_bridge_obj_answerPreCheckoutQuery_error_message(obj).Set(this.error_message);
+            td_bridge_obj_answerPreCheckoutQuery_pre_checkout_query_id(obj).Set(this.PreCheckoutQueryId);
+            td_bridge_obj_answerPreCheckoutQuery_error_message(obj).Set(this.ErrorMessage);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.pre_checkout_query_id = td_bridge_obj_answerPreCheckoutQuery_pre_checkout_query_id(obj).Fetch();
-            this.error_message = td_bridge_obj_answerPreCheckoutQuery_error_message(obj).Fetch();
+            this.PreCheckoutQueryId = td_bridge_obj_answerPreCheckoutQuery_pre_checkout_query_id(obj).Fetch();
+            this.ErrorMessage = td_bridge_obj_answerPreCheckoutQuery_error_message(obj).Fetch();
         }
     }
 
@@ -18522,22 +18522,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setGameScore();
-            td_bridge_obj_setGameScore_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_setGameScore_message_id(obj).Set(this.message_id);
-            td_bridge_obj_setGameScore_edit_message(obj).Set(this.edit_message);
-            td_bridge_obj_setGameScore_user_id(obj).Set(this.user_id);
-            td_bridge_obj_setGameScore_score(obj).Set(this.score);
-            td_bridge_obj_setGameScore_force(obj).Set(this.force);
+            td_bridge_obj_setGameScore_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_setGameScore_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_setGameScore_edit_message(obj).Set(this.EditMessage);
+            td_bridge_obj_setGameScore_user_id(obj).Set(this.UserId);
+            td_bridge_obj_setGameScore_score(obj).Set(this.Score);
+            td_bridge_obj_setGameScore_force(obj).Set(this.Force);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_setGameScore_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_setGameScore_message_id(obj).Fetch();
-            this.edit_message = td_bridge_obj_setGameScore_edit_message(obj).Fetch();
-            this.user_id = td_bridge_obj_setGameScore_user_id(obj).Fetch();
-            this.score = td_bridge_obj_setGameScore_score(obj).Fetch();
-            this.force = td_bridge_obj_setGameScore_force(obj).Fetch();
+            this.ChatId = td_bridge_obj_setGameScore_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_setGameScore_message_id(obj).Fetch();
+            this.EditMessage = td_bridge_obj_setGameScore_edit_message(obj).Fetch();
+            this.UserId = td_bridge_obj_setGameScore_user_id(obj).Fetch();
+            this.Score = td_bridge_obj_setGameScore_score(obj).Fetch();
+            this.Force = td_bridge_obj_setGameScore_force(obj).Fetch();
         }
     }
 
@@ -18565,20 +18565,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setInlineGameScore();
-            td_bridge_obj_setInlineGameScore_inline_message_id(obj).Set(this.inline_message_id);
-            td_bridge_obj_setInlineGameScore_edit_message(obj).Set(this.edit_message);
-            td_bridge_obj_setInlineGameScore_user_id(obj).Set(this.user_id);
-            td_bridge_obj_setInlineGameScore_score(obj).Set(this.score);
-            td_bridge_obj_setInlineGameScore_force(obj).Set(this.force);
+            td_bridge_obj_setInlineGameScore_inline_message_id(obj).Set(this.InlineMessageId);
+            td_bridge_obj_setInlineGameScore_edit_message(obj).Set(this.EditMessage);
+            td_bridge_obj_setInlineGameScore_user_id(obj).Set(this.UserId);
+            td_bridge_obj_setInlineGameScore_score(obj).Set(this.Score);
+            td_bridge_obj_setInlineGameScore_force(obj).Set(this.Force);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_message_id = td_bridge_obj_setInlineGameScore_inline_message_id(obj).Fetch();
-            this.edit_message = td_bridge_obj_setInlineGameScore_edit_message(obj).Fetch();
-            this.user_id = td_bridge_obj_setInlineGameScore_user_id(obj).Fetch();
-            this.score = td_bridge_obj_setInlineGameScore_score(obj).Fetch();
-            this.force = td_bridge_obj_setInlineGameScore_force(obj).Fetch();
+            this.InlineMessageId = td_bridge_obj_setInlineGameScore_inline_message_id(obj).Fetch();
+            this.EditMessage = td_bridge_obj_setInlineGameScore_edit_message(obj).Fetch();
+            this.UserId = td_bridge_obj_setInlineGameScore_user_id(obj).Fetch();
+            this.Score = td_bridge_obj_setInlineGameScore_score(obj).Fetch();
+            this.Force = td_bridge_obj_setInlineGameScore_force(obj).Fetch();
         }
     }
 
@@ -18600,16 +18600,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getGameHighScores();
-            td_bridge_obj_getGameHighScores_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getGameHighScores_message_id(obj).Set(this.message_id);
-            td_bridge_obj_getGameHighScores_user_id(obj).Set(this.user_id);
+            td_bridge_obj_getGameHighScores_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getGameHighScores_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_getGameHighScores_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getGameHighScores_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_getGameHighScores_message_id(obj).Fetch();
-            this.user_id = td_bridge_obj_getGameHighScores_user_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getGameHighScores_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getGameHighScores_message_id(obj).Fetch();
+            this.UserId = td_bridge_obj_getGameHighScores_user_id(obj).Fetch();
         }
     }
 
@@ -18628,14 +18628,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getInlineGameHighScores();
-            td_bridge_obj_getInlineGameHighScores_inline_message_id(obj).Set(this.inline_message_id);
-            td_bridge_obj_getInlineGameHighScores_user_id(obj).Set(this.user_id);
+            td_bridge_obj_getInlineGameHighScores_inline_message_id(obj).Set(this.InlineMessageId);
+            td_bridge_obj_getInlineGameHighScores_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.inline_message_id = td_bridge_obj_getInlineGameHighScores_inline_message_id(obj).Fetch();
-            this.user_id = td_bridge_obj_getInlineGameHighScores_user_id(obj).Fetch();
+            this.InlineMessageId = td_bridge_obj_getInlineGameHighScores_inline_message_id(obj).Fetch();
+            this.UserId = td_bridge_obj_getInlineGameHighScores_user_id(obj).Fetch();
         }
     }
 
@@ -18654,14 +18654,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteChatReplyMarkup();
-            td_bridge_obj_deleteChatReplyMarkup_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_deleteChatReplyMarkup_message_id(obj).Set(this.message_id);
+            td_bridge_obj_deleteChatReplyMarkup_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_deleteChatReplyMarkup_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_deleteChatReplyMarkup_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_deleteChatReplyMarkup_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_deleteChatReplyMarkup_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_deleteChatReplyMarkup_message_id(obj).Fetch();
         }
     }
 
@@ -18680,14 +18680,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendChatAction();
-            td_bridge_obj_sendChatAction_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<ChatAction>(td_bridge_obj_sendChatAction_action(obj)).Set(this.action);
+            td_bridge_obj_sendChatAction_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<ChatAction>(td_bridge_obj_sendChatAction_action(obj)).Set(this.Action);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_sendChatAction_chat_id(obj).Fetch();
-            this.action = new CxxTLObject<ChatAction>(td_bridge_obj_sendChatAction_action(obj)).Fetch();
+            this.ChatId = td_bridge_obj_sendChatAction_chat_id(obj).Fetch();
+            this.Action = new CxxTLObject<ChatAction>(td_bridge_obj_sendChatAction_action(obj)).Fetch();
         }
     }
 
@@ -18703,12 +18703,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_openChat();
-            td_bridge_obj_openChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_openChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_openChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_openChat_chat_id(obj).Fetch();
         }
     }
 
@@ -18724,12 +18724,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_closeChat();
-            td_bridge_obj_closeChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_closeChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_closeChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_closeChat_chat_id(obj).Fetch();
         }
     }
 
@@ -18751,16 +18751,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_viewMessages();
-            td_bridge_obj_viewMessages_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_viewMessages_message_ids(obj).Set(this.message_ids);
-            td_bridge_obj_viewMessages_force_read(obj).Set(this.force_read);
+            td_bridge_obj_viewMessages_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_viewMessages_message_ids(obj).Set(this.MessageIds);
+            td_bridge_obj_viewMessages_force_read(obj).Set(this.ForceRead);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_viewMessages_chat_id(obj).Fetch();
-            this.message_ids = td_bridge_obj_viewMessages_message_ids(obj).Fetch();
-            this.force_read = td_bridge_obj_viewMessages_force_read(obj).Fetch();
+            this.ChatId = td_bridge_obj_viewMessages_chat_id(obj).Fetch();
+            this.MessageIds = td_bridge_obj_viewMessages_message_ids(obj).Fetch();
+            this.ForceRead = td_bridge_obj_viewMessages_force_read(obj).Fetch();
         }
     }
 
@@ -18779,14 +18779,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_openMessageContent();
-            td_bridge_obj_openMessageContent_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_openMessageContent_message_id(obj).Set(this.message_id);
+            td_bridge_obj_openMessageContent_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_openMessageContent_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_openMessageContent_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_openMessageContent_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_openMessageContent_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_openMessageContent_message_id(obj).Fetch();
         }
     }
 
@@ -18802,12 +18802,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_readAllChatMentions();
-            td_bridge_obj_readAllChatMentions_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_readAllChatMentions_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_readAllChatMentions_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_readAllChatMentions_chat_id(obj).Fetch();
         }
     }
 
@@ -18826,14 +18826,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createPrivateChat();
-            td_bridge_obj_createPrivateChat_user_id(obj).Set(this.user_id);
-            td_bridge_obj_createPrivateChat_force(obj).Set(this.force);
+            td_bridge_obj_createPrivateChat_user_id(obj).Set(this.UserId);
+            td_bridge_obj_createPrivateChat_force(obj).Set(this.Force);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_createPrivateChat_user_id(obj).Fetch();
-            this.force = td_bridge_obj_createPrivateChat_force(obj).Fetch();
+            this.UserId = td_bridge_obj_createPrivateChat_user_id(obj).Fetch();
+            this.Force = td_bridge_obj_createPrivateChat_force(obj).Fetch();
         }
     }
 
@@ -18852,14 +18852,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createBasicGroupChat();
-            td_bridge_obj_createBasicGroupChat_basic_group_id(obj).Set(this.basic_group_id);
-            td_bridge_obj_createBasicGroupChat_force(obj).Set(this.force);
+            td_bridge_obj_createBasicGroupChat_basic_group_id(obj).Set(this.BasicGroupId);
+            td_bridge_obj_createBasicGroupChat_force(obj).Set(this.Force);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.basic_group_id = td_bridge_obj_createBasicGroupChat_basic_group_id(obj).Fetch();
-            this.force = td_bridge_obj_createBasicGroupChat_force(obj).Fetch();
+            this.BasicGroupId = td_bridge_obj_createBasicGroupChat_basic_group_id(obj).Fetch();
+            this.Force = td_bridge_obj_createBasicGroupChat_force(obj).Fetch();
         }
     }
 
@@ -18878,14 +18878,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createSupergroupChat();
-            td_bridge_obj_createSupergroupChat_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_createSupergroupChat_force(obj).Set(this.force);
+            td_bridge_obj_createSupergroupChat_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_createSupergroupChat_force(obj).Set(this.Force);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_createSupergroupChat_supergroup_id(obj).Fetch();
-            this.force = td_bridge_obj_createSupergroupChat_force(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_createSupergroupChat_supergroup_id(obj).Fetch();
+            this.Force = td_bridge_obj_createSupergroupChat_force(obj).Fetch();
         }
     }
 
@@ -18901,12 +18901,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createSecretChat();
-            td_bridge_obj_createSecretChat_secret_chat_id(obj).Set(this.secret_chat_id);
+            td_bridge_obj_createSecretChat_secret_chat_id(obj).Set(this.SecretChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.secret_chat_id = td_bridge_obj_createSecretChat_secret_chat_id(obj).Fetch();
+            this.SecretChatId = td_bridge_obj_createSecretChat_secret_chat_id(obj).Fetch();
         }
     }
 
@@ -18925,14 +18925,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createNewBasicGroupChat();
-            td_bridge_obj_createNewBasicGroupChat_user_ids(obj).Set(this.user_ids);
-            td_bridge_obj_createNewBasicGroupChat_title(obj).Set(this.title);
+            td_bridge_obj_createNewBasicGroupChat_user_ids(obj).Set(this.UserIds);
+            td_bridge_obj_createNewBasicGroupChat_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_ids = td_bridge_obj_createNewBasicGroupChat_user_ids(obj).Fetch();
-            this.title = td_bridge_obj_createNewBasicGroupChat_title(obj).Fetch();
+            this.UserIds = td_bridge_obj_createNewBasicGroupChat_user_ids(obj).Fetch();
+            this.Title = td_bridge_obj_createNewBasicGroupChat_title(obj).Fetch();
         }
     }
 
@@ -18954,16 +18954,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createNewSupergroupChat();
-            td_bridge_obj_createNewSupergroupChat_title(obj).Set(this.title);
-            td_bridge_obj_createNewSupergroupChat_is_channel(obj).Set(this.is_channel);
-            td_bridge_obj_createNewSupergroupChat_description(obj).Set(this.description);
+            td_bridge_obj_createNewSupergroupChat_title(obj).Set(this.Title);
+            td_bridge_obj_createNewSupergroupChat_is_channel(obj).Set(this.IsChannel);
+            td_bridge_obj_createNewSupergroupChat_description(obj).Set(this.Description);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.title = td_bridge_obj_createNewSupergroupChat_title(obj).Fetch();
-            this.is_channel = td_bridge_obj_createNewSupergroupChat_is_channel(obj).Fetch();
-            this.description = td_bridge_obj_createNewSupergroupChat_description(obj).Fetch();
+            this.Title = td_bridge_obj_createNewSupergroupChat_title(obj).Fetch();
+            this.IsChannel = td_bridge_obj_createNewSupergroupChat_is_channel(obj).Fetch();
+            this.Description = td_bridge_obj_createNewSupergroupChat_description(obj).Fetch();
         }
     }
 
@@ -18979,12 +18979,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createNewSecretChat();
-            td_bridge_obj_createNewSecretChat_user_id(obj).Set(this.user_id);
+            td_bridge_obj_createNewSecretChat_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_createNewSecretChat_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_createNewSecretChat_user_id(obj).Fetch();
         }
     }
 
@@ -19000,12 +19000,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_upgradeBasicGroupChatToSupergroupChat();
-            td_bridge_obj_upgradeBasicGroupChatToSupergroupChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_upgradeBasicGroupChatToSupergroupChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_upgradeBasicGroupChatToSupergroupChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_upgradeBasicGroupChatToSupergroupChat_chat_id(obj).Fetch();
         }
     }
 
@@ -19024,14 +19024,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setChatTitle();
-            td_bridge_obj_setChatTitle_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_setChatTitle_title(obj).Set(this.title);
+            td_bridge_obj_setChatTitle_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_setChatTitle_title(obj).Set(this.Title);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_setChatTitle_chat_id(obj).Fetch();
-            this.title = td_bridge_obj_setChatTitle_title(obj).Fetch();
+            this.ChatId = td_bridge_obj_setChatTitle_chat_id(obj).Fetch();
+            this.Title = td_bridge_obj_setChatTitle_title(obj).Fetch();
         }
     }
 
@@ -19050,14 +19050,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setChatPhoto();
-            td_bridge_obj_setChatPhoto_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<InputFile>(td_bridge_obj_setChatPhoto_photo(obj)).Set(this.photo);
+            td_bridge_obj_setChatPhoto_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<InputFile>(td_bridge_obj_setChatPhoto_photo(obj)).Set(this.Photo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_setChatPhoto_chat_id(obj).Fetch();
-            this.photo = new CxxTLObject<InputFile>(td_bridge_obj_setChatPhoto_photo(obj)).Fetch();
+            this.ChatId = td_bridge_obj_setChatPhoto_chat_id(obj).Fetch();
+            this.Photo = new CxxTLObject<InputFile>(td_bridge_obj_setChatPhoto_photo(obj)).Fetch();
         }
     }
 
@@ -19076,14 +19076,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setChatDraftMessage();
-            td_bridge_obj_setChatDraftMessage_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<DraftMessage>(td_bridge_obj_setChatDraftMessage_draft_message(obj)).Set(this.draft_message);
+            td_bridge_obj_setChatDraftMessage_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<DraftMessage>(td_bridge_obj_setChatDraftMessage_draft_message(obj)).Set(this.DraftMessage);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_setChatDraftMessage_chat_id(obj).Fetch();
-            this.draft_message = new CxxTLObject<DraftMessage>(td_bridge_obj_setChatDraftMessage_draft_message(obj)).Fetch();
+            this.ChatId = td_bridge_obj_setChatDraftMessage_chat_id(obj).Fetch();
+            this.DraftMessage = new CxxTLObject<DraftMessage>(td_bridge_obj_setChatDraftMessage_draft_message(obj)).Fetch();
         }
     }
 
@@ -19102,14 +19102,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setChatNotificationSettings();
-            td_bridge_obj_setChatNotificationSettings_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_setChatNotificationSettings_notification_settings(obj)).Set(this.notification_settings);
+            td_bridge_obj_setChatNotificationSettings_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_setChatNotificationSettings_notification_settings(obj)).Set(this.NotificationSettings);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_setChatNotificationSettings_chat_id(obj).Fetch();
-            this.notification_settings = new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_setChatNotificationSettings_notification_settings(obj)).Fetch();
+            this.ChatId = td_bridge_obj_setChatNotificationSettings_chat_id(obj).Fetch();
+            this.NotificationSettings = new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_setChatNotificationSettings_notification_settings(obj)).Fetch();
         }
     }
 
@@ -19128,14 +19128,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_toggleChatIsPinned();
-            td_bridge_obj_toggleChatIsPinned_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_toggleChatIsPinned_is_pinned(obj).Set(this.is_pinned);
+            td_bridge_obj_toggleChatIsPinned_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_toggleChatIsPinned_is_pinned(obj).Set(this.IsPinned);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_toggleChatIsPinned_chat_id(obj).Fetch();
-            this.is_pinned = td_bridge_obj_toggleChatIsPinned_is_pinned(obj).Fetch();
+            this.ChatId = td_bridge_obj_toggleChatIsPinned_chat_id(obj).Fetch();
+            this.IsPinned = td_bridge_obj_toggleChatIsPinned_is_pinned(obj).Fetch();
         }
     }
 
@@ -19154,14 +19154,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_toggleChatIsMarkedAsUnread();
-            td_bridge_obj_toggleChatIsMarkedAsUnread_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_toggleChatIsMarkedAsUnread_is_marked_as_unread(obj).Set(this.is_marked_as_unread);
+            td_bridge_obj_toggleChatIsMarkedAsUnread_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_toggleChatIsMarkedAsUnread_is_marked_as_unread(obj).Set(this.IsMarkedAsUnread);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_toggleChatIsMarkedAsUnread_chat_id(obj).Fetch();
-            this.is_marked_as_unread = td_bridge_obj_toggleChatIsMarkedAsUnread_is_marked_as_unread(obj).Fetch();
+            this.ChatId = td_bridge_obj_toggleChatIsMarkedAsUnread_chat_id(obj).Fetch();
+            this.IsMarkedAsUnread = td_bridge_obj_toggleChatIsMarkedAsUnread_is_marked_as_unread(obj).Fetch();
         }
     }
 
@@ -19180,14 +19180,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_toggleChatDefaultDisableNotification();
-            td_bridge_obj_toggleChatDefaultDisableNotification_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_toggleChatDefaultDisableNotification_default_disable_notification(obj).Set(this.default_disable_notification);
+            td_bridge_obj_toggleChatDefaultDisableNotification_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_toggleChatDefaultDisableNotification_default_disable_notification(obj).Set(this.DefaultDisableNotification);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_toggleChatDefaultDisableNotification_chat_id(obj).Fetch();
-            this.default_disable_notification = td_bridge_obj_toggleChatDefaultDisableNotification_default_disable_notification(obj).Fetch();
+            this.ChatId = td_bridge_obj_toggleChatDefaultDisableNotification_chat_id(obj).Fetch();
+            this.DefaultDisableNotification = td_bridge_obj_toggleChatDefaultDisableNotification_default_disable_notification(obj).Fetch();
         }
     }
 
@@ -19206,14 +19206,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setChatClientData();
-            td_bridge_obj_setChatClientData_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_setChatClientData_client_data(obj).Set(this.client_data);
+            td_bridge_obj_setChatClientData_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_setChatClientData_client_data(obj).Set(this.ClientData);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_setChatClientData_chat_id(obj).Fetch();
-            this.client_data = td_bridge_obj_setChatClientData_client_data(obj).Fetch();
+            this.ChatId = td_bridge_obj_setChatClientData_chat_id(obj).Fetch();
+            this.ClientData = td_bridge_obj_setChatClientData_client_data(obj).Fetch();
         }
     }
 
@@ -19229,12 +19229,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_joinChat();
-            td_bridge_obj_joinChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_joinChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_joinChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_joinChat_chat_id(obj).Fetch();
         }
     }
 
@@ -19250,12 +19250,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_leaveChat();
-            td_bridge_obj_leaveChat_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_leaveChat_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_leaveChat_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_leaveChat_chat_id(obj).Fetch();
         }
     }
 
@@ -19277,16 +19277,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addChatMember();
-            td_bridge_obj_addChatMember_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_addChatMember_user_id(obj).Set(this.user_id);
-            td_bridge_obj_addChatMember_forward_limit(obj).Set(this.forward_limit);
+            td_bridge_obj_addChatMember_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_addChatMember_user_id(obj).Set(this.UserId);
+            td_bridge_obj_addChatMember_forward_limit(obj).Set(this.ForwardLimit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_addChatMember_chat_id(obj).Fetch();
-            this.user_id = td_bridge_obj_addChatMember_user_id(obj).Fetch();
-            this.forward_limit = td_bridge_obj_addChatMember_forward_limit(obj).Fetch();
+            this.ChatId = td_bridge_obj_addChatMember_chat_id(obj).Fetch();
+            this.UserId = td_bridge_obj_addChatMember_user_id(obj).Fetch();
+            this.ForwardLimit = td_bridge_obj_addChatMember_forward_limit(obj).Fetch();
         }
     }
 
@@ -19305,14 +19305,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addChatMembers();
-            td_bridge_obj_addChatMembers_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_addChatMembers_user_ids(obj).Set(this.user_ids);
+            td_bridge_obj_addChatMembers_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_addChatMembers_user_ids(obj).Set(this.UserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_addChatMembers_chat_id(obj).Fetch();
-            this.user_ids = td_bridge_obj_addChatMembers_user_ids(obj).Fetch();
+            this.ChatId = td_bridge_obj_addChatMembers_chat_id(obj).Fetch();
+            this.UserIds = td_bridge_obj_addChatMembers_user_ids(obj).Fetch();
         }
     }
 
@@ -19334,16 +19334,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setChatMemberStatus();
-            td_bridge_obj_setChatMemberStatus_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_setChatMemberStatus_user_id(obj).Set(this.user_id);
-            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_setChatMemberStatus_status(obj)).Set(this.status);
+            td_bridge_obj_setChatMemberStatus_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_setChatMemberStatus_user_id(obj).Set(this.UserId);
+            new CxxTLObject<ChatMemberStatus>(td_bridge_obj_setChatMemberStatus_status(obj)).Set(this.Status);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_setChatMemberStatus_chat_id(obj).Fetch();
-            this.user_id = td_bridge_obj_setChatMemberStatus_user_id(obj).Fetch();
-            this.status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_setChatMemberStatus_status(obj)).Fetch();
+            this.ChatId = td_bridge_obj_setChatMemberStatus_chat_id(obj).Fetch();
+            this.UserId = td_bridge_obj_setChatMemberStatus_user_id(obj).Fetch();
+            this.Status = new CxxTLObject<ChatMemberStatus>(td_bridge_obj_setChatMemberStatus_status(obj)).Fetch();
         }
     }
 
@@ -19362,14 +19362,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatMember();
-            td_bridge_obj_getChatMember_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getChatMember_user_id(obj).Set(this.user_id);
+            td_bridge_obj_getChatMember_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getChatMember_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatMember_chat_id(obj).Fetch();
-            this.user_id = td_bridge_obj_getChatMember_user_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatMember_chat_id(obj).Fetch();
+            this.UserId = td_bridge_obj_getChatMember_user_id(obj).Fetch();
         }
     }
 
@@ -19394,18 +19394,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchChatMembers();
-            td_bridge_obj_searchChatMembers_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_searchChatMembers_query(obj).Set(this.query);
-            td_bridge_obj_searchChatMembers_limit(obj).Set(this.limit);
-            new CxxTLObject<ChatMembersFilter>(td_bridge_obj_searchChatMembers_filter(obj)).Set(this.filter);
+            td_bridge_obj_searchChatMembers_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_searchChatMembers_query(obj).Set(this.Query);
+            td_bridge_obj_searchChatMembers_limit(obj).Set(this.Limit);
+            new CxxTLObject<ChatMembersFilter>(td_bridge_obj_searchChatMembers_filter(obj)).Set(this.Filter);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_searchChatMembers_chat_id(obj).Fetch();
-            this.query = td_bridge_obj_searchChatMembers_query(obj).Fetch();
-            this.limit = td_bridge_obj_searchChatMembers_limit(obj).Fetch();
-            this.filter = new CxxTLObject<ChatMembersFilter>(td_bridge_obj_searchChatMembers_filter(obj)).Fetch();
+            this.ChatId = td_bridge_obj_searchChatMembers_chat_id(obj).Fetch();
+            this.Query = td_bridge_obj_searchChatMembers_query(obj).Fetch();
+            this.Limit = td_bridge_obj_searchChatMembers_limit(obj).Fetch();
+            this.Filter = new CxxTLObject<ChatMembersFilter>(td_bridge_obj_searchChatMembers_filter(obj)).Fetch();
         }
     }
 
@@ -19421,12 +19421,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatAdministrators();
-            td_bridge_obj_getChatAdministrators_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_getChatAdministrators_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatAdministrators_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatAdministrators_chat_id(obj).Fetch();
         }
     }
 
@@ -19442,12 +19442,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_clearAllDraftMessages();
-            td_bridge_obj_clearAllDraftMessages_exclude_secret_chats(obj).Set(this.exclude_secret_chats);
+            td_bridge_obj_clearAllDraftMessages_exclude_secret_chats(obj).Set(this.ExcludeSecretChats);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.exclude_secret_chats = td_bridge_obj_clearAllDraftMessages_exclude_secret_chats(obj).Fetch();
+            this.ExcludeSecretChats = td_bridge_obj_clearAllDraftMessages_exclude_secret_chats(obj).Fetch();
         }
     }
 
@@ -19463,12 +19463,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getScopeNotificationSettings();
-            new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_getScopeNotificationSettings_scope(obj)).Set(this.scope);
+            new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_getScopeNotificationSettings_scope(obj)).Set(this.Scope);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.scope = new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_getScopeNotificationSettings_scope(obj)).Fetch();
+            this.Scope = new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_getScopeNotificationSettings_scope(obj)).Fetch();
         }
     }
 
@@ -19487,14 +19487,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setScopeNotificationSettings();
-            new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_setScopeNotificationSettings_scope(obj)).Set(this.scope);
-            new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_setScopeNotificationSettings_notification_settings(obj)).Set(this.notification_settings);
+            new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_setScopeNotificationSettings_scope(obj)).Set(this.Scope);
+            new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_setScopeNotificationSettings_notification_settings(obj)).Set(this.NotificationSettings);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.scope = new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_setScopeNotificationSettings_scope(obj)).Fetch();
-            this.notification_settings = new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_setScopeNotificationSettings_notification_settings(obj)).Fetch();
+            this.Scope = new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_setScopeNotificationSettings_scope(obj)).Fetch();
+            this.NotificationSettings = new CxxTLObject<ScopeNotificationSettings>(td_bridge_obj_setScopeNotificationSettings_notification_settings(obj)).Fetch();
         }
     }
 
@@ -19526,12 +19526,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setPinnedChats();
-            td_bridge_obj_setPinnedChats_chat_ids(obj).Set(this.chat_ids);
+            td_bridge_obj_setPinnedChats_chat_ids(obj).Set(this.ChatIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_ids = td_bridge_obj_setPinnedChats_chat_ids(obj).Fetch();
+            this.ChatIds = td_bridge_obj_setPinnedChats_chat_ids(obj).Fetch();
         }
     }
 
@@ -19550,14 +19550,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_downloadFile();
-            td_bridge_obj_downloadFile_file_id(obj).Set(this.file_id);
-            td_bridge_obj_downloadFile_priority(obj).Set(this.priority);
+            td_bridge_obj_downloadFile_file_id(obj).Set(this.FileId);
+            td_bridge_obj_downloadFile_priority(obj).Set(this.Priority);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_id = td_bridge_obj_downloadFile_file_id(obj).Fetch();
-            this.priority = td_bridge_obj_downloadFile_priority(obj).Fetch();
+            this.FileId = td_bridge_obj_downloadFile_file_id(obj).Fetch();
+            this.Priority = td_bridge_obj_downloadFile_priority(obj).Fetch();
         }
     }
 
@@ -19576,14 +19576,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_cancelDownloadFile();
-            td_bridge_obj_cancelDownloadFile_file_id(obj).Set(this.file_id);
-            td_bridge_obj_cancelDownloadFile_only_if_pending(obj).Set(this.only_if_pending);
+            td_bridge_obj_cancelDownloadFile_file_id(obj).Set(this.FileId);
+            td_bridge_obj_cancelDownloadFile_only_if_pending(obj).Set(this.OnlyIfPending);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_id = td_bridge_obj_cancelDownloadFile_file_id(obj).Fetch();
-            this.only_if_pending = td_bridge_obj_cancelDownloadFile_only_if_pending(obj).Fetch();
+            this.FileId = td_bridge_obj_cancelDownloadFile_file_id(obj).Fetch();
+            this.OnlyIfPending = td_bridge_obj_cancelDownloadFile_only_if_pending(obj).Fetch();
         }
     }
 
@@ -19605,16 +19605,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_uploadFile();
-            new CxxTLObject<InputFile>(td_bridge_obj_uploadFile_file(obj)).Set(this.file);
-            new CxxTLObject<FileType>(td_bridge_obj_uploadFile_file_type(obj)).Set(this.file_type);
-            td_bridge_obj_uploadFile_priority(obj).Set(this.priority);
+            new CxxTLObject<InputFile>(td_bridge_obj_uploadFile_file(obj)).Set(this.File);
+            new CxxTLObject<FileType>(td_bridge_obj_uploadFile_file_type(obj)).Set(this.FileType);
+            td_bridge_obj_uploadFile_priority(obj).Set(this.Priority);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file = new CxxTLObject<InputFile>(td_bridge_obj_uploadFile_file(obj)).Fetch();
-            this.file_type = new CxxTLObject<FileType>(td_bridge_obj_uploadFile_file_type(obj)).Fetch();
-            this.priority = td_bridge_obj_uploadFile_priority(obj).Fetch();
+            this.File = new CxxTLObject<InputFile>(td_bridge_obj_uploadFile_file(obj)).Fetch();
+            this.FileType = new CxxTLObject<FileType>(td_bridge_obj_uploadFile_file_type(obj)).Fetch();
+            this.Priority = td_bridge_obj_uploadFile_priority(obj).Fetch();
         }
     }
 
@@ -19630,12 +19630,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_cancelUploadFile();
-            td_bridge_obj_cancelUploadFile_file_id(obj).Set(this.file_id);
+            td_bridge_obj_cancelUploadFile_file_id(obj).Set(this.FileId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_id = td_bridge_obj_cancelUploadFile_file_id(obj).Fetch();
+            this.FileId = td_bridge_obj_cancelUploadFile_file_id(obj).Fetch();
         }
     }
 
@@ -19657,16 +19657,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setFileGenerationProgress();
-            td_bridge_obj_setFileGenerationProgress_generation_id(obj).Set(this.generation_id);
-            td_bridge_obj_setFileGenerationProgress_expected_size(obj).Set(this.expected_size);
-            td_bridge_obj_setFileGenerationProgress_local_prefix_size(obj).Set(this.local_prefix_size);
+            td_bridge_obj_setFileGenerationProgress_generation_id(obj).Set(this.GenerationId);
+            td_bridge_obj_setFileGenerationProgress_expected_size(obj).Set(this.ExpectedSize);
+            td_bridge_obj_setFileGenerationProgress_local_prefix_size(obj).Set(this.LocalPrefixSize);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.generation_id = td_bridge_obj_setFileGenerationProgress_generation_id(obj).Fetch();
-            this.expected_size = td_bridge_obj_setFileGenerationProgress_expected_size(obj).Fetch();
-            this.local_prefix_size = td_bridge_obj_setFileGenerationProgress_local_prefix_size(obj).Fetch();
+            this.GenerationId = td_bridge_obj_setFileGenerationProgress_generation_id(obj).Fetch();
+            this.ExpectedSize = td_bridge_obj_setFileGenerationProgress_expected_size(obj).Fetch();
+            this.LocalPrefixSize = td_bridge_obj_setFileGenerationProgress_local_prefix_size(obj).Fetch();
         }
     }
 
@@ -19685,14 +19685,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_finishFileGeneration();
-            td_bridge_obj_finishFileGeneration_generation_id(obj).Set(this.generation_id);
-            new CxxTLObject<Error>(td_bridge_obj_finishFileGeneration_error(obj)).Set(this.error);
+            td_bridge_obj_finishFileGeneration_generation_id(obj).Set(this.GenerationId);
+            new CxxTLObject<Error>(td_bridge_obj_finishFileGeneration_error(obj)).Set(this.Error);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.generation_id = td_bridge_obj_finishFileGeneration_generation_id(obj).Fetch();
-            this.error = new CxxTLObject<Error>(td_bridge_obj_finishFileGeneration_error(obj)).Fetch();
+            this.GenerationId = td_bridge_obj_finishFileGeneration_generation_id(obj).Fetch();
+            this.Error = new CxxTLObject<Error>(td_bridge_obj_finishFileGeneration_error(obj)).Fetch();
         }
     }
 
@@ -19708,12 +19708,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteFile();
-            td_bridge_obj_deleteFile_file_id(obj).Set(this.file_id);
+            td_bridge_obj_deleteFile_file_id(obj).Set(this.FileId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_id = td_bridge_obj_deleteFile_file_id(obj).Fetch();
+            this.FileId = td_bridge_obj_deleteFile_file_id(obj).Fetch();
         }
     }
 
@@ -19729,12 +19729,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_generateChatInviteLink();
-            td_bridge_obj_generateChatInviteLink_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_generateChatInviteLink_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_generateChatInviteLink_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_generateChatInviteLink_chat_id(obj).Fetch();
         }
     }
 
@@ -19750,12 +19750,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkChatInviteLink();
-            td_bridge_obj_checkChatInviteLink_invite_link(obj).Set(this.invite_link);
+            td_bridge_obj_checkChatInviteLink_invite_link(obj).Set(this.InviteLink);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.invite_link = td_bridge_obj_checkChatInviteLink_invite_link(obj).Fetch();
+            this.InviteLink = td_bridge_obj_checkChatInviteLink_invite_link(obj).Fetch();
         }
     }
 
@@ -19771,12 +19771,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_joinChatByInviteLink();
-            td_bridge_obj_joinChatByInviteLink_invite_link(obj).Set(this.invite_link);
+            td_bridge_obj_joinChatByInviteLink_invite_link(obj).Set(this.InviteLink);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.invite_link = td_bridge_obj_joinChatByInviteLink_invite_link(obj).Fetch();
+            this.InviteLink = td_bridge_obj_joinChatByInviteLink_invite_link(obj).Fetch();
         }
     }
 
@@ -19795,14 +19795,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createCall();
-            td_bridge_obj_createCall_user_id(obj).Set(this.user_id);
-            new CxxTLObject<CallProtocol>(td_bridge_obj_createCall_protocol(obj)).Set(this.protocol);
+            td_bridge_obj_createCall_user_id(obj).Set(this.UserId);
+            new CxxTLObject<CallProtocol>(td_bridge_obj_createCall_protocol(obj)).Set(this.Protocol);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_createCall_user_id(obj).Fetch();
-            this.protocol = new CxxTLObject<CallProtocol>(td_bridge_obj_createCall_protocol(obj)).Fetch();
+            this.UserId = td_bridge_obj_createCall_user_id(obj).Fetch();
+            this.Protocol = new CxxTLObject<CallProtocol>(td_bridge_obj_createCall_protocol(obj)).Fetch();
         }
     }
 
@@ -19821,14 +19821,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_acceptCall();
-            td_bridge_obj_acceptCall_call_id(obj).Set(this.call_id);
-            new CxxTLObject<CallProtocol>(td_bridge_obj_acceptCall_protocol(obj)).Set(this.protocol);
+            td_bridge_obj_acceptCall_call_id(obj).Set(this.CallId);
+            new CxxTLObject<CallProtocol>(td_bridge_obj_acceptCall_protocol(obj)).Set(this.Protocol);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.call_id = td_bridge_obj_acceptCall_call_id(obj).Fetch();
-            this.protocol = new CxxTLObject<CallProtocol>(td_bridge_obj_acceptCall_protocol(obj)).Fetch();
+            this.CallId = td_bridge_obj_acceptCall_call_id(obj).Fetch();
+            this.Protocol = new CxxTLObject<CallProtocol>(td_bridge_obj_acceptCall_protocol(obj)).Fetch();
         }
     }
 
@@ -19853,18 +19853,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_discardCall();
-            td_bridge_obj_discardCall_call_id(obj).Set(this.call_id);
-            td_bridge_obj_discardCall_is_disconnected(obj).Set(this.is_disconnected);
-            td_bridge_obj_discardCall_duration(obj).Set(this.duration);
-            td_bridge_obj_discardCall_connection_id(obj).Set(this.connection_id);
+            td_bridge_obj_discardCall_call_id(obj).Set(this.CallId);
+            td_bridge_obj_discardCall_is_disconnected(obj).Set(this.IsDisconnected);
+            td_bridge_obj_discardCall_duration(obj).Set(this.Duration);
+            td_bridge_obj_discardCall_connection_id(obj).Set(this.ConnectionId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.call_id = td_bridge_obj_discardCall_call_id(obj).Fetch();
-            this.is_disconnected = td_bridge_obj_discardCall_is_disconnected(obj).Fetch();
-            this.duration = td_bridge_obj_discardCall_duration(obj).Fetch();
-            this.connection_id = td_bridge_obj_discardCall_connection_id(obj).Fetch();
+            this.CallId = td_bridge_obj_discardCall_call_id(obj).Fetch();
+            this.IsDisconnected = td_bridge_obj_discardCall_is_disconnected(obj).Fetch();
+            this.Duration = td_bridge_obj_discardCall_duration(obj).Fetch();
+            this.ConnectionId = td_bridge_obj_discardCall_connection_id(obj).Fetch();
         }
     }
 
@@ -19886,16 +19886,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendCallRating();
-            td_bridge_obj_sendCallRating_call_id(obj).Set(this.call_id);
-            td_bridge_obj_sendCallRating_rating(obj).Set(this.rating);
-            td_bridge_obj_sendCallRating_comment(obj).Set(this.comment);
+            td_bridge_obj_sendCallRating_call_id(obj).Set(this.CallId);
+            td_bridge_obj_sendCallRating_rating(obj).Set(this.Rating);
+            td_bridge_obj_sendCallRating_comment(obj).Set(this.Comment);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.call_id = td_bridge_obj_sendCallRating_call_id(obj).Fetch();
-            this.rating = td_bridge_obj_sendCallRating_rating(obj).Fetch();
-            this.comment = td_bridge_obj_sendCallRating_comment(obj).Fetch();
+            this.CallId = td_bridge_obj_sendCallRating_call_id(obj).Fetch();
+            this.Rating = td_bridge_obj_sendCallRating_rating(obj).Fetch();
+            this.Comment = td_bridge_obj_sendCallRating_comment(obj).Fetch();
         }
     }
 
@@ -19914,14 +19914,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendCallDebugInformation();
-            td_bridge_obj_sendCallDebugInformation_call_id(obj).Set(this.call_id);
-            td_bridge_obj_sendCallDebugInformation_debug_information(obj).Set(this.debug_information);
+            td_bridge_obj_sendCallDebugInformation_call_id(obj).Set(this.CallId);
+            td_bridge_obj_sendCallDebugInformation_debug_information(obj).Set(this.DebugInformation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.call_id = td_bridge_obj_sendCallDebugInformation_call_id(obj).Fetch();
-            this.debug_information = td_bridge_obj_sendCallDebugInformation_debug_information(obj).Fetch();
+            this.CallId = td_bridge_obj_sendCallDebugInformation_call_id(obj).Fetch();
+            this.DebugInformation = td_bridge_obj_sendCallDebugInformation_debug_information(obj).Fetch();
         }
     }
 
@@ -19937,12 +19937,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_blockUser();
-            td_bridge_obj_blockUser_user_id(obj).Set(this.user_id);
+            td_bridge_obj_blockUser_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_blockUser_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_blockUser_user_id(obj).Fetch();
         }
     }
 
@@ -19958,12 +19958,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_unblockUser();
-            td_bridge_obj_unblockUser_user_id(obj).Set(this.user_id);
+            td_bridge_obj_unblockUser_user_id(obj).Set(this.UserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_unblockUser_user_id(obj).Fetch();
+            this.UserId = td_bridge_obj_unblockUser_user_id(obj).Fetch();
         }
     }
 
@@ -19982,14 +19982,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getBlockedUsers();
-            td_bridge_obj_getBlockedUsers_offset(obj).Set(this.offset);
-            td_bridge_obj_getBlockedUsers_limit(obj).Set(this.limit);
+            td_bridge_obj_getBlockedUsers_offset(obj).Set(this.Offset);
+            td_bridge_obj_getBlockedUsers_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.offset = td_bridge_obj_getBlockedUsers_offset(obj).Fetch();
-            this.limit = td_bridge_obj_getBlockedUsers_limit(obj).Fetch();
+            this.Offset = td_bridge_obj_getBlockedUsers_offset(obj).Fetch();
+            this.Limit = td_bridge_obj_getBlockedUsers_limit(obj).Fetch();
         }
     }
 
@@ -20005,12 +20005,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_importContacts();
-            new CxxVectorObject<Contact>(td_bridge_obj_importContacts_contacts(obj)).Set(this.contacts);
+            new CxxVectorObject<Contact>(td_bridge_obj_importContacts_contacts(obj)).Set(this.Contacts);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.contacts = new CxxVectorObject<Contact>(td_bridge_obj_importContacts_contacts(obj)).Fetch();
+            this.Contacts = new CxxVectorObject<Contact>(td_bridge_obj_importContacts_contacts(obj)).Fetch();
         }
     }
 
@@ -20045,14 +20045,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchContacts();
-            td_bridge_obj_searchContacts_query(obj).Set(this.query);
-            td_bridge_obj_searchContacts_limit(obj).Set(this.limit);
+            td_bridge_obj_searchContacts_query(obj).Set(this.Query);
+            td_bridge_obj_searchContacts_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_searchContacts_query(obj).Fetch();
-            this.limit = td_bridge_obj_searchContacts_limit(obj).Fetch();
+            this.Query = td_bridge_obj_searchContacts_query(obj).Fetch();
+            this.Limit = td_bridge_obj_searchContacts_limit(obj).Fetch();
         }
     }
 
@@ -20068,12 +20068,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeContacts();
-            td_bridge_obj_removeContacts_user_ids(obj).Set(this.user_ids);
+            td_bridge_obj_removeContacts_user_ids(obj).Set(this.UserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_ids = td_bridge_obj_removeContacts_user_ids(obj).Fetch();
+            this.UserIds = td_bridge_obj_removeContacts_user_ids(obj).Fetch();
         }
     }
 
@@ -20105,12 +20105,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_changeImportedContacts();
-            new CxxVectorObject<Contact>(td_bridge_obj_changeImportedContacts_contacts(obj)).Set(this.contacts);
+            new CxxVectorObject<Contact>(td_bridge_obj_changeImportedContacts_contacts(obj)).Set(this.Contacts);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.contacts = new CxxVectorObject<Contact>(td_bridge_obj_changeImportedContacts_contacts(obj)).Fetch();
+            this.Contacts = new CxxVectorObject<Contact>(td_bridge_obj_changeImportedContacts_contacts(obj)).Fetch();
         }
     }
 
@@ -20148,16 +20148,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getUserProfilePhotos();
-            td_bridge_obj_getUserProfilePhotos_user_id(obj).Set(this.user_id);
-            td_bridge_obj_getUserProfilePhotos_offset(obj).Set(this.offset);
-            td_bridge_obj_getUserProfilePhotos_limit(obj).Set(this.limit);
+            td_bridge_obj_getUserProfilePhotos_user_id(obj).Set(this.UserId);
+            td_bridge_obj_getUserProfilePhotos_offset(obj).Set(this.Offset);
+            td_bridge_obj_getUserProfilePhotos_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_getUserProfilePhotos_user_id(obj).Fetch();
-            this.offset = td_bridge_obj_getUserProfilePhotos_offset(obj).Fetch();
-            this.limit = td_bridge_obj_getUserProfilePhotos_limit(obj).Fetch();
+            this.UserId = td_bridge_obj_getUserProfilePhotos_user_id(obj).Fetch();
+            this.Offset = td_bridge_obj_getUserProfilePhotos_offset(obj).Fetch();
+            this.Limit = td_bridge_obj_getUserProfilePhotos_limit(obj).Fetch();
         }
     }
 
@@ -20176,14 +20176,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getStickers();
-            td_bridge_obj_getStickers_emoji(obj).Set(this.emoji);
-            td_bridge_obj_getStickers_limit(obj).Set(this.limit);
+            td_bridge_obj_getStickers_emoji(obj).Set(this.Emoji);
+            td_bridge_obj_getStickers_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.emoji = td_bridge_obj_getStickers_emoji(obj).Fetch();
-            this.limit = td_bridge_obj_getStickers_limit(obj).Fetch();
+            this.Emoji = td_bridge_obj_getStickers_emoji(obj).Fetch();
+            this.Limit = td_bridge_obj_getStickers_limit(obj).Fetch();
         }
     }
 
@@ -20202,14 +20202,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchStickers();
-            td_bridge_obj_searchStickers_emoji(obj).Set(this.emoji);
-            td_bridge_obj_searchStickers_limit(obj).Set(this.limit);
+            td_bridge_obj_searchStickers_emoji(obj).Set(this.Emoji);
+            td_bridge_obj_searchStickers_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.emoji = td_bridge_obj_searchStickers_emoji(obj).Fetch();
-            this.limit = td_bridge_obj_searchStickers_limit(obj).Fetch();
+            this.Emoji = td_bridge_obj_searchStickers_emoji(obj).Fetch();
+            this.Limit = td_bridge_obj_searchStickers_limit(obj).Fetch();
         }
     }
 
@@ -20225,12 +20225,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getInstalledStickerSets();
-            td_bridge_obj_getInstalledStickerSets_is_masks(obj).Set(this.is_masks);
+            td_bridge_obj_getInstalledStickerSets_is_masks(obj).Set(this.IsMasks);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_masks = td_bridge_obj_getInstalledStickerSets_is_masks(obj).Fetch();
+            this.IsMasks = td_bridge_obj_getInstalledStickerSets_is_masks(obj).Fetch();
         }
     }
 
@@ -20252,16 +20252,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getArchivedStickerSets();
-            td_bridge_obj_getArchivedStickerSets_is_masks(obj).Set(this.is_masks);
-            td_bridge_obj_getArchivedStickerSets_offset_sticker_set_id(obj).Set(this.offset_sticker_set_id);
-            td_bridge_obj_getArchivedStickerSets_limit(obj).Set(this.limit);
+            td_bridge_obj_getArchivedStickerSets_is_masks(obj).Set(this.IsMasks);
+            td_bridge_obj_getArchivedStickerSets_offset_sticker_set_id(obj).Set(this.OffsetStickerSetId);
+            td_bridge_obj_getArchivedStickerSets_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_masks = td_bridge_obj_getArchivedStickerSets_is_masks(obj).Fetch();
-            this.offset_sticker_set_id = td_bridge_obj_getArchivedStickerSets_offset_sticker_set_id(obj).Fetch();
-            this.limit = td_bridge_obj_getArchivedStickerSets_limit(obj).Fetch();
+            this.IsMasks = td_bridge_obj_getArchivedStickerSets_is_masks(obj).Fetch();
+            this.OffsetStickerSetId = td_bridge_obj_getArchivedStickerSets_offset_sticker_set_id(obj).Fetch();
+            this.Limit = td_bridge_obj_getArchivedStickerSets_limit(obj).Fetch();
         }
     }
 
@@ -20293,12 +20293,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getAttachedStickerSets();
-            td_bridge_obj_getAttachedStickerSets_file_id(obj).Set(this.file_id);
+            td_bridge_obj_getAttachedStickerSets_file_id(obj).Set(this.FileId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.file_id = td_bridge_obj_getAttachedStickerSets_file_id(obj).Fetch();
+            this.FileId = td_bridge_obj_getAttachedStickerSets_file_id(obj).Fetch();
         }
     }
 
@@ -20314,12 +20314,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getStickerSet();
-            td_bridge_obj_getStickerSet_set_id(obj).Set(this.set_id);
+            td_bridge_obj_getStickerSet_set_id(obj).Set(this.SetId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.set_id = td_bridge_obj_getStickerSet_set_id(obj).Fetch();
+            this.SetId = td_bridge_obj_getStickerSet_set_id(obj).Fetch();
         }
     }
 
@@ -20335,12 +20335,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchStickerSet();
-            td_bridge_obj_searchStickerSet_name(obj).Set(this.name);
+            td_bridge_obj_searchStickerSet_name(obj).Set(this.Name);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.name = td_bridge_obj_searchStickerSet_name(obj).Fetch();
+            this.Name = td_bridge_obj_searchStickerSet_name(obj).Fetch();
         }
     }
 
@@ -20362,16 +20362,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchInstalledStickerSets();
-            td_bridge_obj_searchInstalledStickerSets_is_masks(obj).Set(this.is_masks);
-            td_bridge_obj_searchInstalledStickerSets_query(obj).Set(this.query);
-            td_bridge_obj_searchInstalledStickerSets_limit(obj).Set(this.limit);
+            td_bridge_obj_searchInstalledStickerSets_is_masks(obj).Set(this.IsMasks);
+            td_bridge_obj_searchInstalledStickerSets_query(obj).Set(this.Query);
+            td_bridge_obj_searchInstalledStickerSets_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_masks = td_bridge_obj_searchInstalledStickerSets_is_masks(obj).Fetch();
-            this.query = td_bridge_obj_searchInstalledStickerSets_query(obj).Fetch();
-            this.limit = td_bridge_obj_searchInstalledStickerSets_limit(obj).Fetch();
+            this.IsMasks = td_bridge_obj_searchInstalledStickerSets_is_masks(obj).Fetch();
+            this.Query = td_bridge_obj_searchInstalledStickerSets_query(obj).Fetch();
+            this.Limit = td_bridge_obj_searchInstalledStickerSets_limit(obj).Fetch();
         }
     }
 
@@ -20387,12 +20387,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchStickerSets();
-            td_bridge_obj_searchStickerSets_query(obj).Set(this.query);
+            td_bridge_obj_searchStickerSets_query(obj).Set(this.Query);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.query = td_bridge_obj_searchStickerSets_query(obj).Fetch();
+            this.Query = td_bridge_obj_searchStickerSets_query(obj).Fetch();
         }
     }
 
@@ -20414,16 +20414,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_changeStickerSet();
-            td_bridge_obj_changeStickerSet_set_id(obj).Set(this.set_id);
-            td_bridge_obj_changeStickerSet_is_installed(obj).Set(this.is_installed);
-            td_bridge_obj_changeStickerSet_is_archived(obj).Set(this.is_archived);
+            td_bridge_obj_changeStickerSet_set_id(obj).Set(this.SetId);
+            td_bridge_obj_changeStickerSet_is_installed(obj).Set(this.IsInstalled);
+            td_bridge_obj_changeStickerSet_is_archived(obj).Set(this.IsArchived);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.set_id = td_bridge_obj_changeStickerSet_set_id(obj).Fetch();
-            this.is_installed = td_bridge_obj_changeStickerSet_is_installed(obj).Fetch();
-            this.is_archived = td_bridge_obj_changeStickerSet_is_archived(obj).Fetch();
+            this.SetId = td_bridge_obj_changeStickerSet_set_id(obj).Fetch();
+            this.IsInstalled = td_bridge_obj_changeStickerSet_is_installed(obj).Fetch();
+            this.IsArchived = td_bridge_obj_changeStickerSet_is_archived(obj).Fetch();
         }
     }
 
@@ -20439,12 +20439,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_viewTrendingStickerSets();
-            td_bridge_obj_viewTrendingStickerSets_sticker_set_ids(obj).Set(this.sticker_set_ids);
+            td_bridge_obj_viewTrendingStickerSets_sticker_set_ids(obj).Set(this.StickerSetIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker_set_ids = td_bridge_obj_viewTrendingStickerSets_sticker_set_ids(obj).Fetch();
+            this.StickerSetIds = td_bridge_obj_viewTrendingStickerSets_sticker_set_ids(obj).Fetch();
         }
     }
 
@@ -20463,14 +20463,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_reorderInstalledStickerSets();
-            td_bridge_obj_reorderInstalledStickerSets_is_masks(obj).Set(this.is_masks);
-            td_bridge_obj_reorderInstalledStickerSets_sticker_set_ids(obj).Set(this.sticker_set_ids);
+            td_bridge_obj_reorderInstalledStickerSets_is_masks(obj).Set(this.IsMasks);
+            td_bridge_obj_reorderInstalledStickerSets_sticker_set_ids(obj).Set(this.StickerSetIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_masks = td_bridge_obj_reorderInstalledStickerSets_is_masks(obj).Fetch();
-            this.sticker_set_ids = td_bridge_obj_reorderInstalledStickerSets_sticker_set_ids(obj).Fetch();
+            this.IsMasks = td_bridge_obj_reorderInstalledStickerSets_is_masks(obj).Fetch();
+            this.StickerSetIds = td_bridge_obj_reorderInstalledStickerSets_sticker_set_ids(obj).Fetch();
         }
     }
 
@@ -20486,12 +20486,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getRecentStickers();
-            td_bridge_obj_getRecentStickers_is_attached(obj).Set(this.is_attached);
+            td_bridge_obj_getRecentStickers_is_attached(obj).Set(this.IsAttached);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_attached = td_bridge_obj_getRecentStickers_is_attached(obj).Fetch();
+            this.IsAttached = td_bridge_obj_getRecentStickers_is_attached(obj).Fetch();
         }
     }
 
@@ -20510,14 +20510,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addRecentSticker();
-            td_bridge_obj_addRecentSticker_is_attached(obj).Set(this.is_attached);
-            new CxxTLObject<InputFile>(td_bridge_obj_addRecentSticker_sticker(obj)).Set(this.sticker);
+            td_bridge_obj_addRecentSticker_is_attached(obj).Set(this.IsAttached);
+            new CxxTLObject<InputFile>(td_bridge_obj_addRecentSticker_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_attached = td_bridge_obj_addRecentSticker_is_attached(obj).Fetch();
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_addRecentSticker_sticker(obj)).Fetch();
+            this.IsAttached = td_bridge_obj_addRecentSticker_is_attached(obj).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_addRecentSticker_sticker(obj)).Fetch();
         }
     }
 
@@ -20536,14 +20536,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeRecentSticker();
-            td_bridge_obj_removeRecentSticker_is_attached(obj).Set(this.is_attached);
-            new CxxTLObject<InputFile>(td_bridge_obj_removeRecentSticker_sticker(obj)).Set(this.sticker);
+            td_bridge_obj_removeRecentSticker_is_attached(obj).Set(this.IsAttached);
+            new CxxTLObject<InputFile>(td_bridge_obj_removeRecentSticker_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_attached = td_bridge_obj_removeRecentSticker_is_attached(obj).Fetch();
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_removeRecentSticker_sticker(obj)).Fetch();
+            this.IsAttached = td_bridge_obj_removeRecentSticker_is_attached(obj).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_removeRecentSticker_sticker(obj)).Fetch();
         }
     }
 
@@ -20559,12 +20559,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_clearRecentStickers();
-            td_bridge_obj_clearRecentStickers_is_attached(obj).Set(this.is_attached);
+            td_bridge_obj_clearRecentStickers_is_attached(obj).Set(this.IsAttached);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.is_attached = td_bridge_obj_clearRecentStickers_is_attached(obj).Fetch();
+            this.IsAttached = td_bridge_obj_clearRecentStickers_is_attached(obj).Fetch();
         }
     }
 
@@ -20596,12 +20596,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addFavoriteSticker();
-            new CxxTLObject<InputFile>(td_bridge_obj_addFavoriteSticker_sticker(obj)).Set(this.sticker);
+            new CxxTLObject<InputFile>(td_bridge_obj_addFavoriteSticker_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_addFavoriteSticker_sticker(obj)).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_addFavoriteSticker_sticker(obj)).Fetch();
         }
     }
 
@@ -20617,12 +20617,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeFavoriteSticker();
-            new CxxTLObject<InputFile>(td_bridge_obj_removeFavoriteSticker_sticker(obj)).Set(this.sticker);
+            new CxxTLObject<InputFile>(td_bridge_obj_removeFavoriteSticker_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_removeFavoriteSticker_sticker(obj)).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_removeFavoriteSticker_sticker(obj)).Fetch();
         }
     }
 
@@ -20638,12 +20638,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getStickerEmojis();
-            new CxxTLObject<InputFile>(td_bridge_obj_getStickerEmojis_sticker(obj)).Set(this.sticker);
+            new CxxTLObject<InputFile>(td_bridge_obj_getStickerEmojis_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_getStickerEmojis_sticker(obj)).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_getStickerEmojis_sticker(obj)).Fetch();
         }
     }
 
@@ -20675,12 +20675,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addSavedAnimation();
-            new CxxTLObject<InputFile>(td_bridge_obj_addSavedAnimation_animation(obj)).Set(this.animation);
+            new CxxTLObject<InputFile>(td_bridge_obj_addSavedAnimation_animation(obj)).Set(this.Animation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.animation = new CxxTLObject<InputFile>(td_bridge_obj_addSavedAnimation_animation(obj)).Fetch();
+            this.Animation = new CxxTLObject<InputFile>(td_bridge_obj_addSavedAnimation_animation(obj)).Fetch();
         }
     }
 
@@ -20696,12 +20696,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeSavedAnimation();
-            new CxxTLObject<InputFile>(td_bridge_obj_removeSavedAnimation_animation(obj)).Set(this.animation);
+            new CxxTLObject<InputFile>(td_bridge_obj_removeSavedAnimation_animation(obj)).Set(this.Animation);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.animation = new CxxTLObject<InputFile>(td_bridge_obj_removeSavedAnimation_animation(obj)).Fetch();
+            this.Animation = new CxxTLObject<InputFile>(td_bridge_obj_removeSavedAnimation_animation(obj)).Fetch();
         }
     }
 
@@ -20736,14 +20736,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_searchHashtags();
-            td_bridge_obj_searchHashtags_prefix(obj).Set(this.prefix);
-            td_bridge_obj_searchHashtags_limit(obj).Set(this.limit);
+            td_bridge_obj_searchHashtags_prefix(obj).Set(this.Prefix);
+            td_bridge_obj_searchHashtags_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.prefix = td_bridge_obj_searchHashtags_prefix(obj).Fetch();
-            this.limit = td_bridge_obj_searchHashtags_limit(obj).Fetch();
+            this.Prefix = td_bridge_obj_searchHashtags_prefix(obj).Fetch();
+            this.Limit = td_bridge_obj_searchHashtags_limit(obj).Fetch();
         }
     }
 
@@ -20759,12 +20759,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeRecentHashtag();
-            td_bridge_obj_removeRecentHashtag_hashtag(obj).Set(this.hashtag);
+            td_bridge_obj_removeRecentHashtag_hashtag(obj).Set(this.Hashtag);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.hashtag = td_bridge_obj_removeRecentHashtag_hashtag(obj).Fetch();
+            this.Hashtag = td_bridge_obj_removeRecentHashtag_hashtag(obj).Fetch();
         }
     }
 
@@ -20780,12 +20780,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getWebPagePreview();
-            new CxxTLObject<FormattedText>(td_bridge_obj_getWebPagePreview_text(obj)).Set(this.text);
+            new CxxTLObject<FormattedText>(td_bridge_obj_getWebPagePreview_text(obj)).Set(this.Text);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.text = new CxxTLObject<FormattedText>(td_bridge_obj_getWebPagePreview_text(obj)).Fetch();
+            this.Text = new CxxTLObject<FormattedText>(td_bridge_obj_getWebPagePreview_text(obj)).Fetch();
         }
     }
 
@@ -20804,14 +20804,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getWebPageInstantView();
-            td_bridge_obj_getWebPageInstantView_url(obj).Set(this.url);
-            td_bridge_obj_getWebPageInstantView_force_full(obj).Set(this.force_full);
+            td_bridge_obj_getWebPageInstantView_url(obj).Set(this.Url);
+            td_bridge_obj_getWebPageInstantView_force_full(obj).Set(this.ForceFull);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.url = td_bridge_obj_getWebPageInstantView_url(obj).Fetch();
-            this.force_full = td_bridge_obj_getWebPageInstantView_force_full(obj).Fetch();
+            this.Url = td_bridge_obj_getWebPageInstantView_url(obj).Fetch();
+            this.ForceFull = td_bridge_obj_getWebPageInstantView_force_full(obj).Fetch();
         }
     }
 
@@ -20827,12 +20827,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setProfilePhoto();
-            new CxxTLObject<InputFile>(td_bridge_obj_setProfilePhoto_photo(obj)).Set(this.photo);
+            new CxxTLObject<InputFile>(td_bridge_obj_setProfilePhoto_photo(obj)).Set(this.Photo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.photo = new CxxTLObject<InputFile>(td_bridge_obj_setProfilePhoto_photo(obj)).Fetch();
+            this.Photo = new CxxTLObject<InputFile>(td_bridge_obj_setProfilePhoto_photo(obj)).Fetch();
         }
     }
 
@@ -20848,12 +20848,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteProfilePhoto();
-            td_bridge_obj_deleteProfilePhoto_profile_photo_id(obj).Set(this.profile_photo_id);
+            td_bridge_obj_deleteProfilePhoto_profile_photo_id(obj).Set(this.ProfilePhotoId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.profile_photo_id = td_bridge_obj_deleteProfilePhoto_profile_photo_id(obj).Fetch();
+            this.ProfilePhotoId = td_bridge_obj_deleteProfilePhoto_profile_photo_id(obj).Fetch();
         }
     }
 
@@ -20872,14 +20872,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setName();
-            td_bridge_obj_setName_first_name(obj).Set(this.first_name);
-            td_bridge_obj_setName_last_name(obj).Set(this.last_name);
+            td_bridge_obj_setName_first_name(obj).Set(this.FirstName);
+            td_bridge_obj_setName_last_name(obj).Set(this.LastName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.first_name = td_bridge_obj_setName_first_name(obj).Fetch();
-            this.last_name = td_bridge_obj_setName_last_name(obj).Fetch();
+            this.FirstName = td_bridge_obj_setName_first_name(obj).Fetch();
+            this.LastName = td_bridge_obj_setName_last_name(obj).Fetch();
         }
     }
 
@@ -20895,12 +20895,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setBio();
-            td_bridge_obj_setBio_bio(obj).Set(this.bio);
+            td_bridge_obj_setBio_bio(obj).Set(this.Bio);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.bio = td_bridge_obj_setBio_bio(obj).Fetch();
+            this.Bio = td_bridge_obj_setBio_bio(obj).Fetch();
         }
     }
 
@@ -20916,12 +20916,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setUsername();
-            td_bridge_obj_setUsername_username(obj).Set(this.username);
+            td_bridge_obj_setUsername_username(obj).Set(this.Username);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.username = td_bridge_obj_setUsername_username(obj).Fetch();
+            this.Username = td_bridge_obj_setUsername_username(obj).Fetch();
         }
     }
 
@@ -20943,16 +20943,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_changePhoneNumber();
-            td_bridge_obj_changePhoneNumber_phone_number(obj).Set(this.phone_number);
-            td_bridge_obj_changePhoneNumber_allow_flash_call(obj).Set(this.allow_flash_call);
-            td_bridge_obj_changePhoneNumber_is_current_phone_number(obj).Set(this.is_current_phone_number);
+            td_bridge_obj_changePhoneNumber_phone_number(obj).Set(this.PhoneNumber);
+            td_bridge_obj_changePhoneNumber_allow_flash_call(obj).Set(this.AllowFlashCall);
+            td_bridge_obj_changePhoneNumber_is_current_phone_number(obj).Set(this.IsCurrentPhoneNumber);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.phone_number = td_bridge_obj_changePhoneNumber_phone_number(obj).Fetch();
-            this.allow_flash_call = td_bridge_obj_changePhoneNumber_allow_flash_call(obj).Fetch();
-            this.is_current_phone_number = td_bridge_obj_changePhoneNumber_is_current_phone_number(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_changePhoneNumber_phone_number(obj).Fetch();
+            this.AllowFlashCall = td_bridge_obj_changePhoneNumber_allow_flash_call(obj).Fetch();
+            this.IsCurrentPhoneNumber = td_bridge_obj_changePhoneNumber_is_current_phone_number(obj).Fetch();
         }
     }
 
@@ -20984,12 +20984,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkChangePhoneNumberCode();
-            td_bridge_obj_checkChangePhoneNumberCode_code(obj).Set(this.code);
+            td_bridge_obj_checkChangePhoneNumberCode_code(obj).Set(this.Code);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.code = td_bridge_obj_checkChangePhoneNumberCode_code(obj).Fetch();
+            this.Code = td_bridge_obj_checkChangePhoneNumberCode_code(obj).Fetch();
         }
     }
 
@@ -21021,12 +21021,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_terminateSession();
-            td_bridge_obj_terminateSession_session_id(obj).Set(this.session_id);
+            td_bridge_obj_terminateSession_session_id(obj).Set(this.SessionId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.session_id = td_bridge_obj_terminateSession_session_id(obj).Fetch();
+            this.SessionId = td_bridge_obj_terminateSession_session_id(obj).Fetch();
         }
     }
 
@@ -21074,12 +21074,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_disconnectWebsite();
-            td_bridge_obj_disconnectWebsite_website_id(obj).Set(this.website_id);
+            td_bridge_obj_disconnectWebsite_website_id(obj).Set(this.WebsiteId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.website_id = td_bridge_obj_disconnectWebsite_website_id(obj).Fetch();
+            this.WebsiteId = td_bridge_obj_disconnectWebsite_website_id(obj).Fetch();
         }
     }
 
@@ -21114,14 +21114,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_toggleBasicGroupAdministrators();
-            td_bridge_obj_toggleBasicGroupAdministrators_basic_group_id(obj).Set(this.basic_group_id);
-            td_bridge_obj_toggleBasicGroupAdministrators_everyone_is_administrator(obj).Set(this.everyone_is_administrator);
+            td_bridge_obj_toggleBasicGroupAdministrators_basic_group_id(obj).Set(this.BasicGroupId);
+            td_bridge_obj_toggleBasicGroupAdministrators_everyone_is_administrator(obj).Set(this.EveryoneIsAdministrator);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.basic_group_id = td_bridge_obj_toggleBasicGroupAdministrators_basic_group_id(obj).Fetch();
-            this.everyone_is_administrator = td_bridge_obj_toggleBasicGroupAdministrators_everyone_is_administrator(obj).Fetch();
+            this.BasicGroupId = td_bridge_obj_toggleBasicGroupAdministrators_basic_group_id(obj).Fetch();
+            this.EveryoneIsAdministrator = td_bridge_obj_toggleBasicGroupAdministrators_everyone_is_administrator(obj).Fetch();
         }
     }
 
@@ -21140,14 +21140,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setSupergroupUsername();
-            td_bridge_obj_setSupergroupUsername_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_setSupergroupUsername_username(obj).Set(this.username);
+            td_bridge_obj_setSupergroupUsername_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_setSupergroupUsername_username(obj).Set(this.Username);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_setSupergroupUsername_supergroup_id(obj).Fetch();
-            this.username = td_bridge_obj_setSupergroupUsername_username(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_setSupergroupUsername_supergroup_id(obj).Fetch();
+            this.Username = td_bridge_obj_setSupergroupUsername_username(obj).Fetch();
         }
     }
 
@@ -21166,14 +21166,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setSupergroupStickerSet();
-            td_bridge_obj_setSupergroupStickerSet_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_setSupergroupStickerSet_sticker_set_id(obj).Set(this.sticker_set_id);
+            td_bridge_obj_setSupergroupStickerSet_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_setSupergroupStickerSet_sticker_set_id(obj).Set(this.StickerSetId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_setSupergroupStickerSet_supergroup_id(obj).Fetch();
-            this.sticker_set_id = td_bridge_obj_setSupergroupStickerSet_sticker_set_id(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_setSupergroupStickerSet_supergroup_id(obj).Fetch();
+            this.StickerSetId = td_bridge_obj_setSupergroupStickerSet_sticker_set_id(obj).Fetch();
         }
     }
 
@@ -21192,14 +21192,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_toggleSupergroupInvites();
-            td_bridge_obj_toggleSupergroupInvites_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_toggleSupergroupInvites_anyone_can_invite(obj).Set(this.anyone_can_invite);
+            td_bridge_obj_toggleSupergroupInvites_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_toggleSupergroupInvites_anyone_can_invite(obj).Set(this.AnyoneCanInvite);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_toggleSupergroupInvites_supergroup_id(obj).Fetch();
-            this.anyone_can_invite = td_bridge_obj_toggleSupergroupInvites_anyone_can_invite(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_toggleSupergroupInvites_supergroup_id(obj).Fetch();
+            this.AnyoneCanInvite = td_bridge_obj_toggleSupergroupInvites_anyone_can_invite(obj).Fetch();
         }
     }
 
@@ -21218,14 +21218,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_toggleSupergroupSignMessages();
-            td_bridge_obj_toggleSupergroupSignMessages_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_toggleSupergroupSignMessages_sign_messages(obj).Set(this.sign_messages);
+            td_bridge_obj_toggleSupergroupSignMessages_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_toggleSupergroupSignMessages_sign_messages(obj).Set(this.SignMessages);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_toggleSupergroupSignMessages_supergroup_id(obj).Fetch();
-            this.sign_messages = td_bridge_obj_toggleSupergroupSignMessages_sign_messages(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_toggleSupergroupSignMessages_supergroup_id(obj).Fetch();
+            this.SignMessages = td_bridge_obj_toggleSupergroupSignMessages_sign_messages(obj).Fetch();
         }
     }
 
@@ -21244,14 +21244,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_toggleSupergroupIsAllHistoryAvailable();
-            td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_is_all_history_available(obj).Set(this.is_all_history_available);
+            td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_is_all_history_available(obj).Set(this.IsAllHistoryAvailable);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_supergroup_id(obj).Fetch();
-            this.is_all_history_available = td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_is_all_history_available(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_supergroup_id(obj).Fetch();
+            this.IsAllHistoryAvailable = td_bridge_obj_toggleSupergroupIsAllHistoryAvailable_is_all_history_available(obj).Fetch();
         }
     }
 
@@ -21270,14 +21270,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setSupergroupDescription();
-            td_bridge_obj_setSupergroupDescription_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_setSupergroupDescription_description(obj).Set(this.description);
+            td_bridge_obj_setSupergroupDescription_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_setSupergroupDescription_description(obj).Set(this.Description);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_setSupergroupDescription_supergroup_id(obj).Fetch();
-            this.description = td_bridge_obj_setSupergroupDescription_description(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_setSupergroupDescription_supergroup_id(obj).Fetch();
+            this.Description = td_bridge_obj_setSupergroupDescription_description(obj).Fetch();
         }
     }
 
@@ -21299,16 +21299,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pinSupergroupMessage();
-            td_bridge_obj_pinSupergroupMessage_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_pinSupergroupMessage_message_id(obj).Set(this.message_id);
-            td_bridge_obj_pinSupergroupMessage_disable_notification(obj).Set(this.disable_notification);
+            td_bridge_obj_pinSupergroupMessage_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_pinSupergroupMessage_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_pinSupergroupMessage_disable_notification(obj).Set(this.DisableNotification);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_pinSupergroupMessage_supergroup_id(obj).Fetch();
-            this.message_id = td_bridge_obj_pinSupergroupMessage_message_id(obj).Fetch();
-            this.disable_notification = td_bridge_obj_pinSupergroupMessage_disable_notification(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_pinSupergroupMessage_supergroup_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_pinSupergroupMessage_message_id(obj).Fetch();
+            this.DisableNotification = td_bridge_obj_pinSupergroupMessage_disable_notification(obj).Fetch();
         }
     }
 
@@ -21324,12 +21324,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_unpinSupergroupMessage();
-            td_bridge_obj_unpinSupergroupMessage_supergroup_id(obj).Set(this.supergroup_id);
+            td_bridge_obj_unpinSupergroupMessage_supergroup_id(obj).Set(this.SupergroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_unpinSupergroupMessage_supergroup_id(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_unpinSupergroupMessage_supergroup_id(obj).Fetch();
         }
     }
 
@@ -21351,16 +21351,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_reportSupergroupSpam();
-            td_bridge_obj_reportSupergroupSpam_supergroup_id(obj).Set(this.supergroup_id);
-            td_bridge_obj_reportSupergroupSpam_user_id(obj).Set(this.user_id);
-            td_bridge_obj_reportSupergroupSpam_message_ids(obj).Set(this.message_ids);
+            td_bridge_obj_reportSupergroupSpam_supergroup_id(obj).Set(this.SupergroupId);
+            td_bridge_obj_reportSupergroupSpam_user_id(obj).Set(this.UserId);
+            td_bridge_obj_reportSupergroupSpam_message_ids(obj).Set(this.MessageIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_reportSupergroupSpam_supergroup_id(obj).Fetch();
-            this.user_id = td_bridge_obj_reportSupergroupSpam_user_id(obj).Fetch();
-            this.message_ids = td_bridge_obj_reportSupergroupSpam_message_ids(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_reportSupergroupSpam_supergroup_id(obj).Fetch();
+            this.UserId = td_bridge_obj_reportSupergroupSpam_user_id(obj).Fetch();
+            this.MessageIds = td_bridge_obj_reportSupergroupSpam_message_ids(obj).Fetch();
         }
     }
 
@@ -21385,18 +21385,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getSupergroupMembers();
-            td_bridge_obj_getSupergroupMembers_supergroup_id(obj).Set(this.supergroup_id);
-            new CxxTLObject<SupergroupMembersFilter>(td_bridge_obj_getSupergroupMembers_filter(obj)).Set(this.filter);
-            td_bridge_obj_getSupergroupMembers_offset(obj).Set(this.offset);
-            td_bridge_obj_getSupergroupMembers_limit(obj).Set(this.limit);
+            td_bridge_obj_getSupergroupMembers_supergroup_id(obj).Set(this.SupergroupId);
+            new CxxTLObject<SupergroupMembersFilter>(td_bridge_obj_getSupergroupMembers_filter(obj)).Set(this.Filter);
+            td_bridge_obj_getSupergroupMembers_offset(obj).Set(this.Offset);
+            td_bridge_obj_getSupergroupMembers_limit(obj).Set(this.Limit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_getSupergroupMembers_supergroup_id(obj).Fetch();
-            this.filter = new CxxTLObject<SupergroupMembersFilter>(td_bridge_obj_getSupergroupMembers_filter(obj)).Fetch();
-            this.offset = td_bridge_obj_getSupergroupMembers_offset(obj).Fetch();
-            this.limit = td_bridge_obj_getSupergroupMembers_limit(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_getSupergroupMembers_supergroup_id(obj).Fetch();
+            this.Filter = new CxxTLObject<SupergroupMembersFilter>(td_bridge_obj_getSupergroupMembers_filter(obj)).Fetch();
+            this.Offset = td_bridge_obj_getSupergroupMembers_offset(obj).Fetch();
+            this.Limit = td_bridge_obj_getSupergroupMembers_limit(obj).Fetch();
         }
     }
 
@@ -21412,12 +21412,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteSupergroup();
-            td_bridge_obj_deleteSupergroup_supergroup_id(obj).Set(this.supergroup_id);
+            td_bridge_obj_deleteSupergroup_supergroup_id(obj).Set(this.SupergroupId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.supergroup_id = td_bridge_obj_deleteSupergroup_supergroup_id(obj).Fetch();
+            this.SupergroupId = td_bridge_obj_deleteSupergroup_supergroup_id(obj).Fetch();
         }
     }
 
@@ -21433,12 +21433,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_closeSecretChat();
-            td_bridge_obj_closeSecretChat_secret_chat_id(obj).Set(this.secret_chat_id);
+            td_bridge_obj_closeSecretChat_secret_chat_id(obj).Set(this.SecretChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.secret_chat_id = td_bridge_obj_closeSecretChat_secret_chat_id(obj).Fetch();
+            this.SecretChatId = td_bridge_obj_closeSecretChat_secret_chat_id(obj).Fetch();
         }
     }
 
@@ -21469,22 +21469,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatEventLog();
-            td_bridge_obj_getChatEventLog_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getChatEventLog_query(obj).Set(this.query);
-            td_bridge_obj_getChatEventLog_from_event_id(obj).Set(this.from_event_id);
-            td_bridge_obj_getChatEventLog_limit(obj).Set(this.limit);
-            new CxxTLObject<ChatEventLogFilters>(td_bridge_obj_getChatEventLog_filters(obj)).Set(this.filters);
-            td_bridge_obj_getChatEventLog_user_ids(obj).Set(this.user_ids);
+            td_bridge_obj_getChatEventLog_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getChatEventLog_query(obj).Set(this.Query);
+            td_bridge_obj_getChatEventLog_from_event_id(obj).Set(this.FromEventId);
+            td_bridge_obj_getChatEventLog_limit(obj).Set(this.Limit);
+            new CxxTLObject<ChatEventLogFilters>(td_bridge_obj_getChatEventLog_filters(obj)).Set(this.Filters);
+            td_bridge_obj_getChatEventLog_user_ids(obj).Set(this.UserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatEventLog_chat_id(obj).Fetch();
-            this.query = td_bridge_obj_getChatEventLog_query(obj).Fetch();
-            this.from_event_id = td_bridge_obj_getChatEventLog_from_event_id(obj).Fetch();
-            this.limit = td_bridge_obj_getChatEventLog_limit(obj).Fetch();
-            this.filters = new CxxTLObject<ChatEventLogFilters>(td_bridge_obj_getChatEventLog_filters(obj)).Fetch();
-            this.user_ids = td_bridge_obj_getChatEventLog_user_ids(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatEventLog_chat_id(obj).Fetch();
+            this.Query = td_bridge_obj_getChatEventLog_query(obj).Fetch();
+            this.FromEventId = td_bridge_obj_getChatEventLog_from_event_id(obj).Fetch();
+            this.Limit = td_bridge_obj_getChatEventLog_limit(obj).Fetch();
+            this.Filters = new CxxTLObject<ChatEventLogFilters>(td_bridge_obj_getChatEventLog_filters(obj)).Fetch();
+            this.UserIds = td_bridge_obj_getChatEventLog_user_ids(obj).Fetch();
         }
     }
 
@@ -21503,14 +21503,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getPaymentForm();
-            td_bridge_obj_getPaymentForm_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getPaymentForm_message_id(obj).Set(this.message_id);
+            td_bridge_obj_getPaymentForm_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getPaymentForm_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getPaymentForm_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_getPaymentForm_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getPaymentForm_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getPaymentForm_message_id(obj).Fetch();
         }
     }
 
@@ -21535,18 +21535,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_validateOrderInfo();
-            td_bridge_obj_validateOrderInfo_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_validateOrderInfo_message_id(obj).Set(this.message_id);
-            new CxxTLObject<OrderInfo>(td_bridge_obj_validateOrderInfo_order_info(obj)).Set(this.order_info);
-            td_bridge_obj_validateOrderInfo_allow_save(obj).Set(this.allow_save);
+            td_bridge_obj_validateOrderInfo_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_validateOrderInfo_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<OrderInfo>(td_bridge_obj_validateOrderInfo_order_info(obj)).Set(this.OrderInfo);
+            td_bridge_obj_validateOrderInfo_allow_save(obj).Set(this.AllowSave);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_validateOrderInfo_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_validateOrderInfo_message_id(obj).Fetch();
-            this.order_info = new CxxTLObject<OrderInfo>(td_bridge_obj_validateOrderInfo_order_info(obj)).Fetch();
-            this.allow_save = td_bridge_obj_validateOrderInfo_allow_save(obj).Fetch();
+            this.ChatId = td_bridge_obj_validateOrderInfo_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_validateOrderInfo_message_id(obj).Fetch();
+            this.OrderInfo = new CxxTLObject<OrderInfo>(td_bridge_obj_validateOrderInfo_order_info(obj)).Fetch();
+            this.AllowSave = td_bridge_obj_validateOrderInfo_allow_save(obj).Fetch();
         }
     }
 
@@ -21574,20 +21574,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendPaymentForm();
-            td_bridge_obj_sendPaymentForm_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_sendPaymentForm_message_id(obj).Set(this.message_id);
-            td_bridge_obj_sendPaymentForm_order_info_id(obj).Set(this.order_info_id);
-            td_bridge_obj_sendPaymentForm_shipping_option_id(obj).Set(this.shipping_option_id);
-            new CxxTLObject<InputCredentials>(td_bridge_obj_sendPaymentForm_credentials(obj)).Set(this.credentials);
+            td_bridge_obj_sendPaymentForm_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_sendPaymentForm_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_sendPaymentForm_order_info_id(obj).Set(this.OrderInfoId);
+            td_bridge_obj_sendPaymentForm_shipping_option_id(obj).Set(this.ShippingOptionId);
+            new CxxTLObject<InputCredentials>(td_bridge_obj_sendPaymentForm_credentials(obj)).Set(this.Credentials);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_sendPaymentForm_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_sendPaymentForm_message_id(obj).Fetch();
-            this.order_info_id = td_bridge_obj_sendPaymentForm_order_info_id(obj).Fetch();
-            this.shipping_option_id = td_bridge_obj_sendPaymentForm_shipping_option_id(obj).Fetch();
-            this.credentials = new CxxTLObject<InputCredentials>(td_bridge_obj_sendPaymentForm_credentials(obj)).Fetch();
+            this.ChatId = td_bridge_obj_sendPaymentForm_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_sendPaymentForm_message_id(obj).Fetch();
+            this.OrderInfoId = td_bridge_obj_sendPaymentForm_order_info_id(obj).Fetch();
+            this.ShippingOptionId = td_bridge_obj_sendPaymentForm_shipping_option_id(obj).Fetch();
+            this.Credentials = new CxxTLObject<InputCredentials>(td_bridge_obj_sendPaymentForm_credentials(obj)).Fetch();
         }
     }
 
@@ -21606,14 +21606,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getPaymentReceipt();
-            td_bridge_obj_getPaymentReceipt_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_getPaymentReceipt_message_id(obj).Set(this.message_id);
+            td_bridge_obj_getPaymentReceipt_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getPaymentReceipt_message_id(obj).Set(this.MessageId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getPaymentReceipt_chat_id(obj).Fetch();
-            this.message_id = td_bridge_obj_getPaymentReceipt_message_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getPaymentReceipt_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getPaymentReceipt_message_id(obj).Fetch();
         }
     }
 
@@ -21709,12 +21709,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getLocalizationTargetInfo();
-            td_bridge_obj_getLocalizationTargetInfo_only_local(obj).Set(this.only_local);
+            td_bridge_obj_getLocalizationTargetInfo_only_local(obj).Set(this.OnlyLocal);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.only_local = td_bridge_obj_getLocalizationTargetInfo_only_local(obj).Fetch();
+            this.OnlyLocal = td_bridge_obj_getLocalizationTargetInfo_only_local(obj).Fetch();
         }
     }
 
@@ -21733,14 +21733,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getLanguagePackStrings();
-            td_bridge_obj_getLanguagePackStrings_language_pack_id(obj).Set(this.language_pack_id);
-            td_bridge_obj_getLanguagePackStrings_keys(obj).Set(this.keys);
+            td_bridge_obj_getLanguagePackStrings_language_pack_id(obj).Set(this.LanguagePackId);
+            td_bridge_obj_getLanguagePackStrings_keys(obj).Set(this.Keys);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.language_pack_id = td_bridge_obj_getLanguagePackStrings_language_pack_id(obj).Fetch();
-            this.keys = td_bridge_obj_getLanguagePackStrings_keys(obj).Fetch();
+            this.LanguagePackId = td_bridge_obj_getLanguagePackStrings_language_pack_id(obj).Fetch();
+            this.Keys = td_bridge_obj_getLanguagePackStrings_keys(obj).Fetch();
         }
     }
 
@@ -21759,14 +21759,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setCustomLanguagePack();
-            new CxxTLObject<LanguagePackInfo>(td_bridge_obj_setCustomLanguagePack_info(obj)).Set(this.info);
-            new CxxVectorObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePack_strings(obj)).Set(this.strings);
+            new CxxTLObject<LanguagePackInfo>(td_bridge_obj_setCustomLanguagePack_info(obj)).Set(this.Info);
+            new CxxVectorObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePack_strings(obj)).Set(this.Strings);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.info = new CxxTLObject<LanguagePackInfo>(td_bridge_obj_setCustomLanguagePack_info(obj)).Fetch();
-            this.strings = new CxxVectorObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePack_strings(obj)).Fetch();
+            this.Info = new CxxTLObject<LanguagePackInfo>(td_bridge_obj_setCustomLanguagePack_info(obj)).Fetch();
+            this.Strings = new CxxVectorObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePack_strings(obj)).Fetch();
         }
     }
 
@@ -21782,12 +21782,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editCustomLanguagePackInfo();
-            new CxxTLObject<LanguagePackInfo>(td_bridge_obj_editCustomLanguagePackInfo_info(obj)).Set(this.info);
+            new CxxTLObject<LanguagePackInfo>(td_bridge_obj_editCustomLanguagePackInfo_info(obj)).Set(this.Info);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.info = new CxxTLObject<LanguagePackInfo>(td_bridge_obj_editCustomLanguagePackInfo_info(obj)).Fetch();
+            this.Info = new CxxTLObject<LanguagePackInfo>(td_bridge_obj_editCustomLanguagePackInfo_info(obj)).Fetch();
         }
     }
 
@@ -21806,14 +21806,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setCustomLanguagePackString();
-            td_bridge_obj_setCustomLanguagePackString_language_pack_id(obj).Set(this.language_pack_id);
-            new CxxTLObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePackString_new_string(obj)).Set(this.new_string);
+            td_bridge_obj_setCustomLanguagePackString_language_pack_id(obj).Set(this.LanguagePackId);
+            new CxxTLObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePackString_new_string(obj)).Set(this.NewString);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.language_pack_id = td_bridge_obj_setCustomLanguagePackString_language_pack_id(obj).Fetch();
-            this.new_string = new CxxTLObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePackString_new_string(obj)).Fetch();
+            this.LanguagePackId = td_bridge_obj_setCustomLanguagePackString_language_pack_id(obj).Fetch();
+            this.NewString = new CxxTLObject<LanguagePackString>(td_bridge_obj_setCustomLanguagePackString_new_string(obj)).Fetch();
         }
     }
 
@@ -21829,12 +21829,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteLanguagePack();
-            td_bridge_obj_deleteLanguagePack_language_pack_id(obj).Set(this.language_pack_id);
+            td_bridge_obj_deleteLanguagePack_language_pack_id(obj).Set(this.LanguagePackId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.language_pack_id = td_bridge_obj_deleteLanguagePack_language_pack_id(obj).Fetch();
+            this.LanguagePackId = td_bridge_obj_deleteLanguagePack_language_pack_id(obj).Fetch();
         }
     }
 
@@ -21853,14 +21853,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_registerDevice();
-            new CxxTLObject<DeviceToken>(td_bridge_obj_registerDevice_device_token(obj)).Set(this.device_token);
-            td_bridge_obj_registerDevice_other_user_ids(obj).Set(this.other_user_ids);
+            new CxxTLObject<DeviceToken>(td_bridge_obj_registerDevice_device_token(obj)).Set(this.DeviceToken);
+            td_bridge_obj_registerDevice_other_user_ids(obj).Set(this.OtherUserIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.device_token = new CxxTLObject<DeviceToken>(td_bridge_obj_registerDevice_device_token(obj)).Fetch();
-            this.other_user_ids = td_bridge_obj_registerDevice_other_user_ids(obj).Fetch();
+            this.DeviceToken = new CxxTLObject<DeviceToken>(td_bridge_obj_registerDevice_device_token(obj)).Fetch();
+            this.OtherUserIds = td_bridge_obj_registerDevice_other_user_ids(obj).Fetch();
         }
     }
 
@@ -21876,12 +21876,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getRecentlyVisitedTMeUrls();
-            td_bridge_obj_getRecentlyVisitedTMeUrls_referrer(obj).Set(this.referrer);
+            td_bridge_obj_getRecentlyVisitedTMeUrls_referrer(obj).Set(this.Referrer);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.referrer = td_bridge_obj_getRecentlyVisitedTMeUrls_referrer(obj).Fetch();
+            this.Referrer = td_bridge_obj_getRecentlyVisitedTMeUrls_referrer(obj).Fetch();
         }
     }
 
@@ -21900,14 +21900,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setUserPrivacySettingRules();
-            new CxxTLObject<UserPrivacySetting>(td_bridge_obj_setUserPrivacySettingRules_setting(obj)).Set(this.setting);
-            new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_setUserPrivacySettingRules_rules(obj)).Set(this.rules);
+            new CxxTLObject<UserPrivacySetting>(td_bridge_obj_setUserPrivacySettingRules_setting(obj)).Set(this.Setting);
+            new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_setUserPrivacySettingRules_rules(obj)).Set(this.Rules);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.setting = new CxxTLObject<UserPrivacySetting>(td_bridge_obj_setUserPrivacySettingRules_setting(obj)).Fetch();
-            this.rules = new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_setUserPrivacySettingRules_rules(obj)).Fetch();
+            this.Setting = new CxxTLObject<UserPrivacySetting>(td_bridge_obj_setUserPrivacySettingRules_setting(obj)).Fetch();
+            this.Rules = new CxxTLObject<UserPrivacySettingRules>(td_bridge_obj_setUserPrivacySettingRules_rules(obj)).Fetch();
         }
     }
 
@@ -21923,12 +21923,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getUserPrivacySettingRules();
-            new CxxTLObject<UserPrivacySetting>(td_bridge_obj_getUserPrivacySettingRules_setting(obj)).Set(this.setting);
+            new CxxTLObject<UserPrivacySetting>(td_bridge_obj_getUserPrivacySettingRules_setting(obj)).Set(this.Setting);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.setting = new CxxTLObject<UserPrivacySetting>(td_bridge_obj_getUserPrivacySettingRules_setting(obj)).Fetch();
+            this.Setting = new CxxTLObject<UserPrivacySetting>(td_bridge_obj_getUserPrivacySettingRules_setting(obj)).Fetch();
         }
     }
 
@@ -21944,12 +21944,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getOption();
-            td_bridge_obj_getOption_name(obj).Set(this.name);
+            td_bridge_obj_getOption_name(obj).Set(this.Name);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.name = td_bridge_obj_getOption_name(obj).Fetch();
+            this.Name = td_bridge_obj_getOption_name(obj).Fetch();
         }
     }
 
@@ -21968,14 +21968,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setOption();
-            td_bridge_obj_setOption_name(obj).Set(this.name);
-            new CxxTLObject<OptionValue>(td_bridge_obj_setOption_value(obj)).Set(this.value);
+            td_bridge_obj_setOption_name(obj).Set(this.Name);
+            new CxxTLObject<OptionValue>(td_bridge_obj_setOption_value(obj)).Set(this.Value);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.name = td_bridge_obj_setOption_name(obj).Fetch();
-            this.value = new CxxTLObject<OptionValue>(td_bridge_obj_setOption_value(obj)).Fetch();
+            this.Name = td_bridge_obj_setOption_name(obj).Fetch();
+            this.Value = new CxxTLObject<OptionValue>(td_bridge_obj_setOption_value(obj)).Fetch();
         }
     }
 
@@ -21991,12 +21991,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setAccountTtl();
-            new CxxTLObject<AccountTtl>(td_bridge_obj_setAccountTtl_ttl(obj)).Set(this.ttl);
+            new CxxTLObject<AccountTtl>(td_bridge_obj_setAccountTtl_ttl(obj)).Set(this.Ttl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.ttl = new CxxTLObject<AccountTtl>(td_bridge_obj_setAccountTtl_ttl(obj)).Fetch();
+            this.Ttl = new CxxTLObject<AccountTtl>(td_bridge_obj_setAccountTtl_ttl(obj)).Fetch();
         }
     }
 
@@ -22028,12 +22028,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteAccount();
-            td_bridge_obj_deleteAccount_reason(obj).Set(this.reason);
+            td_bridge_obj_deleteAccount_reason(obj).Set(this.Reason);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.reason = td_bridge_obj_deleteAccount_reason(obj).Fetch();
+            this.Reason = td_bridge_obj_deleteAccount_reason(obj).Fetch();
         }
     }
 
@@ -22049,12 +22049,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getChatReportSpamState();
-            td_bridge_obj_getChatReportSpamState_chat_id(obj).Set(this.chat_id);
+            td_bridge_obj_getChatReportSpamState_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_getChatReportSpamState_chat_id(obj).Fetch();
+            this.ChatId = td_bridge_obj_getChatReportSpamState_chat_id(obj).Fetch();
         }
     }
 
@@ -22073,14 +22073,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_changeChatReportSpamState();
-            td_bridge_obj_changeChatReportSpamState_chat_id(obj).Set(this.chat_id);
-            td_bridge_obj_changeChatReportSpamState_is_spam_chat(obj).Set(this.is_spam_chat);
+            td_bridge_obj_changeChatReportSpamState_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_changeChatReportSpamState_is_spam_chat(obj).Set(this.IsSpamChat);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_changeChatReportSpamState_chat_id(obj).Fetch();
-            this.is_spam_chat = td_bridge_obj_changeChatReportSpamState_is_spam_chat(obj).Fetch();
+            this.ChatId = td_bridge_obj_changeChatReportSpamState_chat_id(obj).Fetch();
+            this.IsSpamChat = td_bridge_obj_changeChatReportSpamState_is_spam_chat(obj).Fetch();
         }
     }
 
@@ -22102,16 +22102,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_reportChat();
-            td_bridge_obj_reportChat_chat_id(obj).Set(this.chat_id);
-            new CxxTLObject<ChatReportReason>(td_bridge_obj_reportChat_reason(obj)).Set(this.reason);
-            td_bridge_obj_reportChat_message_ids(obj).Set(this.message_ids);
+            td_bridge_obj_reportChat_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<ChatReportReason>(td_bridge_obj_reportChat_reason(obj)).Set(this.Reason);
+            td_bridge_obj_reportChat_message_ids(obj).Set(this.MessageIds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_id = td_bridge_obj_reportChat_chat_id(obj).Fetch();
-            this.reason = new CxxTLObject<ChatReportReason>(td_bridge_obj_reportChat_reason(obj)).Fetch();
-            this.message_ids = td_bridge_obj_reportChat_message_ids(obj).Fetch();
+            this.ChatId = td_bridge_obj_reportChat_chat_id(obj).Fetch();
+            this.Reason = new CxxTLObject<ChatReportReason>(td_bridge_obj_reportChat_reason(obj)).Fetch();
+            this.MessageIds = td_bridge_obj_reportChat_message_ids(obj).Fetch();
         }
     }
 
@@ -22127,12 +22127,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getStorageStatistics();
-            td_bridge_obj_getStorageStatistics_chat_limit(obj).Set(this.chat_limit);
+            td_bridge_obj_getStorageStatistics_chat_limit(obj).Set(this.ChatLimit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.chat_limit = td_bridge_obj_getStorageStatistics_chat_limit(obj).Fetch();
+            this.ChatLimit = td_bridge_obj_getStorageStatistics_chat_limit(obj).Fetch();
         }
     }
 
@@ -22185,26 +22185,26 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_optimizeStorage();
-            td_bridge_obj_optimizeStorage_size(obj).Set(this.size);
-            td_bridge_obj_optimizeStorage_ttl(obj).Set(this.ttl);
-            td_bridge_obj_optimizeStorage_count(obj).Set(this.count);
-            td_bridge_obj_optimizeStorage_immunity_delay(obj).Set(this.immunity_delay);
-            new CxxVectorObject<FileType>(td_bridge_obj_optimizeStorage_file_types(obj)).Set(this.file_types);
-            td_bridge_obj_optimizeStorage_chat_ids(obj).Set(this.chat_ids);
-            td_bridge_obj_optimizeStorage_exclude_chat_ids(obj).Set(this.exclude_chat_ids);
-            td_bridge_obj_optimizeStorage_chat_limit(obj).Set(this.chat_limit);
+            td_bridge_obj_optimizeStorage_size(obj).Set(this.Size);
+            td_bridge_obj_optimizeStorage_ttl(obj).Set(this.Ttl);
+            td_bridge_obj_optimizeStorage_count(obj).Set(this.Count);
+            td_bridge_obj_optimizeStorage_immunity_delay(obj).Set(this.ImmunityDelay);
+            new CxxVectorObject<FileType>(td_bridge_obj_optimizeStorage_file_types(obj)).Set(this.FileTypes);
+            td_bridge_obj_optimizeStorage_chat_ids(obj).Set(this.ChatIds);
+            td_bridge_obj_optimizeStorage_exclude_chat_ids(obj).Set(this.ExcludeChatIds);
+            td_bridge_obj_optimizeStorage_chat_limit(obj).Set(this.ChatLimit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.size = td_bridge_obj_optimizeStorage_size(obj).Fetch();
-            this.ttl = td_bridge_obj_optimizeStorage_ttl(obj).Fetch();
-            this.count = td_bridge_obj_optimizeStorage_count(obj).Fetch();
-            this.immunity_delay = td_bridge_obj_optimizeStorage_immunity_delay(obj).Fetch();
-            this.file_types = new CxxVectorObject<FileType>(td_bridge_obj_optimizeStorage_file_types(obj)).Fetch();
-            this.chat_ids = td_bridge_obj_optimizeStorage_chat_ids(obj).Fetch();
-            this.exclude_chat_ids = td_bridge_obj_optimizeStorage_exclude_chat_ids(obj).Fetch();
-            this.chat_limit = td_bridge_obj_optimizeStorage_chat_limit(obj).Fetch();
+            this.Size = td_bridge_obj_optimizeStorage_size(obj).Fetch();
+            this.Ttl = td_bridge_obj_optimizeStorage_ttl(obj).Fetch();
+            this.Count = td_bridge_obj_optimizeStorage_count(obj).Fetch();
+            this.ImmunityDelay = td_bridge_obj_optimizeStorage_immunity_delay(obj).Fetch();
+            this.FileTypes = new CxxVectorObject<FileType>(td_bridge_obj_optimizeStorage_file_types(obj)).Fetch();
+            this.ChatIds = td_bridge_obj_optimizeStorage_chat_ids(obj).Fetch();
+            this.ExcludeChatIds = td_bridge_obj_optimizeStorage_exclude_chat_ids(obj).Fetch();
+            this.ChatLimit = td_bridge_obj_optimizeStorage_chat_limit(obj).Fetch();
         }
     }
 
@@ -22220,12 +22220,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setNetworkType();
-            new CxxTLObject<NetworkType>(td_bridge_obj_setNetworkType_type(obj)).Set(this.type);
+            new CxxTLObject<NetworkType>(td_bridge_obj_setNetworkType_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = new CxxTLObject<NetworkType>(td_bridge_obj_setNetworkType_type(obj)).Fetch();
+            this.Type = new CxxTLObject<NetworkType>(td_bridge_obj_setNetworkType_type(obj)).Fetch();
         }
     }
 
@@ -22241,12 +22241,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getNetworkStatistics();
-            td_bridge_obj_getNetworkStatistics_only_current(obj).Set(this.only_current);
+            td_bridge_obj_getNetworkStatistics_only_current(obj).Set(this.OnlyCurrent);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.only_current = td_bridge_obj_getNetworkStatistics_only_current(obj).Fetch();
+            this.OnlyCurrent = td_bridge_obj_getNetworkStatistics_only_current(obj).Fetch();
         }
     }
 
@@ -22262,12 +22262,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addNetworkStatistics();
-            new CxxTLObject<NetworkStatisticsEntry>(td_bridge_obj_addNetworkStatistics_entry(obj)).Set(this.entry);
+            new CxxTLObject<NetworkStatisticsEntry>(td_bridge_obj_addNetworkStatistics_entry(obj)).Set(this.Entry);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.entry = new CxxTLObject<NetworkStatisticsEntry>(td_bridge_obj_addNetworkStatistics_entry(obj)).Fetch();
+            this.Entry = new CxxTLObject<NetworkStatisticsEntry>(td_bridge_obj_addNetworkStatistics_entry(obj)).Fetch();
         }
     }
 
@@ -22302,14 +22302,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getPassportElement();
-            new CxxTLObject<PassportElementType>(td_bridge_obj_getPassportElement_type(obj)).Set(this.type);
-            td_bridge_obj_getPassportElement_password(obj).Set(this.password);
+            new CxxTLObject<PassportElementType>(td_bridge_obj_getPassportElement_type(obj)).Set(this.Type);
+            td_bridge_obj_getPassportElement_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = new CxxTLObject<PassportElementType>(td_bridge_obj_getPassportElement_type(obj)).Fetch();
-            this.password = td_bridge_obj_getPassportElement_password(obj).Fetch();
+            this.Type = new CxxTLObject<PassportElementType>(td_bridge_obj_getPassportElement_type(obj)).Fetch();
+            this.Password = td_bridge_obj_getPassportElement_password(obj).Fetch();
         }
     }
 
@@ -22325,12 +22325,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getAllPassportElements();
-            td_bridge_obj_getAllPassportElements_password(obj).Set(this.password);
+            td_bridge_obj_getAllPassportElements_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.password = td_bridge_obj_getAllPassportElements_password(obj).Fetch();
+            this.Password = td_bridge_obj_getAllPassportElements_password(obj).Fetch();
         }
     }
 
@@ -22349,14 +22349,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setPassportElement();
-            new CxxTLObject<InputPassportElement>(td_bridge_obj_setPassportElement_element(obj)).Set(this.element);
-            td_bridge_obj_setPassportElement_password(obj).Set(this.password);
+            new CxxTLObject<InputPassportElement>(td_bridge_obj_setPassportElement_element(obj)).Set(this.Element);
+            td_bridge_obj_setPassportElement_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.element = new CxxTLObject<InputPassportElement>(td_bridge_obj_setPassportElement_element(obj)).Fetch();
-            this.password = td_bridge_obj_setPassportElement_password(obj).Fetch();
+            this.Element = new CxxTLObject<InputPassportElement>(td_bridge_obj_setPassportElement_element(obj)).Fetch();
+            this.Password = td_bridge_obj_setPassportElement_password(obj).Fetch();
         }
     }
 
@@ -22372,12 +22372,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deletePassportElement();
-            new CxxTLObject<PassportElementType>(td_bridge_obj_deletePassportElement_type(obj)).Set(this.type);
+            new CxxTLObject<PassportElementType>(td_bridge_obj_deletePassportElement_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.type = new CxxTLObject<PassportElementType>(td_bridge_obj_deletePassportElement_type(obj)).Fetch();
+            this.Type = new CxxTLObject<PassportElementType>(td_bridge_obj_deletePassportElement_type(obj)).Fetch();
         }
     }
 
@@ -22396,14 +22396,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setPassportElementErrors();
-            td_bridge_obj_setPassportElementErrors_user_id(obj).Set(this.user_id);
-            new CxxVectorObject<InputPassportElementError>(td_bridge_obj_setPassportElementErrors_errors(obj)).Set(this.errors);
+            td_bridge_obj_setPassportElementErrors_user_id(obj).Set(this.UserId);
+            new CxxVectorObject<InputPassportElementError>(td_bridge_obj_setPassportElementErrors_errors(obj)).Set(this.Errors);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_setPassportElementErrors_user_id(obj).Fetch();
-            this.errors = new CxxVectorObject<InputPassportElementError>(td_bridge_obj_setPassportElementErrors_errors(obj)).Fetch();
+            this.UserId = td_bridge_obj_setPassportElementErrors_user_id(obj).Fetch();
+            this.Errors = new CxxVectorObject<InputPassportElementError>(td_bridge_obj_setPassportElementErrors_errors(obj)).Fetch();
         }
     }
 
@@ -22419,12 +22419,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getPreferredCountryLanguage();
-            td_bridge_obj_getPreferredCountryLanguage_country_code(obj).Set(this.country_code);
+            td_bridge_obj_getPreferredCountryLanguage_country_code(obj).Set(this.CountryCode);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.country_code = td_bridge_obj_getPreferredCountryLanguage_country_code(obj).Fetch();
+            this.CountryCode = td_bridge_obj_getPreferredCountryLanguage_country_code(obj).Fetch();
         }
     }
 
@@ -22446,16 +22446,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendPhoneNumberVerificationCode();
-            td_bridge_obj_sendPhoneNumberVerificationCode_phone_number(obj).Set(this.phone_number);
-            td_bridge_obj_sendPhoneNumberVerificationCode_allow_flash_call(obj).Set(this.allow_flash_call);
-            td_bridge_obj_sendPhoneNumberVerificationCode_is_current_phone_number(obj).Set(this.is_current_phone_number);
+            td_bridge_obj_sendPhoneNumberVerificationCode_phone_number(obj).Set(this.PhoneNumber);
+            td_bridge_obj_sendPhoneNumberVerificationCode_allow_flash_call(obj).Set(this.AllowFlashCall);
+            td_bridge_obj_sendPhoneNumberVerificationCode_is_current_phone_number(obj).Set(this.IsCurrentPhoneNumber);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.phone_number = td_bridge_obj_sendPhoneNumberVerificationCode_phone_number(obj).Fetch();
-            this.allow_flash_call = td_bridge_obj_sendPhoneNumberVerificationCode_allow_flash_call(obj).Fetch();
-            this.is_current_phone_number = td_bridge_obj_sendPhoneNumberVerificationCode_is_current_phone_number(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_sendPhoneNumberVerificationCode_phone_number(obj).Fetch();
+            this.AllowFlashCall = td_bridge_obj_sendPhoneNumberVerificationCode_allow_flash_call(obj).Fetch();
+            this.IsCurrentPhoneNumber = td_bridge_obj_sendPhoneNumberVerificationCode_is_current_phone_number(obj).Fetch();
         }
     }
 
@@ -22487,12 +22487,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkPhoneNumberVerificationCode();
-            td_bridge_obj_checkPhoneNumberVerificationCode_code(obj).Set(this.code);
+            td_bridge_obj_checkPhoneNumberVerificationCode_code(obj).Set(this.Code);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.code = td_bridge_obj_checkPhoneNumberVerificationCode_code(obj).Fetch();
+            this.Code = td_bridge_obj_checkPhoneNumberVerificationCode_code(obj).Fetch();
         }
     }
 
@@ -22508,12 +22508,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendEmailAddressVerificationCode();
-            td_bridge_obj_sendEmailAddressVerificationCode_email_address(obj).Set(this.email_address);
+            td_bridge_obj_sendEmailAddressVerificationCode_email_address(obj).Set(this.EmailAddress);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.email_address = td_bridge_obj_sendEmailAddressVerificationCode_email_address(obj).Fetch();
+            this.EmailAddress = td_bridge_obj_sendEmailAddressVerificationCode_email_address(obj).Fetch();
         }
     }
 
@@ -22545,12 +22545,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkEmailAddressVerificationCode();
-            td_bridge_obj_checkEmailAddressVerificationCode_code(obj).Set(this.code);
+            td_bridge_obj_checkEmailAddressVerificationCode_code(obj).Set(this.Code);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.code = td_bridge_obj_checkEmailAddressVerificationCode_code(obj).Fetch();
+            this.Code = td_bridge_obj_checkEmailAddressVerificationCode_code(obj).Fetch();
         }
     }
 
@@ -22578,20 +22578,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getPassportAuthorizationForm();
-            td_bridge_obj_getPassportAuthorizationForm_bot_user_id(obj).Set(this.bot_user_id);
-            td_bridge_obj_getPassportAuthorizationForm_scope(obj).Set(this.scope);
-            td_bridge_obj_getPassportAuthorizationForm_public_key(obj).Set(this.public_key);
-            td_bridge_obj_getPassportAuthorizationForm_nonce(obj).Set(this.nonce);
-            td_bridge_obj_getPassportAuthorizationForm_password(obj).Set(this.password);
+            td_bridge_obj_getPassportAuthorizationForm_bot_user_id(obj).Set(this.BotUserId);
+            td_bridge_obj_getPassportAuthorizationForm_scope(obj).Set(this.Scope);
+            td_bridge_obj_getPassportAuthorizationForm_public_key(obj).Set(this.PublicKey);
+            td_bridge_obj_getPassportAuthorizationForm_nonce(obj).Set(this.Nonce);
+            td_bridge_obj_getPassportAuthorizationForm_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.bot_user_id = td_bridge_obj_getPassportAuthorizationForm_bot_user_id(obj).Fetch();
-            this.scope = td_bridge_obj_getPassportAuthorizationForm_scope(obj).Fetch();
-            this.public_key = td_bridge_obj_getPassportAuthorizationForm_public_key(obj).Fetch();
-            this.nonce = td_bridge_obj_getPassportAuthorizationForm_nonce(obj).Fetch();
-            this.password = td_bridge_obj_getPassportAuthorizationForm_password(obj).Fetch();
+            this.BotUserId = td_bridge_obj_getPassportAuthorizationForm_bot_user_id(obj).Fetch();
+            this.Scope = td_bridge_obj_getPassportAuthorizationForm_scope(obj).Fetch();
+            this.PublicKey = td_bridge_obj_getPassportAuthorizationForm_public_key(obj).Fetch();
+            this.Nonce = td_bridge_obj_getPassportAuthorizationForm_nonce(obj).Fetch();
+            this.Password = td_bridge_obj_getPassportAuthorizationForm_password(obj).Fetch();
         }
     }
 
@@ -22610,14 +22610,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendPassportAuthorizationForm();
-            td_bridge_obj_sendPassportAuthorizationForm_autorization_form_id(obj).Set(this.autorization_form_id);
-            new CxxVectorObject<PassportElementType>(td_bridge_obj_sendPassportAuthorizationForm_types(obj)).Set(this.types);
+            td_bridge_obj_sendPassportAuthorizationForm_autorization_form_id(obj).Set(this.AutorizationFormId);
+            new CxxVectorObject<PassportElementType>(td_bridge_obj_sendPassportAuthorizationForm_types(obj)).Set(this.Types);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.autorization_form_id = td_bridge_obj_sendPassportAuthorizationForm_autorization_form_id(obj).Fetch();
-            this.types = new CxxVectorObject<PassportElementType>(td_bridge_obj_sendPassportAuthorizationForm_types(obj)).Fetch();
+            this.AutorizationFormId = td_bridge_obj_sendPassportAuthorizationForm_autorization_form_id(obj).Fetch();
+            this.Types = new CxxVectorObject<PassportElementType>(td_bridge_obj_sendPassportAuthorizationForm_types(obj)).Fetch();
         }
     }
 
@@ -22642,18 +22642,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendPhoneNumberConfirmationCode();
-            td_bridge_obj_sendPhoneNumberConfirmationCode_hash(obj).Set(this.hash);
-            td_bridge_obj_sendPhoneNumberConfirmationCode_phone_number(obj).Set(this.phone_number);
-            td_bridge_obj_sendPhoneNumberConfirmationCode_allow_flash_call(obj).Set(this.allow_flash_call);
-            td_bridge_obj_sendPhoneNumberConfirmationCode_is_current_phone_number(obj).Set(this.is_current_phone_number);
+            td_bridge_obj_sendPhoneNumberConfirmationCode_hash(obj).Set(this.Hash);
+            td_bridge_obj_sendPhoneNumberConfirmationCode_phone_number(obj).Set(this.PhoneNumber);
+            td_bridge_obj_sendPhoneNumberConfirmationCode_allow_flash_call(obj).Set(this.AllowFlashCall);
+            td_bridge_obj_sendPhoneNumberConfirmationCode_is_current_phone_number(obj).Set(this.IsCurrentPhoneNumber);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.hash = td_bridge_obj_sendPhoneNumberConfirmationCode_hash(obj).Fetch();
-            this.phone_number = td_bridge_obj_sendPhoneNumberConfirmationCode_phone_number(obj).Fetch();
-            this.allow_flash_call = td_bridge_obj_sendPhoneNumberConfirmationCode_allow_flash_call(obj).Fetch();
-            this.is_current_phone_number = td_bridge_obj_sendPhoneNumberConfirmationCode_is_current_phone_number(obj).Fetch();
+            this.Hash = td_bridge_obj_sendPhoneNumberConfirmationCode_hash(obj).Fetch();
+            this.PhoneNumber = td_bridge_obj_sendPhoneNumberConfirmationCode_phone_number(obj).Fetch();
+            this.AllowFlashCall = td_bridge_obj_sendPhoneNumberConfirmationCode_allow_flash_call(obj).Fetch();
+            this.IsCurrentPhoneNumber = td_bridge_obj_sendPhoneNumberConfirmationCode_is_current_phone_number(obj).Fetch();
         }
     }
 
@@ -22685,12 +22685,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_checkPhoneNumberConfirmationCode();
-            td_bridge_obj_checkPhoneNumberConfirmationCode_code(obj).Set(this.code);
+            td_bridge_obj_checkPhoneNumberConfirmationCode_code(obj).Set(this.Code);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.code = td_bridge_obj_checkPhoneNumberConfirmationCode_code(obj).Fetch();
+            this.Code = td_bridge_obj_checkPhoneNumberConfirmationCode_code(obj).Fetch();
         }
     }
 
@@ -22709,14 +22709,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setBotUpdatesStatus();
-            td_bridge_obj_setBotUpdatesStatus_pending_update_count(obj).Set(this.pending_update_count);
-            td_bridge_obj_setBotUpdatesStatus_error_message(obj).Set(this.error_message);
+            td_bridge_obj_setBotUpdatesStatus_pending_update_count(obj).Set(this.PendingUpdateCount);
+            td_bridge_obj_setBotUpdatesStatus_error_message(obj).Set(this.ErrorMessage);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.pending_update_count = td_bridge_obj_setBotUpdatesStatus_pending_update_count(obj).Fetch();
-            this.error_message = td_bridge_obj_setBotUpdatesStatus_error_message(obj).Fetch();
+            this.PendingUpdateCount = td_bridge_obj_setBotUpdatesStatus_pending_update_count(obj).Fetch();
+            this.ErrorMessage = td_bridge_obj_setBotUpdatesStatus_error_message(obj).Fetch();
         }
     }
 
@@ -22735,14 +22735,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_uploadStickerFile();
-            td_bridge_obj_uploadStickerFile_user_id(obj).Set(this.user_id);
-            new CxxTLObject<InputFile>(td_bridge_obj_uploadStickerFile_png_sticker(obj)).Set(this.png_sticker);
+            td_bridge_obj_uploadStickerFile_user_id(obj).Set(this.UserId);
+            new CxxTLObject<InputFile>(td_bridge_obj_uploadStickerFile_png_sticker(obj)).Set(this.PngSticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_uploadStickerFile_user_id(obj).Fetch();
-            this.png_sticker = new CxxTLObject<InputFile>(td_bridge_obj_uploadStickerFile_png_sticker(obj)).Fetch();
+            this.UserId = td_bridge_obj_uploadStickerFile_user_id(obj).Fetch();
+            this.PngSticker = new CxxTLObject<InputFile>(td_bridge_obj_uploadStickerFile_png_sticker(obj)).Fetch();
         }
     }
 
@@ -22770,20 +22770,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_createNewStickerSet();
-            td_bridge_obj_createNewStickerSet_user_id(obj).Set(this.user_id);
-            td_bridge_obj_createNewStickerSet_title(obj).Set(this.title);
-            td_bridge_obj_createNewStickerSet_name(obj).Set(this.name);
-            td_bridge_obj_createNewStickerSet_is_masks(obj).Set(this.is_masks);
-            new CxxVectorObject<InputSticker>(td_bridge_obj_createNewStickerSet_stickers(obj)).Set(this.stickers);
+            td_bridge_obj_createNewStickerSet_user_id(obj).Set(this.UserId);
+            td_bridge_obj_createNewStickerSet_title(obj).Set(this.Title);
+            td_bridge_obj_createNewStickerSet_name(obj).Set(this.Name);
+            td_bridge_obj_createNewStickerSet_is_masks(obj).Set(this.IsMasks);
+            new CxxVectorObject<InputSticker>(td_bridge_obj_createNewStickerSet_stickers(obj)).Set(this.Stickers);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_createNewStickerSet_user_id(obj).Fetch();
-            this.title = td_bridge_obj_createNewStickerSet_title(obj).Fetch();
-            this.name = td_bridge_obj_createNewStickerSet_name(obj).Fetch();
-            this.is_masks = td_bridge_obj_createNewStickerSet_is_masks(obj).Fetch();
-            this.stickers = new CxxVectorObject<InputSticker>(td_bridge_obj_createNewStickerSet_stickers(obj)).Fetch();
+            this.UserId = td_bridge_obj_createNewStickerSet_user_id(obj).Fetch();
+            this.Title = td_bridge_obj_createNewStickerSet_title(obj).Fetch();
+            this.Name = td_bridge_obj_createNewStickerSet_name(obj).Fetch();
+            this.IsMasks = td_bridge_obj_createNewStickerSet_is_masks(obj).Fetch();
+            this.Stickers = new CxxVectorObject<InputSticker>(td_bridge_obj_createNewStickerSet_stickers(obj)).Fetch();
         }
     }
 
@@ -22805,16 +22805,16 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addStickerToSet();
-            td_bridge_obj_addStickerToSet_user_id(obj).Set(this.user_id);
-            td_bridge_obj_addStickerToSet_name(obj).Set(this.name);
-            new CxxTLObject<InputSticker>(td_bridge_obj_addStickerToSet_sticker(obj)).Set(this.sticker);
+            td_bridge_obj_addStickerToSet_user_id(obj).Set(this.UserId);
+            td_bridge_obj_addStickerToSet_name(obj).Set(this.Name);
+            new CxxTLObject<InputSticker>(td_bridge_obj_addStickerToSet_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.user_id = td_bridge_obj_addStickerToSet_user_id(obj).Fetch();
-            this.name = td_bridge_obj_addStickerToSet_name(obj).Fetch();
-            this.sticker = new CxxTLObject<InputSticker>(td_bridge_obj_addStickerToSet_sticker(obj)).Fetch();
+            this.UserId = td_bridge_obj_addStickerToSet_user_id(obj).Fetch();
+            this.Name = td_bridge_obj_addStickerToSet_name(obj).Fetch();
+            this.Sticker = new CxxTLObject<InputSticker>(td_bridge_obj_addStickerToSet_sticker(obj)).Fetch();
         }
     }
 
@@ -22833,14 +22833,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setStickerPositionInSet();
-            new CxxTLObject<InputFile>(td_bridge_obj_setStickerPositionInSet_sticker(obj)).Set(this.sticker);
-            td_bridge_obj_setStickerPositionInSet_position(obj).Set(this.position);
+            new CxxTLObject<InputFile>(td_bridge_obj_setStickerPositionInSet_sticker(obj)).Set(this.Sticker);
+            td_bridge_obj_setStickerPositionInSet_position(obj).Set(this.Position);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_setStickerPositionInSet_sticker(obj)).Fetch();
-            this.position = td_bridge_obj_setStickerPositionInSet_position(obj).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_setStickerPositionInSet_sticker(obj)).Fetch();
+            this.Position = td_bridge_obj_setStickerPositionInSet_position(obj).Fetch();
         }
     }
 
@@ -22856,12 +22856,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeStickerFromSet();
-            new CxxTLObject<InputFile>(td_bridge_obj_removeStickerFromSet_sticker(obj)).Set(this.sticker);
+            new CxxTLObject<InputFile>(td_bridge_obj_removeStickerFromSet_sticker(obj)).Set(this.Sticker);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.sticker = new CxxTLObject<InputFile>(td_bridge_obj_removeStickerFromSet_sticker(obj)).Fetch();
+            this.Sticker = new CxxTLObject<InputFile>(td_bridge_obj_removeStickerFromSet_sticker(obj)).Fetch();
         }
     }
 
@@ -22892,22 +22892,22 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getMapThumbnailFile();
-            new CxxTLObject<Location>(td_bridge_obj_getMapThumbnailFile_location(obj)).Set(this.location);
-            td_bridge_obj_getMapThumbnailFile_zoom(obj).Set(this.zoom);
-            td_bridge_obj_getMapThumbnailFile_width(obj).Set(this.width);
-            td_bridge_obj_getMapThumbnailFile_height(obj).Set(this.height);
-            td_bridge_obj_getMapThumbnailFile_scale(obj).Set(this.scale);
-            td_bridge_obj_getMapThumbnailFile_chat_id(obj).Set(this.chat_id);
+            new CxxTLObject<Location>(td_bridge_obj_getMapThumbnailFile_location(obj)).Set(this.Location);
+            td_bridge_obj_getMapThumbnailFile_zoom(obj).Set(this.Zoom);
+            td_bridge_obj_getMapThumbnailFile_width(obj).Set(this.Width);
+            td_bridge_obj_getMapThumbnailFile_height(obj).Set(this.Height);
+            td_bridge_obj_getMapThumbnailFile_scale(obj).Set(this.Scale);
+            td_bridge_obj_getMapThumbnailFile_chat_id(obj).Set(this.ChatId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.location = new CxxTLObject<Location>(td_bridge_obj_getMapThumbnailFile_location(obj)).Fetch();
-            this.zoom = td_bridge_obj_getMapThumbnailFile_zoom(obj).Fetch();
-            this.width = td_bridge_obj_getMapThumbnailFile_width(obj).Fetch();
-            this.height = td_bridge_obj_getMapThumbnailFile_height(obj).Fetch();
-            this.scale = td_bridge_obj_getMapThumbnailFile_scale(obj).Fetch();
-            this.chat_id = td_bridge_obj_getMapThumbnailFile_chat_id(obj).Fetch();
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_getMapThumbnailFile_location(obj)).Fetch();
+            this.Zoom = td_bridge_obj_getMapThumbnailFile_zoom(obj).Fetch();
+            this.Width = td_bridge_obj_getMapThumbnailFile_width(obj).Fetch();
+            this.Height = td_bridge_obj_getMapThumbnailFile_height(obj).Fetch();
+            this.Scale = td_bridge_obj_getMapThumbnailFile_scale(obj).Fetch();
+            this.ChatId = td_bridge_obj_getMapThumbnailFile_chat_id(obj).Fetch();
         }
     }
 
@@ -22923,12 +22923,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_acceptTermsOfService();
-            td_bridge_obj_acceptTermsOfService_terms_of_service_id(obj).Set(this.terms_of_service_id);
+            td_bridge_obj_acceptTermsOfService_terms_of_service_id(obj).Set(this.TermsOfServiceId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.terms_of_service_id = td_bridge_obj_acceptTermsOfService_terms_of_service_id(obj).Fetch();
+            this.TermsOfServiceId = td_bridge_obj_acceptTermsOfService_terms_of_service_id(obj).Fetch();
         }
     }
 
@@ -22947,14 +22947,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendCustomRequest();
-            td_bridge_obj_sendCustomRequest_method(obj).Set(this.method);
-            td_bridge_obj_sendCustomRequest_parameters(obj).Set(this.parameters);
+            td_bridge_obj_sendCustomRequest_method(obj).Set(this.Method);
+            td_bridge_obj_sendCustomRequest_parameters(obj).Set(this.Parameters);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.method = td_bridge_obj_sendCustomRequest_method(obj).Fetch();
-            this.parameters = td_bridge_obj_sendCustomRequest_parameters(obj).Fetch();
+            this.Method = td_bridge_obj_sendCustomRequest_method(obj).Fetch();
+            this.Parameters = td_bridge_obj_sendCustomRequest_parameters(obj).Fetch();
         }
     }
 
@@ -22973,14 +22973,14 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_answerCustomQuery();
-            td_bridge_obj_answerCustomQuery_custom_query_id(obj).Set(this.custom_query_id);
-            td_bridge_obj_answerCustomQuery_data(obj).Set(this.data);
+            td_bridge_obj_answerCustomQuery_custom_query_id(obj).Set(this.CustomQueryId);
+            td_bridge_obj_answerCustomQuery_data(obj).Set(this.Data);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.custom_query_id = td_bridge_obj_answerCustomQuery_custom_query_id(obj).Fetch();
-            this.data = td_bridge_obj_answerCustomQuery_data(obj).Fetch();
+            this.CustomQueryId = td_bridge_obj_answerCustomQuery_custom_query_id(obj).Fetch();
+            this.Data = td_bridge_obj_answerCustomQuery_data(obj).Fetch();
         }
     }
 
@@ -22996,12 +22996,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_setAlarm();
-            td_bridge_obj_setAlarm_seconds(obj).Set(this.seconds);
+            td_bridge_obj_setAlarm_seconds(obj).Set(this.Seconds);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.seconds = td_bridge_obj_setAlarm_seconds(obj).Fetch();
+            this.Seconds = td_bridge_obj_setAlarm_seconds(obj).Fetch();
         }
     }
 
@@ -23049,12 +23049,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getDeepLinkInfo();
-            td_bridge_obj_getDeepLinkInfo_link(obj).Set(this.link);
+            td_bridge_obj_getDeepLinkInfo_link(obj).Set(this.Link);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.link = td_bridge_obj_getDeepLinkInfo_link(obj).Fetch();
+            this.Link = td_bridge_obj_getDeepLinkInfo_link(obj).Fetch();
         }
     }
 
@@ -23079,18 +23079,18 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_addProxy();
-            td_bridge_obj_addProxy_server(obj).Set(this.server);
-            td_bridge_obj_addProxy_port(obj).Set(this.port);
-            td_bridge_obj_addProxy_enable(obj).Set(this.enable);
-            new CxxTLObject<ProxyType>(td_bridge_obj_addProxy_type(obj)).Set(this.type);
+            td_bridge_obj_addProxy_server(obj).Set(this.Server);
+            td_bridge_obj_addProxy_port(obj).Set(this.Port);
+            td_bridge_obj_addProxy_enable(obj).Set(this.Enable);
+            new CxxTLObject<ProxyType>(td_bridge_obj_addProxy_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.server = td_bridge_obj_addProxy_server(obj).Fetch();
-            this.port = td_bridge_obj_addProxy_port(obj).Fetch();
-            this.enable = td_bridge_obj_addProxy_enable(obj).Fetch();
-            this.type = new CxxTLObject<ProxyType>(td_bridge_obj_addProxy_type(obj)).Fetch();
+            this.Server = td_bridge_obj_addProxy_server(obj).Fetch();
+            this.Port = td_bridge_obj_addProxy_port(obj).Fetch();
+            this.Enable = td_bridge_obj_addProxy_enable(obj).Fetch();
+            this.Type = new CxxTLObject<ProxyType>(td_bridge_obj_addProxy_type(obj)).Fetch();
         }
     }
 
@@ -23118,20 +23118,20 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_editProxy();
-            td_bridge_obj_editProxy_proxy_id(obj).Set(this.proxy_id);
-            td_bridge_obj_editProxy_server(obj).Set(this.server);
-            td_bridge_obj_editProxy_port(obj).Set(this.port);
-            td_bridge_obj_editProxy_enable(obj).Set(this.enable);
-            new CxxTLObject<ProxyType>(td_bridge_obj_editProxy_type(obj)).Set(this.type);
+            td_bridge_obj_editProxy_proxy_id(obj).Set(this.ProxyId);
+            td_bridge_obj_editProxy_server(obj).Set(this.Server);
+            td_bridge_obj_editProxy_port(obj).Set(this.Port);
+            td_bridge_obj_editProxy_enable(obj).Set(this.Enable);
+            new CxxTLObject<ProxyType>(td_bridge_obj_editProxy_type(obj)).Set(this.Type);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.proxy_id = td_bridge_obj_editProxy_proxy_id(obj).Fetch();
-            this.server = td_bridge_obj_editProxy_server(obj).Fetch();
-            this.port = td_bridge_obj_editProxy_port(obj).Fetch();
-            this.enable = td_bridge_obj_editProxy_enable(obj).Fetch();
-            this.type = new CxxTLObject<ProxyType>(td_bridge_obj_editProxy_type(obj)).Fetch();
+            this.ProxyId = td_bridge_obj_editProxy_proxy_id(obj).Fetch();
+            this.Server = td_bridge_obj_editProxy_server(obj).Fetch();
+            this.Port = td_bridge_obj_editProxy_port(obj).Fetch();
+            this.Enable = td_bridge_obj_editProxy_enable(obj).Fetch();
+            this.Type = new CxxTLObject<ProxyType>(td_bridge_obj_editProxy_type(obj)).Fetch();
         }
     }
 
@@ -23147,12 +23147,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_enableProxy();
-            td_bridge_obj_enableProxy_proxy_id(obj).Set(this.proxy_id);
+            td_bridge_obj_enableProxy_proxy_id(obj).Set(this.ProxyId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.proxy_id = td_bridge_obj_enableProxy_proxy_id(obj).Fetch();
+            this.ProxyId = td_bridge_obj_enableProxy_proxy_id(obj).Fetch();
         }
     }
 
@@ -23184,12 +23184,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_removeProxy();
-            td_bridge_obj_removeProxy_proxy_id(obj).Set(this.proxy_id);
+            td_bridge_obj_removeProxy_proxy_id(obj).Set(this.ProxyId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.proxy_id = td_bridge_obj_removeProxy_proxy_id(obj).Fetch();
+            this.ProxyId = td_bridge_obj_removeProxy_proxy_id(obj).Fetch();
         }
     }
 
@@ -23221,12 +23221,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getProxyLink();
-            td_bridge_obj_getProxyLink_proxy_id(obj).Set(this.proxy_id);
+            td_bridge_obj_getProxyLink_proxy_id(obj).Set(this.ProxyId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.proxy_id = td_bridge_obj_getProxyLink_proxy_id(obj).Fetch();
+            this.ProxyId = td_bridge_obj_getProxyLink_proxy_id(obj).Fetch();
         }
     }
 
@@ -23242,12 +23242,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pingProxy();
-            td_bridge_obj_pingProxy_proxy_id(obj).Set(this.proxy_id);
+            td_bridge_obj_pingProxy_proxy_id(obj).Set(this.ProxyId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.proxy_id = td_bridge_obj_pingProxy_proxy_id(obj).Fetch();
+            this.ProxyId = td_bridge_obj_pingProxy_proxy_id(obj).Fetch();
         }
     }
 
@@ -23279,12 +23279,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testCallString();
-            td_bridge_obj_testCallString_x(obj).Set(this.x);
+            td_bridge_obj_testCallString_x(obj).Set(this.X);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.x = td_bridge_obj_testCallString_x(obj).Fetch();
+            this.X = td_bridge_obj_testCallString_x(obj).Fetch();
         }
     }
 
@@ -23300,12 +23300,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testCallBytes();
-            td_bridge_obj_testCallBytes_x(obj).Set(this.x);
+            td_bridge_obj_testCallBytes_x(obj).Set(this.X);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.x = td_bridge_obj_testCallBytes_x(obj).Fetch();
+            this.X = td_bridge_obj_testCallBytes_x(obj).Fetch();
         }
     }
 
@@ -23321,12 +23321,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testCallVectorInt();
-            td_bridge_obj_testCallVectorInt_x(obj).Set(this.x);
+            td_bridge_obj_testCallVectorInt_x(obj).Set(this.X);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.x = td_bridge_obj_testCallVectorInt_x(obj).Fetch();
+            this.X = td_bridge_obj_testCallVectorInt_x(obj).Fetch();
         }
     }
 
@@ -23342,12 +23342,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testCallVectorIntObject();
-            new CxxVectorObject<TestInt>(td_bridge_obj_testCallVectorIntObject_x(obj)).Set(this.x);
+            new CxxVectorObject<TestInt>(td_bridge_obj_testCallVectorIntObject_x(obj)).Set(this.X);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.x = new CxxVectorObject<TestInt>(td_bridge_obj_testCallVectorIntObject_x(obj)).Fetch();
+            this.X = new CxxVectorObject<TestInt>(td_bridge_obj_testCallVectorIntObject_x(obj)).Fetch();
         }
     }
 
@@ -23363,12 +23363,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testCallVectorString();
-            td_bridge_obj_testCallVectorString_x(obj).Set(this.x);
+            td_bridge_obj_testCallVectorString_x(obj).Set(this.X);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.x = td_bridge_obj_testCallVectorString_x(obj).Fetch();
+            this.X = td_bridge_obj_testCallVectorString_x(obj).Fetch();
         }
     }
 
@@ -23384,12 +23384,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testCallVectorStringObject();
-            new CxxVectorObject<TestString>(td_bridge_obj_testCallVectorStringObject_x(obj)).Set(this.x);
+            new CxxVectorObject<TestString>(td_bridge_obj_testCallVectorStringObject_x(obj)).Set(this.X);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.x = new CxxVectorObject<TestString>(td_bridge_obj_testCallVectorStringObject_x(obj)).Fetch();
+            this.X = new CxxVectorObject<TestString>(td_bridge_obj_testCallVectorStringObject_x(obj)).Fetch();
         }
     }
 
@@ -23405,12 +23405,12 @@ namespace TDLib.Api.Types
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_testSquareInt();
-            td_bridge_obj_testSquareInt_x(obj).Set(this.x);
+            td_bridge_obj_testSquareInt_x(obj).Set(this.X);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.x = td_bridge_obj_testSquareInt_x(obj).Fetch();
+            this.X = td_bridge_obj_testSquareInt_x(obj).Fetch();
         }
     }
 

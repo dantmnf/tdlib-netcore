@@ -32,10 +32,10 @@ namespace ConsoleApp1.Bot
         public override void Dispatch(Update u)
         {
             if (!(u is UpdateNewMessage)) return;
-            var message = ((UpdateNewMessage)u).message;
+            var message = ((UpdateNewMessage)u).Message;
             var fullcommand = GetCommand(message);
             if (string.IsNullOrEmpty(fullcommand)) return;
-            var cmdname = CommandNameFromFullCommand(fullcommand, bot?.username);
+            var cmdname = CommandNameFromFullCommand(fullcommand, bot?.Username);
             if (string.IsNullOrEmpty(cmdname)) return;
             if (handlers.TryGetValue(cmdname, out var handler))
             {
@@ -46,12 +46,12 @@ namespace ConsoleApp1.Bot
 
         private static string GetCommand(Message m)
         {
-            var content = m.content as MessageText;
+            var content = m.Content as MessageText;
             if (content == null) return null;
-            var commands = content.text.entities.Where(e => e.type is TextEntityTypeBotCommand && e.offset == 0);
+            var commands = content.Text.Entities.Where(e => e.Type is TextEntityTypeBotCommand && e.Offset == 0);
             var command = commands.FirstOrDefault();
-            if (command == null || command.offset != 0) return null;
-            return content.text.text.Substring(command.offset, command.length);
+            if (command == null || command.Offset != 0) return null;
+            return content.Text.Text.Substring(command.Offset, command.Length);
         }
 
         private static string CommandNameFromFullCommand(string fullcommand, string botusername = null)

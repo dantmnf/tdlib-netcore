@@ -65,7 +65,7 @@ def emit_type(io, type)
     io.block do
       io.puts "var obj = td_bridge_newobj_#{type.realname}();"
       type.props.each do |prop|
-        propname = prop.name
+        propname = prop.capname
         if propname == type.name
           propname = "#{propname}_"
         end
@@ -86,7 +86,7 @@ def emit_type(io, type)
     io.puts "{"
     io.block do
       type.props.each do |prop|
-        propname = prop.name
+        propname = prop.capname
         if propname == type.name
           propname = "#{propname}_"
         end

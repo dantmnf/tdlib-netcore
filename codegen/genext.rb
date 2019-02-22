@@ -18,13 +18,14 @@ def emit_function(io, type)
   end
   type.props.each do |prop|
     unless prop.comment.empty?
-      io.puts "/// <param name=#{prop.name.to_s.encode(xml: :attr)}>" + prop.comment.encode(xml: :text) + "</param>"
+      argname = prop.capname.sub(/[A-Z]/, &:downcase)
+      io.puts "/// <param name=#{argname.to_s.encode(xml: :attr)}>" + prop.comment.encode(xml: :text) + "</param>"
     end
   end
 
   props = type.props.map do |prop|
     proptype = prop.type.to_s
-    propname = prop.name
+    propname = prop.capname
     if propname == type.name
       propname = "#{propname}_"
     end
@@ -32,7 +33,8 @@ def emit_function(io, type)
   end
 
   arglist = props.map do |type, name|
-    "#{type} #{name} = #{DefaultValue[type]}"
+    argname = name.sub(/[A-Z]/, &:downcase)
+    "#{type} #{argname} = #{DefaultValue[type]}"
   end
   arglist.unshift "this Client client"
 
@@ -47,7 +49,8 @@ def emit_function(io, type)
     io.puts "{"
     io.push
     props.each do |type, name|
-      io.puts "#{name} = #{name},"
+      argname = name.sub(/[A-Z]/, &:downcase)
+      io.puts "#{name} = #{argname},"
     end
     io.pop
     io.puts "};"

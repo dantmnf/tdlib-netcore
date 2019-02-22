@@ -25,7 +25,7 @@ class TDLibTLTypeInfo
       val
     end
   end
-  Property = Struct.new(:name, :type, :comment) do
+  Property = Struct.new(:name, :capname, :type, :comment) do
     def to_s
       name.to_s
     end
@@ -228,9 +228,10 @@ class TDLibTLTypeInfo
       props.map! do |x|
         result = x.split(':')
         propname = result[0].intern
+        capname = result[0].split('_').each(&:capitalize!).join
         proptype = parse_typename(result[1])
         comment = comment_components.find{|x|x[0] == propname}&.fetch(1)
-        Property.new(propname, proptype, comment)
+        Property.new(propname, capname, proptype, comment)
       end
       info.props = props.freeze
 

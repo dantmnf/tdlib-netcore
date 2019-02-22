@@ -24,27 +24,27 @@ namespace ConsoleApp1
             var client = (TDLib.Client) sender;
             if (u is UpdateAuthorizationState uas)
             {
-                var state = uas.authorization_state;
+                var state = uas.AuthorizationState;
                 if (state is AuthorizationStateWaitTdlibParameters)
                 {
                     await client.SetTdlibParameters(
                         new TdlibParameters
                         {
-                            use_test_dc = false,
-                            database_directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "db"),
-                            files_directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "files"),
-                            use_file_database = false,
-                            use_chat_info_database = true,
-                            use_message_database = true,
-                            use_secret_chats = false,
-                            api_id = 25655,
-                            api_hash = "3359e75d6827a3ad0561cd38811a6864",
-                            system_language_code = "C",
-                            device_model = "ruby-tdlib",
-                            system_version = "system",
-                            application_version = "0",
-                            enable_storage_optimizer = true,
-                            ignore_file_names = false
+                            UseTestDc = false,
+                            DatabaseDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "db"),
+                            FilesDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "files"),
+                            UseFileDatabase = false,
+                            UseChatInfoDatabase = true,
+                            UseMessageDatabase = true,
+                            UseSecretChats = false,
+                            ApiId = 25655,
+                            ApiHash = "3359e75d6827a3ad0561cd38811a6864",
+                            SystemLanguageCode = "C",
+                            DeviceModel = "ruby-tdlib",
+                            SystemVersion = "system",
+                            ApplicationVersion = "0",
+                            EnableStorageOptimizer = true,
+                            IgnoreFileNames = false
                         }
                     );
                 }
@@ -67,7 +67,7 @@ namespace ConsoleApp1
                 }
                 else if (state is AuthorizationStateWaitCode swc)
                 {
-                    Console.Write("Code from {0}: ", swc.code_info.type.GetType().Name);
+                    Console.Write("Code from {0}: ", swc.CodeInfo.Type.GetType().Name);
                     var code = Console.ReadLine().Trim();
                     await client.CheckAuthenticationCode(code);
                 }
