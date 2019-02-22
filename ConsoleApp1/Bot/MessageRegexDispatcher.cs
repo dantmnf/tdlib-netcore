@@ -36,7 +36,8 @@ namespace ConsoleApp1.Bot
         {
             if (!(u is UpdateNewMessage unm)) return;
             var message = unm.Message;
-            if (!message.Content.TryGetTextOrCaption(out var ft)) return;
+            var ft = message.Content.TryGetTextOrCaption();
+            if (ft == null) return;
             foreach(var ((regex, opt), handler) in registered)
             {
                 var match = Regex.Matches(ft.Text, regex, opt);
