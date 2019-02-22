@@ -5,10 +5,35 @@ using System.Text;
 
 namespace TDLib.Api.Types
 {
+
+    interface IMessageContentWithCaption
+    {
+        FormattedText caption { get; set; }
+    }
+
+    partial class MessageAnimation : IMessageContentWithCaption { }
+    partial class MessageAudio : IMessageContentWithCaption { }
+    partial class MessageDocument : IMessageContentWithCaption { }
+    partial class MessagePhoto : IMessageContentWithCaption { }
+    partial class MessageVideo : IMessageContentWithCaption { }
+    partial class MessageVoiceNote : IMessageContentWithCaption { }
+
+
     public static class TLObjectExtensions
     {
         public static bool TryGetTextOrCaption(this MessageContent content, out FormattedText ft)
         {
+            switch (content)
+            {
+                case MessageText mt:
+                    ft = mt.text;
+                    return true;
+                case IMessageContentWithCaption cap:
+                    ft = cap.caption;
+                    return true;
+                default:
+                    break;
+            }
             PropertyInfo prop;
             ft = null;
             if ((prop = content.GetType().GetProperty("text")) != null)
