@@ -4,6 +4,8 @@ using System.Security;
 using System.Runtime.InteropServices;
 using TDLib.Api.CxxInterop;
 
+#pragma warning disable IDE1006 // Naming Styles
+
 namespace TDLib.Api
 {
     [TLTypeID(-1679978726)]

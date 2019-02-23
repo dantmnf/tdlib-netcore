@@ -114,6 +114,8 @@ def emit(out=STDOUT)
   io.puts "using System.Runtime.InteropServices;"
   io.puts "using TDLib.Api.CxxInterop;"
   io.puts ""
+  io.puts "#pragma warning disable IDE1006 // Naming Styles"
+  io.puts ""
   io.puts "namespace TDLib.Api"
   io.puts "{"
   io.push
