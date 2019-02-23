@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Security;
+using TDLib.Api.CxxInterop;
 #pragma warning disable IDE1006 // Naming Styles
 
 namespace TDLib
