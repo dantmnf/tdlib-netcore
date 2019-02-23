@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using TDLib;
-using TDLib.Api.Types;
+using TDLib.Api;
 
 namespace TDLib.ClientExtensions
 {

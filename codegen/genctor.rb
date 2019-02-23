@@ -72,9 +72,8 @@ def emit(out=STDOUT)
   io.puts "using System;"
   io.puts "using System.Threading.Tasks;"
   io.puts "using TDLib;"
-  io.puts "using TDLib.Api.Types;"
   io.puts ""
-  io.puts "namespace TDLib.Api.Types"
+  io.puts "namespace TDLib.Api"
   io.puts "{"
   io.push
 

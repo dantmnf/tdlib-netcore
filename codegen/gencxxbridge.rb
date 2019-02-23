@@ -112,9 +112,9 @@ def emit(out=STDOUT)
   io.puts "using System;"
   io.puts "using System.Security;"
   io.puts "using System.Runtime.InteropServices;"
-  io.puts "using TDLib.Api.Types.CxxInterop;"
+  io.puts "using TDLib.Api.CxxInterop;"
   io.puts ""
-  io.puts "namespace TDLib.Api.Types"
+  io.puts "namespace TDLib.Api"
   io.puts "{"
   io.push
 
