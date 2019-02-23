@@ -110,7 +110,7 @@ namespace TDLib
         }
 
         /// <summary>
-        /// <seealso cref="InvokeAsync(Function)"/>.
+        /// See <seealso cref="InvokeAsync(Function)"/>.
         /// This overload returns the type defined by <paramref name="func"/>,
         /// or throws if the invocation returns an <see cref="Error"/>.
         /// </summary>

@@ -16,19 +16,10 @@ namespace TDLib.Api.CxxInterop
     {
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr td_bridge_vector_vector_object_at(IntPtr ptr, long index);
-        public static CxxVectorObject<T> td_bridge_vector_vector_object_at<T>(IntPtr ptr, long index) where T : TLObject
-        {
-            return new CxxVectorObject<T>(td_bridge_vector_vector_object_at(ptr, index));
-        }
-
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern long td_bridge_vector_vector_object_size(IntPtr ptr);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr td_bridge_vector_vector_object_emplace_back(IntPtr ptr);
-        public static CxxVectorObject<T> td_bridge_vector_vector_object_emplace_back<T>(IntPtr ptr) where T : TLObject
-        {
-            return new CxxVectorObject<T>(td_bridge_vector_vector_object_emplace_back(ptr));
-        }
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern void td_bridge_vector_vector_object_clear(IntPtr ptr);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
@@ -435,7 +426,7 @@ namespace TDLib.Api.CxxInterop
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Add(IEnumerable<T> value)
         {
-            var vec = td_bridge_vector_vector_object_emplace_back<T>(ptr);
+            var vec = new CxxVectorObject<T>(td_bridge_vector_vector_object_emplace_back(ptr));
             if (value == null) return;
             foreach (var obj in value)
             {
@@ -450,7 +441,7 @@ namespace TDLib.Api.CxxInterop
             var result = (T[][])Array.CreateInstance(typeof(T[]), len);
             for (long i = 0; i < len; i++)
             {
-                result[i] = td_bridge_vector_vector_object_at<T>(ptr, i).ToArray();
+                result[i] = new CxxVectorObject<T>(td_bridge_vector_vector_object_at(ptr, i)).ToArray();
             }
             return result;
         }
