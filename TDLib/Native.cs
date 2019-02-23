@@ -35,7 +35,40 @@ namespace TDLib
         public static extern IntPtr td_bridge_client_receive(IntPtr client, double timeout, out long id);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr td_bridge_client_execute(IntPtr client, long inid, IntPtr func, out long outid);
-
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr td_bridge_vector_vector_object_at(IntPtr ptr, long index);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long td_bridge_vector_vector_object_size(IntPtr ptr);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr td_bridge_vector_vector_object_emplace_back(IntPtr ptr);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_vector_vector_object_clear(IntPtr ptr);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern byte* td_bridge_string_data(IntPtr ptr, out long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_string_setdata(IntPtr ptr, byte* data, long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int* td_bridge_vector_int32_data(IntPtr ptr, out long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_vector_int32_assign(IntPtr ptr, int* data, long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int* td_bridge_vector_int64_data(IntPtr ptr, out long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_vector_int64_assign(IntPtr ptr, long* data, long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr* td_bridge_vector_object_data(IntPtr ptr, out long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_vector_object_emplace_back(IntPtr ptr, IntPtr obj);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_vector_object_clear(IntPtr ptr);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern CxxBytes td_bridge_vector_string_at(IntPtr ptr, long index);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long td_bridge_vector_string_size(IntPtr ptr);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_vector_string_emplace_back(IntPtr ptr, byte* data, long len);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_vector_string_clear(IntPtr ptr);
         public static unsafe int strlen(byte* str)
         {
             int result = 0;

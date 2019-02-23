@@ -2,53 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
+using static TDLib.Native;
 
 namespace TDLib.Api.CxxInterop
 {
-    using System.Runtime.CompilerServices;
-    using System.Security;
-    using static Native;
 
-    [SuppressUnmanagedCodeSecurity]
-    internal unsafe static class Native
-    {
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr td_bridge_vector_vector_object_at(IntPtr ptr, long index);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern long td_bridge_vector_vector_object_size(IntPtr ptr);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr td_bridge_vector_vector_object_emplace_back(IntPtr ptr);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_vector_vector_object_clear(IntPtr ptr);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte* td_bridge_string_data(IntPtr ptr, out long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_string_setdata(IntPtr ptr, byte* data, long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int* td_bridge_vector_int32_data(IntPtr ptr, out long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_vector_int32_assign(IntPtr ptr, int* data, long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int* td_bridge_vector_int64_data(IntPtr ptr, out long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_vector_int64_assign(IntPtr ptr, long* data, long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr* td_bridge_vector_object_data(IntPtr ptr, out long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_vector_object_emplace_back(IntPtr ptr, IntPtr obj);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_vector_object_clear(IntPtr ptr);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern CxxBytes td_bridge_vector_string_at(IntPtr ptr, long index);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern long td_bridge_vector_string_size(IntPtr ptr);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_vector_string_emplace_back(IntPtr ptr, byte* data, long len);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_vector_string_clear(IntPtr ptr);
-    }
 
     /// <summary>
     /// std::string*
