@@ -4,22 +4,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using TDLib.Api;
 using TDLib.Api.CxxInterop;
+using static TDLib.Native;
+
 
 namespace TDLib
 {
     class ClientImplCxx : ITdClientImpl, IDisposable
     {
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_client_create();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void td_bridge_client_destroy(IntPtr client);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void td_bridge_client_send(IntPtr client, long id, IntPtr func);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_client_receive(IntPtr client, double timeout, out long id);
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_client_execute(IntPtr client, long inid, IntPtr func, out long outid);
-
         private IntPtr ptr;
 
         public ClientImplCxx()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using TDLib.Api;
+using static TDLib.Native;
 
 namespace TDLib
 {
@@ -36,8 +37,7 @@ namespace TDLib
             }
         }
 
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int td_bridge_object_get_id(IntPtr obj);
+
 
         public static TLObject FetchCxxObject(IntPtr objptr)
         {
