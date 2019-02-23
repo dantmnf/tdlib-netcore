@@ -1,6 +1,6 @@
 # NMAKE-compatible
 
-ALL: ../TDLib/Api/Generated/TypesDefinition.cs ../TDLib/Api/Generated/ClientExtension.cs ../TDLib/Api/Generated/CxxBridge.cs ../TDLib.Native/tlobject.cxx
+ALL: ../TDLib/Api/Generated/TypesDefinition.cs ../TDLib/Api/Generated/ClientExtension.cs ../TDLib/Api/Generated/CxxBridge.cs ../TDLib.Native/tlobject.cxx ../TDLib/Api/Generated/Constructor.cs
 
 COMMON: td_api.tl common.rb parser.rb
 

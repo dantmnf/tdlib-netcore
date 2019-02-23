@@ -7,7 +7,7 @@ DefaultValue = {
   "double" => "0.0",
   "bool" => "false",
 }
-DefaultValue.default = "null"
+DefaultValue.default = "default"
 
 def emit_function(io, type)
   return unless type.type == :function
