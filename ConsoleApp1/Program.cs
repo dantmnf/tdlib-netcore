@@ -18,69 +18,76 @@ namespace ConsoleApp1
     {
         private static TaskCompletionSource<bool> waitAuthReady;
 
-        private static async void AuthHandler(object sender, Update u)
+        private static async Task AuthHandler(object sender, Update u)
         {
             var client = (TDLib.Client) sender;
             if (u is UpdateAuthorizationState uas)
             {
-                var state = uas.AuthorizationState;
-                if (state is AuthorizationStateWaitTdlibParameters)
+                try
                 {
-                    await client.SetTdlibParameters(
-                        new TdlibParameters
+                    var state = uas.AuthorizationState;
+                    if (state is AuthorizationStateWaitTdlibParameters)
+                    {
+                        await client.SetTdlibParameters(
+                            new TdlibParameters
+                            {
+                                UseTestDc = false,
+                                DatabaseDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "db"),
+                                FilesDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "files"),
+                                UseFileDatabase = false,
+                                UseChatInfoDatabase = true,
+                                UseMessageDatabase = true,
+                                UseSecretChats = false,
+                                ApiId = 25655,
+                                ApiHash = "3359e75d6827a3ad0561cd38811a6864",
+                                SystemLanguageCode = "C",
+                                DeviceModel = "ruby-tdlib",
+                                SystemVersion = "system",
+                                ApplicationVersion = "0",
+                                EnableStorageOptimizer = true,
+                                IgnoreFileNames = false
+                            }
+                        );
+                        await client.SetOption("ignore_inline_thumbnails", new OptionValueBoolean(true));
+                    }
+                    else if (state is AuthorizationStateWaitEncryptionKey)
+                    {
+                        await client.CheckDatabaseEncryptionKey();
+                    }
+                    else if (state is AuthorizationStateWaitPhoneNumber)
+                    {
+                        await AsyncConsole.Write("Phone number/bot token: ");
+                        var input = (await AsyncConsole.ReadLine()).Trim();
+                        if (input.Contains(':'))
                         {
-                            UseTestDc = false,
-                            DatabaseDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "db"),
-                            FilesDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "td", "files"),
-                            UseFileDatabase = false,
-                            UseChatInfoDatabase = true,
-                            UseMessageDatabase = true,
-                            UseSecretChats = false,
-                            ApiId = 25655,
-                            ApiHash = "3359e75d6827a3ad0561cd38811a6864",
-                            SystemLanguageCode = "C",
-                            DeviceModel = "ruby-tdlib",
-                            SystemVersion = "system",
-                            ApplicationVersion = "0",
-                            EnableStorageOptimizer = true,
-                            IgnoreFileNames = false
+                            await client.CheckAuthenticationBotToken(input);
                         }
-                    );
-                    await client.SetOption("ignore_inline_thumbnails", new OptionValueBoolean(true));
-                }
-                else if (state is AuthorizationStateWaitEncryptionKey)
-                {
-                    await client.CheckDatabaseEncryptionKey();
-                }
-                else if (state is AuthorizationStateWaitPhoneNumber)
-                {
-                    Console.Write("Phone number/bot token: ");
-                    var input = Console.ReadLine().Trim();
-                    if (input.Contains(':'))
-                    {
-                        await client.CheckAuthenticationBotToken(input);
+                        else
+                        {
+                            await client.SetAuthenticationPhoneNumber(input);
+                        }
                     }
-                    else
+                    else if (state is AuthorizationStateWaitCode swc)
                     {
-                        await client.SetAuthenticationPhoneNumber(input);
+                        await AsyncConsole.Write(string.Format("Code from {0}: ", swc.CodeInfo.Type.GetType().Name));
+                        var input = (await AsyncConsole.ReadLine()).Trim();
+                        await client.CheckAuthenticationCode(input);
+                    }
+                    else if (state is AuthorizationStateWaitPassword)
+                    {
+                        await AsyncConsole.Write("Password: ");
+                        var input = (await AsyncConsole.ReadLine()).Trim();
+                        await client.CheckAuthenticationPassword(input);
+                    }
+                    else if (state is AuthorizationStateReady)
+                    {
+                        client.Update -= AuthHandler;
+                        waitAuthReady.SetResult(true);
                     }
                 }
-                else if (state is AuthorizationStateWaitCode swc)
+                catch(Exception e)
                 {
-                    Console.Write("Code from {0}: ", swc.CodeInfo.Type.GetType().Name);
-                    var code = Console.ReadLine().Trim();
-                    await client.CheckAuthenticationCode(code);
-                }
-                else if (state is AuthorizationStateWaitPassword)
-                {
-                    Console.Write("Password: ");
-                    var input = Console.ReadLine().Trim();
-                    await client.CheckAuthenticationPassword(input);
-                }
-                else if (state is AuthorizationStateReady)
-                {
-                    client.Update -= AuthHandler;
-                    waitAuthReady.SetResult(true);
+                    waitAuthReady.SetException(e);
                 }
             }
         }
@@ -92,7 +99,7 @@ namespace ConsoleApp1
             var cts = new CancellationTokenSource();
             var ct = cts.Token;
             var canceltasksrc = new TaskCompletionSource<bool>();
-            ct.Register(() => canceltasksrc.SetResult(true));
+            ct.Register(canceltasksrc.SetCanceled);
             Console.CancelKeyPress += (sender, e) => {
                 Console.WriteLine("stopping...");
                 cts.Cancel();
@@ -103,20 +110,22 @@ namespace ConsoleApp1
             {
                 waitAuthReady = new TaskCompletionSource<bool>();
                 client.Update += AuthHandler;
-                client.Update += (sender, u) => { Console.WriteLine(eval.FormatObject(u)); };
+                client.Update += async (sender, u) => { await AsyncConsole.WriteLine(eval.FormatObject(u)); };
                 var loop = client.Run();
                 
-                await waitAuthReady.Task;
-                var me = await client.GetMe();
-                // await client.SendMessage(73399058, input_message_content: new InputMessageText { text = "啊啊啊后唱戏" });
-                // await client.ParseTextEntities("aaa", new TextParseModeMarkdown());
-                Console.WriteLine(eval.FormatObject(me));
-                await Task.Run(async () =>
+                await Task.WhenAny(waitAuthReady.Task, canceltasksrc.Task);
+                if (waitAuthReady.Task.IsCompletedSuccessfully)
                 {
-                    await eval.Initialize(new ScriptingGlobals { client = client });
-                    await eval.StartInteractive();
-                });
-
+                    var me = await client.GetMe();
+                    // await client.SendMessage(73399058, input_message_content: new InputMessageText { text = "啊啊啊后唱戏" });
+                    // await client.ParseTextEntities("aaa", new TextParseModeMarkdown());
+                    await AsyncConsole.WriteLine(eval.FormatObject(me));
+                    await Task.Run(async () =>
+                    {
+                        await eval.Initialize(new ScriptingGlobals { client = client });
+                        await eval.StartInteractive();
+                    });
+                }
                 await client.StopAsync();
             }
         }

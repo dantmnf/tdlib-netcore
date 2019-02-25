@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace TDLib
 {
+    using AsyncUpdateEventHandler = Func<object, Update, Task>;
+
     public class Client : IDisposable
     {
         public const long UnspecifiedRequestId = 99;
@@ -18,7 +20,7 @@ namespace TDLib
         private long invoke_sequence = 0x80000000;
         private readonly ITdClientImpl clientImpl;
 
-        public event EventHandler<Update> Update;
+        public event AsyncUpdateEventHandler Update;
 
 
         internal Client(ITdClientImpl impl)
@@ -132,13 +134,14 @@ namespace TDLib
         public Task<Update> WaitForUpdate(Func<Update, bool> criterion, CancellationToken ct = default(CancellationToken))
         {
             var tsc = new TaskCompletionSource<Update>();
-            void handler(object sender, Update u)
+            Task handler(object sender, Update u)
             {
                 if (criterion(u))
                 {
                     Update -= handler;
                     tsc.TrySetResult(u);
                 }
+                return Task.CompletedTask;
             }
 
             Update += handler;
@@ -159,8 +162,11 @@ namespace TDLib
                 if (obj == null) continue;
                 if (obj is Update u)
                 {
-                    Update?.Invoke(this, u);
-                    // TODO
+                    try
+                    {
+                        Update?.Invoke(this, u);
+                    }
+                    catch { }
                 }
                 if (seq != 0)
                 {

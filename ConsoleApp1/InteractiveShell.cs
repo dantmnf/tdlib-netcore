@@ -66,7 +66,7 @@ namespace ConsoleApp1
         private readonly PrintOptions printOptions;
 
         private ScriptState state;
-        private ScriptingGlobals savedGlobals;
+        private object savedGlobals;
 
         public ScriptEvaluator()
         {
@@ -80,7 +80,7 @@ namespace ConsoleApp1
         /// </summary>
         /// <param name="globals"></param>
         /// <returns></returns>
-        public async Task Initialize(ScriptingGlobals globals)
+        public async Task Initialize(object globals)
         {
             if (savedGlobals == null) savedGlobals = globals;
             scriptOptions = ScriptOptions.Default
@@ -132,13 +132,13 @@ namespace ConsoleApp1
             }
         }
 
-        private string ReadLine(string prompt = "")
+        private async Task<string> ReadLine(string prompt = "")
         {
             if (!string.IsNullOrEmpty(prompt))
             {
-                Console.Write(prompt);
+                await AsyncConsole.Write(prompt);
             }
-            return Console.ReadLine();
+            return await AsyncConsole.ReadLine();
         }
 
         public async Task StartInteractive()
@@ -153,7 +153,7 @@ namespace ConsoleApp1
                 string line;
                 while (true)
                 {
-                    line = ReadLine(prompt);
+                    line = await ReadLine(prompt);
                     if (line == null)
                     {
                         if (input.Length == 0) return;
