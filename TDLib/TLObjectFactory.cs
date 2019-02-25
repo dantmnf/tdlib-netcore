@@ -22,7 +22,7 @@ namespace TDLib
             _tl_ids = new Dictionary<int, Type>();
             var asm = typeof(TLObject).Assembly;
             var types = asm.GetExportedTypes()
-                .Select(t => (type: t, attrs: t.GetCustomAttributes(typeof(TLTypeIDAttribute), true)))
+                .Select(t => (type: t, attrs: t.GetCustomAttributes(typeof(TLTypeIDAttribute), false)))
                 .Where(x => x.attrs.Length != 0)
                 .Select(x => ((x.attrs.FirstOrDefault() as TLTypeIDAttribute).Id, x.type));
             var count = 0;
