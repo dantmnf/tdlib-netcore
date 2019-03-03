@@ -398,7 +398,7 @@ namespace TDLib.Api.CxxInterop
         public T[][] ToArray()
         {
             var len = td_bridge_vector_vector_object_size(ptr);
-            var result = (T[][])Array.CreateInstance(typeof(T[]), len);
+            var result = new T[len][];
             for (long i = 0; i < len; i++)
             {
                 result[i] = new CxxVectorObject<T>(td_bridge_vector_vector_object_at(ptr, i)).ToArray();
