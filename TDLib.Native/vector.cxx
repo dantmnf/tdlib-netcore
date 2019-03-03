@@ -4,7 +4,7 @@ using namespace td::td_api;
 
 using objvec = std::vector<object_ptr<BaseObject>>;
 
-EXPORT const void* td_bridge_vector_object_data(const objvec *vecptr, std::int64_t *size) {
+EXPORT const void* td_bridge_vector_object_data(const objvec *vecptr, int64_t *size) {
 	static_assert(sizeof(object_ptr<BaseObject>) == sizeof(BaseObject*));
 	*size = vecptr->size();
 	return vecptr->data();
@@ -18,21 +18,21 @@ EXPORT void td_bridge_vector_object_emplace_back(objvec *vecptr, BaseObject *obj
 	vecptr->emplace_back(obj);
 }
 
-EXPORT const int32_t* td_bridge_vector_int32_data(const std::vector<std::int32_t> *vecptr, std::int64_t *size) {
+EXPORT const int32_t* td_bridge_vector_int32_data(const std::vector<int32_t> *vecptr, int64_t *size) {
 	*size = vecptr->size();
 	return vecptr->data();
 }
 
-EXPORT void td_bridge_vector_int32_assign(std::vector<std::int32_t> *vecptr, std::int32_t *data, std::int64_t size) {
+EXPORT void td_bridge_vector_int32_assign(std::vector<int32_t> *vecptr, int32_t *data, int64_t size) {
 	vecptr->assign(data, data + size);
 }
 
-EXPORT const int64_t* td_bridge_vector_int64_data(const std::vector<std::int64_t> *vecptr, std::int64_t *size) {
+EXPORT const int64_t* td_bridge_vector_int64_data(const std::vector<int64_t> *vecptr, int64_t *size) {
 	*size = vecptr->size();
 	return vecptr->data();
 }
 
-EXPORT void td_bridge_vector_int64_assign(std::vector<std::int64_t> *vecptr, std::int64_t *data, std::int64_t size) {
+EXPORT void td_bridge_vector_int64_assign(std::vector<int64_t> *vecptr, int64_t *data, int64_t size) {
 	vecptr->assign(data, data + size);
 }
 

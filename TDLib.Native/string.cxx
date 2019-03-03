@@ -1,7 +1,7 @@
 #include "tdcxxbridge.h"
 
 
-EXPORT const char* td_bridge_string_data(const std::string *strptr, std::int64_t *size) {
+EXPORT const char* td_bridge_string_data(const std::string *strptr, int64_t *size) {
 	if (strptr == nullptr) {
 		*size = 0;
 		return nullptr;
@@ -10,7 +10,7 @@ EXPORT const char* td_bridge_string_data(const std::string *strptr, std::int64_t
 	return strptr->data();
 }
 
-EXPORT void td_bridge_string_setdata(std::string *strptr, const char *data, std::int64_t size) {
+EXPORT void td_bridge_string_setdata(std::string *strptr, const char *data, int64_t size) {
 	if (strptr == nullptr) {
 		return;
 	}
