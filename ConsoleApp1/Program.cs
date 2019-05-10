@@ -4,14 +4,16 @@ using System.IO;
 using TDLib.Api;
 using System.Linq;
 using System.Text;
+using TDLib;
 using TDLib.ClientExtensions;
 using System.Threading;
+using System.Dynamic;
 
 namespace ConsoleApp1
 {
     public class ScriptingGlobals
     {
-        public TDLib.Client client;
+        public Client client;
     }
 
     class Program
@@ -20,7 +22,7 @@ namespace ConsoleApp1
 
         private static async Task AuthHandler(object sender, Update u)
         {
-            var client = (TDLib.Client) sender;
+            var client = (Client) sender;
             if (u is UpdateAuthorizationState uas)
             {
                 try
@@ -56,7 +58,9 @@ namespace ConsoleApp1
                     }
                     else if (state is AuthorizationStateWaitPhoneNumber)
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         await AsyncConsole.Write("Phone number/bot token: ");
+                        Console.ResetColor();
                         var input = (await AsyncConsole.ReadLine()).Trim();
                         if (input.Contains(':'))
                         {
@@ -69,13 +73,17 @@ namespace ConsoleApp1
                     }
                     else if (state is AuthorizationStateWaitCode swc)
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         await AsyncConsole.Write(string.Format("Code from {0}: ", swc.CodeInfo.Type.GetType().Name));
+                        Console.ResetColor();
                         var input = (await AsyncConsole.ReadLine()).Trim();
                         await client.CheckAuthenticationCode(input);
                     }
                     else if (state is AuthorizationStateWaitPassword)
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         await AsyncConsole.Write("Password: ");
+                        Console.ResetColor();
                         var input = (await AsyncConsole.ReadLine()).Trim();
                         await client.CheckAuthenticationPassword(input);
                     }
@@ -94,7 +102,7 @@ namespace ConsoleApp1
 
         public static async Task Main()
         {
-            TDLib.Logging.LogLevel = 1;
+            Logging.LogLevel = 1;
             var eval = new ScriptEvaluator();
             var cts = new CancellationTokenSource();
             var ct = cts.Token;
@@ -106,7 +114,7 @@ namespace ConsoleApp1
                 e.Cancel = true;
             };
 
-            using (var client = new TDLib.Client())
+            using (var client = new Client())
             {
                 waitAuthReady = new TaskCompletionSource<bool>();
                 client.Update += AuthHandler;
