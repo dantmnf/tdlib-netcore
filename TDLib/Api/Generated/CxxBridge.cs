@@ -575,7 +575,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-1209872059)]
+    [TLTypeID(-1154797731)]
     public unsafe partial class PasswordState
     {
         [SuppressUnmanagedCodeSecurity]
@@ -595,7 +595,7 @@ namespace TDLib.Api
         private static extern CxxBool td_bridge_obj_passwordState_has_passport_data(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxString td_bridge_obj_passwordState_unconfirmed_recovery_email_address_pattern(IntPtr obj);
+        private static extern IntPtr td_bridge_obj_passwordState_recovery_email_address_code_info(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passwordState();
@@ -603,7 +603,7 @@ namespace TDLib.Api
             td_bridge_obj_passwordState_password_hint(obj).Set(this.PasswordHint);
             td_bridge_obj_passwordState_has_recovery_email_address(obj).Set(this.HasRecoveryEmailAddress);
             td_bridge_obj_passwordState_has_passport_data(obj).Set(this.HasPassportData);
-            td_bridge_obj_passwordState_unconfirmed_recovery_email_address_pattern(obj).Set(this.UnconfirmedRecoveryEmailAddressPattern);
+            new CxxTLObject<EmailAddressAuthenticationCodeInfo>(td_bridge_obj_passwordState_recovery_email_address_code_info(obj)).Set(this.RecoveryEmailAddressCodeInfo);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -612,7 +612,7 @@ namespace TDLib.Api
             this.PasswordHint = td_bridge_obj_passwordState_password_hint(obj).Fetch();
             this.HasRecoveryEmailAddress = td_bridge_obj_passwordState_has_recovery_email_address(obj).Fetch();
             this.HasPassportData = td_bridge_obj_passwordState_has_passport_data(obj).Fetch();
-            this.UnconfirmedRecoveryEmailAddressPattern = td_bridge_obj_passwordState_unconfirmed_recovery_email_address_pattern(obj).Fetch();
+            this.RecoveryEmailAddressCodeInfo = new CxxTLObject<EmailAddressAuthenticationCodeInfo>(td_bridge_obj_passwordState_recovery_email_address_code_info(obj)).Fetch();
         }
     }
 
@@ -663,7 +663,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(847939462)]
+    [TLTypeID(-1166400317)]
     public unsafe partial class LocalFile
     {
         [SuppressUnmanagedCodeSecurity]
@@ -686,6 +686,9 @@ namespace TDLib.Api
         private static extern CxxBool td_bridge_obj_localFile_is_downloading_completed(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_localFile_download_offset(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxInt32 td_bridge_obj_localFile_downloaded_prefix_size(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
@@ -698,6 +701,7 @@ namespace TDLib.Api
             td_bridge_obj_localFile_can_be_deleted(obj).Set(this.CanBeDeleted);
             td_bridge_obj_localFile_is_downloading_active(obj).Set(this.IsDownloadingActive);
             td_bridge_obj_localFile_is_downloading_completed(obj).Set(this.IsDownloadingCompleted);
+            td_bridge_obj_localFile_download_offset(obj).Set(this.DownloadOffset);
             td_bridge_obj_localFile_downloaded_prefix_size(obj).Set(this.DownloadedPrefixSize);
             td_bridge_obj_localFile_downloaded_size(obj).Set(this.DownloadedSize);
             return obj;
@@ -709,6 +713,7 @@ namespace TDLib.Api
             this.CanBeDeleted = td_bridge_obj_localFile_can_be_deleted(obj).Fetch();
             this.IsDownloadingActive = td_bridge_obj_localFile_is_downloading_active(obj).Fetch();
             this.IsDownloadingCompleted = td_bridge_obj_localFile_is_downloading_completed(obj).Fetch();
+            this.DownloadOffset = td_bridge_obj_localFile_download_offset(obj).Fetch();
             this.DownloadedPrefixSize = td_bridge_obj_localFile_downloaded_prefix_size(obj).Fetch();
             this.DownloadedSize = td_bridge_obj_localFile_downloaded_size(obj).Fetch();
         }
@@ -1021,6 +1026,47 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(1473893797)]
+    public unsafe partial class PollOption
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pollOption();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pollOption_text(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pollOption_voter_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pollOption_vote_percentage(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pollOption_is_chosen(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pollOption_is_being_chosen(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pollOption();
+            td_bridge_obj_pollOption_text(obj).Set(this.Text);
+            td_bridge_obj_pollOption_voter_count(obj).Set(this.VoterCount);
+            td_bridge_obj_pollOption_vote_percentage(obj).Set(this.VotePercentage);
+            td_bridge_obj_pollOption_is_chosen(obj).Set(this.IsChosen);
+            td_bridge_obj_pollOption_is_being_chosen(obj).Set(this.IsBeingChosen);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = td_bridge_obj_pollOption_text(obj).Fetch();
+            this.VoterCount = td_bridge_obj_pollOption_voter_count(obj).Fetch();
+            this.VotePercentage = td_bridge_obj_pollOption_vote_percentage(obj).Fetch();
+            this.IsChosen = td_bridge_obj_pollOption_is_chosen(obj).Fetch();
+            this.IsBeingChosen = td_bridge_obj_pollOption_is_being_chosen(obj).Fetch();
+        }
+    }
+
     [TLTypeID(-1723168340)]
     public unsafe partial class Animation
     {
@@ -1159,15 +1205,12 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-1949521787)]
+    [TLTypeID(-1740448343)]
     public unsafe partial class Photo
     {
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_photo();
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_photo_id(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_photo_has_stickers(IntPtr obj);
@@ -1177,14 +1220,12 @@ namespace TDLib.Api
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_photo();
-            td_bridge_obj_photo_id(obj).Set(this.Id);
             td_bridge_obj_photo_has_stickers(obj).Set(this.HasStickers);
             new CxxVectorObject<PhotoSize>(td_bridge_obj_photo_sizes(obj)).Set(this.Sizes);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.Id = td_bridge_obj_photo_id(obj).Fetch();
             this.HasStickers = td_bridge_obj_photo_has_stickers(obj).Fetch();
             this.Sizes = new CxxVectorObject<PhotoSize>(td_bridge_obj_photo_sizes(obj)).Fetch();
         }
@@ -1543,6 +1584,47 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-959396214)]
+    public unsafe partial class Poll
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_poll();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_poll_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_poll_question(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_poll_options(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_poll_total_voter_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_poll_is_closed(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_poll();
+            td_bridge_obj_poll_id(obj).Set(this.Id);
+            td_bridge_obj_poll_question(obj).Set(this.Question);
+            new CxxVectorObject<PollOption>(td_bridge_obj_poll_options(obj)).Set(this.Options);
+            td_bridge_obj_poll_total_voter_count(obj).Set(this.TotalVoterCount);
+            td_bridge_obj_poll_is_closed(obj).Set(this.IsClosed);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Id = td_bridge_obj_poll_id(obj).Fetch();
+            this.Question = td_bridge_obj_poll_question(obj).Fetch();
+            this.Options = new CxxVectorObject<PollOption>(td_bridge_obj_poll_options(obj)).Fetch();
+            this.TotalVoterCount = td_bridge_obj_poll_total_voter_count(obj).Fetch();
+            this.IsClosed = td_bridge_obj_poll_is_closed(obj).Fetch();
+        }
+    }
+
     [TLTypeID(978085937)]
     public unsafe partial class ProfilePhoto
     {
@@ -1789,7 +1871,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-732086407)]
+    [TLTypeID(248614314)]
     public unsafe partial class User
     {
         [SuppressUnmanagedCodeSecurity]
@@ -1827,6 +1909,9 @@ namespace TDLib.Api
         private static extern CxxBool td_bridge_obj_user_is_verified(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_user_is_support(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxString td_bridge_obj_user_restriction_reason(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
@@ -1850,6 +1935,7 @@ namespace TDLib.Api
             new CxxTLObject<LinkState>(td_bridge_obj_user_outgoing_link(obj)).Set(this.OutgoingLink);
             new CxxTLObject<LinkState>(td_bridge_obj_user_incoming_link(obj)).Set(this.IncomingLink);
             td_bridge_obj_user_is_verified(obj).Set(this.IsVerified);
+            td_bridge_obj_user_is_support(obj).Set(this.IsSupport);
             td_bridge_obj_user_restriction_reason(obj).Set(this.RestrictionReason);
             td_bridge_obj_user_have_access(obj).Set(this.HaveAccess);
             new CxxTLObject<UserType>(td_bridge_obj_user_type(obj)).Set(this.Type);
@@ -1868,6 +1954,7 @@ namespace TDLib.Api
             this.OutgoingLink = new CxxTLObject<LinkState>(td_bridge_obj_user_outgoing_link(obj)).Fetch();
             this.IncomingLink = new CxxTLObject<LinkState>(td_bridge_obj_user_incoming_link(obj)).Fetch();
             this.IsVerified = td_bridge_obj_user_is_verified(obj).Fetch();
+            this.IsSupport = td_bridge_obj_user_is_support(obj).Fetch();
             this.RestrictionReason = td_bridge_obj_user_restriction_reason(obj).Fetch();
             this.HaveAccess = td_bridge_obj_user_have_access(obj).Fetch();
             this.Type = new CxxTLObject<UserType>(td_bridge_obj_user_type(obj)).Fetch();
@@ -1926,7 +2013,38 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1388892074)]
+    [TLTypeID(-1882596466)]
+    public unsafe partial class UserProfilePhoto
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_userProfilePhoto();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_userProfilePhoto_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_userProfilePhoto_added_date(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_userProfilePhoto_sizes(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_userProfilePhoto();
+            td_bridge_obj_userProfilePhoto_id(obj).Set(this.Id);
+            td_bridge_obj_userProfilePhoto_added_date(obj).Set(this.AddedDate);
+            new CxxVectorObject<PhotoSize>(td_bridge_obj_userProfilePhoto_sizes(obj)).Set(this.Sizes);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Id = td_bridge_obj_userProfilePhoto_id(obj).Fetch();
+            this.AddedDate = td_bridge_obj_userProfilePhoto_added_date(obj).Fetch();
+            this.Sizes = new CxxVectorObject<PhotoSize>(td_bridge_obj_userProfilePhoto_sizes(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(1512709690)]
     public unsafe partial class UserProfilePhotos
     {
         [SuppressUnmanagedCodeSecurity]
@@ -1942,13 +2060,13 @@ namespace TDLib.Api
         {
             var obj = td_bridge_newobj_userProfilePhotos();
             td_bridge_obj_userProfilePhotos_total_count(obj).Set(this.TotalCount);
-            new CxxVectorObject<Photo>(td_bridge_obj_userProfilePhotos_photos(obj)).Set(this.Photos);
+            new CxxVectorObject<UserProfilePhoto>(td_bridge_obj_userProfilePhotos_photos(obj)).Set(this.Photos);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.TotalCount = td_bridge_obj_userProfilePhotos_total_count(obj).Fetch();
-            this.Photos = new CxxVectorObject<Photo>(td_bridge_obj_userProfilePhotos_photos(obj)).Fetch();
+            this.Photos = new CxxVectorObject<UserProfilePhoto>(td_bridge_obj_userProfilePhotos_photos(obj)).Fetch();
         }
     }
 
@@ -2560,7 +2678,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-1482349223)]
+    [TLTypeID(1524634784)]
     public unsafe partial class SupergroupFullInfo
     {
         [SuppressUnmanagedCodeSecurity]
@@ -2592,6 +2710,9 @@ namespace TDLib.Api
         private static extern CxxBool td_bridge_obj_supergroupFullInfo_can_set_sticker_set(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_supergroupFullInfo_can_view_statistics(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_supergroupFullInfo_is_all_history_available(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
@@ -2599,9 +2720,6 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxString td_bridge_obj_supergroupFullInfo_invite_link(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_supergroupFullInfo_pinned_message_id(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxInt32 td_bridge_obj_supergroupFullInfo_upgraded_from_basic_group_id(IntPtr obj);
@@ -2619,10 +2737,10 @@ namespace TDLib.Api
             td_bridge_obj_supergroupFullInfo_can_get_members(obj).Set(this.CanGetMembers);
             td_bridge_obj_supergroupFullInfo_can_set_username(obj).Set(this.CanSetUsername);
             td_bridge_obj_supergroupFullInfo_can_set_sticker_set(obj).Set(this.CanSetStickerSet);
+            td_bridge_obj_supergroupFullInfo_can_view_statistics(obj).Set(this.CanViewStatistics);
             td_bridge_obj_supergroupFullInfo_is_all_history_available(obj).Set(this.IsAllHistoryAvailable);
             td_bridge_obj_supergroupFullInfo_sticker_set_id(obj).Set(this.StickerSetId);
             td_bridge_obj_supergroupFullInfo_invite_link(obj).Set(this.InviteLink);
-            td_bridge_obj_supergroupFullInfo_pinned_message_id(obj).Set(this.PinnedMessageId);
             td_bridge_obj_supergroupFullInfo_upgraded_from_basic_group_id(obj).Set(this.UpgradedFromBasicGroupId);
             td_bridge_obj_supergroupFullInfo_upgraded_from_max_message_id(obj).Set(this.UpgradedFromMaxMessageId);
             return obj;
@@ -2637,10 +2755,10 @@ namespace TDLib.Api
             this.CanGetMembers = td_bridge_obj_supergroupFullInfo_can_get_members(obj).Fetch();
             this.CanSetUsername = td_bridge_obj_supergroupFullInfo_can_set_username(obj).Fetch();
             this.CanSetStickerSet = td_bridge_obj_supergroupFullInfo_can_set_sticker_set(obj).Fetch();
+            this.CanViewStatistics = td_bridge_obj_supergroupFullInfo_can_view_statistics(obj).Fetch();
             this.IsAllHistoryAvailable = td_bridge_obj_supergroupFullInfo_is_all_history_available(obj).Fetch();
             this.StickerSetId = td_bridge_obj_supergroupFullInfo_sticker_set_id(obj).Fetch();
             this.InviteLink = td_bridge_obj_supergroupFullInfo_invite_link(obj).Fetch();
-            this.PinnedMessageId = td_bridge_obj_supergroupFullInfo_pinned_message_id(obj).Fetch();
             this.UpgradedFromBasicGroupId = td_bridge_obj_supergroupFullInfo_upgraded_from_basic_group_id(obj).Fetch();
             this.UpgradedFromMaxMessageId = td_bridge_obj_supergroupFullInfo_upgraded_from_max_message_id(obj).Fetch();
         }
@@ -2745,85 +2863,112 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1004332765)]
-    public unsafe partial class MessageForwardedFromUser
+    [TLTypeID(2781520)]
+    public unsafe partial class MessageForwardOriginUser
     {
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_messageForwardedFromUser();
+        private static extern IntPtr td_bridge_newobj_messageForwardOriginUser();
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt32 td_bridge_obj_messageForwardedFromUser_sender_user_id(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt32 td_bridge_obj_messageForwardedFromUser_date(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_messageForwardedFromUser_forwarded_from_chat_id(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_messageForwardedFromUser_forwarded_from_message_id(IntPtr obj);
+        private static extern CxxInt32 td_bridge_obj_messageForwardOriginUser_sender_user_id(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
-            var obj = td_bridge_newobj_messageForwardedFromUser();
-            td_bridge_obj_messageForwardedFromUser_sender_user_id(obj).Set(this.SenderUserId);
-            td_bridge_obj_messageForwardedFromUser_date(obj).Set(this.Date);
-            td_bridge_obj_messageForwardedFromUser_forwarded_from_chat_id(obj).Set(this.ForwardedFromChatId);
-            td_bridge_obj_messageForwardedFromUser_forwarded_from_message_id(obj).Set(this.ForwardedFromMessageId);
+            var obj = td_bridge_newobj_messageForwardOriginUser();
+            td_bridge_obj_messageForwardOriginUser_sender_user_id(obj).Set(this.SenderUserId);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.SenderUserId = td_bridge_obj_messageForwardedFromUser_sender_user_id(obj).Fetch();
-            this.Date = td_bridge_obj_messageForwardedFromUser_date(obj).Fetch();
-            this.ForwardedFromChatId = td_bridge_obj_messageForwardedFromUser_forwarded_from_chat_id(obj).Fetch();
-            this.ForwardedFromMessageId = td_bridge_obj_messageForwardedFromUser_forwarded_from_message_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_messageForwardOriginUser_sender_user_id(obj).Fetch();
         }
     }
 
-    [TLTypeID(-244050875)]
-    public unsafe partial class MessageForwardedPost
+    [TLTypeID(-271257885)]
+    public unsafe partial class MessageForwardOriginHiddenUser
     {
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_messageForwardedPost();
+        private static extern IntPtr td_bridge_newobj_messageForwardOriginHiddenUser();
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_messageForwardedPost_chat_id(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxString td_bridge_obj_messageForwardedPost_author_signature(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt32 td_bridge_obj_messageForwardedPost_date(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_messageForwardedPost_message_id(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_messageForwardedPost_forwarded_from_chat_id(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_messageForwardedPost_forwarded_from_message_id(IntPtr obj);
+        private static extern CxxString td_bridge_obj_messageForwardOriginHiddenUser_sender_name(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
-            var obj = td_bridge_newobj_messageForwardedPost();
-            td_bridge_obj_messageForwardedPost_chat_id(obj).Set(this.ChatId);
-            td_bridge_obj_messageForwardedPost_author_signature(obj).Set(this.AuthorSignature);
-            td_bridge_obj_messageForwardedPost_date(obj).Set(this.Date);
-            td_bridge_obj_messageForwardedPost_message_id(obj).Set(this.MessageId);
-            td_bridge_obj_messageForwardedPost_forwarded_from_chat_id(obj).Set(this.ForwardedFromChatId);
-            td_bridge_obj_messageForwardedPost_forwarded_from_message_id(obj).Set(this.ForwardedFromMessageId);
+            var obj = td_bridge_newobj_messageForwardOriginHiddenUser();
+            td_bridge_obj_messageForwardOriginHiddenUser_sender_name(obj).Set(this.SenderName);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.ChatId = td_bridge_obj_messageForwardedPost_chat_id(obj).Fetch();
-            this.AuthorSignature = td_bridge_obj_messageForwardedPost_author_signature(obj).Fetch();
-            this.Date = td_bridge_obj_messageForwardedPost_date(obj).Fetch();
-            this.MessageId = td_bridge_obj_messageForwardedPost_message_id(obj).Fetch();
-            this.ForwardedFromChatId = td_bridge_obj_messageForwardedPost_forwarded_from_chat_id(obj).Fetch();
-            this.ForwardedFromMessageId = td_bridge_obj_messageForwardedPost_forwarded_from_message_id(obj).Fetch();
+            this.SenderName = td_bridge_obj_messageForwardOriginHiddenUser_sender_name(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1490730723)]
+    public unsafe partial class MessageForwardOriginChannel
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_messageForwardOriginChannel();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_messageForwardOriginChannel_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_messageForwardOriginChannel_message_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_messageForwardOriginChannel_author_signature(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_messageForwardOriginChannel();
+            td_bridge_obj_messageForwardOriginChannel_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_messageForwardOriginChannel_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_messageForwardOriginChannel_author_signature(obj).Set(this.AuthorSignature);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_messageForwardOriginChannel_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_messageForwardOriginChannel_message_id(obj).Fetch();
+            this.AuthorSignature = td_bridge_obj_messageForwardOriginChannel_author_signature(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1622371186)]
+    public unsafe partial class MessageForwardInfo
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_messageForwardInfo();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_messageForwardInfo_origin(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_messageForwardInfo_date(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_messageForwardInfo_from_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_messageForwardInfo_from_message_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_messageForwardInfo();
+            new CxxTLObject<MessageForwardOrigin>(td_bridge_obj_messageForwardInfo_origin(obj)).Set(this.Origin);
+            td_bridge_obj_messageForwardInfo_date(obj).Set(this.Date);
+            td_bridge_obj_messageForwardInfo_from_chat_id(obj).Set(this.FromChatId);
+            td_bridge_obj_messageForwardInfo_from_message_id(obj).Set(this.FromMessageId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Origin = new CxxTLObject<MessageForwardOrigin>(td_bridge_obj_messageForwardInfo_origin(obj)).Fetch();
+            this.Date = td_bridge_obj_messageForwardInfo_date(obj).Fetch();
+            this.FromChatId = td_bridge_obj_messageForwardInfo_from_chat_id(obj).Fetch();
+            this.FromMessageId = td_bridge_obj_messageForwardInfo_from_message_id(obj).Fetch();
         }
     }
 
@@ -2859,7 +3004,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-675737627)]
+    [TLTypeID(-1804824068)]
     public unsafe partial class Message
     {
         [SuppressUnmanagedCodeSecurity]
@@ -3074,7 +3219,23 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1949924445)]
+    [TLTypeID(548013448)]
+    public unsafe partial class NotificationSettingsScopeChannelChats
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationSettingsScopeChannelChats();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationSettingsScopeChannelChats();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1503183218)]
     public unsafe partial class ChatNotificationSettings
     {
         [SuppressUnmanagedCodeSecurity]
@@ -3098,6 +3259,18 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_chatNotificationSettings_show_preview(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_chatNotificationSettings_use_default_disable_pinned_message_notifications(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_chatNotificationSettings_disable_pinned_message_notifications(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_chatNotificationSettings_use_default_disable_mention_notifications(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_chatNotificationSettings_disable_mention_notifications(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_chatNotificationSettings();
@@ -3107,6 +3280,10 @@ namespace TDLib.Api
             td_bridge_obj_chatNotificationSettings_sound(obj).Set(this.Sound);
             td_bridge_obj_chatNotificationSettings_use_default_show_preview(obj).Set(this.UseDefaultShowPreview);
             td_bridge_obj_chatNotificationSettings_show_preview(obj).Set(this.ShowPreview);
+            td_bridge_obj_chatNotificationSettings_use_default_disable_pinned_message_notifications(obj).Set(this.UseDefaultDisablePinnedMessageNotifications);
+            td_bridge_obj_chatNotificationSettings_disable_pinned_message_notifications(obj).Set(this.DisablePinnedMessageNotifications);
+            td_bridge_obj_chatNotificationSettings_use_default_disable_mention_notifications(obj).Set(this.UseDefaultDisableMentionNotifications);
+            td_bridge_obj_chatNotificationSettings_disable_mention_notifications(obj).Set(this.DisableMentionNotifications);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -3117,10 +3294,14 @@ namespace TDLib.Api
             this.Sound = td_bridge_obj_chatNotificationSettings_sound(obj).Fetch();
             this.UseDefaultShowPreview = td_bridge_obj_chatNotificationSettings_use_default_show_preview(obj).Fetch();
             this.ShowPreview = td_bridge_obj_chatNotificationSettings_show_preview(obj).Fetch();
+            this.UseDefaultDisablePinnedMessageNotifications = td_bridge_obj_chatNotificationSettings_use_default_disable_pinned_message_notifications(obj).Fetch();
+            this.DisablePinnedMessageNotifications = td_bridge_obj_chatNotificationSettings_disable_pinned_message_notifications(obj).Fetch();
+            this.UseDefaultDisableMentionNotifications = td_bridge_obj_chatNotificationSettings_use_default_disable_mention_notifications(obj).Fetch();
+            this.DisableMentionNotifications = td_bridge_obj_chatNotificationSettings_disable_mention_notifications(obj).Fetch();
         }
     }
 
-    [TLTypeID(607439283)]
+    [TLTypeID(-426103745)]
     public unsafe partial class ScopeNotificationSettings
     {
         [SuppressUnmanagedCodeSecurity]
@@ -3135,12 +3316,20 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_scopeNotificationSettings_show_preview(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_scopeNotificationSettings_disable_pinned_message_notifications(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_scopeNotificationSettings_disable_mention_notifications(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_scopeNotificationSettings();
             td_bridge_obj_scopeNotificationSettings_mute_for(obj).Set(this.MuteFor);
             td_bridge_obj_scopeNotificationSettings_sound(obj).Set(this.Sound);
             td_bridge_obj_scopeNotificationSettings_show_preview(obj).Set(this.ShowPreview);
+            td_bridge_obj_scopeNotificationSettings_disable_pinned_message_notifications(obj).Set(this.DisablePinnedMessageNotifications);
+            td_bridge_obj_scopeNotificationSettings_disable_mention_notifications(obj).Set(this.DisableMentionNotifications);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -3148,6 +3337,8 @@ namespace TDLib.Api
             this.MuteFor = td_bridge_obj_scopeNotificationSettings_mute_for(obj).Fetch();
             this.Sound = td_bridge_obj_scopeNotificationSettings_sound(obj).Fetch();
             this.ShowPreview = td_bridge_obj_scopeNotificationSettings_show_preview(obj).Fetch();
+            this.DisablePinnedMessageNotifications = td_bridge_obj_scopeNotificationSettings_disable_pinned_message_notifications(obj).Fetch();
+            this.DisableMentionNotifications = td_bridge_obj_scopeNotificationSettings_disable_mention_notifications(obj).Fetch();
         }
     }
 
@@ -3271,7 +3462,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-4728182)]
+    [TLTypeID(697768263)]
     public unsafe partial class Chat
     {
         [SuppressUnmanagedCodeSecurity]
@@ -3306,6 +3497,12 @@ namespace TDLib.Api
         private static extern CxxBool td_bridge_obj_chat_is_sponsored(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_chat_can_be_deleted_only_for_self(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_chat_can_be_deleted_for_all_users(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_chat_can_be_reported(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
@@ -3327,6 +3524,9 @@ namespace TDLib.Api
         private static extern IntPtr td_bridge_obj_chat_notification_settings(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_chat_pinned_message_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxInt64 td_bridge_obj_chat_reply_markup_message_id(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
@@ -3346,6 +3546,8 @@ namespace TDLib.Api
             td_bridge_obj_chat_is_pinned(obj).Set(this.IsPinned);
             td_bridge_obj_chat_is_marked_as_unread(obj).Set(this.IsMarkedAsUnread);
             td_bridge_obj_chat_is_sponsored(obj).Set(this.IsSponsored);
+            td_bridge_obj_chat_can_be_deleted_only_for_self(obj).Set(this.CanBeDeletedOnlyForSelf);
+            td_bridge_obj_chat_can_be_deleted_for_all_users(obj).Set(this.CanBeDeletedForAllUsers);
             td_bridge_obj_chat_can_be_reported(obj).Set(this.CanBeReported);
             td_bridge_obj_chat_default_disable_notification(obj).Set(this.DefaultDisableNotification);
             td_bridge_obj_chat_unread_count(obj).Set(this.UnreadCount);
@@ -3353,6 +3555,7 @@ namespace TDLib.Api
             td_bridge_obj_chat_last_read_outbox_message_id(obj).Set(this.LastReadOutboxMessageId);
             td_bridge_obj_chat_unread_mention_count(obj).Set(this.UnreadMentionCount);
             new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_chat_notification_settings(obj)).Set(this.NotificationSettings);
+            td_bridge_obj_chat_pinned_message_id(obj).Set(this.PinnedMessageId);
             td_bridge_obj_chat_reply_markup_message_id(obj).Set(this.ReplyMarkupMessageId);
             new CxxTLObject<DraftMessage>(td_bridge_obj_chat_draft_message(obj)).Set(this.DraftMessage);
             td_bridge_obj_chat_client_data(obj).Set(this.ClientData);
@@ -3369,6 +3572,8 @@ namespace TDLib.Api
             this.IsPinned = td_bridge_obj_chat_is_pinned(obj).Fetch();
             this.IsMarkedAsUnread = td_bridge_obj_chat_is_marked_as_unread(obj).Fetch();
             this.IsSponsored = td_bridge_obj_chat_is_sponsored(obj).Fetch();
+            this.CanBeDeletedOnlyForSelf = td_bridge_obj_chat_can_be_deleted_only_for_self(obj).Fetch();
+            this.CanBeDeletedForAllUsers = td_bridge_obj_chat_can_be_deleted_for_all_users(obj).Fetch();
             this.CanBeReported = td_bridge_obj_chat_can_be_reported(obj).Fetch();
             this.DefaultDisableNotification = td_bridge_obj_chat_default_disable_notification(obj).Fetch();
             this.UnreadCount = td_bridge_obj_chat_unread_count(obj).Fetch();
@@ -3376,6 +3581,7 @@ namespace TDLib.Api
             this.LastReadOutboxMessageId = td_bridge_obj_chat_last_read_outbox_message_id(obj).Fetch();
             this.UnreadMentionCount = td_bridge_obj_chat_unread_mention_count(obj).Fetch();
             this.NotificationSettings = new CxxTLObject<ChatNotificationSettings>(td_bridge_obj_chat_notification_settings(obj)).Fetch();
+            this.PinnedMessageId = td_bridge_obj_chat_pinned_message_id(obj).Fetch();
             this.ReplyMarkupMessageId = td_bridge_obj_chat_reply_markup_message_id(obj).Fetch();
             this.DraftMessage = new CxxTLObject<DraftMessage>(td_bridge_obj_chat_draft_message(obj)).Fetch();
             this.ClientData = td_bridge_obj_chat_client_data(obj).Fetch();
@@ -3952,6 +4158,152 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-868197812)]
+    public unsafe partial class RichTextSubscript
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_richTextSubscript();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_richTextSubscript_text(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_richTextSubscript();
+            new CxxTLObject<RichText>(td_bridge_obj_richTextSubscript_text(obj)).Set(this.Text);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextSubscript_text(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-382241437)]
+    public unsafe partial class RichTextSuperscript
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_richTextSuperscript();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_richTextSuperscript_text(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_richTextSuperscript();
+            new CxxTLObject<RichText>(td_bridge_obj_richTextSuperscript_text(obj)).Set(this.Text);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextSuperscript_text(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-1271999614)]
+    public unsafe partial class RichTextMarked
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_richTextMarked();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_richTextMarked_text(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_richTextMarked();
+            new CxxTLObject<RichText>(td_bridge_obj_richTextMarked_text(obj)).Set(this.Text);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextMarked_text(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(128521539)]
+    public unsafe partial class RichTextPhoneNumber
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_richTextPhoneNumber();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_richTextPhoneNumber_text(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_richTextPhoneNumber_phone_number(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_richTextPhoneNumber();
+            new CxxTLObject<RichText>(td_bridge_obj_richTextPhoneNumber_text(obj)).Set(this.Text);
+            td_bridge_obj_richTextPhoneNumber_phone_number(obj).Set(this.PhoneNumber);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextPhoneNumber_text(obj)).Fetch();
+            this.PhoneNumber = td_bridge_obj_richTextPhoneNumber_phone_number(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1480316158)]
+    public unsafe partial class RichTextIcon
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_richTextIcon();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_richTextIcon_document(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_richTextIcon_width(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_richTextIcon_height(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_richTextIcon();
+            new CxxTLObject<Document>(td_bridge_obj_richTextIcon_document(obj)).Set(this.Document);
+            td_bridge_obj_richTextIcon_width(obj).Set(this.Width);
+            td_bridge_obj_richTextIcon_height(obj).Set(this.Height);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Document = new CxxTLObject<Document>(td_bridge_obj_richTextIcon_document(obj)).Fetch();
+            this.Width = td_bridge_obj_richTextIcon_width(obj).Fetch();
+            this.Height = td_bridge_obj_richTextIcon_height(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(673137292)]
+    public unsafe partial class RichTextAnchor
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_richTextAnchor();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_richTextAnchor_text(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_richTextAnchor_name(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_richTextAnchor();
+            new CxxTLObject<RichText>(td_bridge_obj_richTextAnchor_text(obj)).Set(this.Text);
+            td_bridge_obj_richTextAnchor_name(obj).Set(this.Name);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_richTextAnchor_text(obj)).Fetch();
+            this.Name = td_bridge_obj_richTextAnchor_name(obj).Fetch();
+        }
+    }
+
     [TLTypeID(1647457821)]
     public unsafe partial class RichTexts
     {
@@ -3970,6 +4322,246 @@ namespace TDLib.Api
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Texts = new CxxVectorObject<RichText>(td_bridge_obj_richTexts_texts(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-1180064650)]
+    public unsafe partial class PageBlockCaption
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockCaption();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockCaption_text(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockCaption_credit(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockCaption();
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockCaption_text(obj)).Set(this.Text);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockCaption_credit(obj)).Set(this.Credit);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockCaption_text(obj)).Fetch();
+            this.Credit = new CxxTLObject<RichText>(td_bridge_obj_pageBlockCaption_credit(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(323186259)]
+    public unsafe partial class PageBlockListItem
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockListItem();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pageBlockListItem_label(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockListItem_page_blocks(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockListItem();
+            td_bridge_obj_pageBlockListItem_label(obj).Set(this.Label);
+            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockListItem_page_blocks(obj)).Set(this.PageBlocks);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Label = td_bridge_obj_pageBlockListItem_label(obj).Fetch();
+            this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockListItem_page_blocks(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(848701417)]
+    public unsafe partial class PageBlockHorizontalAlignmentLeft
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockHorizontalAlignmentLeft();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockHorizontalAlignmentLeft();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-1009203990)]
+    public unsafe partial class PageBlockHorizontalAlignmentCenter
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockHorizontalAlignmentCenter();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockHorizontalAlignmentCenter();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1371369214)]
+    public unsafe partial class PageBlockHorizontalAlignmentRight
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockHorizontalAlignmentRight();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockHorizontalAlignmentRight();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(195500454)]
+    public unsafe partial class PageBlockVerticalAlignmentTop
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockVerticalAlignmentTop();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockVerticalAlignmentTop();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-2123096587)]
+    public unsafe partial class PageBlockVerticalAlignmentMiddle
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockVerticalAlignmentMiddle();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockVerticalAlignmentMiddle();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(2092531158)]
+    public unsafe partial class PageBlockVerticalAlignmentBottom
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockVerticalAlignmentBottom();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockVerticalAlignmentBottom();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1417658214)]
+    public unsafe partial class PageBlockTableCell
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockTableCell();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockTableCell_text(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pageBlockTableCell_is_header(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pageBlockTableCell_colspan(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pageBlockTableCell_rowspan(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockTableCell_align(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockTableCell_valign(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockTableCell();
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockTableCell_text(obj)).Set(this.Text);
+            td_bridge_obj_pageBlockTableCell_is_header(obj).Set(this.IsHeader);
+            td_bridge_obj_pageBlockTableCell_colspan(obj).Set(this.Colspan);
+            td_bridge_obj_pageBlockTableCell_rowspan(obj).Set(this.Rowspan);
+            new CxxTLObject<PageBlockHorizontalAlignment>(td_bridge_obj_pageBlockTableCell_align(obj)).Set(this.Align);
+            new CxxTLObject<PageBlockVerticalAlignment>(td_bridge_obj_pageBlockTableCell_valign(obj)).Set(this.Valign);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockTableCell_text(obj)).Fetch();
+            this.IsHeader = td_bridge_obj_pageBlockTableCell_is_header(obj).Fetch();
+            this.Colspan = td_bridge_obj_pageBlockTableCell_colspan(obj).Fetch();
+            this.Rowspan = td_bridge_obj_pageBlockTableCell_rowspan(obj).Fetch();
+            this.Align = new CxxTLObject<PageBlockHorizontalAlignment>(td_bridge_obj_pageBlockTableCell_align(obj)).Fetch();
+            this.Valign = new CxxTLObject<PageBlockVerticalAlignment>(td_bridge_obj_pageBlockTableCell_valign(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(481199251)]
+    public unsafe partial class PageBlockRelatedArticle
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockRelatedArticle();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pageBlockRelatedArticle_url(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pageBlockRelatedArticle_title(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pageBlockRelatedArticle_description(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockRelatedArticle_photo(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pageBlockRelatedArticle_author(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pageBlockRelatedArticle_publish_date(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockRelatedArticle();
+            td_bridge_obj_pageBlockRelatedArticle_url(obj).Set(this.Url);
+            td_bridge_obj_pageBlockRelatedArticle_title(obj).Set(this.Title);
+            td_bridge_obj_pageBlockRelatedArticle_description(obj).Set(this.Description);
+            new CxxTLObject<Photo>(td_bridge_obj_pageBlockRelatedArticle_photo(obj)).Set(this.Photo);
+            td_bridge_obj_pageBlockRelatedArticle_author(obj).Set(this.Author);
+            td_bridge_obj_pageBlockRelatedArticle_publish_date(obj).Set(this.PublishDate);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Url = td_bridge_obj_pageBlockRelatedArticle_url(obj).Fetch();
+            this.Title = td_bridge_obj_pageBlockRelatedArticle_title(obj).Fetch();
+            this.Description = td_bridge_obj_pageBlockRelatedArticle_description(obj).Fetch();
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_pageBlockRelatedArticle_photo(obj)).Fetch();
+            this.Author = td_bridge_obj_pageBlockRelatedArticle_author(obj).Fetch();
+            this.PublishDate = td_bridge_obj_pageBlockRelatedArticle_publish_date(obj).Fetch();
         }
     }
 
@@ -4083,6 +4675,27 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(1361282635)]
+    public unsafe partial class PageBlockKicker
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockKicker();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockKicker_kicker(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockKicker();
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockKicker_kicker(obj)).Set(this.Kicker);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Kicker = new CxxTLObject<RichText>(td_bridge_obj_pageBlockKicker_kicker(obj)).Fetch();
+        }
+    }
+
     [TLTypeID(1182402406)]
     public unsafe partial class PageBlockParagraph
     {
@@ -4188,7 +4801,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-1752631674)]
+    [TLTypeID(-1037074852)]
     public unsafe partial class PageBlockList
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4197,24 +4810,19 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_obj_pageBlockList_items(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxBool td_bridge_obj_pageBlockList_is_ordered(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockList();
-            new CxxVectorObject<RichText>(td_bridge_obj_pageBlockList_items(obj)).Set(this.Items);
-            td_bridge_obj_pageBlockList_is_ordered(obj).Set(this.IsOrdered);
+            new CxxVectorObject<PageBlockListItem>(td_bridge_obj_pageBlockList_items(obj)).Set(this.Items);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.Items = new CxxVectorObject<RichText>(td_bridge_obj_pageBlockList_items(obj)).Fetch();
-            this.IsOrdered = td_bridge_obj_pageBlockList_is_ordered(obj).Fetch();
+            this.Items = new CxxVectorObject<PageBlockListItem>(td_bridge_obj_pageBlockList_items(obj)).Fetch();
         }
     }
 
-    [TLTypeID(-37421406)]
+    [TLTypeID(1657834142)]
     public unsafe partial class PageBlockBlockQuote
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4225,22 +4833,22 @@ namespace TDLib.Api
         private static extern IntPtr td_bridge_obj_pageBlockBlockQuote_text(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_obj_pageBlockBlockQuote_caption(IntPtr obj);
+        private static extern IntPtr td_bridge_obj_pageBlockBlockQuote_credit(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockBlockQuote();
             new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_text(obj)).Set(this.Text);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_caption(obj)).Set(this.Caption);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_credit(obj)).Set(this.Credit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_text(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_caption(obj)).Fetch();
+            this.Credit = new CxxTLObject<RichText>(td_bridge_obj_pageBlockBlockQuote_credit(obj)).Fetch();
         }
     }
 
-    [TLTypeID(-1799498665)]
+    [TLTypeID(490242317)]
     public unsafe partial class PageBlockPullQuote
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4251,22 +4859,22 @@ namespace TDLib.Api
         private static extern IntPtr td_bridge_obj_pageBlockPullQuote_text(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_obj_pageBlockPullQuote_caption(IntPtr obj);
+        private static extern IntPtr td_bridge_obj_pageBlockPullQuote_credit(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockPullQuote();
             new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_text(obj)).Set(this.Text);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_caption(obj)).Set(this.Caption);
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_credit(obj)).Set(this.Credit);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Text = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_text(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_caption(obj)).Fetch();
+            this.Credit = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPullQuote_credit(obj)).Fetch();
         }
     }
 
-    [TLTypeID(1639478661)]
+    [TLTypeID(1355669513)]
     public unsafe partial class PageBlockAnimation
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4285,19 +4893,19 @@ namespace TDLib.Api
         {
             var obj = td_bridge_newobj_pageBlockAnimation();
             new CxxTLObject<Animation>(td_bridge_obj_pageBlockAnimation_animation(obj)).Set(this.Animation);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAnimation_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockAnimation_caption(obj)).Set(this.Caption);
             td_bridge_obj_pageBlockAnimation_need_autoplay(obj).Set(this.NeedAutoplay);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Animation = new CxxTLObject<Animation>(td_bridge_obj_pageBlockAnimation_animation(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAnimation_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockAnimation_caption(obj)).Fetch();
             this.NeedAutoplay = td_bridge_obj_pageBlockAnimation_need_autoplay(obj).Fetch();
         }
     }
 
-    [TLTypeID(1898245855)]
+    [TLTypeID(-63371245)]
     public unsafe partial class PageBlockAudio
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4313,17 +4921,17 @@ namespace TDLib.Api
         {
             var obj = td_bridge_newobj_pageBlockAudio();
             new CxxTLObject<Audio>(td_bridge_obj_pageBlockAudio_audio(obj)).Set(this.Audio);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockAudio_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockAudio_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Audio = new CxxTLObject<Audio>(td_bridge_obj_pageBlockAudio_audio(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockAudio_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockAudio_caption(obj)).Fetch();
         }
     }
 
-    [TLTypeID(-637181825)]
+    [TLTypeID(417601156)]
     public unsafe partial class PageBlockPhoto
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4335,21 +4943,26 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_obj_pageBlockPhoto_caption(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pageBlockPhoto_url(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_pageBlockPhoto();
             new CxxTLObject<Photo>(td_bridge_obj_pageBlockPhoto_photo(obj)).Set(this.Photo);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockPhoto_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockPhoto_caption(obj)).Set(this.Caption);
+            td_bridge_obj_pageBlockPhoto_url(obj).Set(this.Url);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Photo = new CxxTLObject<Photo>(td_bridge_obj_pageBlockPhoto_photo(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockPhoto_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockPhoto_caption(obj)).Fetch();
+            this.Url = td_bridge_obj_pageBlockPhoto_url(obj).Fetch();
         }
     }
 
-    [TLTypeID(1610373002)]
+    [TLTypeID(510041394)]
     public unsafe partial class PageBlockVideo
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4371,7 +4984,7 @@ namespace TDLib.Api
         {
             var obj = td_bridge_newobj_pageBlockVideo();
             new CxxTLObject<Video>(td_bridge_obj_pageBlockVideo_video(obj)).Set(this.Video);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockVideo_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockVideo_caption(obj)).Set(this.Caption);
             td_bridge_obj_pageBlockVideo_need_autoplay(obj).Set(this.NeedAutoplay);
             td_bridge_obj_pageBlockVideo_is_looped(obj).Set(this.IsLooped);
             return obj;
@@ -4379,7 +4992,7 @@ namespace TDLib.Api
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Video = new CxxTLObject<Video>(td_bridge_obj_pageBlockVideo_video(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockVideo_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockVideo_caption(obj)).Fetch();
             this.NeedAutoplay = td_bridge_obj_pageBlockVideo_need_autoplay(obj).Fetch();
             this.IsLooped = td_bridge_obj_pageBlockVideo_is_looped(obj).Fetch();
         }
@@ -4406,7 +5019,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-211257334)]
+    [TLTypeID(-1942577763)]
     public unsafe partial class PageBlockEmbedded
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4444,7 +5057,7 @@ namespace TDLib.Api
             new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbedded_poster_photo(obj)).Set(this.PosterPhoto);
             td_bridge_obj_pageBlockEmbedded_width(obj).Set(this.Width);
             td_bridge_obj_pageBlockEmbedded_height(obj).Set(this.Height);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Set(this.Caption);
             td_bridge_obj_pageBlockEmbedded_is_full_width(obj).Set(this.IsFullWidth);
             td_bridge_obj_pageBlockEmbedded_allow_scrolling(obj).Set(this.AllowScrolling);
             return obj;
@@ -4456,13 +5069,13 @@ namespace TDLib.Api
             this.PosterPhoto = new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbedded_poster_photo(obj)).Fetch();
             this.Width = td_bridge_obj_pageBlockEmbedded_width(obj).Fetch();
             this.Height = td_bridge_obj_pageBlockEmbedded_height(obj).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockEmbedded_caption(obj)).Fetch();
             this.IsFullWidth = td_bridge_obj_pageBlockEmbedded_is_full_width(obj).Fetch();
             this.AllowScrolling = td_bridge_obj_pageBlockEmbedded_allow_scrolling(obj).Fetch();
         }
     }
 
-    [TLTypeID(1049948772)]
+    [TLTypeID(397600949)]
     public unsafe partial class PageBlockEmbeddedPost
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4494,7 +5107,7 @@ namespace TDLib.Api
             new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbeddedPost_author_photo(obj)).Set(this.AuthorPhoto);
             td_bridge_obj_pageBlockEmbeddedPost_date(obj).Set(this.Date);
             new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockEmbeddedPost_page_blocks(obj)).Set(this.PageBlocks);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -4504,11 +5117,11 @@ namespace TDLib.Api
             this.AuthorPhoto = new CxxTLObject<Photo>(td_bridge_obj_pageBlockEmbeddedPost_author_photo(obj)).Fetch();
             this.Date = td_bridge_obj_pageBlockEmbeddedPost_date(obj).Fetch();
             this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockEmbeddedPost_page_blocks(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockEmbeddedPost_caption(obj)).Fetch();
         }
     }
 
-    [TLTypeID(911142202)]
+    [TLTypeID(1163760110)]
     public unsafe partial class PageBlockCollage
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4524,17 +5137,17 @@ namespace TDLib.Api
         {
             var obj = td_bridge_newobj_pageBlockCollage();
             new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockCollage_page_blocks(obj)).Set(this.PageBlocks);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockCollage_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockCollage_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockCollage_page_blocks(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockCollage_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockCollage_caption(obj)).Fetch();
         }
     }
 
-    [TLTypeID(178557514)]
+    [TLTypeID(539217375)]
     public unsafe partial class PageBlockSlideshow
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4550,13 +5163,13 @@ namespace TDLib.Api
         {
             var obj = td_bridge_newobj_pageBlockSlideshow();
             new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockSlideshow_page_blocks(obj)).Set(this.PageBlocks);
-            new CxxTLObject<RichText>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Set(this.Caption);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Set(this.Caption);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockSlideshow_page_blocks(obj)).Fetch();
-            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockSlideshow_caption(obj)).Fetch();
         }
     }
 
@@ -4591,7 +5204,141 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1804324850)]
+    [TLTypeID(-942649288)]
+    public unsafe partial class PageBlockTable
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockTable();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockTable_caption(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockTable_cells(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pageBlockTable_is_bordered(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pageBlockTable_is_striped(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockTable();
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockTable_caption(obj)).Set(this.Caption);
+            new CxxVectorVectorObject<PageBlockTableCell>(td_bridge_obj_pageBlockTable_cells(obj)).Set(this.Cells);
+            td_bridge_obj_pageBlockTable_is_bordered(obj).Set(this.IsBordered);
+            td_bridge_obj_pageBlockTable_is_striped(obj).Set(this.IsStriped);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Caption = new CxxTLObject<RichText>(td_bridge_obj_pageBlockTable_caption(obj)).Fetch();
+            this.Cells = new CxxVectorVectorObject<PageBlockTableCell>(td_bridge_obj_pageBlockTable_cells(obj)).Fetch();
+            this.IsBordered = td_bridge_obj_pageBlockTable_is_bordered(obj).Fetch();
+            this.IsStriped = td_bridge_obj_pageBlockTable_is_striped(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1599869809)]
+    public unsafe partial class PageBlockDetails
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockDetails();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockDetails_header(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockDetails_page_blocks(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pageBlockDetails_is_open(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockDetails();
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockDetails_header(obj)).Set(this.Header);
+            new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockDetails_page_blocks(obj)).Set(this.PageBlocks);
+            td_bridge_obj_pageBlockDetails_is_open(obj).Set(this.IsOpen);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Header = new CxxTLObject<RichText>(td_bridge_obj_pageBlockDetails_header(obj)).Fetch();
+            this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_pageBlockDetails_page_blocks(obj)).Fetch();
+            this.IsOpen = td_bridge_obj_pageBlockDetails_is_open(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1807324374)]
+    public unsafe partial class PageBlockRelatedArticles
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockRelatedArticles();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockRelatedArticles_header(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockRelatedArticles_articles(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockRelatedArticles();
+            new CxxTLObject<RichText>(td_bridge_obj_pageBlockRelatedArticles_header(obj)).Set(this.Header);
+            new CxxVectorObject<PageBlockRelatedArticle>(td_bridge_obj_pageBlockRelatedArticles_articles(obj)).Set(this.Articles);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Header = new CxxTLObject<RichText>(td_bridge_obj_pageBlockRelatedArticles_header(obj)).Fetch();
+            this.Articles = new CxxVectorObject<PageBlockRelatedArticle>(td_bridge_obj_pageBlockRelatedArticles_articles(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(1510961171)]
+    public unsafe partial class PageBlockMap
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pageBlockMap();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockMap_location(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pageBlockMap_zoom(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pageBlockMap_width(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pageBlockMap_height(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pageBlockMap_caption(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pageBlockMap();
+            new CxxTLObject<Location>(td_bridge_obj_pageBlockMap_location(obj)).Set(this.Location);
+            td_bridge_obj_pageBlockMap_zoom(obj).Set(this.Zoom);
+            td_bridge_obj_pageBlockMap_width(obj).Set(this.Width);
+            td_bridge_obj_pageBlockMap_height(obj).Set(this.Height);
+            new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockMap_caption(obj)).Set(this.Caption);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Location = new CxxTLObject<Location>(td_bridge_obj_pageBlockMap_location(obj)).Fetch();
+            this.Zoom = td_bridge_obj_pageBlockMap_zoom(obj).Fetch();
+            this.Width = td_bridge_obj_pageBlockMap_width(obj).Fetch();
+            this.Height = td_bridge_obj_pageBlockMap_height(obj).Fetch();
+            this.Caption = new CxxTLObject<PageBlockCaption>(td_bridge_obj_pageBlockMap_caption(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(957287214)]
     public unsafe partial class WebPageInstantView
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4602,22 +5349,37 @@ namespace TDLib.Api
         private static extern IntPtr td_bridge_obj_webPageInstantView_page_blocks(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_webPageInstantView_version(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_webPageInstantView_url(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_webPageInstantView_is_rtl(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_webPageInstantView_is_full(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_webPageInstantView();
             new CxxVectorObject<PageBlock>(td_bridge_obj_webPageInstantView_page_blocks(obj)).Set(this.PageBlocks);
+            td_bridge_obj_webPageInstantView_version(obj).Set(this.Version);
+            td_bridge_obj_webPageInstantView_url(obj).Set(this.Url);
+            td_bridge_obj_webPageInstantView_is_rtl(obj).Set(this.IsRtl);
             td_bridge_obj_webPageInstantView_is_full(obj).Set(this.IsFull);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.PageBlocks = new CxxVectorObject<PageBlock>(td_bridge_obj_webPageInstantView_page_blocks(obj)).Fetch();
+            this.Version = td_bridge_obj_webPageInstantView_version(obj).Fetch();
+            this.Url = td_bridge_obj_webPageInstantView_url(obj).Fetch();
+            this.IsRtl = td_bridge_obj_webPageInstantView_is_rtl(obj).Fetch();
             this.IsFull = td_bridge_obj_webPageInstantView_is_full(obj).Fetch();
         }
     }
 
-    [TLTypeID(1465949075)]
+    [TLTypeID(1092898169)]
     public unsafe partial class WebPage
     {
         [SuppressUnmanagedCodeSecurity]
@@ -4685,7 +5447,7 @@ namespace TDLib.Api
         private static extern IntPtr td_bridge_obj_webPage_voice_note(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxBool td_bridge_obj_webPage_has_instant_view(IntPtr obj);
+        private static extern CxxInt32 td_bridge_obj_webPage_instant_view_version(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_webPage();
@@ -4709,7 +5471,7 @@ namespace TDLib.Api
             new CxxTLObject<Video>(td_bridge_obj_webPage_video(obj)).Set(this.Video);
             new CxxTLObject<VideoNote>(td_bridge_obj_webPage_video_note(obj)).Set(this.VideoNote);
             new CxxTLObject<VoiceNote>(td_bridge_obj_webPage_voice_note(obj)).Set(this.VoiceNote);
-            td_bridge_obj_webPage_has_instant_view(obj).Set(this.HasInstantView);
+            td_bridge_obj_webPage_instant_view_version(obj).Set(this.InstantViewVersion);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -4734,7 +5496,7 @@ namespace TDLib.Api
             this.Video = new CxxTLObject<Video>(td_bridge_obj_webPage_video(obj)).Fetch();
             this.VideoNote = new CxxTLObject<VideoNote>(td_bridge_obj_webPage_video_note(obj)).Fetch();
             this.VoiceNote = new CxxTLObject<VoiceNote>(td_bridge_obj_webPage_voice_note(obj)).Fetch();
-            this.HasInstantView = td_bridge_obj_webPage_has_instant_view(obj).Fetch();
+            this.InstantViewVersion = td_bridge_obj_webPage_instant_view_version(obj).Fetch();
         }
     }
 
@@ -6370,19 +7132,24 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-643919323)]
+    [TLTypeID(-689621228)]
     public unsafe partial class PassportElementErrorSourceTranslationFile
     {
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceTranslationFile();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_passportElementErrorSourceTranslationFile_file_index(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementErrorSourceTranslationFile();
+            td_bridge_obj_passportElementErrorSourceTranslationFile_file_index(obj).Set(this.FileIndex);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
+            this.FileIndex = td_bridge_obj_passportElementErrorSourceTranslationFile_file_index(obj).Fetch();
         }
     }
 
@@ -6402,19 +7169,24 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-226596202)]
+    [TLTypeID(2020358960)]
     public unsafe partial class PassportElementErrorSourceFile
     {
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceFile();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_passportElementErrorSourceFile_file_index(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportElementErrorSourceFile();
+            td_bridge_obj_passportElementErrorSourceFile_file_index(obj).Set(this.FileIndex);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
+            this.FileIndex = td_bridge_obj_passportElementErrorSourceFile_file_index(obj).Fetch();
         }
     }
 
@@ -6522,7 +7294,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-1780995944)]
+    [TLTypeID(-1070673218)]
     public unsafe partial class PassportAuthorizationForm
     {
         [SuppressUnmanagedCodeSecurity]
@@ -6536,20 +7308,12 @@ namespace TDLib.Api
         private static extern IntPtr td_bridge_obj_passportAuthorizationForm_required_elements(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_obj_passportAuthorizationForm_elements(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_obj_passportAuthorizationForm_errors(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxString td_bridge_obj_passportAuthorizationForm_privacy_policy_url(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_passportAuthorizationForm();
             td_bridge_obj_passportAuthorizationForm_id(obj).Set(this.Id);
             new CxxVectorObject<PassportRequiredElement>(td_bridge_obj_passportAuthorizationForm_required_elements(obj)).Set(this.RequiredElements);
-            new CxxVectorObject<PassportElement>(td_bridge_obj_passportAuthorizationForm_elements(obj)).Set(this.Elements);
-            new CxxVectorObject<PassportElementError>(td_bridge_obj_passportAuthorizationForm_errors(obj)).Set(this.Errors);
             td_bridge_obj_passportAuthorizationForm_privacy_policy_url(obj).Set(this.PrivacyPolicyUrl);
             return obj;
         }
@@ -6557,9 +7321,33 @@ namespace TDLib.Api
         {
             this.Id = td_bridge_obj_passportAuthorizationForm_id(obj).Fetch();
             this.RequiredElements = new CxxVectorObject<PassportRequiredElement>(td_bridge_obj_passportAuthorizationForm_required_elements(obj)).Fetch();
-            this.Elements = new CxxVectorObject<PassportElement>(td_bridge_obj_passportAuthorizationForm_elements(obj)).Fetch();
-            this.Errors = new CxxVectorObject<PassportElementError>(td_bridge_obj_passportAuthorizationForm_errors(obj)).Fetch();
             this.PrivacyPolicyUrl = td_bridge_obj_passportAuthorizationForm_privacy_policy_url(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1308923044)]
+    public unsafe partial class PassportElementsWithErrors
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_passportElementsWithErrors();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_passportElementsWithErrors_elements(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_passportElementsWithErrors_errors(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_passportElementsWithErrors();
+            new CxxVectorObject<PassportElement>(td_bridge_obj_passportElementsWithErrors_elements(obj)).Set(this.Elements);
+            new CxxVectorObject<PassportElementError>(td_bridge_obj_passportElementsWithErrors_errors(obj)).Set(this.Errors);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Elements = new CxxVectorObject<PassportElement>(td_bridge_obj_passportElementsWithErrors_elements(obj)).Fetch();
+            this.Errors = new CxxVectorObject<PassportElementError>(td_bridge_obj_passportElementsWithErrors_errors(obj)).Fetch();
         }
     }
 
@@ -7257,6 +8045,27 @@ namespace TDLib.Api
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Game = new CxxTLObject<Game>(td_bridge_obj_messageGame_game(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-662130099)]
+    public unsafe partial class MessagePoll
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_messagePoll();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_messagePoll_poll(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_messagePoll();
+            new CxxTLObject<Poll>(td_bridge_obj_messagePoll_poll(obj)).Set(this.Poll);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Poll = new CxxTLObject<Poll>(td_bridge_obj_messagePoll_poll(obj)).Fetch();
         }
     }
 
@@ -8663,6 +9472,32 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-1791140518)]
+    public unsafe partial class InputMessagePoll
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_inputMessagePoll();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_inputMessagePoll_question(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxVectorString td_bridge_obj_inputMessagePoll_options(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_inputMessagePoll();
+            td_bridge_obj_inputMessagePoll_question(obj).Set(this.Question);
+            td_bridge_obj_inputMessagePoll_options(obj).Set(this.Options);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Question = td_bridge_obj_inputMessagePoll_question(obj).Fetch();
+            this.Options = td_bridge_obj_inputMessagePoll_options(obj).Fetch();
+        }
+    }
+
     [TLTypeID(1561363198)]
     public unsafe partial class InputMessageForwarded
     {
@@ -9709,7 +10544,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1518705438)]
+    [TLTypeID(1848397705)]
     public unsafe partial class CallStateReady
     {
         [SuppressUnmanagedCodeSecurity]
@@ -9730,6 +10565,9 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxVectorString td_bridge_obj_callStateReady_emojis(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_callStateReady_allow_p2p(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_callStateReady();
@@ -9738,6 +10576,7 @@ namespace TDLib.Api
             td_bridge_obj_callStateReady_config(obj).Set(this.Config);
             td_bridge_obj_callStateReady_encryption_key(obj).Set(this.EncryptionKey);
             td_bridge_obj_callStateReady_emojis(obj).Set(this.Emojis);
+            td_bridge_obj_callStateReady_allow_p2p(obj).Set(this.AllowP2p);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -9747,6 +10586,7 @@ namespace TDLib.Api
             this.Config = td_bridge_obj_callStateReady_config(obj).Fetch();
             this.EncryptionKey = td_bridge_obj_callStateReady_encryption_key(obj).Fetch();
             this.Emojis = td_bridge_obj_callStateReady_emojis(obj).Fetch();
+            this.AllowP2p = td_bridge_obj_callStateReady_allow_p2p(obj).Fetch();
         }
     }
 
@@ -9898,6 +10738,27 @@ namespace TDLib.Api
         {
             this.UserIds = td_bridge_obj_importedContacts_user_ids(obj).Fetch();
             this.ImporterCount = td_bridge_obj_importedContacts_importer_count(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-2018019930)]
+    public unsafe partial class HttpUrl
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_httpUrl();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_httpUrl_url(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_httpUrl();
+            td_bridge_obj_httpUrl_url(obj).Set(this.Url);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Url = td_bridge_obj_httpUrl_url(obj).Fetch();
         }
     }
 
@@ -11858,7 +12719,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1716484242)]
+    [TLTypeID(542199642)]
     public unsafe partial class LanguagePackInfo
     {
         [SuppressUnmanagedCodeSecurity]
@@ -11869,28 +12730,73 @@ namespace TDLib.Api
         private static extern CxxString td_bridge_obj_languagePackInfo_id(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_languagePackInfo_base_language_pack_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxString td_bridge_obj_languagePackInfo_name(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxString td_bridge_obj_languagePackInfo_native_name(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_languagePackInfo_plural_code(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_languagePackInfo_is_official(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_languagePackInfo_is_rtl(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_languagePackInfo_is_beta(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_languagePackInfo_is_installed(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_languagePackInfo_total_string_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_languagePackInfo_translated_string_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxInt32 td_bridge_obj_languagePackInfo_local_string_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_languagePackInfo_translation_url(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_languagePackInfo();
             td_bridge_obj_languagePackInfo_id(obj).Set(this.Id);
+            td_bridge_obj_languagePackInfo_base_language_pack_id(obj).Set(this.BaseLanguagePackId);
             td_bridge_obj_languagePackInfo_name(obj).Set(this.Name);
             td_bridge_obj_languagePackInfo_native_name(obj).Set(this.NativeName);
+            td_bridge_obj_languagePackInfo_plural_code(obj).Set(this.PluralCode);
+            td_bridge_obj_languagePackInfo_is_official(obj).Set(this.IsOfficial);
+            td_bridge_obj_languagePackInfo_is_rtl(obj).Set(this.IsRtl);
+            td_bridge_obj_languagePackInfo_is_beta(obj).Set(this.IsBeta);
+            td_bridge_obj_languagePackInfo_is_installed(obj).Set(this.IsInstalled);
+            td_bridge_obj_languagePackInfo_total_string_count(obj).Set(this.TotalStringCount);
+            td_bridge_obj_languagePackInfo_translated_string_count(obj).Set(this.TranslatedStringCount);
             td_bridge_obj_languagePackInfo_local_string_count(obj).Set(this.LocalStringCount);
+            td_bridge_obj_languagePackInfo_translation_url(obj).Set(this.TranslationUrl);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Id = td_bridge_obj_languagePackInfo_id(obj).Fetch();
+            this.BaseLanguagePackId = td_bridge_obj_languagePackInfo_base_language_pack_id(obj).Fetch();
             this.Name = td_bridge_obj_languagePackInfo_name(obj).Fetch();
             this.NativeName = td_bridge_obj_languagePackInfo_native_name(obj).Fetch();
+            this.PluralCode = td_bridge_obj_languagePackInfo_plural_code(obj).Fetch();
+            this.IsOfficial = td_bridge_obj_languagePackInfo_is_official(obj).Fetch();
+            this.IsRtl = td_bridge_obj_languagePackInfo_is_rtl(obj).Fetch();
+            this.IsBeta = td_bridge_obj_languagePackInfo_is_beta(obj).Fetch();
+            this.IsInstalled = td_bridge_obj_languagePackInfo_is_installed(obj).Fetch();
+            this.TotalStringCount = td_bridge_obj_languagePackInfo_total_string_count(obj).Fetch();
+            this.TranslatedStringCount = td_bridge_obj_languagePackInfo_translated_string_count(obj).Fetch();
             this.LocalStringCount = td_bridge_obj_languagePackInfo_local_string_count(obj).Fetch();
+            this.TranslationUrl = td_bridge_obj_languagePackInfo_translation_url(obj).Fetch();
         }
     }
 
@@ -11915,24 +12821,29 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1092220225)]
-    public unsafe partial class DeviceTokenGoogleCloudMessaging
+    [TLTypeID(-797881849)]
+    public unsafe partial class DeviceTokenFirebaseCloudMessaging
     {
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_deviceTokenGoogleCloudMessaging();
+        private static extern IntPtr td_bridge_newobj_deviceTokenFirebaseCloudMessaging();
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxString td_bridge_obj_deviceTokenGoogleCloudMessaging_token(IntPtr obj);
+        private static extern CxxString td_bridge_obj_deviceTokenFirebaseCloudMessaging_token(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_deviceTokenFirebaseCloudMessaging_encrypt(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
-            var obj = td_bridge_newobj_deviceTokenGoogleCloudMessaging();
-            td_bridge_obj_deviceTokenGoogleCloudMessaging_token(obj).Set(this.Token);
+            var obj = td_bridge_newobj_deviceTokenFirebaseCloudMessaging();
+            td_bridge_obj_deviceTokenFirebaseCloudMessaging_token(obj).Set(this.Token);
+            td_bridge_obj_deviceTokenFirebaseCloudMessaging_encrypt(obj).Set(this.Encrypt);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-            this.Token = td_bridge_obj_deviceTokenGoogleCloudMessaging_token(obj).Fetch();
+            this.Token = td_bridge_obj_deviceTokenFirebaseCloudMessaging_token(obj).Fetch();
+            this.Encrypt = td_bridge_obj_deviceTokenFirebaseCloudMessaging_encrypt(obj).Fetch();
         }
     }
 
@@ -11962,7 +12873,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-327676505)]
+    [TLTypeID(804275689)]
     public unsafe partial class DeviceTokenApplePushVoIP
     {
         [SuppressUnmanagedCodeSecurity]
@@ -11974,17 +12885,22 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_deviceTokenApplePushVoIP_is_app_sandbox(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_deviceTokenApplePushVoIP_encrypt(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deviceTokenApplePushVoIP();
             td_bridge_obj_deviceTokenApplePushVoIP_device_token(obj).Set(this.DeviceToken);
             td_bridge_obj_deviceTokenApplePushVoIP_is_app_sandbox(obj).Set(this.IsAppSandbox);
+            td_bridge_obj_deviceTokenApplePushVoIP_encrypt(obj).Set(this.Encrypt);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.DeviceToken = td_bridge_obj_deviceTokenApplePushVoIP_device_token(obj).Fetch();
             this.IsAppSandbox = td_bridge_obj_deviceTokenApplePushVoIP_is_app_sandbox(obj).Fetch();
+            this.Encrypt = td_bridge_obj_deviceTokenApplePushVoIP_encrypt(obj).Fetch();
         }
     }
 
@@ -12166,6 +13082,27 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(371056428)]
+    public unsafe partial class PushReceiverId
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushReceiverId();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_pushReceiverId_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushReceiverId();
+            td_bridge_obj_pushReceiverId_id(obj).Set(this.Id);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Id = td_bridge_obj_pushReceiverId_id(obj).Fetch();
+        }
+    }
+
     [TLTypeID(282771691)]
     public unsafe partial class Wallpaper
     {
@@ -12319,6 +13256,892 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-316950436)]
+    public unsafe partial class PushMessageContentHidden
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentHidden();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentHidden_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentHidden();
+            td_bridge_obj_pushMessageContentHidden_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.IsPinned = td_bridge_obj_pushMessageContentHidden_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1034215396)]
+    public unsafe partial class PushMessageContentAnimation
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentAnimation();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentAnimation_animation(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentAnimation_caption(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentAnimation_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentAnimation();
+            new CxxTLObject<Animation>(td_bridge_obj_pushMessageContentAnimation_animation(obj)).Set(this.Animation);
+            td_bridge_obj_pushMessageContentAnimation_caption(obj).Set(this.Caption);
+            td_bridge_obj_pushMessageContentAnimation_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Animation = new CxxTLObject<Animation>(td_bridge_obj_pushMessageContentAnimation_animation(obj)).Fetch();
+            this.Caption = td_bridge_obj_pushMessageContentAnimation_caption(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentAnimation_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(381581426)]
+    public unsafe partial class PushMessageContentAudio
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentAudio();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentAudio_audio(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentAudio_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentAudio();
+            new CxxTLObject<Audio>(td_bridge_obj_pushMessageContentAudio_audio(obj)).Set(this.Audio);
+            td_bridge_obj_pushMessageContentAudio_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Audio = new CxxTLObject<Audio>(td_bridge_obj_pushMessageContentAudio_audio(obj)).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentAudio_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-12219820)]
+    public unsafe partial class PushMessageContentContact
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentContact();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentContact_name(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentContact_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentContact();
+            td_bridge_obj_pushMessageContentContact_name(obj).Set(this.Name);
+            td_bridge_obj_pushMessageContentContact_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Name = td_bridge_obj_pushMessageContentContact_name(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentContact_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-303962720)]
+    public unsafe partial class PushMessageContentContactRegistered
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentContactRegistered();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentContactRegistered();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-458379775)]
+    public unsafe partial class PushMessageContentDocument
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentDocument();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentDocument_document(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentDocument_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentDocument();
+            new CxxTLObject<Document>(td_bridge_obj_pushMessageContentDocument_document(obj)).Set(this.Document);
+            td_bridge_obj_pushMessageContentDocument_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Document = new CxxTLObject<Document>(td_bridge_obj_pushMessageContentDocument_document(obj)).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentDocument_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-515131109)]
+    public unsafe partial class PushMessageContentGame
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentGame();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentGame_title(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentGame_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentGame();
+            td_bridge_obj_pushMessageContentGame_title(obj).Set(this.Title);
+            td_bridge_obj_pushMessageContentGame_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Title = td_bridge_obj_pushMessageContentGame_title(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentGame_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(901303688)]
+    public unsafe partial class PushMessageContentGameScore
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentGameScore();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentGameScore_title(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pushMessageContentGameScore_score(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentGameScore_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentGameScore();
+            td_bridge_obj_pushMessageContentGameScore_title(obj).Set(this.Title);
+            td_bridge_obj_pushMessageContentGameScore_score(obj).Set(this.Score);
+            td_bridge_obj_pushMessageContentGameScore_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Title = td_bridge_obj_pushMessageContentGameScore_title(obj).Fetch();
+            this.Score = td_bridge_obj_pushMessageContentGameScore_score(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentGameScore_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1731687492)]
+    public unsafe partial class PushMessageContentInvoice
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentInvoice();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentInvoice_price(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentInvoice_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentInvoice();
+            td_bridge_obj_pushMessageContentInvoice_price(obj).Set(this.Price);
+            td_bridge_obj_pushMessageContentInvoice_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Price = td_bridge_obj_pushMessageContentInvoice_price(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentInvoice_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1288005709)]
+    public unsafe partial class PushMessageContentLocation
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentLocation();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentLocation_is_live(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentLocation_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentLocation();
+            td_bridge_obj_pushMessageContentLocation_is_live(obj).Set(this.IsLive);
+            td_bridge_obj_pushMessageContentLocation_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.IsLive = td_bridge_obj_pushMessageContentLocation_is_live(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentLocation_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(140631122)]
+    public unsafe partial class PushMessageContentPhoto
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentPhoto();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentPhoto_photo(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentPhoto_caption(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentPhoto_is_secret(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentPhoto_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentPhoto();
+            new CxxTLObject<Photo>(td_bridge_obj_pushMessageContentPhoto_photo(obj)).Set(this.Photo);
+            td_bridge_obj_pushMessageContentPhoto_caption(obj).Set(this.Caption);
+            td_bridge_obj_pushMessageContentPhoto_is_secret(obj).Set(this.IsSecret);
+            td_bridge_obj_pushMessageContentPhoto_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Photo = new CxxTLObject<Photo>(td_bridge_obj_pushMessageContentPhoto_photo(obj)).Fetch();
+            this.Caption = td_bridge_obj_pushMessageContentPhoto_caption(obj).Fetch();
+            this.IsSecret = td_bridge_obj_pushMessageContentPhoto_is_secret(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentPhoto_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1545438580)]
+    public unsafe partial class PushMessageContentPoll
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentPoll();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentPoll_question(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentPoll_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentPoll();
+            td_bridge_obj_pushMessageContentPoll_question(obj).Set(this.Question);
+            td_bridge_obj_pushMessageContentPoll_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Question = td_bridge_obj_pushMessageContentPoll_question(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentPoll_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(214245369)]
+    public unsafe partial class PushMessageContentScreenshotTaken
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentScreenshotTaken();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentScreenshotTaken();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1553513939)]
+    public unsafe partial class PushMessageContentSticker
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentSticker();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentSticker_sticker(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentSticker_emoji(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentSticker_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentSticker();
+            new CxxTLObject<Sticker>(td_bridge_obj_pushMessageContentSticker_sticker(obj)).Set(this.Sticker);
+            td_bridge_obj_pushMessageContentSticker_emoji(obj).Set(this.Emoji);
+            td_bridge_obj_pushMessageContentSticker_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Sticker = new CxxTLObject<Sticker>(td_bridge_obj_pushMessageContentSticker_sticker(obj)).Fetch();
+            this.Emoji = td_bridge_obj_pushMessageContentSticker_emoji(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentSticker_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(274587305)]
+    public unsafe partial class PushMessageContentText
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentText();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentText_text(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentText_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentText();
+            td_bridge_obj_pushMessageContentText_text(obj).Set(this.Text);
+            td_bridge_obj_pushMessageContentText_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Text = td_bridge_obj_pushMessageContentText_text(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentText_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(310038831)]
+    public unsafe partial class PushMessageContentVideo
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentVideo();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentVideo_video(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentVideo_caption(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentVideo_is_secret(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentVideo_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentVideo();
+            new CxxTLObject<Video>(td_bridge_obj_pushMessageContentVideo_video(obj)).Set(this.Video);
+            td_bridge_obj_pushMessageContentVideo_caption(obj).Set(this.Caption);
+            td_bridge_obj_pushMessageContentVideo_is_secret(obj).Set(this.IsSecret);
+            td_bridge_obj_pushMessageContentVideo_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Video = new CxxTLObject<Video>(td_bridge_obj_pushMessageContentVideo_video(obj)).Fetch();
+            this.Caption = td_bridge_obj_pushMessageContentVideo_caption(obj).Fetch();
+            this.IsSecret = td_bridge_obj_pushMessageContentVideo_is_secret(obj).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentVideo_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1122764417)]
+    public unsafe partial class PushMessageContentVideoNote
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentVideoNote();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentVideoNote_video_note(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentVideoNote_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentVideoNote();
+            new CxxTLObject<VideoNote>(td_bridge_obj_pushMessageContentVideoNote_video_note(obj)).Set(this.VideoNote);
+            td_bridge_obj_pushMessageContentVideoNote_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.VideoNote = new CxxTLObject<VideoNote>(td_bridge_obj_pushMessageContentVideoNote_video_note(obj)).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentVideoNote_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(88910987)]
+    public unsafe partial class PushMessageContentVoiceNote
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentVoiceNote();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_pushMessageContentVoiceNote_voice_note(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentVoiceNote_is_pinned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentVoiceNote();
+            new CxxTLObject<VoiceNote>(td_bridge_obj_pushMessageContentVoiceNote_voice_note(obj)).Set(this.VoiceNote);
+            td_bridge_obj_pushMessageContentVoiceNote_is_pinned(obj).Set(this.IsPinned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.VoiceNote = new CxxTLObject<VoiceNote>(td_bridge_obj_pushMessageContentVoiceNote_voice_note(obj)).Fetch();
+            this.IsPinned = td_bridge_obj_pushMessageContentVoiceNote_is_pinned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-2114855172)]
+    public unsafe partial class PushMessageContentBasicGroupChatCreate
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentBasicGroupChatCreate();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentBasicGroupChatCreate();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-1087145158)]
+    public unsafe partial class PushMessageContentChatAddMembers
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentChatAddMembers();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentChatAddMembers_member_name(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentChatAddMembers_is_current_user(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentChatAddMembers_is_returned(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentChatAddMembers();
+            td_bridge_obj_pushMessageContentChatAddMembers_member_name(obj).Set(this.MemberName);
+            td_bridge_obj_pushMessageContentChatAddMembers_is_current_user(obj).Set(this.IsCurrentUser);
+            td_bridge_obj_pushMessageContentChatAddMembers_is_returned(obj).Set(this.IsReturned);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.MemberName = td_bridge_obj_pushMessageContentChatAddMembers_member_name(obj).Fetch();
+            this.IsCurrentUser = td_bridge_obj_pushMessageContentChatAddMembers_is_current_user(obj).Fetch();
+            this.IsReturned = td_bridge_obj_pushMessageContentChatAddMembers_is_returned(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1114222051)]
+    public unsafe partial class PushMessageContentChatChangePhoto
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentChatChangePhoto();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentChatChangePhoto();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-1964902749)]
+    public unsafe partial class PushMessageContentChatChangeTitle
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentChatChangeTitle();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentChatChangeTitle_title(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentChatChangeTitle();
+            td_bridge_obj_pushMessageContentChatChangeTitle_title(obj).Set(this.Title);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Title = td_bridge_obj_pushMessageContentChatChangeTitle_title(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(598714783)]
+    public unsafe partial class PushMessageContentChatDeleteMember
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentChatDeleteMember();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_pushMessageContentChatDeleteMember_member_name(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentChatDeleteMember_is_current_user(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentChatDeleteMember_is_left(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentChatDeleteMember();
+            td_bridge_obj_pushMessageContentChatDeleteMember_member_name(obj).Set(this.MemberName);
+            td_bridge_obj_pushMessageContentChatDeleteMember_is_current_user(obj).Set(this.IsCurrentUser);
+            td_bridge_obj_pushMessageContentChatDeleteMember_is_left(obj).Set(this.IsLeft);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.MemberName = td_bridge_obj_pushMessageContentChatDeleteMember_member_name(obj).Fetch();
+            this.IsCurrentUser = td_bridge_obj_pushMessageContentChatDeleteMember_is_current_user(obj).Fetch();
+            this.IsLeft = td_bridge_obj_pushMessageContentChatDeleteMember_is_left(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1553719113)]
+    public unsafe partial class PushMessageContentChatJoinByLink
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentChatJoinByLink();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentChatJoinByLink();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-1913083876)]
+    public unsafe partial class PushMessageContentMessageForwards
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentMessageForwards();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pushMessageContentMessageForwards_total_count(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentMessageForwards();
+            td_bridge_obj_pushMessageContentMessageForwards_total_count(obj).Set(this.TotalCount);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.TotalCount = td_bridge_obj_pushMessageContentMessageForwards_total_count(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-874278109)]
+    public unsafe partial class PushMessageContentMediaAlbum
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pushMessageContentMediaAlbum();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_pushMessageContentMediaAlbum_total_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentMediaAlbum_has_photos(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pushMessageContentMediaAlbum_has_videos(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pushMessageContentMediaAlbum();
+            td_bridge_obj_pushMessageContentMediaAlbum_total_count(obj).Set(this.TotalCount);
+            td_bridge_obj_pushMessageContentMediaAlbum_has_photos(obj).Set(this.HasPhotos);
+            td_bridge_obj_pushMessageContentMediaAlbum_has_videos(obj).Set(this.HasVideos);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.TotalCount = td_bridge_obj_pushMessageContentMediaAlbum_total_count(obj).Fetch();
+            this.HasPhotos = td_bridge_obj_pushMessageContentMediaAlbum_has_photos(obj).Fetch();
+            this.HasVideos = td_bridge_obj_pushMessageContentMediaAlbum_has_videos(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1885935159)]
+    public unsafe partial class NotificationTypeNewMessage
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationTypeNewMessage();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_notificationTypeNewMessage_message(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationTypeNewMessage();
+            new CxxTLObject<Message>(td_bridge_obj_notificationTypeNewMessage_message(obj)).Set(this.Message);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Message = new CxxTLObject<Message>(td_bridge_obj_notificationTypeNewMessage_message(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(1198638768)]
+    public unsafe partial class NotificationTypeNewSecretChat
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationTypeNewSecretChat();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationTypeNewSecretChat();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1712734585)]
+    public unsafe partial class NotificationTypeNewCall
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationTypeNewCall();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_notificationTypeNewCall_call_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationTypeNewCall();
+            td_bridge_obj_notificationTypeNewCall_call_id(obj).Set(this.CallId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.CallId = td_bridge_obj_notificationTypeNewCall_call_id(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1167232404)]
+    public unsafe partial class NotificationTypeNewPushMessage
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationTypeNewPushMessage();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_notificationTypeNewPushMessage_message_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_notificationTypeNewPushMessage_sender_user_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_notificationTypeNewPushMessage_content(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationTypeNewPushMessage();
+            td_bridge_obj_notificationTypeNewPushMessage_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_notificationTypeNewPushMessage_sender_user_id(obj).Set(this.SenderUserId);
+            new CxxTLObject<PushMessageContent>(td_bridge_obj_notificationTypeNewPushMessage_content(obj)).Set(this.Content);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.MessageId = td_bridge_obj_notificationTypeNewPushMessage_message_id(obj).Fetch();
+            this.SenderUserId = td_bridge_obj_notificationTypeNewPushMessage_sender_user_id(obj).Fetch();
+            this.Content = new CxxTLObject<PushMessageContent>(td_bridge_obj_notificationTypeNewPushMessage_content(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-1702481123)]
+    public unsafe partial class NotificationGroupTypeMessages
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationGroupTypeMessages();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationGroupTypeMessages();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-2050324051)]
+    public unsafe partial class NotificationGroupTypeMentions
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationGroupTypeMentions();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationGroupTypeMentions();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1390759476)]
+    public unsafe partial class NotificationGroupTypeSecretChat
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationGroupTypeSecretChat();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationGroupTypeSecretChat();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1379123538)]
+    public unsafe partial class NotificationGroupTypeCalls
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationGroupTypeCalls();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationGroupTypeCalls();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(926876603)]
+    public unsafe partial class Notification
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notification();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_notification_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_notification_date(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_notification_type(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notification();
+            td_bridge_obj_notification_id(obj).Set(this.Id);
+            td_bridge_obj_notification_date(obj).Set(this.Date);
+            new CxxTLObject<NotificationType>(td_bridge_obj_notification_type(obj)).Set(this.Type);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Id = td_bridge_obj_notification_id(obj).Fetch();
+            this.Date = td_bridge_obj_notification_date(obj).Fetch();
+            this.Type = new CxxTLObject<NotificationType>(td_bridge_obj_notification_type(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(780691541)]
+    public unsafe partial class NotificationGroup
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_notificationGroup();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_notificationGroup_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_notificationGroup_type(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_notificationGroup_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_notificationGroup_total_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_notificationGroup_notifications(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_notificationGroup();
+            td_bridge_obj_notificationGroup_id(obj).Set(this.Id);
+            new CxxTLObject<NotificationGroupType>(td_bridge_obj_notificationGroup_type(obj)).Set(this.Type);
+            td_bridge_obj_notificationGroup_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_notificationGroup_total_count(obj).Set(this.TotalCount);
+            new CxxVectorObject<Notification>(td_bridge_obj_notificationGroup_notifications(obj)).Set(this.Notifications);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Id = td_bridge_obj_notificationGroup_id(obj).Fetch();
+            this.Type = new CxxTLObject<NotificationGroupType>(td_bridge_obj_notificationGroup_type(obj)).Fetch();
+            this.ChatId = td_bridge_obj_notificationGroup_chat_id(obj).Fetch();
+            this.TotalCount = td_bridge_obj_notificationGroup_total_count(obj).Fetch();
+            this.Notifications = new CxxVectorObject<Notification>(td_bridge_obj_notificationGroup_notifications(obj)).Fetch();
+        }
+    }
+
     [TLTypeID(63135518)]
     public unsafe partial class OptionValueBoolean
     {
@@ -12395,6 +14218,153 @@ namespace TDLib.Api
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Value = td_bridge_obj_optionValueString_value(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1803309418)]
+    public unsafe partial class JsonObjectMember
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_jsonObjectMember();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_jsonObjectMember_key(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_jsonObjectMember_value(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_jsonObjectMember();
+            td_bridge_obj_jsonObjectMember_key(obj).Set(this.Key);
+            new CxxTLObject<JsonValue>(td_bridge_obj_jsonObjectMember_value(obj)).Set(this.Value);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Key = td_bridge_obj_jsonObjectMember_key(obj).Fetch();
+            this.Value = new CxxTLObject<JsonValue>(td_bridge_obj_jsonObjectMember_value(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-92872499)]
+    public unsafe partial class JsonValueNull
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_jsonValueNull();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_jsonValueNull();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-2142186576)]
+    public unsafe partial class JsonValueBoolean
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_jsonValueBoolean();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_jsonValueBoolean_value(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_jsonValueBoolean();
+            td_bridge_obj_jsonValueBoolean_value(obj).Set(this.Value);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Value = td_bridge_obj_jsonValueBoolean_value(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1010822033)]
+    public unsafe partial class JsonValueNumber
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_jsonValueNumber();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxFloat64 td_bridge_obj_jsonValueNumber_value(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_jsonValueNumber();
+            td_bridge_obj_jsonValueNumber_value(obj).Set(this.Value);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Value = td_bridge_obj_jsonValueNumber_value(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1597947313)]
+    public unsafe partial class JsonValueString
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_jsonValueString();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_jsonValueString_value(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_jsonValueString();
+            td_bridge_obj_jsonValueString_value(obj).Set(this.Value);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Value = td_bridge_obj_jsonValueString_value(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-183913546)]
+    public unsafe partial class JsonValueArray
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_jsonValueArray();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_jsonValueArray_values(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_jsonValueArray();
+            new CxxVectorObject<JsonValue>(td_bridge_obj_jsonValueArray_values(obj)).Set(this.Values);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Values = new CxxVectorObject<JsonValue>(td_bridge_obj_jsonValueArray_values(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(520252026)]
+    public unsafe partial class JsonValueObject
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_jsonValueObject();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_jsonValueObject_members(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_jsonValueObject();
+            new CxxVectorObject<JsonObjectMember>(td_bridge_obj_jsonValueObject_members(obj)).Set(this.Members);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Members = new CxxVectorObject<JsonObjectMember>(td_bridge_obj_jsonValueObject_members(obj)).Fetch();
         }
     }
 
@@ -12573,6 +14543,22 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(352500032)]
+    public unsafe partial class UserPrivacySettingAllowPeerToPeerCalls
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_userPrivacySettingAllowPeerToPeerCalls();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_userPrivacySettingAllowPeerToPeerCalls();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
     [TLTypeID(1324495492)]
     public unsafe partial class AccountTtl
     {
@@ -12594,7 +14580,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1715359000)]
+    [TLTypeID(1920553176)]
     public unsafe partial class Session
     {
         [SuppressUnmanagedCodeSecurity]
@@ -12606,6 +14592,9 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_session_is_current(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_session_is_password_pending(IntPtr obj);
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxInt32 td_bridge_obj_session_api_id(IntPtr obj);
@@ -12647,6 +14636,7 @@ namespace TDLib.Api
             var obj = td_bridge_newobj_session();
             td_bridge_obj_session_id(obj).Set(this.Id);
             td_bridge_obj_session_is_current(obj).Set(this.IsCurrent);
+            td_bridge_obj_session_is_password_pending(obj).Set(this.IsPasswordPending);
             td_bridge_obj_session_api_id(obj).Set(this.ApiId);
             td_bridge_obj_session_application_name(obj).Set(this.ApplicationName);
             td_bridge_obj_session_application_version(obj).Set(this.ApplicationVersion);
@@ -12665,6 +14655,7 @@ namespace TDLib.Api
         {
             this.Id = td_bridge_obj_session_id(obj).Fetch();
             this.IsCurrent = td_bridge_obj_session_is_current(obj).Fetch();
+            this.IsPasswordPending = td_bridge_obj_session_is_password_pending(obj).Fetch();
             this.ApiId = td_bridge_obj_session_api_id(obj).Fetch();
             this.ApplicationName = td_bridge_obj_session_application_name(obj).Fetch();
             this.ApplicationVersion = td_bridge_obj_session_application_version(obj).Fetch();
@@ -12852,6 +14843,22 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-1070686531)]
+    public unsafe partial class ChatReportReasonChildAbuse
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_chatReportReasonChildAbuse();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_chatReportReasonChildAbuse();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
     [TLTypeID(986898080)]
     public unsafe partial class ChatReportReasonCopyright
     {
@@ -12912,6 +14919,27 @@ namespace TDLib.Api
         {
             this.Link = td_bridge_obj_publicMessageLink_link(obj).Fetch();
             this.Html = td_bridge_obj_publicMessageLink_html(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(911821878)]
+    public unsafe partial class FilePart
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_filePart();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBytes td_bridge_obj_filePart_data(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_filePart();
+            td_bridge_obj_filePart_data(obj).Set(this.Data);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Data = td_bridge_obj_filePart_data(obj).Fetch();
         }
     }
 
@@ -13269,7 +15297,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-2005401007)]
+    [TLTypeID(-884922271)]
     public unsafe partial class StorageStatisticsFast
     {
         [SuppressUnmanagedCodeSecurity]
@@ -13284,12 +15312,20 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxInt64 td_bridge_obj_storageStatisticsFast_database_size(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_storageStatisticsFast_language_pack_database_size(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_storageStatisticsFast_log_size(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_storageStatisticsFast();
             td_bridge_obj_storageStatisticsFast_files_size(obj).Set(this.FilesSize);
             td_bridge_obj_storageStatisticsFast_file_count(obj).Set(this.FileCount);
             td_bridge_obj_storageStatisticsFast_database_size(obj).Set(this.DatabaseSize);
+            td_bridge_obj_storageStatisticsFast_language_pack_database_size(obj).Set(this.LanguagePackDatabaseSize);
+            td_bridge_obj_storageStatisticsFast_log_size(obj).Set(this.LogSize);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -13297,6 +15333,29 @@ namespace TDLib.Api
             this.FilesSize = td_bridge_obj_storageStatisticsFast_files_size(obj).Fetch();
             this.FileCount = td_bridge_obj_storageStatisticsFast_file_count(obj).Fetch();
             this.DatabaseSize = td_bridge_obj_storageStatisticsFast_database_size(obj).Fetch();
+            this.LanguagePackDatabaseSize = td_bridge_obj_storageStatisticsFast_language_pack_database_size(obj).Fetch();
+            this.LogSize = td_bridge_obj_storageStatisticsFast_log_size(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1123912880)]
+    public unsafe partial class DatabaseStatistics
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_databaseStatistics();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_databaseStatistics_statistics(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_databaseStatistics();
+            td_bridge_obj_databaseStatistics_statistics(obj).Set(this.Statistics);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Statistics = td_bridge_obj_databaseStatistics_statistics(obj).Fetch();
         }
     }
 
@@ -14103,7 +16162,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(238944219)]
+    [TLTypeID(-563105266)]
     public unsafe partial class UpdateNewMessage
     {
         [SuppressUnmanagedCodeSecurity]
@@ -14112,25 +16171,15 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_obj_updateNewMessage_message(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxBool td_bridge_obj_updateNewMessage_disable_notification(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxBool td_bridge_obj_updateNewMessage_contains_mention(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_updateNewMessage();
             new CxxTLObject<Message>(td_bridge_obj_updateNewMessage_message(obj)).Set(this.Message);
-            td_bridge_obj_updateNewMessage_disable_notification(obj).Set(this.DisableNotification);
-            td_bridge_obj_updateNewMessage_contains_mention(obj).Set(this.ContainsMention);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.Message = new CxxTLObject<Message>(td_bridge_obj_updateNewMessage_message(obj)).Fetch();
-            this.DisableNotification = td_bridge_obj_updateNewMessage_disable_notification(obj).Fetch();
-            this.ContainsMention = td_bridge_obj_updateNewMessage_contains_mention(obj).Fetch();
         }
     }
 
@@ -14756,6 +16805,32 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(802160507)]
+    public unsafe partial class UpdateChatPinnedMessage
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updateChatPinnedMessage();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_updateChatPinnedMessage_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_updateChatPinnedMessage_pinned_message_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updateChatPinnedMessage();
+            td_bridge_obj_updateChatPinnedMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatPinnedMessage_pinned_message_id(obj).Set(this.PinnedMessageId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_updateChatPinnedMessage_chat_id(obj).Fetch();
+            this.PinnedMessageId = td_bridge_obj_updateChatPinnedMessage_pinned_message_id(obj).Fetch();
+        }
+    }
+
     [TLTypeID(1309386144)]
     public unsafe partial class UpdateChatReplyMarkup
     {
@@ -14810,6 +16885,161 @@ namespace TDLib.Api
             this.ChatId = td_bridge_obj_updateChatDraftMessage_chat_id(obj).Fetch();
             this.DraftMessage = new CxxTLObject<DraftMessage>(td_bridge_obj_updateChatDraftMessage_draft_message(obj)).Fetch();
             this.Order = td_bridge_obj_updateChatDraftMessage_order(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(487369373)]
+    public unsafe partial class UpdateChatOnlineMemberCount
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updateChatOnlineMemberCount();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_updateChatOnlineMemberCount_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_updateChatOnlineMemberCount_online_member_count(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updateChatOnlineMemberCount();
+            td_bridge_obj_updateChatOnlineMemberCount_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateChatOnlineMemberCount_online_member_count(obj).Set(this.OnlineMemberCount);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_updateChatOnlineMemberCount_chat_id(obj).Fetch();
+            this.OnlineMemberCount = td_bridge_obj_updateChatOnlineMemberCount_online_member_count(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1897496876)]
+    public unsafe partial class UpdateNotification
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updateNotification();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_updateNotification_notification_group_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_updateNotification_notification(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updateNotification();
+            td_bridge_obj_updateNotification_notification_group_id(obj).Set(this.NotificationGroupId);
+            new CxxTLObject<Notification>(td_bridge_obj_updateNotification_notification(obj)).Set(this.Notification);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.NotificationGroupId = td_bridge_obj_updateNotification_notification_group_id(obj).Fetch();
+            this.Notification = new CxxTLObject<Notification>(td_bridge_obj_updateNotification_notification(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-2049005665)]
+    public unsafe partial class UpdateNotificationGroup
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updateNotificationGroup();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_updateNotificationGroup_notification_group_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_updateNotificationGroup_type(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_updateNotificationGroup_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_updateNotificationGroup_notification_settings_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_updateNotificationGroup_is_silent(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_updateNotificationGroup_total_count(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_updateNotificationGroup_added_notifications(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxVectorInt32 td_bridge_obj_updateNotificationGroup_removed_notification_ids(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updateNotificationGroup();
+            td_bridge_obj_updateNotificationGroup_notification_group_id(obj).Set(this.NotificationGroupId);
+            new CxxTLObject<NotificationGroupType>(td_bridge_obj_updateNotificationGroup_type(obj)).Set(this.Type);
+            td_bridge_obj_updateNotificationGroup_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_updateNotificationGroup_notification_settings_chat_id(obj).Set(this.NotificationSettingsChatId);
+            td_bridge_obj_updateNotificationGroup_is_silent(obj).Set(this.IsSilent);
+            td_bridge_obj_updateNotificationGroup_total_count(obj).Set(this.TotalCount);
+            new CxxVectorObject<Notification>(td_bridge_obj_updateNotificationGroup_added_notifications(obj)).Set(this.AddedNotifications);
+            td_bridge_obj_updateNotificationGroup_removed_notification_ids(obj).Set(this.RemovedNotificationIds);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.NotificationGroupId = td_bridge_obj_updateNotificationGroup_notification_group_id(obj).Fetch();
+            this.Type = new CxxTLObject<NotificationGroupType>(td_bridge_obj_updateNotificationGroup_type(obj)).Fetch();
+            this.ChatId = td_bridge_obj_updateNotificationGroup_chat_id(obj).Fetch();
+            this.NotificationSettingsChatId = td_bridge_obj_updateNotificationGroup_notification_settings_chat_id(obj).Fetch();
+            this.IsSilent = td_bridge_obj_updateNotificationGroup_is_silent(obj).Fetch();
+            this.TotalCount = td_bridge_obj_updateNotificationGroup_total_count(obj).Fetch();
+            this.AddedNotifications = new CxxVectorObject<Notification>(td_bridge_obj_updateNotificationGroup_added_notifications(obj)).Fetch();
+            this.RemovedNotificationIds = td_bridge_obj_updateNotificationGroup_removed_notification_ids(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1306672221)]
+    public unsafe partial class UpdateActiveNotifications
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updateActiveNotifications();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_updateActiveNotifications_groups(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updateActiveNotifications();
+            new CxxVectorObject<NotificationGroup>(td_bridge_obj_updateActiveNotifications_groups(obj)).Set(this.Groups);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Groups = new CxxVectorObject<NotificationGroup>(td_bridge_obj_updateActiveNotifications_groups(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(179233243)]
+    public unsafe partial class UpdateHavePendingNotifications
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updateHavePendingNotifications();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_updateHavePendingNotifications_have_delayed_notifications(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_updateHavePendingNotifications_have_unreceived_notifications(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updateHavePendingNotifications();
+            td_bridge_obj_updateHavePendingNotifications_have_delayed_notifications(obj).Set(this.HaveDelayedNotifications);
+            td_bridge_obj_updateHavePendingNotifications_have_unreceived_notifications(obj).Set(this.HaveUnreceivedNotifications);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.HaveDelayedNotifications = td_bridge_obj_updateHavePendingNotifications_have_delayed_notifications(obj).Fetch();
+            this.HaveUnreceivedNotifications = td_bridge_obj_updateHavePendingNotifications_have_unreceived_notifications(obj).Fetch();
         }
     }
 
@@ -15808,6 +18038,148 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-1771342902)]
+    public unsafe partial class UpdatePoll
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updatePoll();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_updatePoll_poll(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updatePoll();
+            new CxxTLObject<Poll>(td_bridge_obj_updatePoll_poll(obj)).Set(this.Poll);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Poll = new CxxTLObject<Poll>(td_bridge_obj_updatePoll_poll(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(475842347)]
+    public unsafe partial class Updates
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updates();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_updates_updates(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_updates();
+            new CxxVectorObject<Update>(td_bridge_obj_updates_updates(obj)).Set(this.Updates_);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Updates_ = new CxxVectorObject<Update>(td_bridge_obj_updates_updates(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(1390581436)]
+    public unsafe partial class LogStreamDefault
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_logStreamDefault();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_logStreamDefault();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-1880085930)]
+    public unsafe partial class LogStreamFile
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_logStreamFile();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_logStreamFile_path(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_logStreamFile_max_file_size(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_logStreamFile();
+            td_bridge_obj_logStreamFile_path(obj).Set(this.Path);
+            td_bridge_obj_logStreamFile_max_file_size(obj).Set(this.MaxFileSize);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Path = td_bridge_obj_logStreamFile_path(obj).Fetch();
+            this.MaxFileSize = td_bridge_obj_logStreamFile_max_file_size(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-499912244)]
+    public unsafe partial class LogStreamEmpty
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_logStreamEmpty();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_logStreamEmpty();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(1734624234)]
+    public unsafe partial class LogVerbosityLevel
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_logVerbosityLevel();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_logVerbosityLevel_verbosity_level(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_logVerbosityLevel();
+            td_bridge_obj_logVerbosityLevel_verbosity_level(obj).Set(this.VerbosityLevel);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.VerbosityLevel = td_bridge_obj_logVerbosityLevel_verbosity_level(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1604930601)]
+    public unsafe partial class LogTags
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_logTags();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxVectorString td_bridge_obj_logTags_tags(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_logTags();
+            td_bridge_obj_logTags_tags(obj).Set(this.Tags);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Tags = td_bridge_obj_logTags_tags(obj).Fetch();
+        }
+    }
+
     [TLTypeID(-574804983)]
     public unsafe partial class TestInt
     {
@@ -16218,6 +18590,22 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-1191417719)]
+    public unsafe partial class GetCurrentState
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getCurrentState();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getCurrentState();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
     [TLTypeID(-1204599371)]
     public unsafe partial class SetDatabaseEncryptionKey
     {
@@ -16343,6 +18731,43 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-1997039589)]
+    public unsafe partial class CheckRecoveryEmailAddressCode
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_checkRecoveryEmailAddressCode();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_checkRecoveryEmailAddressCode_code(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_checkRecoveryEmailAddressCode();
+            td_bridge_obj_checkRecoveryEmailAddressCode_code(obj).Set(this.Code);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Code = td_bridge_obj_checkRecoveryEmailAddressCode_code(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(433483548)]
+    public unsafe partial class ResendRecoveryEmailAddressCode
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_resendRecoveryEmailAddressCode();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_resendRecoveryEmailAddressCode();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
     [TLTypeID(-13777582)]
     public unsafe partial class RequestPasswordRecovery
     {
@@ -16419,32 +18844,6 @@ namespace TDLib.Api
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
-        }
-    }
-
-    [TLTypeID(-1806562997)]
-    public unsafe partial class ProcessDcUpdate
-    {
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_processDcUpdate();
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxString td_bridge_obj_processDcUpdate_dc(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxString td_bridge_obj_processDcUpdate_addr(IntPtr obj);
-        internal override IntPtr TdCreateCxxObject()
-        {
-            var obj = td_bridge_newobj_processDcUpdate();
-            td_bridge_obj_processDcUpdate_dc(obj).Set(this.Dc);
-            td_bridge_obj_processDcUpdate_addr(obj).Set(this.Addr);
-            return obj;
-        }
-        internal override void TdFetchCxxObject(IntPtr obj)
-        {
-            this.Dc = td_bridge_obj_processDcUpdate_dc(obj).Fetch();
-            this.Addr = td_bridge_obj_processDcUpdate_addr(obj).Fetch();
         }
     }
 
@@ -16655,6 +19054,32 @@ namespace TDLib.Api
         {
             this.ChatId = td_bridge_obj_getMessage_chat_id(obj).Fetch();
             this.MessageId = td_bridge_obj_getMessage_message_id(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-603575444)]
+    public unsafe partial class GetMessageLocally
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getMessageLocally();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_getMessageLocally_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_getMessageLocally_message_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getMessageLocally();
+            td_bridge_obj_getMessageLocally_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getMessageLocally_message_id(obj).Set(this.MessageId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_getMessageLocally_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getMessageLocally_message_id(obj).Fetch();
         }
     }
 
@@ -17013,7 +19438,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-2003506154)]
+    [TLTypeID(-119119344)]
     public unsafe partial class CheckChatUsername
     {
         [SuppressUnmanagedCodeSecurity]
@@ -17127,7 +19552,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-1384632722)]
+    [TLTypeID(-1472081761)]
     public unsafe partial class DeleteChatHistory
     {
         [SuppressUnmanagedCodeSecurity]
@@ -17139,17 +19564,22 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxBool td_bridge_obj_deleteChatHistory_remove_from_chat_list(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_deleteChatHistory_revoke(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_deleteChatHistory();
             td_bridge_obj_deleteChatHistory_chat_id(obj).Set(this.ChatId);
             td_bridge_obj_deleteChatHistory_remove_from_chat_list(obj).Set(this.RemoveFromChatList);
+            td_bridge_obj_deleteChatHistory_revoke(obj).Set(this.Revoke);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.ChatId = td_bridge_obj_deleteChatHistory_chat_id(obj).Fetch();
             this.RemoveFromChatList = td_bridge_obj_deleteChatHistory_remove_from_chat_list(obj).Fetch();
+            this.Revoke = td_bridge_obj_deleteChatHistory_revoke(obj).Fetch();
         }
     }
 
@@ -17416,6 +19846,58 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(862630734)]
+    public unsafe partial class RemoveNotification
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_removeNotification();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_removeNotification_notification_group_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_removeNotification_notification_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_removeNotification();
+            td_bridge_obj_removeNotification_notification_group_id(obj).Set(this.NotificationGroupId);
+            td_bridge_obj_removeNotification_notification_id(obj).Set(this.NotificationId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.NotificationGroupId = td_bridge_obj_removeNotification_notification_group_id(obj).Fetch();
+            this.NotificationId = td_bridge_obj_removeNotification_notification_id(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1713005454)]
+    public unsafe partial class RemoveNotificationGroup
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_removeNotificationGroup();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_removeNotificationGroup_notification_group_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_removeNotificationGroup_max_notification_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_removeNotificationGroup();
+            td_bridge_obj_removeNotificationGroup_notification_group_id(obj).Set(this.NotificationGroupId);
+            td_bridge_obj_removeNotificationGroup_max_notification_id(obj).Set(this.MaxNotificationId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.NotificationGroupId = td_bridge_obj_removeNotificationGroup_notification_group_id(obj).Fetch();
+            this.MaxNotificationId = td_bridge_obj_removeNotificationGroup_max_notification_id(obj).Fetch();
+        }
+    }
+
     [TLTypeID(-374642839)]
     public unsafe partial class GetPublicMessageLink
     {
@@ -17444,6 +19926,32 @@ namespace TDLib.Api
             this.ChatId = td_bridge_obj_getPublicMessageLink_chat_id(obj).Fetch();
             this.MessageId = td_bridge_obj_getPublicMessageLink_message_id(obj).Fetch();
             this.ForAlbum = td_bridge_obj_getPublicMessageLink_for_album(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1362732326)]
+    public unsafe partial class GetMessageLink
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getMessageLink();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_getMessageLink_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_getMessageLink_message_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getMessageLink();
+            td_bridge_obj_getMessageLink_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getMessageLink_message_id(obj).Set(this.MessageId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_getMessageLink_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_getMessageLink_message_id(obj).Fetch();
         }
     }
 
@@ -17565,7 +20073,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-643910868)]
+    [TLTypeID(893888200)]
     public unsafe partial class SendInlineQueryResultMessage
     {
         [SuppressUnmanagedCodeSecurity]
@@ -17589,6 +20097,9 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxString td_bridge_obj_sendInlineQueryResultMessage_result_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_sendInlineQueryResultMessage_hide_via_bot(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_sendInlineQueryResultMessage();
@@ -17598,6 +20109,7 @@ namespace TDLib.Api
             td_bridge_obj_sendInlineQueryResultMessage_from_background(obj).Set(this.FromBackground);
             td_bridge_obj_sendInlineQueryResultMessage_query_id(obj).Set(this.QueryId);
             td_bridge_obj_sendInlineQueryResultMessage_result_id(obj).Set(this.ResultId);
+            td_bridge_obj_sendInlineQueryResultMessage_hide_via_bot(obj).Set(this.HideViaBot);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -17608,6 +20120,7 @@ namespace TDLib.Api
             this.FromBackground = td_bridge_obj_sendInlineQueryResultMessage_from_background(obj).Fetch();
             this.QueryId = td_bridge_obj_sendInlineQueryResultMessage_query_id(obj).Fetch();
             this.ResultId = td_bridge_obj_sendInlineQueryResultMessage_result_id(obj).Fetch();
+            this.HideViaBot = td_bridge_obj_sendInlineQueryResultMessage_hide_via_bot(obj).Fetch();
         }
     }
 
@@ -18270,6 +20783,110 @@ namespace TDLib.Api
             this.LocalizationTarget = td_bridge_obj_getLanguagePackString_localization_target(obj).Fetch();
             this.LanguagePackId = td_bridge_obj_getLanguagePackString_language_pack_id(obj).Fetch();
             this.Key = td_bridge_obj_getLanguagePackString_key(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1829086715)]
+    public unsafe partial class GetJsonValue
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getJsonValue();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_getJsonValue_json(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getJsonValue();
+            td_bridge_obj_getJsonValue_json(obj).Set(this.Json);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Json = td_bridge_obj_getJsonValue_json(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(663458849)]
+    public unsafe partial class GetJsonString
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getJsonString();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_getJsonString_json_value(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getJsonString();
+            new CxxTLObject<JsonValue>(td_bridge_obj_getJsonString_json_value(obj)).Set(this.JsonValue);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.JsonValue = new CxxTLObject<JsonValue>(td_bridge_obj_getJsonString_json_value(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-1399388792)]
+    public unsafe partial class SetPollAnswer
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_setPollAnswer();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_setPollAnswer_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_setPollAnswer_message_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxVectorInt32 td_bridge_obj_setPollAnswer_option_ids(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_setPollAnswer();
+            td_bridge_obj_setPollAnswer_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_setPollAnswer_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_setPollAnswer_option_ids(obj).Set(this.OptionIds);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_setPollAnswer_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_setPollAnswer_message_id(obj).Fetch();
+            this.OptionIds = td_bridge_obj_setPollAnswer_option_ids(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1659374253)]
+    public unsafe partial class StopPoll
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_stopPoll();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_stopPoll_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_stopPoll_message_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_stopPoll_reply_markup(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_stopPoll();
+            td_bridge_obj_stopPoll_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_stopPoll_message_id(obj).Set(this.MessageId);
+            new CxxTLObject<ReplyMarkup>(td_bridge_obj_stopPoll_reply_markup(obj)).Set(this.ReplyMarkup);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_stopPoll_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_stopPoll_message_id(obj).Fetch();
+            this.ReplyMarkup = new CxxTLObject<ReplyMarkup>(td_bridge_obj_stopPoll_reply_markup(obj)).Fetch();
         }
     }
 
@@ -19216,6 +21833,58 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-554712351)]
+    public unsafe partial class PinChatMessage
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_pinChatMessage();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_pinChatMessage_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_pinChatMessage_message_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_pinChatMessage_disable_notification(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_pinChatMessage();
+            td_bridge_obj_pinChatMessage_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_pinChatMessage_message_id(obj).Set(this.MessageId);
+            td_bridge_obj_pinChatMessage_disable_notification(obj).Set(this.DisableNotification);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_pinChatMessage_chat_id(obj).Fetch();
+            this.MessageId = td_bridge_obj_pinChatMessage_message_id(obj).Fetch();
+            this.DisableNotification = td_bridge_obj_pinChatMessage_disable_notification(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(277557690)]
+    public unsafe partial class UnpinChatMessage
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_unpinChatMessage();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_unpinChatMessage_chat_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_unpinChatMessage();
+            td_bridge_obj_unpinChatMessage_chat_id(obj).Set(this.ChatId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_unpinChatMessage_chat_id(obj).Fetch();
+        }
+    }
+
     [TLTypeID(326769313)]
     public unsafe partial class JoinChat
     {
@@ -19450,6 +22119,32 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(201199121)]
+    public unsafe partial class GetChatNotificationSettingsExceptions
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getChatNotificationSettingsExceptions();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_getChatNotificationSettingsExceptions_scope(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_getChatNotificationSettingsExceptions_compare_sound(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getChatNotificationSettingsExceptions();
+            new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_getChatNotificationSettingsExceptions_scope(obj)).Set(this.Scope);
+            td_bridge_obj_getChatNotificationSettingsExceptions_compare_sound(obj).Set(this.CompareSound);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Scope = new CxxTLObject<NotificationSettingsScope>(td_bridge_obj_getChatNotificationSettingsExceptions_scope(obj)).Fetch();
+            this.CompareSound = td_bridge_obj_getChatNotificationSettingsExceptions_compare_sound(obj).Fetch();
+        }
+    }
+
     [TLTypeID(-995613361)]
     public unsafe partial class GetScopeNotificationSettings
     {
@@ -19534,7 +22229,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1531851978)]
+    [TLTypeID(-1102026662)]
     public unsafe partial class DownloadFile
     {
         [SuppressUnmanagedCodeSecurity]
@@ -19546,17 +22241,58 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxInt32 td_bridge_obj_downloadFile_priority(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_downloadFile_offset(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_downloadFile_limit(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_downloadFile_synchronous(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_downloadFile();
             td_bridge_obj_downloadFile_file_id(obj).Set(this.FileId);
             td_bridge_obj_downloadFile_priority(obj).Set(this.Priority);
+            td_bridge_obj_downloadFile_offset(obj).Set(this.Offset);
+            td_bridge_obj_downloadFile_limit(obj).Set(this.Limit);
+            td_bridge_obj_downloadFile_synchronous(obj).Set(this.Synchronous);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.FileId = td_bridge_obj_downloadFile_file_id(obj).Fetch();
             this.Priority = td_bridge_obj_downloadFile_priority(obj).Fetch();
+            this.Offset = td_bridge_obj_downloadFile_offset(obj).Fetch();
+            this.Limit = td_bridge_obj_downloadFile_limit(obj).Fetch();
+            this.Synchronous = td_bridge_obj_downloadFile_synchronous(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1668864864)]
+    public unsafe partial class GetFileDownloadedPrefixSize
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getFileDownloadedPrefixSize();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_getFileDownloadedPrefixSize_file_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_getFileDownloadedPrefixSize_offset(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getFileDownloadedPrefixSize();
+            td_bridge_obj_getFileDownloadedPrefixSize_file_id(obj).Set(this.FileId);
+            td_bridge_obj_getFileDownloadedPrefixSize_offset(obj).Set(this.Offset);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.FileId = td_bridge_obj_getFileDownloadedPrefixSize_file_id(obj).Fetch();
+            this.Offset = td_bridge_obj_getFileDownloadedPrefixSize_offset(obj).Fetch();
         }
     }
 
@@ -19638,6 +22374,37 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-2062358189)]
+    public unsafe partial class WriteGeneratedFilePart
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_writeGeneratedFilePart();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_writeGeneratedFilePart_generation_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_writeGeneratedFilePart_offset(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBytes td_bridge_obj_writeGeneratedFilePart_data(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_writeGeneratedFilePart();
+            td_bridge_obj_writeGeneratedFilePart_generation_id(obj).Set(this.GenerationId);
+            td_bridge_obj_writeGeneratedFilePart_offset(obj).Set(this.Offset);
+            td_bridge_obj_writeGeneratedFilePart_data(obj).Set(this.Data);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.GenerationId = td_bridge_obj_writeGeneratedFilePart_generation_id(obj).Fetch();
+            this.Offset = td_bridge_obj_writeGeneratedFilePart_offset(obj).Fetch();
+            this.Data = td_bridge_obj_writeGeneratedFilePart_data(obj).Fetch();
+        }
+    }
+
     [TLTypeID(-540459953)]
     public unsafe partial class SetFileGenerationProgress
     {
@@ -19692,6 +22459,37 @@ namespace TDLib.Api
         {
             this.GenerationId = td_bridge_obj_finishFileGeneration_generation_id(obj).Fetch();
             this.Error = new CxxTLObject<Error>(td_bridge_obj_finishFileGeneration_error(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(-407749314)]
+    public unsafe partial class ReadFilePart
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_readFilePart();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_readFilePart_file_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_readFilePart_offset(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_readFilePart_count(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_readFilePart();
+            td_bridge_obj_readFilePart_file_id(obj).Set(this.FileId);
+            td_bridge_obj_readFilePart_offset(obj).Set(this.Offset);
+            td_bridge_obj_readFilePart_count(obj).Set(this.Count);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.FileId = td_bridge_obj_readFilePart_file_id(obj).Fetch();
+            this.Offset = td_bridge_obj_readFilePart_offset(obj).Fetch();
+            this.Count = td_bridge_obj_readFilePart_count(obj).Fetch();
         }
     }
 
@@ -21280,58 +24078,6 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1141187557)]
-    public unsafe partial class PinSupergroupMessage
-    {
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_pinSupergroupMessage();
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt32 td_bridge_obj_pinSupergroupMessage_supergroup_id(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt64 td_bridge_obj_pinSupergroupMessage_message_id(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxBool td_bridge_obj_pinSupergroupMessage_disable_notification(IntPtr obj);
-        internal override IntPtr TdCreateCxxObject()
-        {
-            var obj = td_bridge_newobj_pinSupergroupMessage();
-            td_bridge_obj_pinSupergroupMessage_supergroup_id(obj).Set(this.SupergroupId);
-            td_bridge_obj_pinSupergroupMessage_message_id(obj).Set(this.MessageId);
-            td_bridge_obj_pinSupergroupMessage_disable_notification(obj).Set(this.DisableNotification);
-            return obj;
-        }
-        internal override void TdFetchCxxObject(IntPtr obj)
-        {
-            this.SupergroupId = td_bridge_obj_pinSupergroupMessage_supergroup_id(obj).Fetch();
-            this.MessageId = td_bridge_obj_pinSupergroupMessage_message_id(obj).Fetch();
-            this.DisableNotification = td_bridge_obj_pinSupergroupMessage_disable_notification(obj).Fetch();
-        }
-    }
-
-    [TLTypeID(-1987029530)]
-    public unsafe partial class UnpinSupergroupMessage
-    {
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_unpinSupergroupMessage();
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxInt32 td_bridge_obj_unpinSupergroupMessage_supergroup_id(IntPtr obj);
-        internal override IntPtr TdCreateCxxObject()
-        {
-            var obj = td_bridge_newobj_unpinSupergroupMessage();
-            td_bridge_obj_unpinSupergroupMessage_supergroup_id(obj).Set(this.SupergroupId);
-            return obj;
-        }
-        internal override void TdFetchCxxObject(IntPtr obj)
-        {
-            this.SupergroupId = td_bridge_obj_unpinSupergroupMessage_supergroup_id(obj).Fetch();
-        }
-    }
-
     [TLTypeID(-2125451498)]
     public unsafe partial class ReportSupergroupSpam
     {
@@ -21717,6 +24463,27 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(2077809320)]
+    public unsafe partial class GetLanguagePackInfo
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getLanguagePackInfo();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_getLanguagePackInfo_language_pack_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getLanguagePackInfo();
+            td_bridge_obj_getLanguagePackInfo_language_pack_id(obj).Set(this.LanguagePackId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.LanguagePackId = td_bridge_obj_getLanguagePackInfo_language_pack_id(obj).Fetch();
+        }
+    }
+
     [TLTypeID(1246259088)]
     public unsafe partial class GetLanguagePackStrings
     {
@@ -21740,6 +24507,48 @@ namespace TDLib.Api
         {
             this.LanguagePackId = td_bridge_obj_getLanguagePackStrings_language_pack_id(obj).Fetch();
             this.Keys = td_bridge_obj_getLanguagePackStrings_keys(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-2065307858)]
+    public unsafe partial class SynchronizeLanguagePack
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_synchronizeLanguagePack();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_synchronizeLanguagePack_language_pack_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_synchronizeLanguagePack();
+            td_bridge_obj_synchronizeLanguagePack_language_pack_id(obj).Set(this.LanguagePackId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.LanguagePackId = td_bridge_obj_synchronizeLanguagePack_language_pack_id(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(4492771)]
+    public unsafe partial class AddCustomServerLanguagePack
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_addCustomServerLanguagePack();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_addCustomServerLanguagePack_language_pack_id(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_addCustomServerLanguagePack();
+            td_bridge_obj_addCustomServerLanguagePack_language_pack_id(obj).Set(this.LanguagePackId);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.LanguagePackId = td_bridge_obj_addCustomServerLanguagePack_language_pack_id(obj).Fetch();
         }
     }
 
@@ -21837,7 +24646,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(-413637293)]
+    [TLTypeID(1734127493)]
     public unsafe partial class RegisterDevice
     {
         [SuppressUnmanagedCodeSecurity]
@@ -21860,6 +24669,48 @@ namespace TDLib.Api
         {
             this.DeviceToken = new CxxTLObject<DeviceToken>(td_bridge_obj_registerDevice_device_token(obj)).Fetch();
             this.OtherUserIds = td_bridge_obj_registerDevice_other_user_ids(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(786679952)]
+    public unsafe partial class ProcessPushNotification
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_processPushNotification();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_processPushNotification_payload(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_processPushNotification();
+            td_bridge_obj_processPushNotification_payload(obj).Set(this.Payload);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Payload = td_bridge_obj_processPushNotification_payload(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-286505294)]
+    public unsafe partial class GetPushReceiverId
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getPushReceiverId();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_getPushReceiverId_payload(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getPushReceiverId();
+            td_bridge_obj_getPushReceiverId_payload(obj).Set(this.Payload);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Payload = td_bridge_obj_getPushReceiverId_payload(obj).Fetch();
         }
     }
 
@@ -22114,6 +24965,37 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(1114621183)]
+    public unsafe partial class GetChatStatisticsUrl
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getChatStatisticsUrl();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_getChatStatisticsUrl_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_getChatStatisticsUrl_parameters(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxBool td_bridge_obj_getChatStatisticsUrl_is_dark(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getChatStatisticsUrl();
+            td_bridge_obj_getChatStatisticsUrl_chat_id(obj).Set(this.ChatId);
+            td_bridge_obj_getChatStatisticsUrl_parameters(obj).Set(this.Parameters);
+            td_bridge_obj_getChatStatisticsUrl_is_dark(obj).Set(this.IsDark);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.ChatId = td_bridge_obj_getChatStatisticsUrl_chat_id(obj).Fetch();
+            this.Parameters = td_bridge_obj_getChatStatisticsUrl_parameters(obj).Fetch();
+            this.IsDark = td_bridge_obj_getChatStatisticsUrl_is_dark(obj).Fetch();
+        }
+    }
+
     [TLTypeID(-853193929)]
     public unsafe partial class GetStorageStatistics
     {
@@ -22144,6 +25026,22 @@ namespace TDLib.Api
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getStorageStatisticsFast();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-1942760263)]
+    public unsafe partial class GetDatabaseStatistics
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getDatabaseStatistics();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getDatabaseStatistics();
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -22553,7 +25451,7 @@ namespace TDLib.Api
         }
     }
 
-    [TLTypeID(1998294216)]
+    [TLTypeID(-1468394095)]
     public unsafe partial class GetPassportAuthorizationForm
     {
         [SuppressUnmanagedCodeSecurity]
@@ -22571,9 +25469,6 @@ namespace TDLib.Api
         [SuppressUnmanagedCodeSecurity]
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         private static extern CxxString td_bridge_obj_getPassportAuthorizationForm_nonce(IntPtr obj);
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        private static extern CxxString td_bridge_obj_getPassportAuthorizationForm_password(IntPtr obj);
         internal override IntPtr TdCreateCxxObject()
         {
             var obj = td_bridge_newobj_getPassportAuthorizationForm();
@@ -22581,7 +25476,6 @@ namespace TDLib.Api
             td_bridge_obj_getPassportAuthorizationForm_scope(obj).Set(this.Scope);
             td_bridge_obj_getPassportAuthorizationForm_public_key(obj).Set(this.PublicKey);
             td_bridge_obj_getPassportAuthorizationForm_nonce(obj).Set(this.Nonce);
-            td_bridge_obj_getPassportAuthorizationForm_password(obj).Set(this.Password);
             return obj;
         }
         internal override void TdFetchCxxObject(IntPtr obj)
@@ -22590,7 +25484,32 @@ namespace TDLib.Api
             this.Scope = td_bridge_obj_getPassportAuthorizationForm_scope(obj).Fetch();
             this.PublicKey = td_bridge_obj_getPassportAuthorizationForm_public_key(obj).Fetch();
             this.Nonce = td_bridge_obj_getPassportAuthorizationForm_nonce(obj).Fetch();
-            this.Password = td_bridge_obj_getPassportAuthorizationForm_password(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1738134754)]
+    public unsafe partial class GetPassportAuthorizationFormAvailableElements
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getPassportAuthorizationFormAvailableElements();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_getPassportAuthorizationFormAvailableElements_autorization_form_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_getPassportAuthorizationFormAvailableElements_password(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getPassportAuthorizationFormAvailableElements();
+            td_bridge_obj_getPassportAuthorizationFormAvailableElements_autorization_form_id(obj).Set(this.AutorizationFormId);
+            td_bridge_obj_getPassportAuthorizationFormAvailableElements_password(obj).Set(this.Password);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.AutorizationFormId = td_bridge_obj_getPassportAuthorizationFormAvailableElements_autorization_form_id(obj).Fetch();
+            this.Password = td_bridge_obj_getPassportAuthorizationFormAvailableElements_password(obj).Fetch();
         }
     }
 
@@ -23057,6 +25976,53 @@ namespace TDLib.Api
         }
     }
 
+    [TLTypeID(-1823144318)]
+    public unsafe partial class GetApplicationConfig
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getApplicationConfig();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getApplicationConfig();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-811154930)]
+    public unsafe partial class SaveApplicationLogEvent
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_saveApplicationLogEvent();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_saveApplicationLogEvent_type(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt64 td_bridge_obj_saveApplicationLogEvent_chat_id(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_saveApplicationLogEvent_data(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_saveApplicationLogEvent();
+            td_bridge_obj_saveApplicationLogEvent_type(obj).Set(this.Type);
+            td_bridge_obj_saveApplicationLogEvent_chat_id(obj).Set(this.ChatId);
+            new CxxTLObject<JsonValue>(td_bridge_obj_saveApplicationLogEvent_data(obj)).Set(this.Data);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Type = td_bridge_obj_saveApplicationLogEvent_type(obj).Fetch();
+            this.ChatId = td_bridge_obj_saveApplicationLogEvent_chat_id(obj).Fetch();
+            this.Data = new CxxTLObject<JsonValue>(td_bridge_obj_saveApplicationLogEvent_data(obj)).Fetch();
+        }
+    }
+
     [TLTypeID(331529432)]
     public unsafe partial class AddProxy
     {
@@ -23247,6 +26213,169 @@ namespace TDLib.Api
         internal override void TdFetchCxxObject(IntPtr obj)
         {
             this.ProxyId = td_bridge_obj_pingProxy_proxy_id(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(-1364199535)]
+    public unsafe partial class SetLogStream
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_setLogStream();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_obj_setLogStream_log_stream(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_setLogStream();
+            new CxxTLObject<LogStream>(td_bridge_obj_setLogStream_log_stream(obj)).Set(this.LogStream);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.LogStream = new CxxTLObject<LogStream>(td_bridge_obj_setLogStream_log_stream(obj)).Fetch();
+        }
+    }
+
+    [TLTypeID(1167608667)]
+    public unsafe partial class GetLogStream
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getLogStream();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getLogStream();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-303429678)]
+    public unsafe partial class SetLogVerbosityLevel
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_setLogVerbosityLevel();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_setLogVerbosityLevel_new_verbosity_level(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_setLogVerbosityLevel();
+            td_bridge_obj_setLogVerbosityLevel_new_verbosity_level(obj).Set(this.NewVerbosityLevel);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.NewVerbosityLevel = td_bridge_obj_setLogVerbosityLevel_new_verbosity_level(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(594057956)]
+    public unsafe partial class GetLogVerbosityLevel
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getLogVerbosityLevel();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getLogVerbosityLevel();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-254449190)]
+    public unsafe partial class GetLogTags
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getLogTags();
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getLogTags();
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+        }
+    }
+
+    [TLTypeID(-2095589738)]
+    public unsafe partial class SetLogTagVerbosityLevel
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_setLogTagVerbosityLevel();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_setLogTagVerbosityLevel_tag(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_setLogTagVerbosityLevel_new_verbosity_level(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_setLogTagVerbosityLevel();
+            td_bridge_obj_setLogTagVerbosityLevel_tag(obj).Set(this.Tag);
+            td_bridge_obj_setLogTagVerbosityLevel_new_verbosity_level(obj).Set(this.NewVerbosityLevel);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Tag = td_bridge_obj_setLogTagVerbosityLevel_tag(obj).Fetch();
+            this.NewVerbosityLevel = td_bridge_obj_setLogTagVerbosityLevel_new_verbosity_level(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(951004547)]
+    public unsafe partial class GetLogTagVerbosityLevel
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getLogTagVerbosityLevel();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_getLogTagVerbosityLevel_tag(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_getLogTagVerbosityLevel();
+            td_bridge_obj_getLogTagVerbosityLevel_tag(obj).Set(this.Tag);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.Tag = td_bridge_obj_getLogTagVerbosityLevel_tag(obj).Fetch();
+        }
+    }
+
+    [TLTypeID(1597427692)]
+    public unsafe partial class AddLogMessage
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_addLogMessage();
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxInt32 td_bridge_obj_addLogMessage_verbosity_level(IntPtr obj);
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        private static extern CxxString td_bridge_obj_addLogMessage_text(IntPtr obj);
+        internal override IntPtr TdCreateCxxObject()
+        {
+            var obj = td_bridge_newobj_addLogMessage();
+            td_bridge_obj_addLogMessage_verbosity_level(obj).Set(this.VerbosityLevel);
+            td_bridge_obj_addLogMessage_text(obj).Set(this.Text);
+            return obj;
+        }
+        internal override void TdFetchCxxObject(IntPtr obj)
+        {
+            this.VerbosityLevel = td_bridge_obj_addLogMessage_verbosity_level(obj).Fetch();
+            this.Text = td_bridge_obj_addLogMessage_text(obj).Fetch();
         }
     }
 

@@ -73,8 +73,8 @@ namespace TDLib.ClientExtensions
         /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
         /// </summary>
         /// <param name="code">The verification code received via SMS, Telegram message, phone call, or flash call</param>
-        /// <param name="firstName">If the user is not yet registered, the first name of the user; 1-255 characters</param>
-        /// <param name="lastName">If the user is not yet registered; the last name of the user; optional; 0-255 characters</param>
+        /// <param name="firstName">If the user is not yet registered, the first name of the user; 1-64 characters. You can also pass an empty string for unregistered user there to check verification code validness. In the latter case PHONE_NUMBER_UNOCCUPIED error will be returned for a valid code</param>
+        /// <param name="lastName">If the user is not yet registered; the last name of the user; optional; 0-64 characters</param>
         public static async Task<Ok> CheckAuthenticationCode(this Client client, string code = default, string firstName = default, string lastName = default)
         {
             var obj = new CheckAuthenticationCode
@@ -162,6 +162,15 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Returns all updates needed to restore current TDLib state, i.e. all actual UpdateAuthorizationState/UpdateUser/UpdateNewChat and others. This is especially usefull if TDLib is run in a separate process. This is an offline method. Can be called before authorization
+        /// </summary>
+        public static async Task<Updates> GetCurrentState(this Client client)
+        {
+            var obj = new GetCurrentState();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
         /// </summary>
         /// <param name="newEncryptionKey">New encryption key</param>
@@ -184,7 +193,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the password for the user. If a new recovery email address is specified, then the error EMAIL_UNCONFIRMED is returned and the password change will not be applied until the new recovery email address has been confirmed. The application should periodically call getPasswordState to check whether the new email address has been confirmed
+        /// Changes the password for the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
         /// </summary>
         /// <param name="oldPassword">Previous password of the user</param>
         /// <param name="newPassword">New password of the user; may be empty to remove the password</param>
@@ -205,7 +214,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns a recovery email address that was previously set up. This method can be used to verify a password provided by the user
+        /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user
         /// </summary>
         /// <param name="password">The password for the current user</param>
         public static async Task<RecoveryEmailAddress> GetRecoveryEmailAddress(this Client client, string password = default)
@@ -218,7 +227,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the recovery email address of the user. If a new recovery email address is specified, then the error EMAIL_UNCONFIRMED is returned and the email address will not be changed until the new email has been confirmed. The application should periodically call getPasswordState to check whether the email address has been confirmed. -If new_recovery_email_address is the same as the email address that is currently set up, this call succeeds immediately and aborts all other requests waiting for an email confirmation
+        /// Changes the 2-step verification recovery email address of the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed -If new_recovery_email_address is the same as the email address that is currently set up, this call succeeds immediately and aborts all other requests waiting for an email confirmation
         /// </summary>
         /// <param name="password">Password of the current user</param>
         /// <param name="newRecoveryEmailAddress">New recovery email address</param>
@@ -229,6 +238,28 @@ namespace TDLib.ClientExtensions
                 Password = password,
                 NewRecoveryEmailAddress = newRecoveryEmailAddress,
             };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Checks the 2-step verification recovery email address verification code
+        /// </summary>
+        /// <param name="code">Verification code</param>
+        public static async Task<PasswordState> CheckRecoveryEmailAddressCode(this Client client, string code = default)
+        {
+            var obj = new CheckRecoveryEmailAddressCode
+            {
+                Code = code,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Resends the 2-step verification recovery email address verification code
+        /// </summary>
+        public static async Task<PasswordState> ResendRecoveryEmailAddressCode(this Client client)
+        {
+            var obj = new ResendRecoveryEmailAddressCode();
             return await client.InvokeAsync(obj);
         }
 
@@ -275,21 +306,6 @@ namespace TDLib.ClientExtensions
         public static async Task<TemporaryPasswordState> GetTemporaryPasswordState(this Client client)
         {
             var obj = new GetTemporaryPasswordState();
-            return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
-        /// Handles a DC_UPDATE push service notification. Can be called before authorization
-        /// </summary>
-        /// <param name="dc">Value of the "dc" parameter of the notification</param>
-        /// <param name="addr">Value of the "addr" parameter of the notification</param>
-        public static async Task<Ok> ProcessDcUpdate(this Client client, string dc = default, string addr = default)
-        {
-            var obj = new ProcessDcUpdate
-            {
-                Dc = dc,
-                Addr = addr,
-            };
             return await client.InvokeAsync(obj);
         }
 
@@ -422,6 +438,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Returns information about a message, if it is available locally without sending network request. This is an offline request
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat the message belongs to</param>
+        /// <param name="messageId">Identifier of the message to get</param>
+        public static async Task<Message> GetMessageLocally(this Client client, long chatId = 0, long messageId = 0)
+        {
+            var obj = new GetMessageLocally
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Returns information about a message that is replied by given message
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
@@ -493,7 +524,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns an ordered list of chats. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library.
+        /// Returns an ordered list of chats. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library.
         /// </summary>
         /// <param name="offsetOrder">Chat order to return chats from</param>
         /// <param name="offsetChatId">Chat identifier to return chats from</param>
@@ -655,7 +686,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns a list of common chats with a given user. Chats are sorted by their type and creation date
+        /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
         /// </summary>
         /// <param name="userId">User identifier</param>
         /// <param name="offsetChatId">Chat identifier starting from which to return chats; use 0 for the first request</param>
@@ -676,8 +707,8 @@ namespace TDLib.ClientExtensions
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="fromMessageId">Identifier of the message starting from which history must be fetched; use 0 to get results from the last message</param>
-        /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages</param>
-        /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
+        /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset up to 99 to get additionally some newer messages</param>
+        /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="onlyLocal">If true, returns only messages that are available locally without sending network requests</param>
         public static async Task<Messages> GetChatHistory(this Client client, long chatId = 0, long fromMessageId = 0, int offset = 0, int limit = 0, bool onlyLocal = false)
         {
@@ -693,16 +724,18 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Deletes all messages in the chat only for the user. Cannot be used in channels and public supergroups
+        /// Deletes all messages in the chat. Use Chat.can_be_deleted_only_for_self and Chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="removeFromChatList">Pass true if the chat should be removed from the chats list</param>
-        public static async Task<Ok> DeleteChatHistory(this Client client, long chatId = 0, bool removeFromChatList = false)
+        /// <param name="removeFromChatList">Pass true if the chat should be removed from the chat list</param>
+        /// <param name="revoke">Pass true to try to delete chat history for all users</param>
+        public static async Task<Ok> DeleteChatHistory(this Client client, long chatId = 0, bool removeFromChatList = false, bool revoke = false)
         {
             var obj = new DeleteChatHistory
             {
                 ChatId = chatId,
                 RemoveFromChatList = removeFromChatList,
+                Revoke = revoke,
             };
             return await client.InvokeAsync(obj);
         }
@@ -848,6 +881,36 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
+        /// </summary>
+        /// <param name="notificationGroupId">Identifier of notification group to which the notification belongs</param>
+        /// <param name="notificationId">Identifier of removed notification</param>
+        public static async Task<Ok> RemoveNotification(this Client client, int notificationGroupId = 0, int notificationId = 0)
+        {
+            var obj = new RemoveNotification
+            {
+                NotificationGroupId = notificationGroupId,
+                NotificationId = notificationId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user
+        /// </summary>
+        /// <param name="notificationGroupId">Notification group identifier</param>
+        /// <param name="maxNotificationId">Maximum identifier of removed notifications</param>
+        public static async Task<Ok> RemoveNotificationGroup(this Client client, int notificationGroupId = 0, int maxNotificationId = 0)
+        {
+            var obj = new RemoveNotificationGroup
+            {
+                NotificationGroupId = notificationGroupId,
+                MaxNotificationId = maxNotificationId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Returns a public HTTPS link to a message. Available only for messages in public supergroups and channels
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which the message belongs</param>
@@ -860,6 +923,21 @@ namespace TDLib.ClientExtensions
                 ChatId = chatId,
                 MessageId = messageId,
                 ForAlbum = forAlbum,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns a private HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. The link will work only for members of the chat
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat to which the message belongs</param>
+        /// <param name="messageId">Identifier of the message</param>
+        public static async Task<HttpUrl> GetMessageLink(this Client client, long chatId = 0, long messageId = 0)
+        {
+            var obj = new GetMessageLink
+            {
+                ChatId = chatId,
+                MessageId = messageId,
             };
             return await client.InvokeAsync(obj);
         }
@@ -934,7 +1012,8 @@ namespace TDLib.ClientExtensions
         /// <param name="fromBackground">Pass true if the message is sent from background</param>
         /// <param name="queryId">Identifier of the inline query</param>
         /// <param name="resultId">Identifier of the inline result</param>
-        public static async Task<Message> SendInlineQueryResultMessage(this Client client, long chatId = 0, long replyToMessageId = 0, bool disableNotification = false, bool fromBackground = false, long queryId = 0, string resultId = default)
+        /// <param name="hideViaBot">If true, there will be no mention of a bot, via which the message is sent. Can be used only for bots GetOption("animation_search_bot_username"), GetOption("photo_search_bot_username") and GetOption("venue_search_bot_username")</param>
+        public static async Task<Message> SendInlineQueryResultMessage(this Client client, long chatId = 0, long replyToMessageId = 0, bool disableNotification = false, bool fromBackground = false, long queryId = 0, string resultId = default, bool hideViaBot = false)
         {
             var obj = new SendInlineQueryResultMessage
             {
@@ -944,6 +1023,7 @@ namespace TDLib.ClientExtensions
                 FromBackground = fromBackground,
                 QueryId = queryId,
                 ResultId = resultId,
+                HideViaBot = hideViaBot,
             };
             return await client.InvokeAsync(obj);
         }
@@ -1025,7 +1105,7 @@ namespace TDLib.ClientExtensions
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageIds">Identifiers of the messages to be deleted</param>
-        /// <param name="revoke">Pass true to try to delete outgoing messages for all chat members (may fail if messages are too old). Always true for supergroups, channels and secret chats</param>
+        /// <param name="revoke">Pass true to try to delete messages for all chat members. Always true for supergroups, channels and secret chats</param>
         public static async Task<Ok> DeleteMessages(this Client client, long chatId = 0, long[] messageIds = default, bool revoke = false)
         {
             var obj = new DeleteMessages
@@ -1315,6 +1395,66 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Converts a JSON-serialized string to corresponding JsonValue object. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="json">The JSON-serialized string</param>
+        public static async Task<JsonValue> GetJsonValue(this Client client, string json = default)
+        {
+            var obj = new GetJsonValue
+            {
+                Json = json,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Converts a JsonValue object to corresponding JSON-serialized string. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="jsonValue">The JsonValue object</param>
+        public static async Task<Text> GetJsonString(this Client client, JsonValue jsonValue = default)
+        {
+            var obj = new GetJsonString
+            {
+                JsonValue = jsonValue,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Changes user answer to a poll
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat to which the poll belongs</param>
+        /// <param name="messageId">Identifier of the message containing the poll</param>
+        /// <param name="optionIds">0-based identifiers of options, chosen by the user. Currently user can't choose more than 1 option</param>
+        public static async Task<Ok> SetPollAnswer(this Client client, long chatId = 0, long messageId = 0, int[] optionIds = default)
+        {
+            var obj = new SetPollAnswer
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                OptionIds = optionIds,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag set
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat to which the poll belongs</param>
+        /// <param name="messageId">Identifier of the message containing the poll</param>
+        /// <param name="replyMarkup">The new message reply markup; for bots only</param>
+        public static async Task<Ok> StopPoll(this Client client, long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default)
+        {
+            var obj = new StopPoll
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                ReplyMarkup = replyMarkup,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
         /// <param name="botUserId">The identifier of the target bot</param>
@@ -1433,7 +1573,7 @@ namespace TDLib.ClientExtensions
         /// <summary>
         /// Updates the game score of the specified user in the game; for bots only
         /// </summary>
-        /// <param name="chatId">The chat to which the message with the game</param>
+        /// <param name="chatId">The chat to which the message with the game belongs</param>
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="editMessage">True, if the message should be edited</param>
         /// <param name="userId">User identifier</param>
@@ -1537,7 +1677,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// This method should be called if the chat is opened by the user. Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels all updates are received only for opened chats)
+        /// Informs TDLib that the chat is opened by the user. Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels all updates are received only for opened chats)
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         public static async Task<Ok> OpenChat(this Client client, long chatId = 0)
@@ -1550,7 +1690,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// This method should be called if the chat is closed by the user. Many useful activities depend on the chat being opened or closed
+        /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         public static async Task<Ok> CloseChat(this Client client, long chatId = 0)
@@ -1563,7 +1703,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// This method should be called if messages are being viewed by the user. Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
+        /// Informs TDLib that messages are being viewed by the user. Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageIds">The identifiers of the messages being viewed</param>
@@ -1580,7 +1720,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// This method should be called if the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed
+        /// Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed
         /// </summary>
         /// <param name="chatId">Chat identifier of the message</param>
         /// <param name="messageId">Identifier of the message with the opened content</param>
@@ -1669,7 +1809,7 @@ namespace TDLib.ClientExtensions
         /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns the newly created chat
         /// </summary>
         /// <param name="userIds">Identifiers of users to be added to the basic group</param>
-        /// <param name="title">Title of the new basic group; 1-255 characters</param>
+        /// <param name="title">Title of the new basic group; 1-128 characters</param>
         public static async Task<Chat> CreateNewBasicGroupChat(this Client client, int[] userIds = default, string title = default)
         {
             var obj = new CreateNewBasicGroupChat
@@ -1683,7 +1823,7 @@ namespace TDLib.ClientExtensions
         /// <summary>
         /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
         /// </summary>
-        /// <param name="title">Title of the new chat; 1-255 characters</param>
+        /// <param name="title">Title of the new chat; 1-128 characters</param>
         /// <param name="isChannel">True, if a channel chat should be created</param>
         /// <param name="description">Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat</param>
         public static async Task<Chat> CreateNewSupergroupChat(this Client client, string title = default, bool isChannel = false, string description = default)
@@ -1727,7 +1867,7 @@ namespace TDLib.ClientExtensions
         /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires administrator rights in basic groups and the appropriate administrator rights in supergroups and channels. The title will not be changed until the request to the server has been completed
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="title">New title of the chat; 1-255 characters</param>
+        /// <param name="title">New title of the chat; 1-128 characters</param>
         public static async Task<Ok> SetChatTitle(this Client client, long chatId = 0, string title = default)
         {
             var obj = new SetChatTitle
@@ -1844,6 +1984,36 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Pins a message in a chat; requires appropriate administrator rights in the group or channel
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat</param>
+        /// <param name="messageId">Identifier of the new pinned message</param>
+        /// <param name="disableNotification">True, if there should be no notification about the pinned message</param>
+        public static async Task<Ok> PinChatMessage(this Client client, long chatId = 0, long messageId = 0, bool disableNotification = false)
+        {
+            var obj = new PinChatMessage
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                DisableNotification = disableNotification,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Removes the pinned message from a chat; requires appropriate administrator rights in the group or channel
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat</param>
+        public static async Task<Ok> UnpinChatMessage(this Client client, long chatId = 0)
+        {
+            var obj = new UnpinChatMessage
+            {
+                ChatId = chatId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Adds current user as a new member to a chat. Private and secret chats can't be joined using this method
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
@@ -1874,7 +2044,7 @@ namespace TDLib.ClientExtensions
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userId">Identifier of the user</param>
-        /// <param name="forwardLimit">The number of earlier messages from the chat to be forwarded to the new member; up to 300. Ignored for supergroups and channels</param>
+        /// <param name="forwardLimit">The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels</param>
         public static async Task<Ok> AddChatMember(this Client client, long chatId = 0, int userId = 0, int forwardLimit = 0)
         {
             var obj = new AddChatMember
@@ -1979,6 +2149,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Returns list of chats with non-default notification settings
+        /// </summary>
+        /// <param name="scope">If specified, only chats from the specified scope will be returned</param>
+        /// <param name="compareSound">If true, also chats with non-default sound will be returned</param>
+        public static async Task<Chats> GetChatNotificationSettingsExceptions(this Client client, NotificationSettingsScope scope = default, bool compareSound = false)
+        {
+            var obj = new GetChatNotificationSettingsExceptions
+            {
+                Scope = scope,
+                CompareSound = compareSound,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Returns the notification settings for chats of a given type
         /// </summary>
         /// <param name="scope">Types of chats for which to return the notification settings information</param>
@@ -2029,16 +2214,37 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Asynchronously downloads a file from the cloud. updateFile will be used to notify about the download progress and successful completion of the download. Returns file state just after the download has been started
+        /// Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates
         /// </summary>
         /// <param name="fileId">Identifier of the file to download</param>
         /// <param name="priority">Priority of the download (1-32). The higher the priority, the earlier the file will be downloaded. If the priorities of two files are equal, then the last one for which downloadFile was called will be downloaded first</param>
-        public static async Task<File> DownloadFile(this Client client, int fileId = 0, int priority = 0)
+        /// <param name="offset">The starting position from which the file should be downloaded</param>
+        /// <param name="limit">Number of bytes which should be downloaded starting from the "offset" position before the download will be automatically cancelled; use 0 to download without a limit</param>
+        /// <param name="synchronous">If false, this request returns file state just after the download has been started. If true, this request returns file state only after -the download has succeeded, has failed, has been cancelled or a new downloadFile request with different offset/limit parameters was sent</param>
+        public static async Task<File> DownloadFile(this Client client, int fileId = 0, int priority = 0, int offset = 0, int limit = 0, bool synchronous = false)
         {
             var obj = new DownloadFile
             {
                 FileId = fileId,
                 Priority = priority,
+                Offset = offset,
+                Limit = limit,
+                Synchronous = synchronous,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns file downloaded prefix size from a given offset
+        /// </summary>
+        /// <param name="fileId">Identifier of the file</param>
+        /// <param name="offset">Offset from which downloaded prefix size should be calculated</param>
+        public static async Task<Count> GetFileDownloadedPrefixSize(this Client client, int fileId = 0, int offset = 0)
+        {
+            var obj = new GetFileDownloadedPrefixSize
+            {
+                FileId = fileId,
+                Offset = offset,
             };
             return await client.InvokeAsync(obj);
         }
@@ -2089,7 +2295,24 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// The next part of a file was generated
+        /// Writes a part of a generated file. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+        /// </summary>
+        /// <param name="generationId">The identifier of the generation process</param>
+        /// <param name="offset">The offset from which to write the data to the file</param>
+        /// <param name="data">The data to write</param>
+        public static async Task<Ok> WriteGeneratedFilePart(this Client client, long generationId = 0, int offset = 0, byte[] data = default)
+        {
+            var obj = new WriteGeneratedFilePart
+            {
+                GenerationId = generationId,
+                Offset = offset,
+                Data = data,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Informs TDLib on a file generation prograss
         /// </summary>
         /// <param name="generationId">The identifier of the generation process</param>
         /// <param name="expectedSize">Expected size of the generated file, in bytes; 0 if unknown</param>
@@ -2116,6 +2339,23 @@ namespace TDLib.ClientExtensions
             {
                 GenerationId = generationId,
                 Error = error,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
+        /// </summary>
+        /// <param name="fileId">Identifier of the file. The file must be located in the TDLib file cache</param>
+        /// <param name="offset">The offset from which to read the file</param>
+        /// <param name="count">Number of bytes to read. An error will be returned if there are not enough bytes available in the file from the specified position. Pass 0 to read all available data from the specified position</param>
+        public static async Task<FilePart> ReadFilePart(this Client client, int fileId = 0, int offset = 0, int count = 0)
+        {
+            var obj = new ReadFilePart
+            {
+                FileId = fileId,
+                Offset = offset,
+                Count = count,
             };
             return await client.InvokeAsync(obj);
         }
@@ -2319,7 +2559,7 @@ namespace TDLib.ClientExtensions
         /// <summary>
         /// Searches for the specified query in the first names, last names and usernames of the known user contacts
         /// </summary>
-        /// <param name="query">Query to search for; can be empty to return all contacts</param>
+        /// <param name="query">Query to search for; may be empty to return all contacts</param>
         /// <param name="limit">Maximum number of users to be returned</param>
         public static async Task<Users> SearchContacts(this Client client, string query = default, int limit = 0)
         {
@@ -2332,7 +2572,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Removes users from the contacts list
+        /// Removes users from the contact list
         /// </summary>
         /// <param name="userIds">Identifiers of users to be deleted</param>
         public static async Task<Ok> RemoveContacts(this Client client, int[] userIds = default)
@@ -2367,7 +2607,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Clears all imported contacts, contacts list remains unchanged
+        /// Clears all imported contacts, contact list remains unchanged
         /// </summary>
         public static async Task<Ok> ClearImportedContacts(this Client client)
         {
@@ -2808,8 +3048,8 @@ namespace TDLib.ClientExtensions
         /// <summary>
         /// Changes the first and last name of the current user. If something changes, updateUser will be sent
         /// </summary>
-        /// <param name="firstName">The new value of the first name for the user; 1-255 characters</param>
-        /// <param name="lastName">The new value of the optional last name for the user; 0-255 characters</param>
+        /// <param name="firstName">The new value of the first name for the user; 1-64 characters</param>
+        /// <param name="lastName">The new value of the optional last name for the user; 0-64 characters</param>
         public static async Task<Ok> SetName(this Client client, string firstName = default, string lastName = default)
         {
             var obj = new SetName
@@ -3053,36 +3293,6 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Pins a message in a supergroup or channel; requires appropriate administrator rights in the supergroup or channel
-        /// </summary>
-        /// <param name="supergroupId">Identifier of the supergroup or channel</param>
-        /// <param name="messageId">Identifier of the new pinned message</param>
-        /// <param name="disableNotification">True, if there should be no notification about the pinned message</param>
-        public static async Task<Ok> PinSupergroupMessage(this Client client, int supergroupId = 0, long messageId = 0, bool disableNotification = false)
-        {
-            var obj = new PinSupergroupMessage
-            {
-                SupergroupId = supergroupId,
-                MessageId = messageId,
-                DisableNotification = disableNotification,
-            };
-            return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
-        /// Removes the pinned message from a supergroup or channel; requires appropriate administrator rights in the supergroup or channel
-        /// </summary>
-        /// <param name="supergroupId">Identifier of the supergroup or channel</param>
-        public static async Task<Ok> UnpinSupergroupMessage(this Client client, int supergroupId = 0)
-        {
-            var obj = new UnpinSupergroupMessage
-            {
-                SupergroupId = supergroupId,
-            };
-            return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
         /// Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup
         /// </summary>
         /// <param name="supergroupId">Supergroup identifier</param>
@@ -3283,7 +3493,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns information about the current localization target. This is an offline request if only_local is true
+        /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization
         /// </summary>
         /// <param name="onlyLocal">If true, returns only locally available information without sending network requests</param>
         public static async Task<LocalizationTargetInfo> GetLocalizationTargetInfo(this Client client, bool onlyLocal = false)
@@ -3296,7 +3506,20 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns strings from a language pack in the current localization target by their keys
+        /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
+        /// </summary>
+        /// <param name="languagePackId">Language pack identifier</param>
+        public static async Task<LanguagePackInfo> GetLanguagePackInfo(this Client client, string languagePackId = default)
+        {
+            var obj = new GetLanguagePackInfo
+            {
+                LanguagePackId = languagePackId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization
         /// </summary>
         /// <param name="languagePackId">Language pack identifier of the strings to be returned</param>
         /// <param name="keys">Language pack keys of the strings to be returned; leave empty to request all available strings</param>
@@ -3311,9 +3534,35 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Adds or changes a custom language pack to the current localization target
+        /// Fetches the latest versions of all strings from a language pack in the current localization target from the server. This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
         /// </summary>
-        /// <param name="info">Information about the language pack. Language pack ID must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters</param>
+        /// <param name="languagePackId">Language pack identifier</param>
+        public static async Task<Ok> SynchronizeLanguagePack(this Client client, string languagePackId = default)
+        {
+            var obj = new SynchronizeLanguagePack
+            {
+                LanguagePackId = languagePackId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
+        /// </summary>
+        /// <param name="languagePackId">Identifier of a language pack to be added; may be different from a name that is used in an "https://t.me/setlanguage/" link</param>
+        public static async Task<Ok> AddCustomServerLanguagePack(this Client client, string languagePackId = default)
+        {
+            var obj = new AddCustomServerLanguagePack
+            {
+                LanguagePackId = languagePackId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Adds or changes a custom local language pack to the current localization target
+        /// </summary>
+        /// <param name="info">Information about the language pack. Language pack ID must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters. Can be called before authorization</param>
         /// <param name="strings">Strings of the new language pack</param>
         public static async Task<Ok> SetCustomLanguagePack(this Client client, LanguagePackInfo info = default, LanguagePackString[] strings = default)
         {
@@ -3326,9 +3575,9 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Edits information about a custom language pack in the current localization target
+        /// Edits information about a custom local language pack in the current localization target. Can be called before authorization
         /// </summary>
-        /// <param name="info">New information about the custom language pack</param>
+        /// <param name="info">New information about the custom local language pack</param>
         public static async Task<Ok> EditCustomLanguagePackInfo(this Client client, LanguagePackInfo info = default)
         {
             var obj = new EditCustomLanguagePackInfo
@@ -3339,9 +3588,9 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Adds, edits or deletes a string in a custom language pack
+        /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
         /// </summary>
-        /// <param name="languagePackId">Identifier of a previously added custom language pack in the current localization target</param>
+        /// <param name="languagePackId">Identifier of a previously added custom local language pack in the current localization target</param>
         /// <param name="newString">New language pack string</param>
         public static async Task<Ok> SetCustomLanguagePackString(this Client client, string languagePackId = default, LanguagePackString newString = default)
         {
@@ -3354,7 +3603,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Deletes all information about a language pack in the current localization target. The language pack that is currently in use can't be deleted
+        /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted. Can be called before authorization
         /// </summary>
         /// <param name="languagePackId">Identifier of the language pack to delete</param>
         public static async Task<Ok> DeleteLanguagePack(this Client client, string languagePackId = default)
@@ -3367,16 +3616,42 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Registers the currently used device for receiving push notifications
+        /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
         /// </summary>
         /// <param name="deviceToken">Device token</param>
-        /// <param name="otherUserIds">List of at most 100 user identifiers of other users currently using the client</param>
-        public static async Task<Ok> RegisterDevice(this Client client, DeviceToken deviceToken = default, int[] otherUserIds = default)
+        /// <param name="otherUserIds">List of user identifiers of other users currently using the client</param>
+        public static async Task<PushReceiverId> RegisterDevice(this Client client, DeviceToken deviceToken = default, int[] otherUserIds = default)
         {
             var obj = new RegisterDevice
             {
                 DeviceToken = deviceToken,
                 OtherUserIds = otherUserIds,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Handles a push notification. Returns error with code 406 if the push notification is not supported and connection to the server is required to fetch new data. Can be called before authorization
+        /// </summary>
+        /// <param name="payload">JSON-encoded push notification payload with all fields sent by the server, and "google.sent_time" and "google.notification.sound" fields added</param>
+        public static async Task<Ok> ProcessPushNotification(this Client client, string payload = default)
+        {
+            var obj = new ProcessPushNotification
+            {
+                Payload = payload,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="payload">JSON-encoded push notification payload</param>
+        public static async Task<PushReceiverId> GetPushReceiverId(this Client client, string payload = default)
+        {
+            var obj = new GetPushReceiverId
+            {
+                Payload = payload,
             };
             return await client.InvokeAsync(obj);
         }
@@ -3499,7 +3774,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Used to let the server know whether a chat is spam or not. Can be used only if ChatReportSpamState.can_report_spam is true. After this request, ChatReportSpamState.can_report_spam becomes false forever
+        /// Reports to the server whether a chat is a spam chat or not. Can be used only if ChatReportSpamState.can_report_spam is true. After this request, ChatReportSpamState.can_report_spam becomes false forever
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="isSpamChat">If true, the chat will be reported as spam; otherwise it will be marked as not spam</param>
@@ -3531,7 +3806,24 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns storage usage statistics
+        /// Returns URL with the chat statistics. Currently this method can be used only for channels
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="parameters">Parameters from "tg://statsrefresh?params=******" link</param>
+        /// <param name="isDark">Pass true if a URL with the dark theme must be returned</param>
+        public static async Task<HttpUrl> GetChatStatisticsUrl(this Client client, long chatId = 0, string parameters = default, bool isDark = false)
+        {
+            var obj = new GetChatStatisticsUrl
+            {
+                ChatId = chatId,
+                Parameters = parameters,
+                IsDark = isDark,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns storage usage statistics. Can be called before authorization
         /// </summary>
         /// <param name="chatLimit">Maximum number of chats with the largest storage usage for which separate statistics should be returned. All other chats will be grouped in entries with chat_id == 0. If the chat info database is not used, the chat_limit is ignored and is always set to 0</param>
         public static async Task<StorageStatistics> GetStorageStatistics(this Client client, int chatLimit = 0)
@@ -3544,11 +3836,20 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Quickly returns approximate storage usage statistics
+        /// Quickly returns approximate storage usage statistics. Can be called before authorization
         /// </summary>
         public static async Task<StorageStatisticsFast> GetStorageStatisticsFast(this Client client)
         {
             var obj = new GetStorageStatisticsFast();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns database statistics
+        /// </summary>
+        public static async Task<DatabaseStatistics> GetDatabaseStatistics(this Client client)
+        {
+            var obj = new GetDatabaseStatistics();
             return await client.InvokeAsync(obj);
         }
 
@@ -3792,8 +4093,7 @@ namespace TDLib.ClientExtensions
         /// <param name="scope">Telegram Passport element types requested by the service</param>
         /// <param name="publicKey">Service's public_key</param>
         /// <param name="nonce">Authorization form nonce provided by the service</param>
-        /// <param name="password">Password of the current user</param>
-        public static async Task<PassportAuthorizationForm> GetPassportAuthorizationForm(this Client client, int botUserId = 0, string scope = default, string publicKey = default, string nonce = default, string password = default)
+        public static async Task<PassportAuthorizationForm> GetPassportAuthorizationForm(this Client client, int botUserId = 0, string scope = default, string publicKey = default, string nonce = default)
         {
             var obj = new GetPassportAuthorizationForm
             {
@@ -3801,13 +4101,27 @@ namespace TDLib.ClientExtensions
                 Scope = scope,
                 PublicKey = publicKey,
                 Nonce = nonce,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form
+        /// </summary>
+        /// <param name="autorizationFormId">Authorization form identifier</param>
+        /// <param name="password">Password of the current user</param>
+        public static async Task<PassportElementsWithErrors> GetPassportAuthorizationFormAvailableElements(this Client client, int autorizationFormId = 0, string password = default)
+        {
+            var obj = new GetPassportAuthorizationFormAvailableElements
+            {
+                AutorizationFormId = autorizationFormId,
                 Password = password,
             };
             return await client.InvokeAsync(obj);
         }
 
         /// <summary>
-        /// Sends a Telegram Passport authorization form, effectively sharing data with the service
+        /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements need to be used
         /// </summary>
         /// <param name="autorizationFormId">Authorization form identifier</param>
         /// <param name="types">Types of Telegram Passport elements chosen by user to complete the authorization form</param>
@@ -4069,6 +4383,32 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Returns application config, provided by the server. Can be called before authorization
+        /// </summary>
+        public static async Task<JsonValue> GetApplicationConfig(this Client client)
+        {
+            var obj = new GetApplicationConfig();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Saves application log event on the server. Can be called before authorization
+        /// </summary>
+        /// <param name="type">Event type</param>
+        /// <param name="chatId">Optional chat identifier, associated with the event</param>
+        /// <param name="data">The log event data</param>
+        public static async Task<Ok> SaveApplicationLogEvent(this Client client, string type = default, long chatId = 0, JsonValue data = default)
+        {
+            var obj = new SaveApplicationLogEvent
+            {
+                Type = type,
+                ChatId = chatId,
+                Data = data,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Adds a proxy server for network requests. Can be called before authorization
         /// </summary>
         /// <param name="server">Proxy server IP address</param>
@@ -4179,7 +4519,103 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Does nothing; for testing only
+        /// Sets new log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="logStream">New log stream</param>
+        public static async Task<Ok> SetLogStream(this Client client, LogStream logStream = default)
+        {
+            var obj = new SetLogStream
+            {
+                LogStream = logStream,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns information about currently used log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        public static async Task<LogStream> GetLogStream(this Client client)
+        {
+            var obj = new GetLogStream();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Sets the verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="newVerbosityLevel">New value of the verbosity level for logging. Value 0 corresponds to fatal errors, value 1 corresponds to errors, value 2 corresponds to warnings and debug warnings, value 3 corresponds to informational, value 4 corresponds to debug, value 5 corresponds to verbose debug, value greater than 5 and up to 1023 can be used to enable even more logging</param>
+        public static async Task<Ok> SetLogVerbosityLevel(this Client client, int newVerbosityLevel = 0)
+        {
+            var obj = new SetLogVerbosityLevel
+            {
+                NewVerbosityLevel = newVerbosityLevel,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns current verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        public static async Task<LogVerbosityLevel> GetLogVerbosityLevel(this Client client)
+        {
+            var obj = new GetLogVerbosityLevel();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        public static async Task<LogTags> GetLogTags(this Client client)
+        {
+            var obj = new GetLogTags();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Sets the verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="tag">Logging tag to change verbosity level</param>
+        /// <param name="newVerbosityLevel">New verbosity level; 1-1024</param>
+        public static async Task<Ok> SetLogTagVerbosityLevel(this Client client, string tag = default, int newVerbosityLevel = 0)
+        {
+            var obj = new SetLogTagVerbosityLevel
+            {
+                Tag = tag,
+                NewVerbosityLevel = newVerbosityLevel,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns current verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="tag">Logging tag to change verbosity level</param>
+        public static async Task<LogVerbosityLevel> GetLogTagVerbosityLevel(this Client client, string tag = default)
+        {
+            var obj = new GetLogTagVerbosityLevel
+            {
+                Tag = tag,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Adds a message to TDLib internal log. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="verbosityLevel">Minimum verbosity level needed for the message to be logged, 0-1023</param>
+        /// <param name="text">Text of a message to log</param>
+        public static async Task<Ok> AddLogMessage(this Client client, int verbosityLevel = 0, string text = default)
+        {
+            var obj = new AddLogMessage
+            {
+                VerbosityLevel = verbosityLevel,
+                Text = text,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Does nothing; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static async Task<Ok> TestCallEmpty(this Client client)
         {
@@ -4188,7 +4624,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the received string; for testing only
+        /// Returns the received string; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">String to return</param>
         public static async Task<TestString> TestCallString(this Client client, string x = default)
@@ -4201,7 +4637,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the received bytes; for testing only
+        /// Returns the received bytes; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Bytes to return</param>
         public static async Task<TestBytes> TestCallBytes(this Client client, byte[] x = default)
@@ -4214,7 +4650,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the received vector of numbers; for testing only
+        /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Vector of numbers to return</param>
         public static async Task<TestVectorInt> TestCallVectorInt(this Client client, int[] x = default)
@@ -4227,7 +4663,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the received vector of objects containing a number; for testing only
+        /// Returns the received vector of objects containing a number; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Vector of objects to return</param>
         public static async Task<TestVectorIntObject> TestCallVectorIntObject(this Client client, TestInt[] x = default)
@@ -4240,7 +4676,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// For testing only request. Returns the received vector of strings; for testing only
+        /// Returns the received vector of strings; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Vector of strings to return</param>
         public static async Task<TestVectorString> TestCallVectorString(this Client client, string[] x = default)
@@ -4253,7 +4689,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the received vector of objects containing a string; for testing only
+        /// Returns the received vector of objects containing a string; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Vector of objects to return</param>
         public static async Task<TestVectorStringObject> TestCallVectorStringObject(this Client client, TestString[] x = default)
@@ -4266,7 +4702,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the squared received number; for testing only
+        /// Returns the squared received number; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Number to square</param>
         public static async Task<TestInt> TestSquareInt(this Client client, int x = 0)
@@ -4279,7 +4715,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Sends a simple network request to the Telegram servers; for testing only
+        /// Sends a simple network request to the Telegram servers; for testing only. Can be called before authorization
         /// </summary>
         public static async Task<Ok> TestNetwork(this Client client)
         {
@@ -4297,7 +4733,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Does nothing and ensures that the Update object is used; for testing only
+        /// Does nothing and ensures that the Update object is used; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static async Task<Update> TestUseUpdate(this Client client)
         {
@@ -4306,7 +4742,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Does nothing and ensures that the Error object is used; for testing only
+        /// Does nothing and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static async Task<Error> TestUseError(this Client client)
         {
