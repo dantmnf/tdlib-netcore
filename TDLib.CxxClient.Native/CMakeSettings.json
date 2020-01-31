@@ -4,9 +4,7 @@
       "name": "x64-Release",
       "generator": "Ninja",
       "configurationType": "Release",
-      "inheritEnvironments": [
-        "msvc_x64_x64"
-      ],
+      "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\build",
       "installRoot": "${projectDir}\\install",
       "cmakeCommandArgs": "",
@@ -15,7 +13,26 @@
       "variables": [
         {
           "name": "Td_DIR",
-          "value": "D:\\msys64\\home\\dant\\td\\build-msvc\\progfiles\\TDLib\\lib\\cmake\\Td"
+          "value": "D:\\msys64\\home\\dant\\tdprefix\\lib\\cmake\\Td",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "x64-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "variables": [
+        {
+          "name": "Td_DIR",
+          "value": "D:\\msys64\\home\\dant\\tdprefix\\lib\\cmake\\Td",
+          "type": "STRING"
         }
       ]
     }

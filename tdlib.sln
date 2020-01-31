@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.CxxClient", "TDLib.CxxClient\TDLib.CxxClient.csproj", "{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.JsonClient", "TDLib.JsonClient\TDLib.JsonClient.csproj", "{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bench", "bench\bench.csproj", "{B37D6BC5-4974-411E-8314-33F5464AC0ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,20 @@ Global
 		{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}.Release|x64.ActiveCfg = Release|Any CPU
 		{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}.Release|x64.Build.0 = Release|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Debug|x64.Build.0 = Debug|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Release|x64.ActiveCfg = Release|Any CPU
+		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Release|x64.Build.0 = Release|Any CPU
+		{B37D6BC5-4974-411E-8314-33F5464AC0ED}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{B37D6BC5-4974-411E-8314-33F5464AC0ED}.Debug|x64.ActiveCfg = Debug|x64
+		{B37D6BC5-4974-411E-8314-33F5464AC0ED}.Debug|x64.Build.0 = Debug|x64
+		{B37D6BC5-4974-411E-8314-33F5464AC0ED}.Release|Any CPU.ActiveCfg = Release|x64
+		{B37D6BC5-4974-411E-8314-33F5464AC0ED}.Release|x64.ActiveCfg = Release|x64
+		{B37D6BC5-4974-411E-8314-33F5464AC0ED}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

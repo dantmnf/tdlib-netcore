@@ -11,6 +11,9 @@ namespace TDLib.CxxClient
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FatalErrorCallback(IntPtr message);
 
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FetchObjectCallback(IntPtr obj, long id);
+
     [SuppressUnmanagedCodeSecurity]
     static unsafe class Native
     {
@@ -37,9 +40,9 @@ namespace TDLib.CxxClient
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern void td_bridge_client_send(IntPtr client, long id, IntPtr func);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr td_bridge_client_receive(IntPtr client, double timeout, out long id);
+        public static extern void td_bridge_client_receive(IntPtr client, double timeout, FetchObjectCallback callback);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr td_bridge_client_execute(IntPtr client, long inid, IntPtr func, out long outid);
+        public static extern void td_bridge_client_execute(IntPtr client, long inid, IntPtr func, FetchObjectCallback callback);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr td_bridge_vector_vector_object_at(IntPtr ptr, long index);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]

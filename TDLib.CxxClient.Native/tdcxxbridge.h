@@ -7,3 +7,5 @@
 #else
 #define EXPORT extern "C"
 #endif
+
+typedef void(__cdecl* FetchObjectCallback)(td::td_api::Object*, int64_t);

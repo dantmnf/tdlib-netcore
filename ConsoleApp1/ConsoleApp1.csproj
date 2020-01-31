@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TDLib.CxxClient\TDLib.CxxClient.csproj" />
+    <ProjectReference Include="..\TDLib.JsonClient\TDLib.JsonClient.csproj" />
     <ProjectReference Include="..\TDLib\TDLib.csproj" />
   </ItemGroup>
 

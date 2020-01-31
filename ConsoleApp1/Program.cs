@@ -7,6 +7,7 @@ using System.Text;
 using TDLib;
 using TDLib.ClientExtensions;
 using TDLib.CxxClient;
+using TDLib.JsonClient;
 using System.Threading;
 using System.Dynamic;
 

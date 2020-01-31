@@ -36,7 +36,7 @@ def emit_function(io, type)
     argname = check_csharp_keyword name.sub(/[A-Z]/, &:downcase)
     "#{type} #{argname} = #{DefaultValue[type]}"
   end
-  arglist.unshift "this AbstractClient client"
+  arglist.unshift "this Client client"
 
   io.puts "public static async Task<#{check_csharp_keyword type.tl_class}> #{check_csharp_keyword type.name}(#{arglist.join(", ")})"
   io.puts "{"
@@ -69,7 +69,7 @@ def emit(out=STDOUT)
   io.puts "using System;"
   io.puts "using System.Threading.Tasks;"
   io.puts "using TDLib;"
-  io.puts "using TDLib.Types;"
+  io.puts "using TDLib.Api;"
   io.puts ""
   io.puts "namespace TDLib.ClientExtensions"
   io.puts "{"
@@ -86,5 +86,5 @@ def emit(out=STDOUT)
   io.puts "}"
 end
 
-emit
+emit File.open(ARGV[0], 'wb')
 

@@ -28,5 +28,5 @@ def emit(out=STDOUT)
   end
 end
 
-emit
+emit File.open(ARGV[0], 'wb')
 

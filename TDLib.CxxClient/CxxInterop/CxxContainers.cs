@@ -108,6 +108,11 @@ namespace TDLib.CxxClient.CxxInterop
         public T Fetch()
         {
             // var objptr = *(IntPtr*)ptr;
+            //T obj = null;
+            //td_bridge_object_ptr_fetch(ptr, (objptr, _)=> {
+            //    if (objptr != IntPtr.Zero)
+            //        obj = (T)TLObjectFactory.FetchCxxObject(objptr);
+            //});
             var objptr = td_bridge_object_ptr_get(ptr);
             return objptr == IntPtr.Zero ? null : (T)TLObjectFactory.FetchCxxObject(objptr);
         }
@@ -251,7 +256,8 @@ namespace TDLib.CxxClient.CxxInterop
             var result = new T[len];
             for(var i = 0; i<len; i++)
             {
-                result[i] = new CxxTLObject<T>(span[i]).Fetch();
+                //result[i] = new CxxTLObject<T>(span[i]).Fetch();
+                result[i] = (T)TLObjectFactory.FetchCxxObject(span[i]);
             }
             return result;
             // return span.ToArray().Select(x => (T)TLObjectFactory.FetchCxxObject(x)).ToArray();

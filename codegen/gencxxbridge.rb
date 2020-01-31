@@ -116,7 +116,7 @@ def emit(out=STDOUT)
   io.puts "using System;"
   io.puts "using System.Security;"
   io.puts "using System.Runtime.InteropServices;"
-  io.puts "using TDLib.Types;"
+  io.puts "using TDLib.Api;"
   io.puts "using TDLib.CxxClient.CxxInterop;"
   io.puts ""
   io.puts "#pragma warning disable IDE1006 // Naming Styles"
@@ -138,5 +138,5 @@ def emit(out=STDOUT)
 
 end
 
-emit
+emit File.open(ARGV[0], 'wb')
 
