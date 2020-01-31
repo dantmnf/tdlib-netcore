@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using TDLib;
 using TDLib.ClientExtensions;
+using TDLib.CxxClient;
 using System.Threading;
 using System.Dynamic;
 
@@ -102,7 +103,7 @@ namespace ConsoleApp1
 
         public static async Task Main()
         {
-            Logging.LogLevel = 1;
+            CxxClient.Logging.VerbosityLevel = 1;
             var eval = new ScriptEvaluator();
             var cts = new CancellationTokenSource();
             var ct = cts.Token;
@@ -114,7 +115,7 @@ namespace ConsoleApp1
                 e.Cancel = true;
             };
 
-            using (var client = new Client())
+            using (var client = new CxxClient())
             {
                 waitAuthReady = new TaskCompletionSource<bool>();
                 client.Update += AuthHandler;
@@ -122,7 +123,7 @@ namespace ConsoleApp1
                 var loop = client.Run();
                 
                 await Task.WhenAny(waitAuthReady.Task, canceltasksrc.Task);
-                if (waitAuthReady.Task.IsCompletedSuccessfully)
+                if (waitAuthReady.Task.IsCompleted)
                 {
                     var me = await client.GetMe();
                     // await client.SendMessage(73399058, input_message_content: new InputMessageText { text = "啊啊啊后唱戏" });

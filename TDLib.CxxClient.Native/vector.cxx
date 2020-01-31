@@ -2,10 +2,10 @@
 
 using namespace td::td_api;
 
-using objvec = std::vector<object_ptr<BaseObject>>;
+using objptr = object_ptr<BaseObject>;
+using objvec = std::vector<objptr>;
 
-EXPORT const void* td_bridge_vector_object_data(const objvec *vecptr, int64_t *size) {
-	static_assert(sizeof(object_ptr<BaseObject>) == sizeof(BaseObject*));
+EXPORT const objptr* td_bridge_vector_object_data(const objvec *vecptr, int64_t *size) {
 	*size = vecptr->size();
 	return vecptr->data();
 }

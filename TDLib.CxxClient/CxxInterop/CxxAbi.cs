@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
-using static TDLib.Native;
+using static TDLib.CxxClient.Native;
 
-namespace TDLib.Api.CxxInterop
+namespace TDLib.CxxClient.CxxInterop
 {
     static class CxxAbi
     {

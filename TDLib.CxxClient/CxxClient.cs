@@ -2,18 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using TDLib;
 using TDLib.Api;
-using TDLib.Api.CxxInterop;
-using static TDLib.Native;
+using TDLib.CxxClient.CxxInterop;
+using static TDLib.CxxClient.Native;
 
 
-namespace TDLib
+namespace TDLib.CxxClient
 {
-    class ClientImplCxx : ITdClientImpl, IDisposable
+    public class CxxClient : Client, IDisposable
     {
+        public static ITdClientLogging Logging { get; private set; } = new CxxClientLogging();
         private IntPtr ptr;
 
-        public ClientImplCxx()
+        public CxxClient()
         {
             ptr = td_bridge_client_create();
         }
@@ -26,25 +28,25 @@ namespace TDLib
             return obj;
         }
 
-        public TLObject Execute(Function func)
+        public override TLObject Execute(Function func)
         {
-            var objptr = td_bridge_client_execute(ptr, 114514, func.TdCreateCxxObject(), out var id);
+            var objptr = td_bridge_client_execute(ptr, 114514, TLObjectFactory.CreateCxxObject(func), out var id);
             return FetchAndFreeObject(ptr);
         }
 
-        public (long, TLObject) Receive(double timeout)
+        public override (long, TLObject) Receive(double timeout)
         {
             var objptr = td_bridge_client_receive(ptr, timeout, out var id);
             return (id, FetchAndFreeObject(objptr));
         }
 
-        public void Send(long id, Function func)
+        public override void Send(Function func, long id)
         {
-            td_bridge_client_send(ptr, id, func.TdCreateCxxObject());
+            td_bridge_client_send(ptr, id, TLObjectFactory.CreateCxxObject(func));
         }
 
         #region IDisposable
-        ~ClientImplCxx()
+        ~CxxClient()
         {
             Dispose();
         }

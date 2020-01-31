@@ -1,18 +1,6 @@
 require_relative 'common'
 
-
-DefaultValue = {
-  "int" => "0",
-  "long" => "0",
-  "double" => "0.0",
-  "bool" => "false",
-}
-DefaultValue.default = "default"
-
 def emit_function(io, type)
-
-
-
   props = type.props.map do |prop|
     proptype = prop.type.to_s
     propname = prop.capname
@@ -24,7 +12,7 @@ def emit_function(io, type)
 
   arglist = props.map do |type, name|
     argname = check_csharp_keyword name.sub(/[A-Z]/, &:downcase)
-    "#{type} #{argname} = #{DefaultValue[type]}"
+    "#{type} #{argname} = default"
   end
 
   csname = check_csharp_keyword type.name
@@ -73,7 +61,7 @@ def emit(out=STDOUT)
   io.puts "using System.Threading.Tasks;"
   io.puts "using TDLib;"
   io.puts ""
-  io.puts "namespace TDLib.Api"
+  io.puts "namespace TDLib.Types"
   io.puts "{"
   io.push
 

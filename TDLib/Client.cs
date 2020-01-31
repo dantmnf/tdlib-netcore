@@ -10,7 +10,7 @@ namespace TDLib
 {
     using AsyncUpdateEventHandler = Func<object, Update, Task>;
 
-    public class Client : IDisposable
+    public abstract class Client
     {
         public const long UnspecifiedRequestId = 99;
         private readonly ConcurrentDictionary<long, TaskCompletionSource<TLObject>> invokes;
@@ -18,21 +18,15 @@ namespace TDLib
         private readonly CancellationToken ct;
         private Task loopTask;
         private long invoke_sequence = 0x80000000;
-        private readonly ITdClientImpl clientImpl;
 
         public event AsyncUpdateEventHandler Update;
 
 
-        internal Client(ITdClientImpl impl)
+        protected Client()
         {
-            clientImpl = impl;
             invokes = new ConcurrentDictionary<long, TaskCompletionSource<TLObject>>();
             cts = new CancellationTokenSource();
             ct = cts.Token;
-        }
-
-        public Client() : this(new ClientImplCxx())
-        {
         }
 
         /// <summary>
@@ -44,7 +38,7 @@ namespace TDLib
         /// Responses to TDLib requests will have the same id as the corresponding request.
         /// Updates from TDLib will have id == 0, incoming requests are thus disallowed to have id == 0.
         /// </param>
-        public void Send(Function func, long id = UnspecifiedRequestId) => clientImpl.Send(id, func);
+        public abstract void Send(Function func, long id = UnspecifiedRequestId);
 
         /// <summary>
         /// Synchronously executes TDLib requests. Only a few requests can be executed synchronously.
@@ -52,7 +46,7 @@ namespace TDLib
         /// </summary>
         /// <param name="func">Request to the TDLib.</param>
         /// <returns>The request response.</returns>
-        public TLObject Execute(Function func) => clientImpl.Execute(func);
+        public abstract TLObject Execute(Function func);
 
         /// <summary>
         /// Receives incoming updates and request responses from TDLib.
@@ -60,7 +54,7 @@ namespace TDLib
         /// </summary>
         /// <param name="timeout">Maximum number of seconds allowed for this function to wait for new data.</param>
         /// <returns>An incoming update or request response. The object returned in the response may be null if the timeout expires.</returns>
-        public (long id, TLObject obj) Receive(double timeout) => clientImpl.Receive(timeout);
+        public abstract (long id, TLObject obj) Receive(double timeout);
 
 
         /// <summary>
@@ -131,7 +125,7 @@ namespace TDLib
         }
 
 
-        public Task<Update> WaitForUpdate(Func<Update, bool> criterion, CancellationToken ct = default(CancellationToken))
+        public Task<Update> WaitForUpdate(Func<Update, bool> criterion, CancellationToken ct = default)
         {
             var tsc = new TaskCompletionSource<Update>();
             Task handler(object sender, Update u)
@@ -207,20 +201,6 @@ namespace TDLib
             }
             return Task.FromCanceled(default);
         }
-
-        #region IDisposable
-        public void Dispose()
-        {
-            (clientImpl as IDisposable)?.Dispose();
-            GC.SuppressFinalize(this);
-        }
-
-        ~Client()
-        {
-            Dispose();
-        }
-        #endregion
-
-
+        
     }
 }

@@ -4,9 +4,10 @@ using System.Text;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using static TDLib.Native;
+using TDLib.Api;
+using static TDLib.CxxClient.Native;
 
-namespace TDLib.Api.CxxInterop
+namespace TDLib.CxxClient.CxxInterop
 {
 
 
@@ -43,7 +44,7 @@ namespace TDLib.Api.CxxInterop
         public static implicit operator IntPtr(CxxString x) => x.bytes.ptr;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override string ToString() => Encoding.UTF8.GetString(bytes.AsSpan());
+        public unsafe override string ToString() => SpanToUTF8String(bytes.AsSpan());
     }
 
     /// <summary>
@@ -106,16 +107,18 @@ namespace TDLib.Api.CxxInterop
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public T Fetch()
         {
-            var objptr = *(IntPtr*)ptr;
+            // var objptr = *(IntPtr*)ptr;
+            var objptr = td_bridge_object_ptr_get(ptr);
             return objptr == IntPtr.Zero ? null : (T)TLObjectFactory.FetchCxxObject(objptr);
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Set(T obj)
         {
-            var oldobj = *(IntPtr*)ptr;
-            if (oldobj != IntPtr.Zero)
-                CxxAbi.FreeCxxTLObject(oldobj);
-            *(IntPtr*)ptr = obj == null ? IntPtr.Zero : obj.TdCreateCxxObject();
+            td_bridge_object_ptr_reset(ptr, TLObjectFactory.CreateCxxObject(obj));
+            //var oldobj = *(IntPtr*)ptr;
+            //if (oldobj != IntPtr.Zero)
+            //    CxxAbi.FreeCxxTLObject(oldobj);
+            //*(IntPtr*)ptr = obj == null ? IntPtr.Zero : obj.TdCreateCxxObject();
         }
     }
 
@@ -231,7 +234,7 @@ namespace TDLib.Api.CxxInterop
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Add(TLObject obj)
         {
-            td_bridge_vector_object_emplace_back(ptr, obj.TdCreateCxxObject());
+            td_bridge_vector_object_emplace_back(ptr, TLObjectFactory.CreateCxxObject(obj));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -244,8 +247,14 @@ namespace TDLib.Api.CxxInterop
         public T[] ToArray()
         {
             var data = td_bridge_vector_object_data(ptr, out var len);
-            var span = new ReadOnlySpan<IntPtr>(data, (int)len).ToArray();
-            return span.Select(x => (T)TLObjectFactory.FetchCxxObject(x)).ToArray();
+            var span = new ReadOnlySpan<IntPtr>(data, (int)len);
+            var result = new T[len];
+            for(var i = 0; i<len; i++)
+            {
+                result[i] = new CxxTLObject<T>(span[i]).Fetch();
+            }
+            return result;
+            // return span.ToArray().Select(x => (T)TLObjectFactory.FetchCxxObject(x)).ToArray();
         }
     }
 
@@ -287,7 +296,7 @@ namespace TDLib.Api.CxxInterop
             var result = new string[len];
             for (long i = 0; i < len; i++)
             {
-                result[i] = Encoding.UTF8.GetString(vecbytes.SpanAt(i));
+                result[i] = SpanToUTF8String(vecbytes.SpanAt(i));
             }
             return result;
         }

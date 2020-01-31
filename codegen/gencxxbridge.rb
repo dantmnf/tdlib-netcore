@@ -42,11 +42,13 @@ def pinvoketype(type)
 end
 
 def emit_type(io, type)
-  io.puts "[TLTypeID(#{type.type_id})]"
-  io.puts "public unsafe partial class #{check_csharp_keyword type.name}"
+  cstype = check_csharp_keyword type.name
+  io.puts "[TLTypeID(#{type.type_id}, typeof(#{cstype}))]"
+  io.puts "internal unsafe class #{cstype}CxxBridge : BaseCxxBridge"
   io.puts "{"
   io.block do
-
+    # we need a method to create delegate (fast) instead of Activator.CreateInstance or ConstructorInfo (slow)
+    io.puts "public static BaseCxxBridge CreateInstance() => new #{cstype}CxxBridge();"
     supsec = "[SuppressUnmanagedCodeSecurity]"
     dllimport = '[DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]'
     io.puts supsec
@@ -60,10 +62,11 @@ def emit_type(io, type)
       io.puts "private static extern #{pitype} td_bridge_obj_#{type.realname}_#{prop.name}(IntPtr obj);"
     end
 
-    io.puts "internal override IntPtr TdCreateCxxObject()"
+    io.puts "public override IntPtr CreateCxxObject(TLObject obj)"
     io.puts "{"
     io.block do
-      io.puts "var obj = td_bridge_newobj_#{type.realname}();"
+      io.puts "var specobj = (#{cstype})obj;"
+      io.puts "var cxxobj = td_bridge_newobj_#{type.realname}();"
       type.props.each do |prop|
         propname = prop.capname
         if propname == type.name
@@ -72,19 +75,20 @@ def emit_type(io, type)
         csname = check_csharp_keyword propname
         wraptype = pinvoketype(prop.type)
         if wraptype.include?('<')
-          io.puts "new #{wraptype}(td_bridge_obj_#{type.realname}_#{prop.name}(obj)).Set(this.#{csname});"
+          io.puts "new #{wraptype}(td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj)).Set(specobj.#{csname});"
         else
-          io.puts "td_bridge_obj_#{type.realname}_#{prop.name}(obj).Set(this.#{csname});"
+          io.puts "td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj).Set(specobj.#{csname});"
         end
       end
-      io.puts "return obj;"
+      io.puts "return cxxobj;"
     end
     io.puts "}"
 
     
-    io.puts "internal override void TdFetchCxxObject(IntPtr obj)"
+    io.puts "public override TLObject FetchCxxObject(IntPtr cxxobj)"
     io.puts "{"
     io.block do
+      io.puts "var obj = new #{cstype}();"
       type.props.each do |prop|
         propname = prop.capname
         if propname == type.name
@@ -93,12 +97,12 @@ def emit_type(io, type)
         csname = check_csharp_keyword propname
         wraptype = pinvoketype(prop.type)
         if wraptype.include?('<')
-          io.puts "this.#{csname} = new #{wraptype}(td_bridge_obj_#{type.realname}_#{prop.name}(obj)).Fetch();"
+          io.puts "obj.#{csname} = new #{wraptype}(td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj)).Fetch();"
         else
-          io.puts "this.#{csname} = td_bridge_obj_#{type.realname}_#{prop.name}(obj).Fetch();"
+          io.puts "obj.#{csname} = td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj).Fetch();"
         end
-        
       end
+      io.puts "return obj;"
     end
     io.puts "}"
   end
@@ -112,11 +116,12 @@ def emit(out=STDOUT)
   io.puts "using System;"
   io.puts "using System.Security;"
   io.puts "using System.Runtime.InteropServices;"
-  io.puts "using TDLib.Api.CxxInterop;"
+  io.puts "using TDLib.Types;"
+  io.puts "using TDLib.CxxClient.CxxInterop;"
   io.puts ""
   io.puts "#pragma warning disable IDE1006 // Naming Styles"
   io.puts ""
-  io.puts "namespace TDLib.Api"
+  io.puts "namespace TDLib.CxxClient"
   io.puts "{"
   io.push
 

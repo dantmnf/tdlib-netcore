@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Security;
-using TDLib.Api.CxxInterop;
+using TDLib.CxxClient.CxxInterop;
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace TDLib
+namespace TDLib.CxxClient
 {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FatalErrorCallback([MarshalAs(UnmanagedType.LPUTF8Str)]string message);
+    public delegate void FatalErrorCallback(IntPtr message);
 
     [SuppressUnmanagedCodeSecurity]
     static unsafe class Native
@@ -25,7 +25,11 @@ namespace TDLib
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern int td_bridge_object_get_id(IntPtr obj);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void td_bridge_object_destroy(IntPtr client);
+        public static extern void td_bridge_object_destroy(IntPtr obj);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr td_bridge_object_ptr_get(IntPtr ptr);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void td_bridge_object_ptr_reset(IntPtr ptr, IntPtr obj);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr td_bridge_client_create();
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
@@ -75,6 +79,13 @@ namespace TDLib
             int result = 0;
             while (*str++ != 0) result++;
             return result;
+        }
+
+        public static string SpanToUTF8String(ReadOnlySpan<byte> span)
+        {
+            if (span.Length == 0) return string.Empty;
+            fixed (byte* buf = span)
+                return Encoding.UTF8.GetString(buf, span.Length);
         }
     }
 }

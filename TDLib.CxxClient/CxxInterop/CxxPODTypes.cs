@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace TDLib.Api.CxxInterop
+namespace TDLib.CxxClient.CxxInterop
 {
     /// <summary>
     /// bool*

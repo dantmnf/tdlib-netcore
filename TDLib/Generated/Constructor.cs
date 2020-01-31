@@ -16,7 +16,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="code">Error code; subject to future changes. If the error code is 406, the error message must not be processed in any way and must not be displayed to the user</param>
         /// <param name="message">Error message; subject to future changes</param>
-        public Error(int code = 0, string message = default)
+        public Error(int code = default, string message = default)
         {
             this.Code = code;
             this.Message = message;
@@ -55,7 +55,7 @@ namespace TDLib.Api
         /// <param name="applicationVersion">Application version; must be non-empty</param>
         /// <param name="enableStorageOptimizer">If set to true, old files will automatically be deleted</param>
         /// <param name="ignoreFileNames">If set to true, original file names will be ignored. Otherwise, downloaded files will be saved under names as close as possible to the original name</param>
-        public TdlibParameters(bool useTestDc = false, string databaseDirectory = default, string filesDirectory = default, bool useFileDatabase = false, bool useChatInfoDatabase = false, bool useMessageDatabase = false, bool useSecretChats = false, int apiId = 0, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default, bool enableStorageOptimizer = false, bool ignoreFileNames = false)
+        public TdlibParameters(bool useTestDc = default, string databaseDirectory = default, string filesDirectory = default, bool useFileDatabase = default, bool useChatInfoDatabase = default, bool useMessageDatabase = default, bool useSecretChats = default, int apiId = default, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default, bool enableStorageOptimizer = default, bool ignoreFileNames = default)
         {
             this.UseTestDc = useTestDc;
             this.DatabaseDirectory = databaseDirectory;
@@ -85,7 +85,7 @@ namespace TDLib.Api
         /// An authentication code is delivered via a private Telegram message, which can be viewed in another client
         /// </summary>
         /// <param name="length">Length of the code</param>
-        public AuthenticationCodeTypeTelegramMessage(int length = 0)
+        public AuthenticationCodeTypeTelegramMessage(int length = default)
         {
             this.Length = length;
         }
@@ -101,7 +101,7 @@ namespace TDLib.Api
         /// An authentication code is delivered via an SMS message to the specified phone number
         /// </summary>
         /// <param name="length">Length of the code</param>
-        public AuthenticationCodeTypeSms(int length = 0)
+        public AuthenticationCodeTypeSms(int length = default)
         {
             this.Length = length;
         }
@@ -117,7 +117,7 @@ namespace TDLib.Api
         /// An authentication code is delivered via a phone call to the specified phone number
         /// </summary>
         /// <param name="length">Length of the code</param>
-        public AuthenticationCodeTypeCall(int length = 0)
+        public AuthenticationCodeTypeCall(int length = default)
         {
             this.Length = length;
         }
@@ -152,7 +152,7 @@ namespace TDLib.Api
         /// <param name="type">Describes the way the code was sent to the user</param>
         /// <param name="nextType">Describes the way the next code will be sent to the user; may be null</param>
         /// <param name="timeout">Timeout before the code should be re-sent, in seconds</param>
-        public AuthenticationCodeInfo(string phoneNumber = default, AuthenticationCodeType type = default, AuthenticationCodeType nextType = default, int timeout = 0)
+        public AuthenticationCodeInfo(string phoneNumber = default, AuthenticationCodeType type = default, AuthenticationCodeType nextType = default, int timeout = default)
         {
             this.PhoneNumber = phoneNumber;
             this.Type = type;
@@ -172,7 +172,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="emailAddressPattern">Pattern of the email address to which an authentication code was sent</param>
         /// <param name="length">Length of the code; 0 if unknown</param>
-        public EmailAddressAuthenticationCodeInfo(string emailAddressPattern = default, int length = 0)
+        public EmailAddressAuthenticationCodeInfo(string emailAddressPattern = default, int length = default)
         {
             this.EmailAddressPattern = emailAddressPattern;
             this.Length = length;
@@ -188,10 +188,10 @@ namespace TDLib.Api
         /// <summary>
         /// Represents a part of the text that needs to be formatted in some unusual way
         /// </summary>
-        /// <param name="offset">Offset of the entity in UTF-16 code points</param>
-        /// <param name="length">Length of the entity, in UTF-16 code points</param>
+        /// <param name="offset">Offset of the entity in UTF-16 code units</param>
+        /// <param name="length">Length of the entity, in UTF-16 code units</param>
         /// <param name="type">Type of the entity</param>
-        public TextEntity(int offset = 0, int length = 0, TextEntityType type = default)
+        public TextEntity(int offset = default, int length = default, TextEntityType type = default)
         {
             this.Offset = offset;
             this.Length = length;
@@ -225,7 +225,7 @@ namespace TDLib.Api
         /// A text with some entities
         /// </summary>
         /// <param name="text">The text</param>
-        /// <param name="entities">Entities contained in the text</param>
+        /// <param name="entities">Entities contained in the text. Entities can be nested, but must not mutually intersect with each other. -Pre, Code and PreCode entities can't contain other entities. Bold, Italic, Underline and Strikethrough entities can contain and to be contained in all other entities. All other entities can't contain each other</param>
         public FormattedText(string text = default, TextEntity[] entities = default)
         {
             this.Text = text;
@@ -243,9 +243,9 @@ namespace TDLib.Api
         /// Contains Telegram terms of service
         /// </summary>
         /// <param name="text">Text of the terms of service</param>
-        /// <param name="minUserAge">Mininum age of a user to be able to accept the terms; 0 if any</param>
+        /// <param name="minUserAge">The minimum age of a user to be able to accept the terms; 0 if any</param>
         /// <param name="showPopup">True, if a blocking popup with terms of service must be shown to the user</param>
-        public TermsOfService(FormattedText text = default, int minUserAge = 0, bool showPopup = false)
+        public TermsOfService(FormattedText text = default, int minUserAge = default, bool showPopup = default)
         {
             this.Text = text;
             this.MinUserAge = minUserAge;
@@ -271,7 +271,7 @@ namespace TDLib.Api
         /// TDLib needs an encryption key to decrypt the local database
         /// </summary>
         /// <param name="isEncrypted">True, if the database is currently encrypted</param>
-        public AuthorizationStateWaitEncryptionKey(bool isEncrypted = false)
+        public AuthorizationStateWaitEncryptionKey(bool isEncrypted = default)
         {
             this.IsEncrypted = isEncrypted;
         }
@@ -280,7 +280,7 @@ namespace TDLib.Api
     public partial class AuthorizationStateWaitPhoneNumber
     {
         /// <summary>
-        /// TDLib needs the user's phone number to authorize
+        /// TDLib needs the user's phone number to authorize. Call `setAuthenticationPhoneNumber` to provide the phone number, or use `requestQrCodeAuthentication`, or `checkAuthenticationBotToken` for other authentication options
         /// </summary>
         public AuthorizationStateWaitPhoneNumber() { }
     }
@@ -288,20 +288,48 @@ namespace TDLib.Api
     public partial class AuthorizationStateWaitCode
     {
         /// <summary>
-        /// TDLib needs the user's authentication code to finalize authorization
+        /// TDLib needs the user's authentication code to authorize
         /// </summary>
         public AuthorizationStateWaitCode() { }
         /// <summary>
-        /// TDLib needs the user's authentication code to finalize authorization
+        /// TDLib needs the user's authentication code to authorize
         /// </summary>
-        /// <param name="isRegistered">True, if the user is already registered</param>
-        /// <param name="termsOfService">Telegram terms of service, which should be accepted before user can continue registration; may be null</param>
         /// <param name="codeInfo">Information about the authorization code that was sent</param>
-        public AuthorizationStateWaitCode(bool isRegistered = false, TermsOfService termsOfService = default, AuthenticationCodeInfo codeInfo = default)
+        public AuthorizationStateWaitCode(AuthenticationCodeInfo codeInfo = default)
         {
-            this.IsRegistered = isRegistered;
-            this.TermsOfService = termsOfService;
             this.CodeInfo = codeInfo;
+        }
+    }
+
+    public partial class AuthorizationStateWaitOtherDeviceConfirmation
+    {
+        /// <summary>
+        /// The user needs to confirm authorization on another logged in device by scanning a QR code with the provided link
+        /// </summary>
+        public AuthorizationStateWaitOtherDeviceConfirmation() { }
+        /// <summary>
+        /// The user needs to confirm authorization on another logged in device by scanning a QR code with the provided link
+        /// </summary>
+        /// <param name="link">A tg:// URL for the QR code. The link will be updated frequently</param>
+        public AuthorizationStateWaitOtherDeviceConfirmation(string link = default)
+        {
+            this.Link = link;
+        }
+    }
+
+    public partial class AuthorizationStateWaitRegistration
+    {
+        /// <summary>
+        /// The user is unregistered and need to accept terms of service and enter their first name and last name to finish registration
+        /// </summary>
+        public AuthorizationStateWaitRegistration() { }
+        /// <summary>
+        /// The user is unregistered and need to accept terms of service and enter their first name and last name to finish registration
+        /// </summary>
+        /// <param name="termsOfService">Telegram terms of service</param>
+        public AuthorizationStateWaitRegistration(TermsOfService termsOfService = default)
+        {
+            this.TermsOfService = termsOfService;
         }
     }
 
@@ -315,9 +343,9 @@ namespace TDLib.Api
         /// The user has been authorized, but needs to enter a password to start using the application
         /// </summary>
         /// <param name="passwordHint">Hint for the password; may be empty</param>
-        /// <param name="hasRecoveryEmailAddress">True if a recovery email address has been set up</param>
+        /// <param name="hasRecoveryEmailAddress">True, if a recovery email address has been set up</param>
         /// <param name="recoveryEmailAddressPattern">Pattern of the email address to which the recovery email was sent; empty until a recovery email has been sent</param>
-        public AuthorizationStateWaitPassword(string passwordHint = default, bool hasRecoveryEmailAddress = false, string recoveryEmailAddressPattern = default)
+        public AuthorizationStateWaitPassword(string passwordHint = default, bool hasRecoveryEmailAddress = default, string recoveryEmailAddressPattern = default)
         {
             this.PasswordHint = passwordHint;
             this.HasRecoveryEmailAddress = hasRecoveryEmailAddress;
@@ -371,7 +399,7 @@ namespace TDLib.Api
         /// <param name="hasRecoveryEmailAddress">True, if a recovery email is set</param>
         /// <param name="hasPassportData">True, if some Telegram Passport elements were saved</param>
         /// <param name="recoveryEmailAddressCodeInfo">Information about the recovery email address to which the confirmation email was sent; may be null</param>
-        public PasswordState(bool hasPassword = false, string passwordHint = default, bool hasRecoveryEmailAddress = false, bool hasPassportData = false, EmailAddressAuthenticationCodeInfo recoveryEmailAddressCodeInfo = default)
+        public PasswordState(bool hasPassword = default, string passwordHint = default, bool hasRecoveryEmailAddress = default, bool hasPassportData = default, EmailAddressAuthenticationCodeInfo recoveryEmailAddressCodeInfo = default)
         {
             this.HasPassword = hasPassword;
             this.PasswordHint = passwordHint;
@@ -408,7 +436,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="hasPassword">True, if a temporary password is available</param>
         /// <param name="validFor">Time left before the temporary password expires, in seconds</param>
-        public TemporaryPasswordState(bool hasPassword = false, int validFor = 0)
+        public TemporaryPasswordState(bool hasPassword = default, int validFor = default)
         {
             this.HasPassword = hasPassword;
             this.ValidFor = validFor;
@@ -432,7 +460,7 @@ namespace TDLib.Api
         /// <param name="downloadOffset">Download will be started from this offset. downloaded_prefix_size is calculated from this offset</param>
         /// <param name="downloadedPrefixSize">If is_downloading_completed is false, then only some prefix of the file starting from download_offset is ready to be read. downloaded_prefix_size is the size of that prefix</param>
         /// <param name="downloadedSize">Total downloaded file bytes. Should be used only for calculating download progress. The actual file size may be bigger, and some parts of it may contain garbage</param>
-        public LocalFile(string path = default, bool canBeDownloaded = false, bool canBeDeleted = false, bool isDownloadingActive = false, bool isDownloadingCompleted = false, int downloadOffset = 0, int downloadedPrefixSize = 0, int downloadedSize = 0)
+        public LocalFile(string path = default, bool canBeDownloaded = default, bool canBeDeleted = default, bool isDownloadingActive = default, bool isDownloadingCompleted = default, int downloadOffset = default, int downloadedPrefixSize = default, int downloadedSize = default)
         {
             this.Path = path;
             this.CanBeDownloaded = canBeDownloaded;
@@ -454,13 +482,15 @@ namespace TDLib.Api
         /// <summary>
         /// Represents a remote file
         /// </summary>
-        /// <param name="id">Remote file identifier; may be empty. Can be used across application restarts or even from other devices for the current user. If the ID starts with "http://" or "https://", it represents the HTTP URL of the file. TDLib is currently unable to download files if only their URL is known. -If downloadFile is called on such a file or if it is sent to a secret chat, TDLib starts a file generation process by sending updateFileGenerationStart to the client with the HTTP URL in the original_path and "#url#" as the conversion string. Clients should generate the file by downloading it to the specified location</param>
+        /// <param name="id">Remote file identifier; may be empty. Can be used across application restarts or even from other devices for the current user. Uniquely identifies a file, but a file can have a lot of different valid identifiers. -If the ID starts with "http://" or "https://", it represents the HTTP URL of the file. TDLib is currently unable to download files if only their URL is known. -If downloadFile is called on such a file or if it is sent to a secret chat, TDLib starts a file generation process by sending updateFileGenerationStart to the client with the HTTP URL in the original_path and "#url#" as the conversion string. Clients should generate the file by downloading it to the specified location</param>
+        /// <param name="uniqueId">Unique file identifier; may be empty if unknown. The unique file identifier which is the same for the same file even for different users and is persistent over time</param>
         /// <param name="isUploadingActive">True, if the file is currently being uploaded (or a remote copy is being generated by some other means)</param>
         /// <param name="isUploadingCompleted">True, if a remote copy is fully available</param>
         /// <param name="uploadedSize">Size of the remote available part of the file; 0 if unknown</param>
-        public RemoteFile(string id = default, bool isUploadingActive = false, bool isUploadingCompleted = false, int uploadedSize = 0)
+        public RemoteFile(string id = default, string uniqueId = default, bool isUploadingActive = default, bool isUploadingCompleted = default, int uploadedSize = default)
         {
             this.Id = id;
+            this.UniqueId = uniqueId;
             this.IsUploadingActive = isUploadingActive;
             this.IsUploadingCompleted = isUploadingCompleted;
             this.UploadedSize = uploadedSize;
@@ -481,7 +511,7 @@ namespace TDLib.Api
         /// <param name="expectedSize">Expected file size in case the exact file size is unknown, but an approximate size is known. Can be used to show download/upload progress</param>
         /// <param name="local">Information about the local copy of the file</param>
         /// <param name="remote">Information about the remote copy of the file</param>
-        public File(int id = 0, int size = 0, int expectedSize = 0, LocalFile local = default, RemoteFile remote = default)
+        public File(int id = default, int size = default, int expectedSize = default, LocalFile local = default, RemoteFile remote = default)
         {
             this.Id = id;
             this.Size = size;
@@ -501,7 +531,7 @@ namespace TDLib.Api
         /// A file defined by its unique ID
         /// </summary>
         /// <param name="id">Unique file identifier</param>
-        public InputFileId(int id = 0)
+        public InputFileId(int id = default)
         {
             this.Id = id;
         }
@@ -510,11 +540,11 @@ namespace TDLib.Api
     public partial class InputFileRemote
     {
         /// <summary>
-        /// A file defined by its remote ID
+        /// A file defined by its remote ID. The remote ID is guaranteed to be usable only if the corresponding file is still accessible to the user and known to TDLib. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the client
         /// </summary>
         public InputFileRemote() { }
         /// <summary>
-        /// A file defined by its remote ID
+        /// A file defined by its remote ID. The remote ID is guaranteed to be usable only if the corresponding file is still accessible to the user and known to TDLib. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the client
         /// </summary>
         /// <param name="id">Remote file identifier</param>
         public InputFileRemote(string id = default)
@@ -551,7 +581,7 @@ namespace TDLib.Api
         /// <param name="originalPath">Local path to a file from which the file is generated; may be empty if there is no such file</param>
         /// <param name="conversion">String specifying the conversion applied to the original file; should be persistent across application restarts. Conversions beginning with '#' are reserved for internal TDLib usage</param>
         /// <param name="expectedSize">Expected size of the generated file; 0 if unknown</param>
-        public InputFileGenerated(string originalPath = default, string conversion = default, int expectedSize = 0)
+        public InputFileGenerated(string originalPath = default, string conversion = default, int expectedSize = default)
         {
             this.OriginalPath = originalPath;
             this.Conversion = conversion;
@@ -572,12 +602,32 @@ namespace TDLib.Api
         /// <param name="photo">Information about the photo file</param>
         /// <param name="width">Photo width</param>
         /// <param name="height">Photo height</param>
-        public PhotoSize(string type = default, File photo = default, int width = 0, int height = 0)
+        public PhotoSize(string type = default, File photo = default, int width = default, int height = default)
         {
             this.Type = type;
             this.Photo = photo;
             this.Width = width;
             this.Height = height;
+        }
+    }
+
+    public partial class Minithumbnail
+    {
+        /// <summary>
+        /// Thumbnail image of a very poor quality and low resolution
+        /// </summary>
+        public Minithumbnail() { }
+        /// <summary>
+        /// Thumbnail image of a very poor quality and low resolution
+        /// </summary>
+        /// <param name="width">Thumbnail width, usually doesn't exceed 40</param>
+        /// <param name="height">Thumbnail height, usually doesn't exceed 40</param>
+        /// <param name="data">The thumbnail in JPEG format</param>
+        public Minithumbnail(int width = default, int height = default, byte[] data = default)
+        {
+            this.Width = width;
+            this.Height = height;
+            this.Data = data;
         }
     }
 
@@ -626,7 +676,7 @@ namespace TDLib.Api
         /// <param name="xShift">Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. (For example, -1.0 will place the mask just to the left of the default mask position)</param>
         /// <param name="yShift">Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. (For example, 1.0 will place the mask just below the default mask position)</param>
         /// <param name="scale">Mask scaling coefficient. (For example, 2.0 means a doubled size)</param>
-        public MaskPosition(MaskPoint point = default, double xShift = 0.0, double yShift = 0.0, double scale = 0.0)
+        public MaskPosition(MaskPoint point = default, double xShift = default, double yShift = default, double scale = default)
         {
             this.Point = point;
             this.XShift = xShift;
@@ -649,13 +699,45 @@ namespace TDLib.Api
         /// <param name="votePercentage">The percentage of votes for this option, 0-100</param>
         /// <param name="isChosen">True, if the option was chosen by the user</param>
         /// <param name="isBeingChosen">True, if the option is being chosen by a pending setPollAnswer request</param>
-        public PollOption(string text = default, int voterCount = 0, int votePercentage = 0, bool isChosen = false, bool isBeingChosen = false)
+        public PollOption(string text = default, int voterCount = default, int votePercentage = default, bool isChosen = default, bool isBeingChosen = default)
         {
             this.Text = text;
             this.VoterCount = voterCount;
             this.VotePercentage = votePercentage;
             this.IsChosen = isChosen;
             this.IsBeingChosen = isBeingChosen;
+        }
+    }
+
+    public partial class PollTypeRegular
+    {
+        /// <summary>
+        /// A regular poll
+        /// </summary>
+        public PollTypeRegular() { }
+        /// <summary>
+        /// A regular poll
+        /// </summary>
+        /// <param name="allowMultipleAnswers">True, if multiple answer options can be chosen simultaneously</param>
+        public PollTypeRegular(bool allowMultipleAnswers = default)
+        {
+            this.AllowMultipleAnswers = allowMultipleAnswers;
+        }
+    }
+
+    public partial class PollTypeQuiz
+    {
+        /// <summary>
+        /// A poll in quiz mode, which has exactly one correct answer option and can be answered only once
+        /// </summary>
+        public PollTypeQuiz() { }
+        /// <summary>
+        /// A poll in quiz mode, which has exactly one correct answer option and can be answered only once
+        /// </summary>
+        /// <param name="correctOptionId">0-based identifier of the correct answer option; -1 for a yet unanswered poll</param>
+        public PollTypeQuiz(int correctOptionId = default)
+        {
+            this.CorrectOptionId = correctOptionId;
         }
     }
 
@@ -673,15 +755,17 @@ namespace TDLib.Api
         /// <param name="height">Height of the animation</param>
         /// <param name="fileName">Original name of the file; as defined by the sender</param>
         /// <param name="mimeType">MIME type of the file, usually "image/gif" or "video/mp4"</param>
+        /// <param name="minithumbnail">Animation minithumbnail; may be null</param>
         /// <param name="thumbnail">Animation thumbnail; may be null</param>
         /// <param name="animation">File containing the animation</param>
-        public Animation(int duration = 0, int width = 0, int height = 0, string fileName = default, string mimeType = default, PhotoSize thumbnail = default, File animation_ = default)
+        public Animation(int duration = default, int width = default, int height = default, string fileName = default, string mimeType = default, Minithumbnail minithumbnail = default, PhotoSize thumbnail = default, File animation_ = default)
         {
             this.Duration = duration;
             this.Width = width;
             this.Height = height;
             this.FileName = fileName;
             this.MimeType = mimeType;
+            this.Minithumbnail = minithumbnail;
             this.Thumbnail = thumbnail;
             this.Animation_ = animation_;
         }
@@ -690,26 +774,28 @@ namespace TDLib.Api
     public partial class Audio
     {
         /// <summary>
-        /// Describes an audio file. Audio is usually in MP3 format
+        /// Describes an audio file. Audio is usually in MP3 or M4A format
         /// </summary>
         public Audio() { }
         /// <summary>
-        /// Describes an audio file. Audio is usually in MP3 format
+        /// Describes an audio file. Audio is usually in MP3 or M4A format
         /// </summary>
         /// <param name="duration">Duration of the audio, in seconds; as defined by the sender</param>
         /// <param name="title">Title of the audio; as defined by the sender</param>
         /// <param name="performer">Performer of the audio; as defined by the sender</param>
         /// <param name="fileName">Original name of the file; as defined by the sender</param>
         /// <param name="mimeType">The MIME type of the file; as defined by the sender</param>
+        /// <param name="albumCoverMinithumbnail">The minithumbnail of the album cover; may be null</param>
         /// <param name="albumCoverThumbnail">The thumbnail of the album cover; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null</param>
         /// <param name="audio">File containing the audio</param>
-        public Audio(int duration = 0, string title = default, string performer = default, string fileName = default, string mimeType = default, PhotoSize albumCoverThumbnail = default, File audio_ = default)
+        public Audio(int duration = default, string title = default, string performer = default, string fileName = default, string mimeType = default, Minithumbnail albumCoverMinithumbnail = default, PhotoSize albumCoverThumbnail = default, File audio_ = default)
         {
             this.Duration = duration;
             this.Title = title;
             this.Performer = performer;
             this.FileName = fileName;
             this.MimeType = mimeType;
+            this.AlbumCoverMinithumbnail = albumCoverMinithumbnail;
             this.AlbumCoverThumbnail = albumCoverThumbnail;
             this.Audio_ = audio_;
         }
@@ -726,12 +812,14 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="fileName">Original name of the file; as defined by the sender</param>
         /// <param name="mimeType">MIME type of the file; as defined by the sender</param>
-        /// <param name="thumbnail">Document thumbnail; as defined by the sender; may be null</param>
+        /// <param name="minithumbnail">Document minithumbnail; may be null</param>
+        /// <param name="thumbnail">Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null</param>
         /// <param name="document">File containing the document</param>
-        public Document(string fileName = default, string mimeType = default, PhotoSize thumbnail = default, File document_ = default)
+        public Document(string fileName = default, string mimeType = default, Minithumbnail minithumbnail = default, PhotoSize thumbnail = default, File document_ = default)
         {
             this.FileName = fileName;
             this.MimeType = mimeType;
+            this.Minithumbnail = minithumbnail;
             this.Thumbnail = thumbnail;
             this.Document_ = document_;
         }
@@ -747,10 +835,12 @@ namespace TDLib.Api
         /// Describes a photo
         /// </summary>
         /// <param name="hasStickers">True, if stickers were added to the photo</param>
+        /// <param name="minithumbnail">Photo minithumbnail; may be null</param>
         /// <param name="sizes">Available variants of the photo, in different sizes</param>
-        public Photo(bool hasStickers = false, PhotoSize[] sizes = default)
+        public Photo(bool hasStickers = default, Minithumbnail minithumbnail = default, PhotoSize[] sizes = default)
         {
             this.HasStickers = hasStickers;
+            this.Minithumbnail = minithumbnail;
             this.Sizes = sizes;
         }
     }
@@ -768,16 +858,18 @@ namespace TDLib.Api
         /// <param name="width">Sticker width; as defined by the sender</param>
         /// <param name="height">Sticker height; as defined by the sender</param>
         /// <param name="emoji">Emoji corresponding to the sticker</param>
+        /// <param name="isAnimated">True, if the sticker is an animated sticker in TGS format</param>
         /// <param name="isMask">True, if the sticker is a mask</param>
         /// <param name="maskPosition">Position where the mask should be placed; may be null</param>
         /// <param name="thumbnail">Sticker thumbnail in WEBP or JPEG format; may be null</param>
         /// <param name="sticker">File containing the sticker</param>
-        public Sticker(long setId = 0, int width = 0, int height = 0, string emoji = default, bool isMask = false, MaskPosition maskPosition = default, PhotoSize thumbnail = default, File sticker_ = default)
+        public Sticker(long setId = default, int width = default, int height = default, string emoji = default, bool isAnimated = default, bool isMask = default, MaskPosition maskPosition = default, PhotoSize thumbnail = default, File sticker_ = default)
         {
             this.SetId = setId;
             this.Width = width;
             this.Height = height;
             this.Emoji = emoji;
+            this.IsAnimated = isAnimated;
             this.IsMask = isMask;
             this.MaskPosition = maskPosition;
             this.Thumbnail = thumbnail;
@@ -799,11 +891,12 @@ namespace TDLib.Api
         /// <param name="height">Video height; as defined by the sender</param>
         /// <param name="fileName">Original name of the file; as defined by the sender</param>
         /// <param name="mimeType">MIME type of the file; as defined by the sender</param>
-        /// <param name="hasStickers">True, if stickers were added to the photo</param>
+        /// <param name="hasStickers">True, if stickers were added to the video</param>
         /// <param name="supportsStreaming">True, if the video should be tried to be streamed</param>
+        /// <param name="minithumbnail">Video minithumbnail; may be null</param>
         /// <param name="thumbnail">Video thumbnail; as defined by the sender; may be null</param>
         /// <param name="video">File containing the video</param>
-        public Video(int duration = 0, int width = 0, int height = 0, string fileName = default, string mimeType = default, bool hasStickers = false, bool supportsStreaming = false, PhotoSize thumbnail = default, File video_ = default)
+        public Video(int duration = default, int width = default, int height = default, string fileName = default, string mimeType = default, bool hasStickers = default, bool supportsStreaming = default, Minithumbnail minithumbnail = default, PhotoSize thumbnail = default, File video_ = default)
         {
             this.Duration = duration;
             this.Width = width;
@@ -812,6 +905,7 @@ namespace TDLib.Api
             this.MimeType = mimeType;
             this.HasStickers = hasStickers;
             this.SupportsStreaming = supportsStreaming;
+            this.Minithumbnail = minithumbnail;
             this.Thumbnail = thumbnail;
             this.Video_ = video_;
         }
@@ -828,12 +922,14 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="duration">Duration of the video, in seconds; as defined by the sender</param>
         /// <param name="length">Video width and height; as defined by the sender</param>
+        /// <param name="minithumbnail">Video minithumbnail; may be null</param>
         /// <param name="thumbnail">Video thumbnail; as defined by the sender; may be null</param>
         /// <param name="video">File containing the video</param>
-        public VideoNote(int duration = 0, int length = 0, PhotoSize thumbnail = default, File video = default)
+        public VideoNote(int duration = default, int length = default, Minithumbnail minithumbnail = default, PhotoSize thumbnail = default, File video = default)
         {
             this.Duration = duration;
             this.Length = length;
+            this.Minithumbnail = minithumbnail;
             this.Thumbnail = thumbnail;
             this.Video = video;
         }
@@ -852,7 +948,7 @@ namespace TDLib.Api
         /// <param name="waveform">A waveform representation of the voice note in 5-bit format</param>
         /// <param name="mimeType">MIME type of the file; as defined by the sender</param>
         /// <param name="voice">File containing the voice note</param>
-        public VoiceNote(int duration = 0, byte[] waveform = default, string mimeType = default, File voice = default)
+        public VoiceNote(int duration = default, byte[] waveform = default, string mimeType = default, File voice = default)
         {
             this.Duration = duration;
             this.Waveform = waveform;
@@ -875,7 +971,7 @@ namespace TDLib.Api
         /// <param name="lastName">Last name of the user</param>
         /// <param name="vcard">Additional data about the user in a form of vCard; 0-2048 bytes in length</param>
         /// <param name="userId">Identifier of the user, if known; otherwise 0</param>
-        public Contact(string phoneNumber = default, string firstName = default, string lastName = default, string vcard = default, int userId = 0)
+        public Contact(string phoneNumber = default, string firstName = default, string lastName = default, string vcard = default, int userId = default)
         {
             this.PhoneNumber = phoneNumber;
             this.FirstName = firstName;
@@ -896,7 +992,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="latitude">Latitude of the location in degrees; as defined by the sender</param>
         /// <param name="longitude">Longitude of the location, in degrees; as defined by the sender</param>
-        public Location(double latitude = 0.0, double longitude = 0.0)
+        public Location(double latitude = default, double longitude = default)
         {
             this.Latitude = latitude;
             this.Longitude = longitude;
@@ -945,7 +1041,7 @@ namespace TDLib.Api
         /// <param name="description">Describes a game</param>
         /// <param name="photo">Game photo</param>
         /// <param name="animation">Game animation; may be null</param>
-        public Game(long id = 0, string shortName = default, string title = default, FormattedText text = default, string description = default, Photo photo = default, Animation animation = default)
+        public Game(long id = default, string shortName = default, string title = default, FormattedText text = default, string description = default, Photo photo = default, Animation animation = default)
         {
             this.Id = id;
             this.ShortName = shortName;
@@ -970,13 +1066,19 @@ namespace TDLib.Api
         /// <param name="question">Poll question, 1-255 characters</param>
         /// <param name="options">List of poll answer options</param>
         /// <param name="totalVoterCount">Total number of voters, participating in the poll</param>
+        /// <param name="recentVoterUserIds">User identifiers of recent voters, if the poll is non-anonymous</param>
+        /// <param name="isAnonymous">True, if the poll is anonymous</param>
+        /// <param name="type">Type of the poll</param>
         /// <param name="isClosed">True, if the poll is closed</param>
-        public Poll(long id = 0, string question = default, PollOption[] options = default, int totalVoterCount = 0, bool isClosed = false)
+        public Poll(long id = default, string question = default, PollOption[] options = default, int totalVoterCount = default, int[] recentVoterUserIds = default, bool isAnonymous = default, PollType type = default, bool isClosed = default)
         {
             this.Id = id;
             this.Question = question;
             this.Options = options;
             this.TotalVoterCount = totalVoterCount;
+            this.RecentVoterUserIds = recentVoterUserIds;
+            this.IsAnonymous = isAnonymous;
+            this.Type = type;
             this.IsClosed = isClosed;
         }
     }
@@ -991,9 +1093,9 @@ namespace TDLib.Api
         /// Describes a user profile photo
         /// </summary>
         /// <param name="id">Photo identifier; 0 for an empty photo. Can be used to find a photo in a list of userProfilePhotos</param>
-        /// <param name="small">A small (160x160) user profile photo</param>
-        /// <param name="big">A big (640x640) user profile photo</param>
-        public ProfilePhoto(long id = 0, File small = default, File big = default)
+        /// <param name="small">A small (160x160) user profile photo. The file can be downloaded only before the photo is changed</param>
+        /// <param name="big">A big (640x640) user profile photo. The file can be downloaded only before the photo is changed</param>
+        public ProfilePhoto(long id = default, File small = default, File big = default)
         {
             this.Id = id;
             this.Small = small;
@@ -1010,37 +1112,13 @@ namespace TDLib.Api
         /// <summary>
         /// Describes the photo of a chat
         /// </summary>
-        /// <param name="small">A small (160x160) chat photo</param>
-        /// <param name="big">A big (640x640) chat photo</param>
+        /// <param name="small">A small (160x160) chat photo. The file can be downloaded only before the photo is changed</param>
+        /// <param name="big">A big (640x640) chat photo. The file can be downloaded only before the photo is changed</param>
         public ChatPhoto(File small = default, File big = default)
         {
             this.Small = small;
             this.Big = big;
         }
-    }
-
-    public partial class LinkStateNone
-    {
-        /// <summary>
-        /// The phone number of user A is not known to user B
-        /// </summary>
-        public LinkStateNone() { }
-    }
-
-    public partial class LinkStateKnowsPhoneNumber
-    {
-        /// <summary>
-        /// The phone number of user A is known but that number has not been saved to the contact list of user B
-        /// </summary>
-        public LinkStateKnowsPhoneNumber() { }
-    }
-
-    public partial class LinkStateIsContact
-    {
-        /// <summary>
-        /// The phone number of user A has been saved to the contact list of user B
-        /// </summary>
-        public LinkStateIsContact() { }
     }
 
     public partial class UserTypeRegular
@@ -1054,7 +1132,7 @@ namespace TDLib.Api
     public partial class UserTypeDeleted
     {
         /// <summary>
-        /// A deleted user or deleted bot. No information on the user besides the user_id is available. It is not possible to perform any active actions on this type of user
+        /// A deleted user or deleted bot. No information on the user besides the user identifier is available. It is not possible to perform any active actions on this type of user
         /// </summary>
         public UserTypeDeleted() { }
     }
@@ -1073,7 +1151,7 @@ namespace TDLib.Api
         /// <param name="isInline">True, if the bot supports inline queries</param>
         /// <param name="inlineQueryPlaceholder">Placeholder for inline queries (displayed on the client input field)</param>
         /// <param name="needLocation">True, if the location of the user should be sent with every inline query to this bot</param>
-        public UserTypeBot(bool canJoinGroups = false, bool canReadAllGroupMessages = false, bool isInline = false, string inlineQueryPlaceholder = default, bool needLocation = false)
+        public UserTypeBot(bool canJoinGroups = default, bool canReadAllGroupMessages = default, bool isInline = default, string inlineQueryPlaceholder = default, bool needLocation = default)
         {
             this.CanJoinGroups = canJoinGroups;
             this.CanReadAllGroupMessages = canReadAllGroupMessages;
@@ -1086,7 +1164,7 @@ namespace TDLib.Api
     public partial class UserTypeUnknown
     {
         /// <summary>
-        /// No information on the user besides the user_id is available, yet this user has not been deleted. This object is extremely rare and must be handled like a deleted user. It is not possible to perform any actions on users of this type
+        /// No information on the user besides the user identifier is available, yet this user has not been deleted. This object is extremely rare and must be handled like a deleted user. It is not possible to perform any actions on users of this type
         /// </summary>
         public UserTypeUnknown() { }
     }
@@ -1127,6 +1205,24 @@ namespace TDLib.Api
         }
     }
 
+    public partial class ChatLocation
+    {
+        /// <summary>
+        /// Represents a location to which a chat is connected
+        /// </summary>
+        public ChatLocation() { }
+        /// <summary>
+        /// Represents a location to which a chat is connected
+        /// </summary>
+        /// <param name="location">The location</param>
+        /// <param name="address">Location address; 1-64 characters, as defined by the chat owner</param>
+        public ChatLocation(Location location = default, string address = default)
+        {
+            this.Location = location;
+            this.Address = address;
+        }
+    }
+
     public partial class User
     {
         /// <summary>
@@ -1143,15 +1239,16 @@ namespace TDLib.Api
         /// <param name="phoneNumber">Phone number of the user</param>
         /// <param name="status">Current online status of the user</param>
         /// <param name="profilePhoto">Profile photo of the user; may be null</param>
-        /// <param name="outgoingLink">Relationship from the current user to the other user</param>
-        /// <param name="incomingLink">Relationship from the other user to the current user</param>
+        /// <param name="isContact">The user is a contact of the current user</param>
+        /// <param name="isMutualContact">The user is a contact of the current user and the current user is a contact of the user</param>
         /// <param name="isVerified">True, if the user is verified</param>
         /// <param name="isSupport">True, if the user is Telegram support account</param>
-        /// <param name="restrictionReason">If non-empty, it contains the reason why access to this user must be restricted. The format of the string is "{type}: {description}". -{type} contains the type of the restriction and at least one of the suffixes "-all", "-ios", "-android", or "-wp", which describe the platforms on which access should be restricted. (For example, "terms-ios-android". {description} contains a human-readable description of the restriction, which can be shown to the user)</param>
+        /// <param name="restrictionReason">If non-empty, it contains a human-readable description of the reason why access to this user must be restricted</param>
+        /// <param name="isScam">True, if many users reported this user as a scam</param>
         /// <param name="haveAccess">If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser</param>
         /// <param name="type">Type of the user</param>
         /// <param name="languageCode">IETF language tag of the user's language; only available to bots</param>
-        public User(int id = 0, string firstName = default, string lastName = default, string username = default, string phoneNumber = default, UserStatus status = default, ProfilePhoto profilePhoto = default, LinkState outgoingLink = default, LinkState incomingLink = default, bool isVerified = false, bool isSupport = false, string restrictionReason = default, bool haveAccess = false, UserType type = default, string languageCode = default)
+        public User(int id = default, string firstName = default, string lastName = default, string username = default, string phoneNumber = default, UserStatus status = default, ProfilePhoto profilePhoto = default, bool isContact = default, bool isMutualContact = default, bool isVerified = default, bool isSupport = default, string restrictionReason = default, bool isScam = default, bool haveAccess = default, UserType type = default, string languageCode = default)
         {
             this.Id = id;
             this.FirstName = firstName;
@@ -1160,11 +1257,12 @@ namespace TDLib.Api
             this.PhoneNumber = phoneNumber;
             this.Status = status;
             this.ProfilePhoto = profilePhoto;
-            this.OutgoingLink = outgoingLink;
-            this.IncomingLink = incomingLink;
+            this.IsContact = isContact;
+            this.IsMutualContact = isMutualContact;
             this.IsVerified = isVerified;
             this.IsSupport = isSupport;
             this.RestrictionReason = restrictionReason;
+            this.IsScam = isScam;
             this.HaveAccess = haveAccess;
             this.Type = type;
             this.LanguageCode = languageCode;
@@ -1183,15 +1281,17 @@ namespace TDLib.Api
         /// <param name="isBlocked">True, if the user is blacklisted by the current user</param>
         /// <param name="canBeCalled">True, if the user can be called</param>
         /// <param name="hasPrivateCalls">True, if the user can't be called due to their privacy settings</param>
+        /// <param name="needPhoneNumberPrivacyException">True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used</param>
         /// <param name="bio">A short user bio</param>
         /// <param name="shareText">For bots, the text that is included with the link when users share the bot</param>
         /// <param name="groupInCommonCount">Number of group chats where both the other user and the current user are a member; 0 for the current user</param>
         /// <param name="botInfo">If the user is a bot, information about the bot; may be null</param>
-        public UserFullInfo(bool isBlocked = false, bool canBeCalled = false, bool hasPrivateCalls = false, string bio = default, string shareText = default, int groupInCommonCount = 0, BotInfo botInfo = default)
+        public UserFullInfo(bool isBlocked = default, bool canBeCalled = default, bool hasPrivateCalls = default, bool needPhoneNumberPrivacyException = default, string bio = default, string shareText = default, int groupInCommonCount = default, BotInfo botInfo = default)
         {
             this.IsBlocked = isBlocked;
             this.CanBeCalled = canBeCalled;
             this.HasPrivateCalls = hasPrivateCalls;
+            this.NeedPhoneNumberPrivacyException = needPhoneNumberPrivacyException;
             this.Bio = bio;
             this.ShareText = shareText;
             this.GroupInCommonCount = groupInCommonCount;
@@ -1211,7 +1311,7 @@ namespace TDLib.Api
         /// <param name="id">Unique user profile photo identifier</param>
         /// <param name="addedDate">Point in time (Unix timestamp) when the photo has been added</param>
         /// <param name="sizes">Available variants of the user photo, in different sizes</param>
-        public UserProfilePhoto(long id = 0, int addedDate = 0, PhotoSize[] sizes = default)
+        public UserProfilePhoto(long id = default, int addedDate = default, PhotoSize[] sizes = default)
         {
             this.Id = id;
             this.AddedDate = addedDate;
@@ -1230,7 +1330,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="totalCount">Total number of user profile photos</param>
         /// <param name="photos">A list of photos</param>
-        public UserProfilePhotos(int totalCount = 0, UserProfilePhoto[] photos = default)
+        public UserProfilePhotos(int totalCount = default, UserProfilePhoto[] photos = default)
         {
             this.TotalCount = totalCount;
             this.Photos = photos;
@@ -1248,25 +1348,93 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="totalCount">Approximate total count of users found</param>
         /// <param name="userIds">A list of user identifiers</param>
-        public Users(int totalCount = 0, int[] userIds = default)
+        public Users(int totalCount = default, int[] userIds = default)
         {
             this.TotalCount = totalCount;
             this.UserIds = userIds;
         }
     }
 
+    public partial class ChatAdministrator
+    {
+        /// <summary>
+        /// Contains information about a chat administrator
+        /// </summary>
+        public ChatAdministrator() { }
+        /// <summary>
+        /// Contains information about a chat administrator
+        /// </summary>
+        /// <param name="userId">User identifier of the administrator</param>
+        /// <param name="customTitle">Custom title of the administrator</param>
+        /// <param name="isOwner">True, if the user is the owner of the chat</param>
+        public ChatAdministrator(int userId = default, string customTitle = default, bool isOwner = default)
+        {
+            this.UserId = userId;
+            this.CustomTitle = customTitle;
+            this.IsOwner = isOwner;
+        }
+    }
+
+    public partial class ChatAdministrators
+    {
+        /// <summary>
+        /// Represents a list of chat administrators
+        /// </summary>
+        public ChatAdministrators() { }
+        /// <summary>
+        /// Represents a list of chat administrators
+        /// </summary>
+        /// <param name="administrators">A list of chat administrators</param>
+        public ChatAdministrators(ChatAdministrator[] administrators = default)
+        {
+            this.Administrators = administrators;
+        }
+    }
+
+    public partial class ChatPermissions
+    {
+        /// <summary>
+        /// Describes actions that a user is allowed to take in a chat
+        /// </summary>
+        public ChatPermissions() { }
+        /// <summary>
+        /// Describes actions that a user is allowed to take in a chat
+        /// </summary>
+        /// <param name="canSendMessages">True, if the user can send text messages, contacts, locations, and venues</param>
+        /// <param name="canSendMediaMessages">True, if the user can send audio files, documents, photos, videos, video notes, and voice notes. Implies can_send_messages permissions</param>
+        /// <param name="canSendPolls">True, if the user can send polls. Implies can_send_messages permissions</param>
+        /// <param name="canSendOtherMessages">True, if the user can send animations, games, and stickers and use inline bots. Implies can_send_messages permissions</param>
+        /// <param name="canAddWebPagePreviews">True, if the user may add a web page preview to their messages. Implies can_send_messages permissions</param>
+        /// <param name="canChangeInfo">True, if the user can change the chat title, photo, and other settings</param>
+        /// <param name="canInviteUsers">True, if the user can invite new users to the chat</param>
+        /// <param name="canPinMessages">True, if the user can pin messages</param>
+        public ChatPermissions(bool canSendMessages = default, bool canSendMediaMessages = default, bool canSendPolls = default, bool canSendOtherMessages = default, bool canAddWebPagePreviews = default, bool canChangeInfo = default, bool canInviteUsers = default, bool canPinMessages = default)
+        {
+            this.CanSendMessages = canSendMessages;
+            this.CanSendMediaMessages = canSendMediaMessages;
+            this.CanSendPolls = canSendPolls;
+            this.CanSendOtherMessages = canSendOtherMessages;
+            this.CanAddWebPagePreviews = canAddWebPagePreviews;
+            this.CanChangeInfo = canChangeInfo;
+            this.CanInviteUsers = canInviteUsers;
+            this.CanPinMessages = canPinMessages;
+        }
+    }
+
     public partial class ChatMemberStatusCreator
     {
         /// <summary>
-        /// The user is the creator of a chat and has all the administrator privileges
+        /// The user is the owner of a chat and has all the administrator privileges
         /// </summary>
         public ChatMemberStatusCreator() { }
         /// <summary>
-        /// The user is the creator of a chat and has all the administrator privileges
+        /// The user is the owner of a chat and has all the administrator privileges
         /// </summary>
+        /// <param name="customTitle">A custom title of the owner; 0-16 characters without emojis; applicable to supergroups only</param>
         /// <param name="isMember">True, if the user is a member of the chat</param>
-        public ChatMemberStatusCreator(bool isMember = false)
+        public ChatMemberStatusCreator(string customTitle = default, bool isMember = default)
         {
+            this.CustomTitle = customTitle;
             this.IsMember = isMember;
         }
     }
@@ -1280,6 +1448,7 @@ namespace TDLib.Api
         /// <summary>
         /// The user is a member of a chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, and ban unprivileged members. In supergroups and channels, there are more detailed options for administrator privileges
         /// </summary>
+        /// <param name="customTitle">A custom title of the administrator; 0-16 characters without emojis; applicable to supergroups only</param>
         /// <param name="canBeEdited">True, if the current user can edit the administrator privileges for the called user</param>
         /// <param name="canChangeInfo">True, if the administrator can change the chat title, photo, and other settings</param>
         /// <param name="canPostMessages">True, if the administrator can create channel posts; applicable to channels only</param>
@@ -1288,9 +1457,10 @@ namespace TDLib.Api
         /// <param name="canInviteUsers">True, if the administrator can invite new users to the chat</param>
         /// <param name="canRestrictMembers">True, if the administrator can restrict, ban, or unban chat members</param>
         /// <param name="canPinMessages">True, if the administrator can pin messages; applicable to groups only</param>
-        /// <param name="canPromoteMembers">True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that were directly or indirectly promoted by him</param>
-        public ChatMemberStatusAdministrator(bool canBeEdited = false, bool canChangeInfo = false, bool canPostMessages = false, bool canEditMessages = false, bool canDeleteMessages = false, bool canInviteUsers = false, bool canRestrictMembers = false, bool canPinMessages = false, bool canPromoteMembers = false)
+        /// <param name="canPromoteMembers">True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by them</param>
+        public ChatMemberStatusAdministrator(string customTitle = default, bool canBeEdited = default, bool canChangeInfo = default, bool canPostMessages = default, bool canEditMessages = default, bool canDeleteMessages = default, bool canInviteUsers = default, bool canRestrictMembers = default, bool canPinMessages = default, bool canPromoteMembers = default)
         {
+            this.CustomTitle = customTitle;
             this.CanBeEdited = canBeEdited;
             this.CanChangeInfo = canChangeInfo;
             this.CanPostMessages = canPostMessages;
@@ -1322,18 +1492,12 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isMember">True, if the user is a member of the chat</param>
         /// <param name="restrictedUntilDate">Point in time (Unix timestamp) when restrictions will be lifted from the user; 0 if never. If the user is restricted for more than 366 days or for less than 30 seconds from the current time, the user is considered to be restricted forever</param>
-        /// <param name="canSendMessages">True, if the user can send text messages, contacts, locations, and venues</param>
-        /// <param name="canSendMediaMessages">True, if the user can send audio files, documents, photos, videos, video notes, and voice notes. Implies can_send_messages permissions</param>
-        /// <param name="canSendOtherMessages">True, if the user can send animations, games, and stickers and use inline bots. Implies can_send_media_messages permissions</param>
-        /// <param name="canAddWebPagePreviews">True, if the user may add a web page preview to his messages. Implies can_send_messages permissions</param>
-        public ChatMemberStatusRestricted(bool isMember = false, int restrictedUntilDate = 0, bool canSendMessages = false, bool canSendMediaMessages = false, bool canSendOtherMessages = false, bool canAddWebPagePreviews = false)
+        /// <param name="permissions">User permissions in the chat</param>
+        public ChatMemberStatusRestricted(bool isMember = default, int restrictedUntilDate = default, ChatPermissions permissions = default)
         {
             this.IsMember = isMember;
             this.RestrictedUntilDate = restrictedUntilDate;
-            this.CanSendMessages = canSendMessages;
-            this.CanSendMediaMessages = canSendMediaMessages;
-            this.CanSendOtherMessages = canSendOtherMessages;
-            this.CanAddWebPagePreviews = canAddWebPagePreviews;
+            this.Permissions = permissions;
         }
     }
 
@@ -1355,7 +1519,7 @@ namespace TDLib.Api
         /// The user was banned (and hence is not a member of the chat). Implies the user can't return to the chat or view messages
         /// </summary>
         /// <param name="bannedUntilDate">Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever</param>
-        public ChatMemberStatusBanned(int bannedUntilDate = 0)
+        public ChatMemberStatusBanned(int bannedUntilDate = default)
         {
             this.BannedUntilDate = bannedUntilDate;
         }
@@ -1375,7 +1539,7 @@ namespace TDLib.Api
         /// <param name="joinedChatDate">Point in time (Unix timestamp) when the user joined a chat</param>
         /// <param name="status">Status of the member in the chat</param>
         /// <param name="botInfo">If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not a chat member</param>
-        public ChatMember(int userId = 0, int inviterUserId = 0, int joinedChatDate = 0, ChatMemberStatus status = default, BotInfo botInfo = default)
+        public ChatMember(int userId = default, int inviterUserId = default, int joinedChatDate = default, ChatMemberStatus status = default, BotInfo botInfo = default)
         {
             this.UserId = userId;
             this.InviterUserId = inviterUserId;
@@ -1396,17 +1560,25 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="totalCount">Approximate total count of chat members found</param>
         /// <param name="members">A list of chat members</param>
-        public ChatMembers(int totalCount = 0, ChatMember[] members = default)
+        public ChatMembers(int totalCount = default, ChatMember[] members = default)
         {
             this.TotalCount = totalCount;
             this.Members = members;
         }
     }
 
+    public partial class ChatMembersFilterContacts
+    {
+        /// <summary>
+        /// Returns contacts of the user
+        /// </summary>
+        public ChatMembersFilterContacts() { }
+    }
+
     public partial class ChatMembersFilterAdministrators
     {
         /// <summary>
-        /// Returns the creator and administrators
+        /// Returns the owner and administrators
         /// </summary>
         public ChatMembersFilterAdministrators() { }
     }
@@ -1451,10 +1623,26 @@ namespace TDLib.Api
         public SupergroupMembersFilterRecent() { }
     }
 
+    public partial class SupergroupMembersFilterContacts
+    {
+        /// <summary>
+        /// Returns contacts of the user, which are members of the supergroup or channel
+        /// </summary>
+        public SupergroupMembersFilterContacts() { }
+        /// <summary>
+        /// Returns contacts of the user, which are members of the supergroup or channel
+        /// </summary>
+        /// <param name="query">Query to search for</param>
+        public SupergroupMembersFilterContacts(string query = default)
+        {
+            this.Query = query;
+        }
+    }
+
     public partial class SupergroupMembersFilterAdministrators
     {
         /// <summary>
-        /// Returns the creator and administrators
+        /// Returns the owner and administrators
         /// </summary>
         public SupergroupMembersFilterAdministrators() { }
     }
@@ -1527,15 +1715,13 @@ namespace TDLib.Api
         /// <param name="id">Group identifier</param>
         /// <param name="memberCount">Number of members in the group</param>
         /// <param name="status">Status of the current user in the group</param>
-        /// <param name="everyoneIsAdministrator">True, if all members have been granted administrator rights in the group</param>
         /// <param name="isActive">True, if the group is active</param>
         /// <param name="upgradedToSupergroupId">Identifier of the supergroup to which this group was upgraded; 0 if none</param>
-        public BasicGroup(int id = 0, int memberCount = 0, ChatMemberStatus status = default, bool everyoneIsAdministrator = false, bool isActive = false, int upgradedToSupergroupId = 0)
+        public BasicGroup(int id = default, int memberCount = default, ChatMemberStatus status = default, bool isActive = default, int upgradedToSupergroupId = default)
         {
             this.Id = id;
             this.MemberCount = memberCount;
             this.Status = status;
-            this.EveryoneIsAdministrator = everyoneIsAdministrator;
             this.IsActive = isActive;
             this.UpgradedToSupergroupId = upgradedToSupergroupId;
         }
@@ -1550,11 +1736,13 @@ namespace TDLib.Api
         /// <summary>
         /// Contains full information about a basic group
         /// </summary>
+        /// <param name="description">Contains full information about a basic group</param>
         /// <param name="creatorUserId">User identifier of the creator of the group; 0 if unknown</param>
         /// <param name="members">Group members</param>
-        /// <param name="inviteLink">Invite link for this group; available only for the group creator and only after it has been generated at least once</param>
-        public BasicGroupFullInfo(int creatorUserId = 0, ChatMember[] members = default, string inviteLink = default)
+        /// <param name="inviteLink">Invite link for this group; available only after it has been generated at least once and only for the group creator</param>
+        public BasicGroupFullInfo(string description = default, int creatorUserId = default, ChatMember[] members = default, string inviteLink = default)
         {
+            this.Description = description;
             this.CreatorUserId = creatorUserId;
             this.Members = members;
             this.InviteLink = inviteLink;
@@ -1573,25 +1761,31 @@ namespace TDLib.Api
         /// <param name="id">Supergroup or channel identifier</param>
         /// <param name="username">Username of the supergroup or channel; empty for private supergroups or channels</param>
         /// <param name="date">Point in time (Unix timestamp) when the current user joined, or the point in time when the supergroup or channel was created, in case the user is not a member</param>
-        /// <param name="status">Status of the current user in the supergroup or channel</param>
+        /// <param name="status">Status of the current user in the supergroup or channel; custom title will be always empty</param>
         /// <param name="memberCount">Member count; 0 if unknown. Currently it is guaranteed to be known only if the supergroup or channel was found through SearchPublicChats</param>
-        /// <param name="anyoneCanInvite">True, if any member of the supergroup can invite other members. This field has no meaning for channels</param>
+        /// <param name="hasLinkedChat">True, if the channel has a discussion group, or the supergroup is the designated discussion group for a channel</param>
+        /// <param name="hasLocation">True, if the supergroup is connected to a location, i.e. the supergroup is a location-based supergroup</param>
         /// <param name="signMessages">True, if messages sent to the channel should contain information about the sender. This field is only applicable to channels</param>
+        /// <param name="isSlowModeEnabled">True, if the slow mode is enabled in the supergroup</param>
         /// <param name="isChannel">True, if the supergroup is a channel</param>
         /// <param name="isVerified">True, if the supergroup or channel is verified</param>
-        /// <param name="restrictionReason">If non-empty, contains the reason why access to this supergroup or channel must be restricted. Format of the string is "{type}: {description}". -{type} Contains the type of the restriction and at least one of the suffixes "-all", "-ios", "-android", or "-wp", which describe the platforms on which access should be restricted. (For example, "terms-ios-android". {description} contains a human-readable description of the restriction, which can be shown to the user)</param>
-        public Supergroup(int id = 0, string username = default, int date = 0, ChatMemberStatus status = default, int memberCount = 0, bool anyoneCanInvite = false, bool signMessages = false, bool isChannel = false, bool isVerified = false, string restrictionReason = default)
+        /// <param name="restrictionReason">If non-empty, contains a human-readable description of the reason why access to this supergroup or channel must be restricted</param>
+        /// <param name="isScam">True, if many users reported this supergroup as a scam</param>
+        public Supergroup(int id = default, string username = default, int date = default, ChatMemberStatus status = default, int memberCount = default, bool hasLinkedChat = default, bool hasLocation = default, bool signMessages = default, bool isSlowModeEnabled = default, bool isChannel = default, bool isVerified = default, string restrictionReason = default, bool isScam = default)
         {
             this.Id = id;
             this.Username = username;
             this.Date = date;
             this.Status = status;
             this.MemberCount = memberCount;
-            this.AnyoneCanInvite = anyoneCanInvite;
+            this.HasLinkedChat = hasLinkedChat;
+            this.HasLocation = hasLocation;
             this.SignMessages = signMessages;
+            this.IsSlowModeEnabled = isSlowModeEnabled;
             this.IsChannel = isChannel;
             this.IsVerified = isVerified;
             this.RestrictionReason = restrictionReason;
+            this.IsScam = isScam;
         }
     }
 
@@ -1609,28 +1803,38 @@ namespace TDLib.Api
         /// <param name="administratorCount">Number of privileged users in the supergroup or channel; 0 if unknown</param>
         /// <param name="restrictedCount">Number of restricted users in the supergroup; 0 if unknown</param>
         /// <param name="bannedCount">Number of users banned from chat; 0 if unknown</param>
+        /// <param name="linkedChatId">Chat identifier of a discussion group for the channel, or a channel, for which the supergroup is the designated discussion group; 0 if none or unknown</param>
+        /// <param name="slowModeDelay">Delay between consecutive sent messages for non-administrator supergroup members, in seconds</param>
+        /// <param name="slowModeDelayExpiresIn">Time left before next message can be sent in the supergroup, in seconds. An updateSupergroupFullInfo update is not triggered when value of this field changes, but both new and old values are non-zero</param>
         /// <param name="canGetMembers">True, if members of the chat can be retrieved</param>
-        /// <param name="canSetUsername">True, if the chat can be made public</param>
+        /// <param name="canSetUsername">True, if the chat username can be changed</param>
         /// <param name="canSetStickerSet">True, if the supergroup sticker set can be changed</param>
+        /// <param name="canSetLocation">True, if the supergroup location can be changed</param>
         /// <param name="canViewStatistics">True, if the channel statistics is available through getChatStatisticsUrl</param>
-        /// <param name="isAllHistoryAvailable">True, if new chat members will have access to old messages. In public supergroups and both public and private channels, old messages are always available, so this option affects only private supergroups. The value of this field is only available for chat administrators</param>
+        /// <param name="isAllHistoryAvailable">True, if new chat members will have access to old messages. In public or discussion groups and both public and private channels, old messages are always available, so this option affects only private supergroups without a linked chat. The value of this field is only available for chat administrators</param>
         /// <param name="stickerSetId">Identifier of the supergroup sticker set; 0 if none</param>
+        /// <param name="location">Location to which the supergroup is connected; may be null</param>
         /// <param name="inviteLink">Invite link for this chat</param>
         /// <param name="upgradedFromBasicGroupId">Identifier of the basic group from which supergroup was upgraded; 0 if none</param>
         /// <param name="upgradedFromMaxMessageId">Identifier of the last message in the basic group from which supergroup was upgraded; 0 if none</param>
-        public SupergroupFullInfo(string description = default, int memberCount = 0, int administratorCount = 0, int restrictedCount = 0, int bannedCount = 0, bool canGetMembers = false, bool canSetUsername = false, bool canSetStickerSet = false, bool canViewStatistics = false, bool isAllHistoryAvailable = false, long stickerSetId = 0, string inviteLink = default, int upgradedFromBasicGroupId = 0, long upgradedFromMaxMessageId = 0)
+        public SupergroupFullInfo(string description = default, int memberCount = default, int administratorCount = default, int restrictedCount = default, int bannedCount = default, long linkedChatId = default, int slowModeDelay = default, double slowModeDelayExpiresIn = default, bool canGetMembers = default, bool canSetUsername = default, bool canSetStickerSet = default, bool canSetLocation = default, bool canViewStatistics = default, bool isAllHistoryAvailable = default, long stickerSetId = default, ChatLocation location = default, string inviteLink = default, int upgradedFromBasicGroupId = default, long upgradedFromMaxMessageId = default)
         {
             this.Description = description;
             this.MemberCount = memberCount;
             this.AdministratorCount = administratorCount;
             this.RestrictedCount = restrictedCount;
             this.BannedCount = bannedCount;
+            this.LinkedChatId = linkedChatId;
+            this.SlowModeDelay = slowModeDelay;
+            this.SlowModeDelayExpiresIn = slowModeDelayExpiresIn;
             this.CanGetMembers = canGetMembers;
             this.CanSetUsername = canSetUsername;
             this.CanSetStickerSet = canSetStickerSet;
+            this.CanSetLocation = canSetLocation;
             this.CanViewStatistics = canViewStatistics;
             this.IsAllHistoryAvailable = isAllHistoryAvailable;
             this.StickerSetId = stickerSetId;
+            this.Location = location;
             this.InviteLink = inviteLink;
             this.UpgradedFromBasicGroupId = upgradedFromBasicGroupId;
             this.UpgradedFromMaxMessageId = upgradedFromMaxMessageId;
@@ -1675,9 +1879,9 @@ namespace TDLib.Api
         /// <param name="state">State of the secret chat</param>
         /// <param name="isOutbound">True, if the chat was created by the current user; otherwise false</param>
         /// <param name="ttl">Current message Time To Live setting (self-destruct timer) for the chat, in seconds</param>
-        /// <param name="keyHash">Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 bytes, which must be used to make a 12x12 square image with a color depth of 4. The first 16 bytes should be used to make a central 8x8 square, while the remaining 20 bytes should be used to construct a 2-pixel-wide border around that square. -Alternatively, the first 32 bytes of the hash can be converted to the hexadecimal format and printed as 32 2-digit hex numbers</param>
-        /// <param name="layer">Secret chat layer; determines features supported by the other client. Video notes are supported if the layer &gt;= 66</param>
-        public SecretChat(int id = 0, int userId = 0, SecretChatState state = default, bool isOutbound = false, int ttl = 0, byte[] keyHash = default, int layer = 0)
+        /// <param name="keyHash">Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 little-endian bytes, which must be split into groups of 2 bits, each denoting a pixel of one of 4 colors FFFFFF, D5E6F3, 2D5775, and 2F99C9. -The pixels must be used to make a 12x12 square image filled from left to right, top to bottom. Alternatively, the first 32 bytes of the hash can be converted to the hexadecimal format and printed as 32 2-digit hex numbers</param>
+        /// <param name="layer">Secret chat layer; determines features supported by the other client. Video notes are supported if the layer &gt;= 66; nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101</param>
+        public SecretChat(int id = default, int userId = default, SecretChatState state = default, bool isOutbound = default, int ttl = default, byte[] keyHash = default, int layer = default)
         {
             this.Id = id;
             this.UserId = userId;
@@ -1699,7 +1903,7 @@ namespace TDLib.Api
         /// The message was originally written by a known user
         /// </summary>
         /// <param name="senderUserId">Identifier of the user that originally sent the message</param>
-        public MessageForwardOriginUser(int senderUserId = 0)
+        public MessageForwardOriginUser(int senderUserId = default)
         {
             this.SenderUserId = senderUserId;
         }
@@ -1708,11 +1912,11 @@ namespace TDLib.Api
     public partial class MessageForwardOriginHiddenUser
     {
         /// <summary>
-        /// The message was originally written by a user, which is hidden by his privacy settings
+        /// The message was originally written by a user, which is hidden by their privacy settings
         /// </summary>
         public MessageForwardOriginHiddenUser() { }
         /// <summary>
-        /// The message was originally written by a user, which is hidden by his privacy settings
+        /// The message was originally written by a user, which is hidden by their privacy settings
         /// </summary>
         /// <param name="senderName">Name of the sender</param>
         public MessageForwardOriginHiddenUser(string senderName = default)
@@ -1733,7 +1937,7 @@ namespace TDLib.Api
         /// <param name="chatId">Identifier of the chat from which the message was originally forwarded</param>
         /// <param name="messageId">Message identifier of the original message; 0 if unknown</param>
         /// <param name="authorSignature">Original post author signature</param>
-        public MessageForwardOriginChannel(long chatId = 0, long messageId = 0, string authorSignature = default)
+        public MessageForwardOriginChannel(long chatId = default, long messageId = default, string authorSignature = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -1752,9 +1956,9 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="origin">Origin of a forwarded message</param>
         /// <param name="date">Point in time (Unix timestamp) when the message was originally sent</param>
-        /// <param name="fromChatId">For messages forwarded to the chat with the current user (saved messages), the identifier of the chat from which the message was forwarded last time; 0 if unknown</param>
-        /// <param name="fromMessageId">For messages forwarded to the chat with the current user (saved messages), the identifier of the original message from which the new message was forwarded last time; 0 if unknown</param>
-        public MessageForwardInfo(MessageForwardOrigin origin = default, int date = 0, long fromChatId = 0, long fromMessageId = 0)
+        /// <param name="fromChatId">For messages forwarded to the chat with the current user (Saved Messages) or to the channel's discussion group, the identifier of the chat from which the message was forwarded last time; 0 if unknown</param>
+        /// <param name="fromMessageId">For messages forwarded to the chat with the current user (Saved Messages) or to the channel's discussion group, the identifier of the original message from which the new message was forwarded last time; 0 if unknown</param>
+        public MessageForwardInfo(MessageForwardOrigin origin = default, int date = default, long fromChatId = default, long fromMessageId = default)
         {
             this.Origin = origin;
             this.Date = date;
@@ -1777,6 +1981,20 @@ namespace TDLib.Api
         /// The message failed to be sent
         /// </summary>
         public MessageSendingStateFailed() { }
+        /// <summary>
+        /// The message failed to be sent
+        /// </summary>
+        /// <param name="errorCode">An error code; 0 if unknown</param>
+        /// <param name="errorMessage">Error message</param>
+        /// <param name="canRetry">True, if the message can be re-sent</param>
+        /// <param name="retryAfter">Time left before the message can be re-sent, in seconds. No update is sent when this field changes</param>
+        public MessageSendingStateFailed(int errorCode = default, string errorMessage = default, bool canRetry = default, double retryAfter = default)
+        {
+            this.ErrorCode = errorCode;
+            this.ErrorMessage = errorMessage;
+            this.CanRetry = canRetry;
+            this.RetryAfter = retryAfter;
+        }
     }
 
     public partial class Message
@@ -1789,11 +2007,12 @@ namespace TDLib.Api
         /// Describes a message
         /// </summary>
         /// <param name="id">Message identifier, unique for the chat to which the message belongs</param>
-        /// <param name="senderUserId">Identifier of the user who sent the message; 0 if unknown. It is unknown for channel posts</param>
+        /// <param name="senderUserId">Identifier of the user who sent the message; 0 if unknown. Currently, it is unknown for channel posts and for channel posts automatically forwarded to discussion group</param>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="sendingState">Information about the sending state of the message; may be null</param>
+        /// <param name="schedulingState">Information about the scheduling state of the message; may be null</param>
         /// <param name="isOutgoing">True, if the message is outgoing</param>
-        /// <param name="canBeEdited">True, if the message can be edited. For live location and poll messages this fields shows, whether editMessageLiveLocation or stopPoll can be used with this message by the client</param>
+        /// <param name="canBeEdited">True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the client</param>
         /// <param name="canBeForwarded">True, if the message can be forwarded</param>
         /// <param name="canBeDeletedOnlyForSelf">True, if the message can be deleted only for the current user while other users will continue to see it</param>
         /// <param name="canBeDeletedForAllUsers">True, if the message can be deleted for all users</param>
@@ -1809,14 +2028,16 @@ namespace TDLib.Api
         /// <param name="authorSignature">For channel posts, optional author signature</param>
         /// <param name="views">Number of times this message was viewed</param>
         /// <param name="mediaAlbumId">Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums</param>
+        /// <param name="restrictionReason">If non-empty, contains a human-readable description of the reason why access to this message must be restricted</param>
         /// <param name="content">Content of the message</param>
         /// <param name="replyMarkup">Reply markup for the message; may be null</param>
-        public Message(long id = 0, int senderUserId = 0, long chatId = 0, MessageSendingState sendingState = default, bool isOutgoing = false, bool canBeEdited = false, bool canBeForwarded = false, bool canBeDeletedOnlyForSelf = false, bool canBeDeletedForAllUsers = false, bool isChannelPost = false, bool containsUnreadMention = false, int date = 0, int editDate = 0, MessageForwardInfo forwardInfo = default, long replyToMessageId = 0, int ttl = 0, double ttlExpiresIn = 0.0, int viaBotUserId = 0, string authorSignature = default, int views = 0, long mediaAlbumId = 0, MessageContent content = default, ReplyMarkup replyMarkup = default)
+        public Message(long id = default, int senderUserId = default, long chatId = default, MessageSendingState sendingState = default, MessageSchedulingState schedulingState = default, bool isOutgoing = default, bool canBeEdited = default, bool canBeForwarded = default, bool canBeDeletedOnlyForSelf = default, bool canBeDeletedForAllUsers = default, bool isChannelPost = default, bool containsUnreadMention = default, int date = default, int editDate = default, MessageForwardInfo forwardInfo = default, long replyToMessageId = default, int ttl = default, double ttlExpiresIn = default, int viaBotUserId = default, string authorSignature = default, int views = default, long mediaAlbumId = default, string restrictionReason = default, MessageContent content = default, ReplyMarkup replyMarkup = default)
         {
             this.Id = id;
             this.SenderUserId = senderUserId;
             this.ChatId = chatId;
             this.SendingState = sendingState;
+            this.SchedulingState = schedulingState;
             this.IsOutgoing = isOutgoing;
             this.CanBeEdited = canBeEdited;
             this.CanBeForwarded = canBeForwarded;
@@ -1834,6 +2055,7 @@ namespace TDLib.Api
             this.AuthorSignature = authorSignature;
             this.Views = views;
             this.MediaAlbumId = mediaAlbumId;
+            this.RestrictionReason = restrictionReason;
             this.Content = content;
             this.ReplyMarkup = replyMarkup;
         }
@@ -1850,7 +2072,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="totalCount">Approximate total count of messages found</param>
         /// <param name="messages">List of messages; messages may be null</param>
-        public Messages(int totalCount = 0, Message[] messages_ = default)
+        public Messages(int totalCount = default, Message[] messages_ = default)
         {
             this.TotalCount = totalCount;
             this.Messages_ = messages_;
@@ -1868,7 +2090,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="messages">List of messages</param>
         /// <param name="nextFromSearchId">Value to pass as from_search_id to get more results</param>
-        public FoundMessages(Message[] messages = default, long nextFromSearchId = 0)
+        public FoundMessages(Message[] messages = default, long nextFromSearchId = default)
         {
             this.Messages = messages;
             this.NextFromSearchId = nextFromSearchId;
@@ -1918,7 +2140,7 @@ namespace TDLib.Api
         /// <param name="disablePinnedMessageNotifications">If true, notifications for incoming pinned messages will be created as for an ordinary unread message</param>
         /// <param name="useDefaultDisableMentionNotifications">If true, disable_mention_notifications is ignored and the value for the relevant type of chat is used instead</param>
         /// <param name="disableMentionNotifications">If true, notifications for messages with mentions will be created as for an ordinary unread message</param>
-        public ChatNotificationSettings(bool useDefaultMuteFor = false, int muteFor = 0, bool useDefaultSound = false, string sound = default, bool useDefaultShowPreview = false, bool showPreview = false, bool useDefaultDisablePinnedMessageNotifications = false, bool disablePinnedMessageNotifications = false, bool useDefaultDisableMentionNotifications = false, bool disableMentionNotifications = false)
+        public ChatNotificationSettings(bool useDefaultMuteFor = default, int muteFor = default, bool useDefaultSound = default, string sound = default, bool useDefaultShowPreview = default, bool showPreview = default, bool useDefaultDisablePinnedMessageNotifications = default, bool disablePinnedMessageNotifications = default, bool useDefaultDisableMentionNotifications = default, bool disableMentionNotifications = default)
         {
             this.UseDefaultMuteFor = useDefaultMuteFor;
             this.MuteFor = muteFor;
@@ -1947,7 +2169,7 @@ namespace TDLib.Api
         /// <param name="showPreview">True, if message content should be displayed in notifications</param>
         /// <param name="disablePinnedMessageNotifications">True, if notifications for incoming pinned messages will be created as for an ordinary unread message</param>
         /// <param name="disableMentionNotifications">True, if notifications for messages with mentions will be created as for an ordinary unread message</param>
-        public ScopeNotificationSettings(int muteFor = 0, string sound = default, bool showPreview = false, bool disablePinnedMessageNotifications = false, bool disableMentionNotifications = false)
+        public ScopeNotificationSettings(int muteFor = default, string sound = default, bool showPreview = default, bool disablePinnedMessageNotifications = default, bool disableMentionNotifications = default)
         {
             this.MuteFor = muteFor;
             this.Sound = sound;
@@ -1968,7 +2190,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="replyToMessageId">Identifier of the message to reply to; 0 if none</param>
         /// <param name="inputMessageText">Content of the message draft; this should always be of type inputMessageText</param>
-        public DraftMessage(long replyToMessageId = 0, InputMessageContent inputMessageText = default)
+        public DraftMessage(long replyToMessageId = default, InputMessageContent inputMessageText = default)
         {
             this.ReplyToMessageId = replyToMessageId;
             this.InputMessageText = inputMessageText;
@@ -1985,7 +2207,7 @@ namespace TDLib.Api
         /// An ordinary chat with a user
         /// </summary>
         /// <param name="userId">User identifier</param>
-        public ChatTypePrivate(int userId = 0)
+        public ChatTypePrivate(int userId = default)
         {
             this.UserId = userId;
         }
@@ -2001,7 +2223,7 @@ namespace TDLib.Api
         /// A basic group (i.e., a chat with 0-200 other users)
         /// </summary>
         /// <param name="basicGroupId">Basic group identifier</param>
-        public ChatTypeBasicGroup(int basicGroupId = 0)
+        public ChatTypeBasicGroup(int basicGroupId = default)
         {
             this.BasicGroupId = basicGroupId;
         }
@@ -2018,7 +2240,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="supergroupId">Supergroup or channel identifier</param>
         /// <param name="isChannel">True, if the supergroup is a channel</param>
-        public ChatTypeSupergroup(int supergroupId = 0, bool isChannel = false)
+        public ChatTypeSupergroup(int supergroupId = default, bool isChannel = default)
         {
             this.SupergroupId = supergroupId;
             this.IsChannel = isChannel;
@@ -2036,11 +2258,27 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="secretChatId">Secret chat identifier</param>
         /// <param name="userId">User identifier of the secret chat peer</param>
-        public ChatTypeSecret(int secretChatId = 0, int userId = 0)
+        public ChatTypeSecret(int secretChatId = default, int userId = default)
         {
             this.SecretChatId = secretChatId;
             this.UserId = userId;
         }
+    }
+
+    public partial class ChatListMain
+    {
+        /// <summary>
+        /// A main list of chats
+        /// </summary>
+        public ChatListMain() { }
+    }
+
+    public partial class ChatListArchive
+    {
+        /// <summary>
+        /// A list of chats usually located at the top of the main chat list. Unmuted chats are automatically moved from the Archive to the Main chat list when a new message arrives
+        /// </summary>
+        public ChatListArchive() { }
     }
 
     public partial class Chat
@@ -2054,13 +2292,16 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="id">Chat unique identifier</param>
         /// <param name="type">Type of the chat</param>
+        /// <param name="chatList">A chat list to which the chat belongs; may be null</param>
         /// <param name="title">Chat title</param>
         /// <param name="photo">Chat photo; may be null</param>
+        /// <param name="permissions">Actions that non-administrator chat members are allowed to take in the chat</param>
         /// <param name="lastMessage">Last message in the chat; may be null</param>
         /// <param name="order">Descending parameter by which chats are sorted in the main chat list. If the order number of two chats is the same, they must be sorted in descending order by ID. If 0, the position of the chat in the list is undetermined</param>
         /// <param name="isPinned">True, if the chat is pinned</param>
         /// <param name="isMarkedAsUnread">True, if the chat is marked as unread</param>
         /// <param name="isSponsored">True, if the chat is sponsored by the user's MTProxy server</param>
+        /// <param name="hasScheduledMessages">True, if the chat has scheduled messages</param>
         /// <param name="canBeDeletedOnlyForSelf">True, if the chat messages can be deleted only for the current user while other users will continue to see the messages</param>
         /// <param name="canBeDeletedForAllUsers">True, if the chat messages can be deleted for all users</param>
         /// <param name="canBeReported">True, if the chat can be reported to Telegram moderators through reportChat</param>
@@ -2070,21 +2311,25 @@ namespace TDLib.Api
         /// <param name="lastReadOutboxMessageId">Identifier of the last read outgoing message</param>
         /// <param name="unreadMentionCount">Number of unread messages with a mention/reply in the chat</param>
         /// <param name="notificationSettings">Notification settings for this chat</param>
+        /// <param name="actionBar">Describes actions which should be possible to do through a chat action bar; may be null</param>
         /// <param name="pinnedMessageId">Identifier of the pinned message in the chat; 0 if none</param>
         /// <param name="replyMarkupMessageId">Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat</param>
         /// <param name="draftMessage">A draft of a message in the chat; may be null</param>
-        /// <param name="clientData">Contains client-specific data associated with the chat. (For example, the chat position or local chat notification settings can be stored here.) Persistent if a message database is used</param>
-        public Chat(long id = 0, ChatType type = default, string title = default, ChatPhoto photo = default, Message lastMessage = default, long order = 0, bool isPinned = false, bool isMarkedAsUnread = false, bool isSponsored = false, bool canBeDeletedOnlyForSelf = false, bool canBeDeletedForAllUsers = false, bool canBeReported = false, bool defaultDisableNotification = false, int unreadCount = 0, long lastReadInboxMessageId = 0, long lastReadOutboxMessageId = 0, int unreadMentionCount = 0, ChatNotificationSettings notificationSettings = default, long pinnedMessageId = 0, long replyMarkupMessageId = 0, DraftMessage draftMessage = default, string clientData = default)
+        /// <param name="clientData">Contains client-specific data associated with the chat. (For example, the chat position or local chat notification settings can be stored here.) Persistent if the message database is used</param>
+        public Chat(long id = default, ChatType type = default, ChatList chatList = default, string title = default, ChatPhoto photo = default, ChatPermissions permissions = default, Message lastMessage = default, long order = default, bool isPinned = default, bool isMarkedAsUnread = default, bool isSponsored = default, bool hasScheduledMessages = default, bool canBeDeletedOnlyForSelf = default, bool canBeDeletedForAllUsers = default, bool canBeReported = default, bool defaultDisableNotification = default, int unreadCount = default, long lastReadInboxMessageId = default, long lastReadOutboxMessageId = default, int unreadMentionCount = default, ChatNotificationSettings notificationSettings = default, ChatActionBar actionBar = default, long pinnedMessageId = default, long replyMarkupMessageId = default, DraftMessage draftMessage = default, string clientData = default)
         {
             this.Id = id;
             this.Type = type;
+            this.ChatList = chatList;
             this.Title = title;
             this.Photo = photo;
+            this.Permissions = permissions;
             this.LastMessage = lastMessage;
             this.Order = order;
             this.IsPinned = isPinned;
             this.IsMarkedAsUnread = isMarkedAsUnread;
             this.IsSponsored = isSponsored;
+            this.HasScheduledMessages = hasScheduledMessages;
             this.CanBeDeletedOnlyForSelf = canBeDeletedOnlyForSelf;
             this.CanBeDeletedForAllUsers = canBeDeletedForAllUsers;
             this.CanBeReported = canBeReported;
@@ -2094,6 +2339,7 @@ namespace TDLib.Api
             this.LastReadOutboxMessageId = lastReadOutboxMessageId;
             this.UnreadMentionCount = unreadMentionCount;
             this.NotificationSettings = notificationSettings;
+            this.ActionBar = actionBar;
             this.PinnedMessageId = pinnedMessageId;
             this.ReplyMarkupMessageId = replyMarkupMessageId;
             this.DraftMessage = draftMessage;
@@ -2114,6 +2360,42 @@ namespace TDLib.Api
         public Chats(long[] chatIds = default)
         {
             this.ChatIds = chatIds;
+        }
+    }
+
+    public partial class ChatNearby
+    {
+        /// <summary>
+        /// Describes a chat located nearby
+        /// </summary>
+        public ChatNearby() { }
+        /// <summary>
+        /// Describes a chat located nearby
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="distance">Distance to the chat location in meters</param>
+        public ChatNearby(long chatId = default, int distance = default)
+        {
+            this.ChatId = chatId;
+            this.Distance = distance;
+        }
+    }
+
+    public partial class ChatsNearby
+    {
+        /// <summary>
+        /// Represents a list of chats located nearby
+        /// </summary>
+        public ChatsNearby() { }
+        /// <summary>
+        /// Represents a list of chats located nearby
+        /// </summary>
+        /// <param name="usersNearby">List of users nearby</param>
+        /// <param name="supergroupsNearby">List of location-based supergroups nearby</param>
+        public ChatsNearby(ChatNearby[] usersNearby = default, ChatNearby[] supergroupsNearby = default)
+        {
+            this.UsersNearby = usersNearby;
+            this.SupergroupsNearby = supergroupsNearby;
         }
     }
 
@@ -2148,8 +2430,8 @@ namespace TDLib.Api
         /// <param name="photo">Chat photo; may be null</param>
         /// <param name="memberCount">Number of members</param>
         /// <param name="memberUserIds">User identifiers of some chat members that may be known to the current user</param>
-        /// <param name="isPublic">True, if the chat is a public supergroup or channel with a username</param>
-        public ChatInviteLinkInfo(long chatId = 0, ChatType type = default, string title = default, ChatPhoto photo = default, int memberCount = 0, int[] memberUserIds = default, bool isPublic = false)
+        /// <param name="isPublic">True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup</param>
+        public ChatInviteLinkInfo(long chatId = default, ChatType type = default, string title = default, ChatPhoto photo = default, int memberCount = default, int[] memberUserIds = default, bool isPublic = default)
         {
             this.ChatId = chatId;
             this.Type = type;
@@ -2159,6 +2441,62 @@ namespace TDLib.Api
             this.MemberUserIds = memberUserIds;
             this.IsPublic = isPublic;
         }
+    }
+
+    public partial class PublicChatTypeHasUsername
+    {
+        /// <summary>
+        /// The chat is public, because it has username
+        /// </summary>
+        public PublicChatTypeHasUsername() { }
+    }
+
+    public partial class PublicChatTypeIsLocationBased
+    {
+        /// <summary>
+        /// The chat is public, because it is a location-based supergroup
+        /// </summary>
+        public PublicChatTypeIsLocationBased() { }
+    }
+
+    public partial class ChatActionBarReportSpam
+    {
+        /// <summary>
+        /// The chat can be reported as spam using the method reportChat with the reason chatReportReasonSpam
+        /// </summary>
+        public ChatActionBarReportSpam() { }
+    }
+
+    public partial class ChatActionBarReportUnrelatedLocation
+    {
+        /// <summary>
+        /// The chat is a location-based supergroup, which can be reported as having unrelated location using the method reportChat with the reason chatReportReasonUnrelatedLocation
+        /// </summary>
+        public ChatActionBarReportUnrelatedLocation() { }
+    }
+
+    public partial class ChatActionBarReportAddBlock
+    {
+        /// <summary>
+        /// The chat is a private or secret chat, which can be reported using the method reportChat, or the other user can be added to the contact list using the method addContact, or the other user can be blocked using the method blockUser
+        /// </summary>
+        public ChatActionBarReportAddBlock() { }
+    }
+
+    public partial class ChatActionBarAddContact
+    {
+        /// <summary>
+        /// The chat is a private or secret chat and the other user can be added to the contact list using the method addContact
+        /// </summary>
+        public ChatActionBarAddContact() { }
+    }
+
+    public partial class ChatActionBarSharePhoneNumber
+    {
+        /// <summary>
+        /// The chat is a private or secret chat with a mutual contact and the user's phone number can be shared with the other user using the method sharePhoneNumber
+        /// </summary>
+        public ChatActionBarSharePhoneNumber() { }
     }
 
     public partial class KeyboardButtonTypeText
@@ -2183,6 +2521,24 @@ namespace TDLib.Api
         /// A button that sends the user's location when pressed; available only in private chats
         /// </summary>
         public KeyboardButtonTypeRequestLocation() { }
+    }
+
+    public partial class KeyboardButtonTypeRequestPoll
+    {
+        /// <summary>
+        /// A button that allows the user to create and send a poll when pressed; available only in private chats
+        /// </summary>
+        public KeyboardButtonTypeRequestPoll() { }
+        /// <summary>
+        /// A button that allows the user to create and send a poll when pressed; available only in private chats
+        /// </summary>
+        /// <param name="forceRegular">If true, only regular polls must be allowed to create</param>
+        /// <param name="forceQuiz">If true, only polls in quiz mode must be allowed to create</param>
+        public KeyboardButtonTypeRequestPoll(bool forceRegular = default, bool forceQuiz = default)
+        {
+            this.ForceRegular = forceRegular;
+            this.ForceQuiz = forceQuiz;
+        }
     }
 
     public partial class KeyboardButton
@@ -2216,6 +2572,26 @@ namespace TDLib.Api
         public InlineKeyboardButtonTypeUrl(string url = default)
         {
             this.Url = url;
+        }
+    }
+
+    public partial class InlineKeyboardButtonTypeLoginUrl
+    {
+        /// <summary>
+        /// A button that opens a specified URL and automatically logs in in current user if they allowed to do that
+        /// </summary>
+        public InlineKeyboardButtonTypeLoginUrl() { }
+        /// <summary>
+        /// A button that opens a specified URL and automatically logs in in current user if they allowed to do that
+        /// </summary>
+        /// <param name="url">An HTTP URL to open</param>
+        /// <param name="id">Unique button identifier</param>
+        /// <param name="forwardText">If non-empty, new text of the button in forwarded messages</param>
+        public InlineKeyboardButtonTypeLoginUrl(string url = default, int id = default, string forwardText = default)
+        {
+            this.Url = url;
+            this.Id = id;
+            this.ForwardText = forwardText;
         }
     }
 
@@ -2254,7 +2630,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="query">Inline query to be sent to the bot</param>
         /// <param name="inCurrentChat">True, if the inline query should be sent from the current chat</param>
-        public InlineKeyboardButtonTypeSwitchInline(string query = default, bool inCurrentChat = false)
+        public InlineKeyboardButtonTypeSwitchInline(string query = default, bool inCurrentChat = default)
         {
             this.Query = query;
             this.InCurrentChat = inCurrentChat;
@@ -2297,7 +2673,7 @@ namespace TDLib.Api
         /// Instructs clients to remove the keyboard once this message has been received. This kind of keyboard can't be received in an incoming message; instead, UpdateChatReplyMarkup with message_id == 0 will be sent
         /// </summary>
         /// <param name="isPersonal">True, if the keyboard is removed only for the mentioned users or the target user of a reply</param>
-        public ReplyMarkupRemoveKeyboard(bool isPersonal = false)
+        public ReplyMarkupRemoveKeyboard(bool isPersonal = default)
         {
             this.IsPersonal = isPersonal;
         }
@@ -2313,7 +2689,7 @@ namespace TDLib.Api
         /// Instructs clients to force a reply to this message
         /// </summary>
         /// <param name="isPersonal">True, if a forced reply must automatically be shown to the current user. For outgoing messages, specify true to show the forced reply only for the mentioned users and for the target user of a reply</param>
-        public ReplyMarkupForceReply(bool isPersonal = false)
+        public ReplyMarkupForceReply(bool isPersonal = default)
         {
             this.IsPersonal = isPersonal;
         }
@@ -2332,7 +2708,7 @@ namespace TDLib.Api
         /// <param name="resizeKeyboard">True, if the client needs to resize the keyboard vertically</param>
         /// <param name="oneTime">True, if the client needs to hide the keyboard after use</param>
         /// <param name="isPersonal">True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply</param>
-        public ReplyMarkupShowKeyboard(KeyboardButton[][] rows = default, bool resizeKeyboard = false, bool oneTime = false, bool isPersonal = false)
+        public ReplyMarkupShowKeyboard(KeyboardButton[][] rows = default, bool resizeKeyboard = default, bool oneTime = default, bool isPersonal = default)
         {
             this.Rows = rows;
             this.ResizeKeyboard = resizeKeyboard;
@@ -2354,6 +2730,46 @@ namespace TDLib.Api
         public ReplyMarkupInlineKeyboard(InlineKeyboardButton[][] rows = default)
         {
             this.Rows = rows;
+        }
+    }
+
+    public partial class LoginUrlInfoOpen
+    {
+        /// <summary>
+        /// An HTTP url needs to be open
+        /// </summary>
+        public LoginUrlInfoOpen() { }
+        /// <summary>
+        /// An HTTP url needs to be open
+        /// </summary>
+        /// <param name="url">The URL to open</param>
+        /// <param name="skipConfirm">True, if there is no need to show an ordinary open URL confirm</param>
+        public LoginUrlInfoOpen(string url = default, bool skipConfirm = default)
+        {
+            this.Url = url;
+            this.SkipConfirm = skipConfirm;
+        }
+    }
+
+    public partial class LoginUrlInfoRequestConfirmation
+    {
+        /// <summary>
+        /// An authorization confirmation dialog needs to be shown to the user
+        /// </summary>
+        public LoginUrlInfoRequestConfirmation() { }
+        /// <summary>
+        /// An authorization confirmation dialog needs to be shown to the user
+        /// </summary>
+        /// <param name="url">An HTTP URL to be opened</param>
+        /// <param name="domain">A domain of the URL</param>
+        /// <param name="botUserId">User identifier of a bot linked with the website</param>
+        /// <param name="requestWriteAccess">True, if the user needs to be requested to give the permission to the bot to send them messages</param>
+        public LoginUrlInfoRequestConfirmation(string url = default, string domain = default, int botUserId = default, bool requestWriteAccess = default)
+        {
+            this.Url = url;
+            this.Domain = domain;
+            this.BotUserId = botUserId;
+            this.RequestWriteAccess = requestWriteAccess;
         }
     }
 
@@ -2424,11 +2840,11 @@ namespace TDLib.Api
     public partial class RichTextStrikethrough
     {
         /// <summary>
-        /// A strike-through rich text
+        /// A strikethrough rich text
         /// </summary>
         public RichTextStrikethrough() { }
         /// <summary>
-        /// A strike-through rich text
+        /// A strikethrough rich text
         /// </summary>
         /// <param name="text">Text</param>
         public RichTextStrikethrough(RichText text = default)
@@ -2464,10 +2880,12 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="text">Text</param>
         /// <param name="url">URL</param>
-        public RichTextUrl(RichText text = default, string url = default)
+        /// <param name="isCached">True, if the URL has cached instant view server-side</param>
+        public RichTextUrl(RichText text = default, string url = default, bool isCached = default)
         {
             this.Text = text;
             this.Url = url;
+            this.IsCached = isCached;
         }
     }
 
@@ -2565,9 +2983,9 @@ namespace TDLib.Api
         /// A small image inside the text
         /// </summary>
         /// <param name="document">The image represented as a document. The image can be in GIF, JPEG or PNG format</param>
-        /// <param name="width">Width of a bounding box in which the image should be shown, 0 if unknown</param>
-        /// <param name="height">Height of a bounding box in which the image should be shown, 0 if unknown</param>
-        public RichTextIcon(Document document = default, int width = 0, int height = 0)
+        /// <param name="width">Width of a bounding box in which the image should be shown; 0 if unknown</param>
+        /// <param name="height">Height of a bounding box in which the image should be shown; 0 if unknown</param>
+        public RichTextIcon(Document document = default, int width = default, int height = default)
         {
             this.Document = document;
             this.Width = width;
@@ -2702,13 +3120,13 @@ namespace TDLib.Api
         /// <summary>
         /// Represents a cell of a table
         /// </summary>
-        /// <param name="text">Cell text</param>
+        /// <param name="text">Cell text; may be null. If the text is null, then the cell should be invisible</param>
         /// <param name="isHeader">True, if it is a header cell</param>
         /// <param name="colspan">The number of columns the cell should span</param>
         /// <param name="rowspan">The number of rows the cell should span</param>
         /// <param name="align">Horizontal cell content alignment</param>
         /// <param name="valign">Vertical cell content alignment</param>
-        public PageBlockTableCell(RichText text = default, bool isHeader = false, int colspan = 0, int rowspan = 0, PageBlockHorizontalAlignment align = default, PageBlockVerticalAlignment valign = default)
+        public PageBlockTableCell(RichText text = default, bool isHeader = default, int colspan = default, int rowspan = default, PageBlockHorizontalAlignment align = default, PageBlockVerticalAlignment valign = default)
         {
             this.Text = text;
             this.IsHeader = isHeader;
@@ -2734,7 +3152,7 @@ namespace TDLib.Api
         /// <param name="photo">Article photo; may be null</param>
         /// <param name="author">Article author; may be empty</param>
         /// <param name="publishDate">Point in time (Unix timestamp) when the article was published; 0 if unknown</param>
-        public PageBlockRelatedArticle(string url = default, string title = default, string description = default, Photo photo = default, string author = default, int publishDate = 0)
+        public PageBlockRelatedArticle(string url = default, string title = default, string description = default, Photo photo = default, string author = default, int publishDate = default)
         {
             this.Url = url;
             this.Title = title;
@@ -2788,7 +3206,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="author">Author</param>
         /// <param name="publishDate">Point in time (Unix timestamp) when the article was published; 0 if unknown</param>
-        public PageBlockAuthorDate(RichText author = default, int publishDate = 0)
+        public PageBlockAuthorDate(RichText author = default, int publishDate = default)
         {
             this.Author = author;
             this.PublishDate = publishDate;
@@ -2981,7 +3399,7 @@ namespace TDLib.Api
         /// <param name="animation">Animation file; may be null</param>
         /// <param name="caption">Animation caption</param>
         /// <param name="needAutoplay">True, if the animation should be played automatically</param>
-        public PageBlockAnimation(Animation animation = default, PageBlockCaption caption = default, bool needAutoplay = false)
+        public PageBlockAnimation(Animation animation = default, PageBlockCaption caption = default, bool needAutoplay = default)
         {
             this.Animation = animation;
             this.Caption = caption;
@@ -3040,12 +3458,30 @@ namespace TDLib.Api
         /// <param name="caption">Video caption</param>
         /// <param name="needAutoplay">True, if the video should be played automatically</param>
         /// <param name="isLooped">True, if the video should be looped</param>
-        public PageBlockVideo(Video video = default, PageBlockCaption caption = default, bool needAutoplay = false, bool isLooped = false)
+        public PageBlockVideo(Video video = default, PageBlockCaption caption = default, bool needAutoplay = default, bool isLooped = default)
         {
             this.Video = video;
             this.Caption = caption;
             this.NeedAutoplay = needAutoplay;
             this.IsLooped = isLooped;
+        }
+    }
+
+    public partial class PageBlockVoiceNote
+    {
+        /// <summary>
+        /// A voice note
+        /// </summary>
+        public PageBlockVoiceNote() { }
+        /// <summary>
+        /// A voice note
+        /// </summary>
+        /// <param name="voiceNote">Voice note; may be null</param>
+        /// <param name="caption">Voice note caption</param>
+        public PageBlockVoiceNote(VoiceNote voiceNote = default, PageBlockCaption caption = default)
+        {
+            this.VoiceNote = voiceNote;
+            this.Caption = caption;
         }
     }
 
@@ -3077,12 +3513,12 @@ namespace TDLib.Api
         /// <param name="url">Web page URL, if available</param>
         /// <param name="html">HTML-markup of the embedded page</param>
         /// <param name="posterPhoto">Poster photo, if available; may be null</param>
-        /// <param name="width">Block width, 0 if unknown</param>
-        /// <param name="height">Block height, 0 if unknown</param>
+        /// <param name="width">Block width; 0 if unknown</param>
+        /// <param name="height">Block height; 0 if unknown</param>
         /// <param name="caption">Block caption</param>
         /// <param name="isFullWidth">True, if the block should be full width</param>
         /// <param name="allowScrolling">True, if scrolling should be allowed</param>
-        public PageBlockEmbedded(string url = default, string html = default, Photo posterPhoto = default, int width = 0, int height = 0, PageBlockCaption caption = default, bool isFullWidth = false, bool allowScrolling = false)
+        public PageBlockEmbedded(string url = default, string html = default, Photo posterPhoto = default, int width = default, int height = default, PageBlockCaption caption = default, bool isFullWidth = default, bool allowScrolling = default)
         {
             this.Url = url;
             this.Html = html;
@@ -3106,11 +3542,11 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="url">Web page URL</param>
         /// <param name="author">Post author</param>
-        /// <param name="authorPhoto">Post author photo</param>
+        /// <param name="authorPhoto">Post author photo; may be null</param>
         /// <param name="date">Point in time (Unix timestamp) when the post was created; 0 if unknown</param>
         /// <param name="pageBlocks">Post content</param>
         /// <param name="caption">Post caption</param>
-        public PageBlockEmbeddedPost(string url = default, string author = default, Photo authorPhoto = default, int date = 0, PageBlock[] pageBlocks = default, PageBlockCaption caption = default)
+        public PageBlockEmbeddedPost(string url = default, string author = default, Photo authorPhoto = default, int date = default, PageBlock[] pageBlocks = default, PageBlockCaption caption = default)
         {
             this.Url = url;
             this.Author = author;
@@ -3190,7 +3626,7 @@ namespace TDLib.Api
         /// <param name="cells">Table cells</param>
         /// <param name="isBordered">True, if the table is bordered</param>
         /// <param name="isStriped">True, if the table is striped</param>
-        public PageBlockTable(RichText caption = default, PageBlockTableCell[][] cells = default, bool isBordered = false, bool isStriped = false)
+        public PageBlockTable(RichText caption = default, PageBlockTableCell[][] cells = default, bool isBordered = default, bool isStriped = default)
         {
             this.Caption = caption;
             this.Cells = cells;
@@ -3211,7 +3647,7 @@ namespace TDLib.Api
         /// <param name="header">Always visible heading for the block</param>
         /// <param name="pageBlocks">Block contents</param>
         /// <param name="isOpen">True, if the block is open by default</param>
-        public PageBlockDetails(RichText header = default, PageBlock[] pageBlocks = default, bool isOpen = false)
+        public PageBlockDetails(RichText header = default, PageBlock[] pageBlocks = default, bool isOpen = default)
         {
             this.Header = header;
             this.PageBlocks = pageBlocks;
@@ -3251,7 +3687,7 @@ namespace TDLib.Api
         /// <param name="width">Map width</param>
         /// <param name="height">Map height</param>
         /// <param name="caption">Block caption</param>
-        public PageBlockMap(Location location = default, int zoom = 0, int width = 0, int height = 0, PageBlockCaption caption = default)
+        public PageBlockMap(Location location = default, int zoom = default, int width = default, int height = default, PageBlockCaption caption = default)
         {
             this.Location = location;
             this.Zoom = zoom;
@@ -3275,7 +3711,7 @@ namespace TDLib.Api
         /// <param name="url">Instant view URL; may be different from WebPage.url and must be used for the correct anchors handling</param>
         /// <param name="isRtl">True, if the instant view must be shown from right to left</param>
         /// <param name="isFull">True, if the instant view contains the full page. A network request might be needed to get the full web page instant view</param>
-        public WebPageInstantView(PageBlock[] pageBlocks = default, int version = 0, string url = default, bool isRtl = false, bool isFull = false)
+        public WebPageInstantView(PageBlock[] pageBlocks = default, int version = default, string url = default, bool isRtl = default, bool isFull = default)
         {
             this.PageBlocks = pageBlocks;
             this.Version = version;
@@ -3315,7 +3751,7 @@ namespace TDLib.Api
         /// <param name="videoNote">Preview of the content as a video note, if available; may be null</param>
         /// <param name="voiceNote">Preview of the content as a voice note, if available; may be null</param>
         /// <param name="instantViewVersion">Version of instant view, available for the web page (currently can be 1 or 2), 0 if none</param>
-        public WebPage(string url = default, string displayUrl = default, string type = default, string siteName = default, string title = default, string description = default, Photo photo = default, string embedUrl = default, string embedType = default, int embedWidth = 0, int embedHeight = 0, int duration = 0, string author = default, Animation animation = default, Audio audio = default, Document document = default, Sticker sticker = default, Video video = default, VideoNote videoNote = default, VoiceNote voiceNote = default, int instantViewVersion = 0)
+        public WebPage(string url = default, string displayUrl = default, string type = default, string siteName = default, string title = default, string description = default, Photo photo = default, string embedUrl = default, string embedType = default, int embedWidth = default, int embedHeight = default, int duration = default, string author = default, Animation animation = default, Audio audio = default, Document document = default, Sticker sticker = default, Video video = default, VideoNote videoNote = default, VoiceNote voiceNote = default, int instantViewVersion = default)
         {
             this.Url = url;
             this.DisplayUrl = displayUrl;
@@ -3378,7 +3814,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="label">Label for this portion of the product price</param>
         /// <param name="amount">Currency amount in minimal quantity of the currency</param>
-        public LabeledPricePart(string label = default, long amount = 0)
+        public LabeledPricePart(string label = default, long amount = default)
         {
             this.Label = label;
             this.Amount = amount;
@@ -3404,7 +3840,7 @@ namespace TDLib.Api
         /// <param name="sendPhoneNumberToProvider">True, if the user's phone number will be sent to the provider</param>
         /// <param name="sendEmailAddressToProvider">True, if the user's email address will be sent to the provider</param>
         /// <param name="isFlexible">True, if the total price depends on the shipping method</param>
-        public Invoice(string currency = default, LabeledPricePart[] priceParts = default, bool isTest = false, bool needName = false, bool needPhoneNumber = false, bool needEmailAddress = false, bool needShippingAddress = false, bool sendPhoneNumberToProvider = false, bool sendEmailAddressToProvider = false, bool isFlexible = false)
+        public Invoice(string currency = default, LabeledPricePart[] priceParts = default, bool isTest = default, bool needName = default, bool needPhoneNumber = default, bool needEmailAddress = default, bool needShippingAddress = default, bool sendPhoneNumberToProvider = default, bool sendEmailAddressToProvider = default, bool isFlexible = default)
         {
             this.Currency = currency;
             this.PriceParts = priceParts;
@@ -3506,7 +3942,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="data">Contains JSON-encoded data with a credential identifier from the payment provider</param>
         /// <param name="allowSave">True, if the credential identifier can be saved on the server side</param>
-        public InputCredentialsNew(string data = default, bool allowSave = false)
+        public InputCredentialsNew(string data = default, bool allowSave = default)
         {
             this.Data = data;
             this.AllowSave = allowSave;
@@ -3558,7 +3994,7 @@ namespace TDLib.Api
         /// <param name="needCountry">True, if the user country must be provided</param>
         /// <param name="needPostalCode">True, if the user ZIP/postal code must be provided</param>
         /// <param name="needCardholderName">True, if the cardholder name must be provided</param>
-        public PaymentsProviderStripe(string publishableKey = default, bool needCountry = false, bool needPostalCode = false, bool needCardholderName = false)
+        public PaymentsProviderStripe(string publishableKey = default, bool needCountry = default, bool needPostalCode = default, bool needCardholderName = default)
         {
             this.PublishableKey = publishableKey;
             this.NeedCountry = needCountry;
@@ -3583,7 +4019,7 @@ namespace TDLib.Api
         /// <param name="savedCredentials">Contains information about saved card credentials; may be null</param>
         /// <param name="canSaveCredentials">True, if the user can choose to save credentials</param>
         /// <param name="needPassword">True, if the user will be able to save credentials protected by a password they set up</param>
-        public PaymentForm(Invoice invoice = default, string url = default, PaymentsProviderStripe paymentsProvider = default, OrderInfo savedOrderInfo = default, SavedCredentials savedCredentials = default, bool canSaveCredentials = false, bool needPassword = false)
+        public PaymentForm(Invoice invoice = default, string url = default, PaymentsProviderStripe paymentsProvider = default, OrderInfo savedOrderInfo = default, SavedCredentials savedCredentials = default, bool canSaveCredentials = default, bool needPassword = default)
         {
             this.Invoice = invoice;
             this.Url = url;
@@ -3624,7 +4060,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="success">True, if the payment request was successful; otherwise the verification_url will be not empty</param>
         /// <param name="verificationUrl">URL for additional payment credentials verification</param>
-        public PaymentResult(bool success = false, string verificationUrl = default)
+        public PaymentResult(bool success = default, string verificationUrl = default)
         {
             this.Success = success;
             this.VerificationUrl = verificationUrl;
@@ -3646,7 +4082,7 @@ namespace TDLib.Api
         /// <param name="orderInfo">Contains order information; may be null</param>
         /// <param name="shippingOption">Chosen shipping option; may be null</param>
         /// <param name="credentialsTitle">Title of the saved credentials</param>
-        public PaymentReceipt(int date = 0, int paymentsProviderUserId = 0, Invoice invoice = default, OrderInfo orderInfo = default, ShippingOption shippingOption = default, string credentialsTitle = default)
+        public PaymentReceipt(int date = default, int paymentsProviderUserId = default, Invoice invoice = default, OrderInfo orderInfo = default, ShippingOption shippingOption = default, string credentialsTitle = default)
         {
             this.Date = date;
             this.PaymentsProviderUserId = paymentsProviderUserId;
@@ -3668,7 +4104,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="file">The file</param>
         /// <param name="date">Point in time (Unix timestamp) when the file was uploaded</param>
-        public DatedFile(File file = default, int date = 0)
+        public DatedFile(File file = default, int date = default)
         {
             this.File = file;
             this.Date = date;
@@ -3791,7 +4227,7 @@ namespace TDLib.Api
         /// <param name="day">Day of the month, 1-31</param>
         /// <param name="month">Month, 1-12</param>
         /// <param name="year">Year, 1-9999</param>
-        public Date(int day = 0, int month = 0, int year = 0)
+        public Date(int day = default, int month = default, int year = default)
         {
             this.Day = day;
             this.Month = month;
@@ -4411,7 +4847,7 @@ namespace TDLib.Api
         /// One of files with the translation of the document contains an error. The error will be considered resolved when the file changes
         /// </summary>
         /// <param name="fileIndex">Index of a file with the error</param>
-        public PassportElementErrorSourceTranslationFile(int fileIndex = 0)
+        public PassportElementErrorSourceTranslationFile(int fileIndex = default)
         {
             this.FileIndex = fileIndex;
         }
@@ -4435,7 +4871,7 @@ namespace TDLib.Api
         /// The file contains an error. The error will be considered resolved when the file changes
         /// </summary>
         /// <param name="fileIndex">Index of a file with the error</param>
-        public PassportElementErrorSourceFile(int fileIndex = 0)
+        public PassportElementErrorSourceFile(int fileIndex = default)
         {
             this.FileIndex = fileIndex;
         }
@@ -4482,7 +4918,7 @@ namespace TDLib.Api
         /// <param name="isSelfieRequired">True, if a selfie is required with the identity document</param>
         /// <param name="isTranslationRequired">True, if a certified English translation is required with the document</param>
         /// <param name="isNativeNameRequired">True, if personal details must include the user's name in the language of their country of residence</param>
-        public PassportSuitableElement(PassportElementType type = default, bool isSelfieRequired = false, bool isTranslationRequired = false, bool isNativeNameRequired = false)
+        public PassportSuitableElement(PassportElementType type = default, bool isSelfieRequired = default, bool isTranslationRequired = default, bool isNativeNameRequired = default)
         {
             this.Type = type;
             this.IsSelfieRequired = isSelfieRequired;
@@ -4519,7 +4955,7 @@ namespace TDLib.Api
         /// <param name="id">Unique identifier of the authorization form</param>
         /// <param name="requiredElements">Information about the Telegram Passport elements that need to be provided to complete the form</param>
         /// <param name="privacyPolicyUrl">URL for the privacy policy of the service; may be empty</param>
-        public PassportAuthorizationForm(int id = 0, PassportRequiredElement[] requiredElements = default, string privacyPolicyUrl = default)
+        public PassportAuthorizationForm(int id = default, PassportRequiredElement[] requiredElements = default, string privacyPolicyUrl = default)
         {
             this.Id = id;
             this.RequiredElements = requiredElements;
@@ -4790,10 +5226,10 @@ namespace TDLib.Api
         /// <summary>
         /// An animation message (GIF-style).
         /// </summary>
-        /// <param name="animation">Message content</param>
+        /// <param name="animation">The animation description</param>
         /// <param name="caption">Animation caption</param>
         /// <param name="isSecret">True, if the animation thumbnail must be blurred and the animation must be shown only while tapped</param>
-        public MessageAnimation(Animation animation = default, FormattedText caption = default, bool isSecret = false)
+        public MessageAnimation(Animation animation = default, FormattedText caption = default, bool isSecret = default)
         {
             this.Animation = animation;
             this.Caption = caption;
@@ -4810,7 +5246,7 @@ namespace TDLib.Api
         /// <summary>
         /// An audio message
         /// </summary>
-        /// <param name="audio">Message content</param>
+        /// <param name="audio">The audio description</param>
         /// <param name="caption">Audio caption</param>
         public MessageAudio(Audio audio = default, FormattedText caption = default)
         {
@@ -4828,7 +5264,7 @@ namespace TDLib.Api
         /// <summary>
         /// A document message (general file)
         /// </summary>
-        /// <param name="document">Message content</param>
+        /// <param name="document">The document description</param>
         /// <param name="caption">Document caption</param>
         public MessageDocument(Document document = default, FormattedText caption = default)
         {
@@ -4846,10 +5282,10 @@ namespace TDLib.Api
         /// <summary>
         /// A photo message
         /// </summary>
-        /// <param name="photo">Message content</param>
+        /// <param name="photo">The photo description</param>
         /// <param name="caption">Photo caption</param>
         /// <param name="isSecret">True, if the photo must be blurred and must be shown only while tapped</param>
-        public MessagePhoto(Photo photo = default, FormattedText caption = default, bool isSecret = false)
+        public MessagePhoto(Photo photo = default, FormattedText caption = default, bool isSecret = default)
         {
             this.Photo = photo;
             this.Caption = caption;
@@ -4874,7 +5310,7 @@ namespace TDLib.Api
         /// <summary>
         /// A sticker message
         /// </summary>
-        /// <param name="sticker">Message content</param>
+        /// <param name="sticker">The sticker description</param>
         public MessageSticker(Sticker sticker = default)
         {
             this.Sticker = sticker;
@@ -4890,10 +5326,10 @@ namespace TDLib.Api
         /// <summary>
         /// A video message
         /// </summary>
-        /// <param name="video">Message content</param>
+        /// <param name="video">The video description</param>
         /// <param name="caption">Video caption</param>
         /// <param name="isSecret">True, if the video thumbnail must be blurred and the video must be shown only while tapped</param>
-        public MessageVideo(Video video = default, FormattedText caption = default, bool isSecret = false)
+        public MessageVideo(Video video = default, FormattedText caption = default, bool isSecret = default)
         {
             this.Video = video;
             this.Caption = caption;
@@ -4918,10 +5354,10 @@ namespace TDLib.Api
         /// <summary>
         /// A video note message
         /// </summary>
-        /// <param name="videoNote">Message content</param>
+        /// <param name="videoNote">The video note description</param>
         /// <param name="isViewed">True, if at least one of the recipients has viewed the video note</param>
         /// <param name="isSecret">True, if the video note thumbnail must be blurred and the video note must be shown only while tapped</param>
-        public MessageVideoNote(VideoNote videoNote = default, bool isViewed = false, bool isSecret = false)
+        public MessageVideoNote(VideoNote videoNote = default, bool isViewed = default, bool isSecret = default)
         {
             this.VideoNote = videoNote;
             this.IsViewed = isViewed;
@@ -4938,10 +5374,10 @@ namespace TDLib.Api
         /// <summary>
         /// A voice note message
         /// </summary>
-        /// <param name="voiceNote">Message content</param>
+        /// <param name="voiceNote">The voice note description</param>
         /// <param name="caption">Voice note caption</param>
         /// <param name="isListened">True, if at least one of the recipients has listened to the voice note</param>
-        public MessageVoiceNote(VoiceNote voiceNote = default, FormattedText caption = default, bool isListened = false)
+        public MessageVoiceNote(VoiceNote voiceNote = default, FormattedText caption = default, bool isListened = default)
         {
             this.VoiceNote = voiceNote;
             this.Caption = caption;
@@ -4958,10 +5394,10 @@ namespace TDLib.Api
         /// <summary>
         /// A message with a location
         /// </summary>
-        /// <param name="location">Message content</param>
+        /// <param name="location">The location description</param>
         /// <param name="livePeriod">Time relative to the message sent date until which the location can be updated, in seconds</param>
         /// <param name="expiresIn">Left time for which the location can be updated, in seconds. updateMessageContent is not sent when this field changes</param>
-        public MessageLocation(Location location = default, int livePeriod = 0, int expiresIn = 0)
+        public MessageLocation(Location location = default, int livePeriod = default, int expiresIn = default)
         {
             this.Location = location;
             this.LivePeriod = livePeriod;
@@ -4978,7 +5414,7 @@ namespace TDLib.Api
         /// <summary>
         /// A message with information about a venue
         /// </summary>
-        /// <param name="venue">Message content</param>
+        /// <param name="venue">The venue description</param>
         public MessageVenue(Venue venue = default)
         {
             this.Venue = venue;
@@ -4994,7 +5430,7 @@ namespace TDLib.Api
         /// <summary>
         /// A message with a user contact
         /// </summary>
-        /// <param name="contact">Message content</param>
+        /// <param name="contact">The contact description</param>
         public MessageContact(Contact contact = default)
         {
             this.Contact = contact;
@@ -5010,7 +5446,7 @@ namespace TDLib.Api
         /// <summary>
         /// A message with a game
         /// </summary>
-        /// <param name="game">Game</param>
+        /// <param name="game">The game description</param>
         public MessageGame(Game game = default)
         {
             this.Game = game;
@@ -5026,7 +5462,7 @@ namespace TDLib.Api
         /// <summary>
         /// A message with a poll
         /// </summary>
-        /// <param name="poll">Poll</param>
+        /// <param name="poll">The poll description</param>
         public MessagePoll(Poll poll = default)
         {
             this.Poll = poll;
@@ -5051,7 +5487,7 @@ namespace TDLib.Api
         /// <param name="isTest">True, if the invoice is a test invoice</param>
         /// <param name="needShippingAddress">True, if the shipping address should be specified</param>
         /// <param name="receiptMessageId">The identifier of the message with the receipt, after the product has been purchased</param>
-        public MessageInvoice(string title = default, string description = default, Photo photo = default, string currency = default, long totalAmount = 0, string startParameter = default, bool isTest = false, bool needShippingAddress = false, long receiptMessageId = 0)
+        public MessageInvoice(string title = default, string description = default, Photo photo = default, string currency = default, long totalAmount = default, string startParameter = default, bool isTest = default, bool needShippingAddress = default, long receiptMessageId = default)
         {
             this.Title = title;
             this.Description = description;
@@ -5076,7 +5512,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="discardReason">Reason why the call was discarded</param>
         /// <param name="duration">Call duration, in seconds</param>
-        public MessageCall(CallDiscardReason discardReason = default, int duration = 0)
+        public MessageCall(CallDiscardReason discardReason = default, int duration = default)
         {
             this.DiscardReason = discardReason;
             this.Duration = duration;
@@ -5191,7 +5627,7 @@ namespace TDLib.Api
         /// A chat member was deleted
         /// </summary>
         /// <param name="userId">User identifier of the deleted chat member</param>
-        public MessageChatDeleteMember(int userId = 0)
+        public MessageChatDeleteMember(int userId = default)
         {
             this.UserId = userId;
         }
@@ -5207,7 +5643,7 @@ namespace TDLib.Api
         /// A basic group was upgraded to a supergroup and was deactivated as the result
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup to which the basic group was upgraded</param>
-        public MessageChatUpgradeTo(int supergroupId = 0)
+        public MessageChatUpgradeTo(int supergroupId = default)
         {
             this.SupergroupId = supergroupId;
         }
@@ -5224,7 +5660,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="title">Title of the newly created supergroup</param>
         /// <param name="basicGroupId">The identifier of the original basic group</param>
-        public MessageChatUpgradeFrom(string title = default, int basicGroupId = 0)
+        public MessageChatUpgradeFrom(string title = default, int basicGroupId = default)
         {
             this.Title = title;
             this.BasicGroupId = basicGroupId;
@@ -5241,7 +5677,7 @@ namespace TDLib.Api
         /// A message has been pinned
         /// </summary>
         /// <param name="messageId">Identifier of the pinned message, can be an identifier of a deleted message or 0</param>
-        public MessagePinMessage(long messageId = 0)
+        public MessagePinMessage(long messageId = default)
         {
             this.MessageId = messageId;
         }
@@ -5265,7 +5701,7 @@ namespace TDLib.Api
         /// The TTL (Time To Live) setting messages in a secret chat has been changed
         /// </summary>
         /// <param name="ttl">New TTL</param>
-        public MessageChatSetTtl(int ttl = 0)
+        public MessageChatSetTtl(int ttl = default)
         {
             this.Ttl = ttl;
         }
@@ -5299,7 +5735,7 @@ namespace TDLib.Api
         /// <param name="gameMessageId">Identifier of the message with the game, can be an identifier of a deleted message</param>
         /// <param name="gameId">Identifier of the game; may be different from the games presented in the message with the game</param>
         /// <param name="score">New score</param>
-        public MessageGameScore(long gameMessageId = 0, long gameId = 0, int score = 0)
+        public MessageGameScore(long gameMessageId = default, long gameId = default, int score = default)
         {
             this.GameMessageId = gameMessageId;
             this.GameId = gameId;
@@ -5319,7 +5755,7 @@ namespace TDLib.Api
         /// <param name="invoiceMessageId">Identifier of the message with the corresponding invoice; can be an identifier of a deleted message</param>
         /// <param name="currency">Currency for the price of the product</param>
         /// <param name="totalAmount">Total price for the product, in the minimal quantity of the currency</param>
-        public MessagePaymentSuccessful(long invoiceMessageId = 0, string currency = default, long totalAmount = 0)
+        public MessagePaymentSuccessful(long invoiceMessageId = default, string currency = default, long totalAmount = default)
         {
             this.InvoiceMessageId = invoiceMessageId;
             this.Currency = currency;
@@ -5344,7 +5780,7 @@ namespace TDLib.Api
         /// <param name="orderInfo">Information about the order; may be null</param>
         /// <param name="telegramPaymentChargeId">Telegram payment identifier</param>
         /// <param name="providerPaymentChargeId">Provider payment identifier</param>
-        public MessagePaymentSuccessfulBot(long invoiceMessageId = 0, string currency = default, long totalAmount = 0, byte[] invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default, string telegramPaymentChargeId = default, string providerPaymentChargeId = default)
+        public MessagePaymentSuccessfulBot(long invoiceMessageId = default, string currency = default, long totalAmount = default, byte[] invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default, string telegramPaymentChargeId = default, string providerPaymentChargeId = default)
         {
             this.InvoiceMessageId = invoiceMessageId;
             this.Currency = currency;
@@ -5471,6 +5907,14 @@ namespace TDLib.Api
         public TextEntityTypeEmailAddress() { }
     }
 
+    public partial class TextEntityTypePhoneNumber
+    {
+        /// <summary>
+        /// A phone number
+        /// </summary>
+        public TextEntityTypePhoneNumber() { }
+    }
+
     public partial class TextEntityTypeBold
     {
         /// <summary>
@@ -5485,6 +5929,22 @@ namespace TDLib.Api
         /// An italic text
         /// </summary>
         public TextEntityTypeItalic() { }
+    }
+
+    public partial class TextEntityTypeUnderline
+    {
+        /// <summary>
+        /// An underlined text
+        /// </summary>
+        public TextEntityTypeUnderline() { }
+    }
+
+    public partial class TextEntityTypeStrikethrough
+    {
+        /// <summary>
+        /// A strikethrough text
+        /// </summary>
+        public TextEntityTypeStrikethrough() { }
     }
 
     public partial class TextEntityTypeCode
@@ -5545,18 +6005,10 @@ namespace TDLib.Api
         /// A text shows instead of a raw mention of the user (e.g., when the user has no username)
         /// </summary>
         /// <param name="userId">Identifier of the mentioned user</param>
-        public TextEntityTypeMentionName(int userId = 0)
+        public TextEntityTypeMentionName(int userId = default)
         {
             this.UserId = userId;
         }
-    }
-
-    public partial class TextEntityTypePhoneNumber
-    {
-        /// <summary>
-        /// A phone number
-        /// </summary>
-        public TextEntityTypePhoneNumber() { }
     }
 
     public partial class InputThumbnail
@@ -5571,11 +6023,55 @@ namespace TDLib.Api
         /// <param name="thumbnail">Thumbnail file to send. Sending thumbnails by file_id is currently not supported</param>
         /// <param name="width">Thumbnail width, usually shouldn't exceed 320. Use 0 if unknown</param>
         /// <param name="height">Thumbnail height, usually shouldn't exceed 320. Use 0 if unknown</param>
-        public InputThumbnail(InputFile thumbnail = default, int width = 0, int height = 0)
+        public InputThumbnail(InputFile thumbnail = default, int width = default, int height = default)
         {
             this.Thumbnail = thumbnail;
             this.Width = width;
             this.Height = height;
+        }
+    }
+
+    public partial class MessageSchedulingStateSendAtDate
+    {
+        /// <summary>
+        /// The message will be sent at the specified date
+        /// </summary>
+        public MessageSchedulingStateSendAtDate() { }
+        /// <summary>
+        /// The message will be sent at the specified date
+        /// </summary>
+        /// <param name="sendDate">Date the message will be sent. The date must be within 367 days in the future</param>
+        public MessageSchedulingStateSendAtDate(int sendDate = default)
+        {
+            this.SendDate = sendDate;
+        }
+    }
+
+    public partial class MessageSchedulingStateSendWhenOnline
+    {
+        /// <summary>
+        /// The message will be sent when the peer will be online. Applicable to private chats only and when the exact online status of the peer is known
+        /// </summary>
+        public MessageSchedulingStateSendWhenOnline() { }
+    }
+
+    public partial class SendMessageOptions
+    {
+        /// <summary>
+        /// Options to be used when a message is send
+        /// </summary>
+        public SendMessageOptions() { }
+        /// <summary>
+        /// Options to be used when a message is send
+        /// </summary>
+        /// <param name="disableNotification">Pass true to disable notification for the message. Must be false if the message is sent to a secret chat</param>
+        /// <param name="fromBackground">Pass true if the message is sent from the background</param>
+        /// <param name="schedulingState">Message scheduling state. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled</param>
+        public SendMessageOptions(bool disableNotification = default, bool fromBackground = default, MessageSchedulingState schedulingState = default)
+        {
+            this.DisableNotification = disableNotification;
+            this.FromBackground = fromBackground;
+            this.SchedulingState = schedulingState;
         }
     }
 
@@ -5588,10 +6084,10 @@ namespace TDLib.Api
         /// <summary>
         /// A text message
         /// </summary>
-        /// <param name="text">Formatted text to be sent; 1-GetOption("message_text_length_max") characters. Only Bold, Italic, Code, Pre, PreCode and TextUrl entities are allowed to be specified manually</param>
+        /// <param name="text">Formatted text to be sent; 1-GetOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities are allowed to be specified manually</param>
         /// <param name="disableWebPagePreview">True, if rich web page previews for URLs in the message text should be disabled</param>
         /// <param name="clearDraft">True, if a chat message draft should be deleted</param>
-        public InputMessageText(FormattedText text = default, bool disableWebPagePreview = false, bool clearDraft = false)
+        public InputMessageText(FormattedText text = default, bool disableWebPagePreview = default, bool clearDraft = default)
         {
             this.Text = text;
             this.DisableWebPagePreview = disableWebPagePreview;
@@ -5614,7 +6110,7 @@ namespace TDLib.Api
         /// <param name="width">Width of the animation; may be replaced by the server</param>
         /// <param name="height">Height of the animation; may be replaced by the server</param>
         /// <param name="caption">Animation caption; 0-GetOption("message_caption_length_max") characters</param>
-        public InputMessageAnimation(InputFile animation = default, InputThumbnail thumbnail = default, int duration = 0, int width = 0, int height = 0, FormattedText caption = default)
+        public InputMessageAnimation(InputFile animation = default, InputThumbnail thumbnail = default, int duration = default, int width = default, int height = default, FormattedText caption = default)
         {
             this.Animation = animation;
             this.Thumbnail = thumbnail;
@@ -5640,7 +6136,7 @@ namespace TDLib.Api
         /// <param name="title">Title of the audio; 0-64 characters; may be replaced by the server</param>
         /// <param name="performer">Performer of the audio; 0-64 characters, may be replaced by the server</param>
         /// <param name="caption">Audio caption; 0-GetOption("message_caption_length_max") characters</param>
-        public InputMessageAudio(InputFile audio = default, InputThumbnail albumCoverThumbnail = default, int duration = 0, string title = default, string performer = default, FormattedText caption = default)
+        public InputMessageAudio(InputFile audio = default, InputThumbnail albumCoverThumbnail = default, int duration = default, string title = default, string performer = default, FormattedText caption = default)
         {
             this.Audio = audio;
             this.AlbumCoverThumbnail = albumCoverThumbnail;
@@ -5687,7 +6183,7 @@ namespace TDLib.Api
         /// <param name="height">Photo height</param>
         /// <param name="caption">Photo caption; 0-GetOption("message_caption_length_max") characters</param>
         /// <param name="ttl">Photo TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats</param>
-        public InputMessagePhoto(InputFile photo = default, InputThumbnail thumbnail = default, int[] addedStickerFileIds = default, int width = 0, int height = 0, FormattedText caption = default, int ttl = 0)
+        public InputMessagePhoto(InputFile photo = default, InputThumbnail thumbnail = default, int[] addedStickerFileIds = default, int width = default, int height = default, FormattedText caption = default, int ttl = default)
         {
             this.Photo = photo;
             this.Thumbnail = thumbnail;
@@ -5712,7 +6208,7 @@ namespace TDLib.Api
         /// <param name="thumbnail">Sticker thumbnail, if available</param>
         /// <param name="width">Sticker width</param>
         /// <param name="height">Sticker height</param>
-        public InputMessageSticker(InputFile sticker = default, InputThumbnail thumbnail = default, int width = 0, int height = 0)
+        public InputMessageSticker(InputFile sticker = default, InputThumbnail thumbnail = default, int width = default, int height = default)
         {
             this.Sticker = sticker;
             this.Thumbnail = thumbnail;
@@ -5739,7 +6235,7 @@ namespace TDLib.Api
         /// <param name="supportsStreaming">True, if the video should be tried to be streamed</param>
         /// <param name="caption">Video caption; 0-GetOption("message_caption_length_max") characters</param>
         /// <param name="ttl">Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats</param>
-        public InputMessageVideo(InputFile video = default, InputThumbnail thumbnail = default, int[] addedStickerFileIds = default, int duration = 0, int width = 0, int height = 0, bool supportsStreaming = false, FormattedText caption = default, int ttl = 0)
+        public InputMessageVideo(InputFile video = default, InputThumbnail thumbnail = default, int[] addedStickerFileIds = default, int duration = default, int width = default, int height = default, bool supportsStreaming = default, FormattedText caption = default, int ttl = default)
         {
             this.Video = video;
             this.Thumbnail = thumbnail;
@@ -5766,7 +6262,7 @@ namespace TDLib.Api
         /// <param name="thumbnail">Video thumbnail, if available</param>
         /// <param name="duration">Duration of the video, in seconds</param>
         /// <param name="length">Video width and height; must be positive and not greater than 640</param>
-        public InputMessageVideoNote(InputFile videoNote = default, InputThumbnail thumbnail = default, int duration = 0, int length = 0)
+        public InputMessageVideoNote(InputFile videoNote = default, InputThumbnail thumbnail = default, int duration = default, int length = default)
         {
             this.VideoNote = videoNote;
             this.Thumbnail = thumbnail;
@@ -5788,7 +6284,7 @@ namespace TDLib.Api
         /// <param name="duration">Duration of the voice note, in seconds</param>
         /// <param name="waveform">Waveform representation of the voice note, in 5-bit format</param>
         /// <param name="caption">Voice note caption; 0-GetOption("message_caption_length_max") characters</param>
-        public InputMessageVoiceNote(InputFile voiceNote = default, int duration = 0, byte[] waveform = default, FormattedText caption = default)
+        public InputMessageVoiceNote(InputFile voiceNote = default, int duration = default, byte[] waveform = default, FormattedText caption = default)
         {
             this.VoiceNote = voiceNote;
             this.Duration = duration;
@@ -5807,8 +6303,8 @@ namespace TDLib.Api
         /// A message with a location
         /// </summary>
         /// <param name="location">Location to be sent</param>
-        /// <param name="livePeriod">Period for which the location can be updated, in seconds; should bebetween 60 and 86400 for a live location and 0 otherwise</param>
-        public InputMessageLocation(Location location = default, int livePeriod = 0)
+        /// <param name="livePeriod">Period for which the location can be updated, in seconds; should be between 60 and 86400 for a live location and 0 otherwise</param>
+        public InputMessageLocation(Location location = default, int livePeriod = default)
         {
             this.Location = location;
             this.LivePeriod = livePeriod;
@@ -5858,7 +6354,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="botUserId">User identifier of the bot that owns the game</param>
         /// <param name="gameShortName">Short name of the game</param>
-        public InputMessageGame(int botUserId = 0, string gameShortName = default)
+        public InputMessageGame(int botUserId = default, string gameShortName = default)
         {
             this.BotUserId = botUserId;
             this.GameShortName = gameShortName;
@@ -5885,7 +6381,7 @@ namespace TDLib.Api
         /// <param name="providerToken">Payment provider token</param>
         /// <param name="providerData">JSON-encoded data about the invoice, which will be shared with the payment provider</param>
         /// <param name="startParameter">Unique invoice bot start_parameter for the generation of this invoice</param>
-        public InputMessageInvoice(Invoice invoice = default, string title = default, string description = default, string photoUrl = default, int photoSize = 0, int photoWidth = 0, int photoHeight = 0, byte[] payload = default, string providerToken = default, string providerData = default, string startParameter = default)
+        public InputMessageInvoice(Invoice invoice = default, string title = default, string description = default, string photoUrl = default, int photoSize = default, int photoWidth = default, int photoHeight = default, byte[] payload = default, string providerToken = default, string providerData = default, string startParameter = default)
         {
             this.Invoice = invoice;
             this.Title = title;
@@ -5904,18 +6400,24 @@ namespace TDLib.Api
     public partial class InputMessagePoll
     {
         /// <summary>
-        /// A message with a poll. Polls can't be sent to private or secret chats
+        /// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot
         /// </summary>
         public InputMessagePoll() { }
         /// <summary>
-        /// A message with a poll. Polls can't be sent to private or secret chats
+        /// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot
         /// </summary>
         /// <param name="question">Poll question, 1-255 characters</param>
         /// <param name="options">List of poll answer options, 2-10 strings 1-100 characters each</param>
-        public InputMessagePoll(string question = default, string[] options = default)
+        /// <param name="isAnonymous">True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels</param>
+        /// <param name="type">Type of the poll</param>
+        /// <param name="isClosed">True, if the poll needs to be sent already closed; for bots only</param>
+        public InputMessagePoll(string question = default, string[] options = default, bool isAnonymous = default, PollType type = default, bool isClosed = default)
         {
             this.Question = question;
             this.Options = options;
+            this.IsAnonymous = isAnonymous;
+            this.Type = type;
+            this.IsClosed = isClosed;
         }
     }
 
@@ -5931,11 +6433,15 @@ namespace TDLib.Api
         /// <param name="fromChatId">Identifier for the chat this forwarded message came from</param>
         /// <param name="messageId">Identifier of the message to forward</param>
         /// <param name="inGameShare">True, if a game message should be shared within a launched game; applies only to game messages</param>
-        public InputMessageForwarded(long fromChatId = 0, long messageId = 0, bool inGameShare = false)
+        /// <param name="sendCopy">True, if content of the message needs to be copied without a link to the original message. Always true if the message is forwarded to a secret chat</param>
+        /// <param name="removeCaption">True, if media caption of the message copy needs to be removed. Ignored if send_copy is false</param>
+        public InputMessageForwarded(long fromChatId = default, long messageId = default, bool inGameShare = default, bool sendCopy = default, bool removeCaption = default)
         {
             this.FromChatId = fromChatId;
             this.MessageId = messageId;
             this.InGameShare = inGameShare;
+            this.SendCopy = sendCopy;
+            this.RemoveCaption = removeCaption;
         }
     }
 
@@ -6093,7 +6599,7 @@ namespace TDLib.Api
         /// The user is uploading a video
         /// </summary>
         /// <param name="progress">Upload progress, as a percentage</param>
-        public ChatActionUploadingVideo(int progress = 0)
+        public ChatActionUploadingVideo(int progress = default)
         {
             this.Progress = progress;
         }
@@ -6117,7 +6623,7 @@ namespace TDLib.Api
         /// The user is uploading a voice note
         /// </summary>
         /// <param name="progress">Upload progress, as a percentage</param>
-        public ChatActionUploadingVoiceNote(int progress = 0)
+        public ChatActionUploadingVoiceNote(int progress = default)
         {
             this.Progress = progress;
         }
@@ -6133,7 +6639,7 @@ namespace TDLib.Api
         /// The user is uploading a photo
         /// </summary>
         /// <param name="progress">Upload progress, as a percentage</param>
-        public ChatActionUploadingPhoto(int progress = 0)
+        public ChatActionUploadingPhoto(int progress = default)
         {
             this.Progress = progress;
         }
@@ -6149,7 +6655,7 @@ namespace TDLib.Api
         /// The user is uploading a document
         /// </summary>
         /// <param name="progress">Upload progress, as a percentage</param>
-        public ChatActionUploadingDocument(int progress = 0)
+        public ChatActionUploadingDocument(int progress = default)
         {
             this.Progress = progress;
         }
@@ -6197,7 +6703,7 @@ namespace TDLib.Api
         /// The user is uploading a video note
         /// </summary>
         /// <param name="progress">Upload progress, as a percentage</param>
-        public ChatActionUploadingVideoNote(int progress = 0)
+        public ChatActionUploadingVideoNote(int progress = default)
         {
             this.Progress = progress;
         }
@@ -6229,7 +6735,7 @@ namespace TDLib.Api
         /// The user is online
         /// </summary>
         /// <param name="expires">Point in time (Unix timestamp) when the user's online status will expire</param>
-        public UserStatusOnline(int expires = 0)
+        public UserStatusOnline(int expires = default)
         {
             this.Expires = expires;
         }
@@ -6245,7 +6751,7 @@ namespace TDLib.Api
         /// The user is offline
         /// </summary>
         /// <param name="wasOnline">Point in time (Unix timestamp) when the user was last online</param>
-        public UserStatusOffline(int wasOnline = 0)
+        public UserStatusOffline(int wasOnline = default)
         {
             this.WasOnline = wasOnline;
         }
@@ -6291,19 +6797,19 @@ namespace TDLib.Api
         }
     }
 
-    public partial class StickerEmojis
+    public partial class Emojis
     {
         /// <summary>
-        /// Represents a list of all emoji corresponding to a sticker in a sticker set. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
+        /// Represents a list of emoji
         /// </summary>
-        public StickerEmojis() { }
+        public Emojis() { }
         /// <summary>
-        /// Represents a list of all emoji corresponding to a sticker in a sticker set. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
+        /// Represents a list of emoji
         /// </summary>
         /// <param name="emojis">List of emojis</param>
-        public StickerEmojis(string[] emojis = default)
+        public Emojis(string[] emojis_ = default)
         {
-            this.Emojis = emojis;
+            this.Emojis_ = emojis_;
         }
     }
 
@@ -6319,21 +6825,25 @@ namespace TDLib.Api
         /// <param name="id">Identifier of the sticker set</param>
         /// <param name="title">Title of the sticker set</param>
         /// <param name="name">Name of the sticker set</param>
+        /// <param name="thumbnail">Sticker set thumbnail in WEBP format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed</param>
         /// <param name="isInstalled">True, if the sticker set has been installed by the current user</param>
         /// <param name="isArchived">True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously</param>
         /// <param name="isOfficial">True, if the sticker set is official</param>
+        /// <param name="isAnimated">True, is the stickers in the set are animated</param>
         /// <param name="isMasks">True, if the stickers in the set are masks</param>
         /// <param name="isViewed">True for already viewed trending sticker sets</param>
         /// <param name="stickers">List of stickers in this set</param>
-        /// <param name="emojis">A list of emoji corresponding to the stickers in the same order</param>
-        public StickerSet(long id = 0, string title = default, string name = default, bool isInstalled = false, bool isArchived = false, bool isOfficial = false, bool isMasks = false, bool isViewed = false, Sticker[] stickers = default, StickerEmojis[] emojis = default)
+        /// <param name="emojis">A list of emoji corresponding to the stickers in the same order. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object</param>
+        public StickerSet(long id = default, string title = default, string name = default, PhotoSize thumbnail = default, bool isInstalled = default, bool isArchived = default, bool isOfficial = default, bool isAnimated = default, bool isMasks = default, bool isViewed = default, Sticker[] stickers = default, Emojis[] emojis = default)
         {
             this.Id = id;
             this.Title = title;
             this.Name = name;
+            this.Thumbnail = thumbnail;
             this.IsInstalled = isInstalled;
             this.IsArchived = isArchived;
             this.IsOfficial = isOfficial;
+            this.IsAnimated = isAnimated;
             this.IsMasks = isMasks;
             this.IsViewed = isViewed;
             this.Stickers = stickers;
@@ -6353,21 +6863,25 @@ namespace TDLib.Api
         /// <param name="id">Identifier of the sticker set</param>
         /// <param name="title">Title of the sticker set</param>
         /// <param name="name">Name of the sticker set</param>
+        /// <param name="thumbnail">Sticker set thumbnail in WEBP format with width and height 100; may be null</param>
         /// <param name="isInstalled">True, if the sticker set has been installed by current user</param>
         /// <param name="isArchived">True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously</param>
         /// <param name="isOfficial">True, if the sticker set is official</param>
+        /// <param name="isAnimated">True, is the stickers in the set are animated</param>
         /// <param name="isMasks">True, if the stickers in the set are masks</param>
         /// <param name="isViewed">True for already viewed trending sticker sets</param>
         /// <param name="size">Total number of stickers in the set</param>
         /// <param name="covers">Contains up to the first 5 stickers from the set, depending on the context. If the client needs more stickers the full set should be requested</param>
-        public StickerSetInfo(long id = 0, string title = default, string name = default, bool isInstalled = false, bool isArchived = false, bool isOfficial = false, bool isMasks = false, bool isViewed = false, int size = 0, Sticker[] covers = default)
+        public StickerSetInfo(long id = default, string title = default, string name = default, PhotoSize thumbnail = default, bool isInstalled = default, bool isArchived = default, bool isOfficial = default, bool isAnimated = default, bool isMasks = default, bool isViewed = default, int size = default, Sticker[] covers = default)
         {
             this.Id = id;
             this.Title = title;
             this.Name = name;
+            this.Thumbnail = thumbnail;
             this.IsInstalled = isInstalled;
             this.IsArchived = isArchived;
             this.IsOfficial = isOfficial;
+            this.IsAnimated = isAnimated;
             this.IsMasks = isMasks;
             this.IsViewed = isViewed;
             this.Size = size;
@@ -6386,7 +6900,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="totalCount">Approximate total number of sticker sets found</param>
         /// <param name="sets">List of sticker sets</param>
-        public StickerSets(int totalCount = 0, StickerSetInfo[] sets = default)
+        public StickerSets(int totalCount = default, StickerSetInfo[] sets = default)
         {
             this.TotalCount = totalCount;
             this.Sets = sets;
@@ -6444,9 +6958,9 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="udpP2p">True, if UDP peer-to-peer connections are supported</param>
         /// <param name="udpReflector">True, if connection through UDP reflectors is supported</param>
-        /// <param name="minLayer">Minimum supported API layer; use 65</param>
-        /// <param name="maxLayer">Maximum supported API layer; use 65</param>
-        public CallProtocol(bool udpP2p = false, bool udpReflector = false, int minLayer = 0, int maxLayer = 0)
+        /// <param name="minLayer">The minimum supported API layer; use 65</param>
+        /// <param name="maxLayer">The maximum supported API layer; use 65</param>
+        public CallProtocol(bool udpP2p = default, bool udpReflector = default, int minLayer = default, int maxLayer = default)
         {
             this.UdpP2p = udpP2p;
             this.UdpReflector = udpReflector;
@@ -6469,7 +6983,7 @@ namespace TDLib.Api
         /// <param name="ipv6">IPv6 reflector address</param>
         /// <param name="port">Reflector port number</param>
         /// <param name="peerTag">Connection peer tag</param>
-        public CallConnection(long id = 0, string ip = default, string ipv6 = default, int port = 0, byte[] peerTag = default)
+        public CallConnection(long id = default, string ip = default, string ipv6 = default, int port = default, byte[] peerTag = default)
         {
             this.Id = id;
             this.Ip = ip;
@@ -6489,7 +7003,7 @@ namespace TDLib.Api
         /// Contains the call identifier
         /// </summary>
         /// <param name="id">Call identifier</param>
-        public CallId(int id = 0)
+        public CallId(int id = default)
         {
             this.Id = id;
         }
@@ -6506,7 +7020,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isCreated">True, if the call has already been created by the server</param>
         /// <param name="isReceived">True, if the call has already been received by the other party</param>
-        public CallStatePending(bool isCreated = false, bool isReceived = false)
+        public CallStatePending(bool isCreated = default, bool isReceived = default)
         {
             this.IsCreated = isCreated;
             this.IsReceived = isReceived;
@@ -6536,7 +7050,7 @@ namespace TDLib.Api
         /// <param name="encryptionKey">Call encryption key</param>
         /// <param name="emojis">Encryption key emojis fingerprint</param>
         /// <param name="allowP2p">True, if peer-to-peer connection is allowed by users privacy settings</param>
-        public CallStateReady(CallProtocol protocol = default, CallConnection[] connections = default, string config = default, byte[] encryptionKey = default, string[] emojis = default, bool allowP2p = false)
+        public CallStateReady(CallProtocol protocol = default, CallConnection[] connections = default, string config = default, byte[] encryptionKey = default, string[] emojis = default, bool allowP2p = default)
         {
             this.Protocol = protocol;
             this.Connections = connections;
@@ -6567,7 +7081,7 @@ namespace TDLib.Api
         /// <param name="reason">The reason, why the call has ended</param>
         /// <param name="needRating">True, if the call rating should be sent to the server</param>
         /// <param name="needDebugInformation">True, if the call debug information should be sent to the server</param>
-        public CallStateDiscarded(CallDiscardReason reason = default, bool needRating = false, bool needDebugInformation = false)
+        public CallStateDiscarded(CallDiscardReason reason = default, bool needRating = default, bool needDebugInformation = default)
         {
             this.Reason = reason;
             this.NeedRating = needRating;
@@ -6591,6 +7105,62 @@ namespace TDLib.Api
         }
     }
 
+    public partial class CallProblemEcho
+    {
+        /// <summary>
+        /// The user heard their own voice
+        /// </summary>
+        public CallProblemEcho() { }
+    }
+
+    public partial class CallProblemNoise
+    {
+        /// <summary>
+        /// The user heard background noise
+        /// </summary>
+        public CallProblemNoise() { }
+    }
+
+    public partial class CallProblemInterruptions
+    {
+        /// <summary>
+        /// The other side kept disappearing
+        /// </summary>
+        public CallProblemInterruptions() { }
+    }
+
+    public partial class CallProblemDistortedSpeech
+    {
+        /// <summary>
+        /// The speech was distorted
+        /// </summary>
+        public CallProblemDistortedSpeech() { }
+    }
+
+    public partial class CallProblemSilentLocal
+    {
+        /// <summary>
+        /// The user couldn't hear the other side
+        /// </summary>
+        public CallProblemSilentLocal() { }
+    }
+
+    public partial class CallProblemSilentRemote
+    {
+        /// <summary>
+        /// The other side couldn't hear the user
+        /// </summary>
+        public CallProblemSilentRemote() { }
+    }
+
+    public partial class CallProblemDropped
+    {
+        /// <summary>
+        /// The call ended unexpectedly
+        /// </summary>
+        public CallProblemDropped() { }
+    }
+
     public partial class Call
     {
         /// <summary>
@@ -6604,12 +7174,32 @@ namespace TDLib.Api
         /// <param name="userId">Peer user identifier</param>
         /// <param name="isOutgoing">True, if the call is outgoing</param>
         /// <param name="state">Call state</param>
-        public Call(int id = 0, int userId = 0, bool isOutgoing = false, CallState state = default)
+        public Call(int id = default, int userId = default, bool isOutgoing = default, CallState state = default)
         {
             this.Id = id;
             this.UserId = userId;
             this.IsOutgoing = isOutgoing;
             this.State = state;
+        }
+    }
+
+    public partial class PhoneNumberAuthenticationSettings
+    {
+        /// <summary>
+        /// Contains settings for the authentication of the user's phone number
+        /// </summary>
+        public PhoneNumberAuthenticationSettings() { }
+        /// <summary>
+        /// Contains settings for the authentication of the user's phone number
+        /// </summary>
+        /// <param name="allowFlashCall">Pass true if the authentication code may be sent via flash call to the specified phone number</param>
+        /// <param name="isCurrentPhoneNumber">Pass true if the authenticated phone number is used on the current device</param>
+        /// <param name="allowSmsRetrieverApi">For official applications only. True, if the app can use Android SMS Retriever API (requires Google Play Services &gt;= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details</param>
+        public PhoneNumberAuthenticationSettings(bool allowFlashCall = default, bool isCurrentPhoneNumber = default, bool allowSmsRetrieverApi = default)
+        {
+            this.AllowFlashCall = allowFlashCall;
+            this.IsCurrentPhoneNumber = isCurrentPhoneNumber;
+            this.AllowSmsRetrieverApi = allowSmsRetrieverApi;
         }
     }
 
@@ -6681,7 +7271,7 @@ namespace TDLib.Api
         /// <param name="gifHeight">Height of the GIF</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultAnimatedGif(string id = default, string title = default, string thumbnailUrl = default, string gifUrl = default, int gifDuration = 0, int gifWidth = 0, int gifHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultAnimatedGif(string id = default, string title = default, string thumbnailUrl = default, string gifUrl = default, int gifDuration = default, int gifWidth = default, int gifHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Title = title;
@@ -6713,7 +7303,7 @@ namespace TDLib.Api
         /// <param name="mpeg4Height">Height of the video</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultAnimatedMpeg4(string id = default, string title = default, string thumbnailUrl = default, string mpeg4Url = default, int mpeg4Duration = 0, int mpeg4Width = 0, int mpeg4Height = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultAnimatedMpeg4(string id = default, string title = default, string thumbnailUrl = default, string mpeg4Url = default, int mpeg4Duration = default, int mpeg4Width = default, int mpeg4Height = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Title = title;
@@ -6746,7 +7336,7 @@ namespace TDLib.Api
         /// <param name="thumbnailHeight">Thumbnail height, if known</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultArticle(string id = default, string url = default, bool hideUrl = false, string title = default, string description = default, string thumbnailUrl = default, int thumbnailWidth = 0, int thumbnailHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultArticle(string id = default, string url = default, bool hideUrl = default, string title = default, string description = default, string thumbnailUrl = default, int thumbnailWidth = default, int thumbnailHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Url = url;
@@ -6777,7 +7367,7 @@ namespace TDLib.Api
         /// <param name="audioDuration">Audio file duration, in seconds</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAudio, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultAudio(string id = default, string title = default, string performer = default, string audioUrl = default, int audioDuration = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultAudio(string id = default, string title = default, string performer = default, string audioUrl = default, int audioDuration = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Title = title;
@@ -6805,7 +7395,7 @@ namespace TDLib.Api
         /// <param name="thumbnailHeight">Thumbnail height, if known</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultContact(string id = default, Contact contact = default, string thumbnailUrl = default, int thumbnailWidth = 0, int thumbnailHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultContact(string id = default, Contact contact = default, string thumbnailUrl = default, int thumbnailWidth = default, int thumbnailHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Contact = contact;
@@ -6836,7 +7426,7 @@ namespace TDLib.Api
         /// <param name="thumbnailHeight">Height of the thumbnail</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageDocument, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultDocument(string id = default, string title = default, string description = default, string documentUrl = default, string mimeType = default, string thumbnailUrl = default, int thumbnailWidth = 0, int thumbnailHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultDocument(string id = default, string title = default, string description = default, string documentUrl = default, string mimeType = default, string thumbnailUrl = default, int thumbnailWidth = default, int thumbnailHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Title = title;
@@ -6889,7 +7479,7 @@ namespace TDLib.Api
         /// <param name="thumbnailHeight">Thumbnail height, if known</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultLocation(string id = default, Location location = default, int livePeriod = 0, string title = default, string thumbnailUrl = default, int thumbnailWidth = 0, int thumbnailHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultLocation(string id = default, Location location = default, int livePeriod = default, string title = default, string thumbnailUrl = default, int thumbnailWidth = default, int thumbnailHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Location = location;
@@ -6921,7 +7511,7 @@ namespace TDLib.Api
         /// <param name="photoHeight">Height of the photo</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessagePhoto, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultPhoto(string id = default, string title = default, string description = default, string thumbnailUrl = default, string photoUrl = default, int photoWidth = 0, int photoHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultPhoto(string id = default, string title = default, string description = default, string thumbnailUrl = default, string photoUrl = default, int photoWidth = default, int photoHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Title = title;
@@ -6938,20 +7528,20 @@ namespace TDLib.Api
     public partial class InputInlineQueryResultSticker
     {
         /// <summary>
-        /// Represents a link to a WEBP sticker
+        /// Represents a link to a WEBP or TGS sticker
         /// </summary>
         public InputInlineQueryResultSticker() { }
         /// <summary>
-        /// Represents a link to a WEBP sticker
+        /// Represents a link to a WEBP or TGS sticker
         /// </summary>
         /// <param name="id">Unique identifier of the query result</param>
         /// <param name="thumbnailUrl">URL of the sticker thumbnail, if it exists</param>
-        /// <param name="stickerUrl">The URL of the WEBP sticker (sticker file size must not exceed 5MB)</param>
+        /// <param name="stickerUrl">The URL of the WEBP or TGS sticker (sticker file size must not exceed 5MB)</param>
         /// <param name="stickerWidth">Width of the sticker</param>
         /// <param name="stickerHeight">Height of the sticker</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, inputMessageSticker, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultSticker(string id = default, string thumbnailUrl = default, string stickerUrl = default, int stickerWidth = 0, int stickerHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultSticker(string id = default, string thumbnailUrl = default, string stickerUrl = default, int stickerWidth = default, int stickerHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.ThumbnailUrl = thumbnailUrl;
@@ -6979,7 +7569,7 @@ namespace TDLib.Api
         /// <param name="thumbnailHeight">Thumbnail height, if known</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultVenue(string id = default, Venue venue = default, string thumbnailUrl = default, int thumbnailWidth = 0, int thumbnailHeight = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultVenue(string id = default, Venue venue = default, string thumbnailUrl = default, int thumbnailWidth = default, int thumbnailHeight = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Venue = venue;
@@ -7011,7 +7601,7 @@ namespace TDLib.Api
         /// <param name="videoDuration">Video duration, in seconds</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageVideo, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultVideo(string id = default, string title = default, string description = default, string thumbnailUrl = default, string videoUrl = default, string mimeType = default, int videoWidth = 0, int videoHeight = 0, int videoDuration = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultVideo(string id = default, string title = default, string description = default, string thumbnailUrl = default, string videoUrl = default, string mimeType = default, int videoWidth = default, int videoHeight = default, int videoDuration = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Title = title;
@@ -7042,7 +7632,7 @@ namespace TDLib.Api
         /// <param name="voiceNoteDuration">Duration of the voice note, in seconds</param>
         /// <param name="replyMarkup">The message reply markup. Must be of type replyMarkupInlineKeyboard or null</param>
         /// <param name="inputMessageContent">The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageVoiceNote, InputMessageLocation, InputMessageVenue or InputMessageContact</param>
-        public InputInlineQueryResultVoiceNote(string id = default, string title = default, string voiceNoteUrl = default, int voiceNoteDuration = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public InputInlineQueryResultVoiceNote(string id = default, string title = default, string voiceNoteUrl = default, int voiceNoteDuration = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.Id = id;
             this.Title = title;
@@ -7068,7 +7658,7 @@ namespace TDLib.Api
         /// <param name="title">Title of the result</param>
         /// <param name="description">Represents a link to an article or web page</param>
         /// <param name="thumbnail">Result thumbnail; may be null</param>
-        public InlineQueryResultArticle(string id = default, string url = default, bool hideUrl = false, string title = default, string description = default, PhotoSize thumbnail = default)
+        public InlineQueryResultArticle(string id = default, string url = default, bool hideUrl = default, string title = default, string description = default, PhotoSize thumbnail = default)
         {
             this.Id = id;
             this.Url = url;
@@ -7315,7 +7905,7 @@ namespace TDLib.Api
         /// <param name="results">Results of the query</param>
         /// <param name="switchPmText">If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter</param>
         /// <param name="switchPmParameter">Parameter for the bot start message</param>
-        public InlineQueryResults(long inlineQueryId = 0, string nextOffset = default, InlineQueryResult[] results = default, string switchPmText = default, string switchPmParameter = default)
+        public InlineQueryResults(long inlineQueryId = default, string nextOffset = default, InlineQueryResult[] results = default, string switchPmText = default, string switchPmParameter = default)
         {
             this.InlineQueryId = inlineQueryId;
             this.NextOffset = nextOffset;
@@ -7369,7 +7959,7 @@ namespace TDLib.Api
         /// <param name="text">Text of the answer</param>
         /// <param name="showAlert">True, if an alert should be shown to the user instead of a toast notification</param>
         /// <param name="url">URL to be opened</param>
-        public CallbackQueryAnswer(string text = default, bool showAlert = false, string url = default)
+        public CallbackQueryAnswer(string text = default, bool showAlert = default, string url = default)
         {
             this.Text = text;
             this.ShowAlert = showAlert;
@@ -7405,7 +7995,7 @@ namespace TDLib.Api
         /// <param name="position">Position in the high score table</param>
         /// <param name="userId">User identifier</param>
         /// <param name="score">User score</param>
-        public GameHighScore(int position = 0, int userId = 0, int score = 0)
+        public GameHighScore(int position = default, int userId = default, int score = default)
         {
             this.Position = position;
             this.UserId = userId;
@@ -7463,6 +8053,22 @@ namespace TDLib.Api
         }
     }
 
+    public partial class ChatEventPollStopped
+    {
+        /// <summary>
+        /// A poll in a message was stopped
+        /// </summary>
+        public ChatEventPollStopped() { }
+        /// <summary>
+        /// A poll in a message was stopped
+        /// </summary>
+        /// <param name="message">The message with the poll</param>
+        public ChatEventPollStopped(Message message = default)
+        {
+            this.Message = message;
+        }
+    }
+
     public partial class ChatEventMessagePinned
     {
         /// <summary>
@@ -7514,7 +8120,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">New member user identifier</param>
         /// <param name="status">New member status</param>
-        public ChatEventMemberInvited(int userId = 0, ChatMemberStatus status = default)
+        public ChatEventMemberInvited(int userId = default, ChatMemberStatus status = default)
         {
             this.UserId = userId;
             this.Status = status;
@@ -7533,7 +8139,7 @@ namespace TDLib.Api
         /// <param name="userId">Chat member user identifier</param>
         /// <param name="oldStatus">Previous status of the chat member</param>
         /// <param name="newStatus">New status of the chat member</param>
-        public ChatEventMemberPromoted(int userId = 0, ChatMemberStatus oldStatus = default, ChatMemberStatus newStatus = default)
+        public ChatEventMemberPromoted(int userId = default, ChatMemberStatus oldStatus = default, ChatMemberStatus newStatus = default)
         {
             this.UserId = userId;
             this.OldStatus = oldStatus;
@@ -7553,7 +8159,7 @@ namespace TDLib.Api
         /// <param name="userId">Chat member user identifier</param>
         /// <param name="oldStatus">Previous status of the chat member</param>
         /// <param name="newStatus">New status of the chat member</param>
-        public ChatEventMemberRestricted(int userId = 0, ChatMemberStatus oldStatus = default, ChatMemberStatus newStatus = default)
+        public ChatEventMemberRestricted(int userId = default, ChatMemberStatus oldStatus = default, ChatMemberStatus newStatus = default)
         {
             this.UserId = userId;
             this.OldStatus = oldStatus;
@@ -7576,6 +8182,24 @@ namespace TDLib.Api
         {
             this.OldTitle = oldTitle;
             this.NewTitle = newTitle;
+        }
+    }
+
+    public partial class ChatEventPermissionsChanged
+    {
+        /// <summary>
+        /// The chat permissions was changed
+        /// </summary>
+        public ChatEventPermissionsChanged() { }
+        /// <summary>
+        /// The chat permissions was changed
+        /// </summary>
+        /// <param name="oldPermissions">Previous chat permissions</param>
+        /// <param name="newPermissions">New chat permissions</param>
+        public ChatEventPermissionsChanged(ChatPermissions oldPermissions = default, ChatPermissions newPermissions = default)
+        {
+            this.OldPermissions = oldPermissions;
+            this.NewPermissions = newPermissions;
         }
     }
 
@@ -7626,7 +8250,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="oldPhoto">Previous chat photo value; may be null</param>
         /// <param name="newPhoto">New chat photo value; may be null</param>
-        public ChatEventPhotoChanged(ChatPhoto oldPhoto = default, ChatPhoto newPhoto = default)
+        public ChatEventPhotoChanged(Photo oldPhoto = default, Photo newPhoto = default)
         {
             this.OldPhoto = oldPhoto;
             this.NewPhoto = newPhoto;
@@ -7636,16 +8260,52 @@ namespace TDLib.Api
     public partial class ChatEventInvitesToggled
     {
         /// <summary>
-        /// The anyone_can_invite setting of a supergroup chat was toggled
+        /// The can_invite_users permission of a supergroup chat was toggled
         /// </summary>
         public ChatEventInvitesToggled() { }
         /// <summary>
-        /// The anyone_can_invite setting of a supergroup chat was toggled
+        /// The can_invite_users permission of a supergroup chat was toggled
         /// </summary>
-        /// <param name="anyoneCanInvite">New value of anyone_can_invite</param>
-        public ChatEventInvitesToggled(bool anyoneCanInvite = false)
+        /// <param name="canInviteUsers">New value of can_invite_users permission</param>
+        public ChatEventInvitesToggled(bool canInviteUsers = default)
         {
-            this.AnyoneCanInvite = anyoneCanInvite;
+            this.CanInviteUsers = canInviteUsers;
+        }
+    }
+
+    public partial class ChatEventLinkedChatChanged
+    {
+        /// <summary>
+        /// The linked chat of a supergroup was changed
+        /// </summary>
+        public ChatEventLinkedChatChanged() { }
+        /// <summary>
+        /// The linked chat of a supergroup was changed
+        /// </summary>
+        /// <param name="oldLinkedChatId">Previous supergroup linked chat identifier</param>
+        /// <param name="newLinkedChatId">New supergroup linked chat identifier</param>
+        public ChatEventLinkedChatChanged(long oldLinkedChatId = default, long newLinkedChatId = default)
+        {
+            this.OldLinkedChatId = oldLinkedChatId;
+            this.NewLinkedChatId = newLinkedChatId;
+        }
+    }
+
+    public partial class ChatEventSlowModeDelayChanged
+    {
+        /// <summary>
+        /// The slow_mode_delay setting of a supergroup was changed
+        /// </summary>
+        public ChatEventSlowModeDelayChanged() { }
+        /// <summary>
+        /// The slow_mode_delay setting of a supergroup was changed
+        /// </summary>
+        /// <param name="oldSlowModeDelay">Previous value of slow_mode_delay</param>
+        /// <param name="newSlowModeDelay">New value of slow_mode_delay</param>
+        public ChatEventSlowModeDelayChanged(int oldSlowModeDelay = default, int newSlowModeDelay = default)
+        {
+            this.OldSlowModeDelay = oldSlowModeDelay;
+            this.NewSlowModeDelay = newSlowModeDelay;
         }
     }
 
@@ -7659,7 +8319,7 @@ namespace TDLib.Api
         /// The sign_messages setting of a channel was toggled
         /// </summary>
         /// <param name="signMessages">New value of sign_messages</param>
-        public ChatEventSignMessagesToggled(bool signMessages = false)
+        public ChatEventSignMessagesToggled(bool signMessages = default)
         {
             this.SignMessages = signMessages;
         }
@@ -7676,10 +8336,28 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="oldStickerSetId">Previous identifier of the chat sticker set; 0 if none</param>
         /// <param name="newStickerSetId">New identifier of the chat sticker set; 0 if none</param>
-        public ChatEventStickerSetChanged(long oldStickerSetId = 0, long newStickerSetId = 0)
+        public ChatEventStickerSetChanged(long oldStickerSetId = default, long newStickerSetId = default)
         {
             this.OldStickerSetId = oldStickerSetId;
             this.NewStickerSetId = newStickerSetId;
+        }
+    }
+
+    public partial class ChatEventLocationChanged
+    {
+        /// <summary>
+        /// The supergroup location was changed
+        /// </summary>
+        public ChatEventLocationChanged() { }
+        /// <summary>
+        /// The supergroup location was changed
+        /// </summary>
+        /// <param name="oldLocation">Previous location; may be null</param>
+        /// <param name="newLocation">New location; may be null</param>
+        public ChatEventLocationChanged(ChatLocation oldLocation = default, ChatLocation newLocation = default)
+        {
+            this.OldLocation = oldLocation;
+            this.NewLocation = newLocation;
         }
     }
 
@@ -7693,7 +8371,7 @@ namespace TDLib.Api
         /// The is_all_history_available setting of a supergroup was toggled
         /// </summary>
         /// <param name="isAllHistoryAvailable">New value of is_all_history_available</param>
-        public ChatEventIsAllHistoryAvailableToggled(bool isAllHistoryAvailable = false)
+        public ChatEventIsAllHistoryAvailableToggled(bool isAllHistoryAvailable = default)
         {
             this.IsAllHistoryAvailable = isAllHistoryAvailable;
         }
@@ -7712,7 +8390,7 @@ namespace TDLib.Api
         /// <param name="date">Point in time (Unix timestamp) when the event happened</param>
         /// <param name="userId">Identifier of the user who performed the action that triggered the event</param>
         /// <param name="action">Action performed by the user</param>
-        public ChatEvent(long id = 0, int date = 0, int userId = 0, ChatEventAction action = default)
+        public ChatEvent(long id = default, int date = default, int userId = default, ChatEventAction action = default)
         {
             this.Id = id;
             this.Date = date;
@@ -7756,7 +8434,7 @@ namespace TDLib.Api
         /// <param name="memberRestrictions">True, if member restricted/unrestricted/banned/unbanned events should be returned</param>
         /// <param name="infoChanges">True, if changes in chat information should be returned</param>
         /// <param name="settingChanges">True, if changes in chat settings should be returned</param>
-        public ChatEventLogFilters(bool messageEdits = false, bool messageDeletions = false, bool messagePins = false, bool memberJoins = false, bool memberLeaves = false, bool memberInvites = false, bool memberPromotions = false, bool memberRestrictions = false, bool infoChanges = false, bool settingChanges = false)
+        public ChatEventLogFilters(bool messageEdits = default, bool messageDeletions = default, bool messagePins = default, bool memberJoins = default, bool memberLeaves = default, bool memberInvites = default, bool memberPromotions = default, bool memberRestrictions = default, bool infoChanges = default, bool settingChanges = default)
         {
             this.MessageEdits = messageEdits;
             this.MessageDeletions = messageDeletions;
@@ -7877,7 +8555,7 @@ namespace TDLib.Api
         /// <param name="translatedStringCount">Total number of translated strings from the language pack</param>
         /// <param name="localStringCount">Total number of non-deleted strings from the language pack available locally</param>
         /// <param name="translationUrl">Link to language translation interface; empty for custom local language packs</param>
-        public LanguagePackInfo(string id = default, string baseLanguagePackId = default, string name = default, string nativeName = default, string pluralCode = default, bool isOfficial = false, bool isRtl = false, bool isBeta = false, bool isInstalled = false, int totalStringCount = 0, int translatedStringCount = 0, int localStringCount = 0, string translationUrl = default)
+        public LanguagePackInfo(string id = default, string baseLanguagePackId = default, string name = default, string nativeName = default, string pluralCode = default, bool isOfficial = default, bool isRtl = default, bool isBeta = default, bool isInstalled = default, int totalStringCount = default, int translatedStringCount = default, int localStringCount = default, string translationUrl = default)
         {
             this.Id = id;
             this.BaseLanguagePackId = baseLanguagePackId;
@@ -7922,7 +8600,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="token">Device registration token; may be empty to de-register a device</param>
         /// <param name="encrypt">True, if push notifications should be additionally encrypted</param>
-        public DeviceTokenFirebaseCloudMessaging(string token = default, bool encrypt = false)
+        public DeviceTokenFirebaseCloudMessaging(string token = default, bool encrypt = default)
         {
             this.Token = token;
             this.Encrypt = encrypt;
@@ -7940,7 +8618,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="deviceToken">Device token; may be empty to de-register a device</param>
         /// <param name="isAppSandbox">True, if App Sandbox is enabled</param>
-        public DeviceTokenApplePush(string deviceToken = default, bool isAppSandbox = false)
+        public DeviceTokenApplePush(string deviceToken = default, bool isAppSandbox = default)
         {
             this.DeviceToken = deviceToken;
             this.IsAppSandbox = isAppSandbox;
@@ -7959,7 +8637,7 @@ namespace TDLib.Api
         /// <param name="deviceToken">Device token; may be empty to de-register a device</param>
         /// <param name="isAppSandbox">True, if App Sandbox is enabled</param>
         /// <param name="encrypt">True, if push notifications should be additionally encrypted</param>
-        public DeviceTokenApplePushVoIP(string deviceToken = default, bool isAppSandbox = false, bool encrypt = false)
+        public DeviceTokenApplePushVoIP(string deviceToken = default, bool isAppSandbox = default, bool encrypt = default)
         {
             this.DeviceToken = deviceToken;
             this.IsAppSandbox = isAppSandbox;
@@ -8109,45 +8787,173 @@ namespace TDLib.Api
         /// Contains a globally unique push receiver identifier, which can be used to identify which account has received a push notification
         /// </summary>
         /// <param name="id">The globally unique identifier of push notification subscription</param>
-        public PushReceiverId(long id = 0)
+        public PushReceiverId(long id = default)
         {
             this.Id = id;
         }
     }
 
-    public partial class Wallpaper
+    public partial class BackgroundFillSolid
     {
         /// <summary>
-        /// Contains information about a wallpaper
+        /// Describes a solid fill of a background
         /// </summary>
-        public Wallpaper() { }
+        public BackgroundFillSolid() { }
         /// <summary>
-        /// Contains information about a wallpaper
+        /// Describes a solid fill of a background
         /// </summary>
-        /// <param name="id">Unique persistent wallpaper identifier</param>
-        /// <param name="sizes">Available variants of the wallpaper in different sizes. These photos can only be downloaded; they can't be sent in a message</param>
-        /// <param name="color">Main color of the wallpaper in RGB24 format; should be treated as background color if no photos are specified</param>
-        public Wallpaper(int id = 0, PhotoSize[] sizes = default, int color = 0)
+        /// <param name="color">A color of the background in the RGB24 format</param>
+        public BackgroundFillSolid(int color = default)
         {
-            this.Id = id;
-            this.Sizes = sizes;
             this.Color = color;
         }
     }
 
-    public partial class Wallpapers
+    public partial class BackgroundFillGradient
     {
         /// <summary>
-        /// Contains a list of wallpapers
+        /// Describes a gradient fill of a background
         /// </summary>
-        public Wallpapers() { }
+        public BackgroundFillGradient() { }
         /// <summary>
-        /// Contains a list of wallpapers
+        /// Describes a gradient fill of a background
         /// </summary>
-        /// <param name="wallpapers">A list of wallpapers</param>
-        public Wallpapers(Wallpaper[] wallpapers_ = default)
+        /// <param name="topColor">A top color of the background in the RGB24 format</param>
+        /// <param name="bottomColor">A bottom color of the background in the RGB24 format</param>
+        /// <param name="rotationAngle">Clockwise rotation angle of the gradient, in degrees; 0-359. Should be always divisible by 45</param>
+        public BackgroundFillGradient(int topColor = default, int bottomColor = default, int rotationAngle = default)
         {
-            this.Wallpapers_ = wallpapers_;
+            this.TopColor = topColor;
+            this.BottomColor = bottomColor;
+            this.RotationAngle = rotationAngle;
+        }
+    }
+
+    public partial class BackgroundTypeWallpaper
+    {
+        /// <summary>
+        /// A wallpaper in JPEG format
+        /// </summary>
+        public BackgroundTypeWallpaper() { }
+        /// <summary>
+        /// A wallpaper in JPEG format
+        /// </summary>
+        /// <param name="isBlurred">True, if the wallpaper must be downscaled to fit in 450x450 square and then box-blurred with radius 12</param>
+        /// <param name="isMoving">True, if the background needs to be slightly moved when device is tilted</param>
+        public BackgroundTypeWallpaper(bool isBlurred = default, bool isMoving = default)
+        {
+            this.IsBlurred = isBlurred;
+            this.IsMoving = isMoving;
+        }
+    }
+
+    public partial class BackgroundTypePattern
+    {
+        /// <summary>
+        /// A PNG or TGV (gzipped subset of SVG with MIME type "application/x-tgwallpattern") pattern to be combined with the background fill chosen by the user
+        /// </summary>
+        public BackgroundTypePattern() { }
+        /// <summary>
+        /// A PNG or TGV (gzipped subset of SVG with MIME type "application/x-tgwallpattern") pattern to be combined with the background fill chosen by the user
+        /// </summary>
+        /// <param name="fill">Description of the background fill</param>
+        /// <param name="intensity">Intensity of the pattern when it is shown above the filled background, 0-100</param>
+        /// <param name="isMoving">True, if the background needs to be slightly moved when device is tilted</param>
+        public BackgroundTypePattern(BackgroundFill fill = default, int intensity = default, bool isMoving = default)
+        {
+            this.Fill = fill;
+            this.Intensity = intensity;
+            this.IsMoving = isMoving;
+        }
+    }
+
+    public partial class BackgroundTypeFill
+    {
+        /// <summary>
+        /// A filled background
+        /// </summary>
+        public BackgroundTypeFill() { }
+        /// <summary>
+        /// A filled background
+        /// </summary>
+        /// <param name="fill">Description of the background fill</param>
+        public BackgroundTypeFill(BackgroundFill fill = default)
+        {
+            this.Fill = fill;
+        }
+    }
+
+    public partial class Background
+    {
+        /// <summary>
+        /// Describes a chat background
+        /// </summary>
+        public Background() { }
+        /// <summary>
+        /// Describes a chat background
+        /// </summary>
+        /// <param name="id">Unique background identifier</param>
+        /// <param name="isDefault">True, if this is one of default backgrounds</param>
+        /// <param name="isDark">True, if the background is dark and is recommended to be used with dark theme</param>
+        /// <param name="name">Unique background name</param>
+        /// <param name="document">Document with the background; may be null. Null only for filled backgrounds</param>
+        /// <param name="type">Type of the background</param>
+        public Background(long id = default, bool isDefault = default, bool isDark = default, string name = default, Document document = default, BackgroundType type = default)
+        {
+            this.Id = id;
+            this.IsDefault = isDefault;
+            this.IsDark = isDark;
+            this.Name = name;
+            this.Document = document;
+            this.Type = type;
+        }
+    }
+
+    public partial class Backgrounds
+    {
+        /// <summary>
+        /// Contains a list of backgrounds
+        /// </summary>
+        public Backgrounds() { }
+        /// <summary>
+        /// Contains a list of backgrounds
+        /// </summary>
+        /// <param name="backgrounds">A list of backgrounds</param>
+        public Backgrounds(Background[] backgrounds_ = default)
+        {
+            this.Backgrounds_ = backgrounds_;
+        }
+    }
+
+    public partial class InputBackgroundLocal
+    {
+        /// <summary>
+        /// A background from a local file
+        /// </summary>
+        public InputBackgroundLocal() { }
+        /// <summary>
+        /// A background from a local file
+        /// </summary>
+        /// <param name="background">Background file to use. Only inputFileLocal and inputFileGenerated are supported. The file must be in JPEG format for wallpapers and in PNG format for patterns</param>
+        public InputBackgroundLocal(InputFile background = default)
+        {
+            this.Background = background;
+        }
+    }
+
+    public partial class InputBackgroundRemote
+    {
+        /// <summary>
+        /// A background from the server
+        /// </summary>
+        public InputBackgroundRemote() { }
+        /// <summary>
+        /// A background from the server
+        /// </summary>
+        /// <param name="backgroundId">The background identifier</param>
+        public InputBackgroundRemote(long backgroundId = default)
+        {
+            this.BackgroundId = backgroundId;
         }
     }
 
@@ -8164,6 +8970,54 @@ namespace TDLib.Api
         public Hashtags(string[] hashtags_ = default)
         {
             this.Hashtags_ = hashtags_;
+        }
+    }
+
+    public partial class CanTransferOwnershipResultOk
+    {
+        /// <summary>
+        /// The session can be used
+        /// </summary>
+        public CanTransferOwnershipResultOk() { }
+    }
+
+    public partial class CanTransferOwnershipResultPasswordNeeded
+    {
+        /// <summary>
+        /// The 2-step verification needs to be enabled first
+        /// </summary>
+        public CanTransferOwnershipResultPasswordNeeded() { }
+    }
+
+    public partial class CanTransferOwnershipResultPasswordTooFresh
+    {
+        /// <summary>
+        /// The 2-step verification was enabled recently, user needs to wait
+        /// </summary>
+        public CanTransferOwnershipResultPasswordTooFresh() { }
+        /// <summary>
+        /// The 2-step verification was enabled recently, user needs to wait
+        /// </summary>
+        /// <param name="retryAfter">Time left before the session can be used to transfer ownership of a chat, in seconds</param>
+        public CanTransferOwnershipResultPasswordTooFresh(int retryAfter = default)
+        {
+            this.RetryAfter = retryAfter;
+        }
+    }
+
+    public partial class CanTransferOwnershipResultSessionTooFresh
+    {
+        /// <summary>
+        /// The session was created recently, user needs to wait
+        /// </summary>
+        public CanTransferOwnershipResultSessionTooFresh() { }
+        /// <summary>
+        /// The session was created recently, user needs to wait
+        /// </summary>
+        /// <param name="retryAfter">Time left before the session can be used to transfer ownership of a chat, in seconds</param>
+        public CanTransferOwnershipResultSessionTooFresh(int retryAfter = default)
+        {
+            this.RetryAfter = retryAfter;
         }
     }
 
@@ -8194,7 +9048,7 @@ namespace TDLib.Api
     public partial class CheckChatUsernameResultPublicChatsTooMuch
     {
         /// <summary>
-        /// The user has too much public chats, one of them should be made private first
+        /// The user has too much chats with username, one of them should be made private first
         /// </summary>
         public CheckChatUsernameResultPublicChatsTooMuch() { }
     }
@@ -8217,7 +9071,7 @@ namespace TDLib.Api
         /// A general message with hidden content
         /// </summary>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentHidden(bool isPinned = false)
+        public PushMessageContentHidden(bool isPinned = default)
         {
             this.IsPinned = isPinned;
         }
@@ -8226,16 +9080,16 @@ namespace TDLib.Api
     public partial class PushMessageContentAnimation
     {
         /// <summary>
-        /// An animation message (GIF-style)
+        /// An animation message (GIF-style).
         /// </summary>
         public PushMessageContentAnimation() { }
         /// <summary>
-        /// An animation message (GIF-style)
+        /// An animation message (GIF-style).
         /// </summary>
         /// <param name="animation">Message content; may be null</param>
         /// <param name="caption">Animation caption</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentAnimation(Animation animation = default, string caption = default, bool isPinned = false)
+        public PushMessageContentAnimation(Animation animation = default, string caption = default, bool isPinned = default)
         {
             this.Animation = animation;
             this.Caption = caption;
@@ -8254,7 +9108,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="audio">Message content; may be null</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentAudio(Audio audio = default, bool isPinned = false)
+        public PushMessageContentAudio(Audio audio = default, bool isPinned = default)
         {
             this.Audio = audio;
             this.IsPinned = isPinned;
@@ -8272,7 +9126,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="name">Contact's name</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentContact(string name = default, bool isPinned = false)
+        public PushMessageContentContact(string name = default, bool isPinned = default)
         {
             this.Name = name;
             this.IsPinned = isPinned;
@@ -8298,7 +9152,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="document">Message content; may be null</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentDocument(Document document = default, bool isPinned = false)
+        public PushMessageContentDocument(Document document = default, bool isPinned = default)
         {
             this.Document = document;
             this.IsPinned = isPinned;
@@ -8316,7 +9170,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="title">Game title, empty for pinned game message</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentGame(string title = default, bool isPinned = false)
+        public PushMessageContentGame(string title = default, bool isPinned = default)
         {
             this.Title = title;
             this.IsPinned = isPinned;
@@ -8335,7 +9189,7 @@ namespace TDLib.Api
         /// <param name="title">Game title, empty for pinned message</param>
         /// <param name="score">New score, 0 for pinned message</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentGameScore(string title = default, int score = 0, bool isPinned = false)
+        public PushMessageContentGameScore(string title = default, int score = default, bool isPinned = default)
         {
             this.Title = title;
             this.Score = score;
@@ -8354,7 +9208,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="price">Product price</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentInvoice(string price = default, bool isPinned = false)
+        public PushMessageContentInvoice(string price = default, bool isPinned = default)
         {
             this.Price = price;
             this.IsPinned = isPinned;
@@ -8372,7 +9226,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isLive">True, if the location is live</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentLocation(bool isLive = false, bool isPinned = false)
+        public PushMessageContentLocation(bool isLive = default, bool isPinned = default)
         {
             this.IsLive = isLive;
             this.IsPinned = isPinned;
@@ -8392,7 +9246,7 @@ namespace TDLib.Api
         /// <param name="caption">Photo caption</param>
         /// <param name="isSecret">True, if the photo is secret</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentPhoto(Photo photo = default, string caption = default, bool isSecret = false, bool isPinned = false)
+        public PushMessageContentPhoto(Photo photo = default, string caption = default, bool isSecret = default, bool isPinned = default)
         {
             this.Photo = photo;
             this.Caption = caption;
@@ -8411,10 +9265,12 @@ namespace TDLib.Api
         /// A message with a poll
         /// </summary>
         /// <param name="question">Poll question</param>
+        /// <param name="isRegular">True, if the poll is regular and not in quiz mode</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentPoll(string question = default, bool isPinned = false)
+        public PushMessageContentPoll(string question = default, bool isRegular = default, bool isPinned = default)
         {
             this.Question = question;
+            this.IsRegular = isRegular;
             this.IsPinned = isPinned;
         }
     }
@@ -8439,7 +9295,7 @@ namespace TDLib.Api
         /// <param name="sticker">Message content; may be null</param>
         /// <param name="emoji">Emoji corresponding to the sticker; may be empty</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentSticker(Sticker sticker = default, string emoji = default, bool isPinned = false)
+        public PushMessageContentSticker(Sticker sticker = default, string emoji = default, bool isPinned = default)
         {
             this.Sticker = sticker;
             this.Emoji = emoji;
@@ -8458,7 +9314,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="text">Message text</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentText(string text = default, bool isPinned = false)
+        public PushMessageContentText(string text = default, bool isPinned = default)
         {
             this.Text = text;
             this.IsPinned = isPinned;
@@ -8478,7 +9334,7 @@ namespace TDLib.Api
         /// <param name="caption">Video caption</param>
         /// <param name="isSecret">True, if the video is secret</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentVideo(Video video = default, string caption = default, bool isSecret = false, bool isPinned = false)
+        public PushMessageContentVideo(Video video = default, string caption = default, bool isSecret = default, bool isPinned = default)
         {
             this.Video = video;
             this.Caption = caption;
@@ -8498,7 +9354,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="videoNote">Message content; may be null</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentVideoNote(VideoNote videoNote = default, bool isPinned = false)
+        public PushMessageContentVideoNote(VideoNote videoNote = default, bool isPinned = default)
         {
             this.VideoNote = videoNote;
             this.IsPinned = isPinned;
@@ -8516,7 +9372,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="voiceNote">Message content; may be null</param>
         /// <param name="isPinned">True, if the message is a pinned message with the specified content</param>
-        public PushMessageContentVoiceNote(VoiceNote voiceNote = default, bool isPinned = false)
+        public PushMessageContentVoiceNote(VoiceNote voiceNote = default, bool isPinned = default)
         {
             this.VoiceNote = voiceNote;
             this.IsPinned = isPinned;
@@ -8542,8 +9398,8 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="memberName">Name of the added member</param>
         /// <param name="isCurrentUser">True, if the current user was added to the group</param>
-        /// <param name="isReturned">True, if the user has returned to the group himself</param>
-        public PushMessageContentChatAddMembers(string memberName = default, bool isCurrentUser = false, bool isReturned = false)
+        /// <param name="isReturned">True, if the user has returned to the group themself</param>
+        public PushMessageContentChatAddMembers(string memberName = default, bool isCurrentUser = default, bool isReturned = default)
         {
             this.MemberName = memberName;
             this.IsCurrentUser = isCurrentUser;
@@ -8586,8 +9442,8 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="memberName">Name of the deleted member</param>
         /// <param name="isCurrentUser">True, if the current user was deleted from the group</param>
-        /// <param name="isLeft">True, if the user has left the group himself</param>
-        public PushMessageContentChatDeleteMember(string memberName = default, bool isCurrentUser = false, bool isLeft = false)
+        /// <param name="isLeft">True, if the user has left the group themself</param>
+        public PushMessageContentChatDeleteMember(string memberName = default, bool isCurrentUser = default, bool isLeft = default)
         {
             this.MemberName = memberName;
             this.IsCurrentUser = isCurrentUser;
@@ -8613,7 +9469,7 @@ namespace TDLib.Api
         /// A forwarded messages
         /// </summary>
         /// <param name="totalCount">Number of forwarded messages</param>
-        public PushMessageContentMessageForwards(int totalCount = 0)
+        public PushMessageContentMessageForwards(int totalCount = default)
         {
             this.TotalCount = totalCount;
         }
@@ -8631,7 +9487,7 @@ namespace TDLib.Api
         /// <param name="totalCount">Number of messages in the album</param>
         /// <param name="hasPhotos">True, if the album has at least one photo</param>
         /// <param name="hasVideos">True, if the album has at least one video</param>
-        public PushMessageContentMediaAlbum(int totalCount = 0, bool hasPhotos = false, bool hasVideos = false)
+        public PushMessageContentMediaAlbum(int totalCount = default, bool hasPhotos = default, bool hasVideos = default)
         {
             this.TotalCount = totalCount;
             this.HasPhotos = hasPhotos;
@@ -8673,7 +9529,7 @@ namespace TDLib.Api
         /// New call was received
         /// </summary>
         /// <param name="callId">Call identifier</param>
-        public NotificationTypeNewCall(int callId = 0)
+        public NotificationTypeNewCall(int callId = default)
         {
             this.CallId = callId;
         }
@@ -8691,7 +9547,7 @@ namespace TDLib.Api
         /// <param name="messageId">The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages and as reply_to_message_id</param>
         /// <param name="senderUserId">Sender of the message. Corresponding user may be inaccessible</param>
         /// <param name="content">Push message content</param>
-        public NotificationTypeNewPushMessage(long messageId = 0, int senderUserId = 0, PushMessageContent content = default)
+        public NotificationTypeNewPushMessage(long messageId = default, int senderUserId = default, PushMessageContent content = default)
         {
             this.MessageId = messageId;
             this.SenderUserId = senderUserId;
@@ -8742,11 +9598,13 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="id">Unique persistent identifier of this notification</param>
         /// <param name="date">Notification date</param>
+        /// <param name="isSilent">True, if the notification was initially silent</param>
         /// <param name="type">Notification type</param>
-        public Notification(int id = 0, int date = 0, NotificationType type = default)
+        public Notification(int id = default, int date = default, bool isSilent = default, NotificationType type = default)
         {
             this.Id = id;
             this.Date = date;
+            this.IsSilent = isSilent;
             this.Type = type;
         }
     }
@@ -8765,7 +9623,7 @@ namespace TDLib.Api
         /// <param name="chatId">Identifier of a chat to which all notifications in the group belong</param>
         /// <param name="totalCount">Total number of active notifications in the group</param>
         /// <param name="notifications">The list of active notifications</param>
-        public NotificationGroup(int id = 0, NotificationGroupType type = default, long chatId = 0, int totalCount = 0, Notification[] notifications = default)
+        public NotificationGroup(int id = default, NotificationGroupType type = default, long chatId = default, int totalCount = default, Notification[] notifications = default)
         {
             this.Id = id;
             this.Type = type;
@@ -8785,7 +9643,7 @@ namespace TDLib.Api
         /// Represents a boolean option
         /// </summary>
         /// <param name="value">The value of the option</param>
-        public OptionValueBoolean(bool value = false)
+        public OptionValueBoolean(bool value = default)
         {
             this.Value = value;
         }
@@ -8809,7 +9667,7 @@ namespace TDLib.Api
         /// Represents an integer option
         /// </summary>
         /// <param name="value">The value of the option</param>
-        public OptionValueInteger(int value = 0)
+        public OptionValueInteger(int value = default)
         {
             this.Value = value;
         }
@@ -8867,7 +9725,7 @@ namespace TDLib.Api
         /// Represents a boolean JSON value
         /// </summary>
         /// <param name="value">The value</param>
-        public JsonValueBoolean(bool value = false)
+        public JsonValueBoolean(bool value = default)
         {
             this.Value = value;
         }
@@ -8883,7 +9741,7 @@ namespace TDLib.Api
         /// Represents a numeric JSON value
         /// </summary>
         /// <param name="value">The value</param>
-        public JsonValueNumber(double value = 0.0)
+        public JsonValueNumber(double value = default)
         {
             this.Value = value;
         }
@@ -8962,10 +9820,26 @@ namespace TDLib.Api
         /// <summary>
         /// A rule to allow certain specified users to do something
         /// </summary>
-        /// <param name="userIds">The user identifiers</param>
+        /// <param name="userIds">The user identifiers, total number of users in all rules must not exceed 1000</param>
         public UserPrivacySettingRuleAllowUsers(int[] userIds = default)
         {
             this.UserIds = userIds;
+        }
+    }
+
+    public partial class UserPrivacySettingRuleAllowChatMembers
+    {
+        /// <summary>
+        /// A rule to allow all members of certain specified basic groups and supergroups to doing something
+        /// </summary>
+        public UserPrivacySettingRuleAllowChatMembers() { }
+        /// <summary>
+        /// A rule to allow all members of certain specified basic groups and supergroups to doing something
+        /// </summary>
+        /// <param name="chatIds">The chat identifiers, total number of chats in all rules must not exceed 20</param>
+        public UserPrivacySettingRuleAllowChatMembers(long[] chatIds = default)
+        {
+            this.ChatIds = chatIds;
         }
     }
 
@@ -8994,10 +9868,26 @@ namespace TDLib.Api
         /// <summary>
         /// A rule to restrict all specified users from doing something
         /// </summary>
-        /// <param name="userIds">The user identifiers</param>
+        /// <param name="userIds">The user identifiers, total number of users in all rules must not exceed 1000</param>
         public UserPrivacySettingRuleRestrictUsers(int[] userIds = default)
         {
             this.UserIds = userIds;
+        }
+    }
+
+    public partial class UserPrivacySettingRuleRestrictChatMembers
+    {
+        /// <summary>
+        /// A rule to restrict all members of specified basic groups and supergroups from doing something
+        /// </summary>
+        public UserPrivacySettingRuleRestrictChatMembers() { }
+        /// <summary>
+        /// A rule to restrict all members of specified basic groups and supergroups from doing something
+        /// </summary>
+        /// <param name="chatIds">The chat identifiers, total number of chats in all rules must not exceed 20</param>
+        public UserPrivacySettingRuleRestrictChatMembers(long[] chatIds = default)
+        {
+            this.ChatIds = chatIds;
         }
     }
 
@@ -9025,6 +9915,30 @@ namespace TDLib.Api
         public UserPrivacySettingShowStatus() { }
     }
 
+    public partial class UserPrivacySettingShowProfilePhoto
+    {
+        /// <summary>
+        /// A privacy setting for managing whether the user's profile photo is visible
+        /// </summary>
+        public UserPrivacySettingShowProfilePhoto() { }
+    }
+
+    public partial class UserPrivacySettingShowLinkInForwardedMessages
+    {
+        /// <summary>
+        /// A privacy setting for managing whether a link to the user's account is included in forwarded messages
+        /// </summary>
+        public UserPrivacySettingShowLinkInForwardedMessages() { }
+    }
+
+    public partial class UserPrivacySettingShowPhoneNumber
+    {
+        /// <summary>
+        /// A privacy setting for managing whether the user's phone number is visible
+        /// </summary>
+        public UserPrivacySettingShowPhoneNumber() { }
+    }
+
     public partial class UserPrivacySettingAllowChatInvites
     {
         /// <summary>
@@ -9049,6 +9963,14 @@ namespace TDLib.Api
         public UserPrivacySettingAllowPeerToPeerCalls() { }
     }
 
+    public partial class UserPrivacySettingAllowFindingByPhoneNumber
+    {
+        /// <summary>
+        /// A privacy setting for managing whether the user can be found by their phone number. Checked only if the phone number is not known to the other user. Can be set only to "Allow contacts" or "Allow all"
+        /// </summary>
+        public UserPrivacySettingAllowFindingByPhoneNumber() { }
+    }
+
     public partial class AccountTtl
     {
         /// <summary>
@@ -9059,7 +9981,7 @@ namespace TDLib.Api
         /// Contains information about the period of inactivity after which the current user's account will automatically be deleted
         /// </summary>
         /// <param name="days">Number of days of inactivity before the account will be flagged for deletion; should range from 30-366 days</param>
-        public AccountTtl(int days = 0)
+        public AccountTtl(int days = default)
         {
             this.Days = days;
         }
@@ -9089,7 +10011,7 @@ namespace TDLib.Api
         /// <param name="ip">IP address from which the session was created, in human-readable format</param>
         /// <param name="country">A two-letter country code for the country from which the session was created, based on the IP address</param>
         /// <param name="region">Region code from which the session was created, based on the IP address</param>
-        public Session(long id = 0, bool isCurrent = false, bool isPasswordPending = false, int apiId = 0, string applicationName = default, string applicationVersion = default, bool isOfficialApplication = false, string deviceModel = default, string platform = default, string systemVersion = default, int logInDate = 0, int lastActiveDate = 0, string ip = default, string country = default, string region = default)
+        public Session(long id = default, bool isCurrent = default, bool isPasswordPending = default, int apiId = default, string applicationName = default, string applicationVersion = default, bool isOfficialApplication = default, string deviceModel = default, string platform = default, string systemVersion = default, int logInDate = default, int lastActiveDate = default, string ip = default, string country = default, string region = default)
         {
             this.Id = id;
             this.IsCurrent = isCurrent;
@@ -9143,7 +10065,7 @@ namespace TDLib.Api
         /// <param name="lastActiveDate">Point in time (Unix timestamp) when obtained authorization was last used</param>
         /// <param name="ip">IP address from which the user was logged in, in human-readable format</param>
         /// <param name="location">Human-readable description of a country and a region, from which the user was logged in, based on the IP address</param>
-        public ConnectedWebsite(long id = 0, string domainName = default, int botUserId = 0, string browser = default, string platform = default, int logInDate = 0, int lastActiveDate = 0, string ip = default, string location = default)
+        public ConnectedWebsite(long id = default, string domainName = default, int botUserId = default, string browser = default, string platform = default, int logInDate = default, int lastActiveDate = default, string ip = default, string location = default)
         {
             this.Id = id;
             this.DomainName = domainName;
@@ -9170,22 +10092,6 @@ namespace TDLib.Api
         public ConnectedWebsites(ConnectedWebsite[] websites = default)
         {
             this.Websites = websites;
-        }
-    }
-
-    public partial class ChatReportSpamState
-    {
-        /// <summary>
-        /// Contains information about the availability of the "Report spam" action for a chat
-        /// </summary>
-        public ChatReportSpamState() { }
-        /// <summary>
-        /// Contains information about the availability of the "Report spam" action for a chat
-        /// </summary>
-        /// <param name="canReportSpam">True, if a prompt with the "Report spam" action should be shown to the user</param>
-        public ChatReportSpamState(bool canReportSpam = false)
-        {
-            this.CanReportSpam = canReportSpam;
         }
     }
 
@@ -9229,6 +10135,14 @@ namespace TDLib.Api
         public ChatReportReasonCopyright() { }
     }
 
+    public partial class ChatReportReasonUnrelatedLocation
+    {
+        /// <summary>
+        /// The location-based chat is unrelated to its stated location
+        /// </summary>
+        public ChatReportReasonUnrelatedLocation() { }
+    }
+
     public partial class ChatReportReasonCustom
     {
         /// <summary>
@@ -9248,11 +10162,11 @@ namespace TDLib.Api
     public partial class PublicMessageLink
     {
         /// <summary>
-        /// Contains a public HTTPS link to a message in a public supergroup or channel
+        /// Contains a public HTTPS link to a message in a supergroup or channel with a username
         /// </summary>
         public PublicMessageLink() { }
         /// <summary>
-        /// Contains a public HTTPS link to a message in a public supergroup or channel
+        /// Contains a public HTTPS link to a message in a supergroup or channel with a username
         /// </summary>
         /// <param name="link">Message link</param>
         /// <param name="html">HTML-code for embedding the message</param>
@@ -9260,6 +10174,28 @@ namespace TDLib.Api
         {
             this.Link = link;
             this.Html = html;
+        }
+    }
+
+    public partial class MessageLinkInfo
+    {
+        /// <summary>
+        /// Contains information about a link to a message in a chat
+        /// </summary>
+        public MessageLinkInfo() { }
+        /// <summary>
+        /// Contains information about a link to a message in a chat
+        /// </summary>
+        /// <param name="isPublic">True, if the link is a public link for a message in a chat</param>
+        /// <param name="chatId">If found, identifier of the chat to which the message belongs, 0 otherwise</param>
+        /// <param name="message">If found, the linked message; may be null</param>
+        /// <param name="forAlbum">True, if the whole media album to which the message belongs is linked</param>
+        public MessageLinkInfo(bool isPublic = default, long chatId = default, Message message = default, bool forAlbum = default)
+        {
+            this.IsPublic = isPublic;
+            this.ChatId = chatId;
+            this.Message = message;
+            this.ForAlbum = forAlbum;
         }
     }
 
@@ -9402,7 +10338,7 @@ namespace TDLib.Api
     public partial class FileTypeWallpaper
     {
         /// <summary>
-        /// The file is a wallpaper
+        /// The file is a wallpaper or a background pattern
         /// </summary>
         public FileTypeWallpaper() { }
     }
@@ -9419,7 +10355,7 @@ namespace TDLib.Api
         /// <param name="fileType">File type</param>
         /// <param name="size">Total size of the files</param>
         /// <param name="count">Total number of files</param>
-        public StorageStatisticsByFileType(FileType fileType = default, long size = 0, int count = 0)
+        public StorageStatisticsByFileType(FileType fileType = default, long size = default, int count = default)
         {
             this.FileType = fileType;
             this.Size = size;
@@ -9440,7 +10376,7 @@ namespace TDLib.Api
         /// <param name="size">Total size of the files in the chat</param>
         /// <param name="count">Total number of files in the chat</param>
         /// <param name="byFileType">Statistics split by file types</param>
-        public StorageStatisticsByChat(long chatId = 0, long size = 0, int count = 0, StorageStatisticsByFileType[] byFileType = default)
+        public StorageStatisticsByChat(long chatId = default, long size = default, int count = default, StorageStatisticsByFileType[] byFileType = default)
         {
             this.ChatId = chatId;
             this.Size = size;
@@ -9461,7 +10397,7 @@ namespace TDLib.Api
         /// <param name="size">Total size of files</param>
         /// <param name="count">Total number of files</param>
         /// <param name="byChat">Statistics split by chats</param>
-        public StorageStatistics(long size = 0, int count = 0, StorageStatisticsByChat[] byChat = default)
+        public StorageStatistics(long size = default, int count = default, StorageStatisticsByChat[] byChat = default)
         {
             this.Size = size;
             this.Count = count;
@@ -9483,7 +10419,7 @@ namespace TDLib.Api
         /// <param name="databaseSize">Size of the database</param>
         /// <param name="languagePackDatabaseSize">Size of the language pack database</param>
         /// <param name="logSize">Size of the TDLib internal log</param>
-        public StorageStatisticsFast(long filesSize = 0, int fileCount = 0, long databaseSize = 0, long languagePackDatabaseSize = 0, long logSize = 0)
+        public StorageStatisticsFast(long filesSize = default, int fileCount = default, long databaseSize = default, long languagePackDatabaseSize = default, long logSize = default)
         {
             this.FilesSize = filesSize;
             this.FileCount = fileCount;
@@ -9562,7 +10498,7 @@ namespace TDLib.Api
         /// <param name="networkType">Type of the network the data was sent through. Call setNetworkType to maintain the actual network type</param>
         /// <param name="sentBytes">Total number of bytes sent</param>
         /// <param name="receivedBytes">Total number of bytes received</param>
-        public NetworkStatisticsEntryFile(FileType fileType = default, NetworkType networkType = default, long sentBytes = 0, long receivedBytes = 0)
+        public NetworkStatisticsEntryFile(FileType fileType = default, NetworkType networkType = default, long sentBytes = default, long receivedBytes = default)
         {
             this.FileType = fileType;
             this.NetworkType = networkType;
@@ -9584,7 +10520,7 @@ namespace TDLib.Api
         /// <param name="sentBytes">Total number of bytes sent</param>
         /// <param name="receivedBytes">Total number of bytes received</param>
         /// <param name="duration">Total call duration, in seconds</param>
-        public NetworkStatisticsEntryCall(NetworkType networkType = default, long sentBytes = 0, long receivedBytes = 0, double duration = 0.0)
+        public NetworkStatisticsEntryCall(NetworkType networkType = default, long sentBytes = default, long receivedBytes = default, double duration = default)
         {
             this.NetworkType = networkType;
             this.SentBytes = sentBytes;
@@ -9604,17 +10540,67 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="sinceDate">Point in time (Unix timestamp) when the app began collecting statistics</param>
         /// <param name="entries">Network statistics entries</param>
-        public NetworkStatistics(int sinceDate = 0, NetworkStatisticsEntry[] entries = default)
+        public NetworkStatistics(int sinceDate = default, NetworkStatisticsEntry[] entries = default)
         {
             this.SinceDate = sinceDate;
             this.Entries = entries;
         }
     }
 
+    public partial class AutoDownloadSettings
+    {
+        /// <summary>
+        /// Contains auto-download settings
+        /// </summary>
+        public AutoDownloadSettings() { }
+        /// <summary>
+        /// Contains auto-download settings
+        /// </summary>
+        /// <param name="isAutoDownloadEnabled">True, if the auto-download is enabled</param>
+        /// <param name="maxPhotoFileSize">The maximum size of a photo file to be auto-downloaded</param>
+        /// <param name="maxVideoFileSize">The maximum size of a video file to be auto-downloaded</param>
+        /// <param name="maxOtherFileSize">The maximum size of other file types to be auto-downloaded</param>
+        /// <param name="videoUploadBitrate">The maximum suggested bitrate for uploaded videos</param>
+        /// <param name="preloadLargeVideos">True, if the beginning of videos needs to be preloaded for instant playback</param>
+        /// <param name="preloadNextAudio">True, if the next audio track needs to be preloaded while the user is listening to an audio file</param>
+        /// <param name="useLessDataForCalls">True, if "use less data for calls" option needs to be enabled</param>
+        public AutoDownloadSettings(bool isAutoDownloadEnabled = default, int maxPhotoFileSize = default, int maxVideoFileSize = default, int maxOtherFileSize = default, int videoUploadBitrate = default, bool preloadLargeVideos = default, bool preloadNextAudio = default, bool useLessDataForCalls = default)
+        {
+            this.IsAutoDownloadEnabled = isAutoDownloadEnabled;
+            this.MaxPhotoFileSize = maxPhotoFileSize;
+            this.MaxVideoFileSize = maxVideoFileSize;
+            this.MaxOtherFileSize = maxOtherFileSize;
+            this.VideoUploadBitrate = videoUploadBitrate;
+            this.PreloadLargeVideos = preloadLargeVideos;
+            this.PreloadNextAudio = preloadNextAudio;
+            this.UseLessDataForCalls = useLessDataForCalls;
+        }
+    }
+
+    public partial class AutoDownloadSettingsPresets
+    {
+        /// <summary>
+        /// Contains auto-download settings presets for the user
+        /// </summary>
+        public AutoDownloadSettingsPresets() { }
+        /// <summary>
+        /// Contains auto-download settings presets for the user
+        /// </summary>
+        /// <param name="low">Preset with lowest settings; supposed to be used by default when roaming</param>
+        /// <param name="medium">Preset with medium settings; supposed to be used by default when using mobile data</param>
+        /// <param name="high">Preset with highest settings; supposed to be used by default when connected on Wi-Fi</param>
+        public AutoDownloadSettingsPresets(AutoDownloadSettings low = default, AutoDownloadSettings medium = default, AutoDownloadSettings high = default)
+        {
+            this.Low = low;
+            this.Medium = medium;
+            this.High = high;
+        }
+    }
+
     public partial class ConnectionStateWaitingForNetwork
     {
         /// <summary>
-        /// Currently waiting for the network to become available. Use SetNetworkType to change the available network type
+        /// Currently waiting for the network to become available. Use setNetworkType to change the available network type
         /// </summary>
         public ConnectionStateWaitingForNetwork() { }
     }
@@ -9699,6 +10685,14 @@ namespace TDLib.Api
         public TopChatCategoryCalls() { }
     }
 
+    public partial class TopChatCategoryForwardChats
+    {
+        /// <summary>
+        /// A category containing frequently used chats used to forward messages
+        /// </summary>
+        public TopChatCategoryForwardChats() { }
+    }
+
     public partial class TMeUrlTypeUser
     {
         /// <summary>
@@ -9709,7 +10703,7 @@ namespace TDLib.Api
         /// A URL linking to a user
         /// </summary>
         /// <param name="userId">Identifier of the user</param>
-        public TMeUrlTypeUser(int userId = 0)
+        public TMeUrlTypeUser(int userId = default)
         {
             this.UserId = userId;
         }
@@ -9725,7 +10719,7 @@ namespace TDLib.Api
         /// A URL linking to a public supergroup or channel
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup or channel</param>
-        public TMeUrlTypeSupergroup(long supergroupId = 0)
+        public TMeUrlTypeSupergroup(long supergroupId = default)
         {
             this.SupergroupId = supergroupId;
         }
@@ -9757,7 +10751,7 @@ namespace TDLib.Api
         /// A URL linking to a sticker set
         /// </summary>
         /// <param name="stickerSetId">Identifier of the sticker set</param>
-        public TMeUrlTypeStickerSet(long stickerSetId = 0)
+        public TMeUrlTypeStickerSet(long stickerSetId = default)
         {
             this.StickerSetId = stickerSetId;
         }
@@ -9807,7 +10801,7 @@ namespace TDLib.Api
         /// Contains a counter
         /// </summary>
         /// <param name="count">Count</param>
-        public Count(int count_ = 0)
+        public Count(int count_ = default)
         {
             this.Count_ = count_;
         }
@@ -9839,7 +10833,7 @@ namespace TDLib.Api
         /// Contains a value representing a number of seconds
         /// </summary>
         /// <param name="seconds">Number of seconds</param>
-        public Seconds(double seconds_ = 0.0)
+        public Seconds(double seconds_ = default)
         {
             this.Seconds_ = seconds_;
         }
@@ -9856,7 +10850,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="text">Text to be shown to the user</param>
         /// <param name="needUpdateApplication">True, if user should be asked to update the application</param>
-        public DeepLinkInfo(FormattedText text = default, bool needUpdateApplication = false)
+        public DeepLinkInfo(FormattedText text = default, bool needUpdateApplication = default)
         {
             this.Text = text;
             this.NeedUpdateApplication = needUpdateApplication;
@@ -9869,6 +10863,14 @@ namespace TDLib.Api
         /// The text should be parsed in markdown-style
         /// </summary>
         public TextParseModeMarkdown() { }
+        /// <summary>
+        /// The text should be parsed in markdown-style
+        /// </summary>
+        /// <param name="version">Version of the parser: 0 or 1 - Bot API Markdown parse mode, 2 - Bot API MarkdownV2 parse mode</param>
+        public TextParseModeMarkdown(int version = default)
+        {
+            this.Version = version;
+        }
     }
 
     public partial class TextParseModeHTML
@@ -9909,7 +10911,7 @@ namespace TDLib.Api
         /// <param name="username">Username for logging in; may be empty</param>
         /// <param name="password">Password for logging in; may be empty</param>
         /// <param name="httpOnly">Pass true, if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method</param>
-        public ProxyTypeHttp(string username = default, string password = default, bool httpOnly = false)
+        public ProxyTypeHttp(string username = default, string password = default, bool httpOnly = default)
         {
             this.Username = username;
             this.Password = password;
@@ -9948,7 +10950,7 @@ namespace TDLib.Api
         /// <param name="lastUsedDate">Point in time (Unix timestamp) when the proxy was last used; 0 if never</param>
         /// <param name="isEnabled">True, if the proxy is enabled now</param>
         /// <param name="type">Type of the proxy</param>
-        public Proxy(int id = 0, string server = default, int port = 0, int lastUsedDate = 0, bool isEnabled = false, ProxyType type = default)
+        public Proxy(int id = default, string server = default, int port = default, int lastUsedDate = default, bool isEnabled = default, ProxyType type = default)
         {
             this.Id = id;
             this.Server = server;
@@ -10038,7 +11040,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">The chat identifier of the sent message</param>
         /// <param name="messageId">A temporary message identifier</param>
-        public UpdateMessageSendAcknowledged(long chatId = 0, long messageId = 0)
+        public UpdateMessageSendAcknowledged(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -10056,7 +11058,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="message">Information about the sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change</param>
         /// <param name="oldMessageId">The previous temporary message identifier</param>
-        public UpdateMessageSendSucceeded(Message message = default, long oldMessageId = 0)
+        public UpdateMessageSendSucceeded(Message message = default, long oldMessageId = default)
         {
             this.Message = message;
             this.OldMessageId = oldMessageId;
@@ -10072,11 +11074,11 @@ namespace TDLib.Api
         /// <summary>
         /// A message failed to send. Be aware that some messages being sent can be irrecoverably deleted, in which case updateDeleteMessages will be received instead of this update
         /// </summary>
-        /// <param name="message">Contains information about the message that failed to send</param>
+        /// <param name="message">Contains information about the message which failed to send</param>
         /// <param name="oldMessageId">The previous temporary message identifier</param>
         /// <param name="errorCode">An error code</param>
         /// <param name="errorMessage">Error message</param>
-        public UpdateMessageSendFailed(Message message = default, long oldMessageId = 0, int errorCode = 0, string errorMessage = default)
+        public UpdateMessageSendFailed(Message message = default, long oldMessageId = default, int errorCode = default, string errorMessage = default)
         {
             this.Message = message;
             this.OldMessageId = oldMessageId;
@@ -10097,7 +11099,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageId">Message identifier</param>
         /// <param name="newContent">New message content</param>
-        public UpdateMessageContent(long chatId = 0, long messageId = 0, MessageContent newContent = default)
+        public UpdateMessageContent(long chatId = default, long messageId = default, MessageContent newContent = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -10118,7 +11120,7 @@ namespace TDLib.Api
         /// <param name="messageId">Message identifier</param>
         /// <param name="editDate">Point in time (Unix timestamp) when the message was edited</param>
         /// <param name="replyMarkup">New message reply markup; may be null</param>
-        public UpdateMessageEdited(long chatId = 0, long messageId = 0, int editDate = 0, ReplyMarkup replyMarkup = default)
+        public UpdateMessageEdited(long chatId = default, long messageId = default, int editDate = default, ReplyMarkup replyMarkup = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -10139,7 +11141,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageId">Message identifier</param>
         /// <param name="views">New value of the view count</param>
-        public UpdateMessageViews(long chatId = 0, long messageId = 0, int views = 0)
+        public UpdateMessageViews(long chatId = default, long messageId = default, int views = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -10158,7 +11160,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageId">Message identifier</param>
-        public UpdateMessageContentOpened(long chatId = 0, long messageId = 0)
+        public UpdateMessageContentOpened(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -10177,11 +11179,29 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageId">Message identifier</param>
         /// <param name="unreadMentionCount">The new number of unread mention messages left in the chat</param>
-        public UpdateMessageMentionRead(long chatId = 0, long messageId = 0, int unreadMentionCount = 0)
+        public UpdateMessageMentionRead(long chatId = default, long messageId = default, int unreadMentionCount = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
             this.UnreadMentionCount = unreadMentionCount;
+        }
+    }
+
+    public partial class UpdateMessageLiveLocationViewed
+    {
+        /// <summary>
+        /// A message with a live location was viewed. When the update is received, the client is supposed to update the live location
+        /// </summary>
+        public UpdateMessageLiveLocationViewed() { }
+        /// <summary>
+        /// A message with a live location was viewed. When the update is received, the client is supposed to update the live location
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat with the live location message</param>
+        /// <param name="messageId">Identifier of the message with live location</param>
+        public UpdateMessageLiveLocationViewed(long chatId = default, long messageId = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
         }
     }
 
@@ -10201,6 +11221,24 @@ namespace TDLib.Api
         }
     }
 
+    public partial class UpdateChatChatList
+    {
+        /// <summary>
+        /// The list to which the chat belongs was changed. This update is guaranteed to be sent only when chat.order == 0 and the current or the new chat list is null
+        /// </summary>
+        public UpdateChatChatList() { }
+        /// <summary>
+        /// The list to which the chat belongs was changed. This update is guaranteed to be sent only when chat.order == 0 and the current or the new chat list is null
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="chatList">The new chat's chat list; may be null</param>
+        public UpdateChatChatList(long chatId = default, ChatList chatList = default)
+        {
+            this.ChatId = chatId;
+            this.ChatList = chatList;
+        }
+    }
+
     public partial class UpdateChatTitle
     {
         /// <summary>
@@ -10212,7 +11250,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="title">The new chat title</param>
-        public UpdateChatTitle(long chatId = 0, string title = default)
+        public UpdateChatTitle(long chatId = default, string title = default)
         {
             this.ChatId = chatId;
             this.Title = title;
@@ -10230,26 +11268,44 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="photo">The new chat photo; may be null</param>
-        public UpdateChatPhoto(long chatId = 0, ChatPhoto photo = default)
+        public UpdateChatPhoto(long chatId = default, ChatPhoto photo = default)
         {
             this.ChatId = chatId;
             this.Photo = photo;
         }
     }
 
+    public partial class UpdateChatPermissions
+    {
+        /// <summary>
+        /// Chat permissions was changed
+        /// </summary>
+        public UpdateChatPermissions() { }
+        /// <summary>
+        /// Chat permissions was changed
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="permissions">The new chat permissions</param>
+        public UpdateChatPermissions(long chatId = default, ChatPermissions permissions = default)
+        {
+            this.ChatId = chatId;
+            this.Permissions = permissions;
+        }
+    }
+
     public partial class UpdateChatLastMessage
     {
         /// <summary>
-        /// The last message of a chat was changed. If last_message is null then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case
+        /// The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case
         /// </summary>
         public UpdateChatLastMessage() { }
         /// <summary>
-        /// The last message of a chat was changed. If last_message is null then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case
+        /// The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="lastMessage">The new last message in the chat; may be null</param>
         /// <param name="order">New value of the chat order</param>
-        public UpdateChatLastMessage(long chatId = 0, Message lastMessage = default, long order = 0)
+        public UpdateChatLastMessage(long chatId = default, Message lastMessage = default, long order = default)
         {
             this.ChatId = chatId;
             this.LastMessage = lastMessage;
@@ -10260,15 +11316,15 @@ namespace TDLib.Api
     public partial class UpdateChatOrder
     {
         /// <summary>
-        /// The order of the chat in the chat list has changed. Instead of this update updateChatLastMessage, updateChatIsPinned or updateChatDraftMessage might be sent
+        /// The order of the chat in the chat list has changed. Instead of this update updateChatLastMessage, updateChatIsPinned, updateChatDraftMessage, or updateChatIsSponsored might be sent
         /// </summary>
         public UpdateChatOrder() { }
         /// <summary>
-        /// The order of the chat in the chat list has changed. Instead of this update updateChatLastMessage, updateChatIsPinned or updateChatDraftMessage might be sent
+        /// The order of the chat in the chat list has changed. Instead of this update updateChatLastMessage, updateChatIsPinned, updateChatDraftMessage, or updateChatIsSponsored might be sent
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="order">New value of the order</param>
-        public UpdateChatOrder(long chatId = 0, long order = 0)
+        public UpdateChatOrder(long chatId = default, long order = default)
         {
             this.ChatId = chatId;
             this.Order = order;
@@ -10287,7 +11343,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="isPinned">New value of is_pinned</param>
         /// <param name="order">New value of the chat order</param>
-        public UpdateChatIsPinned(long chatId = 0, bool isPinned = false, long order = 0)
+        public UpdateChatIsPinned(long chatId = default, bool isPinned = default, long order = default)
         {
             this.ChatId = chatId;
             this.IsPinned = isPinned;
@@ -10306,7 +11362,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="isMarkedAsUnread">New value of is_marked_as_unread</param>
-        public UpdateChatIsMarkedAsUnread(long chatId = 0, bool isMarkedAsUnread = false)
+        public UpdateChatIsMarkedAsUnread(long chatId = default, bool isMarkedAsUnread = default)
         {
             this.ChatId = chatId;
             this.IsMarkedAsUnread = isMarkedAsUnread;
@@ -10325,11 +11381,29 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="isSponsored">New value of is_sponsored</param>
         /// <param name="order">New value of chat order</param>
-        public UpdateChatIsSponsored(long chatId = 0, bool isSponsored = false, long order = 0)
+        public UpdateChatIsSponsored(long chatId = default, bool isSponsored = default, long order = default)
         {
             this.ChatId = chatId;
             this.IsSponsored = isSponsored;
             this.Order = order;
+        }
+    }
+
+    public partial class UpdateChatHasScheduledMessages
+    {
+        /// <summary>
+        /// A chat's has_scheduled_messages field has changed
+        /// </summary>
+        public UpdateChatHasScheduledMessages() { }
+        /// <summary>
+        /// A chat's has_scheduled_messages field has changed
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="hasScheduledMessages">New value of has_scheduled_messages</param>
+        public UpdateChatHasScheduledMessages(long chatId = default, bool hasScheduledMessages = default)
+        {
+            this.ChatId = chatId;
+            this.HasScheduledMessages = hasScheduledMessages;
         }
     }
 
@@ -10344,7 +11418,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="defaultDisableNotification">The new default_disable_notification value</param>
-        public UpdateChatDefaultDisableNotification(long chatId = 0, bool defaultDisableNotification = false)
+        public UpdateChatDefaultDisableNotification(long chatId = default, bool defaultDisableNotification = default)
         {
             this.ChatId = chatId;
             this.DefaultDisableNotification = defaultDisableNotification;
@@ -10363,7 +11437,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="lastReadInboxMessageId">Identifier of the last read incoming message</param>
         /// <param name="unreadCount">The number of unread messages left in the chat</param>
-        public UpdateChatReadInbox(long chatId = 0, long lastReadInboxMessageId = 0, int unreadCount = 0)
+        public UpdateChatReadInbox(long chatId = default, long lastReadInboxMessageId = default, int unreadCount = default)
         {
             this.ChatId = chatId;
             this.LastReadInboxMessageId = lastReadInboxMessageId;
@@ -10382,7 +11456,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="lastReadOutboxMessageId">Identifier of last read outgoing message</param>
-        public UpdateChatReadOutbox(long chatId = 0, long lastReadOutboxMessageId = 0)
+        public UpdateChatReadOutbox(long chatId = default, long lastReadOutboxMessageId = default)
         {
             this.ChatId = chatId;
             this.LastReadOutboxMessageId = lastReadOutboxMessageId;
@@ -10400,7 +11474,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="unreadMentionCount">The number of unread mention messages left in the chat</param>
-        public UpdateChatUnreadMentionCount(long chatId = 0, int unreadMentionCount = 0)
+        public UpdateChatUnreadMentionCount(long chatId = default, int unreadMentionCount = default)
         {
             this.ChatId = chatId;
             this.UnreadMentionCount = unreadMentionCount;
@@ -10418,7 +11492,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="notificationSettings">The new notification settings</param>
-        public UpdateChatNotificationSettings(long chatId = 0, ChatNotificationSettings notificationSettings = default)
+        public UpdateChatNotificationSettings(long chatId = default, ChatNotificationSettings notificationSettings = default)
         {
             this.ChatId = chatId;
             this.NotificationSettings = notificationSettings;
@@ -10443,6 +11517,24 @@ namespace TDLib.Api
         }
     }
 
+    public partial class UpdateChatActionBar
+    {
+        /// <summary>
+        /// The chat action bar was changed
+        /// </summary>
+        public UpdateChatActionBar() { }
+        /// <summary>
+        /// The chat action bar was changed
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="actionBar">The new value of the action bar; may be null</param>
+        public UpdateChatActionBar(long chatId = default, ChatActionBar actionBar = default)
+        {
+            this.ChatId = chatId;
+            this.ActionBar = actionBar;
+        }
+    }
+
     public partial class UpdateChatPinnedMessage
     {
         /// <summary>
@@ -10454,7 +11546,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="pinnedMessageId">The new identifier of the pinned message; 0 if there is no pinned message in the chat</param>
-        public UpdateChatPinnedMessage(long chatId = 0, long pinnedMessageId = 0)
+        public UpdateChatPinnedMessage(long chatId = default, long pinnedMessageId = default)
         {
             this.ChatId = chatId;
             this.PinnedMessageId = pinnedMessageId;
@@ -10472,7 +11564,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="replyMarkupMessageId">Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat</param>
-        public UpdateChatReplyMarkup(long chatId = 0, long replyMarkupMessageId = 0)
+        public UpdateChatReplyMarkup(long chatId = default, long replyMarkupMessageId = default)
         {
             this.ChatId = chatId;
             this.ReplyMarkupMessageId = replyMarkupMessageId;
@@ -10491,7 +11583,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="draftMessage">The new draft message; may be null</param>
         /// <param name="order">New value of the chat order</param>
-        public UpdateChatDraftMessage(long chatId = 0, DraftMessage draftMessage = default, long order = 0)
+        public UpdateChatDraftMessage(long chatId = default, DraftMessage draftMessage = default, long order = default)
         {
             this.ChatId = chatId;
             this.DraftMessage = draftMessage;
@@ -10510,7 +11602,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
         /// <param name="onlineMemberCount">New number of online members in the chat, or 0 if unknown</param>
-        public UpdateChatOnlineMemberCount(long chatId = 0, int onlineMemberCount = 0)
+        public UpdateChatOnlineMemberCount(long chatId = default, int onlineMemberCount = default)
         {
             this.ChatId = chatId;
             this.OnlineMemberCount = onlineMemberCount;
@@ -10528,7 +11620,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="notificationGroupId">Unique notification group identifier</param>
         /// <param name="notification">Changed notification</param>
-        public UpdateNotification(int notificationGroupId = 0, Notification notification = default)
+        public UpdateNotification(int notificationGroupId = default, Notification notification = default)
         {
             this.NotificationGroupId = notificationGroupId;
             this.Notification = notification;
@@ -10552,7 +11644,7 @@ namespace TDLib.Api
         /// <param name="totalCount">Total number of unread notifications in the group, can be bigger than number of active notifications</param>
         /// <param name="addedNotifications">List of added group notifications, sorted by notification ID</param>
         /// <param name="removedNotificationIds">Identifiers of removed group notifications, sorted by notification ID</param>
-        public UpdateNotificationGroup(int notificationGroupId = 0, NotificationGroupType type = default, long chatId = 0, long notificationSettingsChatId = 0, bool isSilent = false, int totalCount = 0, Notification[] addedNotifications = default, int[] removedNotificationIds = default)
+        public UpdateNotificationGroup(int notificationGroupId = default, NotificationGroupType type = default, long chatId = default, long notificationSettingsChatId = default, bool isSilent = default, int totalCount = default, Notification[] addedNotifications = default, int[] removedNotificationIds = default)
         {
             this.NotificationGroupId = notificationGroupId;
             this.Type = type;
@@ -10568,11 +11660,11 @@ namespace TDLib.Api
     public partial class UpdateActiveNotifications
     {
         /// <summary>
-        /// Contains active notifications that was shown on previous application launches. This update is sent only if a message database is used. In that case it comes once before any updateNotification and updateNotificationGroup update
+        /// Contains active notifications that was shown on previous application launches. This update is sent only if the message database is used. In that case it comes once before any updateNotification and updateNotificationGroup update
         /// </summary>
         public UpdateActiveNotifications() { }
         /// <summary>
-        /// Contains active notifications that was shown on previous application launches. This update is sent only if a message database is used. In that case it comes once before any updateNotification and updateNotificationGroup update
+        /// Contains active notifications that was shown on previous application launches. This update is sent only if the message database is used. In that case it comes once before any updateNotification and updateNotificationGroup update
         /// </summary>
         /// <param name="groups">Lists of active notification groups</param>
         public UpdateActiveNotifications(NotificationGroup[] groups = default)
@@ -10584,15 +11676,15 @@ namespace TDLib.Api
     public partial class UpdateHavePendingNotifications
     {
         /// <summary>
-        /// Describes, whether there are some pending notification updates. Can be used to prevent application from killing, while there are some pending notifications
+        /// Describes whether there are some pending notification updates. Can be used to prevent application from killing, while there are some pending notifications
         /// </summary>
         public UpdateHavePendingNotifications() { }
         /// <summary>
-        /// Describes, whether there are some pending notification updates. Can be used to prevent application from killing, while there are some pending notifications
+        /// Describes whether there are some pending notification updates. Can be used to prevent application from killing, while there are some pending notifications
         /// </summary>
         /// <param name="haveDelayedNotifications">True, if there are some delayed notification updates, which will be sent soon</param>
         /// <param name="haveUnreceivedNotifications">True, if there can be some yet unreceived notifications, which are being fetched from the server</param>
-        public UpdateHavePendingNotifications(bool haveDelayedNotifications = false, bool haveUnreceivedNotifications = false)
+        public UpdateHavePendingNotifications(bool haveDelayedNotifications = default, bool haveUnreceivedNotifications = default)
         {
             this.HaveDelayedNotifications = haveDelayedNotifications;
             this.HaveUnreceivedNotifications = haveUnreceivedNotifications;
@@ -10612,7 +11704,7 @@ namespace TDLib.Api
         /// <param name="messageIds">Identifiers of the deleted messages</param>
         /// <param name="isPermanent">True, if the messages are permanently deleted by a user (as opposed to just becoming inaccessible)</param>
         /// <param name="fromCache">True, if the messages are deleted only from the cache and can possibly be retrieved again in the future</param>
-        public UpdateDeleteMessages(long chatId = 0, long[] messageIds = default, bool isPermanent = false, bool fromCache = false)
+        public UpdateDeleteMessages(long chatId = default, long[] messageIds = default, bool isPermanent = default, bool fromCache = default)
         {
             this.ChatId = chatId;
             this.MessageIds = messageIds;
@@ -10633,7 +11725,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userId">Identifier of a user performing an action</param>
         /// <param name="action">The action description</param>
-        public UpdateUserChatAction(long chatId = 0, int userId = 0, ChatAction action = default)
+        public UpdateUserChatAction(long chatId = default, int userId = default, ChatAction action = default)
         {
             this.ChatId = chatId;
             this.UserId = userId;
@@ -10652,7 +11744,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">User identifier</param>
         /// <param name="status">New status of the user</param>
-        public UpdateUserStatus(int userId = 0, UserStatus status = default)
+        public UpdateUserStatus(int userId = default, UserStatus status = default)
         {
             this.UserId = userId;
             this.Status = status;
@@ -10734,7 +11826,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">User identifier</param>
         /// <param name="userFullInfo">New full information about the user</param>
-        public UpdateUserFullInfo(int userId = 0, UserFullInfo userFullInfo = default)
+        public UpdateUserFullInfo(int userId = default, UserFullInfo userFullInfo = default)
         {
             this.UserId = userId;
             this.UserFullInfo = userFullInfo;
@@ -10752,7 +11844,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="basicGroupId">Identifier of a basic group</param>
         /// <param name="basicGroupFullInfo">New full information about the group</param>
-        public UpdateBasicGroupFullInfo(int basicGroupId = 0, BasicGroupFullInfo basicGroupFullInfo = default)
+        public UpdateBasicGroupFullInfo(int basicGroupId = default, BasicGroupFullInfo basicGroupFullInfo = default)
         {
             this.BasicGroupId = basicGroupId;
             this.BasicGroupFullInfo = basicGroupFullInfo;
@@ -10770,7 +11862,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup or channel</param>
         /// <param name="supergroupFullInfo">New full information about the supergroup</param>
-        public UpdateSupergroupFullInfo(int supergroupId = 0, SupergroupFullInfo supergroupFullInfo = default)
+        public UpdateSupergroupFullInfo(int supergroupId = default, SupergroupFullInfo supergroupFullInfo = default)
         {
             this.SupergroupId = supergroupId;
             this.SupergroupFullInfo = supergroupFullInfo;
@@ -10824,7 +11916,7 @@ namespace TDLib.Api
         /// <param name="originalPath">The path to a file from which a new file is generated; may be empty</param>
         /// <param name="destinationPath">The path to a file that should be created and where the new file should be generated</param>
         /// <param name="conversion">String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the client</param>
-        public UpdateFileGenerationStart(long generationId = 0, string originalPath = default, string destinationPath = default, string conversion = default)
+        public UpdateFileGenerationStart(long generationId = default, string originalPath = default, string destinationPath = default, string conversion = default)
         {
             this.GenerationId = generationId;
             this.OriginalPath = originalPath;
@@ -10843,7 +11935,7 @@ namespace TDLib.Api
         /// File generation is no longer needed
         /// </summary>
         /// <param name="generationId">Unique identifier for the generation process</param>
-        public UpdateFileGenerationStop(long generationId = 0)
+        public UpdateFileGenerationStop(long generationId = default)
         {
             this.GenerationId = generationId;
         }
@@ -10886,16 +11978,18 @@ namespace TDLib.Api
     public partial class UpdateUnreadMessageCount
     {
         /// <summary>
-        /// Number of unread messages has changed. This update is sent only if a message database is used
+        /// Number of unread messages in a chat list has changed. This update is sent only if the message database is used
         /// </summary>
         public UpdateUnreadMessageCount() { }
         /// <summary>
-        /// Number of unread messages has changed. This update is sent only if a message database is used
+        /// Number of unread messages in a chat list has changed. This update is sent only if the message database is used
         /// </summary>
+        /// <param name="chatList">The chat list with changed number of unread messages</param>
         /// <param name="unreadCount">Total number of unread messages</param>
         /// <param name="unreadUnmutedCount">Total number of unread messages in unmuted chats</param>
-        public UpdateUnreadMessageCount(int unreadCount = 0, int unreadUnmutedCount = 0)
+        public UpdateUnreadMessageCount(ChatList chatList = default, int unreadCount = default, int unreadUnmutedCount = default)
         {
+            this.ChatList = chatList;
             this.UnreadCount = unreadCount;
             this.UnreadUnmutedCount = unreadUnmutedCount;
         }
@@ -10904,18 +11998,22 @@ namespace TDLib.Api
     public partial class UpdateUnreadChatCount
     {
         /// <summary>
-        /// Number of unread chats, i.e. with unread messages or marked as unread, has changed. This update is sent only if a message database is used
+        /// Number of unread chats, i.e. with unread messages or marked as unread, has changed. This update is sent only if the message database is used
         /// </summary>
         public UpdateUnreadChatCount() { }
         /// <summary>
-        /// Number of unread chats, i.e. with unread messages or marked as unread, has changed. This update is sent only if a message database is used
+        /// Number of unread chats, i.e. with unread messages or marked as unread, has changed. This update is sent only if the message database is used
         /// </summary>
+        /// <param name="chatList">The chat list with changed number of unread messages</param>
+        /// <param name="totalCount">Approximate total number of chats in the chat list</param>
         /// <param name="unreadCount">Total number of unread chats</param>
         /// <param name="unreadUnmutedCount">Total number of unread unmuted chats</param>
         /// <param name="markedAsUnreadCount">Total number of chats marked as unread</param>
         /// <param name="markedAsUnreadUnmutedCount">Total number of unmuted chats marked as unread</param>
-        public UpdateUnreadChatCount(int unreadCount = 0, int unreadUnmutedCount = 0, int markedAsUnreadCount = 0, int markedAsUnreadUnmutedCount = 0)
+        public UpdateUnreadChatCount(ChatList chatList = default, int totalCount = default, int unreadCount = default, int unreadUnmutedCount = default, int markedAsUnreadCount = default, int markedAsUnreadUnmutedCount = default)
         {
+            this.ChatList = chatList;
+            this.TotalCount = totalCount;
             this.UnreadCount = unreadCount;
             this.UnreadUnmutedCount = unreadUnmutedCount;
             this.MarkedAsUnreadCount = markedAsUnreadCount;
@@ -10952,7 +12050,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isMasks">True, if the list of installed mask sticker sets was updated</param>
         /// <param name="stickerSetIds">The new list of installed ordinary sticker sets</param>
-        public UpdateInstalledStickerSets(bool isMasks = false, long[] stickerSetIds = default)
+        public UpdateInstalledStickerSets(bool isMasks = default, long[] stickerSetIds = default)
         {
             this.IsMasks = isMasks;
             this.StickerSetIds = stickerSetIds;
@@ -10986,7 +12084,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isAttached">True, if the list of stickers attached to photo or video files was updated, otherwise the list of sent stickers is updated</param>
         /// <param name="stickerIds">The new list of file identifiers of recently used stickers</param>
-        public UpdateRecentStickers(bool isAttached = false, int[] stickerIds = default)
+        public UpdateRecentStickers(bool isAttached = default, int[] stickerIds = default)
         {
             this.IsAttached = isAttached;
             this.StickerIds = stickerIds;
@@ -11022,6 +12120,24 @@ namespace TDLib.Api
         public UpdateSavedAnimations(int[] animationIds = default)
         {
             this.AnimationIds = animationIds;
+        }
+    }
+
+    public partial class UpdateSelectedBackground
+    {
+        /// <summary>
+        /// The selected background has changed
+        /// </summary>
+        public UpdateSelectedBackground() { }
+        /// <summary>
+        /// The selected background has changed
+        /// </summary>
+        /// <param name="forDarkTheme">True, if background for dark theme has changed</param>
+        /// <param name="background">The new selected background; may be null</param>
+        public UpdateSelectedBackground(bool forDarkTheme = default, Background background = default)
+        {
+            this.ForDarkTheme = forDarkTheme;
+            this.Background = background;
         }
     }
 
@@ -11079,6 +12195,22 @@ namespace TDLib.Api
         }
     }
 
+    public partial class UpdateUsersNearby
+    {
+        /// <summary>
+        /// List of users nearby has changed. The update is sent only 60 seconds after a successful searchChatsNearby request
+        /// </summary>
+        public UpdateUsersNearby() { }
+        /// <summary>
+        /// List of users nearby has changed. The update is sent only 60 seconds after a successful searchChatsNearby request
+        /// </summary>
+        /// <param name="usersNearby">The new list of users nearby</param>
+        public UpdateUsersNearby(ChatNearby[] usersNearby = default)
+        {
+            this.UsersNearby = usersNearby;
+        }
+    }
+
     public partial class UpdateNewInlineQuery
     {
         /// <summary>
@@ -11093,7 +12225,7 @@ namespace TDLib.Api
         /// <param name="userLocation">User location, provided by the client; may be null</param>
         /// <param name="query">Text of the query</param>
         /// <param name="offset">Offset of the first entry to return</param>
-        public UpdateNewInlineQuery(long id = 0, int senderUserId = 0, Location userLocation = default, string query = default, string offset = default)
+        public UpdateNewInlineQuery(long id = default, int senderUserId = default, Location userLocation = default, string query = default, string offset = default)
         {
             this.Id = id;
             this.SenderUserId = senderUserId;
@@ -11117,7 +12249,7 @@ namespace TDLib.Api
         /// <param name="query">Text of the query</param>
         /// <param name="resultId">Identifier of the chosen result</param>
         /// <param name="inlineMessageId">Identifier of the sent inline message, if known</param>
-        public UpdateNewChosenInlineResult(int senderUserId = 0, Location userLocation = default, string query = default, string resultId = default, string inlineMessageId = default)
+        public UpdateNewChosenInlineResult(int senderUserId = default, Location userLocation = default, string query = default, string resultId = default, string inlineMessageId = default)
         {
             this.SenderUserId = senderUserId;
             this.UserLocation = userLocation;
@@ -11138,11 +12270,11 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="id">Unique query identifier</param>
         /// <param name="senderUserId">Identifier of the user who sent the query</param>
-        /// <param name="chatId">Identifier of the chat, in which the query was sent</param>
+        /// <param name="chatId">Identifier of the chat where the query was sent</param>
         /// <param name="messageId">Identifier of the message, from which the query originated</param>
         /// <param name="chatInstance">Identifier that uniquely corresponds to the chat to which the message was sent</param>
         /// <param name="payload">Query payload</param>
-        public UpdateNewCallbackQuery(long id = 0, int senderUserId = 0, long chatId = 0, long messageId = 0, long chatInstance = 0, CallbackQueryPayload payload = default)
+        public UpdateNewCallbackQuery(long id = default, int senderUserId = default, long chatId = default, long messageId = default, long chatInstance = default, CallbackQueryPayload payload = default)
         {
             this.Id = id;
             this.SenderUserId = senderUserId;
@@ -11167,7 +12299,7 @@ namespace TDLib.Api
         /// <param name="inlineMessageId">Identifier of the inline message, from which the query originated</param>
         /// <param name="chatInstance">An identifier uniquely corresponding to the chat a message was sent to</param>
         /// <param name="payload">Query payload</param>
-        public UpdateNewInlineCallbackQuery(long id = 0, int senderUserId = 0, string inlineMessageId = default, long chatInstance = 0, CallbackQueryPayload payload = default)
+        public UpdateNewInlineCallbackQuery(long id = default, int senderUserId = default, string inlineMessageId = default, long chatInstance = default, CallbackQueryPayload payload = default)
         {
             this.Id = id;
             this.SenderUserId = senderUserId;
@@ -11190,7 +12322,7 @@ namespace TDLib.Api
         /// <param name="senderUserId">Identifier of the user who sent the query</param>
         /// <param name="invoicePayload">Invoice payload</param>
         /// <param name="shippingAddress">User shipping address</param>
-        public UpdateNewShippingQuery(long id = 0, int senderUserId = 0, string invoicePayload = default, Address shippingAddress = default)
+        public UpdateNewShippingQuery(long id = default, int senderUserId = default, string invoicePayload = default, Address shippingAddress = default)
         {
             this.Id = id;
             this.SenderUserId = senderUserId;
@@ -11215,7 +12347,7 @@ namespace TDLib.Api
         /// <param name="invoicePayload">Invoice payload</param>
         /// <param name="shippingOptionId">Identifier of a shipping option chosen by the user; may be empty if not applicable</param>
         /// <param name="orderInfo">Information about the order; may be null</param>
-        public UpdateNewPreCheckoutQuery(long id = 0, int senderUserId = 0, string currency = default, long totalAmount = 0, byte[] invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default)
+        public UpdateNewPreCheckoutQuery(long id = default, int senderUserId = default, string currency = default, long totalAmount = default, byte[] invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default)
         {
             this.Id = id;
             this.SenderUserId = senderUserId;
@@ -11255,7 +12387,7 @@ namespace TDLib.Api
         /// <param name="id">The query identifier</param>
         /// <param name="data">JSON-serialized query data</param>
         /// <param name="timeout">Query timeout</param>
-        public UpdateNewCustomQuery(long id = 0, string data = default, int timeout = 0)
+        public UpdateNewCustomQuery(long id = default, string data = default, int timeout = default)
         {
             this.Id = id;
             this.Data = data;
@@ -11266,16 +12398,36 @@ namespace TDLib.Api
     public partial class UpdatePoll
     {
         /// <summary>
-        /// Information about a poll was updated; for bots only
+        /// A poll was updated; for bots only
         /// </summary>
         public UpdatePoll() { }
         /// <summary>
-        /// Information about a poll was updated; for bots only
+        /// A poll was updated; for bots only
         /// </summary>
         /// <param name="poll">New data about the poll</param>
         public UpdatePoll(Poll poll = default)
         {
             this.Poll = poll;
+        }
+    }
+
+    public partial class UpdatePollAnswer
+    {
+        /// <summary>
+        /// A user changed the answer to a poll; for bots only
+        /// </summary>
+        public UpdatePollAnswer() { }
+        /// <summary>
+        /// A user changed the answer to a poll; for bots only
+        /// </summary>
+        /// <param name="pollId">Unique poll identifier</param>
+        /// <param name="userId">The user, who changed the answer to the poll</param>
+        /// <param name="optionIds">0-based identifiers of answer options, chosen by the user</param>
+        public UpdatePollAnswer(long pollId = default, int userId = default, int[] optionIds = default)
+        {
+            this.PollId = pollId;
+            this.UserId = userId;
+            this.OptionIds = optionIds;
         }
     }
 
@@ -11313,8 +12465,8 @@ namespace TDLib.Api
         /// The log is written to a file
         /// </summary>
         /// <param name="path">Path to the file to where the internal TDLib log will be written</param>
-        /// <param name="maxFileSize">Maximum size of the file to where the internal TDLib log is written before the file will be auto-rotated</param>
-        public LogStreamFile(string path = default, long maxFileSize = 0)
+        /// <param name="maxFileSize">The maximum size of the file to where the internal TDLib log is written before the file will be auto-rotated</param>
+        public LogStreamFile(string path = default, long maxFileSize = default)
         {
             this.Path = path;
             this.MaxFileSize = maxFileSize;
@@ -11339,7 +12491,7 @@ namespace TDLib.Api
         /// Contains a TDLib internal log verbosity level
         /// </summary>
         /// <param name="verbosityLevel">Log verbosity level</param>
-        public LogVerbosityLevel(int verbosityLevel = 0)
+        public LogVerbosityLevel(int verbosityLevel = default)
         {
             this.VerbosityLevel = verbosityLevel;
         }
@@ -11371,7 +12523,7 @@ namespace TDLib.Api
         /// A simple object containing a number; for testing only
         /// </summary>
         /// <param name="value">Number</param>
-        public TestInt(int value = 0)
+        public TestInt(int value = default)
         {
             this.Value = value;
         }
@@ -11516,20 +12668,18 @@ namespace TDLib.Api
     public partial class SetAuthenticationPhoneNumber
     {
         /// <summary>
-        /// Sets the phone number of the user and sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitPhoneNumber
+        /// Sets the phone number of the user and sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitPhoneNumber, -or if there is no pending authentication query and the current authorization state is authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
         /// </summary>
         public SetAuthenticationPhoneNumber() { }
         /// <summary>
-        /// Sets the phone number of the user and sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitPhoneNumber
+        /// Sets the phone number of the user and sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitPhoneNumber, -or if there is no pending authentication query and the current authorization state is authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
         /// </summary>
         /// <param name="phoneNumber">The phone number of the user, in international format</param>
-        /// <param name="allowFlashCall">Pass true if the authentication code may be sent via flash call to the specified phone number</param>
-        /// <param name="isCurrentPhoneNumber">Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false</param>
-        public SetAuthenticationPhoneNumber(string phoneNumber = default, bool allowFlashCall = false, bool isCurrentPhoneNumber = false)
+        /// <param name="settings">Settings for the authentication of the user's phone number</param>
+        public SetAuthenticationPhoneNumber(string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
         {
             this.PhoneNumber = phoneNumber;
-            this.AllowFlashCall = allowFlashCall;
-            this.IsCurrentPhoneNumber = isCurrentPhoneNumber;
+            this.Settings = settings;
         }
     }
 
@@ -11551,11 +12701,41 @@ namespace TDLib.Api
         /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
         /// </summary>
         /// <param name="code">The verification code received via SMS, Telegram message, phone call, or flash call</param>
-        /// <param name="firstName">If the user is not yet registered, the first name of the user; 1-64 characters. You can also pass an empty string for unregistered user there to check verification code validness. In the latter case PHONE_NUMBER_UNOCCUPIED error will be returned for a valid code</param>
-        /// <param name="lastName">If the user is not yet registered; the last name of the user; optional; 0-64 characters</param>
-        public CheckAuthenticationCode(string code = default, string firstName = default, string lastName = default)
+        public CheckAuthenticationCode(string code = default)
         {
             this.Code = code;
+        }
+    }
+
+    public partial class RequestQrCodeAuthentication
+    {
+        /// <summary>
+        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber
+        /// </summary>
+        public RequestQrCodeAuthentication() { }
+        /// <summary>
+        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber
+        /// </summary>
+        /// <param name="otherUserIds">List of user identifiers of other users currently using the client</param>
+        public RequestQrCodeAuthentication(int[] otherUserIds = default)
+        {
+            this.OtherUserIds = otherUserIds;
+        }
+    }
+
+    public partial class RegisterUser
+    {
+        /// <summary>
+        /// Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
+        /// </summary>
+        public RegisterUser() { }
+        /// <summary>
+        /// Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
+        /// </summary>
+        /// <param name="firstName">The first name of the user; 1-64 characters</param>
+        /// <param name="lastName">The last name of the user; 0-64 characters</param>
+        public RegisterUser(string firstName = default, string lastName = default)
+        {
             this.FirstName = firstName;
             this.LastName = lastName;
         }
@@ -11641,10 +12821,26 @@ namespace TDLib.Api
         public Destroy() { }
     }
 
+    public partial class ConfirmQrCodeAuthentication
+    {
+        /// <summary>
+        /// Confirms QR code authentication on another device. Returns created session on success
+        /// </summary>
+        public ConfirmQrCodeAuthentication() { }
+        /// <summary>
+        /// Confirms QR code authentication on another device. Returns created session on success
+        /// </summary>
+        /// <param name="link">A link from a QR code. The link must be scanned by the in-app camera</param>
+        public ConfirmQrCodeAuthentication(string link = default)
+        {
+            this.Link = link;
+        }
+    }
+
     public partial class GetCurrentState
     {
         /// <summary>
-        /// Returns all updates needed to restore current TDLib state, i.e. all actual UpdateAuthorizationState/UpdateUser/UpdateNewChat and others. This is especially usefull if TDLib is run in a separate process. This is an offline method. Can be called before authorization
+        /// Returns all updates needed to restore current TDLib state, i.e. all actual UpdateAuthorizationState/UpdateUser/UpdateNewChat and others. This is especially useful if TDLib is run in a separate process. This is an offline method. Can be called before authorization
         /// </summary>
         public GetCurrentState() { }
     }
@@ -11687,7 +12883,7 @@ namespace TDLib.Api
         /// <param name="newHint">New password hint; may be empty</param>
         /// <param name="setRecoveryEmailAddress">Pass true if the recovery email address should be changed</param>
         /// <param name="newRecoveryEmailAddress">New recovery email address; may be empty</param>
-        public SetPassword(string oldPassword = default, string newPassword = default, string newHint = default, bool setRecoveryEmailAddress = false, string newRecoveryEmailAddress = default)
+        public SetPassword(string oldPassword = default, string newPassword = default, string newHint = default, bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default)
         {
             this.OldPassword = oldPassword;
             this.NewPassword = newPassword;
@@ -11716,11 +12912,11 @@ namespace TDLib.Api
     public partial class SetRecoveryEmailAddress
     {
         /// <summary>
-        /// Changes the 2-step verification recovery email address of the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed -If new_recovery_email_address is the same as the email address that is currently set up, this call succeeds immediately and aborts all other requests waiting for an email confirmation
+        /// Changes the 2-step verification recovery email address of the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed. -If new_recovery_email_address is the same as the email address that is currently set up, this call succeeds immediately and aborts all other requests waiting for an email confirmation
         /// </summary>
         public SetRecoveryEmailAddress() { }
         /// <summary>
-        /// Changes the 2-step verification recovery email address of the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed -If new_recovery_email_address is the same as the email address that is currently set up, this call succeeds immediately and aborts all other requests waiting for an email confirmation
+        /// Changes the 2-step verification recovery email address of the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed. -If new_recovery_email_address is the same as the email address that is currently set up, this call succeeds immediately and aborts all other requests waiting for an email confirmation
         /// </summary>
         /// <param name="password">Password of the current user</param>
         /// <param name="newRecoveryEmailAddress">New recovery email address</param>
@@ -11790,7 +12986,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="password">Persistent user password</param>
         /// <param name="validFor">Time during which the temporary password will be valid, in seconds; should be between 60 and 86400</param>
-        public CreateTemporaryPassword(string password = default, int validFor = 0)
+        public CreateTemporaryPassword(string password = default, int validFor = default)
         {
             this.Password = password;
             this.ValidFor = validFor;
@@ -11823,7 +13019,7 @@ namespace TDLib.Api
         /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot
         /// </summary>
         /// <param name="userId">User identifier</param>
-        public GetUser(int userId = 0)
+        public GetUser(int userId = default)
         {
             this.UserId = userId;
         }
@@ -11839,7 +13035,7 @@ namespace TDLib.Api
         /// Returns full information about a user by their identifier
         /// </summary>
         /// <param name="userId">User identifier</param>
-        public GetUserFullInfo(int userId = 0)
+        public GetUserFullInfo(int userId = default)
         {
             this.UserId = userId;
         }
@@ -11855,7 +13051,7 @@ namespace TDLib.Api
         /// Returns information about a basic group by its identifier. This is an offline request if the current user is not a bot
         /// </summary>
         /// <param name="basicGroupId">Basic group identifier</param>
-        public GetBasicGroup(int basicGroupId = 0)
+        public GetBasicGroup(int basicGroupId = default)
         {
             this.BasicGroupId = basicGroupId;
         }
@@ -11871,7 +13067,7 @@ namespace TDLib.Api
         /// Returns full information about a basic group by its identifier
         /// </summary>
         /// <param name="basicGroupId">Basic group identifier</param>
-        public GetBasicGroupFullInfo(int basicGroupId = 0)
+        public GetBasicGroupFullInfo(int basicGroupId = default)
         {
             this.BasicGroupId = basicGroupId;
         }
@@ -11880,14 +13076,14 @@ namespace TDLib.Api
     public partial class GetSupergroup
     {
         /// <summary>
-        /// Returns information about a supergroup or channel by its identifier. This is an offline request if the current user is not a bot
+        /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot
         /// </summary>
         public GetSupergroup() { }
         /// <summary>
-        /// Returns information about a supergroup or channel by its identifier. This is an offline request if the current user is not a bot
+        /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot
         /// </summary>
         /// <param name="supergroupId">Supergroup or channel identifier</param>
-        public GetSupergroup(int supergroupId = 0)
+        public GetSupergroup(int supergroupId = default)
         {
             this.SupergroupId = supergroupId;
         }
@@ -11896,14 +13092,14 @@ namespace TDLib.Api
     public partial class GetSupergroupFullInfo
     {
         /// <summary>
-        /// Returns full information about a supergroup or channel by its identifier, cached for up to 1 minute
+        /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
         /// </summary>
         public GetSupergroupFullInfo() { }
         /// <summary>
-        /// Returns full information about a supergroup or channel by its identifier, cached for up to 1 minute
+        /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
         /// </summary>
         /// <param name="supergroupId">Supergroup or channel identifier</param>
-        public GetSupergroupFullInfo(int supergroupId = 0)
+        public GetSupergroupFullInfo(int supergroupId = default)
         {
             this.SupergroupId = supergroupId;
         }
@@ -11919,7 +13115,7 @@ namespace TDLib.Api
         /// Returns information about a secret chat by its identifier. This is an offline request
         /// </summary>
         /// <param name="secretChatId">Secret chat identifier</param>
-        public GetSecretChat(int secretChatId = 0)
+        public GetSecretChat(int secretChatId = default)
         {
             this.SecretChatId = secretChatId;
         }
@@ -11935,7 +13131,7 @@ namespace TDLib.Api
         /// Returns information about a chat by its identifier, this is an offline request if the current user is not a bot
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public GetChat(long chatId = 0)
+        public GetChat(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -11952,7 +13148,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
         /// <param name="messageId">Identifier of the message to get</param>
-        public GetMessage(long chatId = 0, long messageId = 0)
+        public GetMessage(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -11970,7 +13166,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
         /// <param name="messageId">Identifier of the message to get</param>
-        public GetMessageLocally(long chatId = 0, long messageId = 0)
+        public GetMessageLocally(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -11988,7 +13184,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
         /// <param name="messageId">Identifier of the message reply to which get</param>
-        public GetRepliedMessage(long chatId = 0, long messageId = 0)
+        public GetRepliedMessage(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -12005,7 +13201,7 @@ namespace TDLib.Api
         /// Returns information about a pinned chat message
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
-        public GetChatPinnedMessage(long chatId = 0)
+        public GetChatPinnedMessage(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -12022,7 +13218,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat the messages belong to</param>
         /// <param name="messageIds">Identifiers of the messages to get</param>
-        public GetMessages(long chatId = 0, long[] messageIds = default)
+        public GetMessages(long chatId = default, long[] messageIds = default)
         {
             this.ChatId = chatId;
             this.MessageIds = messageIds;
@@ -12039,7 +13235,7 @@ namespace TDLib.Api
         /// Returns information about a file; this is an offline request
         /// </summary>
         /// <param name="fileId">Identifier of the file to get</param>
-        public GetFile(int fileId = 0)
+        public GetFile(int fileId = default)
         {
             this.FileId = fileId;
         }
@@ -12048,11 +13244,11 @@ namespace TDLib.Api
     public partial class GetRemoteFile
     {
         /// <summary>
-        /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message
+        /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the client
         /// </summary>
         public GetRemoteFile() { }
         /// <summary>
-        /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message
+        /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the client
         /// </summary>
         /// <param name="remoteFileId">Remote identifier of the file to get</param>
         /// <param name="fileType">File type, if known</param>
@@ -12066,17 +13262,19 @@ namespace TDLib.Api
     public partial class GetChats
     {
         /// <summary>
-        /// Returns an ordered list of chats. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library.
+        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library
         /// </summary>
         public GetChats() { }
         /// <summary>
-        /// Returns an ordered list of chats. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library.
+        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library
         /// </summary>
+        /// <param name="chatList">The chat list in which to return chats</param>
         /// <param name="offsetOrder">Chat order to return chats from</param>
         /// <param name="offsetChatId">Chat identifier to return chats from</param>
         /// <param name="limit">The maximum number of chats to be returned. It is possible that fewer chats than the limit are returned even if the end of the list is not reached</param>
-        public GetChats(long offsetOrder = 0, long offsetChatId = 0, int limit = 0)
+        public GetChats(ChatList chatList = default, long offsetOrder = default, long offsetChatId = default, int limit = default)
         {
+            this.ChatList = chatList;
             this.OffsetOrder = offsetOrder;
             this.OffsetChatId = offsetChatId;
             this.Limit = limit;
@@ -12125,8 +13323,8 @@ namespace TDLib.Api
         /// Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the chat list
         /// </summary>
         /// <param name="query">Query to search for. If the query is empty, returns up to 20 recently found chats</param>
-        /// <param name="limit">Maximum number of chats to be returned</param>
-        public SearchChats(string query = default, int limit = 0)
+        /// <param name="limit">The maximum number of chats to be returned</param>
+        public SearchChats(string query = default, int limit = default)
         {
             this.Query = query;
             this.Limit = limit;
@@ -12143,11 +13341,27 @@ namespace TDLib.Api
         /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the chat list
         /// </summary>
         /// <param name="query">Query to search for</param>
-        /// <param name="limit">Maximum number of chats to be returned</param>
-        public SearchChatsOnServer(string query = default, int limit = 0)
+        /// <param name="limit">The maximum number of chats to be returned</param>
+        public SearchChatsOnServer(string query = default, int limit = default)
         {
             this.Query = query;
             this.Limit = limit;
+        }
+    }
+
+    public partial class SearchChatsNearby
+    {
+        /// <summary>
+        /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats
+        /// </summary>
+        public SearchChatsNearby() { }
+        /// <summary>
+        /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats
+        /// </summary>
+        /// <param name="location">Current user location</param>
+        public SearchChatsNearby(Location location = default)
+        {
+            this.Location = location;
         }
     }
 
@@ -12161,8 +13375,8 @@ namespace TDLib.Api
         /// Returns a list of frequently used chats. Supported only if the chat info database is enabled
         /// </summary>
         /// <param name="category">Category of chats to be returned</param>
-        /// <param name="limit">Maximum number of chats to be returned; up to 30</param>
-        public GetTopChats(TopChatCategory category = default, int limit = 0)
+        /// <param name="limit">The maximum number of chats to be returned; up to 30</param>
+        public GetTopChats(TopChatCategory category = default, int limit = default)
         {
             this.Category = category;
             this.Limit = limit;
@@ -12180,7 +13394,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="category">Category of frequently used chats</param>
         /// <param name="chatId">Chat identifier</param>
-        public RemoveTopChat(TopChatCategory category = default, long chatId = 0)
+        public RemoveTopChat(TopChatCategory category = default, long chatId = default)
         {
             this.Category = category;
             this.ChatId = chatId;
@@ -12197,7 +13411,7 @@ namespace TDLib.Api
         /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first
         /// </summary>
         /// <param name="chatId">Identifier of the chat to add</param>
-        public AddRecentlyFoundChat(long chatId = 0)
+        public AddRecentlyFoundChat(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -12213,7 +13427,7 @@ namespace TDLib.Api
         /// Removes a chat from the list of recently found chats
         /// </summary>
         /// <param name="chatId">Identifier of the chat to be removed</param>
-        public RemoveRecentlyFoundChat(long chatId = 0)
+        public RemoveRecentlyFoundChat(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -12238,7 +13452,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier; should be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if chat is being created</param>
         /// <param name="username">Username to be checked</param>
-        public CheckChatUsername(long chatId = 0, string username = default)
+        public CheckChatUsername(long chatId = default, string username = default)
         {
             this.ChatId = chatId;
             this.Username = username;
@@ -12248,9 +13462,49 @@ namespace TDLib.Api
     public partial class GetCreatedPublicChats
     {
         /// <summary>
-        /// Returns a list of public chats created by the user
+        /// Returns a list of public chats of the specified type, owned by the user
         /// </summary>
         public GetCreatedPublicChats() { }
+        /// <summary>
+        /// Returns a list of public chats of the specified type, owned by the user
+        /// </summary>
+        /// <param name="type">Type of the public chats to return</param>
+        public GetCreatedPublicChats(PublicChatType type = default)
+        {
+            this.Type = type;
+        }
+    }
+
+    public partial class CheckCreatedPublicChatsLimit
+    {
+        /// <summary>
+        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached
+        /// </summary>
+        public CheckCreatedPublicChatsLimit() { }
+        /// <summary>
+        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached
+        /// </summary>
+        /// <param name="type">Type of the public chats, for which to check the limit</param>
+        public CheckCreatedPublicChatsLimit(PublicChatType type = default)
+        {
+            this.Type = type;
+        }
+    }
+
+    public partial class GetSuitableDiscussionChats
+    {
+        /// <summary>
+        /// Returns a list of basic group and supergroup chats, which can be used as a discussion group for a channel. Basic group chats need to be first upgraded to supergroups before they can be set as a discussion group
+        /// </summary>
+        public GetSuitableDiscussionChats() { }
+    }
+
+    public partial class GetInactiveSupergroupChats
+    {
+        /// <summary>
+        /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels and receives CHANNELS_TOO_MUCH error
+        /// </summary>
+        public GetInactiveSupergroupChats() { }
     }
 
     public partial class GetGroupsInCommon
@@ -12264,8 +13518,8 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">User identifier</param>
         /// <param name="offsetChatId">Chat identifier starting from which to return chats; use 0 for the first request</param>
-        /// <param name="limit">Maximum number of chats to be returned; up to 100</param>
-        public GetGroupsInCommon(int userId = 0, long offsetChatId = 0, int limit = 0)
+        /// <param name="limit">The maximum number of chats to be returned; up to 100</param>
+        public GetGroupsInCommon(int userId = default, long offsetChatId = default, int limit = default)
         {
             this.UserId = userId;
             this.OffsetChatId = offsetChatId;
@@ -12287,7 +13541,7 @@ namespace TDLib.Api
         /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset up to 99 to get additionally some newer messages</param>
         /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="onlyLocal">If true, returns only messages that are available locally without sending network requests</param>
-        public GetChatHistory(long chatId = 0, long fromMessageId = 0, int offset = 0, int limit = 0, bool onlyLocal = false)
+        public GetChatHistory(long chatId = default, long fromMessageId = default, int offset = default, int limit = default, bool onlyLocal = default)
         {
             this.ChatId = chatId;
             this.FromMessageId = fromMessageId;
@@ -12309,7 +13563,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="removeFromChatList">Pass true if the chat should be removed from the chat list</param>
         /// <param name="revoke">Pass true to try to delete chat history for all users</param>
-        public DeleteChatHistory(long chatId = 0, bool removeFromChatList = false, bool revoke = false)
+        public DeleteChatHistory(long chatId = default, bool removeFromChatList = default, bool revoke = default)
         {
             this.ChatId = chatId;
             this.RemoveFromChatList = removeFromChatList;
@@ -12333,7 +13587,7 @@ namespace TDLib.Api
         /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages</param>
         /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="filter">Filter for message content in the search results</param>
-        public SearchChatMessages(long chatId = 0, string query = default, int senderUserId = 0, long fromMessageId = 0, int offset = 0, int limit = 0, SearchMessagesFilter filter = default)
+        public SearchChatMessages(long chatId = default, string query = default, int senderUserId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default)
         {
             this.ChatId = chatId;
             this.Query = query;
@@ -12354,13 +13608,15 @@ namespace TDLib.Api
         /// <summary>
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)). -For optimal performance the number of returned messages is chosen by the library
         /// </summary>
+        /// <param name="chatList">Chat list in which to search messages; pass null to search in all chats regardless of their chat list</param>
         /// <param name="query">Query to search for</param>
         /// <param name="offsetDate">The date of the message starting from which the results should be fetched. Use 0 or any date in the future to get results from the last message</param>
         /// <param name="offsetChatId">The chat identifier of the last found message, or 0 for the first request</param>
         /// <param name="offsetMessageId">The message identifier of the last found message, or 0 for the first request</param>
         /// <param name="limit">The maximum number of messages to be returned, up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
-        public SearchMessages(string query = default, int offsetDate = 0, long offsetChatId = 0, long offsetMessageId = 0, int limit = 0)
+        public SearchMessages(ChatList chatList = default, string query = default, int offsetDate = default, long offsetChatId = default, long offsetMessageId = default, int limit = default)
         {
+            this.ChatList = chatList;
             this.Query = query;
             this.OffsetDate = offsetDate;
             this.OffsetChatId = offsetChatId;
@@ -12381,9 +13637,9 @@ namespace TDLib.Api
         /// <param name="chatId">Identifier of the chat in which to search. Specify 0 to search in all secret chats</param>
         /// <param name="query">Query to search for. If empty, searchChatMessages should be used instead</param>
         /// <param name="fromSearchId">The identifier from the result of a previous request, use 0 to get results from the last message</param>
-        /// <param name="limit">Maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
+        /// <param name="limit">The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="filter">A filter for the content of messages in the search results</param>
-        public SearchSecretMessages(long chatId = 0, string query = default, long fromSearchId = 0, int limit = 0, SearchMessagesFilter filter = default)
+        public SearchSecretMessages(long chatId = default, string query = default, long fromSearchId = default, int limit = default, SearchMessagesFilter filter = default)
         {
             this.ChatId = chatId;
             this.Query = query;
@@ -12405,7 +13661,7 @@ namespace TDLib.Api
         /// <param name="fromMessageId">Identifier of the message from which to search; use 0 to get results from the last message</param>
         /// <param name="limit">The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="onlyMissed">If true, returns only messages with missed calls</param>
-        public SearchCallMessages(long fromMessageId = 0, int limit = 0, bool onlyMissed = false)
+        public SearchCallMessages(long fromMessageId = default, int limit = default, bool onlyMissed = default)
         {
             this.FromMessageId = fromMessageId;
             this.Limit = limit;
@@ -12423,8 +13679,8 @@ namespace TDLib.Api
         /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="limit">Maximum number of messages to be returned</param>
-        public SearchChatRecentLocationMessages(long chatId = 0, int limit = 0)
+        /// <param name="limit">The maximum number of messages to be returned</param>
+        public SearchChatRecentLocationMessages(long chatId = default, int limit = default)
         {
             this.ChatId = chatId;
             this.Limit = limit;
@@ -12450,7 +13706,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="date">Point in time (Unix timestamp) relative to which to search for messages</param>
-        public GetChatMessageByDate(long chatId = 0, int date = 0)
+        public GetChatMessageByDate(long chatId = default, int date = default)
         {
             this.ChatId = chatId;
             this.Date = date;
@@ -12469,11 +13725,27 @@ namespace TDLib.Api
         /// <param name="chatId">Identifier of the chat in which to count messages</param>
         /// <param name="filter">Filter for message content; searchMessagesFilterEmpty is unsupported in this function</param>
         /// <param name="returnLocal">If true, returns count that is available locally without sending network requests, returning -1 if the number of messages is unknown</param>
-        public GetChatMessageCount(long chatId = 0, SearchMessagesFilter filter = default, bool returnLocal = false)
+        public GetChatMessageCount(long chatId = default, SearchMessagesFilter filter = default, bool returnLocal = default)
         {
             this.ChatId = chatId;
             this.Filter = filter;
             this.ReturnLocal = returnLocal;
+        }
+    }
+
+    public partial class GetChatScheduledMessages
+    {
+        /// <summary>
+        /// Returns all scheduled messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
+        /// </summary>
+        public GetChatScheduledMessages() { }
+        /// <summary>
+        /// Returns all scheduled messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        public GetChatScheduledMessages(long chatId = default)
+        {
+            this.ChatId = chatId;
         }
     }
 
@@ -12488,7 +13760,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="notificationGroupId">Identifier of notification group to which the notification belongs</param>
         /// <param name="notificationId">Identifier of removed notification</param>
-        public RemoveNotification(int notificationGroupId = 0, int notificationId = 0)
+        public RemoveNotification(int notificationGroupId = default, int notificationId = default)
         {
             this.NotificationGroupId = notificationGroupId;
             this.NotificationId = notificationId;
@@ -12505,8 +13777,8 @@ namespace TDLib.Api
         /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user
         /// </summary>
         /// <param name="notificationGroupId">Notification group identifier</param>
-        /// <param name="maxNotificationId">Maximum identifier of removed notifications</param>
-        public RemoveNotificationGroup(int notificationGroupId = 0, int maxNotificationId = 0)
+        /// <param name="maxNotificationId">The maximum identifier of removed notifications</param>
+        public RemoveNotificationGroup(int notificationGroupId = default, int maxNotificationId = default)
         {
             this.NotificationGroupId = notificationGroupId;
             this.MaxNotificationId = maxNotificationId;
@@ -12516,16 +13788,16 @@ namespace TDLib.Api
     public partial class GetPublicMessageLink
     {
         /// <summary>
-        /// Returns a public HTTPS link to a message. Available only for messages in public supergroups and channels
+        /// Returns a public HTTPS link to a message. Available only for messages in supergroups and channels with a username
         /// </summary>
         public GetPublicMessageLink() { }
         /// <summary>
-        /// Returns a public HTTPS link to a message. Available only for messages in public supergroups and channels
+        /// Returns a public HTTPS link to a message. Available only for messages in supergroups and channels with a username
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which the message belongs</param>
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="forAlbum">Pass true if a link for a whole media album should be returned</param>
-        public GetPublicMessageLink(long chatId = 0, long messageId = 0, bool forAlbum = false)
+        public GetPublicMessageLink(long chatId = default, long messageId = default, bool forAlbum = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -12544,10 +13816,26 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which the message belongs</param>
         /// <param name="messageId">Identifier of the message</param>
-        public GetMessageLink(long chatId = 0, long messageId = 0)
+        public GetMessageLink(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
+        }
+    }
+
+    public partial class GetMessageLinkInfo
+    {
+        /// <summary>
+        /// Returns information about a public or private message link
+        /// </summary>
+        public GetMessageLinkInfo() { }
+        /// <summary>
+        /// Returns information about a public or private message link
+        /// </summary>
+        /// <param name="url">The message link in the format "https://t.me/c/...", or "tg://privatepost?...", or "https://t.me/username/...", or "tg://resolve?..."</param>
+        public GetMessageLinkInfo(string url = default)
+        {
+            this.Url = url;
         }
     }
 
@@ -12562,16 +13850,14 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Target chat</param>
         /// <param name="replyToMessageId">Identifier of the message to reply to or 0</param>
-        /// <param name="disableNotification">Pass true to disable notification for the message. Not supported in secret chats</param>
-        /// <param name="fromBackground">Pass true if the message is sent from the background</param>
+        /// <param name="options">Options to be used to send the message</param>
         /// <param name="replyMarkup">Markup for replying to the message; for bots only</param>
         /// <param name="inputMessageContent">The content of the message to be sent</param>
-        public SendMessage(long chatId = 0, long replyToMessageId = 0, bool disableNotification = false, bool fromBackground = false, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public SendMessage(long chatId = default, long replyToMessageId = default, SendMessageOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.ChatId = chatId;
             this.ReplyToMessageId = replyToMessageId;
-            this.DisableNotification = disableNotification;
-            this.FromBackground = fromBackground;
+            this.Options = options;
             this.ReplyMarkup = replyMarkup;
             this.InputMessageContent = inputMessageContent;
         }
@@ -12588,15 +13874,13 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Target chat</param>
         /// <param name="replyToMessageId">Identifier of a message to reply to or 0</param>
-        /// <param name="disableNotification">Pass true to disable notification for the messages. Not supported in secret chats</param>
-        /// <param name="fromBackground">Pass true if the messages are sent from the background</param>
+        /// <param name="options">Options to be used to send the messages</param>
         /// <param name="inputMessageContents">Contents of messages to be sent</param>
-        public SendMessageAlbum(long chatId = 0, long replyToMessageId = 0, bool disableNotification = false, bool fromBackground = false, InputMessageContent[] inputMessageContents = default)
+        public SendMessageAlbum(long chatId = default, long replyToMessageId = default, SendMessageOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             this.ChatId = chatId;
             this.ReplyToMessageId = replyToMessageId;
-            this.DisableNotification = disableNotification;
-            this.FromBackground = fromBackground;
+            this.Options = options;
             this.InputMessageContents = inputMessageContents;
         }
     }
@@ -12612,8 +13896,8 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="botUserId">Identifier of the bot</param>
         /// <param name="chatId">Identifier of the target chat</param>
-        /// <param name="parameter">A hidden parameter sent to the bot for deep linking purposes (https://api.telegram.org/bots#deep-linking)</param>
-        public SendBotStartMessage(int botUserId = 0, long chatId = 0, string parameter = default)
+        /// <param name="parameter">A hidden parameter sent to the bot for deep linking purposes (https://core.telegram.org/bots#deep-linking)</param>
+        public SendBotStartMessage(int botUserId = default, long chatId = default, string parameter = default)
         {
             this.BotUserId = botUserId;
             this.ChatId = chatId;
@@ -12632,17 +13916,15 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Target chat</param>
         /// <param name="replyToMessageId">Identifier of a message to reply to or 0</param>
-        /// <param name="disableNotification">Pass true to disable notification for the message. Not supported in secret chats</param>
-        /// <param name="fromBackground">Pass true if the message is sent from background</param>
+        /// <param name="options">Options to be used to send the message</param>
         /// <param name="queryId">Identifier of the inline query</param>
         /// <param name="resultId">Identifier of the inline result</param>
         /// <param name="hideViaBot">If true, there will be no mention of a bot, via which the message is sent. Can be used only for bots GetOption("animation_search_bot_username"), GetOption("photo_search_bot_username") and GetOption("venue_search_bot_username")</param>
-        public SendInlineQueryResultMessage(long chatId = 0, long replyToMessageId = 0, bool disableNotification = false, bool fromBackground = false, long queryId = 0, string resultId = default, bool hideViaBot = false)
+        public SendInlineQueryResultMessage(long chatId = default, long replyToMessageId = default, SendMessageOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default)
         {
             this.ChatId = chatId;
             this.ReplyToMessageId = replyToMessageId;
-            this.DisableNotification = disableNotification;
-            this.FromBackground = fromBackground;
+            this.Options = options;
             this.QueryId = queryId;
             this.ResultId = resultId;
             this.HideViaBot = hideViaBot;
@@ -12661,17 +13943,37 @@ namespace TDLib.Api
         /// <param name="chatId">Identifier of the chat to which to forward messages</param>
         /// <param name="fromChatId">Identifier of the chat from which to forward messages</param>
         /// <param name="messageIds">Identifiers of the messages to forward</param>
-        /// <param name="disableNotification">Pass true to disable notification for the message, doesn't work if messages are forwarded to a secret chat</param>
-        /// <param name="fromBackground">Pass true if the message is sent from the background</param>
+        /// <param name="options">Options to be used to send the messages</param>
         /// <param name="asAlbum">True, if the messages should be grouped into an album after forwarding. For this to work, no more than 10 messages may be forwarded, and all of them must be photo or video messages</param>
-        public ForwardMessages(long chatId = 0, long fromChatId = 0, long[] messageIds = default, bool disableNotification = false, bool fromBackground = false, bool asAlbum = false)
+        /// <param name="sendCopy">True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat</param>
+        /// <param name="removeCaption">True, if media captions of message copies needs to be removed. Ignored if send_copy is false</param>
+        public ForwardMessages(long chatId = default, long fromChatId = default, long[] messageIds = default, SendMessageOptions options = default, bool asAlbum = default, bool sendCopy = default, bool removeCaption = default)
         {
             this.ChatId = chatId;
             this.FromChatId = fromChatId;
             this.MessageIds = messageIds;
-            this.DisableNotification = disableNotification;
-            this.FromBackground = fromBackground;
+            this.Options = options;
             this.AsAlbum = asAlbum;
+            this.SendCopy = sendCopy;
+            this.RemoveCaption = removeCaption;
+        }
+    }
+
+    public partial class ResendMessages
+    {
+        /// <summary>
+        /// Resends messages which failed to send. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed. -If a message is re-sent, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-sent, null will be returned instead of the message
+        /// </summary>
+        public ResendMessages() { }
+        /// <summary>
+        /// Resends messages which failed to send. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed. -If a message is re-sent, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-sent, null will be returned instead of the message
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat to send messages</param>
+        /// <param name="messageIds">Identifiers of the messages to resend. Message identifiers must be in a strictly increasing order</param>
+        public ResendMessages(long chatId = default, long[] messageIds = default)
+        {
+            this.ChatId = chatId;
+            this.MessageIds = messageIds;
         }
     }
 
@@ -12686,7 +13988,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="ttl">New TTL value, in seconds</param>
-        public SendChatSetTtlMessage(long chatId = 0, int ttl = 0)
+        public SendChatSetTtlMessage(long chatId = default, int ttl = default)
         {
             this.ChatId = chatId;
             this.Ttl = ttl;
@@ -12703,7 +14005,7 @@ namespace TDLib.Api
         /// Sends a notification about a screenshot taken in a chat. Supported only in private and secret chats
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public SendChatScreenshotTakenNotification(long chatId = 0)
+        public SendChatScreenshotTakenNotification(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -12723,7 +14025,7 @@ namespace TDLib.Api
         /// <param name="replyToMessageId">Identifier of the message to reply to or 0</param>
         /// <param name="disableNotification">Pass true to disable notification for the message</param>
         /// <param name="inputMessageContent">The content of the message to be added</param>
-        public AddLocalMessage(long chatId = 0, int senderUserId = 0, long replyToMessageId = 0, bool disableNotification = false, InputMessageContent inputMessageContent = default)
+        public AddLocalMessage(long chatId = default, int senderUserId = default, long replyToMessageId = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
         {
             this.ChatId = chatId;
             this.SenderUserId = senderUserId;
@@ -12745,7 +14047,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageIds">Identifiers of the messages to be deleted</param>
         /// <param name="revoke">Pass true to try to delete messages for all chat members. Always true for supergroups, channels and secret chats</param>
-        public DeleteMessages(long chatId = 0, long[] messageIds = default, bool revoke = false)
+        public DeleteMessages(long chatId = default, long[] messageIds = default, bool revoke = default)
         {
             this.ChatId = chatId;
             this.MessageIds = messageIds;
@@ -12756,15 +14058,15 @@ namespace TDLib.Api
     public partial class DeleteChatMessagesFromUser
     {
         /// <summary>
-        /// Deletes all messages sent by the specified user to a chat. Supported only in supergroups; requires can_delete_messages administrator privileges
+        /// Deletes all messages sent by the specified user to a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
         /// </summary>
         public DeleteChatMessagesFromUser() { }
         /// <summary>
-        /// Deletes all messages sent by the specified user to a chat. Supported only in supergroups; requires can_delete_messages administrator privileges
+        /// Deletes all messages sent by the specified user to a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userId">User identifier</param>
-        public DeleteChatMessagesFromUser(long chatId = 0, int userId = 0)
+        public DeleteChatMessagesFromUser(long chatId = default, int userId = default)
         {
             this.ChatId = chatId;
             this.UserId = userId;
@@ -12784,7 +14086,7 @@ namespace TDLib.Api
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
         /// <param name="inputMessageContent">New text content of the message. Should be of type InputMessageText</param>
-        public EditMessageText(long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public EditMessageText(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -12806,7 +14108,7 @@ namespace TDLib.Api
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
         /// <param name="location">New location content of the message; may be null. Pass null to stop sharing the live location</param>
-        public EditMessageLiveLocation(long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, Location location = default)
+        public EditMessageLiveLocation(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -12828,7 +14130,7 @@ namespace TDLib.Api
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
         /// <param name="inputMessageContent">New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo</param>
-        public EditMessageMedia(long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public EditMessageMedia(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -12850,7 +14152,7 @@ namespace TDLib.Api
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
         /// <param name="caption">New message content caption; 0-GetOption("message_caption_length_max") characters</param>
-        public EditMessageCaption(long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, FormattedText caption = default)
+        public EditMessageCaption(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -12871,7 +14173,7 @@ namespace TDLib.Api
         /// <param name="chatId">The chat the message belongs to</param>
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup</param>
-        public EditMessageReplyMarkup(long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default)
+        public EditMessageReplyMarkup(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -12977,6 +14279,26 @@ namespace TDLib.Api
         }
     }
 
+    public partial class EditMessageSchedulingState
+    {
+        /// <summary>
+        /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
+        /// </summary>
+        public EditMessageSchedulingState() { }
+        /// <summary>
+        /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
+        /// </summary>
+        /// <param name="chatId">The chat the message belongs to</param>
+        /// <param name="messageId">Identifier of the message</param>
+        /// <param name="schedulingState">The new message scheduling state. Pass null to send the message immediately</param>
+        public EditMessageSchedulingState(long chatId = default, long messageId = default, MessageSchedulingState schedulingState = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
+            this.SchedulingState = schedulingState;
+        }
+    }
+
     public partial class GetTextEntities
     {
         /// <summary>
@@ -12996,11 +14318,11 @@ namespace TDLib.Api
     public partial class ParseTextEntities
     {
         /// <summary>
-        /// Parses Bold, Italic, Code, Pre, PreCode and TextUrl entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
         /// </summary>
         public ParseTextEntities() { }
         /// <summary>
-        /// Parses Bold, Italic, Code, Pre, PreCode and TextUrl entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
         /// </summary>
         /// <param name="text">The text which should be parsed</param>
         /// <param name="parseMode">Text parse mode</param>
@@ -13116,20 +14438,44 @@ namespace TDLib.Api
     public partial class SetPollAnswer
     {
         /// <summary>
-        /// Changes user answer to a poll
+        /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
         /// </summary>
         public SetPollAnswer() { }
         /// <summary>
-        /// Changes user answer to a poll
+        /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which the poll belongs</param>
         /// <param name="messageId">Identifier of the message containing the poll</param>
-        /// <param name="optionIds">0-based identifiers of options, chosen by the user. Currently user can't choose more than 1 option</param>
-        public SetPollAnswer(long chatId = 0, long messageId = 0, int[] optionIds = default)
+        /// <param name="optionIds">0-based identifiers of answer options, chosen by the user. User can choose more than 1 answer option only is the poll allows multiple answers</param>
+        public SetPollAnswer(long chatId = default, long messageId = default, int[] optionIds = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
             this.OptionIds = optionIds;
+        }
+    }
+
+    public partial class GetPollVoters
+    {
+        /// <summary>
+        /// Returns users voted for the specified option in a non-anonymous polls. For the optimal performance the number of returned users is chosen by the library
+        /// </summary>
+        public GetPollVoters() { }
+        /// <summary>
+        /// Returns users voted for the specified option in a non-anonymous polls. For the optimal performance the number of returned users is chosen by the library
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat to which the poll belongs</param>
+        /// <param name="messageId">Identifier of the message containing the poll</param>
+        /// <param name="optionId">0-based identifier of the answer option</param>
+        /// <param name="offset">Number of users to skip in the result; must be non-negative</param>
+        /// <param name="limit">The maximum number of users to be returned; must be positive and can't be greater than 50. Fewer users may be returned than specified by the limit, even if the end of the voter list has not been reached</param>
+        public GetPollVoters(long chatId = default, long messageId = default, int optionId = default, int offset = default, int limit = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
+            this.OptionId = optionId;
+            this.Offset = offset;
+            this.Limit = limit;
         }
     }
 
@@ -13145,11 +14491,53 @@ namespace TDLib.Api
         /// <param name="chatId">Identifier of the chat to which the poll belongs</param>
         /// <param name="messageId">Identifier of the message containing the poll</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
-        public StopPoll(long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default)
+        public StopPoll(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
             this.ReplyMarkup = replyMarkup;
+        }
+    }
+
+    public partial class GetLoginUrlInfo
+    {
+        /// <summary>
+        /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
+        /// </summary>
+        public GetLoginUrlInfo() { }
+        /// <summary>
+        /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
+        /// </summary>
+        /// <param name="chatId">Chat identifier of the message with the button</param>
+        /// <param name="messageId">Message identifier of the message with the button</param>
+        /// <param name="buttonId">Button identifier</param>
+        public GetLoginUrlInfo(long chatId = default, long messageId = default, int buttonId = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
+            this.ButtonId = buttonId;
+        }
+    }
+
+    public partial class GetLoginUrl
+    {
+        /// <summary>
+        /// Returns an HTTP URL which can be used to automatically authorize the user on a website after clicking an inline button of type inlineKeyboardButtonTypeLoginUrl. -Use the method getLoginUrlInfo to find whether a prior user confirmation is needed. If an error is returned, then the button must be handled as an ordinary URL button
+        /// </summary>
+        public GetLoginUrl() { }
+        /// <summary>
+        /// Returns an HTTP URL which can be used to automatically authorize the user on a website after clicking an inline button of type inlineKeyboardButtonTypeLoginUrl. -Use the method getLoginUrlInfo to find whether a prior user confirmation is needed. If an error is returned, then the button must be handled as an ordinary URL button
+        /// </summary>
+        /// <param name="chatId">Chat identifier of the message with the button</param>
+        /// <param name="messageId">Message identifier of the message with the button</param>
+        /// <param name="buttonId">Button identifier</param>
+        /// <param name="allowWriteAccess">True, if the user allowed the bot to send them messages</param>
+        public GetLoginUrl(long chatId = default, long messageId = default, int buttonId = default, bool allowWriteAccess = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
+            this.ButtonId = buttonId;
+            this.AllowWriteAccess = allowWriteAccess;
         }
     }
 
@@ -13163,11 +14551,11 @@ namespace TDLib.Api
         /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
         /// <param name="botUserId">The identifier of the target bot</param>
-        /// <param name="chatId">Identifier of the chat, where the query was sent</param>
+        /// <param name="chatId">Identifier of the chat where the query was sent</param>
         /// <param name="userLocation">Location of the user, only if needed</param>
         /// <param name="query">Text of the query</param>
         /// <param name="offset">Offset of the first entry to return</param>
-        public GetInlineQueryResults(int botUserId = 0, long chatId = 0, Location userLocation = default, string query = default, string offset = default)
+        public GetInlineQueryResults(int botUserId = default, long chatId = default, Location userLocation = default, string query = default, string offset = default)
         {
             this.BotUserId = botUserId;
             this.ChatId = chatId;
@@ -13193,7 +14581,7 @@ namespace TDLib.Api
         /// <param name="nextOffset">Offset for the next inline query; pass an empty string if there are no more results</param>
         /// <param name="switchPmText">If non-empty, this text should be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter</param>
         /// <param name="switchPmParameter">The parameter for the bot start message</param>
-        public AnswerInlineQuery(long inlineQueryId = 0, bool isPersonal = false, InputInlineQueryResult[] results = default, int cacheTime = 0, string nextOffset = default, string switchPmText = default, string switchPmParameter = default)
+        public AnswerInlineQuery(long inlineQueryId = default, bool isPersonal = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default, string switchPmText = default, string switchPmParameter = default)
         {
             this.InlineQueryId = inlineQueryId;
             this.IsPersonal = isPersonal;
@@ -13217,7 +14605,7 @@ namespace TDLib.Api
         /// <param name="chatId">Identifier of the chat with the message</param>
         /// <param name="messageId">Identifier of the message from which the query originated</param>
         /// <param name="payload">Query payload</param>
-        public GetCallbackQueryAnswer(long chatId = 0, long messageId = 0, CallbackQueryPayload payload = default)
+        public GetCallbackQueryAnswer(long chatId = default, long messageId = default, CallbackQueryPayload payload = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -13239,7 +14627,7 @@ namespace TDLib.Api
         /// <param name="showAlert">If true, an alert should be shown to the user instead of a toast notification</param>
         /// <param name="url">URL to be opened</param>
         /// <param name="cacheTime">Time during which the result of the query can be cached, in seconds</param>
-        public AnswerCallbackQuery(long callbackQueryId = 0, string text = default, bool showAlert = false, string url = default, int cacheTime = 0)
+        public AnswerCallbackQuery(long callbackQueryId = default, string text = default, bool showAlert = default, string url = default, int cacheTime = default)
         {
             this.CallbackQueryId = callbackQueryId;
             this.Text = text;
@@ -13261,7 +14649,7 @@ namespace TDLib.Api
         /// <param name="shippingQueryId">Identifier of the shipping query</param>
         /// <param name="shippingOptions">Available shipping options</param>
         /// <param name="errorMessage">An error message, empty on success</param>
-        public AnswerShippingQuery(long shippingQueryId = 0, ShippingOption[] shippingOptions = default, string errorMessage = default)
+        public AnswerShippingQuery(long shippingQueryId = default, ShippingOption[] shippingOptions = default, string errorMessage = default)
         {
             this.ShippingQueryId = shippingQueryId;
             this.ShippingOptions = shippingOptions;
@@ -13280,7 +14668,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="preCheckoutQueryId">Identifier of the pre-checkout query</param>
         /// <param name="errorMessage">An error message, empty on success</param>
-        public AnswerPreCheckoutQuery(long preCheckoutQueryId = 0, string errorMessage = default)
+        public AnswerPreCheckoutQuery(long preCheckoutQueryId = default, string errorMessage = default)
         {
             this.PreCheckoutQueryId = preCheckoutQueryId;
             this.ErrorMessage = errorMessage;
@@ -13302,7 +14690,7 @@ namespace TDLib.Api
         /// <param name="userId">User identifier</param>
         /// <param name="score">The new score</param>
         /// <param name="force">Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table</param>
-        public SetGameScore(long chatId = 0, long messageId = 0, bool editMessage = false, int userId = 0, int score = 0, bool force = false)
+        public SetGameScore(long chatId = default, long messageId = default, bool editMessage = default, int userId = default, int score = default, bool force = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -13327,7 +14715,7 @@ namespace TDLib.Api
         /// <param name="userId">User identifier</param>
         /// <param name="score">The new score</param>
         /// <param name="force">Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table</param>
-        public SetInlineGameScore(string inlineMessageId = default, bool editMessage = false, int userId = 0, int score = 0, bool force = false)
+        public SetInlineGameScore(string inlineMessageId = default, bool editMessage = default, int userId = default, int score = default, bool force = default)
         {
             this.InlineMessageId = inlineMessageId;
             this.EditMessage = editMessage;
@@ -13349,7 +14737,7 @@ namespace TDLib.Api
         /// <param name="chatId">The chat that contains the message with the game</param>
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="userId">User identifier</param>
-        public GetGameHighScores(long chatId = 0, long messageId = 0, int userId = 0)
+        public GetGameHighScores(long chatId = default, long messageId = default, int userId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -13368,7 +14756,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="inlineMessageId">Inline message identifier</param>
         /// <param name="userId">User identifier</param>
-        public GetInlineGameHighScores(string inlineMessageId = default, int userId = 0)
+        public GetInlineGameHighScores(string inlineMessageId = default, int userId = default)
         {
             this.InlineMessageId = inlineMessageId;
             this.UserId = userId;
@@ -13386,7 +14774,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageId">The message identifier of the used keyboard</param>
-        public DeleteChatReplyMarkup(long chatId = 0, long messageId = 0)
+        public DeleteChatReplyMarkup(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -13404,7 +14792,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="action">The action description</param>
-        public SendChatAction(long chatId = 0, ChatAction action = default)
+        public SendChatAction(long chatId = default, ChatAction action = default)
         {
             this.ChatId = chatId;
             this.Action = action;
@@ -13421,7 +14809,7 @@ namespace TDLib.Api
         /// Informs TDLib that the chat is opened by the user. Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels all updates are received only for opened chats)
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public OpenChat(long chatId = 0)
+        public OpenChat(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -13437,7 +14825,7 @@ namespace TDLib.Api
         /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public CloseChat(long chatId = 0)
+        public CloseChat(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -13455,7 +14843,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageIds">The identifiers of the messages being viewed</param>
         /// <param name="forceRead">True, if messages in closed chats should be marked as read</param>
-        public ViewMessages(long chatId = 0, long[] messageIds = default, bool forceRead = false)
+        public ViewMessages(long chatId = default, long[] messageIds = default, bool forceRead = default)
         {
             this.ChatId = chatId;
             this.MessageIds = messageIds;
@@ -13474,7 +14862,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier of the message</param>
         /// <param name="messageId">Identifier of the message with the opened content</param>
-        public OpenMessageContent(long chatId = 0, long messageId = 0)
+        public OpenMessageContent(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -13491,7 +14879,7 @@ namespace TDLib.Api
         /// Marks all mentions in a chat as read
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public ReadAllChatMentions(long chatId = 0)
+        public ReadAllChatMentions(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -13508,7 +14896,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">User identifier</param>
         /// <param name="force">If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect</param>
-        public CreatePrivateChat(int userId = 0, bool force = false)
+        public CreatePrivateChat(int userId = default, bool force = default)
         {
             this.UserId = userId;
             this.Force = force;
@@ -13526,7 +14914,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="basicGroupId">Basic group identifier</param>
         /// <param name="force">If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect</param>
-        public CreateBasicGroupChat(int basicGroupId = 0, bool force = false)
+        public CreateBasicGroupChat(int basicGroupId = default, bool force = default)
         {
             this.BasicGroupId = basicGroupId;
             this.Force = force;
@@ -13544,7 +14932,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="supergroupId">Supergroup or channel identifier</param>
         /// <param name="force">If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect</param>
-        public CreateSupergroupChat(int supergroupId = 0, bool force = false)
+        public CreateSupergroupChat(int supergroupId = default, bool force = default)
         {
             this.SupergroupId = supergroupId;
             this.Force = force;
@@ -13561,7 +14949,7 @@ namespace TDLib.Api
         /// Returns an existing chat corresponding to a known secret chat
         /// </summary>
         /// <param name="secretChatId">Secret chat identifier</param>
-        public CreateSecretChat(int secretChatId = 0)
+        public CreateSecretChat(int secretChatId = default)
         {
             this.SecretChatId = secretChatId;
         }
@@ -13597,11 +14985,13 @@ namespace TDLib.Api
         /// <param name="title">Title of the new chat; 1-128 characters</param>
         /// <param name="isChannel">True, if a channel chat should be created</param>
         /// <param name="description">Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat</param>
-        public CreateNewSupergroupChat(string title = default, bool isChannel = false, string description = default)
+        /// <param name="location">Chat location if a location-based supergroup is being created</param>
+        public CreateNewSupergroupChat(string title = default, bool isChannel = default, string description = default, ChatLocation location = default)
         {
             this.Title = title;
             this.IsChannel = isChannel;
             this.Description = description;
+            this.Location = location;
         }
     }
 
@@ -13615,7 +15005,7 @@ namespace TDLib.Api
         /// Creates a new secret chat. Returns the newly created chat
         /// </summary>
         /// <param name="userId">Identifier of the target user</param>
-        public CreateNewSecretChat(int userId = 0)
+        public CreateNewSecretChat(int userId = default)
         {
             this.UserId = userId;
         }
@@ -13624,31 +15014,49 @@ namespace TDLib.Api
     public partial class UpgradeBasicGroupChatToSupergroupChat
     {
         /// <summary>
-        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom. Deactivates the original basic group
+        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group
         /// </summary>
         public UpgradeBasicGroupChatToSupergroupChat() { }
         /// <summary>
-        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom. Deactivates the original basic group
+        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group
         /// </summary>
         /// <param name="chatId">Identifier of the chat to upgrade</param>
-        public UpgradeBasicGroupChatToSupergroupChat(long chatId = 0)
+        public UpgradeBasicGroupChatToSupergroupChat(long chatId = default)
         {
             this.ChatId = chatId;
+        }
+    }
+
+    public partial class SetChatChatList
+    {
+        /// <summary>
+        /// Moves a chat to a different chat list. Current chat list of the chat must ne non-null
+        /// </summary>
+        public SetChatChatList() { }
+        /// <summary>
+        /// Moves a chat to a different chat list. Current chat list of the chat must ne non-null
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="chatList">New chat list of the chat</param>
+        public SetChatChatList(long chatId = default, ChatList chatList = default)
+        {
+            this.ChatId = chatId;
+            this.ChatList = chatList;
         }
     }
 
     public partial class SetChatTitle
     {
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires administrator rights in basic groups and the appropriate administrator rights in supergroups and channels. The title will not be changed until the request to the server has been completed
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The title will not be changed until the request to the server has been completed
         /// </summary>
         public SetChatTitle() { }
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires administrator rights in basic groups and the appropriate administrator rights in supergroups and channels. The title will not be changed until the request to the server has been completed
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The title will not be changed until the request to the server has been completed
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="title">New title of the chat; 1-128 characters</param>
-        public SetChatTitle(long chatId = 0, string title = default)
+        public SetChatTitle(long chatId = default, string title = default)
         {
             this.ChatId = chatId;
             this.Title = title;
@@ -13658,18 +15066,36 @@ namespace TDLib.Api
     public partial class SetChatPhoto
     {
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires administrator rights in basic groups and the appropriate administrator rights in supergroups and channels. The photo will not be changed before request to the server has been completed
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The photo will not be changed before request to the server has been completed
         /// </summary>
         public SetChatPhoto() { }
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires administrator rights in basic groups and the appropriate administrator rights in supergroups and channels. The photo will not be changed before request to the server has been completed
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The photo will not be changed before request to the server has been completed
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="photo">New chat photo. You can use a zero InputFileId to delete the chat photo. Files that are accessible only by HTTP URL are not acceptable</param>
-        public SetChatPhoto(long chatId = 0, InputFile photo = default)
+        public SetChatPhoto(long chatId = default, InputFile photo = default)
         {
             this.ChatId = chatId;
             this.Photo = photo;
+        }
+    }
+
+    public partial class SetChatPermissions
+    {
+        /// <summary>
+        /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
+        /// </summary>
+        public SetChatPermissions() { }
+        /// <summary>
+        /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="permissions">New non-administrator members permissions in the chat</param>
+        public SetChatPermissions(long chatId = default, ChatPermissions permissions = default)
+        {
+            this.ChatId = chatId;
+            this.Permissions = permissions;
         }
     }
 
@@ -13684,7 +15110,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="draftMessage">New draft message; may be null</param>
-        public SetChatDraftMessage(long chatId = 0, DraftMessage draftMessage = default)
+        public SetChatDraftMessage(long chatId = default, DraftMessage draftMessage = default)
         {
             this.ChatId = chatId;
             this.DraftMessage = draftMessage;
@@ -13694,15 +15120,15 @@ namespace TDLib.Api
     public partial class SetChatNotificationSettings
     {
         /// <summary>
-        /// Changes the notification settings of a chat
+        /// Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
         /// </summary>
         public SetChatNotificationSettings() { }
         /// <summary>
-        /// Changes the notification settings of a chat
+        /// Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="notificationSettings">New notification settings for the chat</param>
-        public SetChatNotificationSettings(long chatId = 0, ChatNotificationSettings notificationSettings = default)
+        /// <param name="notificationSettings">New notification settings for the chat. If the chat is muted for more than 1 week, it is considered to be muted forever</param>
+        public SetChatNotificationSettings(long chatId = default, ChatNotificationSettings notificationSettings = default)
         {
             this.ChatId = chatId;
             this.NotificationSettings = notificationSettings;
@@ -13712,15 +15138,15 @@ namespace TDLib.Api
     public partial class ToggleChatIsPinned
     {
         /// <summary>
-        /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max") non-secret chats and the same number of secret chats
+        /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") non-secret chats and the same number of secret chats in the main/archive chat list
         /// </summary>
         public ToggleChatIsPinned() { }
         /// <summary>
-        /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max") non-secret chats and the same number of secret chats
+        /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") non-secret chats and the same number of secret chats in the main/archive chat list
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="isPinned">New value of is_pinned</param>
-        public ToggleChatIsPinned(long chatId = 0, bool isPinned = false)
+        public ToggleChatIsPinned(long chatId = default, bool isPinned = default)
         {
             this.ChatId = chatId;
             this.IsPinned = isPinned;
@@ -13738,7 +15164,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="isMarkedAsUnread">New value of is_marked_as_unread</param>
-        public ToggleChatIsMarkedAsUnread(long chatId = 0, bool isMarkedAsUnread = false)
+        public ToggleChatIsMarkedAsUnread(long chatId = default, bool isMarkedAsUnread = default)
         {
             this.ChatId = chatId;
             this.IsMarkedAsUnread = isMarkedAsUnread;
@@ -13756,7 +15182,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="defaultDisableNotification">New value of default_disable_notification</param>
-        public ToggleChatDefaultDisableNotification(long chatId = 0, bool defaultDisableNotification = false)
+        public ToggleChatDefaultDisableNotification(long chatId = default, bool defaultDisableNotification = default)
         {
             this.ChatId = chatId;
             this.DefaultDisableNotification = defaultDisableNotification;
@@ -13774,26 +15200,98 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="clientData">New value of client_data</param>
-        public SetChatClientData(long chatId = 0, string clientData = default)
+        public SetChatClientData(long chatId = default, string clientData = default)
         {
             this.ChatId = chatId;
             this.ClientData = clientData;
         }
     }
 
+    public partial class SetChatDescription
+    {
+        /// <summary>
+        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights
+        /// </summary>
+        public SetChatDescription() { }
+        /// <summary>
+        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat</param>
+        /// <param name="description">Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights</param>
+        public SetChatDescription(long chatId = default, string description = default)
+        {
+            this.ChatId = chatId;
+            this.Description = description;
+        }
+    }
+
+    public partial class SetChatDiscussionGroup
+    {
+        /// <summary>
+        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
+        /// </summary>
+        public SetChatDiscussionGroup() { }
+        /// <summary>
+        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
+        /// </summary>
+        /// <param name="chatId">Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages rights in the supergroup)</param>
+        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats needs to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that</param>
+        public SetChatDiscussionGroup(long chatId = default, long discussionChatId = default)
+        {
+            this.ChatId = chatId;
+            this.DiscussionChatId = discussionChatId;
+        }
+    }
+
+    public partial class SetChatLocation
+    {
+        /// <summary>
+        /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
+        /// </summary>
+        public SetChatLocation() { }
+        /// <summary>
+        /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="location">New location for the chat; must be valid and not null</param>
+        public SetChatLocation(long chatId = default, ChatLocation location = default)
+        {
+            this.ChatId = chatId;
+            this.Location = location;
+        }
+    }
+
+    public partial class SetChatSlowModeDelay
+    {
+        /// <summary>
+        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights
+        /// </summary>
+        public SetChatSlowModeDelay() { }
+        /// <summary>
+        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="slowModeDelay">New slow mode delay for the chat; must be one of 0, 10, 30, 60, 300, 900, 3600</param>
+        public SetChatSlowModeDelay(long chatId = default, int slowModeDelay = default)
+        {
+            this.ChatId = chatId;
+            this.SlowModeDelay = slowModeDelay;
+        }
+    }
+
     public partial class PinChatMessage
     {
         /// <summary>
-        /// Pins a message in a chat; requires appropriate administrator rights in the group or channel
+        /// Pins a message in a chat; requires can_pin_messages rights
         /// </summary>
         public PinChatMessage() { }
         /// <summary>
-        /// Pins a message in a chat; requires appropriate administrator rights in the group or channel
+        /// Pins a message in a chat; requires can_pin_messages rights
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
         /// <param name="messageId">Identifier of the new pinned message</param>
         /// <param name="disableNotification">True, if there should be no notification about the pinned message</param>
-        public PinChatMessage(long chatId = 0, long messageId = 0, bool disableNotification = false)
+        public PinChatMessage(long chatId = default, long messageId = default, bool disableNotification = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -13804,14 +15302,14 @@ namespace TDLib.Api
     public partial class UnpinChatMessage
     {
         /// <summary>
-        /// Removes the pinned message from a chat; requires appropriate administrator rights in the group or channel
+        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel
         /// </summary>
         public UnpinChatMessage() { }
         /// <summary>
-        /// Removes the pinned message from a chat; requires appropriate administrator rights in the group or channel
+        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
-        public UnpinChatMessage(long chatId = 0)
+        public UnpinChatMessage(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -13827,7 +15325,7 @@ namespace TDLib.Api
         /// Adds current user as a new member to a chat. Private and secret chats can't be joined using this method
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public JoinChat(long chatId = 0)
+        public JoinChat(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -13843,7 +15341,7 @@ namespace TDLib.Api
         /// Removes current user from chat members. Private and secret chats can't be left using this method
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public LeaveChat(long chatId = 0)
+        public LeaveChat(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -13861,7 +15359,7 @@ namespace TDLib.Api
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userId">Identifier of the user</param>
         /// <param name="forwardLimit">The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels</param>
-        public AddChatMember(long chatId = 0, int userId = 0, int forwardLimit = 0)
+        public AddChatMember(long chatId = default, int userId = default, int forwardLimit = default)
         {
             this.ChatId = chatId;
             this.UserId = userId;
@@ -13880,7 +15378,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userIds">Identifiers of the users to be added to the chat</param>
-        public AddChatMembers(long chatId = 0, int[] userIds = default)
+        public AddChatMembers(long chatId = default, int[] userIds = default)
         {
             this.ChatId = chatId;
             this.UserIds = userIds;
@@ -13890,20 +15388,48 @@ namespace TDLib.Api
     public partial class SetChatMemberStatus
     {
         /// <summary>
-        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat; instead, use addChatMember. The chat member status will not be changed until it has been synchronized with the server
+        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server
         /// </summary>
         public SetChatMemberStatus() { }
         /// <summary>
-        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat; instead, use addChatMember. The chat member status will not be changed until it has been synchronized with the server
+        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userId">User identifier</param>
         /// <param name="status">The new status of the member in the chat</param>
-        public SetChatMemberStatus(long chatId = 0, int userId = 0, ChatMemberStatus status = default)
+        public SetChatMemberStatus(long chatId = default, int userId = default, ChatMemberStatus status = default)
         {
             this.ChatId = chatId;
             this.UserId = userId;
             this.Status = status;
+        }
+    }
+
+    public partial class CanTransferOwnership
+    {
+        /// <summary>
+        /// Checks whether the current session can be used to transfer a chat ownership to another user
+        /// </summary>
+        public CanTransferOwnership() { }
+    }
+
+    public partial class TransferChatOwnership
+    {
+        /// <summary>
+        /// Changes the owner of a chat. The current user must be a current owner of the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session. Available only for supergroups and channel chats
+        /// </summary>
+        public TransferChatOwnership() { }
+        /// <summary>
+        /// Changes the owner of a chat. The current user must be a current owner of the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session. Available only for supergroups and channel chats
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="userId">Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user</param>
+        /// <param name="password">The password of the current user</param>
+        public TransferChatOwnership(long chatId = default, int userId = default, string password = default)
+        {
+            this.ChatId = chatId;
+            this.UserId = userId;
+            this.Password = password;
         }
     }
 
@@ -13918,7 +15444,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userId">User identifier</param>
-        public GetChatMember(long chatId = 0, int userId = 0)
+        public GetChatMember(long chatId = default, int userId = default)
         {
             this.ChatId = chatId;
             this.UserId = userId;
@@ -13938,7 +15464,7 @@ namespace TDLib.Api
         /// <param name="query">Query to search for</param>
         /// <param name="limit">The maximum number of users to be returned</param>
         /// <param name="filter">The type of users to return. By default, chatMembersFilterMembers</param>
-        public SearchChatMembers(long chatId = 0, string query = default, int limit = 0, ChatMembersFilter filter = default)
+        public SearchChatMembers(long chatId = default, string query = default, int limit = default, ChatMembersFilter filter = default)
         {
             this.ChatId = chatId;
             this.Query = query;
@@ -13950,14 +15476,14 @@ namespace TDLib.Api
     public partial class GetChatAdministrators
     {
         /// <summary>
-        /// Returns a list of users who are administrators of the chat
+        /// Returns a list of administrators of the chat with their custom titles
         /// </summary>
         public GetChatAdministrators() { }
         /// <summary>
-        /// Returns a list of users who are administrators of the chat
+        /// Returns a list of administrators of the chat with their custom titles
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public GetChatAdministrators(long chatId = 0)
+        public GetChatAdministrators(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -13973,7 +15499,7 @@ namespace TDLib.Api
         /// Clears draft messages in all chats
         /// </summary>
         /// <param name="excludeSecretChats">If true, local draft messages in secret chats will not be cleared</param>
-        public ClearAllDraftMessages(bool excludeSecretChats = false)
+        public ClearAllDraftMessages(bool excludeSecretChats = default)
         {
             this.ExcludeSecretChats = excludeSecretChats;
         }
@@ -13990,7 +15516,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="scope">If specified, only chats from the specified scope will be returned</param>
         /// <param name="compareSound">If true, also chats with non-default sound will be returned</param>
-        public GetChatNotificationSettingsExceptions(NotificationSettingsScope scope = default, bool compareSound = false)
+        public GetChatNotificationSettingsExceptions(NotificationSettingsScope scope = default, bool compareSound = default)
         {
             this.Scope = scope;
             this.CompareSound = compareSound;
@@ -14048,9 +15574,11 @@ namespace TDLib.Api
         /// <summary>
         /// Changes the order of pinned chats
         /// </summary>
+        /// <param name="chatList">Chat list in which to change the order of pinned chats</param>
         /// <param name="chatIds">The new list of pinned chats</param>
-        public SetPinnedChats(long[] chatIds = default)
+        public SetPinnedChats(ChatList chatList = default, long[] chatIds = default)
         {
+            this.ChatList = chatList;
             this.ChatIds = chatIds;
         }
     }
@@ -14069,7 +15597,7 @@ namespace TDLib.Api
         /// <param name="offset">The starting position from which the file should be downloaded</param>
         /// <param name="limit">Number of bytes which should be downloaded starting from the "offset" position before the download will be automatically cancelled; use 0 to download without a limit</param>
         /// <param name="synchronous">If false, this request returns file state just after the download has been started. If true, this request returns file state only after -the download has succeeded, has failed, has been cancelled or a new downloadFile request with different offset/limit parameters was sent</param>
-        public DownloadFile(int fileId = 0, int priority = 0, int offset = 0, int limit = 0, bool synchronous = false)
+        public DownloadFile(int fileId = default, int priority = default, int offset = default, int limit = default, bool synchronous = default)
         {
             this.FileId = fileId;
             this.Priority = priority;
@@ -14090,7 +15618,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="fileId">Identifier of the file</param>
         /// <param name="offset">Offset from which downloaded prefix size should be calculated</param>
-        public GetFileDownloadedPrefixSize(int fileId = 0, int offset = 0)
+        public GetFileDownloadedPrefixSize(int fileId = default, int offset = default)
         {
             this.FileId = fileId;
             this.Offset = offset;
@@ -14108,7 +15636,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="fileId">Identifier of a file to stop downloading</param>
         /// <param name="onlyIfPending">Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server</param>
-        public CancelDownloadFile(int fileId = 0, bool onlyIfPending = false)
+        public CancelDownloadFile(int fileId = default, bool onlyIfPending = default)
         {
             this.FileId = fileId;
             this.OnlyIfPending = onlyIfPending;
@@ -14127,7 +15655,7 @@ namespace TDLib.Api
         /// <param name="file">File to upload</param>
         /// <param name="fileType">File type</param>
         /// <param name="priority">Priority of the upload (1-32). The higher the priority, the earlier the file will be uploaded. If the priorities of two files are equal, then the first one for which uploadFile was called will be uploaded first</param>
-        public UploadFile(InputFile file = default, FileType fileType = default, int priority = 0)
+        public UploadFile(InputFile file = default, FileType fileType = default, int priority = default)
         {
             this.File = file;
             this.FileType = fileType;
@@ -14145,7 +15673,7 @@ namespace TDLib.Api
         /// Stops the uploading of a file. Supported only for files uploaded by using uploadFile. For other files the behavior is undefined
         /// </summary>
         /// <param name="fileId">Identifier of the file to stop uploading</param>
-        public CancelUploadFile(int fileId = 0)
+        public CancelUploadFile(int fileId = default)
         {
             this.FileId = fileId;
         }
@@ -14163,7 +15691,7 @@ namespace TDLib.Api
         /// <param name="generationId">The identifier of the generation process</param>
         /// <param name="offset">The offset from which to write the data to the file</param>
         /// <param name="data">The data to write</param>
-        public WriteGeneratedFilePart(long generationId = 0, int offset = 0, byte[] data = default)
+        public WriteGeneratedFilePart(long generationId = default, int offset = default, byte[] data = default)
         {
             this.GenerationId = generationId;
             this.Offset = offset;
@@ -14174,16 +15702,16 @@ namespace TDLib.Api
     public partial class SetFileGenerationProgress
     {
         /// <summary>
-        /// Informs TDLib on a file generation prograss
+        /// Informs TDLib on a file generation progress
         /// </summary>
         public SetFileGenerationProgress() { }
         /// <summary>
-        /// Informs TDLib on a file generation prograss
+        /// Informs TDLib on a file generation progress
         /// </summary>
         /// <param name="generationId">The identifier of the generation process</param>
         /// <param name="expectedSize">Expected size of the generated file, in bytes; 0 if unknown</param>
         /// <param name="localPrefixSize">The number of bytes already generated</param>
-        public SetFileGenerationProgress(long generationId = 0, int expectedSize = 0, int localPrefixSize = 0)
+        public SetFileGenerationProgress(long generationId = default, int expectedSize = default, int localPrefixSize = default)
         {
             this.GenerationId = generationId;
             this.ExpectedSize = expectedSize;
@@ -14202,7 +15730,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="generationId">The identifier of the generation process</param>
         /// <param name="error">If set, means that file generation has failed and should be terminated</param>
-        public FinishFileGeneration(long generationId = 0, Error error = default)
+        public FinishFileGeneration(long generationId = default, Error error = default)
         {
             this.GenerationId = generationId;
             this.Error = error;
@@ -14221,7 +15749,7 @@ namespace TDLib.Api
         /// <param name="fileId">Identifier of the file. The file must be located in the TDLib file cache</param>
         /// <param name="offset">The offset from which to read the file</param>
         /// <param name="count">Number of bytes to read. An error will be returned if there are not enough bytes available in the file from the specified position. Pass 0 to read all available data from the specified position</param>
-        public ReadFilePart(int fileId = 0, int offset = 0, int count = 0)
+        public ReadFilePart(int fileId = default, int offset = default, int count = default)
         {
             this.FileId = fileId;
             this.Offset = offset;
@@ -14239,7 +15767,7 @@ namespace TDLib.Api
         /// Deletes a file from the TDLib file cache
         /// </summary>
         /// <param name="fileId">Identifier of the file to delete</param>
-        public DeleteFile(int fileId = 0)
+        public DeleteFile(int fileId = default)
         {
             this.FileId = fileId;
         }
@@ -14248,14 +15776,14 @@ namespace TDLib.Api
     public partial class GenerateChatInviteLink
     {
         /// <summary>
-        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. In basic groups this can be called only by the group's creator; in supergroups and channels this requires appropriate administrator rights
+        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
         /// </summary>
         public GenerateChatInviteLink() { }
         /// <summary>
-        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. In basic groups this can be called only by the group's creator; in supergroups and channels this requires appropriate administrator rights
+        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public GenerateChatInviteLink(long chatId = 0)
+        public GenerateChatInviteLink(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -14304,7 +15832,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">Identifier of the user to be called</param>
         /// <param name="protocol">Description of the call protocols supported by the client</param>
-        public CreateCall(int userId = 0, CallProtocol protocol = default)
+        public CreateCall(int userId = default, CallProtocol protocol = default)
         {
             this.UserId = userId;
             this.Protocol = protocol;
@@ -14322,7 +15850,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="callId">Call identifier</param>
         /// <param name="protocol">Description of the call protocols supported by the client</param>
-        public AcceptCall(int callId = 0, CallProtocol protocol = default)
+        public AcceptCall(int callId = default, CallProtocol protocol = default)
         {
             this.CallId = callId;
             this.Protocol = protocol;
@@ -14342,7 +15870,7 @@ namespace TDLib.Api
         /// <param name="isDisconnected">True, if the user was disconnected</param>
         /// <param name="duration">The call duration, in seconds</param>
         /// <param name="connectionId">Identifier of the connection used during the call</param>
-        public DiscardCall(int callId = 0, bool isDisconnected = false, int duration = 0, long connectionId = 0)
+        public DiscardCall(int callId = default, bool isDisconnected = default, int duration = default, long connectionId = default)
         {
             this.CallId = callId;
             this.IsDisconnected = isDisconnected;
@@ -14363,11 +15891,13 @@ namespace TDLib.Api
         /// <param name="callId">Call identifier</param>
         /// <param name="rating">Call rating; 1-5</param>
         /// <param name="comment">An optional user comment if the rating is less than 5</param>
-        public SendCallRating(int callId = 0, int rating = 0, string comment = default)
+        /// <param name="problems">List of the exact types of problems with the call, specified by the user</param>
+        public SendCallRating(int callId = default, int rating = default, string comment = default, CallProblem[] problems = default)
         {
             this.CallId = callId;
             this.Rating = rating;
             this.Comment = comment;
+            this.Problems = problems;
         }
     }
 
@@ -14382,7 +15912,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="callId">Call identifier</param>
         /// <param name="debugInformation">Debug information in application-specific format</param>
-        public SendCallDebugInformation(int callId = 0, string debugInformation = default)
+        public SendCallDebugInformation(int callId = default, string debugInformation = default)
         {
             this.CallId = callId;
             this.DebugInformation = debugInformation;
@@ -14399,7 +15929,7 @@ namespace TDLib.Api
         /// Adds a user to the blacklist
         /// </summary>
         /// <param name="userId">User identifier</param>
-        public BlockUser(int userId = 0)
+        public BlockUser(int userId = default)
         {
             this.UserId = userId;
         }
@@ -14415,7 +15945,7 @@ namespace TDLib.Api
         /// Removes a user from the blacklist
         /// </summary>
         /// <param name="userId">User identifier</param>
-        public UnblockUser(int userId = 0)
+        public UnblockUser(int userId = default)
         {
             this.UserId = userId;
         }
@@ -14431,24 +15961,42 @@ namespace TDLib.Api
         /// Returns users that were blocked by the current user
         /// </summary>
         /// <param name="offset">Number of users to skip in the result; must be non-negative</param>
-        /// <param name="limit">Maximum number of users to return; up to 100</param>
-        public GetBlockedUsers(int offset = 0, int limit = 0)
+        /// <param name="limit">The maximum number of users to return; up to 100</param>
+        public GetBlockedUsers(int offset = default, int limit = default)
         {
             this.Offset = offset;
             this.Limit = limit;
         }
     }
 
+    public partial class AddContact
+    {
+        /// <summary>
+        /// Adds a user to the contact list or edits an existing contact by their user identifier
+        /// </summary>
+        public AddContact() { }
+        /// <summary>
+        /// Adds a user to the contact list or edits an existing contact by their user identifier
+        /// </summary>
+        /// <param name="contact">The contact to add or edit; phone number can be empty and needs to be specified only if known, vCard is ignored</param>
+        /// <param name="sharePhoneNumber">True, if the new contact needs to be allowed to see current user's phone number. A corresponding rule to userPrivacySettingShowPhoneNumber will be added if needed. Use the field UserFullInfo.need_phone_number_privacy_exception to check whether the current user needs to be asked to share their phone number</param>
+        public AddContact(Contact contact = default, bool sharePhoneNumber = default)
+        {
+            this.Contact = contact;
+            this.SharePhoneNumber = sharePhoneNumber;
+        }
+    }
+
     public partial class ImportContacts
     {
         /// <summary>
-        /// Adds new contacts or edits existing contacts; contacts' user identifiers are ignored
+        /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
         /// </summary>
         public ImportContacts() { }
         /// <summary>
-        /// Adds new contacts or edits existing contacts; contacts' user identifiers are ignored
+        /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
         /// </summary>
-        /// <param name="contacts">The list of contacts to import or edit, contact's vCard are ignored and are not imported</param>
+        /// <param name="contacts">The list of contacts to import or edit; contacts' vCard are ignored and are not imported</param>
         public ImportContacts(Contact[] contacts = default)
         {
             this.Contacts = contacts;
@@ -14473,8 +16021,8 @@ namespace TDLib.Api
         /// Searches for the specified query in the first names, last names and usernames of the known user contacts
         /// </summary>
         /// <param name="query">Query to search for; may be empty to return all contacts</param>
-        /// <param name="limit">Maximum number of users to be returned</param>
-        public SearchContacts(string query = default, int limit = 0)
+        /// <param name="limit">The maximum number of users to be returned</param>
+        public SearchContacts(string query = default, int limit = default)
         {
             this.Query = query;
             this.Limit = limit;
@@ -14529,6 +16077,22 @@ namespace TDLib.Api
         public ClearImportedContacts() { }
     }
 
+    public partial class SharePhoneNumber
+    {
+        /// <summary>
+        /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
+        /// </summary>
+        public SharePhoneNumber() { }
+        /// <summary>
+        /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
+        /// </summary>
+        /// <param name="userId">Identifier of the user with whom to share the phone number. The user must be a mutual contact</param>
+        public SharePhoneNumber(int userId = default)
+        {
+            this.UserId = userId;
+        }
+    }
+
     public partial class GetUserProfilePhotos
     {
         /// <summary>
@@ -14540,8 +16104,8 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">User identifier</param>
         /// <param name="offset">The number of photos to skip; must be non-negative</param>
-        /// <param name="limit">Maximum number of photos to be returned; up to 100</param>
-        public GetUserProfilePhotos(int userId = 0, int offset = 0, int limit = 0)
+        /// <param name="limit">The maximum number of photos to be returned; up to 100</param>
+        public GetUserProfilePhotos(int userId = default, int offset = default, int limit = default)
         {
             this.UserId = userId;
             this.Offset = offset;
@@ -14559,8 +16123,8 @@ namespace TDLib.Api
         /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is not empty, favorite and recently used stickers may also be returned
         /// </summary>
         /// <param name="emoji">String representation of emoji. If empty, returns all known installed stickers</param>
-        /// <param name="limit">Maximum number of stickers to be returned</param>
-        public GetStickers(string emoji = default, int limit = 0)
+        /// <param name="limit">The maximum number of stickers to be returned</param>
+        public GetStickers(string emoji = default, int limit = default)
         {
             this.Emoji = emoji;
             this.Limit = limit;
@@ -14577,8 +16141,8 @@ namespace TDLib.Api
         /// Searches for stickers from public sticker sets that correspond to a given emoji
         /// </summary>
         /// <param name="emoji">String representation of emoji; must be non-empty</param>
-        /// <param name="limit">Maximum number of stickers to be returned</param>
-        public SearchStickers(string emoji = default, int limit = 0)
+        /// <param name="limit">The maximum number of stickers to be returned</param>
+        public SearchStickers(string emoji = default, int limit = default)
         {
             this.Emoji = emoji;
             this.Limit = limit;
@@ -14595,7 +16159,7 @@ namespace TDLib.Api
         /// Returns a list of installed sticker sets
         /// </summary>
         /// <param name="isMasks">Pass true to return mask sticker sets; pass false to return ordinary sticker sets</param>
-        public GetInstalledStickerSets(bool isMasks = false)
+        public GetInstalledStickerSets(bool isMasks = default)
         {
             this.IsMasks = isMasks;
         }
@@ -14612,8 +16176,8 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isMasks">Pass true to return mask stickers sets; pass false to return ordinary sticker sets</param>
         /// <param name="offsetStickerSetId">Identifier of the sticker set from which to return the result</param>
-        /// <param name="limit">Maximum number of sticker sets to return</param>
-        public GetArchivedStickerSets(bool isMasks = false, long offsetStickerSetId = 0, int limit = 0)
+        /// <param name="limit">The maximum number of sticker sets to return</param>
+        public GetArchivedStickerSets(bool isMasks = default, long offsetStickerSetId = default, int limit = default)
         {
             this.IsMasks = isMasks;
             this.OffsetStickerSetId = offsetStickerSetId;
@@ -14639,7 +16203,7 @@ namespace TDLib.Api
         /// Returns a list of sticker sets attached to a file. Currently only photos and videos can have attached sticker sets
         /// </summary>
         /// <param name="fileId">File identifier</param>
-        public GetAttachedStickerSets(int fileId = 0)
+        public GetAttachedStickerSets(int fileId = default)
         {
             this.FileId = fileId;
         }
@@ -14655,7 +16219,7 @@ namespace TDLib.Api
         /// Returns information about a sticker set by its identifier
         /// </summary>
         /// <param name="setId">Identifier of the sticker set</param>
-        public GetStickerSet(long setId = 0)
+        public GetStickerSet(long setId = default)
         {
             this.SetId = setId;
         }
@@ -14688,8 +16252,8 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isMasks">Pass true to return mask sticker sets; pass false to return ordinary sticker sets</param>
         /// <param name="query">Query to search for</param>
-        /// <param name="limit">Maximum number of sticker sets to return</param>
-        public SearchInstalledStickerSets(bool isMasks = false, string query = default, int limit = 0)
+        /// <param name="limit">The maximum number of sticker sets to return</param>
+        public SearchInstalledStickerSets(bool isMasks = default, string query = default, int limit = default)
         {
             this.IsMasks = isMasks;
             this.Query = query;
@@ -14725,7 +16289,7 @@ namespace TDLib.Api
         /// <param name="setId">Identifier of the sticker set</param>
         /// <param name="isInstalled">The new value of is_installed</param>
         /// <param name="isArchived">The new value of is_archived. A sticker set can't be installed and archived simultaneously</param>
-        public ChangeStickerSet(long setId = 0, bool isInstalled = false, bool isArchived = false)
+        public ChangeStickerSet(long setId = default, bool isInstalled = default, bool isArchived = default)
         {
             this.SetId = setId;
             this.IsInstalled = isInstalled;
@@ -14760,7 +16324,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isMasks">Pass true to change the order of mask sticker sets; pass false to change the order of ordinary sticker sets</param>
         /// <param name="stickerSetIds">Identifiers of installed sticker sets in the new correct order</param>
-        public ReorderInstalledStickerSets(bool isMasks = false, long[] stickerSetIds = default)
+        public ReorderInstalledStickerSets(bool isMasks = default, long[] stickerSetIds = default)
         {
             this.IsMasks = isMasks;
             this.StickerSetIds = stickerSetIds;
@@ -14777,7 +16341,7 @@ namespace TDLib.Api
         /// Returns a list of recently used stickers
         /// </summary>
         /// <param name="isAttached">Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers</param>
-        public GetRecentStickers(bool isAttached = false)
+        public GetRecentStickers(bool isAttached = default)
         {
             this.IsAttached = isAttached;
         }
@@ -14794,7 +16358,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isAttached">Pass true to add the sticker to the list of stickers recently attached to photo or video files; pass false to add the sticker to the list of recently sent stickers</param>
         /// <param name="sticker">Sticker file to add</param>
-        public AddRecentSticker(bool isAttached = false, InputFile sticker = default)
+        public AddRecentSticker(bool isAttached = default, InputFile sticker = default)
         {
             this.IsAttached = isAttached;
             this.Sticker = sticker;
@@ -14812,7 +16376,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="isAttached">Pass true to remove the sticker from the list of stickers recently attached to photo or video files; pass false to remove the sticker from the list of recently sent stickers</param>
         /// <param name="sticker">Sticker file to delete</param>
-        public RemoveRecentSticker(bool isAttached = false, InputFile sticker = default)
+        public RemoveRecentSticker(bool isAttached = default, InputFile sticker = default)
         {
             this.IsAttached = isAttached;
             this.Sticker = sticker;
@@ -14829,7 +16393,7 @@ namespace TDLib.Api
         /// Clears the list of recently used stickers
         /// </summary>
         /// <param name="isAttached">Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers</param>
-        public ClearRecentStickers(bool isAttached = false)
+        public ClearRecentStickers(bool isAttached = default)
         {
             this.IsAttached = isAttached;
         }
@@ -14878,16 +16442,52 @@ namespace TDLib.Api
     public partial class GetStickerEmojis
     {
         /// <summary>
-        /// Returns emoji corresponding to a sticker
+        /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
         /// </summary>
         public GetStickerEmojis() { }
         /// <summary>
-        /// Returns emoji corresponding to a sticker
+        /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
         /// </summary>
         /// <param name="sticker">Sticker file identifier</param>
         public GetStickerEmojis(InputFile sticker = default)
         {
             this.Sticker = sticker;
+        }
+    }
+
+    public partial class SearchEmojis
+    {
+        /// <summary>
+        /// Searches for emojis by keywords. Supported only if the file database is enabled
+        /// </summary>
+        public SearchEmojis() { }
+        /// <summary>
+        /// Searches for emojis by keywords. Supported only if the file database is enabled
+        /// </summary>
+        /// <param name="text">Text to search for</param>
+        /// <param name="exactMatch">True, if only emojis, which exactly match text needs to be returned</param>
+        /// <param name="inputLanguageCode">IETF language tag of the user's input language; may be empty if unknown</param>
+        public SearchEmojis(string text = default, bool exactMatch = default, string inputLanguageCode = default)
+        {
+            this.Text = text;
+            this.ExactMatch = exactMatch;
+            this.InputLanguageCode = inputLanguageCode;
+        }
+    }
+
+    public partial class GetEmojiSuggestionsUrl
+    {
+        /// <summary>
+        /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
+        /// </summary>
+        public GetEmojiSuggestionsUrl() { }
+        /// <summary>
+        /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
+        /// </summary>
+        /// <param name="languageCode">Language code for which the emoji replacements will be suggested</param>
+        public GetEmojiSuggestionsUrl(string languageCode = default)
+        {
+            this.LanguageCode = languageCode;
         }
     }
 
@@ -14949,8 +16549,8 @@ namespace TDLib.Api
         /// Searches for recently used hashtags by their prefix
         /// </summary>
         /// <param name="prefix">Hashtag prefix to search for</param>
-        /// <param name="limit">Maximum number of hashtags to be returned</param>
-        public SearchHashtags(string prefix = default, int limit = 0)
+        /// <param name="limit">The maximum number of hashtags to be returned</param>
+        public SearchHashtags(string prefix = default, int limit = default)
         {
             this.Prefix = prefix;
             this.Limit = limit;
@@ -15000,7 +16600,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="url">The web page URL</param>
         /// <param name="forceFull">If true, the full instant view for the web page will be returned</param>
-        public GetWebPageInstantView(string url = default, bool forceFull = false)
+        public GetWebPageInstantView(string url = default, bool forceFull = default)
         {
             this.Url = url;
             this.ForceFull = forceFull;
@@ -15033,7 +16633,7 @@ namespace TDLib.Api
         /// Deletes a profile photo. If something changes, updateUser will be sent
         /// </summary>
         /// <param name="profilePhotoId">Identifier of the profile photo to delete</param>
-        public DeleteProfilePhoto(long profilePhotoId = 0)
+        public DeleteProfilePhoto(long profilePhotoId = default)
         {
             this.ProfilePhotoId = profilePhotoId;
         }
@@ -15099,13 +16699,11 @@ namespace TDLib.Api
         /// Changes the phone number of the user and sends an authentication code to the user's new phone number. On success, returns information about the sent code
         /// </summary>
         /// <param name="phoneNumber">The new phone number of the user in international format</param>
-        /// <param name="allowFlashCall">Pass true if the code can be sent via flash call to the specified phone number</param>
-        /// <param name="isCurrentPhoneNumber">Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false</param>
-        public ChangePhoneNumber(string phoneNumber = default, bool allowFlashCall = false, bool isCurrentPhoneNumber = false)
+        /// <param name="settings">Settings for the authentication of the user's phone number</param>
+        public ChangePhoneNumber(string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
         {
             this.PhoneNumber = phoneNumber;
-            this.AllowFlashCall = allowFlashCall;
-            this.IsCurrentPhoneNumber = isCurrentPhoneNumber;
+            this.Settings = settings;
         }
     }
 
@@ -15151,7 +16749,7 @@ namespace TDLib.Api
         /// Terminates a session of the current user
         /// </summary>
         /// <param name="sessionId">Session identifier</param>
-        public TerminateSession(long sessionId = 0)
+        public TerminateSession(long sessionId = default)
         {
             this.SessionId = sessionId;
         }
@@ -15183,7 +16781,7 @@ namespace TDLib.Api
         /// Disconnects website from the current user's Telegram account
         /// </summary>
         /// <param name="websiteId">Website identifier</param>
-        public DisconnectWebsite(long websiteId = 0)
+        public DisconnectWebsite(long websiteId = default)
         {
             this.WebsiteId = websiteId;
         }
@@ -15197,36 +16795,18 @@ namespace TDLib.Api
         public DisconnectAllWebsites() { }
     }
 
-    public partial class ToggleBasicGroupAdministrators
-    {
-        /// <summary>
-        /// Toggles the "All members are admins" setting in basic groups; requires creator privileges in the group
-        /// </summary>
-        public ToggleBasicGroupAdministrators() { }
-        /// <summary>
-        /// Toggles the "All members are admins" setting in basic groups; requires creator privileges in the group
-        /// </summary>
-        /// <param name="basicGroupId">Identifier of the basic group</param>
-        /// <param name="everyoneIsAdministrator">New value of everyone_is_administrator</param>
-        public ToggleBasicGroupAdministrators(int basicGroupId = 0, bool everyoneIsAdministrator = false)
-        {
-            this.BasicGroupId = basicGroupId;
-            this.EveryoneIsAdministrator = everyoneIsAdministrator;
-        }
-    }
-
     public partial class SetSupergroupUsername
     {
         /// <summary>
-        /// Changes the username of a supergroup or channel, requires creator privileges in the supergroup or channel
+        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public SetSupergroupUsername() { }
         /// <summary>
-        /// Changes the username of a supergroup or channel, requires creator privileges in the supergroup or channel
+        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup or channel</param>
         /// <param name="username">New value of the username. Use an empty string to remove the username</param>
-        public SetSupergroupUsername(int supergroupId = 0, string username = default)
+        public SetSupergroupUsername(int supergroupId = default, string username = default)
         {
             this.SupergroupId = supergroupId;
             this.Username = username;
@@ -15236,51 +16816,33 @@ namespace TDLib.Api
     public partial class SetSupergroupStickerSet
     {
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires appropriate rights in the supergroup
+        /// Changes the sticker set of a supergroup; requires can_change_info rights
         /// </summary>
         public SetSupergroupStickerSet() { }
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires appropriate rights in the supergroup
+        /// Changes the sticker set of a supergroup; requires can_change_info rights
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup</param>
         /// <param name="stickerSetId">New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set</param>
-        public SetSupergroupStickerSet(int supergroupId = 0, long stickerSetId = 0)
+        public SetSupergroupStickerSet(int supergroupId = default, long stickerSetId = default)
         {
             this.SupergroupId = supergroupId;
             this.StickerSetId = stickerSetId;
         }
     }
 
-    public partial class ToggleSupergroupInvites
-    {
-        /// <summary>
-        /// Toggles whether all members of a supergroup can add new members; requires appropriate administrator rights in the supergroup.
-        /// </summary>
-        public ToggleSupergroupInvites() { }
-        /// <summary>
-        /// Toggles whether all members of a supergroup can add new members; requires appropriate administrator rights in the supergroup.
-        /// </summary>
-        /// <param name="supergroupId">Identifier of the supergroup</param>
-        /// <param name="anyoneCanInvite">New value of anyone_can_invite</param>
-        public ToggleSupergroupInvites(int supergroupId = 0, bool anyoneCanInvite = false)
-        {
-            this.SupergroupId = supergroupId;
-            this.AnyoneCanInvite = anyoneCanInvite;
-        }
-    }
-
     public partial class ToggleSupergroupSignMessages
     {
         /// <summary>
-        /// Toggles sender signatures messages sent in a channel; requires appropriate administrator rights in the channel.
+        /// Toggles sender signatures messages sent in a channel; requires can_change_info rights
         /// </summary>
         public ToggleSupergroupSignMessages() { }
         /// <summary>
-        /// Toggles sender signatures messages sent in a channel; requires appropriate administrator rights in the channel.
+        /// Toggles sender signatures messages sent in a channel; requires can_change_info rights
         /// </summary>
         /// <param name="supergroupId">Identifier of the channel</param>
         /// <param name="signMessages">New value of sign_messages</param>
-        public ToggleSupergroupSignMessages(int supergroupId = 0, bool signMessages = false)
+        public ToggleSupergroupSignMessages(int supergroupId = default, bool signMessages = default)
         {
             this.SupergroupId = supergroupId;
             this.SignMessages = signMessages;
@@ -15290,36 +16852,18 @@ namespace TDLib.Api
     public partial class ToggleSupergroupIsAllHistoryAvailable
     {
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires appropriate administrator rights in the supergroup.
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights
         /// </summary>
         public ToggleSupergroupIsAllHistoryAvailable() { }
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires appropriate administrator rights in the supergroup.
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights
         /// </summary>
         /// <param name="supergroupId">The identifier of the supergroup</param>
         /// <param name="isAllHistoryAvailable">The new value of is_all_history_available</param>
-        public ToggleSupergroupIsAllHistoryAvailable(int supergroupId = 0, bool isAllHistoryAvailable = false)
+        public ToggleSupergroupIsAllHistoryAvailable(int supergroupId = default, bool isAllHistoryAvailable = default)
         {
             this.SupergroupId = supergroupId;
             this.IsAllHistoryAvailable = isAllHistoryAvailable;
-        }
-    }
-
-    public partial class SetSupergroupDescription
-    {
-        /// <summary>
-        /// Changes information about a supergroup or channel; requires appropriate administrator rights
-        /// </summary>
-        public SetSupergroupDescription() { }
-        /// <summary>
-        /// Changes information about a supergroup or channel; requires appropriate administrator rights
-        /// </summary>
-        /// <param name="supergroupId">Identifier of the supergroup or channel</param>
-        /// <param name="description">Changes information about a supergroup or channel; requires appropriate administrator rights</param>
-        public SetSupergroupDescription(int supergroupId = 0, string description = default)
-        {
-            this.SupergroupId = supergroupId;
-            this.Description = description;
         }
     }
 
@@ -15335,7 +16879,7 @@ namespace TDLib.Api
         /// <param name="supergroupId">Supergroup identifier</param>
         /// <param name="userId">User identifier</param>
         /// <param name="messageIds">Identifiers of messages sent in the supergroup by the user. This list must be non-empty</param>
-        public ReportSupergroupSpam(int supergroupId = 0, int userId = 0, long[] messageIds = default)
+        public ReportSupergroupSpam(int supergroupId = default, int userId = default, long[] messageIds = default)
         {
             this.SupergroupId = supergroupId;
             this.UserId = userId;
@@ -15356,7 +16900,7 @@ namespace TDLib.Api
         /// <param name="filter">The type of users to return. By default, supergroupMembersRecent</param>
         /// <param name="offset">Number of users to skip</param>
         /// <param name="limit">The maximum number of users be returned; up to 200</param>
-        public GetSupergroupMembers(int supergroupId = 0, SupergroupMembersFilter filter = default, int offset = 0, int limit = 0)
+        public GetSupergroupMembers(int supergroupId = default, SupergroupMembersFilter filter = default, int offset = default, int limit = default)
         {
             this.SupergroupId = supergroupId;
             this.Filter = filter;
@@ -15368,14 +16912,14 @@ namespace TDLib.Api
     public partial class DeleteSupergroup
     {
         /// <summary>
-        /// Deletes a supergroup or channel along with all messages in the corresponding chat. This will release the supergroup or channel username and remove all members; requires creator privileges in the supergroup or channel. Chats with more than 1000 members can't be deleted using this method
+        /// Deletes a supergroup or channel along with all messages in the corresponding chat. This will release the supergroup or channel username and remove all members; requires owner privileges in the supergroup or channel. Chats with more than 1000 members can't be deleted using this method
         /// </summary>
         public DeleteSupergroup() { }
         /// <summary>
-        /// Deletes a supergroup or channel along with all messages in the corresponding chat. This will release the supergroup or channel username and remove all members; requires creator privileges in the supergroup or channel. Chats with more than 1000 members can't be deleted using this method
+        /// Deletes a supergroup or channel along with all messages in the corresponding chat. This will release the supergroup or channel username and remove all members; requires owner privileges in the supergroup or channel. Chats with more than 1000 members can't be deleted using this method
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup or channel</param>
-        public DeleteSupergroup(int supergroupId = 0)
+        public DeleteSupergroup(int supergroupId = default)
         {
             this.SupergroupId = supergroupId;
         }
@@ -15384,14 +16928,14 @@ namespace TDLib.Api
     public partial class CloseSecretChat
     {
         /// <summary>
-        /// Closes a secret chat, effectively transfering its state to secretChatStateClosed
+        /// Closes a secret chat, effectively transferring its state to secretChatStateClosed
         /// </summary>
         public CloseSecretChat() { }
         /// <summary>
-        /// Closes a secret chat, effectively transfering its state to secretChatStateClosed
+        /// Closes a secret chat, effectively transferring its state to secretChatStateClosed
         /// </summary>
         /// <param name="secretChatId">Secret chat identifier</param>
-        public CloseSecretChat(int secretChatId = 0)
+        public CloseSecretChat(int secretChatId = default)
         {
             this.SecretChatId = secretChatId;
         }
@@ -15400,19 +16944,19 @@ namespace TDLib.Api
     public partial class GetChatEventLog
     {
         /// <summary>
-        /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i. e., in order of decreasing event_id)
+        /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only for supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i. e., in order of decreasing event_id)
         /// </summary>
         public GetChatEventLog() { }
         /// <summary>
-        /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i. e., in order of decreasing event_id)
+        /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only for supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i. e., in order of decreasing event_id)
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="query">Search query by which to filter events</param>
         /// <param name="fromEventId">Identifier of an event from which to return results. Use 0 to get results from the latest events</param>
-        /// <param name="limit">Maximum number of events to return; up to 100</param>
+        /// <param name="limit">The maximum number of events to return; up to 100</param>
         /// <param name="filters">The types of events to return. By default, all types will be returned</param>
         /// <param name="userIds">User identifiers by which to filter events. By default, events relating to all users will be returned</param>
-        public GetChatEventLog(long chatId = 0, string query = default, long fromEventId = 0, int limit = 0, ChatEventLogFilters filters = default, int[] userIds = default)
+        public GetChatEventLog(long chatId = default, string query = default, long fromEventId = default, int limit = default, ChatEventLogFilters filters = default, int[] userIds = default)
         {
             this.ChatId = chatId;
             this.Query = query;
@@ -15434,7 +16978,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier of the Invoice message</param>
         /// <param name="messageId">Message identifier</param>
-        public GetPaymentForm(long chatId = 0, long messageId = 0)
+        public GetPaymentForm(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -15454,7 +16998,7 @@ namespace TDLib.Api
         /// <param name="messageId">Message identifier</param>
         /// <param name="orderInfo">The order information, provided by the user</param>
         /// <param name="allowSave">True, if the order information can be saved</param>
-        public ValidateOrderInfo(long chatId = 0, long messageId = 0, OrderInfo orderInfo = default, bool allowSave = false)
+        public ValidateOrderInfo(long chatId = default, long messageId = default, OrderInfo orderInfo = default, bool allowSave = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -15477,7 +17021,7 @@ namespace TDLib.Api
         /// <param name="orderInfoId">Identifier returned by ValidateOrderInfo, or an empty string</param>
         /// <param name="shippingOptionId">Identifier of a chosen shipping option, if applicable</param>
         /// <param name="credentials">The credentials chosen by user for payment</param>
-        public SendPaymentForm(long chatId = 0, long messageId = 0, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default)
+        public SendPaymentForm(long chatId = default, long messageId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -15498,7 +17042,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Chat identifier of the PaymentSuccessful message</param>
         /// <param name="messageId">Message identifier</param>
-        public GetPaymentReceipt(long chatId = 0, long messageId = 0)
+        public GetPaymentReceipt(long chatId = default, long messageId = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
@@ -15537,12 +17081,98 @@ namespace TDLib.Api
         public GetSupportUser() { }
     }
 
-    public partial class GetWallpapers
+    public partial class GetBackgrounds
     {
         /// <summary>
-        /// Returns background wallpapers
+        /// Returns backgrounds installed by the user
         /// </summary>
-        public GetWallpapers() { }
+        public GetBackgrounds() { }
+        /// <summary>
+        /// Returns backgrounds installed by the user
+        /// </summary>
+        /// <param name="forDarkTheme">True, if the backgrounds needs to be ordered for dark theme</param>
+        public GetBackgrounds(bool forDarkTheme = default)
+        {
+            this.ForDarkTheme = forDarkTheme;
+        }
+    }
+
+    public partial class GetBackgroundUrl
+    {
+        /// <summary>
+        /// Constructs a persistent HTTP URL for a background
+        /// </summary>
+        public GetBackgroundUrl() { }
+        /// <summary>
+        /// Constructs a persistent HTTP URL for a background
+        /// </summary>
+        /// <param name="name">Background name</param>
+        /// <param name="type">Background type</param>
+        public GetBackgroundUrl(string name = default, BackgroundType type = default)
+        {
+            this.Name = name;
+            this.Type = type;
+        }
+    }
+
+    public partial class SearchBackground
+    {
+        /// <summary>
+        /// Searches for a background by its name
+        /// </summary>
+        public SearchBackground() { }
+        /// <summary>
+        /// Searches for a background by its name
+        /// </summary>
+        /// <param name="name">The name of the background</param>
+        public SearchBackground(string name = default)
+        {
+            this.Name = name;
+        }
+    }
+
+    public partial class SetBackground
+    {
+        /// <summary>
+        /// Changes the background selected by the user; adds background to the list of installed backgrounds
+        /// </summary>
+        public SetBackground() { }
+        /// <summary>
+        /// Changes the background selected by the user; adds background to the list of installed backgrounds
+        /// </summary>
+        /// <param name="background">The input background to use, null for filled backgrounds</param>
+        /// <param name="type">Background type; null for default background. The method will return error 404 if type is null</param>
+        /// <param name="forDarkTheme">True, if the background is chosen for dark theme</param>
+        public SetBackground(InputBackground background = default, BackgroundType type = default, bool forDarkTheme = default)
+        {
+            this.Background = background;
+            this.Type = type;
+            this.ForDarkTheme = forDarkTheme;
+        }
+    }
+
+    public partial class RemoveBackground
+    {
+        /// <summary>
+        /// Removes background from the list of installed backgrounds
+        /// </summary>
+        public RemoveBackground() { }
+        /// <summary>
+        /// Removes background from the list of installed backgrounds
+        /// </summary>
+        /// <param name="backgroundId">The background identifier</param>
+        public RemoveBackground(long backgroundId = default)
+        {
+            this.BackgroundId = backgroundId;
+        }
+    }
+
+    public partial class ResetBackgrounds
+    {
+        /// <summary>
+        /// Resets list of installed backgrounds to its default value
+        /// </summary>
+        public ResetBackgrounds() { }
     }
 
     public partial class GetLocalizationTargetInfo
@@ -15555,7 +17185,7 @@ namespace TDLib.Api
         /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization
         /// </summary>
         /// <param name="onlyLocal">If true, returns only locally available information without sending network requests</param>
-        public GetLocalizationTargetInfo(bool onlyLocal = false)
+        public GetLocalizationTargetInfo(bool onlyLocal = default)
         {
             this.OnlyLocal = onlyLocal;
         }
@@ -15869,53 +17499,35 @@ namespace TDLib.Api
         }
     }
 
-    public partial class GetChatReportSpamState
+    public partial class RemoveChatActionBar
     {
         /// <summary>
-        /// Returns information on whether the current chat can be reported as spam
+        /// Removes a chat action bar without any other action
         /// </summary>
-        public GetChatReportSpamState() { }
+        public RemoveChatActionBar() { }
         /// <summary>
-        /// Returns information on whether the current chat can be reported as spam
+        /// Removes a chat action bar without any other action
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        public GetChatReportSpamState(long chatId = 0)
+        public RemoveChatActionBar(long chatId = default)
         {
             this.ChatId = chatId;
-        }
-    }
-
-    public partial class ChangeChatReportSpamState
-    {
-        /// <summary>
-        /// Reports to the server whether a chat is a spam chat or not. Can be used only if ChatReportSpamState.can_report_spam is true. After this request, ChatReportSpamState.can_report_spam becomes false forever
-        /// </summary>
-        public ChangeChatReportSpamState() { }
-        /// <summary>
-        /// Reports to the server whether a chat is a spam chat or not. Can be used only if ChatReportSpamState.can_report_spam is true. After this request, ChatReportSpamState.can_report_spam becomes false forever
-        /// </summary>
-        /// <param name="chatId">Chat identifier</param>
-        /// <param name="isSpamChat">If true, the chat will be reported as spam; otherwise it will be marked as not spam</param>
-        public ChangeChatReportSpamState(long chatId = 0, bool isSpamChat = false)
-        {
-            this.ChatId = chatId;
-            this.IsSpamChat = isSpamChat;
         }
     }
 
     public partial class ReportChat
     {
         /// <summary>
-        /// Reports a chat to the Telegram moderators. Supported only for supergroups, channels, or private chats with bots, since other chats can't be checked by moderators
+        /// Reports a chat to the Telegram moderators. Supported only for supergroups, channels, or private chats with bots, since other chats can't be checked by moderators, or when the report is done from the chat action bar
         /// </summary>
         public ReportChat() { }
         /// <summary>
-        /// Reports a chat to the Telegram moderators. Supported only for supergroups, channels, or private chats with bots, since other chats can't be checked by moderators
+        /// Reports a chat to the Telegram moderators. Supported only for supergroups, channels, or private chats with bots, since other chats can't be checked by moderators, or when the report is done from the chat action bar
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="reason">The reason for reporting the chat</param>
         /// <param name="messageIds">Identifiers of reported messages, if any</param>
-        public ReportChat(long chatId = 0, ChatReportReason reason = default, long[] messageIds = default)
+        public ReportChat(long chatId = default, ChatReportReason reason = default, long[] messageIds = default)
         {
             this.ChatId = chatId;
             this.Reason = reason;
@@ -15926,16 +17538,16 @@ namespace TDLib.Api
     public partial class GetChatStatisticsUrl
     {
         /// <summary>
-        /// Returns URL with the chat statistics. Currently this method can be used only for channels
+        /// Returns an HTTP URL with the chat statistics. Currently this method can be used only for channels. Can be used only if SupergroupFullInfo.can_view_statistics == true
         /// </summary>
         public GetChatStatisticsUrl() { }
         /// <summary>
-        /// Returns URL with the chat statistics. Currently this method can be used only for channels
+        /// Returns an HTTP URL with the chat statistics. Currently this method can be used only for channels. Can be used only if SupergroupFullInfo.can_view_statistics == true
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="parameters">Parameters from "tg://statsrefresh?params=******" link</param>
         /// <param name="isDark">Pass true if a URL with the dark theme must be returned</param>
-        public GetChatStatisticsUrl(long chatId = 0, string parameters = default, bool isDark = false)
+        public GetChatStatisticsUrl(long chatId = default, string parameters = default, bool isDark = default)
         {
             this.ChatId = chatId;
             this.Parameters = parameters;
@@ -15952,8 +17564,8 @@ namespace TDLib.Api
         /// <summary>
         /// Returns storage usage statistics. Can be called before authorization
         /// </summary>
-        /// <param name="chatLimit">Maximum number of chats with the largest storage usage for which separate statistics should be returned. All other chats will be grouped in entries with chat_id == 0. If the chat info database is not used, the chat_limit is ignored and is always set to 0</param>
-        public GetStorageStatistics(int chatLimit = 0)
+        /// <param name="chatLimit">The maximum number of chats with the largest storage usage for which separate statistics should be returned. All other chats will be grouped in entries with chat_id == 0. If the chat info database is not used, the chat_limit is ignored and is always set to 0</param>
+        public GetStorageStatistics(int chatLimit = default)
         {
             this.ChatLimit = chatLimit;
         }
@@ -15992,7 +17604,7 @@ namespace TDLib.Api
         /// <param name="chatIds">If not empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)</param>
         /// <param name="excludeChatIds">If not empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)</param>
         /// <param name="chatLimit">Same as in getStorageStatistics. Affects only returned statistics</param>
-        public OptimizeStorage(long size = 0, int ttl = 0, int count = 0, int immunityDelay = 0, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, int chatLimit = 0)
+        public OptimizeStorage(long size = default, int ttl = default, int count = default, int immunityDelay = default, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, int chatLimit = default)
         {
             this.Size = size;
             this.Ttl = ttl;
@@ -16031,7 +17643,7 @@ namespace TDLib.Api
         /// Returns network data usage statistics. Can be called before authorization
         /// </summary>
         /// <param name="onlyCurrent">If true, returns only data for the current library launch</param>
-        public GetNetworkStatistics(bool onlyCurrent = false)
+        public GetNetworkStatistics(bool onlyCurrent = default)
         {
             this.OnlyCurrent = onlyCurrent;
         }
@@ -16059,6 +17671,32 @@ namespace TDLib.Api
         /// Resets all network data usage statistics to zero. Can be called before authorization
         /// </summary>
         public ResetNetworkStatistics() { }
+    }
+
+    public partial class GetAutoDownloadSettingsPresets
+    {
+        /// <summary>
+        /// Returns auto-download settings presets for the currently logged in user
+        /// </summary>
+        public GetAutoDownloadSettingsPresets() { }
+    }
+
+    public partial class SetAutoDownloadSettings
+    {
+        /// <summary>
+        /// Sets auto-download settings
+        /// </summary>
+        public SetAutoDownloadSettings() { }
+        /// <summary>
+        /// Sets auto-download settings
+        /// </summary>
+        /// <param name="settings">New user auto-download settings</param>
+        /// <param name="type">Type of the network for which the new settings are applied</param>
+        public SetAutoDownloadSettings(AutoDownloadSettings settings = default, NetworkType type = default)
+        {
+            this.Settings = settings;
+            this.Type = type;
+        }
     }
 
     public partial class GetPassportElement
@@ -16140,7 +17778,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">User identifier</param>
         /// <param name="errors">The errors</param>
-        public SetPassportElementErrors(int userId = 0, InputPassportElementError[] errors = default)
+        public SetPassportElementErrors(int userId = default, InputPassportElementError[] errors = default)
         {
             this.UserId = userId;
             this.Errors = errors;
@@ -16173,13 +17811,11 @@ namespace TDLib.Api
         /// Sends a code to verify a phone number to be added to a user's Telegram Passport
         /// </summary>
         /// <param name="phoneNumber">The phone number of the user, in international format</param>
-        /// <param name="allowFlashCall">Pass true if the authentication code may be sent via flash call to the specified phone number</param>
-        /// <param name="isCurrentPhoneNumber">Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false</param>
-        public SendPhoneNumberVerificationCode(string phoneNumber = default, bool allowFlashCall = false, bool isCurrentPhoneNumber = false)
+        /// <param name="settings">Settings for the authentication of the user's phone number</param>
+        public SendPhoneNumberVerificationCode(string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
         {
             this.PhoneNumber = phoneNumber;
-            this.AllowFlashCall = allowFlashCall;
-            this.IsCurrentPhoneNumber = isCurrentPhoneNumber;
+            this.Settings = settings;
         }
     }
 
@@ -16260,7 +17896,7 @@ namespace TDLib.Api
         /// <param name="scope">Telegram Passport element types requested by the service</param>
         /// <param name="publicKey">Service's public_key</param>
         /// <param name="nonce">Authorization form nonce provided by the service</param>
-        public GetPassportAuthorizationForm(int botUserId = 0, string scope = default, string publicKey = default, string nonce = default)
+        public GetPassportAuthorizationForm(int botUserId = default, string scope = default, string publicKey = default, string nonce = default)
         {
             this.BotUserId = botUserId;
             this.Scope = scope;
@@ -16280,7 +17916,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="autorizationFormId">Authorization form identifier</param>
         /// <param name="password">Password of the current user</param>
-        public GetPassportAuthorizationFormAvailableElements(int autorizationFormId = 0, string password = default)
+        public GetPassportAuthorizationFormAvailableElements(int autorizationFormId = default, string password = default)
         {
             this.AutorizationFormId = autorizationFormId;
             this.Password = password;
@@ -16298,7 +17934,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="autorizationFormId">Authorization form identifier</param>
         /// <param name="types">Types of Telegram Passport elements chosen by user to complete the authorization form</param>
-        public SendPassportAuthorizationForm(int autorizationFormId = 0, PassportElementType[] types = default)
+        public SendPassportAuthorizationForm(int autorizationFormId = default, PassportElementType[] types = default)
         {
             this.AutorizationFormId = autorizationFormId;
             this.Types = types;
@@ -16316,14 +17952,12 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="hash">Value of the "hash" parameter from the link</param>
         /// <param name="phoneNumber">Value of the "phone" parameter from the link</param>
-        /// <param name="allowFlashCall">Pass true if the authentication code may be sent via flash call to the specified phone number</param>
-        /// <param name="isCurrentPhoneNumber">Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false</param>
-        public SendPhoneNumberConfirmationCode(string hash = default, string phoneNumber = default, bool allowFlashCall = false, bool isCurrentPhoneNumber = false)
+        /// <param name="settings">Settings for the authentication of the user's phone number</param>
+        public SendPhoneNumberConfirmationCode(string hash = default, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
         {
             this.Hash = hash;
             this.PhoneNumber = phoneNumber;
-            this.AllowFlashCall = allowFlashCall;
-            this.IsCurrentPhoneNumber = isCurrentPhoneNumber;
+            this.Settings = settings;
         }
     }
 
@@ -16362,7 +17996,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="pendingUpdateCount">The number of pending updates</param>
         /// <param name="errorMessage">The last error message</param>
-        public SetBotUpdatesStatus(int pendingUpdateCount = 0, string errorMessage = default)
+        public SetBotUpdatesStatus(int pendingUpdateCount = default, string errorMessage = default)
         {
             this.PendingUpdateCount = pendingUpdateCount;
             this.ErrorMessage = errorMessage;
@@ -16380,7 +18014,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="userId">Sticker file owner</param>
         /// <param name="pngSticker">PNG image with the sticker; must be up to 512 kB in size and fit in 512x512 square</param>
-        public UploadStickerFile(int userId = 0, InputFile pngSticker = default)
+        public UploadStickerFile(int userId = default, InputFile pngSticker = default)
         {
             this.UserId = userId;
             this.PngSticker = pngSticker;
@@ -16401,7 +18035,7 @@ namespace TDLib.Api
         /// <param name="name">Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive); 1-64 characters</param>
         /// <param name="isMasks">True, if stickers are masks</param>
         /// <param name="stickers">List of stickers to be added to the set</param>
-        public CreateNewStickerSet(int userId = 0, string title = default, string name = default, bool isMasks = false, InputSticker[] stickers = default)
+        public CreateNewStickerSet(int userId = default, string title = default, string name = default, bool isMasks = default, InputSticker[] stickers = default)
         {
             this.UserId = userId;
             this.Title = title;
@@ -16423,7 +18057,7 @@ namespace TDLib.Api
         /// <param name="userId">Sticker set owner</param>
         /// <param name="name">Sticker set name</param>
         /// <param name="sticker">Sticker to add to the set</param>
-        public AddStickerToSet(int userId = 0, string name = default, InputSticker sticker = default)
+        public AddStickerToSet(int userId = default, string name = default, InputSticker sticker = default)
         {
             this.UserId = userId;
             this.Name = name;
@@ -16442,7 +18076,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="sticker">Sticker</param>
         /// <param name="position">New position of the sticker in the set, zero-based</param>
-        public SetStickerPositionInSet(InputFile sticker = default, int position = 0)
+        public SetStickerPositionInSet(InputFile sticker = default, int position = default)
         {
             this.Sticker = sticker;
             this.Position = position;
@@ -16480,7 +18114,7 @@ namespace TDLib.Api
         /// <param name="height">Map height in pixels before applying scale; 16-1024</param>
         /// <param name="scale">Map scale; 1-3</param>
         /// <param name="chatId">Identifier of a chat, in which the thumbnail will be shown. Use 0 if unknown</param>
-        public GetMapThumbnailFile(Location location = default, int zoom = 0, int width = 0, int height = 0, int scale = 0, long chatId = 0)
+        public GetMapThumbnailFile(Location location = default, int zoom = default, int width = default, int height = default, int scale = default, long chatId = default)
         {
             this.Location = location;
             this.Zoom = zoom;
@@ -16536,7 +18170,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="customQueryId">Identifier of a custom query</param>
         /// <param name="data">JSON-serialized answer to the query</param>
-        public AnswerCustomQuery(long customQueryId = 0, string data = default)
+        public AnswerCustomQuery(long customQueryId = default, string data = default)
         {
             this.CustomQueryId = customQueryId;
             this.Data = data;
@@ -16553,7 +18187,7 @@ namespace TDLib.Api
         /// Succeeds after a specified amount of time has passed. Can be called before authorization. Can be called before initialization
         /// </summary>
         /// <param name="seconds">Number of seconds before the function returns</param>
-        public SetAlarm(double seconds = 0.0)
+        public SetAlarm(double seconds = default)
         {
             this.Seconds = seconds;
         }
@@ -16562,7 +18196,7 @@ namespace TDLib.Api
     public partial class GetCountryCode
     {
         /// <summary>
-        /// Uses current user IP to found his country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
+        /// Uses current user IP to found their country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
         /// </summary>
         public GetCountryCode() { }
     }
@@ -16611,7 +18245,7 @@ namespace TDLib.Api
         /// <param name="type">Event type</param>
         /// <param name="chatId">Optional chat identifier, associated with the event</param>
         /// <param name="data">The log event data</param>
-        public SaveApplicationLogEvent(string type = default, long chatId = 0, JsonValue data = default)
+        public SaveApplicationLogEvent(string type = default, long chatId = default, JsonValue data = default)
         {
             this.Type = type;
             this.ChatId = chatId;
@@ -16632,7 +18266,7 @@ namespace TDLib.Api
         /// <param name="port">Proxy server port</param>
         /// <param name="enable">True, if the proxy should be enabled</param>
         /// <param name="type">Proxy type</param>
-        public AddProxy(string server = default, int port = 0, bool enable = false, ProxyType type = default)
+        public AddProxy(string server = default, int port = default, bool enable = default, ProxyType type = default)
         {
             this.Server = server;
             this.Port = port;
@@ -16655,7 +18289,7 @@ namespace TDLib.Api
         /// <param name="port">Proxy server port</param>
         /// <param name="enable">True, if the proxy should be enabled</param>
         /// <param name="type">Proxy type</param>
-        public EditProxy(int proxyId = 0, string server = default, int port = 0, bool enable = false, ProxyType type = default)
+        public EditProxy(int proxyId = default, string server = default, int port = default, bool enable = default, ProxyType type = default)
         {
             this.ProxyId = proxyId;
             this.Server = server;
@@ -16675,7 +18309,7 @@ namespace TDLib.Api
         /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization
         /// </summary>
         /// <param name="proxyId">Proxy identifier</param>
-        public EnableProxy(int proxyId = 0)
+        public EnableProxy(int proxyId = default)
         {
             this.ProxyId = proxyId;
         }
@@ -16699,7 +18333,7 @@ namespace TDLib.Api
         /// Removes a proxy server. Can be called before authorization
         /// </summary>
         /// <param name="proxyId">Proxy identifier</param>
-        public RemoveProxy(int proxyId = 0)
+        public RemoveProxy(int proxyId = default)
         {
             this.ProxyId = proxyId;
         }
@@ -16723,7 +18357,7 @@ namespace TDLib.Api
         /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization
         /// </summary>
         /// <param name="proxyId">Proxy identifier</param>
-        public GetProxyLink(int proxyId = 0)
+        public GetProxyLink(int proxyId = default)
         {
             this.ProxyId = proxyId;
         }
@@ -16739,7 +18373,7 @@ namespace TDLib.Api
         /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
         /// </summary>
         /// <param name="proxyId">Proxy identifier. Use 0 to ping a Telegram server without a proxy</param>
-        public PingProxy(int proxyId = 0)
+        public PingProxy(int proxyId = default)
         {
             this.ProxyId = proxyId;
         }
@@ -16779,7 +18413,7 @@ namespace TDLib.Api
         /// Sets the verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
         /// </summary>
         /// <param name="newVerbosityLevel">New value of the verbosity level for logging. Value 0 corresponds to fatal errors, value 1 corresponds to errors, value 2 corresponds to warnings and debug warnings, value 3 corresponds to informational, value 4 corresponds to debug, value 5 corresponds to verbose debug, value greater than 5 and up to 1023 can be used to enable even more logging</param>
-        public SetLogVerbosityLevel(int newVerbosityLevel = 0)
+        public SetLogVerbosityLevel(int newVerbosityLevel = default)
         {
             this.NewVerbosityLevel = newVerbosityLevel;
         }
@@ -16812,7 +18446,7 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="tag">Logging tag to change verbosity level</param>
         /// <param name="newVerbosityLevel">New verbosity level; 1-1024</param>
-        public SetLogTagVerbosityLevel(string tag = default, int newVerbosityLevel = 0)
+        public SetLogTagVerbosityLevel(string tag = default, int newVerbosityLevel = default)
         {
             this.Tag = tag;
             this.NewVerbosityLevel = newVerbosityLevel;
@@ -16844,9 +18478,9 @@ namespace TDLib.Api
         /// <summary>
         /// Adds a message to TDLib internal log. This is an offline method. Can be called before authorization. Can be called synchronously
         /// </summary>
-        /// <param name="verbosityLevel">Minimum verbosity level needed for the message to be logged, 0-1023</param>
+        /// <param name="verbosityLevel">The minimum verbosity level needed for the message to be logged, 0-1023</param>
         /// <param name="text">Text of a message to log</param>
-        public AddLogMessage(int verbosityLevel = 0, string text = default)
+        public AddLogMessage(int verbosityLevel = default, string text = default)
         {
             this.VerbosityLevel = verbosityLevel;
             this.Text = text;
@@ -16967,7 +18601,7 @@ namespace TDLib.Api
         /// Returns the squared received number; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Number to square</param>
-        public TestSquareInt(int x = 0)
+        public TestSquareInt(int x = default)
         {
             this.X = x;
         }
@@ -16979,6 +18613,30 @@ namespace TDLib.Api
         /// Sends a simple network request to the Telegram servers; for testing only. Can be called before authorization
         /// </summary>
         public TestNetwork() { }
+    }
+
+    public partial class TestProxy
+    {
+        /// <summary>
+        /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
+        /// </summary>
+        public TestProxy() { }
+        /// <summary>
+        /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
+        /// </summary>
+        /// <param name="server">Proxy server IP address</param>
+        /// <param name="port">Proxy server port</param>
+        /// <param name="type">Proxy type</param>
+        /// <param name="dcId">Identifier of a datacenter, with which to test connection</param>
+        /// <param name="timeout">The maximum overall timeout for the request</param>
+        public TestProxy(string server = default, int port = default, ProxyType type = default, int dcId = default, double timeout = default)
+        {
+            this.Server = server;
+            this.Port = port;
+            this.Type = type;
+            this.DcId = dcId;
+            this.Timeout = timeout;
+        }
     }
 
     public partial class TestGetDifference
@@ -16997,12 +18655,20 @@ namespace TDLib.Api
         public TestUseUpdate() { }
     }
 
-    public partial class TestUseError
+    public partial class TestReturnError
     {
         /// <summary>
-        /// Does nothing and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization
+        /// Returns the specified error and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization. Can be called synchronously
         /// </summary>
-        public TestUseError() { }
+        public TestReturnError() { }
+        /// <summary>
+        /// Returns the specified error and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// </summary>
+        /// <param name="error">The error to be returned</param>
+        public TestReturnError(Error error = default)
+        {
+            this.Error = error;
+        }
     }
 
 }

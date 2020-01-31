@@ -85,7 +85,8 @@ namespace ConsoleApp1
             if (savedGlobals == null) savedGlobals = globals;
             scriptOptions = ScriptOptions.Default
                 .WithReferences(AppDomain.CurrentDomain.GetAssemblies().Where(asm => !asm.IsDynamic && !string.IsNullOrEmpty(asm.Location)))
-                .WithImports("System", "System.Text", "System.Collections.Generic", "System.Linq", "System.Threading.Tasks", "TDLib", "TDLib.Api", "TDLib.ClientExtensions");
+                .WithImports("System", "System.Text", "System.Collections.Generic", "System.Linq", "System.Threading.Tasks",
+                "TDLib", "TDLib.Api", "TDLib.CxxClient", "TDLib.ClientExtensions");
             state = await CSharpScript.RunAsync(";", scriptOptions, globals: globals);
             scriptOptions = UpdateOptions(scriptOptions);
         }

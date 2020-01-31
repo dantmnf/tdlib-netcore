@@ -1,20 +1,20 @@
 # NMAKE-compatible
 
-ALL: ../TDLib/Api/Generated/TypesDefinition.cs ../TDLib/Api/Generated/ClientExtension.cs ../TDLib/Api/Generated/CxxBridge.cs ../TDLib.Native/tlobject.cxx ../TDLib/Api/Generated/Constructor.cs
+ALL: ../TDLib/Generated/TypesDefinition.cs ../TDLib/Generated/ClientExtension.cs ../TDLib.CxxClient/Generated/CxxBridge.cs ../TDLib.CxxClient.Native/tlobject.cxx ../TDLib/Generated/Constructor.cs
 
 COMMON: td_api.tl common.rb parser.rb
 
-../TDLib/Api/Generated/TypesDefinition.cs: COMMON gentypes.rb
-	ruby gentypes.rb > ../TDLib/Api/Generated/TypesDefinition.cs
+../TDLib/Generated/TypesDefinition.cs: COMMON gentypes.rb
+	ruby gentypes.rb > ../TDLib/Generated/TypesDefinition.cs
 
-../TDLib/Api/Generated/ClientExtension.cs: COMMON genext.rb
-	ruby genext.rb > ../TDLib/Api/Generated/ClientExtension.cs
+../TDLib/Generated/ClientExtension.cs: COMMON genext.rb
+	ruby genext.rb > ../TDLib/Generated/ClientExtension.cs
 
-../TDLib/Api/Generated/CxxBridge.cs: COMMON gencxxbridge.rb
-	ruby gencxxbridge.rb > ../TDLib/Api/Generated/CxxBridge.cs
+../TDLib.CxxClient/Generated/CxxBridge.cs: COMMON gencxxbridge.rb
+	ruby gencxxbridge.rb > ../TDLib.CxxClient/Generated/CxxBridge.cs
 
-../TDLib.Native/tlobject.cxx: COMMON gencxxobjects.rb
-	ruby gencxxobjects.rb > ../TDLib.Native/tlobject.cxx
+../TDLib.CxxClient.Native/tlobject.cxx: COMMON gencxxobjects.rb
+	ruby gencxxobjects.rb > ../TDLib.CxxClient.Native/tlobject.cxx
 
-../TDLib/Api/Generated/Constructor.cs: COMMON genctor.rb
-	ruby genctor.rb > ../TDLib/Api/Generated/Constructor.cs
+../TDLib/Generated/Constructor.cs: COMMON genctor.rb
+	ruby genctor.rb > ../TDLib/Generated/Constructor.cs

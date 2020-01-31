@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using TDLib;
+using static TDLib.CxxClient.Native;
 
-using static TDLib.Native;
-
-namespace TDLib
+namespace TDLib.CxxClient
 {
-    public unsafe class Logging
+    internal class CxxClientLogging : ITdClientLogging
     {
-        private static int loglevelvalue = 5;
-        private static FatalErrorCallback savedcallback;
-        public static int LogLevel
+        private int loglevelvalue = 5;
+        private FatalErrorCallback savedcallback;
+        public int VerbosityLevel
         {
             get => loglevelvalue;
             set
@@ -21,7 +21,7 @@ namespace TDLib
             }
         }
 
-        public static unsafe bool SetLogFilePath(string path)
+        public unsafe bool SetLogFilePath(string path)
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -35,14 +35,20 @@ namespace TDLib
             }
         }
 
-        public static void SetLogMaxFileSize(long maxsize)
+        public void SetLogMaxFileSize(long maxsize)
         {
             td_bridge_log_set_max_file_size(maxsize);
         }
 
-        public static void SetLogFatalErrorCallback(FatalErrorCallback callback)
+        public unsafe void SetLogFatalErrorCallback(Action<string> callback)
         {
-            savedcallback = callback;
+            savedcallback = (iptr) =>
+            {
+                var ptr = (byte*)iptr;
+                var len = strlen(ptr);
+                var str = Encoding.UTF8.GetString(ptr, len);
+                callback.Invoke(str);
+            };
             td_bridge_log_set_fatal_error_callback(savedcallback);
         }
     }
