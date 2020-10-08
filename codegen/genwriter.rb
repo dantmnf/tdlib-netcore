@@ -1,5 +1,6 @@
 require_relative 'common'
 require 'zlib'
+require 'stringio'
 
 class StringPool
   PoolItemInfo = Struct.new(:offset, :length)
@@ -28,17 +29,17 @@ end
 
 def emit_type(io, pool, type)
   csname = check_csharp_keyword type.name
-  io.puts "partial class #{csname}Marshal"
+  io.puts "partial class #{csname}Converter"
   io.puts "{"
   io.block do
-    io.puts "internal override void TdJsonWrite(TdJsonWriter writer, ref TLObjectWithExtra tlobj)"
+    io.puts "internal override void TdJsonWriteItems(TdJsonWriter writer, TLObject tlobj)"
     io.puts "{"
     io.block do
       str = %Q[{"@type":"#{type.realname}"]
       poolitem = pool.add(str)
       io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
       unless type.props.empty?
-        io.puts "var obj = (#{csname})tlobj.TLObject;"
+        io.puts "var obj = (#{csname})tlobj;"
       end
       type.props.each do |prop|
 
@@ -91,8 +92,8 @@ def emit_type(io, pool, type)
           io.puts "}"
         end
       end
-      io.puts "TdJsonWriteExtra(writer, ref tlobj);"
-      io.puts "writer.WriteEndObject();"
+      # io.puts "TdJsonWriteExtra(writer, ref tlobj);"
+      # io.puts "writer.WriteEndObject();"
 
     end
     io.puts "}"
@@ -115,7 +116,7 @@ def emit(codeout, pooloutfile)
 
 
   extraitem = pool.add(%Q{,"@extra":})
-  io.puts "partial class BaseMarshal"
+  io.puts "partial class TdJsonWriter"
   io.puts "{"
   io.block do
     io.puts "private const int _extrapos = #{extraitem.offset};"
@@ -147,5 +148,5 @@ def emit(codeout, pooloutfile)
   IO.binwrite(pooloutfile, pool.pool)
 end
 
-emit File.open(ARGV[0], 'wb'), ARGV[1]
-
+TDLibTLTypeInfo.load ARGV[0]
+emit File.open(ARGV[1], 'wb'), ARGV[2]

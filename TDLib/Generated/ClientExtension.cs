@@ -9,7 +9,7 @@ namespace TDLib.ClientExtensions
     public static partial class ClientExtensions
     {
         /// <summary>
-        /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state
+        /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state. Can be called before initialization
         /// </summary>
         public static async Task<AuthorizationState> GetAuthorizationState(this Client client)
         {
@@ -81,9 +81,9 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber
+        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber, -or if there is no pending authentication query and the current authorization state is authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
         /// </summary>
-        /// <param name="otherUserIds">List of user identifiers of other users currently using the client</param>
+        /// <param name="otherUserIds">List of user identifiers of other users currently using the application</param>
         public static async Task<Ok> RequestQrCodeAuthentication(this Client client, int[] otherUserIds = default)
         {
             var obj = new RequestQrCodeAuthentication
@@ -166,7 +166,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent
+        /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent. Can be called before initialization
         /// </summary>
         public static async Task<Ok> Close(this Client client)
         {
@@ -175,7 +175,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Closes the TDLib instance, destroying all local data without a proper logout. The current user session will remain in the list of all active sessions. All local data will be destroyed. After the destruction completes updateAuthorizationState with authorizationStateClosed will be sent
+        /// Closes the TDLib instance, destroying all local data without a proper logout. The current user session will remain in the list of all active sessions. All local data will be destroyed. After the destruction completes updateAuthorizationState with authorizationStateClosed will be sent. Can be called before authorization
         /// </summary>
         public static async Task<Ok> Destroy(this Client client)
         {
@@ -197,7 +197,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns all updates needed to restore current TDLib state, i.e. all actual UpdateAuthorizationState/UpdateUser/UpdateNewChat and others. This is especially useful if TDLib is run in a separate process. This is an offline method. Can be called before authorization
+        /// Returns all updates needed to restore current TDLib state, i.e. all actual UpdateAuthorizationState/UpdateUser/UpdateNewChat and others. This is especially useful if TDLib is run in a separate process. Can be called before initialization
         /// </summary>
         public static async Task<Updates> GetCurrentState(this Client client)
         {
@@ -488,10 +488,10 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns information about a message that is replied by given message
+        /// Returns information about a message that is replied by a given message. Also returns the pinned message, the game message, and the invoice message for messages of the types messagePinMessage, messageGameScore, and messagePaymentSuccessful respectively
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
-        /// <param name="messageId">Identifier of the message reply to which get</param>
+        /// <param name="messageId">Identifier of the message reply to which to get</param>
         public static async Task<Message> GetRepliedMessage(this Client client, long chatId = 0, long messageId = 0)
         {
             var obj = new GetRepliedMessage
@@ -531,6 +531,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Returns information about a message thread. Can be used only if message.can_get_message_thread == true
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="messageId">Identifier of the message</param>
+        public static async Task<MessageThreadInfo> GetMessageThread(this Client client, long chatId = 0, long messageId = 0)
+        {
+            var obj = new GetMessageThread
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Returns information about a file; this is an offline request
         /// </summary>
         /// <param name="fileId">Identifier of the file to get</param>
@@ -544,7 +559,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the client
+        /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the application
         /// </summary>
         /// <param name="remoteFileId">Remote identifier of the file to get</param>
         /// <param name="fileType">File type, if known</param>
@@ -559,7 +574,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library
+        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library
         /// </summary>
         /// <param name="chatList">The chat list in which to return chats</param>
         /// <param name="offsetOrder">Chat order to return chats from</param>
@@ -604,7 +619,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the chat list
+        /// Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the main chat list
         /// </summary>
         /// <param name="query">Query to search for. If the query is empty, returns up to 20 recently found chats</param>
         /// <param name="limit">The maximum number of chats to be returned</param>
@@ -619,7 +634,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the chat list
+        /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
         /// </summary>
         /// <param name="query">Query to search for</param>
         /// <param name="limit">The maximum number of chats to be returned</param>
@@ -793,7 +808,7 @@ namespace TDLib.ClientExtensions
         /// <param name="chatId">Chat identifier</param>
         /// <param name="fromMessageId">Identifier of the message starting from which history must be fetched; use 0 to get results from the last message</param>
         /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset up to 99 to get additionally some newer messages</param>
-        /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
+        /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="onlyLocal">If true, returns only messages that are available locally without sending network requests</param>
         public static async Task<Messages> GetChatHistory(this Client client, long chatId = 0, long fromMessageId = 0, int offset = 0, int limit = 0, bool onlyLocal = false)
         {
@@ -804,6 +819,27 @@ namespace TDLib.ClientExtensions
                 Offset = offset,
                 Limit = limit,
                 OnlyLocal = onlyLocal,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns messages in a message thread of a message. Can be used only if message.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup. -The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). For optimal performance the number of returned messages is chosen by the library
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="messageId">Message identifier, which thread history needs to be returned</param>
+        /// <param name="fromMessageId">Identifier of the message starting from which history must be fetched; use 0 to get results from the last message</param>
+        /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset up to 99 to get additionally some newer messages</param>
+        /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message thread history has not been reached</param>
+        public static async Task<Messages> GetMessageThreadHistory(this Client client, long chatId = 0, long messageId = 0, long fromMessageId = 0, int offset = 0, int limit = 0)
+        {
+            var obj = new GetMessageThreadHistory
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                FromMessageId = fromMessageId,
+                Offset = offset,
+                Limit = limit,
             };
             return await client.InvokeAsync(obj);
         }
@@ -835,7 +871,8 @@ namespace TDLib.ClientExtensions
         /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages</param>
         /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="filter">Filter for message content in the search results</param>
-        public static async Task<Messages> SearchChatMessages(this Client client, long chatId = 0, string query = default, int senderUserId = 0, long fromMessageId = 0, int offset = 0, int limit = 0, SearchMessagesFilter filter = default)
+        /// <param name="messageThreadId">If not 0, only messages in the specified thread will be returned; supergroups only</param>
+        public static async Task<Messages> SearchChatMessages(this Client client, long chatId = 0, string query = default, int senderUserId = 0, long fromMessageId = 0, int offset = 0, int limit = 0, SearchMessagesFilter filter = default, long messageThreadId = 0)
         {
             var obj = new SearchChatMessages
             {
@@ -846,6 +883,7 @@ namespace TDLib.ClientExtensions
                 Offset = offset,
                 Limit = limit,
                 Filter = filter,
+                MessageThreadId = messageThreadId,
             };
             return await client.InvokeAsync(obj);
         }
@@ -858,8 +896,11 @@ namespace TDLib.ClientExtensions
         /// <param name="offsetDate">The date of the message starting from which the results should be fetched. Use 0 or any date in the future to get results from the last message</param>
         /// <param name="offsetChatId">The chat identifier of the last found message, or 0 for the first request</param>
         /// <param name="offsetMessageId">The message identifier of the last found message, or 0 for the first request</param>
-        /// <param name="limit">The maximum number of messages to be returned, up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
-        public static async Task<Messages> SearchMessages(this Client client, ChatList chatList = default, string query = default, int offsetDate = 0, long offsetChatId = 0, long offsetMessageId = 0, int limit = 0)
+        /// <param name="limit">The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
+        /// <param name="filter">Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention and searchMessagesFilterFailedToSend are unsupported in this function</param>
+        /// <param name="minDate">If not 0, the minimum date of the messages to return</param>
+        /// <param name="maxDate">If not 0, the maximum date of the messages to return</param>
+        public static async Task<Messages> SearchMessages(this Client client, ChatList chatList = default, string query = default, int offsetDate = 0, long offsetChatId = 0, long offsetMessageId = 0, int limit = 0, SearchMessagesFilter filter = default, int minDate = 0, int maxDate = 0)
         {
             var obj = new SearchMessages
             {
@@ -869,6 +910,9 @@ namespace TDLib.ClientExtensions
                 OffsetChatId = offsetChatId,
                 OffsetMessageId = offsetMessageId,
                 Limit = limit,
+                Filter = filter,
+                MinDate = minDate,
+                MaxDate = maxDate,
             };
             return await client.InvokeAsync(obj);
         }
@@ -878,16 +922,16 @@ namespace TDLib.ClientExtensions
         /// </summary>
         /// <param name="chatId">Identifier of the chat in which to search. Specify 0 to search in all secret chats</param>
         /// <param name="query">Query to search for. If empty, searchChatMessages should be used instead</param>
-        /// <param name="fromSearchId">The identifier from the result of a previous request, use 0 to get results from the last message</param>
+        /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results</param>
         /// <param name="limit">The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
-        /// <param name="filter">A filter for the content of messages in the search results</param>
-        public static async Task<FoundMessages> SearchSecretMessages(this Client client, long chatId = 0, string query = default, long fromSearchId = 0, int limit = 0, SearchMessagesFilter filter = default)
+        /// <param name="filter">A filter for message content in the search results</param>
+        public static async Task<FoundMessages> SearchSecretMessages(this Client client, long chatId = 0, string query = default, string offset = default, int limit = 0, SearchMessagesFilter filter = default)
         {
             var obj = new SearchSecretMessages
             {
                 ChatId = chatId,
                 Query = query,
-                FromSearchId = fromSearchId,
+                Offset = offset,
                 Limit = limit,
                 Filter = filter,
             };
@@ -927,7 +971,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns all active live locations that should be updated by the client. The list is persistent across application restarts only if the message database is used
+        /// Returns all active live locations that should be updated by the application. The list is persistent across application restarts only if the message database is used
         /// </summary>
         public static async Task<Messages> GetActiveLiveLocationMessages(this Client client)
         {
@@ -981,6 +1025,25 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Returns forwarded copies of a channel message to another public channels. For optimal performance the number of returned messages is chosen by the library. The method is under development and may or may not work
+        /// </summary>
+        /// <param name="chatId">Chat identifier of the message</param>
+        /// <param name="messageId">Message identifier</param>
+        /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results</param>
+        /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. Fewer messages may be returned than specified by the limit, even if the end of the list has not been reached</param>
+        public static async Task<FoundMessages> GetMessagePublicForwards(this Client client, long chatId = 0, long messageId = 0, string offset = default, int limit = 0)
+        {
+            var obj = new GetMessagePublicForwards
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                Offset = offset,
+                Limit = limit,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
         /// </summary>
         /// <param name="notificationGroupId">Identifier of notification group to which the notification belongs</param>
@@ -1011,33 +1074,37 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns a public HTTPS link to a message. Available only for messages in supergroups and channels with a username
+        /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which the message belongs</param>
         /// <param name="messageId">Identifier of the message</param>
-        /// <param name="forAlbum">Pass true if a link for a whole media album should be returned</param>
-        public static async Task<PublicMessageLink> GetPublicMessageLink(this Client client, long chatId = 0, long messageId = 0, bool forAlbum = false)
-        {
-            var obj = new GetPublicMessageLink
-            {
-                ChatId = chatId,
-                MessageId = messageId,
-                ForAlbum = forAlbum,
-            };
-            return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
-        /// Returns a private HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. The link will work only for members of the chat
-        /// </summary>
-        /// <param name="chatId">Identifier of the chat to which the message belongs</param>
-        /// <param name="messageId">Identifier of the message</param>
-        public static async Task<HttpUrl> GetMessageLink(this Client client, long chatId = 0, long messageId = 0)
+        /// <param name="forAlbum">Pass true to create a link for the whole media album</param>
+        /// <param name="forComment">Pass true to create a link to the message as a channel post comment, or from a message thread</param>
+        public static async Task<MessageLink> GetMessageLink(this Client client, long chatId = 0, long messageId = 0, bool forAlbum = false, bool forComment = false)
         {
             var obj = new GetMessageLink
             {
                 ChatId = chatId,
                 MessageId = messageId,
+                ForAlbum = forAlbum,
+                ForComment = forComment,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns an HTML code for embedding the message. Available only for messages in supergroups and channels with a username
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat to which the message belongs</param>
+        /// <param name="messageId">Identifier of the message</param>
+        /// <param name="forAlbum">Pass true to return an HTML code for embedding of the whole media album</param>
+        public static async Task<Text> GetMessageEmbeddingCode(this Client client, long chatId = 0, long messageId = 0, bool forAlbum = false)
+        {
+            var obj = new GetMessageEmbeddingCode
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                ForAlbum = forAlbum,
             };
             return await client.InvokeAsync(obj);
         }
@@ -1059,15 +1126,17 @@ namespace TDLib.ClientExtensions
         /// Sends a message. Returns the sent message
         /// </summary>
         /// <param name="chatId">Target chat</param>
+        /// <param name="messageThreadId">If not 0, a message thread identifier in which the message will be sent</param>
         /// <param name="replyToMessageId">Identifier of the message to reply to or 0</param>
         /// <param name="options">Options to be used to send the message</param>
         /// <param name="replyMarkup">Markup for replying to the message; for bots only</param>
         /// <param name="inputMessageContent">The content of the message to be sent</param>
-        public static async Task<Message> SendMessage(this Client client, long chatId = 0, long replyToMessageId = 0, SendMessageOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public static async Task<Message> SendMessage(this Client client, long chatId = 0, long messageThreadId = 0, long replyToMessageId = 0, MessageSendOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             var obj = new SendMessage
             {
                 ChatId = chatId,
+                MessageThreadId = messageThreadId,
                 ReplyToMessageId = replyToMessageId,
                 Options = options,
                 ReplyMarkup = replyMarkup,
@@ -1080,14 +1149,16 @@ namespace TDLib.ClientExtensions
         /// Sends messages grouped together into an album. Currently only photo and video messages can be grouped into an album. Returns sent messages
         /// </summary>
         /// <param name="chatId">Target chat</param>
+        /// <param name="messageThreadId">If not 0, a message thread identifier in which the messages will be sent</param>
         /// <param name="replyToMessageId">Identifier of a message to reply to or 0</param>
         /// <param name="options">Options to be used to send the messages</param>
         /// <param name="inputMessageContents">Contents of messages to be sent</param>
-        public static async Task<Messages> SendMessageAlbum(this Client client, long chatId = 0, long replyToMessageId = 0, SendMessageOptions options = default, InputMessageContent[] inputMessageContents = default)
+        public static async Task<Messages> SendMessageAlbum(this Client client, long chatId = 0, long messageThreadId = 0, long replyToMessageId = 0, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             var obj = new SendMessageAlbum
             {
                 ChatId = chatId,
+                MessageThreadId = messageThreadId,
                 ReplyToMessageId = replyToMessageId,
                 Options = options,
                 InputMessageContents = inputMessageContents,
@@ -1116,16 +1187,18 @@ namespace TDLib.ClientExtensions
         /// Sends the result of an inline query as a message. Returns the sent message. Always clears a chat draft message
         /// </summary>
         /// <param name="chatId">Target chat</param>
+        /// <param name="messageThreadId">If not 0, a message thread identifier in which the message will be sent</param>
         /// <param name="replyToMessageId">Identifier of a message to reply to or 0</param>
         /// <param name="options">Options to be used to send the message</param>
         /// <param name="queryId">Identifier of the inline query</param>
         /// <param name="resultId">Identifier of the inline result</param>
         /// <param name="hideViaBot">If true, there will be no mention of a bot, via which the message is sent. Can be used only for bots GetOption("animation_search_bot_username"), GetOption("photo_search_bot_username") and GetOption("venue_search_bot_username")</param>
-        public static async Task<Message> SendInlineQueryResultMessage(this Client client, long chatId = 0, long replyToMessageId = 0, SendMessageOptions options = default, long queryId = 0, string resultId = default, bool hideViaBot = false)
+        public static async Task<Message> SendInlineQueryResultMessage(this Client client, long chatId = 0, long messageThreadId = 0, long replyToMessageId = 0, MessageSendOptions options = default, long queryId = 0, string resultId = default, bool hideViaBot = false)
         {
             var obj = new SendInlineQueryResultMessage
             {
                 ChatId = chatId,
+                MessageThreadId = messageThreadId,
                 ReplyToMessageId = replyToMessageId,
                 Options = options,
                 QueryId = queryId,
@@ -1140,12 +1213,11 @@ namespace TDLib.ClientExtensions
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which to forward messages</param>
         /// <param name="fromChatId">Identifier of the chat from which to forward messages</param>
-        /// <param name="messageIds">Identifiers of the messages to forward</param>
+        /// <param name="messageIds">Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order</param>
         /// <param name="options">Options to be used to send the messages</param>
-        /// <param name="asAlbum">True, if the messages should be grouped into an album after forwarding. For this to work, no more than 10 messages may be forwarded, and all of them must be photo or video messages</param>
         /// <param name="sendCopy">True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat</param>
-        /// <param name="removeCaption">True, if media captions of message copies needs to be removed. Ignored if send_copy is false</param>
-        public static async Task<Messages> ForwardMessages(this Client client, long chatId = 0, long fromChatId = 0, long[] messageIds = default, SendMessageOptions options = default, bool asAlbum = false, bool sendCopy = false, bool removeCaption = false)
+        /// <param name="removeCaption">True, if media caption of message copies needs to be removed. Ignored if send_copy is false</param>
+        public static async Task<Messages> ForwardMessages(this Client client, long chatId = 0, long fromChatId = 0, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = false, bool removeCaption = false)
         {
             var obj = new ForwardMessages
             {
@@ -1153,7 +1225,6 @@ namespace TDLib.ClientExtensions
                 FromChatId = fromChatId,
                 MessageIds = messageIds,
                 Options = options,
-                AsAlbum = asAlbum,
                 SendCopy = sendCopy,
                 RemoveCaption = removeCaption,
             };
@@ -1450,7 +1521,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns all entities (mentions, hashtags, cashtags, bot commands, URLs, and email addresses) contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. Can be called synchronously
         /// </summary>
         /// <param name="text">The text in which to look for entites</param>
         public static async Task<TextEntities> GetTextEntities(this Client client, string text = default)
@@ -1463,9 +1534,23 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. Can be called synchronously
         /// </summary>
-        /// <param name="text">The text which should be parsed</param>
+        /// <param name="text">The text in which to look for entites</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static TextEntities GetTextEntitiesSync(this Client client, string text = default)
+        {
+            var obj = new GetTextEntities
+            {
+                Text = text,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously
+        /// </summary>
+        /// <param name="text">The text to parse</param>
         /// <param name="parseMode">Text parse mode</param>
         public static async Task<FormattedText> ParseTextEntities(this Client client, string text = default, TextParseMode parseMode = default)
         {
@@ -1478,7 +1563,77 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously
+        /// </summary>
+        /// <param name="text">The text to parse</param>
+        /// <param name="parseMode">Text parse mode</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static FormattedText ParseTextEntitiesSync(this Client client, string text = default, TextParseMode parseMode = default)
+        {
+            var obj = new ParseTextEntities
+            {
+                Text = text,
+                ParseMode = parseMode,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Parses Markdown entities in a human-friendly format, ignoring markup errors. Can be called synchronously
+        /// </summary>
+        /// <param name="text">The text to parse. For example, "__italic__ ~~strikethrough~~ **bold** `code` ```pre``` __[italic__ text_url](telegram.org) __italic**bold italic__bold**"</param>
+        public static async Task<FormattedText> ParseMarkdown(this Client client, FormattedText text = default)
+        {
+            var obj = new ParseMarkdown
+            {
+                Text = text,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Parses Markdown entities in a human-friendly format, ignoring markup errors. Can be called synchronously
+        /// </summary>
+        /// <param name="text">The text to parse. For example, "__italic__ ~~strikethrough~~ **bold** `code` ```pre``` __[italic__ text_url](telegram.org) __italic**bold italic__bold**"</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static FormattedText ParseMarkdownSync(this Client client, FormattedText text = default)
+        {
+            var obj = new ParseMarkdown
+            {
+                Text = text,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously
+        /// </summary>
+        /// <param name="text">The text</param>
+        public static async Task<FormattedText> GetMarkdownText(this Client client, FormattedText text = default)
+        {
+            var obj = new GetMarkdownText
+            {
+                Text = text,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously
+        /// </summary>
+        /// <param name="text">The text</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static FormattedText GetMarkdownTextSync(this Client client, FormattedText text = default)
+        {
+            var obj = new GetMarkdownText
+            {
+                Text = text,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         /// <param name="fileName">The name of the file or path to the file</param>
         public static async Task<Text> GetFileMimeType(this Client client, string fileName = default)
@@ -1491,7 +1646,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously
+        /// </summary>
+        /// <param name="fileName">The name of the file or path to the file</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Text GetFileMimeTypeSync(this Client client, string fileName = default)
+        {
+            var obj = new GetFileMimeType
+            {
+                FileName = fileName,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         /// <param name="mimeType">The MIME type of the file</param>
         public static async Task<Text> GetFileExtension(this Client client, string mimeType = default)
@@ -1504,7 +1673,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. Can be called synchronously
+        /// </summary>
+        /// <param name="mimeType">The MIME type of the file</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Text GetFileExtensionSync(this Client client, string mimeType = default)
+        {
+            var obj = new GetFileExtension
+            {
+                MimeType = mimeType,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         /// <param name="fileName">File name or path to the file</param>
         public static async Task<Text> CleanFileName(this Client client, string fileName = default)
@@ -1517,7 +1700,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously
+        /// </summary>
+        /// <param name="fileName">File name or path to the file</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Text CleanFileNameSync(this Client client, string fileName = default)
+        {
+            var obj = new CleanFileName
+            {
+                FileName = fileName,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
         /// </summary>
         /// <param name="languagePackDatabasePath">Path to the language pack database in which strings are stored</param>
         /// <param name="localizationTarget">Localization target to which the language pack belongs</param>
@@ -1536,7 +1733,27 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Converts a JSON-serialized string to corresponding JsonValue object. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
+        /// </summary>
+        /// <param name="languagePackDatabasePath">Path to the language pack database in which strings are stored</param>
+        /// <param name="localizationTarget">Localization target to which the language pack belongs</param>
+        /// <param name="languagePackId">Language pack identifier</param>
+        /// <param name="key">Language pack key of the string to be returned</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static LanguagePackStringValue GetLanguagePackStringSync(this Client client, string languagePackDatabasePath = default, string localizationTarget = default, string languagePackId = default, string key = default)
+        {
+            var obj = new GetLanguagePackString
+            {
+                LanguagePackDatabasePath = languagePackDatabasePath,
+                LocalizationTarget = localizationTarget,
+                LanguagePackId = languagePackId,
+                Key = key,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Converts a JSON-serialized string to corresponding JsonValue object. Can be called synchronously
         /// </summary>
         /// <param name="json">The JSON-serialized string</param>
         public static async Task<JsonValue> GetJsonValue(this Client client, string json = default)
@@ -1549,7 +1766,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Converts a JsonValue object to corresponding JSON-serialized string. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Converts a JSON-serialized string to corresponding JsonValue object. Can be called synchronously
+        /// </summary>
+        /// <param name="json">The JSON-serialized string</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static JsonValue GetJsonValueSync(this Client client, string json = default)
+        {
+            var obj = new GetJsonValue
+            {
+                Json = json,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
         /// </summary>
         /// <param name="jsonValue">The JsonValue object</param>
         public static async Task<Text> GetJsonString(this Client client, JsonValue jsonValue = default)
@@ -1559,6 +1790,20 @@ namespace TDLib.ClientExtensions
                 JsonValue = jsonValue,
             };
             return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
+        /// </summary>
+        /// <param name="jsonValue">The JsonValue object</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Text GetJsonStringSync(this Client client, JsonValue jsonValue = default)
+        {
+            var obj = new GetJsonString
+            {
+                JsonValue = jsonValue,
+            };
+            return client.Execute(obj);
         }
 
         /// <summary>
@@ -1612,6 +1857,19 @@ namespace TDLib.ClientExtensions
                 ChatId = chatId,
                 MessageId = messageId,
                 ReplyMarkup = replyMarkup,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Hides a suggested action
+        /// </summary>
+        /// <param name="action">Suggested action to hide</param>
+        public static async Task<Ok> HideSuggestedAction(this Client client, SuggestedAction action = default)
+        {
+            var obj = new HideSuggestedAction
+            {
+                Action = action,
             };
             return await client.InvokeAsync(obj);
         }
@@ -1863,12 +2121,14 @@ namespace TDLib.ClientExtensions
         /// Sends a notification about user activity in a chat
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
+        /// <param name="messageThreadId">If not 0, a message thread identifier in which the action was performed</param>
         /// <param name="action">The action description</param>
-        public static async Task<Ok> SendChatAction(this Client client, long chatId = 0, ChatAction action = default)
+        public static async Task<Ok> SendChatAction(this Client client, long chatId = 0, long messageThreadId = 0, ChatAction action = default)
         {
             var obj = new SendChatAction
             {
                 ChatId = chatId,
+                MessageThreadId = messageThreadId,
                 Action = action,
             };
             return await client.InvokeAsync(obj);
@@ -1904,13 +2164,15 @@ namespace TDLib.ClientExtensions
         /// Informs TDLib that messages are being viewed by the user. Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
+        /// <param name="messageThreadId">If not 0, a message thread identifier in which the messages are being viewed</param>
         /// <param name="messageIds">The identifiers of the messages being viewed</param>
-        /// <param name="forceRead">True, if messages in closed chats should be marked as read</param>
-        public static async Task<Ok> ViewMessages(this Client client, long chatId = 0, long[] messageIds = default, bool forceRead = false)
+        /// <param name="forceRead">True, if messages in closed chats should be marked as read by the request</param>
+        public static async Task<Ok> ViewMessages(this Client client, long chatId = 0, long messageThreadId = 0, long[] messageIds = default, bool forceRead = false)
         {
             var obj = new ViewMessages
             {
                 ChatId = chatId,
+                MessageThreadId = messageThreadId,
                 MessageIds = messageIds,
                 ForceRead = forceRead,
             };
@@ -2064,13 +2326,26 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Moves a chat to a different chat list. Current chat list of the chat must ne non-null
+        /// Returns chat lists to which the chat can be added. This is an offline request
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="chatList">New chat list of the chat</param>
-        public static async Task<Ok> SetChatChatList(this Client client, long chatId = 0, ChatList chatList = default)
+        public static async Task<ChatLists> GetChatListsToAddChat(this Client client, long chatId = 0)
         {
-            var obj = new SetChatChatList
+            var obj = new GetChatListsToAddChat
+            {
+                ChatId = chatId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Adds a chat to a chat list. A chat can't be simultaneously in Main and Archive chat lists, so it is automatically removed from another one if needed
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="chatList">The chat list. Use getChatListsToAddChat to get suitable chat lists</param>
+        public static async Task<Ok> AddChatToList(this Client client, long chatId = 0, ChatList chatList = default)
+        {
+            var obj = new AddChatToList
             {
                 ChatId = chatId,
                 ChatList = chatList,
@@ -2079,7 +2354,110 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The title will not be changed until the request to the server has been completed
+        /// Returns information about a chat filter by its identifier
+        /// </summary>
+        /// <param name="chatFilterId">Chat filter identifier</param>
+        public static async Task<ChatFilter> GetChatFilter(this Client client, int chatFilterId = 0)
+        {
+            var obj = new GetChatFilter
+            {
+                ChatFilterId = chatFilterId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Creates new chat filter. Returns information about the created chat filter
+        /// </summary>
+        /// <param name="filter">Chat filter</param>
+        public static async Task<ChatFilterInfo> CreateChatFilter(this Client client, ChatFilter filter = default)
+        {
+            var obj = new CreateChatFilter
+            {
+                Filter = filter,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Edits existing chat filter. Returns information about the edited chat filter
+        /// </summary>
+        /// <param name="chatFilterId">Chat filter identifier</param>
+        /// <param name="filter">The edited chat filter</param>
+        public static async Task<ChatFilterInfo> EditChatFilter(this Client client, int chatFilterId = 0, ChatFilter filter = default)
+        {
+            var obj = new EditChatFilter
+            {
+                ChatFilterId = chatFilterId,
+                Filter = filter,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Deletes existing chat filter
+        /// </summary>
+        /// <param name="chatFilterId">Chat filter identifier</param>
+        public static async Task<Ok> DeleteChatFilter(this Client client, int chatFilterId = 0)
+        {
+            var obj = new DeleteChatFilter
+            {
+                ChatFilterId = chatFilterId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Changes the order of chat filters
+        /// </summary>
+        /// <param name="chatFilterIds">Identifiers of chat filters in the new correct order</param>
+        public static async Task<Ok> ReorderChatFilters(this Client client, int[] chatFilterIds = default)
+        {
+            var obj = new ReorderChatFilters
+            {
+                ChatFilterIds = chatFilterIds,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns recommended chat filters for the current user
+        /// </summary>
+        public static async Task<RecommendedChatFilters> GetRecommendedChatFilters(this Client client)
+        {
+            var obj = new GetRecommendedChatFilters();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns default icon name for a filter. Can be called synchronously
+        /// </summary>
+        /// <param name="filter">Chat filter</param>
+        public static async Task<Text> GetChatFilterDefaultIconName(this Client client, ChatFilter filter = default)
+        {
+            var obj = new GetChatFilterDefaultIconName
+            {
+                Filter = filter,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns default icon name for a filter. Can be called synchronously
+        /// </summary>
+        /// <param name="filter">Chat filter</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Text GetChatFilterDefaultIconNameSync(this Client client, ChatFilter filter = default)
+        {
+            var obj = new GetChatFilterDefaultIconName
+            {
+                Filter = filter,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="title">New title of the chat; 1-128 characters</param>
@@ -2094,11 +2472,11 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The photo will not be changed before request to the server has been completed
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="photo">New chat photo. You can use a zero InputFileId to delete the chat photo. Files that are accessible only by HTTP URL are not acceptable</param>
-        public static async Task<Ok> SetChatPhoto(this Client client, long chatId = 0, InputFile photo = default)
+        /// <param name="photo">New chat photo. Pass null to delete the chat photo</param>
+        public static async Task<Ok> SetChatPhoto(this Client client, long chatId = 0, InputChatPhoto photo = default)
         {
             var obj = new SetChatPhoto
             {
@@ -2127,12 +2505,14 @@ namespace TDLib.ClientExtensions
         /// Changes the draft message in a chat
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
+        /// <param name="messageThreadId">If not 0, a message thread identifier in which the draft was changed</param>
         /// <param name="draftMessage">New draft message; may be null</param>
-        public static async Task<Ok> SetChatDraftMessage(this Client client, long chatId = 0, DraftMessage draftMessage = default)
+        public static async Task<Ok> SetChatDraftMessage(this Client client, long chatId = 0, long messageThreadId = 0, DraftMessage draftMessage = default)
         {
             var obj = new SetChatDraftMessage
             {
                 ChatId = chatId,
+                MessageThreadId = messageThreadId,
                 DraftMessage = draftMessage,
             };
             return await client.InvokeAsync(obj);
@@ -2154,21 +2534,6 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") non-secret chats and the same number of secret chats in the main/archive chat list
-        /// </summary>
-        /// <param name="chatId">Chat identifier</param>
-        /// <param name="isPinned">New value of is_pinned</param>
-        public static async Task<Ok> ToggleChatIsPinned(this Client client, long chatId = 0, bool isPinned = false)
-        {
-            var obj = new ToggleChatIsPinned
-            {
-                ChatId = chatId,
-                IsPinned = isPinned,
-            };
-            return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
         /// Changes the marked as unread state of a chat
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
@@ -2179,6 +2544,21 @@ namespace TDLib.ClientExtensions
             {
                 ChatId = chatId,
                 IsMarkedAsUnread = isMarkedAsUnread,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Changes the block state of a chat. Currently, only private chats and supergroups can be blocked
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="isBlocked">New value of is_blocked</param>
+        public static async Task<Ok> ToggleChatIsBlocked(this Client client, long chatId = 0, bool isBlocked = false)
+        {
+            var obj = new ToggleChatIsBlocked
+            {
+                ChatId = chatId,
+                IsBlocked = isBlocked,
             };
             return await client.InvokeAsync(obj);
         }
@@ -2199,7 +2579,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes client data associated with a chat
+        /// Changes application-specific data associated with a chat
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="clientData">New value of client_data</param>
@@ -2232,7 +2612,7 @@ namespace TDLib.ClientExtensions
         /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
         /// </summary>
         /// <param name="chatId">Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages rights in the supergroup)</param>
-        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats needs to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that</param>
+        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that</param>
         public static async Task<Ok> SetChatDiscussionGroup(this Client client, long chatId = 0, long discussionChatId = 0)
         {
             var obj = new SetChatDiscussionGroup
@@ -2517,6 +2897,23 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Changes the pinned state of a chat. There can be up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/arhive chat list
+        /// </summary>
+        /// <param name="chatList">Chat list in which to change the pinned state of the chat</param>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="isPinned">True, if the chat is pinned</param>
+        public static async Task<Ok> ToggleChatIsPinned(this Client client, ChatList chatList = default, long chatId = 0, bool isPinned = false)
+        {
+            var obj = new ToggleChatIsPinned
+            {
+                ChatList = chatList,
+                ChatId = chatId,
+                IsPinned = isPinned,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Changes the order of pinned chats
         /// </summary>
         /// <param name="chatList">Chat list in which to change the order of pinned chats</param>
@@ -2613,7 +3010,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Writes a part of a generated file. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+        /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
         /// </summary>
         /// <param name="generationId">The identifier of the generation process</param>
         /// <param name="offset">The offset from which to write the data to the file</param>
@@ -2662,7 +3059,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
+        /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
         /// </summary>
         /// <param name="fileId">Identifier of the file. The file must be located in the TDLib file cache</param>
         /// <param name="offset">The offset from which to read the file</param>
@@ -2734,13 +3131,15 @@ namespace TDLib.ClientExtensions
         /// Creates a new call
         /// </summary>
         /// <param name="userId">Identifier of the user to be called</param>
-        /// <param name="protocol">Description of the call protocols supported by the client</param>
-        public static async Task<CallId> CreateCall(this Client client, int userId = 0, CallProtocol protocol = default)
+        /// <param name="protocol">Description of the call protocols supported by the application</param>
+        /// <param name="isVideo">True, if a video call needs to be created</param>
+        public static async Task<CallId> CreateCall(this Client client, int userId = 0, CallProtocol protocol = default, bool isVideo = false)
         {
             var obj = new CreateCall
             {
                 UserId = userId,
                 Protocol = protocol,
+                IsVideo = isVideo,
             };
             return await client.InvokeAsync(obj);
         }
@@ -2749,7 +3148,7 @@ namespace TDLib.ClientExtensions
         /// Accepts an incoming call
         /// </summary>
         /// <param name="callId">Call identifier</param>
-        /// <param name="protocol">Description of the call protocols supported by the client</param>
+        /// <param name="protocol">Description of the call protocols supported by the application</param>
         public static async Task<Ok> AcceptCall(this Client client, int callId = 0, CallProtocol protocol = default)
         {
             var obj = new AcceptCall
@@ -2761,19 +3160,36 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
+        /// Sends call signaling data
+        /// </summary>
+        /// <param name="callId">Call identifier</param>
+        /// <param name="data">The data</param>
+        public static async Task<Ok> SendCallSignalingData(this Client client, int callId = 0, byte[] data = default)
+        {
+            var obj = new SendCallSignalingData
+            {
+                CallId = callId,
+                Data = data,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Discards a call
         /// </summary>
         /// <param name="callId">Call identifier</param>
         /// <param name="isDisconnected">True, if the user was disconnected</param>
         /// <param name="duration">The call duration, in seconds</param>
+        /// <param name="isVideo">True, if the call was a video call</param>
         /// <param name="connectionId">Identifier of the connection used during the call</param>
-        public static async Task<Ok> DiscardCall(this Client client, int callId = 0, bool isDisconnected = false, int duration = 0, long connectionId = 0)
+        public static async Task<Ok> DiscardCall(this Client client, int callId = 0, bool isDisconnected = false, int duration = 0, bool isVideo = false, long connectionId = 0)
         {
             var obj = new DiscardCall
             {
                 CallId = callId,
                 IsDisconnected = isDisconnected,
                 Duration = duration,
+                IsVideo = isVideo,
                 ConnectionId = connectionId,
             };
             return await client.InvokeAsync(obj);
@@ -2814,39 +3230,32 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Adds a user to the blacklist
+        /// Blocks an original sender of a message in the Replies chat
         /// </summary>
-        /// <param name="userId">User identifier</param>
-        public static async Task<Ok> BlockUser(this Client client, int userId = 0)
+        /// <param name="messageId">The identifier of an incoming message in the Replies chat</param>
+        /// <param name="deleteMessage">Pass true if the message must be deleted</param>
+        /// <param name="deleteAllMessages">Pass true if all messages from the same sender must be deleted</param>
+        /// <param name="reportSpam">Pass true if the sender must be reported to the Telegram moderators</param>
+        public static async Task<Ok> BlockChatFromReplies(this Client client, long messageId = 0, bool deleteMessage = false, bool deleteAllMessages = false, bool reportSpam = false)
         {
-            var obj = new BlockUser
+            var obj = new BlockChatFromReplies
             {
-                UserId = userId,
+                MessageId = messageId,
+                DeleteMessage = deleteMessage,
+                DeleteAllMessages = deleteAllMessages,
+                ReportSpam = reportSpam,
             };
             return await client.InvokeAsync(obj);
         }
 
         /// <summary>
-        /// Removes a user from the blacklist
+        /// Returns chats that were blocked by the current user
         /// </summary>
-        /// <param name="userId">User identifier</param>
-        public static async Task<Ok> UnblockUser(this Client client, int userId = 0)
+        /// <param name="offset">Number of chats to skip in the result; must be non-negative</param>
+        /// <param name="limit">The maximum number of chats to return; up to 100</param>
+        public static async Task<Chats> GetBlockedChats(this Client client, int offset = 0, int limit = 0)
         {
-            var obj = new UnblockUser
-            {
-                UserId = userId,
-            };
-            return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
-        /// Returns users that were blocked by the current user
-        /// </summary>
-        /// <param name="offset">Number of users to skip in the result; must be non-negative</param>
-        /// <param name="limit">The maximum number of users to return; up to 100</param>
-        public static async Task<Users> GetBlockedUsers(this Client client, int offset = 0, int limit = 0)
-        {
-            var obj = new GetBlockedUsers
+            var obj = new GetBlockedChats
             {
                 Offset = offset,
                 Limit = limit,
@@ -2969,7 +3378,7 @@ namespace TDLib.ClientExtensions
         /// <param name="userId">User identifier</param>
         /// <param name="offset">The number of photos to skip; must be non-negative</param>
         /// <param name="limit">The maximum number of photos to be returned; up to 100</param>
-        public static async Task<UserProfilePhotos> GetUserProfilePhotos(this Client client, int userId = 0, int offset = 0, int limit = 0)
+        public static async Task<ChatPhotos> GetUserProfilePhotos(this Client client, int userId = 0, int offset = 0, int limit = 0)
         {
             var obj = new GetUserProfilePhotos
             {
@@ -3041,11 +3450,17 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns a list of trending sticker sets
+        /// Returns a list of trending sticker sets. For the optimal performance the number of returned sticker sets is chosen by the library
         /// </summary>
-        public static async Task<StickerSets> GetTrendingStickerSets(this Client client)
+        /// <param name="offset">The offset from which to return the sticker sets; must be non-negative</param>
+        /// <param name="limit">The maximum number of sticker sets to be returned; must be non-negative. Fewer sticker sets may be returned than specified by the limit, even if the end of the list has not been reached</param>
+        public static async Task<StickerSets> GetTrendingStickerSets(this Client client, int offset = 0, int limit = 0)
         {
-            var obj = new GetTrendingStickerSets();
+            var obj = new GetTrendingStickerSets
+            {
+                Offset = offset,
+                Limit = limit,
+            };
             return await client.InvokeAsync(obj);
         }
 
@@ -3272,14 +3687,14 @@ namespace TDLib.ClientExtensions
         /// </summary>
         /// <param name="text">Text to search for</param>
         /// <param name="exactMatch">True, if only emojis, which exactly match text needs to be returned</param>
-        /// <param name="inputLanguageCode">IETF language tag of the user's input language; may be empty if unknown</param>
-        public static async Task<Emojis> SearchEmojis(this Client client, string text = default, bool exactMatch = false, string inputLanguageCode = default)
+        /// <param name="inputLanguageCodes">List of possible IETF language tags of the user's input language; may be empty if unknown</param>
+        public static async Task<Emojis> SearchEmojis(this Client client, string text = default, bool exactMatch = false, string[] inputLanguageCodes = default)
         {
             var obj = new SearchEmojis
             {
                 Text = text,
                 ExactMatch = exactMatch,
-                InputLanguageCode = inputLanguageCode,
+                InputLanguageCodes = inputLanguageCodes,
             };
             return await client.InvokeAsync(obj);
         }
@@ -3398,10 +3813,10 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Uploads a new profile photo for the current user. If something changes, updateUser will be sent
+        /// Changes a profile photo for the current user
         /// </summary>
-        /// <param name="photo">Profile photo to set. inputFileId and inputFileRemote may still be unsupported</param>
-        public static async Task<Ok> SetProfilePhoto(this Client client, InputFile photo = default)
+        /// <param name="photo">Profile photo to set</param>
+        public static async Task<Ok> SetProfilePhoto(this Client client, InputChatPhoto photo = default)
         {
             var obj = new SetProfilePhoto
             {
@@ -3411,7 +3826,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Deletes a profile photo. If something changes, updateUser will be sent
+        /// Deletes a profile photo
         /// </summary>
         /// <param name="profilePhotoId">Identifier of the profile photo to delete</param>
         public static async Task<Ok> DeleteProfilePhoto(this Client client, long profilePhotoId = 0)
@@ -3424,7 +3839,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the first and last name of the current user. If something changes, updateUser will be sent
+        /// Changes the first and last name of the current user
         /// </summary>
         /// <param name="firstName">The new value of the first name for the user; 1-64 characters</param>
         /// <param name="lastName">The new value of the optional last name for the user; 0-64 characters</param>
@@ -3452,7 +3867,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the username of the current user. If something changes, updateUser will be sent
+        /// Changes the username of the current user
         /// </summary>
         /// <param name="username">The new value of the username. Use an empty string to remove the username</param>
         public static async Task<Ok> SetUsername(this Client client, string username = default)
@@ -3460,6 +3875,19 @@ namespace TDLib.ClientExtensions
             var obj = new SetUsername
             {
                 Username = username,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Changes the location of the current user. Needs to be called if GetOption("is_location_visible") is true and location changes for more than 1 kilometer
+        /// </summary>
+        /// <param name="location">The new location of the user</param>
+        public static async Task<Ok> SetLocation(this Client client, Location location = default)
+        {
+            var obj = new SetLocation
+            {
+                Location = location,
             };
             return await client.InvokeAsync(obj);
         }
@@ -3497,6 +3925,19 @@ namespace TDLib.ClientExtensions
             var obj = new CheckChangePhoneNumberCode
             {
                 Code = code,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Sets the list of commands supported by the bot; for bots only
+        /// </summary>
+        /// <param name="commands">List of the bot's commands</param>
+        public static async Task<Ok> SetCommands(this Client client, BotCommand[] commands = default)
+        {
+            var obj = new SetCommands
+            {
+                Commands = commands,
             };
             return await client.InvokeAsync(obj);
         }
@@ -3817,7 +4258,7 @@ namespace TDLib.ClientExtensions
         /// <summary>
         /// Returns backgrounds installed by the user
         /// </summary>
-        /// <param name="forDarkTheme">True, if the backgrounds needs to be ordered for dark theme</param>
+        /// <param name="forDarkTheme">True, if the backgrounds need to be ordered for dark theme</param>
         public static async Task<Backgrounds> GetBackgrounds(this Client client, bool forDarkTheme = false)
         {
             var obj = new GetBackgrounds
@@ -4021,7 +4462,7 @@ namespace TDLib.ClientExtensions
         /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
         /// </summary>
         /// <param name="deviceToken">Device token</param>
-        /// <param name="otherUserIds">List of user identifiers of other users currently using the client</param>
+        /// <param name="otherUserIds">List of user identifiers of other users currently using the application</param>
         public static async Task<PushReceiverId> RegisterDevice(this Client client, DeviceToken deviceToken = default, int[] otherUserIds = default)
         {
             var obj = new RegisterDevice
@@ -4046,7 +4487,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
         /// </summary>
         /// <param name="payload">JSON-encoded push notification payload</param>
         public static async Task<PushReceiverId> GetPushReceiverId(this Client client, string payload = default)
@@ -4056,6 +4497,20 @@ namespace TDLib.ClientExtensions
                 Payload = payload,
             };
             return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
+        /// </summary>
+        /// <param name="payload">JSON-encoded push notification payload</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static PushReceiverId GetPushReceiverIdSync(this Client client, string payload = default)
+        {
+            var obj = new GetPushReceiverId
+            {
+                Payload = payload,
+            };
+            return client.Execute(obj);
         }
 
         /// <summary>
@@ -4176,7 +4631,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Reports a chat to the Telegram moderators. Supported only for supergroups, channels, or private chats with bots, since other chats can't be checked by moderators, or when the report is done from the chat action bar
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="reason">The reason for reporting the chat</param>
@@ -4193,7 +4648,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns an HTTP URL with the chat statistics. Currently this method can be used only for channels. Can be used only if SupergroupFullInfo.can_view_statistics == true
+        /// Returns an HTTP URL with the chat statistics. Currently this method of getting the statistics are disabled and can be deleted in the future
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="parameters">Parameters from "tg://statsrefresh?params=******" link</param>
@@ -4205,6 +4660,55 @@ namespace TDLib.ClientExtensions
                 ChatId = chatId,
                 Parameters = parameters,
                 IsDark = isDark,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns detailed statistics about a chat. Currently this method can be used only for supergroups and channels. Can be used only if SupergroupFullInfo.can_get_statistics == true
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="isDark">Pass true if a dark theme is used by the application</param>
+        public static async Task<ChatStatistics> GetChatStatistics(this Client client, long chatId = 0, bool isDark = false)
+        {
+            var obj = new GetChatStatistics
+            {
+                ChatId = chatId,
+                IsDark = isDark,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true. The method is under development and may or may not work
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="messageId">Message identifier</param>
+        /// <param name="isDark">Pass true if a dark theme is used by the application</param>
+        public static async Task<MessageStatistics> GetMessageStatistics(this Client client, long chatId = 0, long messageId = 0, bool isDark = false)
+        {
+            var obj = new GetMessageStatistics
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                IsDark = isDark,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Loads asynchronous or zoomed in chat or message statistics graph
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="token">The token for graph loading</param>
+        /// <param name="x">X-value for zoomed in graph or 0 otherwise</param>
+        public static async Task<StatisticsGraph> GetStatisticsGraph(this Client client, long chatId = 0, string token = default, long x = 0)
+        {
+            var obj = new GetStatisticsGraph
+            {
+                ChatId = chatId,
+                Token = token,
+                X = x,
             };
             return await client.InvokeAsync(obj);
         }
@@ -4250,8 +4754,9 @@ namespace TDLib.ClientExtensions
         /// <param name="fileTypes">If not empty, only files with the given type(s) are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted</param>
         /// <param name="chatIds">If not empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)</param>
         /// <param name="excludeChatIds">If not empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)</param>
+        /// <param name="returnDeletedFileStatistics">Pass true if deleted file statistics need to be returned instead of the whole storage usage statistics. Affects only returned statistics</param>
         /// <param name="chatLimit">Same as in getStorageStatistics. Affects only returned statistics</param>
-        public static async Task<StorageStatistics> OptimizeStorage(this Client client, long size = 0, int ttl = 0, int count = 0, int immunityDelay = 0, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, int chatLimit = 0)
+        public static async Task<StorageStatistics> OptimizeStorage(this Client client, long size = 0, int ttl = 0, int count = 0, int immunityDelay = 0, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, bool returnDeletedFileStatistics = false, int chatLimit = 0)
         {
             var obj = new OptimizeStorage
             {
@@ -4262,6 +4767,7 @@ namespace TDLib.ClientExtensions
                 FileTypes = fileTypes,
                 ChatIds = chatIds,
                 ExcludeChatIds = excludeChatIds,
+                ReturnDeletedFileStatistics = returnDeletedFileStatistics,
                 ChatLimit = chatLimit,
             };
             return await client.InvokeAsync(obj);
@@ -4316,7 +4822,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns auto-download settings presets for the currently logged in user
+        /// Returns auto-download settings presets for the current user
         /// </summary>
         public static async Task<AutoDownloadSettingsPresets> GetAutoDownloadSettingsPresets(this Client client)
         {
@@ -4335,6 +4841,19 @@ namespace TDLib.ClientExtensions
             {
                 Settings = settings,
                 Type = type,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns information about a bank card
+        /// </summary>
+        /// <param name="bankCardNumber">The bank card number</param>
+        public static async Task<BankCardInfo> GetBankCardInfo(this Client client, string bankCardNumber = default)
+        {
+            var obj = new GetBankCardInfo
+            {
+                BankCardNumber = bankCardNumber,
             };
             return await client.InvokeAsync(obj);
         }
@@ -4602,7 +5121,7 @@ namespace TDLib.ClientExtensions
         /// Uploads a PNG image with a sticker; for bots only; returns the uploaded file
         /// </summary>
         /// <param name="userId">Sticker file owner</param>
-        /// <param name="pngSticker">PNG image with the sticker; must be up to 512 kB in size and fit in 512x512 square</param>
+        /// <param name="pngSticker">PNG image with the sticker; must be up to 512 KB in size and fit in 512x512 square</param>
         public static async Task<File> UploadStickerFile(this Client client, int userId = 0, InputFile pngSticker = default)
         {
             var obj = new UploadStickerFile
@@ -4619,8 +5138,8 @@ namespace TDLib.ClientExtensions
         /// <param name="userId">Sticker set owner</param>
         /// <param name="title">Sticker set title; 1-64 characters</param>
         /// <param name="name">Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive); 1-64 characters</param>
-        /// <param name="isMasks">True, if stickers are masks</param>
-        /// <param name="stickers">List of stickers to be added to the set</param>
+        /// <param name="isMasks">True, if stickers are masks. Animated stickers can't be masks</param>
+        /// <param name="stickers">List of stickers to be added to the set; must be non-empty. All stickers must be of the same type</param>
         public static async Task<StickerSet> CreateNewStickerSet(this Client client, int userId = 0, string title = default, string name = default, bool isMasks = false, InputSticker[] stickers = default)
         {
             var obj = new CreateNewStickerSet
@@ -4647,6 +5166,23 @@ namespace TDLib.ClientExtensions
                 UserId = userId,
                 Name = name,
                 Sticker = sticker,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Sets a sticker set thumbnail; for bots only. Returns the sticker set
+        /// </summary>
+        /// <param name="userId">Sticker set owner</param>
+        /// <param name="name">Sticker set name</param>
+        /// <param name="thumbnail">Thumbnail to set in PNG or TGS format. Animated thumbnail must be set for animated sticker sets and only for them. Pass a zero InputFileId to delete the thumbnail</param>
+        public static async Task<StickerSet> SetStickerSetThumbnail(this Client client, int userId = 0, string name = default, InputFile thumbnail = default)
+        {
+            var obj = new SetStickerSetThumbnail
+            {
+                UserId = userId,
+                Name = name,
+                Thumbnail = thumbnail,
             };
             return await client.InvokeAsync(obj);
         }
@@ -4746,7 +5282,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Succeeds after a specified amount of time has passed. Can be called before authorization. Can be called before initialization
+        /// Succeeds after a specified amount of time has passed. Can be called before initialization
         /// </summary>
         /// <param name="seconds">Number of seconds before the function returns</param>
         public static async Task<Ok> SetAlarm(this Client client, double seconds = 0.0)
@@ -4759,11 +5295,33 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Uses current user IP to found their country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
+        /// Returns information about existing countries. Can be called before authorization
+        /// </summary>
+        public static async Task<Countries> GetCountries(this Client client)
+        {
+            var obj = new GetCountries();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Uses current user IP address to find their country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
         /// </summary>
         public static async Task<Text> GetCountryCode(this Client client)
         {
             var obj = new GetCountryCode();
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns information about a phone number by its prefix. Can be called before authorization
+        /// </summary>
+        /// <param name="phoneNumberPrefix">The phone number prefix</param>
+        public static async Task<PhoneNumberInfo> GetPhoneNumberInfo(this Client client, string phoneNumberPrefix = default)
+        {
+            var obj = new GetPhoneNumberInfo
+            {
+                PhoneNumberPrefix = phoneNumberPrefix,
+            };
             return await client.InvokeAsync(obj);
         }
 
@@ -4926,7 +5484,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Sets new log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Sets new log stream for internal logging of TDLib. Can be called synchronously
         /// </summary>
         /// <param name="logStream">New log stream</param>
         public static async Task<Ok> SetLogStream(this Client client, LogStream logStream = default)
@@ -4939,7 +5497,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns information about currently used log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Sets new log stream for internal logging of TDLib. Can be called synchronously
+        /// </summary>
+        /// <param name="logStream">New log stream</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Ok SetLogStreamSync(this Client client, LogStream logStream = default)
+        {
+            var obj = new SetLogStream
+            {
+                LogStream = logStream,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
         /// </summary>
         public static async Task<LogStream> GetLogStream(this Client client)
         {
@@ -4948,7 +5520,17 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Sets the verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
+        /// </summary>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static LogStream GetLogStreamSync(this Client client)
+        {
+            var obj = new GetLogStream();
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Sets the verbosity level of the internal logging of TDLib. Can be called synchronously
         /// </summary>
         /// <param name="newVerbosityLevel">New value of the verbosity level for logging. Value 0 corresponds to fatal errors, value 1 corresponds to errors, value 2 corresponds to warnings and debug warnings, value 3 corresponds to informational, value 4 corresponds to debug, value 5 corresponds to verbose debug, value greater than 5 and up to 1023 can be used to enable even more logging</param>
         public static async Task<Ok> SetLogVerbosityLevel(this Client client, int newVerbosityLevel = 0)
@@ -4961,7 +5543,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns current verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Sets the verbosity level of the internal logging of TDLib. Can be called synchronously
+        /// </summary>
+        /// <param name="newVerbosityLevel">New value of the verbosity level for logging. Value 0 corresponds to fatal errors, value 1 corresponds to errors, value 2 corresponds to warnings and debug warnings, value 3 corresponds to informational, value 4 corresponds to debug, value 5 corresponds to verbose debug, value greater than 5 and up to 1023 can be used to enable even more logging</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Ok SetLogVerbosityLevelSync(this Client client, int newVerbosityLevel = 0)
+        {
+            var obj = new SetLogVerbosityLevel
+            {
+                NewVerbosityLevel = newVerbosityLevel,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Returns current verbosity level of the internal logging of TDLib. Can be called synchronously
         /// </summary>
         public static async Task<LogVerbosityLevel> GetLogVerbosityLevel(this Client client)
         {
@@ -4970,7 +5566,17 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns current verbosity level of the internal logging of TDLib. Can be called synchronously
+        /// </summary>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static LogVerbosityLevel GetLogVerbosityLevelSync(this Client client)
+        {
+            var obj = new GetLogVerbosityLevel();
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
         /// </summary>
         public static async Task<LogTags> GetLogTags(this Client client)
         {
@@ -4979,7 +5585,17 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Sets the verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
+        /// </summary>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static LogTags GetLogTagsSync(this Client client)
+        {
+            var obj = new GetLogTags();
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
         /// <param name="tag">Logging tag to change verbosity level</param>
         /// <param name="newVerbosityLevel">New verbosity level; 1-1024</param>
@@ -4994,7 +5610,23 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns current verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously
+        /// </summary>
+        /// <param name="tag">Logging tag to change verbosity level</param>
+        /// <param name="newVerbosityLevel">New verbosity level; 1-1024</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Ok SetLogTagVerbosityLevelSync(this Client client, string tag = default, int newVerbosityLevel = 0)
+        {
+            var obj = new SetLogTagVerbosityLevel
+            {
+                Tag = tag,
+                NewVerbosityLevel = newVerbosityLevel,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
         /// <param name="tag">Logging tag to change verbosity level</param>
         public static async Task<LogVerbosityLevel> GetLogTagVerbosityLevel(this Client client, string tag = default)
@@ -5007,7 +5639,21 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Adds a message to TDLib internal log. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
+        /// </summary>
+        /// <param name="tag">Logging tag to change verbosity level</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static LogVerbosityLevel GetLogTagVerbosityLevelSync(this Client client, string tag = default)
+        {
+            var obj = new GetLogTagVerbosityLevel
+            {
+                Tag = tag,
+            };
+            return client.Execute(obj);
+        }
+
+        /// <summary>
+        /// Adds a message to TDLib internal log. Can be called synchronously
         /// </summary>
         /// <param name="verbosityLevel">The minimum verbosity level needed for the message to be logged, 0-1023</param>
         /// <param name="text">Text of a message to log</param>
@@ -5019,6 +5665,22 @@ namespace TDLib.ClientExtensions
                 Text = text,
             };
             return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Adds a message to TDLib internal log. Can be called synchronously
+        /// </summary>
+        /// <param name="verbosityLevel">The minimum verbosity level needed for the message to be logged, 0-1023</param>
+        /// <param name="text">Text of a message to log</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Ok AddLogMessageSync(this Client client, int verbosityLevel = 0, string text = default)
+        {
+            var obj = new AddLogMessage
+            {
+                VerbosityLevel = verbosityLevel,
+                Text = text,
+            };
+            return client.Execute(obj);
         }
 
         /// <summary>
@@ -5170,7 +5832,7 @@ namespace TDLib.ClientExtensions
         }
 
         /// <summary>
-        /// Returns the specified error and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
         /// </summary>
         /// <param name="error">The error to be returned</param>
         public static async Task<Error> TestReturnError(this Client client, Error error = default)
@@ -5180,6 +5842,20 @@ namespace TDLib.ClientExtensions
                 Error = error,
             };
             return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
+        /// </summary>
+        /// <param name="error">The error to be returned</param>
+        /// <remarks>This extension method is synchronous.</remarks>
+        public static Error TestReturnErrorSync(this Client client, Error error = default)
+        {
+            var obj = new TestReturnError
+            {
+                Error = error,
+            };
+            return client.Execute(obj);
         }
 
     }

@@ -109,6 +109,29 @@ class TDLibTLTypeInfo
   Functions = {}
   Classes = {}
 
+  class LazyResolver
+    def initialize(name)
+      @name = name
+    end
+
+    def resolve
+      AllDefinitions[@name] || Classes[@name] || @name
+    end
+
+    def to_s
+      @name.to_s
+    end
+
+    def self.resolve(name)
+      if name.is_a? LazyResolver
+        return name.resolve
+      elsif name.is_a? Symbol
+        return AllDefinitions[name] || Classes[name] || name
+      end
+      return name
+    end
+  end
+
   class << self
 
     def load(tlfile=nil)
@@ -164,14 +187,17 @@ class TDLibTLTypeInfo
     def parse_typename(name)
       type, subtype = name.split("<", 2)
       type = type.intern
-      rbtype = BuiltinTypes[type] || Types[type] || Classes[type] || type
+      rbtype = BuiltinTypes[type] || Types[type] || Classes[type] || LazyResolver.new(type)
       if subtype
         subtype.chop!
         if subtype[-1] == ">"
           subtype = parse_typename(subtype)
         else
           subtype = subtype.intern
-          subtype = BuiltinTypes[subtype] || Types[subtype] || Classes[subtype] || subtype
+          if subtype == :PageBlock
+            nil
+          end
+          subtype = BuiltinTypes[subtype] || Types[subtype] || Classes[subtype] || LazyResolver.new(subtype)
         end
         rbtype = rbtype[subtype]
       end

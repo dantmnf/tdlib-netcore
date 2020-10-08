@@ -6,12 +6,10 @@ namespace TDLib.CxxClient
 {
     class TLTypeIDAttribute : Attribute
     {
-        public TLTypeIDAttribute(int id, Type targetType)
+        public TLTypeIDAttribute(int id)
         {
             Id = id;
-            TargetType = targetType;
         }
         public int Id { get; set; }
-        public Type TargetType { get; set; }
     }
 }

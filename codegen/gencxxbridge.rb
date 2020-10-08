@@ -43,19 +43,19 @@ end
 
 def emit_type(io, type)
   cstype = check_csharp_keyword type.name
-  io.puts "[TLTypeID(#{type.type_id}, typeof(#{cstype}))]"
-  io.puts "internal unsafe class #{cstype}CxxBridge : BaseCxxBridge"
+  io.puts "[TLTypeID(#{type.type_id})]"
+  io.puts "internal unsafe class #{cstype}CxxBridge : ObjectBridge<#{cstype}>"
   io.puts "{"
   io.block do
     # we need a method to create delegate (fast) instead of Activator.CreateInstance or ConstructorInfo (slow)
     io.puts "public static BaseCxxBridge CreateInstance() => new #{cstype}CxxBridge();"
     supsec = "[SuppressUnmanagedCodeSecurity]"
     dllimport = '[DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]'
-    io.puts supsec
+    # io.puts supsec
     io.puts dllimport
     io.puts "private static extern IntPtr td_bridge_newobj_#{type.realname}();"
     type.props.each do |prop|
-      io.puts supsec
+      # io.puts supsec
       io.puts dllimport
       wraptype = pinvoketype(prop.type)
       pitype = wraptype.include?('<') ? 'IntPtr' : wraptype
@@ -138,5 +138,5 @@ def emit(out=STDOUT)
 
 end
 
-emit File.open(ARGV[0], 'wb')
-
+TDLibTLTypeInfo.load ARGV[0]
+emit File.open(ARGV[1], 'wb')

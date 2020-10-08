@@ -1,24 +1,16 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Runtime.CompilerServices;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
 {
-    public unsafe class TdJsonWriter
+    public unsafe abstract partial class TdJsonWriter
     {
-
-        public Stream Stream { get; set; }
-
-        public TdJsonWriter(Stream s)
-        {
-            Stream = s;
-        }
-
-        public void WriteSpan(ReadOnlySpan<byte> value)
-        {
-            Stream.Write(value);
-        }
+        // partial const int _extrapos;
+        // partial const int _extralen;
+        public abstract void WriteSpan(ReadOnlySpan<byte> span);
+        protected abstract void StreamWriteByte(byte value);
 
         private void WriteASCIIStringBody(string str)
         {
@@ -69,41 +61,41 @@ namespace TDLib.JsonClient
                 WriteSpan(new ReadOnlySpan<byte>(&qqqq, 2));
                 return;
             }
-            Stream.WriteByte((byte)'"');
+            StreamWriteByte((byte)'"');
 
             for (int i = 0; i < value.Length; i++)
             {
                 var chr = value[i];
                 if (chr >= 0x20 && chr <= 0x7E)
                 {
-                    if (chr == '"') Stream.WriteByte(0x5C);
-                    Stream.WriteByte((byte)chr);
-                    if (chr == 0x5C) Stream.WriteByte(0x5C);
+                    if (chr == '"') StreamWriteByte(0x5C);
+                    StreamWriteByte((byte)chr);
+                    if (chr == 0x5C) StreamWriteByte(0x5C);
                 }
                 else if (chr == '\b')
                 {
                     var xxbs = 0x0000625Cu;
-                    Stream.Write(new ReadOnlySpan<byte>(&xxbs, 2));
+                    WriteSpan(new ReadOnlySpan<byte>(&xxbs, 2));
                 }
                 else if (chr == '\f')
                 {
                     var xxfs = 0x0000665Cu;
-                    Stream.Write(new ReadOnlySpan<byte>(&xxfs, 2));
+                    WriteSpan(new ReadOnlySpan<byte>(&xxfs, 2));
                 }
                 else if (chr == '\n')
                 {
                     var xxns = 0x00006E5Cu;
-                    Stream.Write(new ReadOnlySpan<byte>(&xxns, 2));
+                    WriteSpan(new ReadOnlySpan<byte>(&xxns, 2));
                 }
                 else if (chr == '\r')
                 {
                     var xxrs = 0x0000725Cu;
-                    Stream.Write(new ReadOnlySpan<byte>(&xxrs, 2));
+                    WriteSpan(new ReadOnlySpan<byte>(&xxrs, 2));
                 }
                 else if (chr == '\t')
                 {
                     var xxts = 0x0000745Cu;
-                    Stream.Write(new ReadOnlySpan<byte>(&xxts, 2));
+                    WriteSpan(new ReadOnlySpan<byte>(&xxts, 2));
                 }
                 else // \uXXXX
                 {
@@ -113,11 +105,11 @@ namespace TDLib.JsonClient
                     seq |= (ulong)Hex1(x >> 4) << 32;
                     seq |= (ulong)Hex1(x >> 8) << 24;
                     seq |= (ulong)Hex1(x >> 12) << 16;
-                    Stream.Write(new ReadOnlySpan<byte>(&seq, 6));
+                    WriteSpan(new ReadOnlySpan<byte>(&seq, 6));
 
                 }
             }
-            Stream.WriteByte((byte)'"');
+            StreamWriteByte((byte)'"');
 
         }
 
@@ -150,11 +142,16 @@ namespace TDLib.JsonClient
         {
             if (value.TLObject == null)
             {
-                WriteNull();
-                return;
+                throw new ArgumentNullException(nameof(value));
             }
-            var mar = TLObjectFactory.GetMarshalForTLObject(value.TLObject);
-            mar.TdJsonWrite(this, ref value);
+            var converter = TLObjectFactory.GetConverterForTLObject(value.TLObject);
+            converter.TdJsonWriteItems(this, value.TLObject);
+            if (value.Extra.HasValue)
+            {
+                WriteSpan(StringPool.Slice(_extrapos, _extralen)); // ,"@extra":
+                WriteInt64String(value.Extra.Value);
+            }
+            WriteEndObject();
         }
 
         public void WriteValue(object value)
@@ -210,14 +207,14 @@ namespace TDLib.JsonClient
 
         public void WriteInt64String(long value)
         {
-            Stream.WriteByte((byte)'"');
+            StreamWriteByte((byte)'"');
             WriteValue(value);
-            Stream.WriteByte((byte)'"');
+            StreamWriteByte((byte)'"');
         }
 
         public void WriteEndObject()
         {
-            Stream.WriteByte((byte)'}');
+            StreamWriteByte((byte)'}');
         }
 
         public void WriteBytesValue(byte[] value)
@@ -233,79 +230,106 @@ namespace TDLib.JsonClient
 
         public void WriteArray(int[] value)
         {
-            Stream.WriteByte((byte)'[');
+            StreamWriteByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) Stream.WriteByte((byte)',');
+                if (i != value.Length - 1) StreamWriteByte((byte)',');
             }
-            Stream.WriteByte((byte)']');
+            StreamWriteByte((byte)']');
         }
 
         public void WriteArray(long[] value)
         {
-            Stream.WriteByte((byte)'[');
+            StreamWriteByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) Stream.WriteByte((byte)',');
+                if (i != value.Length - 1) StreamWriteByte((byte)',');
             }
-            Stream.WriteByte((byte)']');
+            StreamWriteByte((byte)']');
         }
 
         public void WriteArray(string[] value)
         {
-            Stream.WriteByte((byte)'[');
+            StreamWriteByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) Stream.WriteByte((byte)',');
+                if (i != value.Length - 1) StreamWriteByte((byte)',');
             }
-            Stream.WriteByte((byte)']');
+            StreamWriteByte((byte)']');
         }
 
         public void WriteArray(byte[][] value)
         {
-            Stream.WriteByte((byte)'[');
+            StreamWriteByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteBytesValue(value[i]);
-                if (i != value.Length - 1) Stream.WriteByte((byte)',');
+                if (i != value.Length - 1) StreamWriteByte((byte)',');
             }
-            Stream.WriteByte((byte)']');
+            StreamWriteByte((byte)']');
         }
 
         public void WriteArray(TLObject[] value)
         {
-            Stream.WriteByte((byte)'[');
+            StreamWriteByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) Stream.WriteByte((byte)',');
+                if (i != value.Length - 1) StreamWriteByte((byte)',');
             }
-            Stream.WriteByte((byte)']');
+            StreamWriteByte((byte)']');
         }
 
         public void WriteArray(TLObject[][] value)
         {
-            Stream.WriteByte((byte)'[');
+            StreamWriteByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteArray(value[i]);
-                if (i != value.Length - 1) Stream.WriteByte((byte)',');
+                if (i != value.Length - 1) StreamWriteByte((byte)',');
             }
-            Stream.WriteByte((byte)']');
+            StreamWriteByte((byte)']');
         }
 
         internal void WriteInt64Array(long[] value)
         {
-            Stream.WriteByte((byte)'[');
+            StreamWriteByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteInt64String(value[i]);
-                if (i != value.Length - 1) Stream.WriteByte((byte)',');
+                if (i != value.Length - 1) StreamWriteByte((byte)',');
             }
-            Stream.WriteByte((byte)']');
+            StreamWriteByte((byte)']');
         }
+    }
+
+    public unsafe class TdJsonSlimStreamWriter<T> : TdJsonWriter where T : ISlimStreamWriter
+    {
+        
+        private T stream;
+
+        public TdJsonSlimStreamWriter(T x)
+        {
+            stream = x;
+        }
+
+        public ref T GetStreamRef()
+        {
+            return ref stream;
+        }
+
+        public override void WriteSpan(ReadOnlySpan<byte> value)
+        {
+            stream.Write(value);
+        }
+
+        protected override void StreamWriteByte(byte value)
+        {
+            stream.WriteByte(value);
+        }
+
     }
 }

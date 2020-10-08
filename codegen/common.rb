@@ -1,5 +1,4 @@
 require_relative 'parser'
-TDLibTLTypeInfo.load
 
 class IndentedOutput
   def initialize(io, level=0, with="    ")

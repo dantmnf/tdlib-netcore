@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,12 +15,10 @@ namespace TDLib.JsonClient
 
     public class TLTypeHashAttribute : Attribute
     {
-        public TLTypeHashAttribute(uint hash, Type targetType)
+        public TLTypeHashAttribute(uint hash)
         {
             Hash = hash;
-            TargetType = targetType;
         }
         public uint Hash { get; set; }
-        public Type TargetType { get; set; }
     }
 }

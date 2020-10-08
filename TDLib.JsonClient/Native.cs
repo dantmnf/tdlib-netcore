@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
@@ -41,11 +41,42 @@ namespace TDLib.JsonClient
         [DllImport("tdjson", CallingConvention = CallingConvention.Cdecl)]
         public static extern void td_set_log_fatal_error_callback(td_log_fatal_error_callback_ptr callback);
 
-        public static unsafe int strlen(byte* str)
+        public static unsafe UIntPtr strlen(byte* str)
         {
-            int result = 0;
-            while (*str++ != 0) result++;
-            return result;
+            var end = str;
+            while (*end++ != 0) ;
+            return (UIntPtr)(end - str - 1);
         }
+
+        //[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        //[return: MarshalAs(UnmanagedType.SysUInt)]
+        //public unsafe delegate UIntPtr strlen_t(byte* str);
+
+        //public static strlen_t strlen;
+        //unsafe static Native() {
+        //    strlen = strlen_managed;
+        //    switch (Environment.OSVersion.Platform)
+        //    {
+        //        case PlatformID.Win32NT:
+        //            {
+        //                if (NativeLibrary.TryLoad("api-ms-win-crt-string-l1-1-0.dll", out var lib))
+        //                    if (NativeLibrary.TryGetExport(lib, "strlen", out var func))
+        //                    {
+        //                        strlen = Marshal.GetDelegateForFunctionPointer<strlen_t>(func);
+        //                        Console.WriteLine("using crt strlen");
+        //                    }
+        //            }
+        //            break;
+        //        case PlatformID.Unix:
+        //            {
+        //                if (NativeLibrary.TryGetExport(IntPtr.Zero, "strlen", out var func)) // RTLD_DEFAULT
+        //                    strlen = Marshal.GetDelegateForFunctionPointer<strlen_t>(func);
+        //            }
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
+
     }
 }

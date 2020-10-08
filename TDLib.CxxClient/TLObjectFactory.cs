@@ -1,11 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices;
-using System.Text;
 using TDLib.Api;
 using static TDLib.CxxClient.Native;
 
@@ -29,12 +24,23 @@ namespace TDLib.CxxClient
                 .Where(x => x.attrs.Length != 0)
                 .Select(x => (x.attrs.FirstOrDefault() as TLTypeIDAttribute, x.type)).ToArray();
             var count = 0;
-            foreach (var (attr, type) in types)
+            foreach (var (attr, bridge_type) in types)
             {
                 count++;
-                var ctor = (Func<BaseCxxBridge>)Delegate.CreateDelegate(typeof(Func<BaseCxxBridge>), type, "CreateInstance");
+                var ctor = (Func<BaseCxxBridge>)Delegate.CreateDelegate(typeof(Func<BaseCxxBridge>), bridge_type, "CreateInstance");
                 _fetcher_map.Add(attr.Id, ctor);
-                _creator_map.Add(attr.TargetType, ctor);
+
+                var bridge_generic_type = bridge_type.BaseType;
+                while (bridge_generic_type != null)
+                {
+                    if (bridge_generic_type.GetGenericTypeDefinition() == typeof(ObjectBridge<>))
+                        break;
+                    bridge_generic_type = bridge_generic_type.BaseType;
+                }
+                if (bridge_generic_type == null)
+                    throw new TypeLoadException($"bridge type {bridge_type.FullName} does not inherit from ObjectBridge<T>");
+                var object_type = bridge_generic_type.GenericTypeArguments.FirstOrDefault();
+                _creator_map.Add(object_type, ctor);
             }
             if (count != _fetcher_map.Count)
             {

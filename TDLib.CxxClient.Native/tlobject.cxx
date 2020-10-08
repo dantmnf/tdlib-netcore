@@ -151,11 +151,30 @@ EXPORT auto td_bridge_obj_photoSize_type(photoSize *obj) { return &obj->type_; }
 EXPORT auto td_bridge_obj_photoSize_photo(photoSize *obj) { return &obj->photo_; }
 EXPORT auto td_bridge_obj_photoSize_width(photoSize *obj) { return &obj->width_; }
 EXPORT auto td_bridge_obj_photoSize_height(photoSize *obj) { return &obj->height_; }
+EXPORT auto td_bridge_obj_photoSize_progressive_sizes(photoSize *obj) { return &obj->progressive_sizes_; }
 
 EXPORT minithumbnail *td_bridge_newobj_minithumbnail() { return new minithumbnail(); }
 EXPORT auto td_bridge_obj_minithumbnail_width(minithumbnail *obj) { return &obj->width_; }
 EXPORT auto td_bridge_obj_minithumbnail_height(minithumbnail *obj) { return &obj->height_; }
 EXPORT auto td_bridge_obj_minithumbnail_data(minithumbnail *obj) { return &obj->data_; }
+
+EXPORT thumbnailFormatJpeg *td_bridge_newobj_thumbnailFormatJpeg() { return new thumbnailFormatJpeg(); }
+
+EXPORT thumbnailFormatPng *td_bridge_newobj_thumbnailFormatPng() { return new thumbnailFormatPng(); }
+
+EXPORT thumbnailFormatWebp *td_bridge_newobj_thumbnailFormatWebp() { return new thumbnailFormatWebp(); }
+
+EXPORT thumbnailFormatGif *td_bridge_newobj_thumbnailFormatGif() { return new thumbnailFormatGif(); }
+
+EXPORT thumbnailFormatTgs *td_bridge_newobj_thumbnailFormatTgs() { return new thumbnailFormatTgs(); }
+
+EXPORT thumbnailFormatMpeg4 *td_bridge_newobj_thumbnailFormatMpeg4() { return new thumbnailFormatMpeg4(); }
+
+EXPORT thumbnail *td_bridge_newobj_thumbnail() { return new thumbnail(); }
+EXPORT auto td_bridge_obj_thumbnail_format(thumbnail *obj) { return &obj->format_; }
+EXPORT auto td_bridge_obj_thumbnail_width(thumbnail *obj) { return &obj->width_; }
+EXPORT auto td_bridge_obj_thumbnail_height(thumbnail *obj) { return &obj->height_; }
+EXPORT auto td_bridge_obj_thumbnail_file(thumbnail *obj) { return &obj->file_; }
 
 EXPORT maskPointForehead *td_bridge_newobj_maskPointForehead() { return new maskPointForehead(); }
 
@@ -183,6 +202,7 @@ EXPORT auto td_bridge_obj_pollTypeRegular_allow_multiple_answers(pollTypeRegular
 
 EXPORT pollTypeQuiz *td_bridge_newobj_pollTypeQuiz() { return new pollTypeQuiz(); }
 EXPORT auto td_bridge_obj_pollTypeQuiz_correct_option_id(pollTypeQuiz *obj) { return &obj->correct_option_id_; }
+EXPORT auto td_bridge_obj_pollTypeQuiz_explanation(pollTypeQuiz *obj) { return &obj->explanation_; }
 
 EXPORT animation *td_bridge_newobj_animation() { return new animation(); }
 EXPORT auto td_bridge_obj_animation_duration(animation *obj) { return &obj->duration_; }
@@ -190,6 +210,7 @@ EXPORT auto td_bridge_obj_animation_width(animation *obj) { return &obj->width_;
 EXPORT auto td_bridge_obj_animation_height(animation *obj) { return &obj->height_; }
 EXPORT auto td_bridge_obj_animation_file_name(animation *obj) { return &obj->file_name_; }
 EXPORT auto td_bridge_obj_animation_mime_type(animation *obj) { return &obj->mime_type_; }
+EXPORT auto td_bridge_obj_animation_has_stickers(animation *obj) { return &obj->has_stickers_; }
 EXPORT auto td_bridge_obj_animation_minithumbnail(animation *obj) { return &obj->minithumbnail_; }
 EXPORT auto td_bridge_obj_animation_thumbnail(animation *obj) { return &obj->thumbnail_; }
 EXPORT auto td_bridge_obj_animation_animation(animation *obj) { return &obj->animation_; }
@@ -288,16 +309,20 @@ EXPORT auto td_bridge_obj_poll_total_voter_count(poll *obj) { return &obj->total
 EXPORT auto td_bridge_obj_poll_recent_voter_user_ids(poll *obj) { return &obj->recent_voter_user_ids_; }
 EXPORT auto td_bridge_obj_poll_is_anonymous(poll *obj) { return &obj->is_anonymous_; }
 EXPORT auto td_bridge_obj_poll_type(poll *obj) { return &obj->type_; }
+EXPORT auto td_bridge_obj_poll_open_period(poll *obj) { return &obj->open_period_; }
+EXPORT auto td_bridge_obj_poll_close_date(poll *obj) { return &obj->close_date_; }
 EXPORT auto td_bridge_obj_poll_is_closed(poll *obj) { return &obj->is_closed_; }
 
 EXPORT profilePhoto *td_bridge_newobj_profilePhoto() { return new profilePhoto(); }
 EXPORT auto td_bridge_obj_profilePhoto_id(profilePhoto *obj) { return &obj->id_; }
 EXPORT auto td_bridge_obj_profilePhoto_small(profilePhoto *obj) { return &obj->small_; }
 EXPORT auto td_bridge_obj_profilePhoto_big(profilePhoto *obj) { return &obj->big_; }
+EXPORT auto td_bridge_obj_profilePhoto_has_animation(profilePhoto *obj) { return &obj->has_animation_; }
 
-EXPORT chatPhoto *td_bridge_newobj_chatPhoto() { return new chatPhoto(); }
-EXPORT auto td_bridge_obj_chatPhoto_small(chatPhoto *obj) { return &obj->small_; }
-EXPORT auto td_bridge_obj_chatPhoto_big(chatPhoto *obj) { return &obj->big_; }
+EXPORT chatPhotoInfo *td_bridge_newobj_chatPhotoInfo() { return new chatPhotoInfo(); }
+EXPORT auto td_bridge_obj_chatPhotoInfo_small(chatPhotoInfo *obj) { return &obj->small_; }
+EXPORT auto td_bridge_obj_chatPhotoInfo_big(chatPhotoInfo *obj) { return &obj->big_; }
+EXPORT auto td_bridge_obj_chatPhotoInfo_has_animation(chatPhotoInfo *obj) { return &obj->has_animation_; }
 
 EXPORT userTypeRegular *td_bridge_newobj_userTypeRegular() { return new userTypeRegular(); }
 
@@ -324,6 +349,32 @@ EXPORT chatLocation *td_bridge_newobj_chatLocation() { return new chatLocation()
 EXPORT auto td_bridge_obj_chatLocation_location(chatLocation *obj) { return &obj->location_; }
 EXPORT auto td_bridge_obj_chatLocation_address(chatLocation *obj) { return &obj->address_; }
 
+EXPORT animatedChatPhoto *td_bridge_newobj_animatedChatPhoto() { return new animatedChatPhoto(); }
+EXPORT auto td_bridge_obj_animatedChatPhoto_length(animatedChatPhoto *obj) { return &obj->length_; }
+EXPORT auto td_bridge_obj_animatedChatPhoto_file(animatedChatPhoto *obj) { return &obj->file_; }
+EXPORT auto td_bridge_obj_animatedChatPhoto_main_frame_timestamp(animatedChatPhoto *obj) { return &obj->main_frame_timestamp_; }
+
+EXPORT chatPhoto *td_bridge_newobj_chatPhoto() { return new chatPhoto(); }
+EXPORT auto td_bridge_obj_chatPhoto_id(chatPhoto *obj) { return &obj->id_; }
+EXPORT auto td_bridge_obj_chatPhoto_added_date(chatPhoto *obj) { return &obj->added_date_; }
+EXPORT auto td_bridge_obj_chatPhoto_minithumbnail(chatPhoto *obj) { return &obj->minithumbnail_; }
+EXPORT auto td_bridge_obj_chatPhoto_sizes(chatPhoto *obj) { return &obj->sizes_; }
+EXPORT auto td_bridge_obj_chatPhoto_animation(chatPhoto *obj) { return &obj->animation_; }
+
+EXPORT chatPhotos *td_bridge_newobj_chatPhotos() { return new chatPhotos(); }
+EXPORT auto td_bridge_obj_chatPhotos_total_count(chatPhotos *obj) { return &obj->total_count_; }
+EXPORT auto td_bridge_obj_chatPhotos_photos(chatPhotos *obj) { return &obj->photos_; }
+
+EXPORT inputChatPhotoPrevious *td_bridge_newobj_inputChatPhotoPrevious() { return new inputChatPhotoPrevious(); }
+EXPORT auto td_bridge_obj_inputChatPhotoPrevious_chat_photo_id(inputChatPhotoPrevious *obj) { return &obj->chat_photo_id_; }
+
+EXPORT inputChatPhotoStatic *td_bridge_newobj_inputChatPhotoStatic() { return new inputChatPhotoStatic(); }
+EXPORT auto td_bridge_obj_inputChatPhotoStatic_photo(inputChatPhotoStatic *obj) { return &obj->photo_; }
+
+EXPORT inputChatPhotoAnimation *td_bridge_newobj_inputChatPhotoAnimation() { return new inputChatPhotoAnimation(); }
+EXPORT auto td_bridge_obj_inputChatPhotoAnimation_animation(inputChatPhotoAnimation *obj) { return &obj->animation_; }
+EXPORT auto td_bridge_obj_inputChatPhotoAnimation_main_frame_timestamp(inputChatPhotoAnimation *obj) { return &obj->main_frame_timestamp_; }
+
 EXPORT user *td_bridge_newobj_user() { return new user(); }
 EXPORT auto td_bridge_obj_user_id(user *obj) { return &obj->id_; }
 EXPORT auto td_bridge_obj_user_first_name(user *obj) { return &obj->first_name_; }
@@ -343,23 +394,15 @@ EXPORT auto td_bridge_obj_user_type(user *obj) { return &obj->type_; }
 EXPORT auto td_bridge_obj_user_language_code(user *obj) { return &obj->language_code_; }
 
 EXPORT userFullInfo *td_bridge_newobj_userFullInfo() { return new userFullInfo(); }
-EXPORT auto td_bridge_obj_userFullInfo_is_blocked(userFullInfo *obj) { return &obj->is_blocked_; }
+EXPORT auto td_bridge_obj_userFullInfo_photo(userFullInfo *obj) { return &obj->photo_; }
 EXPORT auto td_bridge_obj_userFullInfo_can_be_called(userFullInfo *obj) { return &obj->can_be_called_; }
+EXPORT auto td_bridge_obj_userFullInfo_supports_video_calls(userFullInfo *obj) { return &obj->supports_video_calls_; }
 EXPORT auto td_bridge_obj_userFullInfo_has_private_calls(userFullInfo *obj) { return &obj->has_private_calls_; }
 EXPORT auto td_bridge_obj_userFullInfo_need_phone_number_privacy_exception(userFullInfo *obj) { return &obj->need_phone_number_privacy_exception_; }
 EXPORT auto td_bridge_obj_userFullInfo_bio(userFullInfo *obj) { return &obj->bio_; }
 EXPORT auto td_bridge_obj_userFullInfo_share_text(userFullInfo *obj) { return &obj->share_text_; }
 EXPORT auto td_bridge_obj_userFullInfo_group_in_common_count(userFullInfo *obj) { return &obj->group_in_common_count_; }
 EXPORT auto td_bridge_obj_userFullInfo_bot_info(userFullInfo *obj) { return &obj->bot_info_; }
-
-EXPORT userProfilePhoto *td_bridge_newobj_userProfilePhoto() { return new userProfilePhoto(); }
-EXPORT auto td_bridge_obj_userProfilePhoto_id(userProfilePhoto *obj) { return &obj->id_; }
-EXPORT auto td_bridge_obj_userProfilePhoto_added_date(userProfilePhoto *obj) { return &obj->added_date_; }
-EXPORT auto td_bridge_obj_userProfilePhoto_sizes(userProfilePhoto *obj) { return &obj->sizes_; }
-
-EXPORT userProfilePhotos *td_bridge_newobj_userProfilePhotos() { return new userProfilePhotos(); }
-EXPORT auto td_bridge_obj_userProfilePhotos_total_count(userProfilePhotos *obj) { return &obj->total_count_; }
-EXPORT auto td_bridge_obj_userProfilePhotos_photos(userProfilePhotos *obj) { return &obj->photos_; }
 
 EXPORT users *td_bridge_newobj_users() { return new users(); }
 EXPORT auto td_bridge_obj_users_total_count(users *obj) { return &obj->total_count_; }
@@ -385,6 +428,7 @@ EXPORT auto td_bridge_obj_chatPermissions_can_pin_messages(chatPermissions *obj)
 
 EXPORT chatMemberStatusCreator *td_bridge_newobj_chatMemberStatusCreator() { return new chatMemberStatusCreator(); }
 EXPORT auto td_bridge_obj_chatMemberStatusCreator_custom_title(chatMemberStatusCreator *obj) { return &obj->custom_title_; }
+EXPORT auto td_bridge_obj_chatMemberStatusCreator_is_anonymous(chatMemberStatusCreator *obj) { return &obj->is_anonymous_; }
 EXPORT auto td_bridge_obj_chatMemberStatusCreator_is_member(chatMemberStatusCreator *obj) { return &obj->is_member_; }
 
 EXPORT chatMemberStatusAdministrator *td_bridge_newobj_chatMemberStatusAdministrator() { return new chatMemberStatusAdministrator(); }
@@ -398,6 +442,7 @@ EXPORT auto td_bridge_obj_chatMemberStatusAdministrator_can_invite_users(chatMem
 EXPORT auto td_bridge_obj_chatMemberStatusAdministrator_can_restrict_members(chatMemberStatusAdministrator *obj) { return &obj->can_restrict_members_; }
 EXPORT auto td_bridge_obj_chatMemberStatusAdministrator_can_pin_messages(chatMemberStatusAdministrator *obj) { return &obj->can_pin_messages_; }
 EXPORT auto td_bridge_obj_chatMemberStatusAdministrator_can_promote_members(chatMemberStatusAdministrator *obj) { return &obj->can_promote_members_; }
+EXPORT auto td_bridge_obj_chatMemberStatusAdministrator_is_anonymous(chatMemberStatusAdministrator *obj) { return &obj->is_anonymous_; }
 
 EXPORT chatMemberStatusMember *td_bridge_newobj_chatMemberStatusMember() { return new chatMemberStatusMember(); }
 
@@ -460,6 +505,7 @@ EXPORT auto td_bridge_obj_basicGroup_is_active(basicGroup *obj) { return &obj->i
 EXPORT auto td_bridge_obj_basicGroup_upgraded_to_supergroup_id(basicGroup *obj) { return &obj->upgraded_to_supergroup_id_; }
 
 EXPORT basicGroupFullInfo *td_bridge_newobj_basicGroupFullInfo() { return new basicGroupFullInfo(); }
+EXPORT auto td_bridge_obj_basicGroupFullInfo_photo(basicGroupFullInfo *obj) { return &obj->photo_; }
 EXPORT auto td_bridge_obj_basicGroupFullInfo_description(basicGroupFullInfo *obj) { return &obj->description_; }
 EXPORT auto td_bridge_obj_basicGroupFullInfo_creator_user_id(basicGroupFullInfo *obj) { return &obj->creator_user_id_; }
 EXPORT auto td_bridge_obj_basicGroupFullInfo_members(basicGroupFullInfo *obj) { return &obj->members_; }
@@ -481,6 +527,7 @@ EXPORT auto td_bridge_obj_supergroup_restriction_reason(supergroup *obj) { retur
 EXPORT auto td_bridge_obj_supergroup_is_scam(supergroup *obj) { return &obj->is_scam_; }
 
 EXPORT supergroupFullInfo *td_bridge_newobj_supergroupFullInfo() { return new supergroupFullInfo(); }
+EXPORT auto td_bridge_obj_supergroupFullInfo_photo(supergroupFullInfo *obj) { return &obj->photo_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_description(supergroupFullInfo *obj) { return &obj->description_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_member_count(supergroupFullInfo *obj) { return &obj->member_count_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_administrator_count(supergroupFullInfo *obj) { return &obj->administrator_count_; }
@@ -493,7 +540,7 @@ EXPORT auto td_bridge_obj_supergroupFullInfo_can_get_members(supergroupFullInfo 
 EXPORT auto td_bridge_obj_supergroupFullInfo_can_set_username(supergroupFullInfo *obj) { return &obj->can_set_username_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_can_set_sticker_set(supergroupFullInfo *obj) { return &obj->can_set_sticker_set_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_can_set_location(supergroupFullInfo *obj) { return &obj->can_set_location_; }
-EXPORT auto td_bridge_obj_supergroupFullInfo_can_view_statistics(supergroupFullInfo *obj) { return &obj->can_view_statistics_; }
+EXPORT auto td_bridge_obj_supergroupFullInfo_can_get_statistics(supergroupFullInfo *obj) { return &obj->can_get_statistics_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_is_all_history_available(supergroupFullInfo *obj) { return &obj->is_all_history_available_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_sticker_set_id(supergroupFullInfo *obj) { return &obj->sticker_set_id_; }
 EXPORT auto td_bridge_obj_supergroupFullInfo_location(supergroupFullInfo *obj) { return &obj->location_; }
@@ -519,6 +566,9 @@ EXPORT auto td_bridge_obj_secretChat_layer(secretChat *obj) { return &obj->layer
 EXPORT messageForwardOriginUser *td_bridge_newobj_messageForwardOriginUser() { return new messageForwardOriginUser(); }
 EXPORT auto td_bridge_obj_messageForwardOriginUser_sender_user_id(messageForwardOriginUser *obj) { return &obj->sender_user_id_; }
 
+EXPORT messageForwardOriginChat *td_bridge_newobj_messageForwardOriginChat() { return new messageForwardOriginChat(); }
+EXPORT auto td_bridge_obj_messageForwardOriginChat_sender_chat_id(messageForwardOriginChat *obj) { return &obj->sender_chat_id_; }
+
 EXPORT messageForwardOriginHiddenUser *td_bridge_newobj_messageForwardOriginHiddenUser() { return new messageForwardOriginHiddenUser(); }
 EXPORT auto td_bridge_obj_messageForwardOriginHiddenUser_sender_name(messageForwardOriginHiddenUser *obj) { return &obj->sender_name_; }
 
@@ -530,8 +580,21 @@ EXPORT auto td_bridge_obj_messageForwardOriginChannel_author_signature(messageFo
 EXPORT messageForwardInfo *td_bridge_newobj_messageForwardInfo() { return new messageForwardInfo(); }
 EXPORT auto td_bridge_obj_messageForwardInfo_origin(messageForwardInfo *obj) { return &obj->origin_; }
 EXPORT auto td_bridge_obj_messageForwardInfo_date(messageForwardInfo *obj) { return &obj->date_; }
+EXPORT auto td_bridge_obj_messageForwardInfo_public_service_announcement_type(messageForwardInfo *obj) { return &obj->public_service_announcement_type_; }
 EXPORT auto td_bridge_obj_messageForwardInfo_from_chat_id(messageForwardInfo *obj) { return &obj->from_chat_id_; }
 EXPORT auto td_bridge_obj_messageForwardInfo_from_message_id(messageForwardInfo *obj) { return &obj->from_message_id_; }
+
+EXPORT messageReplyInfo *td_bridge_newobj_messageReplyInfo() { return new messageReplyInfo(); }
+EXPORT auto td_bridge_obj_messageReplyInfo_reply_count(messageReplyInfo *obj) { return &obj->reply_count_; }
+EXPORT auto td_bridge_obj_messageReplyInfo_recent_replier_user_ids(messageReplyInfo *obj) { return &obj->recent_replier_user_ids_; }
+EXPORT auto td_bridge_obj_messageReplyInfo_last_read_inbox_message_id(messageReplyInfo *obj) { return &obj->last_read_inbox_message_id_; }
+EXPORT auto td_bridge_obj_messageReplyInfo_last_read_outbox_message_id(messageReplyInfo *obj) { return &obj->last_read_outbox_message_id_; }
+EXPORT auto td_bridge_obj_messageReplyInfo_last_message_id(messageReplyInfo *obj) { return &obj->last_message_id_; }
+
+EXPORT messageInteractionInfo *td_bridge_newobj_messageInteractionInfo() { return new messageInteractionInfo(); }
+EXPORT auto td_bridge_obj_messageInteractionInfo_view_count(messageInteractionInfo *obj) { return &obj->view_count_; }
+EXPORT auto td_bridge_obj_messageInteractionInfo_forward_count(messageInteractionInfo *obj) { return &obj->forward_count_; }
+EXPORT auto td_bridge_obj_messageInteractionInfo_reply_info(messageInteractionInfo *obj) { return &obj->reply_info_; }
 
 EXPORT messageSendingStatePending *td_bridge_newobj_messageSendingStatePending() { return new messageSendingStatePending(); }
 
@@ -544,6 +607,7 @@ EXPORT auto td_bridge_obj_messageSendingStateFailed_retry_after(messageSendingSt
 EXPORT message *td_bridge_newobj_message() { return new message(); }
 EXPORT auto td_bridge_obj_message_id(message *obj) { return &obj->id_; }
 EXPORT auto td_bridge_obj_message_sender_user_id(message *obj) { return &obj->sender_user_id_; }
+EXPORT auto td_bridge_obj_message_sender_chat_id(message *obj) { return &obj->sender_chat_id_; }
 EXPORT auto td_bridge_obj_message_chat_id(message *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_message_sending_state(message *obj) { return &obj->sending_state_; }
 EXPORT auto td_bridge_obj_message_scheduling_state(message *obj) { return &obj->scheduling_state_; }
@@ -552,17 +616,21 @@ EXPORT auto td_bridge_obj_message_can_be_edited(message *obj) { return &obj->can
 EXPORT auto td_bridge_obj_message_can_be_forwarded(message *obj) { return &obj->can_be_forwarded_; }
 EXPORT auto td_bridge_obj_message_can_be_deleted_only_for_self(message *obj) { return &obj->can_be_deleted_only_for_self_; }
 EXPORT auto td_bridge_obj_message_can_be_deleted_for_all_users(message *obj) { return &obj->can_be_deleted_for_all_users_; }
+EXPORT auto td_bridge_obj_message_can_get_statistics(message *obj) { return &obj->can_get_statistics_; }
+EXPORT auto td_bridge_obj_message_can_get_message_thread(message *obj) { return &obj->can_get_message_thread_; }
 EXPORT auto td_bridge_obj_message_is_channel_post(message *obj) { return &obj->is_channel_post_; }
 EXPORT auto td_bridge_obj_message_contains_unread_mention(message *obj) { return &obj->contains_unread_mention_; }
 EXPORT auto td_bridge_obj_message_date(message *obj) { return &obj->date_; }
 EXPORT auto td_bridge_obj_message_edit_date(message *obj) { return &obj->edit_date_; }
 EXPORT auto td_bridge_obj_message_forward_info(message *obj) { return &obj->forward_info_; }
+EXPORT auto td_bridge_obj_message_interaction_info(message *obj) { return &obj->interaction_info_; }
+EXPORT auto td_bridge_obj_message_reply_in_chat_id(message *obj) { return &obj->reply_in_chat_id_; }
 EXPORT auto td_bridge_obj_message_reply_to_message_id(message *obj) { return &obj->reply_to_message_id_; }
+EXPORT auto td_bridge_obj_message_message_thread_id(message *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_message_ttl(message *obj) { return &obj->ttl_; }
 EXPORT auto td_bridge_obj_message_ttl_expires_in(message *obj) { return &obj->ttl_expires_in_; }
 EXPORT auto td_bridge_obj_message_via_bot_user_id(message *obj) { return &obj->via_bot_user_id_; }
 EXPORT auto td_bridge_obj_message_author_signature(message *obj) { return &obj->author_signature_; }
-EXPORT auto td_bridge_obj_message_views(message *obj) { return &obj->views_; }
 EXPORT auto td_bridge_obj_message_media_album_id(message *obj) { return &obj->media_album_id_; }
 EXPORT auto td_bridge_obj_message_restriction_reason(message *obj) { return &obj->restriction_reason_; }
 EXPORT auto td_bridge_obj_message_content(message *obj) { return &obj->content_; }
@@ -573,8 +641,9 @@ EXPORT auto td_bridge_obj_messages_total_count(messages *obj) { return &obj->tot
 EXPORT auto td_bridge_obj_messages_messages(messages *obj) { return &obj->messages_; }
 
 EXPORT foundMessages *td_bridge_newobj_foundMessages() { return new foundMessages(); }
+EXPORT auto td_bridge_obj_foundMessages_total_count(foundMessages *obj) { return &obj->total_count_; }
 EXPORT auto td_bridge_obj_foundMessages_messages(foundMessages *obj) { return &obj->messages_; }
-EXPORT auto td_bridge_obj_foundMessages_next_from_search_id(foundMessages *obj) { return &obj->next_from_search_id_; }
+EXPORT auto td_bridge_obj_foundMessages_next_offset(foundMessages *obj) { return &obj->next_offset_; }
 
 EXPORT notificationSettingsScopePrivateChats *td_bridge_newobj_notificationSettingsScopePrivateChats() { return new notificationSettingsScopePrivateChats(); }
 
@@ -603,6 +672,7 @@ EXPORT auto td_bridge_obj_scopeNotificationSettings_disable_mention_notification
 
 EXPORT draftMessage *td_bridge_newobj_draftMessage() { return new draftMessage(); }
 EXPORT auto td_bridge_obj_draftMessage_reply_to_message_id(draftMessage *obj) { return &obj->reply_to_message_id_; }
+EXPORT auto td_bridge_obj_draftMessage_date(draftMessage *obj) { return &obj->date_; }
 EXPORT auto td_bridge_obj_draftMessage_input_message_text(draftMessage *obj) { return &obj->input_message_text_; }
 
 EXPORT chatTypePrivate *td_bridge_newobj_chatTypePrivate() { return new chatTypePrivate(); }
@@ -619,22 +689,65 @@ EXPORT chatTypeSecret *td_bridge_newobj_chatTypeSecret() { return new chatTypeSe
 EXPORT auto td_bridge_obj_chatTypeSecret_secret_chat_id(chatTypeSecret *obj) { return &obj->secret_chat_id_; }
 EXPORT auto td_bridge_obj_chatTypeSecret_user_id(chatTypeSecret *obj) { return &obj->user_id_; }
 
+EXPORT chatFilter *td_bridge_newobj_chatFilter() { return new chatFilter(); }
+EXPORT auto td_bridge_obj_chatFilter_title(chatFilter *obj) { return &obj->title_; }
+EXPORT auto td_bridge_obj_chatFilter_icon_name(chatFilter *obj) { return &obj->icon_name_; }
+EXPORT auto td_bridge_obj_chatFilter_pinned_chat_ids(chatFilter *obj) { return &obj->pinned_chat_ids_; }
+EXPORT auto td_bridge_obj_chatFilter_included_chat_ids(chatFilter *obj) { return &obj->included_chat_ids_; }
+EXPORT auto td_bridge_obj_chatFilter_excluded_chat_ids(chatFilter *obj) { return &obj->excluded_chat_ids_; }
+EXPORT auto td_bridge_obj_chatFilter_exclude_muted(chatFilter *obj) { return &obj->exclude_muted_; }
+EXPORT auto td_bridge_obj_chatFilter_exclude_read(chatFilter *obj) { return &obj->exclude_read_; }
+EXPORT auto td_bridge_obj_chatFilter_exclude_archived(chatFilter *obj) { return &obj->exclude_archived_; }
+EXPORT auto td_bridge_obj_chatFilter_include_contacts(chatFilter *obj) { return &obj->include_contacts_; }
+EXPORT auto td_bridge_obj_chatFilter_include_non_contacts(chatFilter *obj) { return &obj->include_non_contacts_; }
+EXPORT auto td_bridge_obj_chatFilter_include_bots(chatFilter *obj) { return &obj->include_bots_; }
+EXPORT auto td_bridge_obj_chatFilter_include_groups(chatFilter *obj) { return &obj->include_groups_; }
+EXPORT auto td_bridge_obj_chatFilter_include_channels(chatFilter *obj) { return &obj->include_channels_; }
+
+EXPORT chatFilterInfo *td_bridge_newobj_chatFilterInfo() { return new chatFilterInfo(); }
+EXPORT auto td_bridge_obj_chatFilterInfo_id(chatFilterInfo *obj) { return &obj->id_; }
+EXPORT auto td_bridge_obj_chatFilterInfo_title(chatFilterInfo *obj) { return &obj->title_; }
+EXPORT auto td_bridge_obj_chatFilterInfo_icon_name(chatFilterInfo *obj) { return &obj->icon_name_; }
+
+EXPORT recommendedChatFilter *td_bridge_newobj_recommendedChatFilter() { return new recommendedChatFilter(); }
+EXPORT auto td_bridge_obj_recommendedChatFilter_filter(recommendedChatFilter *obj) { return &obj->filter_; }
+EXPORT auto td_bridge_obj_recommendedChatFilter_description(recommendedChatFilter *obj) { return &obj->description_; }
+
+EXPORT recommendedChatFilters *td_bridge_newobj_recommendedChatFilters() { return new recommendedChatFilters(); }
+EXPORT auto td_bridge_obj_recommendedChatFilters_chat_filters(recommendedChatFilters *obj) { return &obj->chat_filters_; }
+
 EXPORT chatListMain *td_bridge_newobj_chatListMain() { return new chatListMain(); }
 
 EXPORT chatListArchive *td_bridge_newobj_chatListArchive() { return new chatListArchive(); }
 
+EXPORT chatListFilter *td_bridge_newobj_chatListFilter() { return new chatListFilter(); }
+EXPORT auto td_bridge_obj_chatListFilter_chat_filter_id(chatListFilter *obj) { return &obj->chat_filter_id_; }
+
+EXPORT chatLists *td_bridge_newobj_chatLists() { return new chatLists(); }
+EXPORT auto td_bridge_obj_chatLists_chat_lists(chatLists *obj) { return &obj->chat_lists_; }
+
+EXPORT chatSourceMtprotoProxy *td_bridge_newobj_chatSourceMtprotoProxy() { return new chatSourceMtprotoProxy(); }
+
+EXPORT chatSourcePublicServiceAnnouncement *td_bridge_newobj_chatSourcePublicServiceAnnouncement() { return new chatSourcePublicServiceAnnouncement(); }
+EXPORT auto td_bridge_obj_chatSourcePublicServiceAnnouncement_type(chatSourcePublicServiceAnnouncement *obj) { return &obj->type_; }
+EXPORT auto td_bridge_obj_chatSourcePublicServiceAnnouncement_text(chatSourcePublicServiceAnnouncement *obj) { return &obj->text_; }
+
+EXPORT chatPosition *td_bridge_newobj_chatPosition() { return new chatPosition(); }
+EXPORT auto td_bridge_obj_chatPosition_list(chatPosition *obj) { return &obj->list_; }
+EXPORT auto td_bridge_obj_chatPosition_order(chatPosition *obj) { return &obj->order_; }
+EXPORT auto td_bridge_obj_chatPosition_is_pinned(chatPosition *obj) { return &obj->is_pinned_; }
+EXPORT auto td_bridge_obj_chatPosition_source(chatPosition *obj) { return &obj->source_; }
+
 EXPORT chat *td_bridge_newobj_chat() { return new chat(); }
 EXPORT auto td_bridge_obj_chat_id(chat *obj) { return &obj->id_; }
 EXPORT auto td_bridge_obj_chat_type(chat *obj) { return &obj->type_; }
-EXPORT auto td_bridge_obj_chat_chat_list(chat *obj) { return &obj->chat_list_; }
 EXPORT auto td_bridge_obj_chat_title(chat *obj) { return &obj->title_; }
 EXPORT auto td_bridge_obj_chat_photo(chat *obj) { return &obj->photo_; }
 EXPORT auto td_bridge_obj_chat_permissions(chat *obj) { return &obj->permissions_; }
 EXPORT auto td_bridge_obj_chat_last_message(chat *obj) { return &obj->last_message_; }
-EXPORT auto td_bridge_obj_chat_order(chat *obj) { return &obj->order_; }
-EXPORT auto td_bridge_obj_chat_is_pinned(chat *obj) { return &obj->is_pinned_; }
+EXPORT auto td_bridge_obj_chat_positions(chat *obj) { return &obj->positions_; }
 EXPORT auto td_bridge_obj_chat_is_marked_as_unread(chat *obj) { return &obj->is_marked_as_unread_; }
-EXPORT auto td_bridge_obj_chat_is_sponsored(chat *obj) { return &obj->is_sponsored_; }
+EXPORT auto td_bridge_obj_chat_is_blocked(chat *obj) { return &obj->is_blocked_; }
 EXPORT auto td_bridge_obj_chat_has_scheduled_messages(chat *obj) { return &obj->has_scheduled_messages_; }
 EXPORT auto td_bridge_obj_chat_can_be_deleted_only_for_self(chat *obj) { return &obj->can_be_deleted_only_for_self_; }
 EXPORT auto td_bridge_obj_chat_can_be_deleted_for_all_users(chat *obj) { return &obj->can_be_deleted_for_all_users_; }
@@ -652,6 +765,7 @@ EXPORT auto td_bridge_obj_chat_draft_message(chat *obj) { return &obj->draft_mes
 EXPORT auto td_bridge_obj_chat_client_data(chat *obj) { return &obj->client_data_; }
 
 EXPORT chats *td_bridge_newobj_chats() { return new chats(); }
+EXPORT auto td_bridge_obj_chats_total_count(chats *obj) { return &obj->total_count_; }
 EXPORT auto td_bridge_obj_chats_chat_ids(chats *obj) { return &obj->chat_ids_; }
 
 EXPORT chatNearby *td_bridge_newobj_chatNearby() { return new chatNearby(); }
@@ -667,6 +781,7 @@ EXPORT auto td_bridge_obj_chatInviteLink_invite_link(chatInviteLink *obj) { retu
 
 EXPORT chatInviteLinkInfo *td_bridge_newobj_chatInviteLinkInfo() { return new chatInviteLinkInfo(); }
 EXPORT auto td_bridge_obj_chatInviteLinkInfo_chat_id(chatInviteLinkInfo *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_chatInviteLinkInfo_accessible_for(chatInviteLinkInfo *obj) { return &obj->accessible_for_; }
 EXPORT auto td_bridge_obj_chatInviteLinkInfo_type(chatInviteLinkInfo *obj) { return &obj->type_; }
 EXPORT auto td_bridge_obj_chatInviteLinkInfo_title(chatInviteLinkInfo *obj) { return &obj->title_; }
 EXPORT auto td_bridge_obj_chatInviteLinkInfo_photo(chatInviteLinkInfo *obj) { return &obj->photo_; }
@@ -679,10 +794,13 @@ EXPORT publicChatTypeHasUsername *td_bridge_newobj_publicChatTypeHasUsername() {
 EXPORT publicChatTypeIsLocationBased *td_bridge_newobj_publicChatTypeIsLocationBased() { return new publicChatTypeIsLocationBased(); }
 
 EXPORT chatActionBarReportSpam *td_bridge_newobj_chatActionBarReportSpam() { return new chatActionBarReportSpam(); }
+EXPORT auto td_bridge_obj_chatActionBarReportSpam_can_unarchive(chatActionBarReportSpam *obj) { return &obj->can_unarchive_; }
 
 EXPORT chatActionBarReportUnrelatedLocation *td_bridge_newobj_chatActionBarReportUnrelatedLocation() { return new chatActionBarReportUnrelatedLocation(); }
 
 EXPORT chatActionBarReportAddBlock *td_bridge_newobj_chatActionBarReportAddBlock() { return new chatActionBarReportAddBlock(); }
+EXPORT auto td_bridge_obj_chatActionBarReportAddBlock_can_unarchive(chatActionBarReportAddBlock *obj) { return &obj->can_unarchive_; }
+EXPORT auto td_bridge_obj_chatActionBarReportAddBlock_distance(chatActionBarReportAddBlock *obj) { return &obj->distance_; }
 
 EXPORT chatActionBarAddContact *td_bridge_newobj_chatActionBarAddContact() { return new chatActionBarAddContact(); }
 
@@ -712,6 +830,9 @@ EXPORT auto td_bridge_obj_inlineKeyboardButtonTypeLoginUrl_forward_text(inlineKe
 
 EXPORT inlineKeyboardButtonTypeCallback *td_bridge_newobj_inlineKeyboardButtonTypeCallback() { return new inlineKeyboardButtonTypeCallback(); }
 EXPORT auto td_bridge_obj_inlineKeyboardButtonTypeCallback_data(inlineKeyboardButtonTypeCallback *obj) { return &obj->data_; }
+
+EXPORT inlineKeyboardButtonTypeCallbackWithPassword *td_bridge_newobj_inlineKeyboardButtonTypeCallbackWithPassword() { return new inlineKeyboardButtonTypeCallbackWithPassword(); }
+EXPORT auto td_bridge_obj_inlineKeyboardButtonTypeCallbackWithPassword_data(inlineKeyboardButtonTypeCallbackWithPassword *obj) { return &obj->data_; }
 
 EXPORT inlineKeyboardButtonTypeCallbackGame *td_bridge_newobj_inlineKeyboardButtonTypeCallbackGame() { return new inlineKeyboardButtonTypeCallbackGame(); }
 
@@ -749,6 +870,12 @@ EXPORT auto td_bridge_obj_loginUrlInfoRequestConfirmation_url(loginUrlInfoReques
 EXPORT auto td_bridge_obj_loginUrlInfoRequestConfirmation_domain(loginUrlInfoRequestConfirmation *obj) { return &obj->domain_; }
 EXPORT auto td_bridge_obj_loginUrlInfoRequestConfirmation_bot_user_id(loginUrlInfoRequestConfirmation *obj) { return &obj->bot_user_id_; }
 EXPORT auto td_bridge_obj_loginUrlInfoRequestConfirmation_request_write_access(loginUrlInfoRequestConfirmation *obj) { return &obj->request_write_access_; }
+
+EXPORT messageThreadInfo *td_bridge_newobj_messageThreadInfo() { return new messageThreadInfo(); }
+EXPORT auto td_bridge_obj_messageThreadInfo_chat_id(messageThreadInfo *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_messageThreadInfo_message_thread_id(messageThreadInfo *obj) { return &obj->message_thread_id_; }
+EXPORT auto td_bridge_obj_messageThreadInfo_messages(messageThreadInfo *obj) { return &obj->messages_; }
+EXPORT auto td_bridge_obj_messageThreadInfo_draft_message(messageThreadInfo *obj) { return &obj->draft_message_; }
 
 EXPORT richTextPlain *td_bridge_newobj_richTextPlain() { return new richTextPlain(); }
 EXPORT auto td_bridge_obj_richTextPlain_text(richTextPlain *obj) { return &obj->text_; }
@@ -795,9 +922,18 @@ EXPORT auto td_bridge_obj_richTextIcon_document(richTextIcon *obj) { return &obj
 EXPORT auto td_bridge_obj_richTextIcon_width(richTextIcon *obj) { return &obj->width_; }
 EXPORT auto td_bridge_obj_richTextIcon_height(richTextIcon *obj) { return &obj->height_; }
 
+EXPORT richTextReference *td_bridge_newobj_richTextReference() { return new richTextReference(); }
+EXPORT auto td_bridge_obj_richTextReference_text(richTextReference *obj) { return &obj->text_; }
+EXPORT auto td_bridge_obj_richTextReference_reference_text(richTextReference *obj) { return &obj->reference_text_; }
+EXPORT auto td_bridge_obj_richTextReference_url(richTextReference *obj) { return &obj->url_; }
+
 EXPORT richTextAnchor *td_bridge_newobj_richTextAnchor() { return new richTextAnchor(); }
-EXPORT auto td_bridge_obj_richTextAnchor_text(richTextAnchor *obj) { return &obj->text_; }
 EXPORT auto td_bridge_obj_richTextAnchor_name(richTextAnchor *obj) { return &obj->name_; }
+
+EXPORT richTextAnchorLink *td_bridge_newobj_richTextAnchorLink() { return new richTextAnchorLink(); }
+EXPORT auto td_bridge_obj_richTextAnchorLink_text(richTextAnchorLink *obj) { return &obj->text_; }
+EXPORT auto td_bridge_obj_richTextAnchorLink_name(richTextAnchorLink *obj) { return &obj->name_; }
+EXPORT auto td_bridge_obj_richTextAnchorLink_url(richTextAnchorLink *obj) { return &obj->url_; }
 
 EXPORT richTexts *td_bridge_newobj_richTexts() { return new richTexts(); }
 EXPORT auto td_bridge_obj_richTexts_texts(richTexts *obj) { return &obj->texts_; }
@@ -965,8 +1101,8 @@ EXPORT auto td_bridge_obj_pageBlockMap_caption(pageBlockMap *obj) { return &obj-
 
 EXPORT webPageInstantView *td_bridge_newobj_webPageInstantView() { return new webPageInstantView(); }
 EXPORT auto td_bridge_obj_webPageInstantView_page_blocks(webPageInstantView *obj) { return &obj->page_blocks_; }
+EXPORT auto td_bridge_obj_webPageInstantView_view_count(webPageInstantView *obj) { return &obj->view_count_; }
 EXPORT auto td_bridge_obj_webPageInstantView_version(webPageInstantView *obj) { return &obj->version_; }
-EXPORT auto td_bridge_obj_webPageInstantView_url(webPageInstantView *obj) { return &obj->url_; }
 EXPORT auto td_bridge_obj_webPageInstantView_is_rtl(webPageInstantView *obj) { return &obj->is_rtl_; }
 EXPORT auto td_bridge_obj_webPageInstantView_is_full(webPageInstantView *obj) { return &obj->is_full_; }
 
@@ -992,6 +1128,29 @@ EXPORT auto td_bridge_obj_webPage_video(webPage *obj) { return &obj->video_; }
 EXPORT auto td_bridge_obj_webPage_video_note(webPage *obj) { return &obj->video_note_; }
 EXPORT auto td_bridge_obj_webPage_voice_note(webPage *obj) { return &obj->voice_note_; }
 EXPORT auto td_bridge_obj_webPage_instant_view_version(webPage *obj) { return &obj->instant_view_version_; }
+
+EXPORT countryInfo *td_bridge_newobj_countryInfo() { return new countryInfo(); }
+EXPORT auto td_bridge_obj_countryInfo_country_code(countryInfo *obj) { return &obj->country_code_; }
+EXPORT auto td_bridge_obj_countryInfo_name(countryInfo *obj) { return &obj->name_; }
+EXPORT auto td_bridge_obj_countryInfo_english_name(countryInfo *obj) { return &obj->english_name_; }
+EXPORT auto td_bridge_obj_countryInfo_is_hidden(countryInfo *obj) { return &obj->is_hidden_; }
+EXPORT auto td_bridge_obj_countryInfo_calling_codes(countryInfo *obj) { return &obj->calling_codes_; }
+
+EXPORT countries *td_bridge_newobj_countries() { return new countries(); }
+EXPORT auto td_bridge_obj_countries_countries(countries *obj) { return &obj->countries_; }
+
+EXPORT phoneNumberInfo *td_bridge_newobj_phoneNumberInfo() { return new phoneNumberInfo(); }
+EXPORT auto td_bridge_obj_phoneNumberInfo_country(phoneNumberInfo *obj) { return &obj->country_; }
+EXPORT auto td_bridge_obj_phoneNumberInfo_country_calling_code(phoneNumberInfo *obj) { return &obj->country_calling_code_; }
+EXPORT auto td_bridge_obj_phoneNumberInfo_formatted_phone_number(phoneNumberInfo *obj) { return &obj->formatted_phone_number_; }
+
+EXPORT bankCardActionOpenUrl *td_bridge_newobj_bankCardActionOpenUrl() { return new bankCardActionOpenUrl(); }
+EXPORT auto td_bridge_obj_bankCardActionOpenUrl_text(bankCardActionOpenUrl *obj) { return &obj->text_; }
+EXPORT auto td_bridge_obj_bankCardActionOpenUrl_url(bankCardActionOpenUrl *obj) { return &obj->url_; }
+
+EXPORT bankCardInfo *td_bridge_newobj_bankCardInfo() { return new bankCardInfo(); }
+EXPORT auto td_bridge_obj_bankCardInfo_title(bankCardInfo *obj) { return &obj->title_; }
+EXPORT auto td_bridge_obj_bankCardInfo_actions(bankCardInfo *obj) { return &obj->actions_; }
 
 EXPORT address *td_bridge_newobj_address() { return new address(); }
 EXPORT auto td_bridge_obj_address_country_code(address *obj) { return &obj->country_code_; }
@@ -1376,6 +1535,13 @@ EXPORT auto td_bridge_obj_messageVenue_venue(messageVenue *obj) { return &obj->v
 EXPORT messageContact *td_bridge_newobj_messageContact() { return new messageContact(); }
 EXPORT auto td_bridge_obj_messageContact_contact(messageContact *obj) { return &obj->contact_; }
 
+EXPORT messageDice *td_bridge_newobj_messageDice() { return new messageDice(); }
+EXPORT auto td_bridge_obj_messageDice_initial_state_sticker(messageDice *obj) { return &obj->initial_state_sticker_; }
+EXPORT auto td_bridge_obj_messageDice_final_state_sticker(messageDice *obj) { return &obj->final_state_sticker_; }
+EXPORT auto td_bridge_obj_messageDice_emoji(messageDice *obj) { return &obj->emoji_; }
+EXPORT auto td_bridge_obj_messageDice_value(messageDice *obj) { return &obj->value_; }
+EXPORT auto td_bridge_obj_messageDice_success_animation_frame_number(messageDice *obj) { return &obj->success_animation_frame_number_; }
+
 EXPORT messageGame *td_bridge_newobj_messageGame() { return new messageGame(); }
 EXPORT auto td_bridge_obj_messageGame_game(messageGame *obj) { return &obj->game_; }
 
@@ -1394,6 +1560,7 @@ EXPORT auto td_bridge_obj_messageInvoice_need_shipping_address(messageInvoice *o
 EXPORT auto td_bridge_obj_messageInvoice_receipt_message_id(messageInvoice *obj) { return &obj->receipt_message_id_; }
 
 EXPORT messageCall *td_bridge_newobj_messageCall() { return new messageCall(); }
+EXPORT auto td_bridge_obj_messageCall_is_video(messageCall *obj) { return &obj->is_video_; }
 EXPORT auto td_bridge_obj_messageCall_discard_reason(messageCall *obj) { return &obj->discard_reason_; }
 EXPORT auto td_bridge_obj_messageCall_duration(messageCall *obj) { return &obj->duration_; }
 
@@ -1486,6 +1653,8 @@ EXPORT textEntityTypeEmailAddress *td_bridge_newobj_textEntityTypeEmailAddress()
 
 EXPORT textEntityTypePhoneNumber *td_bridge_newobj_textEntityTypePhoneNumber() { return new textEntityTypePhoneNumber(); }
 
+EXPORT textEntityTypeBankCardNumber *td_bridge_newobj_textEntityTypeBankCardNumber() { return new textEntityTypeBankCardNumber(); }
+
 EXPORT textEntityTypeBold *td_bridge_newobj_textEntityTypeBold() { return new textEntityTypeBold(); }
 
 EXPORT textEntityTypeItalic *td_bridge_newobj_textEntityTypeItalic() { return new textEntityTypeItalic(); }
@@ -1517,10 +1686,15 @@ EXPORT auto td_bridge_obj_messageSchedulingStateSendAtDate_send_date(messageSche
 
 EXPORT messageSchedulingStateSendWhenOnline *td_bridge_newobj_messageSchedulingStateSendWhenOnline() { return new messageSchedulingStateSendWhenOnline(); }
 
-EXPORT sendMessageOptions *td_bridge_newobj_sendMessageOptions() { return new sendMessageOptions(); }
-EXPORT auto td_bridge_obj_sendMessageOptions_disable_notification(sendMessageOptions *obj) { return &obj->disable_notification_; }
-EXPORT auto td_bridge_obj_sendMessageOptions_from_background(sendMessageOptions *obj) { return &obj->from_background_; }
-EXPORT auto td_bridge_obj_sendMessageOptions_scheduling_state(sendMessageOptions *obj) { return &obj->scheduling_state_; }
+EXPORT messageSendOptions *td_bridge_newobj_messageSendOptions() { return new messageSendOptions(); }
+EXPORT auto td_bridge_obj_messageSendOptions_disable_notification(messageSendOptions *obj) { return &obj->disable_notification_; }
+EXPORT auto td_bridge_obj_messageSendOptions_from_background(messageSendOptions *obj) { return &obj->from_background_; }
+EXPORT auto td_bridge_obj_messageSendOptions_scheduling_state(messageSendOptions *obj) { return &obj->scheduling_state_; }
+
+EXPORT messageCopyOptions *td_bridge_newobj_messageCopyOptions() { return new messageCopyOptions(); }
+EXPORT auto td_bridge_obj_messageCopyOptions_send_copy(messageCopyOptions *obj) { return &obj->send_copy_; }
+EXPORT auto td_bridge_obj_messageCopyOptions_replace_caption(messageCopyOptions *obj) { return &obj->replace_caption_; }
+EXPORT auto td_bridge_obj_messageCopyOptions_new_caption(messageCopyOptions *obj) { return &obj->new_caption_; }
 
 EXPORT inputMessageText *td_bridge_newobj_inputMessageText() { return new inputMessageText(); }
 EXPORT auto td_bridge_obj_inputMessageText_text(inputMessageText *obj) { return &obj->text_; }
@@ -1530,6 +1704,7 @@ EXPORT auto td_bridge_obj_inputMessageText_clear_draft(inputMessageText *obj) { 
 EXPORT inputMessageAnimation *td_bridge_newobj_inputMessageAnimation() { return new inputMessageAnimation(); }
 EXPORT auto td_bridge_obj_inputMessageAnimation_animation(inputMessageAnimation *obj) { return &obj->animation_; }
 EXPORT auto td_bridge_obj_inputMessageAnimation_thumbnail(inputMessageAnimation *obj) { return &obj->thumbnail_; }
+EXPORT auto td_bridge_obj_inputMessageAnimation_added_sticker_file_ids(inputMessageAnimation *obj) { return &obj->added_sticker_file_ids_; }
 EXPORT auto td_bridge_obj_inputMessageAnimation_duration(inputMessageAnimation *obj) { return &obj->duration_; }
 EXPORT auto td_bridge_obj_inputMessageAnimation_width(inputMessageAnimation *obj) { return &obj->width_; }
 EXPORT auto td_bridge_obj_inputMessageAnimation_height(inputMessageAnimation *obj) { return &obj->height_; }
@@ -1546,6 +1721,7 @@ EXPORT auto td_bridge_obj_inputMessageAudio_caption(inputMessageAudio *obj) { re
 EXPORT inputMessageDocument *td_bridge_newobj_inputMessageDocument() { return new inputMessageDocument(); }
 EXPORT auto td_bridge_obj_inputMessageDocument_document(inputMessageDocument *obj) { return &obj->document_; }
 EXPORT auto td_bridge_obj_inputMessageDocument_thumbnail(inputMessageDocument *obj) { return &obj->thumbnail_; }
+EXPORT auto td_bridge_obj_inputMessageDocument_disable_content_type_detection(inputMessageDocument *obj) { return &obj->disable_content_type_detection_; }
 EXPORT auto td_bridge_obj_inputMessageDocument_caption(inputMessageDocument *obj) { return &obj->caption_; }
 
 EXPORT inputMessagePhoto *td_bridge_newobj_inputMessagePhoto() { return new inputMessagePhoto(); }
@@ -1596,6 +1772,10 @@ EXPORT auto td_bridge_obj_inputMessageVenue_venue(inputMessageVenue *obj) { retu
 EXPORT inputMessageContact *td_bridge_newobj_inputMessageContact() { return new inputMessageContact(); }
 EXPORT auto td_bridge_obj_inputMessageContact_contact(inputMessageContact *obj) { return &obj->contact_; }
 
+EXPORT inputMessageDice *td_bridge_newobj_inputMessageDice() { return new inputMessageDice(); }
+EXPORT auto td_bridge_obj_inputMessageDice_emoji(inputMessageDice *obj) { return &obj->emoji_; }
+EXPORT auto td_bridge_obj_inputMessageDice_clear_draft(inputMessageDice *obj) { return &obj->clear_draft_; }
+
 EXPORT inputMessageGame *td_bridge_newobj_inputMessageGame() { return new inputMessageGame(); }
 EXPORT auto td_bridge_obj_inputMessageGame_bot_user_id(inputMessageGame *obj) { return &obj->bot_user_id_; }
 EXPORT auto td_bridge_obj_inputMessageGame_game_short_name(inputMessageGame *obj) { return &obj->game_short_name_; }
@@ -1618,14 +1798,15 @@ EXPORT auto td_bridge_obj_inputMessagePoll_question(inputMessagePoll *obj) { ret
 EXPORT auto td_bridge_obj_inputMessagePoll_options(inputMessagePoll *obj) { return &obj->options_; }
 EXPORT auto td_bridge_obj_inputMessagePoll_is_anonymous(inputMessagePoll *obj) { return &obj->is_anonymous_; }
 EXPORT auto td_bridge_obj_inputMessagePoll_type(inputMessagePoll *obj) { return &obj->type_; }
+EXPORT auto td_bridge_obj_inputMessagePoll_open_period(inputMessagePoll *obj) { return &obj->open_period_; }
+EXPORT auto td_bridge_obj_inputMessagePoll_close_date(inputMessagePoll *obj) { return &obj->close_date_; }
 EXPORT auto td_bridge_obj_inputMessagePoll_is_closed(inputMessagePoll *obj) { return &obj->is_closed_; }
 
 EXPORT inputMessageForwarded *td_bridge_newobj_inputMessageForwarded() { return new inputMessageForwarded(); }
 EXPORT auto td_bridge_obj_inputMessageForwarded_from_chat_id(inputMessageForwarded *obj) { return &obj->from_chat_id_; }
 EXPORT auto td_bridge_obj_inputMessageForwarded_message_id(inputMessageForwarded *obj) { return &obj->message_id_; }
 EXPORT auto td_bridge_obj_inputMessageForwarded_in_game_share(inputMessageForwarded *obj) { return &obj->in_game_share_; }
-EXPORT auto td_bridge_obj_inputMessageForwarded_send_copy(inputMessageForwarded *obj) { return &obj->send_copy_; }
-EXPORT auto td_bridge_obj_inputMessageForwarded_remove_caption(inputMessageForwarded *obj) { return &obj->remove_caption_; }
+EXPORT auto td_bridge_obj_inputMessageForwarded_copy_options(inputMessageForwarded *obj) { return &obj->copy_options_; }
 
 EXPORT searchMessagesFilterEmpty *td_bridge_newobj_searchMessagesFilterEmpty() { return new searchMessagesFilterEmpty(); }
 
@@ -1658,6 +1839,8 @@ EXPORT searchMessagesFilterVoiceAndVideoNote *td_bridge_newobj_searchMessagesFil
 EXPORT searchMessagesFilterMention *td_bridge_newobj_searchMessagesFilterMention() { return new searchMessagesFilterMention(); }
 
 EXPORT searchMessagesFilterUnreadMention *td_bridge_newobj_searchMessagesFilterUnreadMention() { return new searchMessagesFilterUnreadMention(); }
+
+EXPORT searchMessagesFilterFailedToSend *td_bridge_newobj_searchMessagesFilterFailedToSend() { return new searchMessagesFilterFailedToSend(); }
 
 EXPORT chatActionTyping *td_bridge_newobj_chatActionTyping() { return new chatActionTyping(); }
 
@@ -1757,13 +1940,23 @@ EXPORT auto td_bridge_obj_callProtocol_udp_p2p(callProtocol *obj) { return &obj-
 EXPORT auto td_bridge_obj_callProtocol_udp_reflector(callProtocol *obj) { return &obj->udp_reflector_; }
 EXPORT auto td_bridge_obj_callProtocol_min_layer(callProtocol *obj) { return &obj->min_layer_; }
 EXPORT auto td_bridge_obj_callProtocol_max_layer(callProtocol *obj) { return &obj->max_layer_; }
+EXPORT auto td_bridge_obj_callProtocol_library_versions(callProtocol *obj) { return &obj->library_versions_; }
 
-EXPORT callConnection *td_bridge_newobj_callConnection() { return new callConnection(); }
-EXPORT auto td_bridge_obj_callConnection_id(callConnection *obj) { return &obj->id_; }
-EXPORT auto td_bridge_obj_callConnection_ip(callConnection *obj) { return &obj->ip_; }
-EXPORT auto td_bridge_obj_callConnection_ipv6(callConnection *obj) { return &obj->ipv6_; }
-EXPORT auto td_bridge_obj_callConnection_port(callConnection *obj) { return &obj->port_; }
-EXPORT auto td_bridge_obj_callConnection_peer_tag(callConnection *obj) { return &obj->peer_tag_; }
+EXPORT callServerTypeTelegramReflector *td_bridge_newobj_callServerTypeTelegramReflector() { return new callServerTypeTelegramReflector(); }
+EXPORT auto td_bridge_obj_callServerTypeTelegramReflector_peer_tag(callServerTypeTelegramReflector *obj) { return &obj->peer_tag_; }
+
+EXPORT callServerTypeWebrtc *td_bridge_newobj_callServerTypeWebrtc() { return new callServerTypeWebrtc(); }
+EXPORT auto td_bridge_obj_callServerTypeWebrtc_username(callServerTypeWebrtc *obj) { return &obj->username_; }
+EXPORT auto td_bridge_obj_callServerTypeWebrtc_password(callServerTypeWebrtc *obj) { return &obj->password_; }
+EXPORT auto td_bridge_obj_callServerTypeWebrtc_supports_turn(callServerTypeWebrtc *obj) { return &obj->supports_turn_; }
+EXPORT auto td_bridge_obj_callServerTypeWebrtc_supports_stun(callServerTypeWebrtc *obj) { return &obj->supports_stun_; }
+
+EXPORT callServer *td_bridge_newobj_callServer() { return new callServer(); }
+EXPORT auto td_bridge_obj_callServer_id(callServer *obj) { return &obj->id_; }
+EXPORT auto td_bridge_obj_callServer_ip_address(callServer *obj) { return &obj->ip_address_; }
+EXPORT auto td_bridge_obj_callServer_ipv6_address(callServer *obj) { return &obj->ipv6_address_; }
+EXPORT auto td_bridge_obj_callServer_port(callServer *obj) { return &obj->port_; }
+EXPORT auto td_bridge_obj_callServer_type(callServer *obj) { return &obj->type_; }
 
 EXPORT callId *td_bridge_newobj_callId() { return new callId(); }
 EXPORT auto td_bridge_obj_callId_id(callId *obj) { return &obj->id_; }
@@ -1776,7 +1969,7 @@ EXPORT callStateExchangingKeys *td_bridge_newobj_callStateExchangingKeys() { ret
 
 EXPORT callStateReady *td_bridge_newobj_callStateReady() { return new callStateReady(); }
 EXPORT auto td_bridge_obj_callStateReady_protocol(callStateReady *obj) { return &obj->protocol_; }
-EXPORT auto td_bridge_obj_callStateReady_connections(callStateReady *obj) { return &obj->connections_; }
+EXPORT auto td_bridge_obj_callStateReady_servers(callStateReady *obj) { return &obj->servers_; }
 EXPORT auto td_bridge_obj_callStateReady_config(callStateReady *obj) { return &obj->config_; }
 EXPORT auto td_bridge_obj_callStateReady_encryption_key(callStateReady *obj) { return &obj->encryption_key_; }
 EXPORT auto td_bridge_obj_callStateReady_emojis(callStateReady *obj) { return &obj->emojis_; }
@@ -1806,10 +1999,15 @@ EXPORT callProblemSilentRemote *td_bridge_newobj_callProblemSilentRemote() { ret
 
 EXPORT callProblemDropped *td_bridge_newobj_callProblemDropped() { return new callProblemDropped(); }
 
+EXPORT callProblemDistortedVideo *td_bridge_newobj_callProblemDistortedVideo() { return new callProblemDistortedVideo(); }
+
+EXPORT callProblemPixelatedVideo *td_bridge_newobj_callProblemPixelatedVideo() { return new callProblemPixelatedVideo(); }
+
 EXPORT call *td_bridge_newobj_call() { return new call(); }
 EXPORT auto td_bridge_obj_call_id(call *obj) { return &obj->id_; }
 EXPORT auto td_bridge_obj_call_user_id(call *obj) { return &obj->user_id_; }
 EXPORT auto td_bridge_obj_call_is_outgoing(call *obj) { return &obj->is_outgoing_; }
+EXPORT auto td_bridge_obj_call_is_video(call *obj) { return &obj->is_video_; }
 EXPORT auto td_bridge_obj_call_state(call *obj) { return &obj->state_; }
 
 EXPORT phoneNumberAuthenticationSettings *td_bridge_newobj_phoneNumberAuthenticationSettings() { return new phoneNumberAuthenticationSettings(); }
@@ -1827,27 +2025,18 @@ EXPORT auto td_bridge_obj_importedContacts_importer_count(importedContacts *obj)
 EXPORT httpUrl *td_bridge_newobj_httpUrl() { return new httpUrl(); }
 EXPORT auto td_bridge_obj_httpUrl_url(httpUrl *obj) { return &obj->url_; }
 
-EXPORT inputInlineQueryResultAnimatedGif *td_bridge_newobj_inputInlineQueryResultAnimatedGif() { return new inputInlineQueryResultAnimatedGif(); }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_id(inputInlineQueryResultAnimatedGif *obj) { return &obj->id_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_title(inputInlineQueryResultAnimatedGif *obj) { return &obj->title_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_thumbnail_url(inputInlineQueryResultAnimatedGif *obj) { return &obj->thumbnail_url_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_url(inputInlineQueryResultAnimatedGif *obj) { return &obj->gif_url_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_duration(inputInlineQueryResultAnimatedGif *obj) { return &obj->gif_duration_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_width(inputInlineQueryResultAnimatedGif *obj) { return &obj->gif_width_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_gif_height(inputInlineQueryResultAnimatedGif *obj) { return &obj->gif_height_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_reply_markup(inputInlineQueryResultAnimatedGif *obj) { return &obj->reply_markup_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedGif_input_message_content(inputInlineQueryResultAnimatedGif *obj) { return &obj->input_message_content_; }
-
-EXPORT inputInlineQueryResultAnimatedMpeg4 *td_bridge_newobj_inputInlineQueryResultAnimatedMpeg4() { return new inputInlineQueryResultAnimatedMpeg4(); }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_id(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->id_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_title(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->title_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_thumbnail_url(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->thumbnail_url_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_url(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->mpeg4_url_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_duration(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->mpeg4_duration_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_width(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->mpeg4_width_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_mpeg4_height(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->mpeg4_height_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_reply_markup(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->reply_markup_; }
-EXPORT auto td_bridge_obj_inputInlineQueryResultAnimatedMpeg4_input_message_content(inputInlineQueryResultAnimatedMpeg4 *obj) { return &obj->input_message_content_; }
+EXPORT inputInlineQueryResultAnimation *td_bridge_newobj_inputInlineQueryResultAnimation() { return new inputInlineQueryResultAnimation(); }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_id(inputInlineQueryResultAnimation *obj) { return &obj->id_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_title(inputInlineQueryResultAnimation *obj) { return &obj->title_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_thumbnail_url(inputInlineQueryResultAnimation *obj) { return &obj->thumbnail_url_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_thumbnail_mime_type(inputInlineQueryResultAnimation *obj) { return &obj->thumbnail_mime_type_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_video_url(inputInlineQueryResultAnimation *obj) { return &obj->video_url_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_video_mime_type(inputInlineQueryResultAnimation *obj) { return &obj->video_mime_type_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_video_duration(inputInlineQueryResultAnimation *obj) { return &obj->video_duration_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_video_width(inputInlineQueryResultAnimation *obj) { return &obj->video_width_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_video_height(inputInlineQueryResultAnimation *obj) { return &obj->video_height_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_reply_markup(inputInlineQueryResultAnimation *obj) { return &obj->reply_markup_; }
+EXPORT auto td_bridge_obj_inputInlineQueryResultAnimation_input_message_content(inputInlineQueryResultAnimation *obj) { return &obj->input_message_content_; }
 
 EXPORT inputInlineQueryResultArticle *td_bridge_newobj_inputInlineQueryResultArticle() { return new inputInlineQueryResultArticle(); }
 EXPORT auto td_bridge_obj_inputInlineQueryResultArticle_id(inputInlineQueryResultArticle *obj) { return &obj->id_; }
@@ -2030,6 +2219,10 @@ EXPORT auto td_bridge_obj_inlineQueryResults_switch_pm_parameter(inlineQueryResu
 
 EXPORT callbackQueryPayloadData *td_bridge_newobj_callbackQueryPayloadData() { return new callbackQueryPayloadData(); }
 EXPORT auto td_bridge_obj_callbackQueryPayloadData_data(callbackQueryPayloadData *obj) { return &obj->data_; }
+
+EXPORT callbackQueryPayloadDataWithPassword *td_bridge_newobj_callbackQueryPayloadDataWithPassword() { return new callbackQueryPayloadDataWithPassword(); }
+EXPORT auto td_bridge_obj_callbackQueryPayloadDataWithPassword_password(callbackQueryPayloadDataWithPassword *obj) { return &obj->password_; }
+EXPORT auto td_bridge_obj_callbackQueryPayloadDataWithPassword_data(callbackQueryPayloadDataWithPassword *obj) { return &obj->data_; }
 
 EXPORT callbackQueryPayloadGame *td_bridge_newobj_callbackQueryPayloadGame() { return new callbackQueryPayloadGame(); }
 EXPORT auto td_bridge_obj_callbackQueryPayloadGame_game_short_name(callbackQueryPayloadGame *obj) { return &obj->game_short_name_; }
@@ -2402,6 +2595,9 @@ EXPORT auto td_bridge_obj_notificationTypeNewCall_call_id(notificationTypeNewCal
 EXPORT notificationTypeNewPushMessage *td_bridge_newobj_notificationTypeNewPushMessage() { return new notificationTypeNewPushMessage(); }
 EXPORT auto td_bridge_obj_notificationTypeNewPushMessage_message_id(notificationTypeNewPushMessage *obj) { return &obj->message_id_; }
 EXPORT auto td_bridge_obj_notificationTypeNewPushMessage_sender_user_id(notificationTypeNewPushMessage *obj) { return &obj->sender_user_id_; }
+EXPORT auto td_bridge_obj_notificationTypeNewPushMessage_sender_chat_id(notificationTypeNewPushMessage *obj) { return &obj->sender_chat_id_; }
+EXPORT auto td_bridge_obj_notificationTypeNewPushMessage_sender_name(notificationTypeNewPushMessage *obj) { return &obj->sender_name_; }
+EXPORT auto td_bridge_obj_notificationTypeNewPushMessage_is_outgoing(notificationTypeNewPushMessage *obj) { return &obj->is_outgoing_; }
 EXPORT auto td_bridge_obj_notificationTypeNewPushMessage_content(notificationTypeNewPushMessage *obj) { return &obj->content_; }
 
 EXPORT notificationGroupTypeMessages *td_bridge_newobj_notificationGroupTypeMessages() { return new notificationGroupTypeMessages(); }
@@ -2548,15 +2744,16 @@ EXPORT chatReportReasonUnrelatedLocation *td_bridge_newobj_chatReportReasonUnrel
 EXPORT chatReportReasonCustom *td_bridge_newobj_chatReportReasonCustom() { return new chatReportReasonCustom(); }
 EXPORT auto td_bridge_obj_chatReportReasonCustom_text(chatReportReasonCustom *obj) { return &obj->text_; }
 
-EXPORT publicMessageLink *td_bridge_newobj_publicMessageLink() { return new publicMessageLink(); }
-EXPORT auto td_bridge_obj_publicMessageLink_link(publicMessageLink *obj) { return &obj->link_; }
-EXPORT auto td_bridge_obj_publicMessageLink_html(publicMessageLink *obj) { return &obj->html_; }
+EXPORT messageLink *td_bridge_newobj_messageLink() { return new messageLink(); }
+EXPORT auto td_bridge_obj_messageLink_link(messageLink *obj) { return &obj->link_; }
+EXPORT auto td_bridge_obj_messageLink_is_public(messageLink *obj) { return &obj->is_public_; }
 
 EXPORT messageLinkInfo *td_bridge_newobj_messageLinkInfo() { return new messageLinkInfo(); }
 EXPORT auto td_bridge_obj_messageLinkInfo_is_public(messageLinkInfo *obj) { return &obj->is_public_; }
 EXPORT auto td_bridge_obj_messageLinkInfo_chat_id(messageLinkInfo *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_messageLinkInfo_message(messageLinkInfo *obj) { return &obj->message_; }
 EXPORT auto td_bridge_obj_messageLinkInfo_for_album(messageLinkInfo *obj) { return &obj->for_album_; }
+EXPORT auto td_bridge_obj_messageLinkInfo_for_comment(messageLinkInfo *obj) { return &obj->for_comment_; }
 
 EXPORT filePart *td_bridge_newobj_filePart() { return new filePart(); }
 EXPORT auto td_bridge_obj_filePart_data(filePart *obj) { return &obj->data_; }
@@ -2703,6 +2900,10 @@ EXPORT auto td_bridge_obj_tMeUrl_type(tMeUrl *obj) { return &obj->type_; }
 EXPORT tMeUrls *td_bridge_newobj_tMeUrls() { return new tMeUrls(); }
 EXPORT auto td_bridge_obj_tMeUrls_urls(tMeUrls *obj) { return &obj->urls_; }
 
+EXPORT suggestedActionEnableArchiveAndMuteNewChats *td_bridge_newobj_suggestedActionEnableArchiveAndMuteNewChats() { return new suggestedActionEnableArchiveAndMuteNewChats(); }
+
+EXPORT suggestedActionCheckPhoneNumber *td_bridge_newobj_suggestedActionCheckPhoneNumber() { return new suggestedActionCheckPhoneNumber(); }
+
 EXPORT count *td_bridge_newobj_count() { return new count(); }
 EXPORT auto td_bridge_obj_count_count(count *obj) { return &obj->count_; }
 
@@ -2744,10 +2945,91 @@ EXPORT auto td_bridge_obj_proxy_type(proxy *obj) { return &obj->type_; }
 EXPORT proxies *td_bridge_newobj_proxies() { return new proxies(); }
 EXPORT auto td_bridge_obj_proxies_proxies(proxies *obj) { return &obj->proxies_; }
 
-EXPORT inputSticker *td_bridge_newobj_inputSticker() { return new inputSticker(); }
-EXPORT auto td_bridge_obj_inputSticker_png_sticker(inputSticker *obj) { return &obj->png_sticker_; }
-EXPORT auto td_bridge_obj_inputSticker_emojis(inputSticker *obj) { return &obj->emojis_; }
-EXPORT auto td_bridge_obj_inputSticker_mask_position(inputSticker *obj) { return &obj->mask_position_; }
+EXPORT inputStickerStatic *td_bridge_newobj_inputStickerStatic() { return new inputStickerStatic(); }
+EXPORT auto td_bridge_obj_inputStickerStatic_sticker(inputStickerStatic *obj) { return &obj->sticker_; }
+EXPORT auto td_bridge_obj_inputStickerStatic_emojis(inputStickerStatic *obj) { return &obj->emojis_; }
+EXPORT auto td_bridge_obj_inputStickerStatic_mask_position(inputStickerStatic *obj) { return &obj->mask_position_; }
+
+EXPORT inputStickerAnimated *td_bridge_newobj_inputStickerAnimated() { return new inputStickerAnimated(); }
+EXPORT auto td_bridge_obj_inputStickerAnimated_sticker(inputStickerAnimated *obj) { return &obj->sticker_; }
+EXPORT auto td_bridge_obj_inputStickerAnimated_emojis(inputStickerAnimated *obj) { return &obj->emojis_; }
+
+EXPORT dateRange *td_bridge_newobj_dateRange() { return new dateRange(); }
+EXPORT auto td_bridge_obj_dateRange_start_date(dateRange *obj) { return &obj->start_date_; }
+EXPORT auto td_bridge_obj_dateRange_end_date(dateRange *obj) { return &obj->end_date_; }
+
+EXPORT statisticsValue *td_bridge_newobj_statisticsValue() { return new statisticsValue(); }
+EXPORT auto td_bridge_obj_statisticsValue_value(statisticsValue *obj) { return &obj->value_; }
+EXPORT auto td_bridge_obj_statisticsValue_previous_value(statisticsValue *obj) { return &obj->previous_value_; }
+EXPORT auto td_bridge_obj_statisticsValue_growth_rate_percentage(statisticsValue *obj) { return &obj->growth_rate_percentage_; }
+
+EXPORT statisticsGraphData *td_bridge_newobj_statisticsGraphData() { return new statisticsGraphData(); }
+EXPORT auto td_bridge_obj_statisticsGraphData_json_data(statisticsGraphData *obj) { return &obj->json_data_; }
+EXPORT auto td_bridge_obj_statisticsGraphData_zoom_token(statisticsGraphData *obj) { return &obj->zoom_token_; }
+
+EXPORT statisticsGraphAsync *td_bridge_newobj_statisticsGraphAsync() { return new statisticsGraphAsync(); }
+EXPORT auto td_bridge_obj_statisticsGraphAsync_token(statisticsGraphAsync *obj) { return &obj->token_; }
+
+EXPORT statisticsGraphError *td_bridge_newobj_statisticsGraphError() { return new statisticsGraphError(); }
+EXPORT auto td_bridge_obj_statisticsGraphError_error_message(statisticsGraphError *obj) { return &obj->error_message_; }
+
+EXPORT chatStatisticsMessageInteractionInfo *td_bridge_newobj_chatStatisticsMessageInteractionInfo() { return new chatStatisticsMessageInteractionInfo(); }
+EXPORT auto td_bridge_obj_chatStatisticsMessageInteractionInfo_message_id(chatStatisticsMessageInteractionInfo *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_chatStatisticsMessageInteractionInfo_view_count(chatStatisticsMessageInteractionInfo *obj) { return &obj->view_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsMessageInteractionInfo_forward_count(chatStatisticsMessageInteractionInfo *obj) { return &obj->forward_count_; }
+
+EXPORT chatStatisticsMessageSenderInfo *td_bridge_newobj_chatStatisticsMessageSenderInfo() { return new chatStatisticsMessageSenderInfo(); }
+EXPORT auto td_bridge_obj_chatStatisticsMessageSenderInfo_user_id(chatStatisticsMessageSenderInfo *obj) { return &obj->user_id_; }
+EXPORT auto td_bridge_obj_chatStatisticsMessageSenderInfo_sent_message_count(chatStatisticsMessageSenderInfo *obj) { return &obj->sent_message_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsMessageSenderInfo_average_character_count(chatStatisticsMessageSenderInfo *obj) { return &obj->average_character_count_; }
+
+EXPORT chatStatisticsAdministratorActionsInfo *td_bridge_newobj_chatStatisticsAdministratorActionsInfo() { return new chatStatisticsAdministratorActionsInfo(); }
+EXPORT auto td_bridge_obj_chatStatisticsAdministratorActionsInfo_user_id(chatStatisticsAdministratorActionsInfo *obj) { return &obj->user_id_; }
+EXPORT auto td_bridge_obj_chatStatisticsAdministratorActionsInfo_deleted_message_count(chatStatisticsAdministratorActionsInfo *obj) { return &obj->deleted_message_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsAdministratorActionsInfo_banned_user_count(chatStatisticsAdministratorActionsInfo *obj) { return &obj->banned_user_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsAdministratorActionsInfo_restricted_user_count(chatStatisticsAdministratorActionsInfo *obj) { return &obj->restricted_user_count_; }
+
+EXPORT chatStatisticsInviterInfo *td_bridge_newobj_chatStatisticsInviterInfo() { return new chatStatisticsInviterInfo(); }
+EXPORT auto td_bridge_obj_chatStatisticsInviterInfo_user_id(chatStatisticsInviterInfo *obj) { return &obj->user_id_; }
+EXPORT auto td_bridge_obj_chatStatisticsInviterInfo_added_member_count(chatStatisticsInviterInfo *obj) { return &obj->added_member_count_; }
+
+EXPORT chatStatisticsSupergroup *td_bridge_newobj_chatStatisticsSupergroup() { return new chatStatisticsSupergroup(); }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_period(chatStatisticsSupergroup *obj) { return &obj->period_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_member_count(chatStatisticsSupergroup *obj) { return &obj->member_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_message_count(chatStatisticsSupergroup *obj) { return &obj->message_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_viewer_count(chatStatisticsSupergroup *obj) { return &obj->viewer_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_sender_count(chatStatisticsSupergroup *obj) { return &obj->sender_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_member_count_graph(chatStatisticsSupergroup *obj) { return &obj->member_count_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_join_graph(chatStatisticsSupergroup *obj) { return &obj->join_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_join_by_source_graph(chatStatisticsSupergroup *obj) { return &obj->join_by_source_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_language_graph(chatStatisticsSupergroup *obj) { return &obj->language_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_message_content_graph(chatStatisticsSupergroup *obj) { return &obj->message_content_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_action_graph(chatStatisticsSupergroup *obj) { return &obj->action_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_day_graph(chatStatisticsSupergroup *obj) { return &obj->day_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_week_graph(chatStatisticsSupergroup *obj) { return &obj->week_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_top_senders(chatStatisticsSupergroup *obj) { return &obj->top_senders_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_top_administrators(chatStatisticsSupergroup *obj) { return &obj->top_administrators_; }
+EXPORT auto td_bridge_obj_chatStatisticsSupergroup_top_inviters(chatStatisticsSupergroup *obj) { return &obj->top_inviters_; }
+
+EXPORT chatStatisticsChannel *td_bridge_newobj_chatStatisticsChannel() { return new chatStatisticsChannel(); }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_period(chatStatisticsChannel *obj) { return &obj->period_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_member_count(chatStatisticsChannel *obj) { return &obj->member_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_mean_view_count(chatStatisticsChannel *obj) { return &obj->mean_view_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_mean_share_count(chatStatisticsChannel *obj) { return &obj->mean_share_count_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_enabled_notifications_percentage(chatStatisticsChannel *obj) { return &obj->enabled_notifications_percentage_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_member_count_graph(chatStatisticsChannel *obj) { return &obj->member_count_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_join_graph(chatStatisticsChannel *obj) { return &obj->join_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_mute_graph(chatStatisticsChannel *obj) { return &obj->mute_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_view_count_by_hour_graph(chatStatisticsChannel *obj) { return &obj->view_count_by_hour_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_view_count_by_source_graph(chatStatisticsChannel *obj) { return &obj->view_count_by_source_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_join_by_source_graph(chatStatisticsChannel *obj) { return &obj->join_by_source_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_language_graph(chatStatisticsChannel *obj) { return &obj->language_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_message_interaction_graph(chatStatisticsChannel *obj) { return &obj->message_interaction_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_instant_view_interaction_graph(chatStatisticsChannel *obj) { return &obj->instant_view_interaction_graph_; }
+EXPORT auto td_bridge_obj_chatStatisticsChannel_recent_message_interactions(chatStatisticsChannel *obj) { return &obj->recent_message_interactions_; }
+
+EXPORT messageStatistics *td_bridge_newobj_messageStatistics() { return new messageStatistics(); }
+EXPORT auto td_bridge_obj_messageStatistics_message_interaction_graph(messageStatistics *obj) { return &obj->message_interaction_graph_; }
 
 EXPORT updateAuthorizationState *td_bridge_newobj_updateAuthorizationState() { return new updateAuthorizationState(); }
 EXPORT auto td_bridge_obj_updateAuthorizationState_authorization_state(updateAuthorizationState *obj) { return &obj->authorization_state_; }
@@ -2780,10 +3062,10 @@ EXPORT auto td_bridge_obj_updateMessageEdited_message_id(updateMessageEdited *ob
 EXPORT auto td_bridge_obj_updateMessageEdited_edit_date(updateMessageEdited *obj) { return &obj->edit_date_; }
 EXPORT auto td_bridge_obj_updateMessageEdited_reply_markup(updateMessageEdited *obj) { return &obj->reply_markup_; }
 
-EXPORT updateMessageViews *td_bridge_newobj_updateMessageViews() { return new updateMessageViews(); }
-EXPORT auto td_bridge_obj_updateMessageViews_chat_id(updateMessageViews *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_updateMessageViews_message_id(updateMessageViews *obj) { return &obj->message_id_; }
-EXPORT auto td_bridge_obj_updateMessageViews_views(updateMessageViews *obj) { return &obj->views_; }
+EXPORT updateMessageInteractionInfo *td_bridge_newobj_updateMessageInteractionInfo() { return new updateMessageInteractionInfo(); }
+EXPORT auto td_bridge_obj_updateMessageInteractionInfo_chat_id(updateMessageInteractionInfo *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_updateMessageInteractionInfo_message_id(updateMessageInteractionInfo *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_updateMessageInteractionInfo_interaction_info(updateMessageInteractionInfo *obj) { return &obj->interaction_info_; }
 
 EXPORT updateMessageContentOpened *td_bridge_newobj_updateMessageContentOpened() { return new updateMessageContentOpened(); }
 EXPORT auto td_bridge_obj_updateMessageContentOpened_chat_id(updateMessageContentOpened *obj) { return &obj->chat_id_; }
@@ -2801,10 +3083,6 @@ EXPORT auto td_bridge_obj_updateMessageLiveLocationViewed_message_id(updateMessa
 EXPORT updateNewChat *td_bridge_newobj_updateNewChat() { return new updateNewChat(); }
 EXPORT auto td_bridge_obj_updateNewChat_chat(updateNewChat *obj) { return &obj->chat_; }
 
-EXPORT updateChatChatList *td_bridge_newobj_updateChatChatList() { return new updateChatChatList(); }
-EXPORT auto td_bridge_obj_updateChatChatList_chat_id(updateChatChatList *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_updateChatChatList_chat_list(updateChatChatList *obj) { return &obj->chat_list_; }
-
 EXPORT updateChatTitle *td_bridge_newobj_updateChatTitle() { return new updateChatTitle(); }
 EXPORT auto td_bridge_obj_updateChatTitle_chat_id(updateChatTitle *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_updateChatTitle_title(updateChatTitle *obj) { return &obj->title_; }
@@ -2820,25 +3098,19 @@ EXPORT auto td_bridge_obj_updateChatPermissions_permissions(updateChatPermission
 EXPORT updateChatLastMessage *td_bridge_newobj_updateChatLastMessage() { return new updateChatLastMessage(); }
 EXPORT auto td_bridge_obj_updateChatLastMessage_chat_id(updateChatLastMessage *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_updateChatLastMessage_last_message(updateChatLastMessage *obj) { return &obj->last_message_; }
-EXPORT auto td_bridge_obj_updateChatLastMessage_order(updateChatLastMessage *obj) { return &obj->order_; }
+EXPORT auto td_bridge_obj_updateChatLastMessage_positions(updateChatLastMessage *obj) { return &obj->positions_; }
 
-EXPORT updateChatOrder *td_bridge_newobj_updateChatOrder() { return new updateChatOrder(); }
-EXPORT auto td_bridge_obj_updateChatOrder_chat_id(updateChatOrder *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_updateChatOrder_order(updateChatOrder *obj) { return &obj->order_; }
-
-EXPORT updateChatIsPinned *td_bridge_newobj_updateChatIsPinned() { return new updateChatIsPinned(); }
-EXPORT auto td_bridge_obj_updateChatIsPinned_chat_id(updateChatIsPinned *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_updateChatIsPinned_is_pinned(updateChatIsPinned *obj) { return &obj->is_pinned_; }
-EXPORT auto td_bridge_obj_updateChatIsPinned_order(updateChatIsPinned *obj) { return &obj->order_; }
+EXPORT updateChatPosition *td_bridge_newobj_updateChatPosition() { return new updateChatPosition(); }
+EXPORT auto td_bridge_obj_updateChatPosition_chat_id(updateChatPosition *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_updateChatPosition_position(updateChatPosition *obj) { return &obj->position_; }
 
 EXPORT updateChatIsMarkedAsUnread *td_bridge_newobj_updateChatIsMarkedAsUnread() { return new updateChatIsMarkedAsUnread(); }
 EXPORT auto td_bridge_obj_updateChatIsMarkedAsUnread_chat_id(updateChatIsMarkedAsUnread *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_updateChatIsMarkedAsUnread_is_marked_as_unread(updateChatIsMarkedAsUnread *obj) { return &obj->is_marked_as_unread_; }
 
-EXPORT updateChatIsSponsored *td_bridge_newobj_updateChatIsSponsored() { return new updateChatIsSponsored(); }
-EXPORT auto td_bridge_obj_updateChatIsSponsored_chat_id(updateChatIsSponsored *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_updateChatIsSponsored_is_sponsored(updateChatIsSponsored *obj) { return &obj->is_sponsored_; }
-EXPORT auto td_bridge_obj_updateChatIsSponsored_order(updateChatIsSponsored *obj) { return &obj->order_; }
+EXPORT updateChatIsBlocked *td_bridge_newobj_updateChatIsBlocked() { return new updateChatIsBlocked(); }
+EXPORT auto td_bridge_obj_updateChatIsBlocked_chat_id(updateChatIsBlocked *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_updateChatIsBlocked_is_blocked(updateChatIsBlocked *obj) { return &obj->is_blocked_; }
 
 EXPORT updateChatHasScheduledMessages *td_bridge_newobj_updateChatHasScheduledMessages() { return new updateChatHasScheduledMessages(); }
 EXPORT auto td_bridge_obj_updateChatHasScheduledMessages_chat_id(updateChatHasScheduledMessages *obj) { return &obj->chat_id_; }
@@ -2884,7 +3156,10 @@ EXPORT auto td_bridge_obj_updateChatReplyMarkup_reply_markup_message_id(updateCh
 EXPORT updateChatDraftMessage *td_bridge_newobj_updateChatDraftMessage() { return new updateChatDraftMessage(); }
 EXPORT auto td_bridge_obj_updateChatDraftMessage_chat_id(updateChatDraftMessage *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_updateChatDraftMessage_draft_message(updateChatDraftMessage *obj) { return &obj->draft_message_; }
-EXPORT auto td_bridge_obj_updateChatDraftMessage_order(updateChatDraftMessage *obj) { return &obj->order_; }
+EXPORT auto td_bridge_obj_updateChatDraftMessage_positions(updateChatDraftMessage *obj) { return &obj->positions_; }
+
+EXPORT updateChatFilters *td_bridge_newobj_updateChatFilters() { return new updateChatFilters(); }
+EXPORT auto td_bridge_obj_updateChatFilters_chat_filters(updateChatFilters *obj) { return &obj->chat_filters_; }
 
 EXPORT updateChatOnlineMemberCount *td_bridge_newobj_updateChatOnlineMemberCount() { return new updateChatOnlineMemberCount(); }
 EXPORT auto td_bridge_obj_updateChatOnlineMemberCount_chat_id(updateChatOnlineMemberCount *obj) { return &obj->chat_id_; }
@@ -2919,6 +3194,7 @@ EXPORT auto td_bridge_obj_updateDeleteMessages_from_cache(updateDeleteMessages *
 
 EXPORT updateUserChatAction *td_bridge_newobj_updateUserChatAction() { return new updateUserChatAction(); }
 EXPORT auto td_bridge_obj_updateUserChatAction_chat_id(updateUserChatAction *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_updateUserChatAction_message_thread_id(updateUserChatAction *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_updateUserChatAction_user_id(updateUserChatAction *obj) { return &obj->user_id_; }
 EXPORT auto td_bridge_obj_updateUserChatAction_action(updateUserChatAction *obj) { return &obj->action_; }
 
@@ -2969,6 +3245,10 @@ EXPORT auto td_bridge_obj_updateFileGenerationStop_generation_id(updateFileGener
 EXPORT updateCall *td_bridge_newobj_updateCall() { return new updateCall(); }
 EXPORT auto td_bridge_obj_updateCall_call(updateCall *obj) { return &obj->call_; }
 
+EXPORT updateNewCallSignalingData *td_bridge_newobj_updateNewCallSignalingData() { return new updateNewCallSignalingData(); }
+EXPORT auto td_bridge_obj_updateNewCallSignalingData_call_id(updateNewCallSignalingData *obj) { return &obj->call_id_; }
+EXPORT auto td_bridge_obj_updateNewCallSignalingData_data(updateNewCallSignalingData *obj) { return &obj->data_; }
+
 EXPORT updateUserPrivacySettingRules *td_bridge_newobj_updateUserPrivacySettingRules() { return new updateUserPrivacySettingRules(); }
 EXPORT auto td_bridge_obj_updateUserPrivacySettingRules_setting(updateUserPrivacySettingRules *obj) { return &obj->setting_; }
 EXPORT auto td_bridge_obj_updateUserPrivacySettingRules_rules(updateUserPrivacySettingRules *obj) { return &obj->rules_; }
@@ -2989,6 +3269,9 @@ EXPORT auto td_bridge_obj_updateUnreadChatCount_marked_as_unread_unmuted_count(u
 EXPORT updateOption *td_bridge_newobj_updateOption() { return new updateOption(); }
 EXPORT auto td_bridge_obj_updateOption_name(updateOption *obj) { return &obj->name_; }
 EXPORT auto td_bridge_obj_updateOption_value(updateOption *obj) { return &obj->value_; }
+
+EXPORT updateStickerSet *td_bridge_newobj_updateStickerSet() { return new updateStickerSet(); }
+EXPORT auto td_bridge_obj_updateStickerSet_sticker_set(updateStickerSet *obj) { return &obj->sticker_set_; }
 
 EXPORT updateInstalledStickerSets *td_bridge_newobj_updateInstalledStickerSets() { return new updateInstalledStickerSets(); }
 EXPORT auto td_bridge_obj_updateInstalledStickerSets_is_masks(updateInstalledStickerSets *obj) { return &obj->is_masks_; }
@@ -3025,6 +3308,17 @@ EXPORT auto td_bridge_obj_updateTermsOfService_terms_of_service(updateTermsOfSer
 
 EXPORT updateUsersNearby *td_bridge_newobj_updateUsersNearby() { return new updateUsersNearby(); }
 EXPORT auto td_bridge_obj_updateUsersNearby_users_nearby(updateUsersNearby *obj) { return &obj->users_nearby_; }
+
+EXPORT updateDiceEmojis *td_bridge_newobj_updateDiceEmojis() { return new updateDiceEmojis(); }
+EXPORT auto td_bridge_obj_updateDiceEmojis_emojis(updateDiceEmojis *obj) { return &obj->emojis_; }
+
+EXPORT updateAnimationSearchParameters *td_bridge_newobj_updateAnimationSearchParameters() { return new updateAnimationSearchParameters(); }
+EXPORT auto td_bridge_obj_updateAnimationSearchParameters_provider(updateAnimationSearchParameters *obj) { return &obj->provider_; }
+EXPORT auto td_bridge_obj_updateAnimationSearchParameters_emojis(updateAnimationSearchParameters *obj) { return &obj->emojis_; }
+
+EXPORT updateSuggestedActions *td_bridge_newobj_updateSuggestedActions() { return new updateSuggestedActions(); }
+EXPORT auto td_bridge_obj_updateSuggestedActions_added_actions(updateSuggestedActions *obj) { return &obj->added_actions_; }
+EXPORT auto td_bridge_obj_updateSuggestedActions_removed_actions(updateSuggestedActions *obj) { return &obj->removed_actions_; }
 
 EXPORT updateNewInlineQuery *td_bridge_newobj_updateNewInlineQuery() { return new updateNewInlineQuery(); }
 EXPORT auto td_bridge_obj_updateNewInlineQuery_id(updateNewInlineQuery *obj) { return &obj->id_; }
@@ -3094,6 +3388,7 @@ EXPORT logStreamDefault *td_bridge_newobj_logStreamDefault() { return new logStr
 EXPORT logStreamFile *td_bridge_newobj_logStreamFile() { return new logStreamFile(); }
 EXPORT auto td_bridge_obj_logStreamFile_path(logStreamFile *obj) { return &obj->path_; }
 EXPORT auto td_bridge_obj_logStreamFile_max_file_size(logStreamFile *obj) { return &obj->max_file_size_; }
+EXPORT auto td_bridge_obj_logStreamFile_redirect_stderr(logStreamFile *obj) { return &obj->redirect_stderr_; }
 
 EXPORT logStreamEmpty *td_bridge_newobj_logStreamEmpty() { return new logStreamEmpty(); }
 
@@ -3250,6 +3545,10 @@ EXPORT getMessages *td_bridge_newobj_getMessages() { return new getMessages(); }
 EXPORT auto td_bridge_obj_getMessages_chat_id(getMessages *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_getMessages_message_ids(getMessages *obj) { return &obj->message_ids_; }
 
+EXPORT getMessageThread *td_bridge_newobj_getMessageThread() { return new getMessageThread(); }
+EXPORT auto td_bridge_obj_getMessageThread_chat_id(getMessageThread *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_getMessageThread_message_id(getMessageThread *obj) { return &obj->message_id_; }
+
 EXPORT getFile *td_bridge_newobj_getFile() { return new getFile(); }
 EXPORT auto td_bridge_obj_getFile_file_id(getFile *obj) { return &obj->file_id_; }
 
@@ -3322,6 +3621,13 @@ EXPORT auto td_bridge_obj_getChatHistory_offset(getChatHistory *obj) { return &o
 EXPORT auto td_bridge_obj_getChatHistory_limit(getChatHistory *obj) { return &obj->limit_; }
 EXPORT auto td_bridge_obj_getChatHistory_only_local(getChatHistory *obj) { return &obj->only_local_; }
 
+EXPORT getMessageThreadHistory *td_bridge_newobj_getMessageThreadHistory() { return new getMessageThreadHistory(); }
+EXPORT auto td_bridge_obj_getMessageThreadHistory_chat_id(getMessageThreadHistory *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_getMessageThreadHistory_message_id(getMessageThreadHistory *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_getMessageThreadHistory_from_message_id(getMessageThreadHistory *obj) { return &obj->from_message_id_; }
+EXPORT auto td_bridge_obj_getMessageThreadHistory_offset(getMessageThreadHistory *obj) { return &obj->offset_; }
+EXPORT auto td_bridge_obj_getMessageThreadHistory_limit(getMessageThreadHistory *obj) { return &obj->limit_; }
+
 EXPORT deleteChatHistory *td_bridge_newobj_deleteChatHistory() { return new deleteChatHistory(); }
 EXPORT auto td_bridge_obj_deleteChatHistory_chat_id(deleteChatHistory *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_deleteChatHistory_remove_from_chat_list(deleteChatHistory *obj) { return &obj->remove_from_chat_list_; }
@@ -3335,6 +3641,7 @@ EXPORT auto td_bridge_obj_searchChatMessages_from_message_id(searchChatMessages 
 EXPORT auto td_bridge_obj_searchChatMessages_offset(searchChatMessages *obj) { return &obj->offset_; }
 EXPORT auto td_bridge_obj_searchChatMessages_limit(searchChatMessages *obj) { return &obj->limit_; }
 EXPORT auto td_bridge_obj_searchChatMessages_filter(searchChatMessages *obj) { return &obj->filter_; }
+EXPORT auto td_bridge_obj_searchChatMessages_message_thread_id(searchChatMessages *obj) { return &obj->message_thread_id_; }
 
 EXPORT searchMessages *td_bridge_newobj_searchMessages() { return new searchMessages(); }
 EXPORT auto td_bridge_obj_searchMessages_chat_list(searchMessages *obj) { return &obj->chat_list_; }
@@ -3343,11 +3650,14 @@ EXPORT auto td_bridge_obj_searchMessages_offset_date(searchMessages *obj) { retu
 EXPORT auto td_bridge_obj_searchMessages_offset_chat_id(searchMessages *obj) { return &obj->offset_chat_id_; }
 EXPORT auto td_bridge_obj_searchMessages_offset_message_id(searchMessages *obj) { return &obj->offset_message_id_; }
 EXPORT auto td_bridge_obj_searchMessages_limit(searchMessages *obj) { return &obj->limit_; }
+EXPORT auto td_bridge_obj_searchMessages_filter(searchMessages *obj) { return &obj->filter_; }
+EXPORT auto td_bridge_obj_searchMessages_min_date(searchMessages *obj) { return &obj->min_date_; }
+EXPORT auto td_bridge_obj_searchMessages_max_date(searchMessages *obj) { return &obj->max_date_; }
 
 EXPORT searchSecretMessages *td_bridge_newobj_searchSecretMessages() { return new searchSecretMessages(); }
 EXPORT auto td_bridge_obj_searchSecretMessages_chat_id(searchSecretMessages *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_searchSecretMessages_query(searchSecretMessages *obj) { return &obj->query_; }
-EXPORT auto td_bridge_obj_searchSecretMessages_from_search_id(searchSecretMessages *obj) { return &obj->from_search_id_; }
+EXPORT auto td_bridge_obj_searchSecretMessages_offset(searchSecretMessages *obj) { return &obj->offset_; }
 EXPORT auto td_bridge_obj_searchSecretMessages_limit(searchSecretMessages *obj) { return &obj->limit_; }
 EXPORT auto td_bridge_obj_searchSecretMessages_filter(searchSecretMessages *obj) { return &obj->filter_; }
 
@@ -3374,6 +3684,12 @@ EXPORT auto td_bridge_obj_getChatMessageCount_return_local(getChatMessageCount *
 EXPORT getChatScheduledMessages *td_bridge_newobj_getChatScheduledMessages() { return new getChatScheduledMessages(); }
 EXPORT auto td_bridge_obj_getChatScheduledMessages_chat_id(getChatScheduledMessages *obj) { return &obj->chat_id_; }
 
+EXPORT getMessagePublicForwards *td_bridge_newobj_getMessagePublicForwards() { return new getMessagePublicForwards(); }
+EXPORT auto td_bridge_obj_getMessagePublicForwards_chat_id(getMessagePublicForwards *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_getMessagePublicForwards_message_id(getMessagePublicForwards *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_getMessagePublicForwards_offset(getMessagePublicForwards *obj) { return &obj->offset_; }
+EXPORT auto td_bridge_obj_getMessagePublicForwards_limit(getMessagePublicForwards *obj) { return &obj->limit_; }
+
 EXPORT removeNotification *td_bridge_newobj_removeNotification() { return new removeNotification(); }
 EXPORT auto td_bridge_obj_removeNotification_notification_group_id(removeNotification *obj) { return &obj->notification_group_id_; }
 EXPORT auto td_bridge_obj_removeNotification_notification_id(removeNotification *obj) { return &obj->notification_id_; }
@@ -3382,20 +3698,23 @@ EXPORT removeNotificationGroup *td_bridge_newobj_removeNotificationGroup() { ret
 EXPORT auto td_bridge_obj_removeNotificationGroup_notification_group_id(removeNotificationGroup *obj) { return &obj->notification_group_id_; }
 EXPORT auto td_bridge_obj_removeNotificationGroup_max_notification_id(removeNotificationGroup *obj) { return &obj->max_notification_id_; }
 
-EXPORT getPublicMessageLink *td_bridge_newobj_getPublicMessageLink() { return new getPublicMessageLink(); }
-EXPORT auto td_bridge_obj_getPublicMessageLink_chat_id(getPublicMessageLink *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_getPublicMessageLink_message_id(getPublicMessageLink *obj) { return &obj->message_id_; }
-EXPORT auto td_bridge_obj_getPublicMessageLink_for_album(getPublicMessageLink *obj) { return &obj->for_album_; }
-
 EXPORT getMessageLink *td_bridge_newobj_getMessageLink() { return new getMessageLink(); }
 EXPORT auto td_bridge_obj_getMessageLink_chat_id(getMessageLink *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_getMessageLink_message_id(getMessageLink *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_getMessageLink_for_album(getMessageLink *obj) { return &obj->for_album_; }
+EXPORT auto td_bridge_obj_getMessageLink_for_comment(getMessageLink *obj) { return &obj->for_comment_; }
+
+EXPORT getMessageEmbeddingCode *td_bridge_newobj_getMessageEmbeddingCode() { return new getMessageEmbeddingCode(); }
+EXPORT auto td_bridge_obj_getMessageEmbeddingCode_chat_id(getMessageEmbeddingCode *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_getMessageEmbeddingCode_message_id(getMessageEmbeddingCode *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_getMessageEmbeddingCode_for_album(getMessageEmbeddingCode *obj) { return &obj->for_album_; }
 
 EXPORT getMessageLinkInfo *td_bridge_newobj_getMessageLinkInfo() { return new getMessageLinkInfo(); }
 EXPORT auto td_bridge_obj_getMessageLinkInfo_url(getMessageLinkInfo *obj) { return &obj->url_; }
 
 EXPORT sendMessage *td_bridge_newobj_sendMessage() { return new sendMessage(); }
 EXPORT auto td_bridge_obj_sendMessage_chat_id(sendMessage *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_sendMessage_message_thread_id(sendMessage *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_sendMessage_reply_to_message_id(sendMessage *obj) { return &obj->reply_to_message_id_; }
 EXPORT auto td_bridge_obj_sendMessage_options(sendMessage *obj) { return &obj->options_; }
 EXPORT auto td_bridge_obj_sendMessage_reply_markup(sendMessage *obj) { return &obj->reply_markup_; }
@@ -3403,6 +3722,7 @@ EXPORT auto td_bridge_obj_sendMessage_input_message_content(sendMessage *obj) { 
 
 EXPORT sendMessageAlbum *td_bridge_newobj_sendMessageAlbum() { return new sendMessageAlbum(); }
 EXPORT auto td_bridge_obj_sendMessageAlbum_chat_id(sendMessageAlbum *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_sendMessageAlbum_message_thread_id(sendMessageAlbum *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_sendMessageAlbum_reply_to_message_id(sendMessageAlbum *obj) { return &obj->reply_to_message_id_; }
 EXPORT auto td_bridge_obj_sendMessageAlbum_options(sendMessageAlbum *obj) { return &obj->options_; }
 EXPORT auto td_bridge_obj_sendMessageAlbum_input_message_contents(sendMessageAlbum *obj) { return &obj->input_message_contents_; }
@@ -3414,6 +3734,7 @@ EXPORT auto td_bridge_obj_sendBotStartMessage_parameter(sendBotStartMessage *obj
 
 EXPORT sendInlineQueryResultMessage *td_bridge_newobj_sendInlineQueryResultMessage() { return new sendInlineQueryResultMessage(); }
 EXPORT auto td_bridge_obj_sendInlineQueryResultMessage_chat_id(sendInlineQueryResultMessage *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_sendInlineQueryResultMessage_message_thread_id(sendInlineQueryResultMessage *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_sendInlineQueryResultMessage_reply_to_message_id(sendInlineQueryResultMessage *obj) { return &obj->reply_to_message_id_; }
 EXPORT auto td_bridge_obj_sendInlineQueryResultMessage_options(sendInlineQueryResultMessage *obj) { return &obj->options_; }
 EXPORT auto td_bridge_obj_sendInlineQueryResultMessage_query_id(sendInlineQueryResultMessage *obj) { return &obj->query_id_; }
@@ -3425,7 +3746,6 @@ EXPORT auto td_bridge_obj_forwardMessages_chat_id(forwardMessages *obj) { return
 EXPORT auto td_bridge_obj_forwardMessages_from_chat_id(forwardMessages *obj) { return &obj->from_chat_id_; }
 EXPORT auto td_bridge_obj_forwardMessages_message_ids(forwardMessages *obj) { return &obj->message_ids_; }
 EXPORT auto td_bridge_obj_forwardMessages_options(forwardMessages *obj) { return &obj->options_; }
-EXPORT auto td_bridge_obj_forwardMessages_as_album(forwardMessages *obj) { return &obj->as_album_; }
 EXPORT auto td_bridge_obj_forwardMessages_send_copy(forwardMessages *obj) { return &obj->send_copy_; }
 EXPORT auto td_bridge_obj_forwardMessages_remove_caption(forwardMessages *obj) { return &obj->remove_caption_; }
 
@@ -3521,6 +3841,12 @@ EXPORT parseTextEntities *td_bridge_newobj_parseTextEntities() { return new pars
 EXPORT auto td_bridge_obj_parseTextEntities_text(parseTextEntities *obj) { return &obj->text_; }
 EXPORT auto td_bridge_obj_parseTextEntities_parse_mode(parseTextEntities *obj) { return &obj->parse_mode_; }
 
+EXPORT parseMarkdown *td_bridge_newobj_parseMarkdown() { return new parseMarkdown(); }
+EXPORT auto td_bridge_obj_parseMarkdown_text(parseMarkdown *obj) { return &obj->text_; }
+
+EXPORT getMarkdownText *td_bridge_newobj_getMarkdownText() { return new getMarkdownText(); }
+EXPORT auto td_bridge_obj_getMarkdownText_text(getMarkdownText *obj) { return &obj->text_; }
+
 EXPORT getFileMimeType *td_bridge_newobj_getFileMimeType() { return new getFileMimeType(); }
 EXPORT auto td_bridge_obj_getFileMimeType_file_name(getFileMimeType *obj) { return &obj->file_name_; }
 
@@ -3558,6 +3884,9 @@ EXPORT stopPoll *td_bridge_newobj_stopPoll() { return new stopPoll(); }
 EXPORT auto td_bridge_obj_stopPoll_chat_id(stopPoll *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_stopPoll_message_id(stopPoll *obj) { return &obj->message_id_; }
 EXPORT auto td_bridge_obj_stopPoll_reply_markup(stopPoll *obj) { return &obj->reply_markup_; }
+
+EXPORT hideSuggestedAction *td_bridge_newobj_hideSuggestedAction() { return new hideSuggestedAction(); }
+EXPORT auto td_bridge_obj_hideSuggestedAction_action(hideSuggestedAction *obj) { return &obj->action_; }
 
 EXPORT getLoginUrlInfo *td_bridge_newobj_getLoginUrlInfo() { return new getLoginUrlInfo(); }
 EXPORT auto td_bridge_obj_getLoginUrlInfo_chat_id(getLoginUrlInfo *obj) { return &obj->chat_id_; }
@@ -3637,6 +3966,7 @@ EXPORT auto td_bridge_obj_deleteChatReplyMarkup_message_id(deleteChatReplyMarkup
 
 EXPORT sendChatAction *td_bridge_newobj_sendChatAction() { return new sendChatAction(); }
 EXPORT auto td_bridge_obj_sendChatAction_chat_id(sendChatAction *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_sendChatAction_message_thread_id(sendChatAction *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_sendChatAction_action(sendChatAction *obj) { return &obj->action_; }
 
 EXPORT openChat *td_bridge_newobj_openChat() { return new openChat(); }
@@ -3647,6 +3977,7 @@ EXPORT auto td_bridge_obj_closeChat_chat_id(closeChat *obj) { return &obj->chat_
 
 EXPORT viewMessages *td_bridge_newobj_viewMessages() { return new viewMessages(); }
 EXPORT auto td_bridge_obj_viewMessages_chat_id(viewMessages *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_viewMessages_message_thread_id(viewMessages *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_viewMessages_message_ids(viewMessages *obj) { return &obj->message_ids_; }
 EXPORT auto td_bridge_obj_viewMessages_force_read(viewMessages *obj) { return &obj->force_read_; }
 
@@ -3688,9 +4019,33 @@ EXPORT auto td_bridge_obj_createNewSecretChat_user_id(createNewSecretChat *obj) 
 EXPORT upgradeBasicGroupChatToSupergroupChat *td_bridge_newobj_upgradeBasicGroupChatToSupergroupChat() { return new upgradeBasicGroupChatToSupergroupChat(); }
 EXPORT auto td_bridge_obj_upgradeBasicGroupChatToSupergroupChat_chat_id(upgradeBasicGroupChatToSupergroupChat *obj) { return &obj->chat_id_; }
 
-EXPORT setChatChatList *td_bridge_newobj_setChatChatList() { return new setChatChatList(); }
-EXPORT auto td_bridge_obj_setChatChatList_chat_id(setChatChatList *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_setChatChatList_chat_list(setChatChatList *obj) { return &obj->chat_list_; }
+EXPORT getChatListsToAddChat *td_bridge_newobj_getChatListsToAddChat() { return new getChatListsToAddChat(); }
+EXPORT auto td_bridge_obj_getChatListsToAddChat_chat_id(getChatListsToAddChat *obj) { return &obj->chat_id_; }
+
+EXPORT addChatToList *td_bridge_newobj_addChatToList() { return new addChatToList(); }
+EXPORT auto td_bridge_obj_addChatToList_chat_id(addChatToList *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_addChatToList_chat_list(addChatToList *obj) { return &obj->chat_list_; }
+
+EXPORT getChatFilter *td_bridge_newobj_getChatFilter() { return new getChatFilter(); }
+EXPORT auto td_bridge_obj_getChatFilter_chat_filter_id(getChatFilter *obj) { return &obj->chat_filter_id_; }
+
+EXPORT createChatFilter *td_bridge_newobj_createChatFilter() { return new createChatFilter(); }
+EXPORT auto td_bridge_obj_createChatFilter_filter(createChatFilter *obj) { return &obj->filter_; }
+
+EXPORT editChatFilter *td_bridge_newobj_editChatFilter() { return new editChatFilter(); }
+EXPORT auto td_bridge_obj_editChatFilter_chat_filter_id(editChatFilter *obj) { return &obj->chat_filter_id_; }
+EXPORT auto td_bridge_obj_editChatFilter_filter(editChatFilter *obj) { return &obj->filter_; }
+
+EXPORT deleteChatFilter *td_bridge_newobj_deleteChatFilter() { return new deleteChatFilter(); }
+EXPORT auto td_bridge_obj_deleteChatFilter_chat_filter_id(deleteChatFilter *obj) { return &obj->chat_filter_id_; }
+
+EXPORT reorderChatFilters *td_bridge_newobj_reorderChatFilters() { return new reorderChatFilters(); }
+EXPORT auto td_bridge_obj_reorderChatFilters_chat_filter_ids(reorderChatFilters *obj) { return &obj->chat_filter_ids_; }
+
+EXPORT getRecommendedChatFilters *td_bridge_newobj_getRecommendedChatFilters() { return new getRecommendedChatFilters(); }
+
+EXPORT getChatFilterDefaultIconName *td_bridge_newobj_getChatFilterDefaultIconName() { return new getChatFilterDefaultIconName(); }
+EXPORT auto td_bridge_obj_getChatFilterDefaultIconName_filter(getChatFilterDefaultIconName *obj) { return &obj->filter_; }
 
 EXPORT setChatTitle *td_bridge_newobj_setChatTitle() { return new setChatTitle(); }
 EXPORT auto td_bridge_obj_setChatTitle_chat_id(setChatTitle *obj) { return &obj->chat_id_; }
@@ -3706,19 +4061,20 @@ EXPORT auto td_bridge_obj_setChatPermissions_permissions(setChatPermissions *obj
 
 EXPORT setChatDraftMessage *td_bridge_newobj_setChatDraftMessage() { return new setChatDraftMessage(); }
 EXPORT auto td_bridge_obj_setChatDraftMessage_chat_id(setChatDraftMessage *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_setChatDraftMessage_message_thread_id(setChatDraftMessage *obj) { return &obj->message_thread_id_; }
 EXPORT auto td_bridge_obj_setChatDraftMessage_draft_message(setChatDraftMessage *obj) { return &obj->draft_message_; }
 
 EXPORT setChatNotificationSettings *td_bridge_newobj_setChatNotificationSettings() { return new setChatNotificationSettings(); }
 EXPORT auto td_bridge_obj_setChatNotificationSettings_chat_id(setChatNotificationSettings *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_setChatNotificationSettings_notification_settings(setChatNotificationSettings *obj) { return &obj->notification_settings_; }
 
-EXPORT toggleChatIsPinned *td_bridge_newobj_toggleChatIsPinned() { return new toggleChatIsPinned(); }
-EXPORT auto td_bridge_obj_toggleChatIsPinned_chat_id(toggleChatIsPinned *obj) { return &obj->chat_id_; }
-EXPORT auto td_bridge_obj_toggleChatIsPinned_is_pinned(toggleChatIsPinned *obj) { return &obj->is_pinned_; }
-
 EXPORT toggleChatIsMarkedAsUnread *td_bridge_newobj_toggleChatIsMarkedAsUnread() { return new toggleChatIsMarkedAsUnread(); }
 EXPORT auto td_bridge_obj_toggleChatIsMarkedAsUnread_chat_id(toggleChatIsMarkedAsUnread *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_toggleChatIsMarkedAsUnread_is_marked_as_unread(toggleChatIsMarkedAsUnread *obj) { return &obj->is_marked_as_unread_; }
+
+EXPORT toggleChatIsBlocked *td_bridge_newobj_toggleChatIsBlocked() { return new toggleChatIsBlocked(); }
+EXPORT auto td_bridge_obj_toggleChatIsBlocked_chat_id(toggleChatIsBlocked *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_toggleChatIsBlocked_is_blocked(toggleChatIsBlocked *obj) { return &obj->is_blocked_; }
 
 EXPORT toggleChatDefaultDisableNotification *td_bridge_newobj_toggleChatDefaultDisableNotification() { return new toggleChatDefaultDisableNotification(); }
 EXPORT auto td_bridge_obj_toggleChatDefaultDisableNotification_chat_id(toggleChatDefaultDisableNotification *obj) { return &obj->chat_id_; }
@@ -3808,6 +4164,11 @@ EXPORT auto td_bridge_obj_setScopeNotificationSettings_notification_settings(set
 
 EXPORT resetAllNotificationSettings *td_bridge_newobj_resetAllNotificationSettings() { return new resetAllNotificationSettings(); }
 
+EXPORT toggleChatIsPinned *td_bridge_newobj_toggleChatIsPinned() { return new toggleChatIsPinned(); }
+EXPORT auto td_bridge_obj_toggleChatIsPinned_chat_list(toggleChatIsPinned *obj) { return &obj->chat_list_; }
+EXPORT auto td_bridge_obj_toggleChatIsPinned_chat_id(toggleChatIsPinned *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_toggleChatIsPinned_is_pinned(toggleChatIsPinned *obj) { return &obj->is_pinned_; }
+
 EXPORT setPinnedChats *td_bridge_newobj_setPinnedChats() { return new setPinnedChats(); }
 EXPORT auto td_bridge_obj_setPinnedChats_chat_list(setPinnedChats *obj) { return &obj->chat_list_; }
 EXPORT auto td_bridge_obj_setPinnedChats_chat_ids(setPinnedChats *obj) { return &obj->chat_ids_; }
@@ -3869,15 +4230,21 @@ EXPORT auto td_bridge_obj_joinChatByInviteLink_invite_link(joinChatByInviteLink 
 EXPORT createCall *td_bridge_newobj_createCall() { return new createCall(); }
 EXPORT auto td_bridge_obj_createCall_user_id(createCall *obj) { return &obj->user_id_; }
 EXPORT auto td_bridge_obj_createCall_protocol(createCall *obj) { return &obj->protocol_; }
+EXPORT auto td_bridge_obj_createCall_is_video(createCall *obj) { return &obj->is_video_; }
 
 EXPORT acceptCall *td_bridge_newobj_acceptCall() { return new acceptCall(); }
 EXPORT auto td_bridge_obj_acceptCall_call_id(acceptCall *obj) { return &obj->call_id_; }
 EXPORT auto td_bridge_obj_acceptCall_protocol(acceptCall *obj) { return &obj->protocol_; }
 
+EXPORT sendCallSignalingData *td_bridge_newobj_sendCallSignalingData() { return new sendCallSignalingData(); }
+EXPORT auto td_bridge_obj_sendCallSignalingData_call_id(sendCallSignalingData *obj) { return &obj->call_id_; }
+EXPORT auto td_bridge_obj_sendCallSignalingData_data(sendCallSignalingData *obj) { return &obj->data_; }
+
 EXPORT discardCall *td_bridge_newobj_discardCall() { return new discardCall(); }
 EXPORT auto td_bridge_obj_discardCall_call_id(discardCall *obj) { return &obj->call_id_; }
 EXPORT auto td_bridge_obj_discardCall_is_disconnected(discardCall *obj) { return &obj->is_disconnected_; }
 EXPORT auto td_bridge_obj_discardCall_duration(discardCall *obj) { return &obj->duration_; }
+EXPORT auto td_bridge_obj_discardCall_is_video(discardCall *obj) { return &obj->is_video_; }
 EXPORT auto td_bridge_obj_discardCall_connection_id(discardCall *obj) { return &obj->connection_id_; }
 
 EXPORT sendCallRating *td_bridge_newobj_sendCallRating() { return new sendCallRating(); }
@@ -3890,15 +4257,15 @@ EXPORT sendCallDebugInformation *td_bridge_newobj_sendCallDebugInformation() { r
 EXPORT auto td_bridge_obj_sendCallDebugInformation_call_id(sendCallDebugInformation *obj) { return &obj->call_id_; }
 EXPORT auto td_bridge_obj_sendCallDebugInformation_debug_information(sendCallDebugInformation *obj) { return &obj->debug_information_; }
 
-EXPORT blockUser *td_bridge_newobj_blockUser() { return new blockUser(); }
-EXPORT auto td_bridge_obj_blockUser_user_id(blockUser *obj) { return &obj->user_id_; }
+EXPORT blockChatFromReplies *td_bridge_newobj_blockChatFromReplies() { return new blockChatFromReplies(); }
+EXPORT auto td_bridge_obj_blockChatFromReplies_message_id(blockChatFromReplies *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_blockChatFromReplies_delete_message(blockChatFromReplies *obj) { return &obj->delete_message_; }
+EXPORT auto td_bridge_obj_blockChatFromReplies_delete_all_messages(blockChatFromReplies *obj) { return &obj->delete_all_messages_; }
+EXPORT auto td_bridge_obj_blockChatFromReplies_report_spam(blockChatFromReplies *obj) { return &obj->report_spam_; }
 
-EXPORT unblockUser *td_bridge_newobj_unblockUser() { return new unblockUser(); }
-EXPORT auto td_bridge_obj_unblockUser_user_id(unblockUser *obj) { return &obj->user_id_; }
-
-EXPORT getBlockedUsers *td_bridge_newobj_getBlockedUsers() { return new getBlockedUsers(); }
-EXPORT auto td_bridge_obj_getBlockedUsers_offset(getBlockedUsers *obj) { return &obj->offset_; }
-EXPORT auto td_bridge_obj_getBlockedUsers_limit(getBlockedUsers *obj) { return &obj->limit_; }
+EXPORT getBlockedChats *td_bridge_newobj_getBlockedChats() { return new getBlockedChats(); }
+EXPORT auto td_bridge_obj_getBlockedChats_offset(getBlockedChats *obj) { return &obj->offset_; }
+EXPORT auto td_bridge_obj_getBlockedChats_limit(getBlockedChats *obj) { return &obj->limit_; }
 
 EXPORT addContact *td_bridge_newobj_addContact() { return new addContact(); }
 EXPORT auto td_bridge_obj_addContact_contact(addContact *obj) { return &obj->contact_; }
@@ -3948,6 +4315,8 @@ EXPORT auto td_bridge_obj_getArchivedStickerSets_offset_sticker_set_id(getArchiv
 EXPORT auto td_bridge_obj_getArchivedStickerSets_limit(getArchivedStickerSets *obj) { return &obj->limit_; }
 
 EXPORT getTrendingStickerSets *td_bridge_newobj_getTrendingStickerSets() { return new getTrendingStickerSets(); }
+EXPORT auto td_bridge_obj_getTrendingStickerSets_offset(getTrendingStickerSets *obj) { return &obj->offset_; }
+EXPORT auto td_bridge_obj_getTrendingStickerSets_limit(getTrendingStickerSets *obj) { return &obj->limit_; }
 
 EXPORT getAttachedStickerSets *td_bridge_newobj_getAttachedStickerSets() { return new getAttachedStickerSets(); }
 EXPORT auto td_bridge_obj_getAttachedStickerSets_file_id(getAttachedStickerSets *obj) { return &obj->file_id_; }
@@ -4006,7 +4375,7 @@ EXPORT auto td_bridge_obj_getStickerEmojis_sticker(getStickerEmojis *obj) { retu
 EXPORT searchEmojis *td_bridge_newobj_searchEmojis() { return new searchEmojis(); }
 EXPORT auto td_bridge_obj_searchEmojis_text(searchEmojis *obj) { return &obj->text_; }
 EXPORT auto td_bridge_obj_searchEmojis_exact_match(searchEmojis *obj) { return &obj->exact_match_; }
-EXPORT auto td_bridge_obj_searchEmojis_input_language_code(searchEmojis *obj) { return &obj->input_language_code_; }
+EXPORT auto td_bridge_obj_searchEmojis_input_language_codes(searchEmojis *obj) { return &obj->input_language_codes_; }
 
 EXPORT getEmojiSuggestionsUrl *td_bridge_newobj_getEmojiSuggestionsUrl() { return new getEmojiSuggestionsUrl(); }
 EXPORT auto td_bridge_obj_getEmojiSuggestionsUrl_language_code(getEmojiSuggestionsUrl *obj) { return &obj->language_code_; }
@@ -4051,6 +4420,9 @@ EXPORT auto td_bridge_obj_setBio_bio(setBio *obj) { return &obj->bio_; }
 EXPORT setUsername *td_bridge_newobj_setUsername() { return new setUsername(); }
 EXPORT auto td_bridge_obj_setUsername_username(setUsername *obj) { return &obj->username_; }
 
+EXPORT setLocation *td_bridge_newobj_setLocation() { return new setLocation(); }
+EXPORT auto td_bridge_obj_setLocation_location(setLocation *obj) { return &obj->location_; }
+
 EXPORT changePhoneNumber *td_bridge_newobj_changePhoneNumber() { return new changePhoneNumber(); }
 EXPORT auto td_bridge_obj_changePhoneNumber_phone_number(changePhoneNumber *obj) { return &obj->phone_number_; }
 EXPORT auto td_bridge_obj_changePhoneNumber_settings(changePhoneNumber *obj) { return &obj->settings_; }
@@ -4059,6 +4431,9 @@ EXPORT resendChangePhoneNumberCode *td_bridge_newobj_resendChangePhoneNumberCode
 
 EXPORT checkChangePhoneNumberCode *td_bridge_newobj_checkChangePhoneNumberCode() { return new checkChangePhoneNumberCode(); }
 EXPORT auto td_bridge_obj_checkChangePhoneNumberCode_code(checkChangePhoneNumberCode *obj) { return &obj->code_; }
+
+EXPORT setCommands *td_bridge_newobj_setCommands() { return new setCommands(); }
+EXPORT auto td_bridge_obj_setCommands_commands(setCommands *obj) { return &obj->commands_; }
 
 EXPORT getActiveSessions *td_bridge_newobj_getActiveSessions() { return new getActiveSessions(); }
 
@@ -4242,6 +4617,20 @@ EXPORT auto td_bridge_obj_getChatStatisticsUrl_chat_id(getChatStatisticsUrl *obj
 EXPORT auto td_bridge_obj_getChatStatisticsUrl_parameters(getChatStatisticsUrl *obj) { return &obj->parameters_; }
 EXPORT auto td_bridge_obj_getChatStatisticsUrl_is_dark(getChatStatisticsUrl *obj) { return &obj->is_dark_; }
 
+EXPORT getChatStatistics *td_bridge_newobj_getChatStatistics() { return new getChatStatistics(); }
+EXPORT auto td_bridge_obj_getChatStatistics_chat_id(getChatStatistics *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_getChatStatistics_is_dark(getChatStatistics *obj) { return &obj->is_dark_; }
+
+EXPORT getMessageStatistics *td_bridge_newobj_getMessageStatistics() { return new getMessageStatistics(); }
+EXPORT auto td_bridge_obj_getMessageStatistics_chat_id(getMessageStatistics *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_getMessageStatistics_message_id(getMessageStatistics *obj) { return &obj->message_id_; }
+EXPORT auto td_bridge_obj_getMessageStatistics_is_dark(getMessageStatistics *obj) { return &obj->is_dark_; }
+
+EXPORT getStatisticsGraph *td_bridge_newobj_getStatisticsGraph() { return new getStatisticsGraph(); }
+EXPORT auto td_bridge_obj_getStatisticsGraph_chat_id(getStatisticsGraph *obj) { return &obj->chat_id_; }
+EXPORT auto td_bridge_obj_getStatisticsGraph_token(getStatisticsGraph *obj) { return &obj->token_; }
+EXPORT auto td_bridge_obj_getStatisticsGraph_x(getStatisticsGraph *obj) { return &obj->x_; }
+
 EXPORT getStorageStatistics *td_bridge_newobj_getStorageStatistics() { return new getStorageStatistics(); }
 EXPORT auto td_bridge_obj_getStorageStatistics_chat_limit(getStorageStatistics *obj) { return &obj->chat_limit_; }
 
@@ -4257,6 +4646,7 @@ EXPORT auto td_bridge_obj_optimizeStorage_immunity_delay(optimizeStorage *obj) {
 EXPORT auto td_bridge_obj_optimizeStorage_file_types(optimizeStorage *obj) { return &obj->file_types_; }
 EXPORT auto td_bridge_obj_optimizeStorage_chat_ids(optimizeStorage *obj) { return &obj->chat_ids_; }
 EXPORT auto td_bridge_obj_optimizeStorage_exclude_chat_ids(optimizeStorage *obj) { return &obj->exclude_chat_ids_; }
+EXPORT auto td_bridge_obj_optimizeStorage_return_deleted_file_statistics(optimizeStorage *obj) { return &obj->return_deleted_file_statistics_; }
 EXPORT auto td_bridge_obj_optimizeStorage_chat_limit(optimizeStorage *obj) { return &obj->chat_limit_; }
 
 EXPORT setNetworkType *td_bridge_newobj_setNetworkType() { return new setNetworkType(); }
@@ -4275,6 +4665,9 @@ EXPORT getAutoDownloadSettingsPresets *td_bridge_newobj_getAutoDownloadSettingsP
 EXPORT setAutoDownloadSettings *td_bridge_newobj_setAutoDownloadSettings() { return new setAutoDownloadSettings(); }
 EXPORT auto td_bridge_obj_setAutoDownloadSettings_settings(setAutoDownloadSettings *obj) { return &obj->settings_; }
 EXPORT auto td_bridge_obj_setAutoDownloadSettings_type(setAutoDownloadSettings *obj) { return &obj->type_; }
+
+EXPORT getBankCardInfo *td_bridge_newobj_getBankCardInfo() { return new getBankCardInfo(); }
+EXPORT auto td_bridge_obj_getBankCardInfo_bank_card_number(getBankCardInfo *obj) { return &obj->bank_card_number_; }
 
 EXPORT getPassportElement *td_bridge_newobj_getPassportElement() { return new getPassportElement(); }
 EXPORT auto td_bridge_obj_getPassportElement_type(getPassportElement *obj) { return &obj->type_; }
@@ -4358,6 +4751,11 @@ EXPORT auto td_bridge_obj_addStickerToSet_user_id(addStickerToSet *obj) { return
 EXPORT auto td_bridge_obj_addStickerToSet_name(addStickerToSet *obj) { return &obj->name_; }
 EXPORT auto td_bridge_obj_addStickerToSet_sticker(addStickerToSet *obj) { return &obj->sticker_; }
 
+EXPORT setStickerSetThumbnail *td_bridge_newobj_setStickerSetThumbnail() { return new setStickerSetThumbnail(); }
+EXPORT auto td_bridge_obj_setStickerSetThumbnail_user_id(setStickerSetThumbnail *obj) { return &obj->user_id_; }
+EXPORT auto td_bridge_obj_setStickerSetThumbnail_name(setStickerSetThumbnail *obj) { return &obj->name_; }
+EXPORT auto td_bridge_obj_setStickerSetThumbnail_thumbnail(setStickerSetThumbnail *obj) { return &obj->thumbnail_; }
+
 EXPORT setStickerPositionInSet *td_bridge_newobj_setStickerPositionInSet() { return new setStickerPositionInSet(); }
 EXPORT auto td_bridge_obj_setStickerPositionInSet_sticker(setStickerPositionInSet *obj) { return &obj->sticker_; }
 EXPORT auto td_bridge_obj_setStickerPositionInSet_position(setStickerPositionInSet *obj) { return &obj->position_; }
@@ -4387,7 +4785,12 @@ EXPORT auto td_bridge_obj_answerCustomQuery_data(answerCustomQuery *obj) { retur
 EXPORT setAlarm *td_bridge_newobj_setAlarm() { return new setAlarm(); }
 EXPORT auto td_bridge_obj_setAlarm_seconds(setAlarm *obj) { return &obj->seconds_; }
 
+EXPORT getCountries *td_bridge_newobj_getCountries() { return new getCountries(); }
+
 EXPORT getCountryCode *td_bridge_newobj_getCountryCode() { return new getCountryCode(); }
+
+EXPORT getPhoneNumberInfo *td_bridge_newobj_getPhoneNumberInfo() { return new getPhoneNumberInfo(); }
+EXPORT auto td_bridge_obj_getPhoneNumberInfo_phone_number_prefix(getPhoneNumberInfo *obj) { return &obj->phone_number_prefix_; }
 
 EXPORT getInviteText *td_bridge_newobj_getInviteText() { return new getInviteText(); }
 

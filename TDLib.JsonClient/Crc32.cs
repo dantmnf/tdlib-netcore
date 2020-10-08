@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Diagnostics;
 
 namespace TDLib.JsonClient
 {
@@ -29,7 +30,12 @@ namespace TDLib.JsonClient
 
         static Crc32()
         {
-            zlib_crc32 = CheckDllCall(zlib_crc32_windows, zlib_crc32_windows2, zlib_crc32_linux, zlib_crc32_darwin);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                zlib_crc32 = zlib_crc32_linux;
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                zlib_crc32 = zlib_crc32_darwin;
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                zlib_crc32 = CheckDllCall(zlib_crc32_windows, zlib_crc32_windows2);
             if (zlib_crc32 == null)
             {
                 table = new uint[16 * 256];
@@ -54,7 +60,7 @@ namespace TDLib.JsonClient
                     delg.Invoke(0, null, 0);
                     return delg;
                 }
-                catch (DllNotFoundException e) { }
+                catch (DllNotFoundException) { }
             }
             return null;
         }
@@ -104,52 +110,18 @@ namespace TDLib.JsonClient
         }
     }
 
-    internal unsafe class Crc32Stream : Stream
+    internal unsafe struct Crc32Stream : ISlimStreamWriter
     {
         public uint Hash;
 
-        public override bool CanRead => false;
-
-        public override bool CanSeek => false;
-
-        public override bool CanWrite => true;
-
-        public override long Length => 0;
-
-        public override long Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public override void WriteByte(byte value)
+        public static Crc32Stream Create() => new Crc32Stream();
+        public void WriteByte(byte value)
         {
             Hash = Crc32.Update(Hash, new ReadOnlySpan<byte>(&value, 1));
         }
-        public override void Write(byte[] buf, int off, int len)
-        {
-            Hash = Crc32.Update(Hash, buf.AsSpan(off, len));
-        }
-
-        public override void Write(ReadOnlySpan<byte> buf)
+        public void Write(ReadOnlySpan<byte> buf)
         {
             Hash = Crc32.Update(Hash, buf);
         }
-
-        public override void Flush()
-        {
-        }
-
-        public override int Read(byte[] buffer, int offset, int count)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override long Seek(long offset, SeekOrigin origin)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void SetLength(long value)
-        {
-            throw new NotImplementedException();
-        }
-        
     }
 }

@@ -160,10 +160,10 @@ namespace TDLib.CxxClient.CxxInterop
         public static implicit operator IntPtr(CxxVectorInt32 x) => x.ptr;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ReadOnlySpan<int> AsSpan()
+        public Span<int> AsSpan()
         {
             var data = td_bridge_vector_int32_data(ptr, out var len);
-            return new ReadOnlySpan<int>(data, (int)len).ToArray();
+            return new Span<int>(data, (int)len);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -201,10 +201,10 @@ namespace TDLib.CxxClient.CxxInterop
         public static implicit operator IntPtr(CxxVectorInt64 x) => x.ptr;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ReadOnlySpan<long> AsSpan()
+        public Span<long> AsSpan()
         {
             var data = td_bridge_vector_int64_data(ptr, out var len);
-            return new Span<long>(data, (int)len).ToArray();
+            return new Span<long>(data, (int)len);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -251,16 +251,13 @@ namespace TDLib.CxxClient.CxxInterop
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public T[] ToArray()
         {
-            var data = td_bridge_vector_object_data(ptr, out var len);
-            var span = new ReadOnlySpan<IntPtr>(data, (int)len);
+            var len = td_bridge_vector_object_size(ptr);
             var result = new T[len];
-            for(var i = 0; i<len; i++)
+            for(long i = 0; i<len; i++)
             {
-                //result[i] = new CxxTLObject<T>(span[i]).Fetch();
-                result[i] = (T)TLObjectFactory.FetchCxxObject(span[i]);
+                result[i] = new CxxTLObject<T>(td_bridge_vector_object_at(ptr, i)).Fetch();
             }
             return result;
-            // return span.ToArray().Select(x => (T)TLObjectFactory.FetchCxxObject(x)).ToArray();
         }
     }
 

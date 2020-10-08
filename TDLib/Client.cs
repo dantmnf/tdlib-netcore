@@ -5,40 +5,53 @@ using System.Text;
 using TDLib.Api;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace TDLib
 {
-    using AsyncUpdateEventHandler = Func<object, Update, Task>;
 
-    public abstract class Client
+    public abstract class Client : IDisposable
     {
-        public const long UnspecifiedRequestId = 99;
-        private readonly ConcurrentDictionary<long, TaskCompletionSource<TLObject>> invokes;
-        private readonly CancellationTokenSource cts;
-        private readonly CancellationToken ct;
-        private Task loopTask;
-        private long invoke_sequence = 0x80000000;
-
-        public event AsyncUpdateEventHandler Update;
-
-
-        protected Client()
+        enum DirtyFlag { Clean, ManualSend, EventLoop }
+        private class InvokeRecord
         {
-            invokes = new ConcurrentDictionary<long, TaskCompletionSource<TLObject>>();
-            cts = new CancellationTokenSource();
-            ct = cts.Token;
+            public TaskCompletionSource<TLObject> tsc;
         }
+
+        private CancellationTokenSource loopcts;
+        private ConcurrentDictionary<long, int> invokes;
+        private Task loopTask;
+        private DirtyFlag dirty = DirtyFlag.Clean;
+
+        public event EventHandler<Update> Update;
+        private int loopRunning;
+        public bool EventLoopRunning => loopRunning!=0;
+
+
 
         /// <summary>
         /// Sends request to TDLib. May be called from any thread.
         /// </summary>
+        /// <remarks>
+        /// DO NOT use <see cref="Send(Function, long)"/> if event loop is being used.
+        /// </remarks>
         /// <param name="func">TDLib API function representing a request to TDLib.</param>
         /// <param name="id">
         /// Request identifier.
         /// Responses to TDLib requests will have the same id as the corresponding request.
         /// Updates from TDLib will have id == 0, incoming requests are thus disallowed to have id == 0.
         /// </param>
-        public abstract void Send(Function func, long id = UnspecifiedRequestId);
+        public void Send(Function func, long id = 0) {
+            if (dirty == DirtyFlag.EventLoop)
+            {
+                throw new InvalidOperationException("Cannot use Client.Send if using event loop.");
+            }
+            dirty = DirtyFlag.ManualSend;
+            DoSend(func, id);
+        }
+        internal protected abstract void DoSend(Function func, long id);
 
         /// <summary>
         /// Synchronously executes TDLib requests. Only a few requests can be executed synchronously.
@@ -52,9 +65,20 @@ namespace TDLib
         /// Receives incoming updates and request responses from TDLib.
         /// May be called from any thread, but shouldn't be called simultaneously from two different threads.
         /// </summary>
+        /// <remarks>
+        /// DO NOT use <see cref="Receive(double)"/> if event loop is being used.
+        /// </remarks>
         /// <param name="timeout">Maximum number of seconds allowed for this function to wait for new data.</param>
         /// <returns>An incoming update or request response. The object returned in the response may be null if the timeout expires.</returns>
-        public abstract (long id, TLObject obj) Receive(double timeout);
+        public (long id, TLObject obj) Receive(double timeout)
+        {
+            if (dirty == DirtyFlag.EventLoop)
+            {
+                throw new InvalidOperationException("Cannot use Client.Receive if using event loop.");
+            }
+            return DoReceive(timeout);
+        }
+        internal protected abstract (long id, TLObject obj) DoReceive(double timeout);
 
 
         /// <summary>
@@ -64,7 +88,7 @@ namespace TDLib
         /// <typeparam name="T">The return type of <paramref name="func"/>.</typeparam>
         /// <param name="func">The function and parameters.</param>
         /// <returns>The return value of <paramref name="func"/>.</returns>
-        /// <exception cref="TDLibError">Thrown if the function returns an <see cref="error"/></exception>
+        /// <exception cref="TDLibError">Thrown if the function returns an <see cref="Error"/></exception>
         public T Execute<T>(Function<T> func) where T : TLObject
         {
             var obj = Execute((Function)func);
@@ -75,20 +99,38 @@ namespace TDLib
             return obj as T;
         }
 
-        private long AddInvoke(TaskCompletionSource<TLObject> tsc)
+        /// <summary>
+        /// Starts the tdlib event loop. Required for <see cref="Update"/>, <see cref="InvokeAsync(Function)"/>, <see cref="InvokeAsync{T}(Function{T})"/>.
+        /// </summary>
+        public void RunEventLoop()
         {
-            while (true)
+            if(dirty == DirtyFlag.ManualSend)
             {
-                Interlocked.Increment(ref invoke_sequence);
-                var seq = invoke_sequence;
-                if (seq < 0)
-                {
-                    Interlocked.Exchange(ref invoke_sequence, 0x80000000);
-                    continue;
-                }
-                if (invokes.TryAdd(seq, tsc))
-                    return seq;
+                throw new InvalidOperationException("Cannot run event loop after Client.Send.");
             }
+            dirty = DirtyFlag.EventLoop;
+            if (Interlocked.CompareExchange(ref loopRunning, 1, 0) == 0)
+            {
+                invokes = new ConcurrentDictionary<long, int>();
+                loopcts = new CancellationTokenSource();
+                loopTask = Run(loopcts.Token);
+            }
+        }
+
+        /// <summary>
+        /// Asks the tdlib event loop to stop.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="Task"/> that can be used to wait for stop.
+        /// </returns>
+        public Task StopEventLoop()
+        {
+            if (loopRunning != 0)
+            {
+                loopcts.Cancel();
+                return loopTask;
+            }
+            return Task.CompletedTask;
         }
 
         /// <summary>
@@ -98,11 +140,17 @@ namespace TDLib
         /// <returns>A Task that will resolve to the return value of <paramref name="func"/>.</returns>
         public Task<TLObject> InvokeAsync(Function func)
         {
-            var tsc = new TaskCompletionSource<TLObject>();
-            var seq = AddInvoke(tsc);
-            Send(func, seq);
+            if (!EventLoopRunning) throw new InvalidOperationException("loop not running");
+            var record = new InvokeRecord { tsc = new TaskCompletionSource<TLObject>(TaskCreationOptions.RunContinuationsAsynchronously) };
+            var gch = GCHandle.Alloc(record, GCHandleType.Normal);
+            var gchi = (long)GCHandle.ToIntPtr(gch);
+            if (!invokes.TryAdd(gchi, default))
+            {
+                throw new IndexOutOfRangeException("duplicate GCHandle value");
+            }
+            DoSend(func, gchi);
 
-            return tsc.Task;
+            return record.tsc.Task;
         }
 
         /// <summary>
@@ -125,82 +173,71 @@ namespace TDLib
         }
 
 
-        public Task<Update> WaitForUpdate(Func<Update, bool> criterion, CancellationToken ct = default)
+        private void HandleReceivedObject(TLObject obj, long extra)
         {
-            var tsc = new TaskCompletionSource<Update>();
-            Task handler(object sender, Update u)
+            if (obj is Update u)
             {
-                if (criterion(u))
-                {
-                    Update -= handler;
-                    tsc.TrySetResult(u);
-                }
-                return Task.CompletedTask;
+                var snapshot = Update;
+                snapshot?.Invoke(this, u);
             }
-
-            Update += handler;
-            ct.Register(() =>
+            if (extra != 0)
             {
-                Update -= handler;
-                tsc.TrySetCanceled(ct);
-            });
-            return tsc.Task;
-        }
-
-
-        private void RunLoop()
-        {
-            while (!ct.IsCancellationRequested)
-            {
-                var (seq, obj) = Receive(1.0);
-                if (obj == null) continue;
-                if (obj is Update u)
+                if (!invokes.TryRemove(extra, out _))
                 {
-                    try
-                    {
-                        Update?.Invoke(this, u);
-                    }
-                    catch { }
+                    throw new IndexOutOfRangeException("unregistered GCHandle value");
                 }
-                if (seq != 0)
-                {
-                    if (invokes.TryRemove(seq, out var tsc))
-                    {
-                        tsc.SetResult(obj);
-                    }
-                }
+                var gch = GCHandle.FromIntPtr((IntPtr)extra);
+                var record = (InvokeRecord)gch.Target;
+                gch.Free();
+                record.tsc.TrySetResult(obj);
             }
         }
 
-        /// <summary>
-        /// Starts the tdlib event loop. Required for <see cref="Update"/>, <see cref="InvokeAsync(Function)"/>, <see cref="InvokeAsync{T}(Function{T})"/>.
-        /// </summary>
-        /// <returns>The event loop Task.</returns>
-        public Task Run()
+        private void CancelPendingInvocations(CancellationToken ct)
         {
-            if (loopTask == null)
+            var handles = invokes.Keys.ToArray();
+            invokes.Clear();
+            foreach (var gchi in handles)
             {
-                loopTask = Task.Run(() =>
+                var gch = GCHandle.FromIntPtr((IntPtr)gchi);
+                var record = (InvokeRecord)gch.Target;
+                gch.Free();
+                record.tsc.TrySetCanceled(ct);
+            }
+        }
+
+        private Task Run(CancellationToken ct)
+        {
+            var task = Task.Run(() =>
+            {
+                ct.Register(() =>
                 {
-                    RunLoop();
+                    _ = InvokeAsync(new TestCallEmpty());  // to make Receive return;
                 });
-            }
-            return loopTask;
+                while (!ct.IsCancellationRequested)
+                {
+                    var (seq, obj) = DoReceive(10.0);
+                    if (obj == null) continue;
+                    HandleReceivedObject(obj, seq);
+                }
+                CancelPendingInvocations(ct);
+                Interlocked.CompareExchange(ref loopRunning, 0, 1);
+            });
+            return task;
         }
 
-        /// <summary>
-        /// Requests the event loop to stop.
-        /// </summary>
-        /// <returns>The event loop Task, which can be awaited for stop, or a canceled Task if the event loop is not started.</returns>
-        public Task StopAsync()
+        protected abstract void DisposeNativeClient();
+
+        ~Client()
         {
-            cts.Cancel();
-            if (loopTask != null)
-            {
-                return loopTask;
-            }
-            return Task.FromCanceled(default);
+            Dispose();
         }
-        
+
+        public void Dispose()
+        {
+            StopEventLoop().Wait();
+            DisposeNativeClient();
+            GC.SuppressFinalize(this);
+        }
     }
 }

@@ -28,5 +28,5 @@ def emit(out=STDOUT)
   end
 end
 
-emit File.open(ARGV[0], 'wb')
-
+TDLibTLTypeInfo.load ARGV[0]
+emit File.open(ARGV[1], 'wb')

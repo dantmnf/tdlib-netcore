@@ -22,7 +22,7 @@ namespace ConsoleApp1
     {
         private static TaskCompletionSource<bool> waitAuthReady;
 
-        private static async Task AuthHandler(object sender, Update u)
+        private static async void AuthHandler(object sender, Update u)
         {
             var client = (Client) sender;
             if (u is UpdateAuthorizationState uas)
@@ -104,7 +104,7 @@ namespace ConsoleApp1
 
         public static async Task Main()
         {
-            CxxClient.Logging.VerbosityLevel = 1;
+            //CxxClient.Logging.VerbosityLevel = 1;
             var eval = new ScriptEvaluator();
             var cts = new CancellationTokenSource();
             var ct = cts.Token;
@@ -121,8 +121,9 @@ namespace ConsoleApp1
                 waitAuthReady = new TaskCompletionSource<bool>();
                 client.Update += AuthHandler;
                 client.Update += async (sender, u) => { await AsyncConsole.WriteLine(eval.FormatObject(u)); };
-                var loop = client.Run();
-                
+                client.RunEventLoop();
+
+
                 await Task.WhenAny(waitAuthReady.Task, canceltasksrc.Task);
                 if (waitAuthReady.Task.IsCompleted)
                 {
@@ -134,9 +135,9 @@ namespace ConsoleApp1
                     {
                         await eval.Initialize(new ScriptingGlobals { client = client });
                         await eval.StartInteractive();
-                    });
+                    }, cts.Token);
                 }
-                await client.StopAsync();
+                await client.StopEventLoop();
             }
         }
     }

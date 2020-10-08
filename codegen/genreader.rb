@@ -1,14 +1,31 @@
 require 'zlib'
 require_relative 'common'
+require 'irb'
+
+FNV_PRIME32 = 16777619
+def fnv1a(s)
+  hash = 2166136261
+  s.each_byte do |octet|
+    hash ^= octet
+    hash *= FNV_PRIME32
+    hash &= 0xFFFFFFFF
+  end
+  hash
+end
+
+def hashfn(x)
+  Zlib.crc32(x)
+end
 
 def hashof(name)
-  sprintf("0x%08Xu", Zlib.crc32(name.to_s))
+  sprintf("0x%08Xu", hashfn(name.to_s))
 end
 
 def readerof(type)
+  type = TDLibTLTypeInfo::LazyResolver.resolve(type)
   case
   when type == "string"
-    "reader.ReadStringAsUTF16String()"
+    "reader.ReadString()"
   when type == "bool"
     "reader.ReadBool()"
   when type == "int"
@@ -17,24 +34,34 @@ def readerof(type)
     "reader.ReadLong()"
   when type == "double"
     "reader.ReadDouble()"
-  when type == "bool"
-    "(bool)reader.ReadValue()"
   when type == "byte[]"
     "reader.ReadBase64String()"
-  when type.is_a?(Class) && type == TDLibTLTypeInfo::Int64
-    "reader.ReadIntegerString()"
+  when type == TDLibTLTypeInfo::Int64
+    "reader.ReadInt64String()"
+  when type == TDLibTLTypeInfo::Vector["string"]
+    "reader.ReadStringArray()"
+  when type == TDLibTLTypeInfo::Vector["byte[]"]
+    "reader.ReadBytesArray()"
+  when type == TDLibTLTypeInfo::Vector["int"]
+    "reader.ReadInt32Array()"
+  when type == TDLibTLTypeInfo::Vector["long"]
+    "reader.ReadInt53Array()"
+  when type == TDLibTLTypeInfo::Vector[TDLibTLTypeInfo::Int64]
+    "reader.ReadInt64Array()"
   when type.is_a?(Class) && type <= TDLibTLTypeInfo::Vector
     st, level = type.nestinfo
+    st = TDLibTLTypeInfo::LazyResolver.resolve(st)
+    raise RuntimeError.new(st) unless st.is_a?(TDLibTLTypeInfo::Type) || st.is_a?(TDLibTLTypeInfo::TLClass)
     case level
     when 1
-      st == 'byte[]' ? "reader.ReadBytesArray()" : "reader.ReadArray<#{st.to_s}>()"
+      "reader.ReadObjectArray<#{st.to_s}>()"
     when 2
-      "reader.ReadNestedArray<#{st.to_s}>()"
+      "reader.ReadNestedObjectArray<#{st.to_s}>()"
     else
       raise NotImplementedError
     end
   else
-    "(#{type})reader.ReadValue()"
+    "reader.ReadTLObject<#{type}>()"
   end
 end
 
@@ -45,19 +72,19 @@ def emit_type(io, type)
     raise "hash collision found in type #{type.name}"
   end
   csname = check_csharp_keyword type.name
-  io.puts %Q{[TLTypeHash(#{hashof(type.realname)}, typeof(#{type.name}))]}
+  io.puts %Q{[TLTypeHash(#{hashof(type.realname)})]}
 
-  io.puts "partial class #{csname}Marshal : BaseMarshal"
+  io.puts "partial class #{csname}Converter : TLObjectConverter<#{csname}>"
   io.puts "{"
   io.push
-  io.puts "internal static BaseMarshal CreateMarshalInstance() => new #{csname}Marshal();"
+  io.puts "internal static BaseConverter CreateConverterInstance() => new #{csname}Converter();"
   io.puts "internal static TLObject CreateObjectInstance() => new #{csname}();"
   unless type.props.empty?
-    io.puts "internal override bool TdJsonReadItem(ref TdJsonReader reader, ref TLObjectWithExtra tlobj, uint hash)"
+    io.puts "internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)"
     io.puts "{"
     io.block do
-      io.puts "if (base.TdJsonReadItem(ref reader, ref tlobj, hash)) return true;"
-      io.puts "var obj = (#{csname})tlobj.TLObject;"
+      io.puts "if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;"
+      io.puts "var obj = (#{csname})tlobj;"
       io.puts "switch (hash)"
       io.puts "{"
       io.block do
@@ -97,6 +124,14 @@ def emit(out=STDOUT)
   io.puts "{"
   io.push
   
+  io.puts "partial class TLObjectFactory"
+  io.puts "{"
+  io.block do
+    io.puts "internal const uint @type_hash = 0x%08Xu;" % hashfn('@type')
+    io.puts "internal const uint @extra_hash = 0x%08Xu;" % hashfn('@extra')
+  end
+  io.puts "}"
+
   TDLibTLTypeInfo::Types.each_value do |type|
     emit_type(io, type)
   end
@@ -108,5 +143,5 @@ def emit(out=STDOUT)
   io.puts "}"
 end
 
-emit File.open(ARGV[0], 'wb')
-
+TDLibTLTypeInfo.load ARGV[0]
+emit File.open(ARGV[1], 'wb')

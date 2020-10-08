@@ -7,13 +7,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib", "TDLib\TDLib.csproj", "{DBEBA80B-E27C-4536-8D5E-62A6D8EAB54B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.Test", "test\TDLib.Test.csproj", "{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.CxxClient", "TDLib.CxxClient\TDLib.CxxClient.csproj", "{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.JsonClient", "TDLib.JsonClient\TDLib.JsonClient.csproj", "{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.JsonClient", "TDLib.JsonClient\TDLib.JsonClient.csproj", "{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bench", "bench\bench.csproj", "{B37D6BC5-4974-411E-8314-33F5464AC0ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bench", "bench\bench.csproj", "{B37D6BC5-4974-411E-8314-33F5464AC0ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB0802E6-D1C1-4E6E-A617-856E5EBC3F14}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

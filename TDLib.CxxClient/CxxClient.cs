@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using TDLib;
 using TDLib.Api;
 using TDLib.CxxClient.CxxInterop;
@@ -42,10 +43,11 @@ namespace TDLib.CxxClient
             return obj;
         }
 
-        public override (long, TLObject) Receive(double timeout)
+        protected override (long, TLObject) DoReceive(double timeout)
         {
             //var objptr = td_bridge_client_receive(ptr, timeout, out var id);
             //return (id, FetchAndFreeObject(objptr));
+            if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(CxxClient));
             TLObject obj = null;
             long id = 0;
             td_bridge_client_receive(ptr, timeout, (ptr, id_) =>
@@ -59,22 +61,19 @@ namespace TDLib.CxxClient
             return (id, obj);
         }
 
-        public override void Send(Function func, long id)
+        protected override void DoSend(Function func, long id)
         {
+            if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(CxxClient));
             td_bridge_client_send(ptr, id, TLObjectFactory.CreateCxxObject(func));
         }
 
-        #region IDisposable
-        ~CxxClient()
+        private int disposed = 0;
+        protected override void DisposeNativeClient()
         {
-            Dispose();
-        }
-        public void Dispose()
-        {
-            if (ptr != IntPtr.Zero)
+            if (Interlocked.CompareExchange(ref disposed, 1, 0) == 0)
+            {
                 td_bridge_client_destroy(ptr);
-            GC.SuppressFinalize(this);
+            }
         }
-        #endregion
     }
 }

@@ -64,7 +64,9 @@ namespace TDLib.CxxClient
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern void td_bridge_vector_int64_assign(IntPtr ptr, long* data, long len);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr* td_bridge_vector_object_data(IntPtr ptr, out long len);
+        public static extern IntPtr td_bridge_vector_object_at(IntPtr ptr, long index);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long td_bridge_vector_object_size(IntPtr ptr);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern void td_bridge_vector_object_emplace_back(IntPtr ptr, IntPtr obj);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]

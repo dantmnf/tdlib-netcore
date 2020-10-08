@@ -11,17 +11,23 @@ DefaultValue.default = "default"
 
 def emit_function(io, type)
   return unless type.type == :function
-  if type.comment && !type.comment.empty?
-    io.puts "/// <summary>"
-    io.puts "/// " + type.comment.encode(xml: :text)
-    io.puts "/// </summary>"
-  end
-  type.props.each do |prop|
-    unless prop.comment.empty?
-      argname = prop.capname.sub(/[A-Z]/, &:downcase)
-      io.puts "/// <param name=#{argname.to_s.encode(xml: :attr)}>" + prop.comment.encode(xml: :text) + "</param>"
+  hascomment = type.comment && !type.comment.empty?
+  sync = type.comment&.include?('Can be called synchronously')
+  
+  emit_doc = lambda do
+    if hascomment
+      io.puts "/// <summary>"
+      io.puts "/// " + type.comment.encode(xml: :text)
+      io.puts "/// </summary>"
+    end
+    type.props.each do |prop|
+      unless prop.comment.empty?
+        argname = prop.capname.sub(/[A-Z]/, &:downcase)
+        io.puts "/// <param name=#{argname.to_s.encode(xml: :attr)}>" + prop.comment.encode(xml: :text) + "</param>"
+      end
     end
   end
+  emit_doc.call
 
   props = type.props.map do |prop|
     proptype = prop.type.to_s
@@ -36,31 +42,51 @@ def emit_function(io, type)
     argname = check_csharp_keyword name.sub(/[A-Z]/, &:downcase)
     "#{type} #{argname} = #{DefaultValue[type]}"
   end
-  arglist.unshift "this Client client"
 
-  io.puts "public static async Task<#{check_csharp_keyword type.tl_class}> #{check_csharp_keyword type.name}(#{arglist.join(", ")})"
+
+  arglist2 = ["this Client client"] + arglist
+  io.puts "public static async Task<#{check_csharp_keyword type.tl_class}> #{check_csharp_keyword type.name}(#{arglist2.join(", ")})"
+
   io.puts "{"
   io.push
 
-  if props.empty?
-    io.puts "var obj = new #{check_csharp_keyword type.name}();"
-  else
-    io.puts "var obj = new #{check_csharp_keyword type.name}"
-    io.puts "{"
-    io.push
-    props.each do |type, name|
-      argname = check_csharp_keyword name.sub(/[A-Z]/, &:downcase)
-      io.puts "#{name} = #{argname},"
+  emit_factory = lambda do
+    if props.empty?
+      io.puts "var obj = new #{check_csharp_keyword type.name}();"
+    else
+      io.puts "var obj = new #{check_csharp_keyword type.name}"
+      io.puts "{"
+      io.push
+      props.each do |type, name|
+        argname = check_csharp_keyword name.sub(/[A-Z]/, &:downcase)
+        io.puts "#{name} = #{argname},"
+      end
+      io.pop
+      io.puts "};"
     end
-    io.pop
-    io.puts "};"
   end
+  emit_factory.call
 
   io.puts "return await client.InvokeAsync(obj);"
 
   io.pop
   io.puts "}"
   io.puts ""
+
+  if sync
+    emit_doc.call
+    io.puts "/// <remarks>This extension method is synchronous.</remarks>"
+    arglist3 = ["this Client client"] + arglist
+    io.puts "public static #{check_csharp_keyword type.tl_class} #{check_csharp_keyword type.name}Sync(#{arglist3.join(", ")})"
+    io.puts "{"
+    io.push
+    emit_factory.call
+    io.puts "return client.Execute(obj);"
+    io.pop
+    io.puts "}"
+    io.puts ""
+end
+
 end
 
 def emit(out=STDOUT)
@@ -86,5 +112,5 @@ def emit(out=STDOUT)
   io.puts "}"
 end
 
-emit File.open(ARGV[0], 'wb')
-
+TDLibTLTypeInfo.load ARGV[0]
+emit File.open(ARGV[1], 'wb')

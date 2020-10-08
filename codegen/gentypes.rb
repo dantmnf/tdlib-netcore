@@ -71,5 +71,6 @@ def emit(out=STDOUT)
   io.puts "}"
 end
 
-emit File.open(ARGV[0], 'wb')
+TDLibTLTypeInfo.load ARGV[0]
+emit File.open(ARGV[1], 'wb')
 

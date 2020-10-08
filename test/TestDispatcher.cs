@@ -7,7 +7,7 @@ using TDLib.Api;
 using ConsoleApp1.Bot;
 using System.Text.RegularExpressions;
 
-namespace test
+namespace TDLib.Test
 {
     [TestClass]
     public class TestDispatchers

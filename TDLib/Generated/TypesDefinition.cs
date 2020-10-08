@@ -9,7 +9,7 @@ namespace TDLib.Api
     public abstract class AuthenticationCodeType : TLObject { }
 
     /// <summary>
-    /// Represents the current authorization state of the client
+    /// Represents the current authorization state of the TDLib client
     /// </summary>
     public abstract class AuthorizationState : TLObject { }
 
@@ -17,6 +17,11 @@ namespace TDLib.Api
     /// Points to a file
     /// </summary>
     public abstract class InputFile : TLObject { }
+
+    /// <summary>
+    /// Describes format of the thumbnail
+    /// </summary>
+    public abstract class ThumbnailFormat : TLObject { }
 
     /// <summary>
     /// Part of the face, relative to which a mask should be placed
@@ -32,6 +37,11 @@ namespace TDLib.Api
     /// Represents the type of a user. The following types are possible: regular users, deleted users and bots
     /// </summary>
     public abstract class UserType : TLObject { }
+
+    /// <summary>
+    /// Describes a photo to be set as a user profile or chat photo
+    /// </summary>
+    public abstract class InputChatPhoto : TLObject { }
 
     /// <summary>
     /// Provides information about the status of a member in a chat
@@ -77,6 +87,11 @@ namespace TDLib.Api
     /// Describes a list of chats
     /// </summary>
     public abstract class ChatList : TLObject { }
+
+    /// <summary>
+    /// Describes a reason why an external chat is shown in a chat list
+    /// </summary>
+    public abstract class ChatSource : TLObject { }
 
     /// <summary>
     /// Describes a type of public chats
@@ -199,6 +214,11 @@ namespace TDLib.Api
     public abstract class CallDiscardReason : TLObject { }
 
     /// <summary>
+    /// Describes the type of a call server
+    /// </summary>
+    public abstract class CallServerType : TLObject { }
+
+    /// <summary>
     /// Describes the current call state
     /// </summary>
     public abstract class CallState : TLObject { }
@@ -234,7 +254,7 @@ namespace TDLib.Api
     public abstract class LanguagePackStringValue : TLObject { }
 
     /// <summary>
-    /// Represents a data needed to subscribe for push notifications through registerDevice method. To use specific push notification service, you must specify the correct application platform and upload valid server authentication data at https://my.telegram.org
+    /// Represents a data needed to subscribe for push notifications through registerDevice method. To use specific push notification service, the correct application platform must be specified and a valid server authentication data must be uploaded at https://my.telegram.org
     /// </summary>
     public abstract class DeviceToken : TLObject { }
 
@@ -334,6 +354,11 @@ namespace TDLib.Api
     public abstract class TMeUrlType : TLObject { }
 
     /// <summary>
+    /// Describes an action suggested to the current user
+    /// </summary>
+    public abstract class SuggestedAction : TLObject { }
+
+    /// <summary>
     /// Describes the way the text should be parsed for TextEntities
     /// </summary>
     public abstract class TextParseMode : TLObject { }
@@ -342,6 +367,21 @@ namespace TDLib.Api
     /// Describes the type of a proxy server
     /// </summary>
     public abstract class ProxyType : TLObject { }
+
+    /// <summary>
+    /// Describes a sticker that needs to be added to a sticker set
+    /// </summary>
+    public abstract class InputSticker : TLObject { }
+
+    /// <summary>
+    /// Describes a statistics graph
+    /// </summary>
+    public abstract class StatisticsGraph : TLObject { }
+
+    /// <summary>
+    /// Contains a detailed statistics about a chat
+    /// </summary>
+    public abstract class ChatStatistics : TLObject { }
 
     /// <summary>
     /// Contains notifications about data changes
@@ -450,7 +490,7 @@ namespace TDLib.Api
         public string DeviceModel { get; set; }
 
         /// <summary>
-        /// Version of the operating system the application is being run on; must be non-empty
+        /// Version of the operating system the application is being run on. If empty, the version is automatically detected by TDLib
         /// </summary>
         public string SystemVersion { get; set; }
 
@@ -472,7 +512,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// An authentication code is delivered via a private Telegram message, which can be viewed in another client
+    /// An authentication code is delivered via a private Telegram message, which can be viewed from another active session
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -597,7 +637,7 @@ namespace TDLib.Api
     public partial class TextEntity : TLObject
     {
         /// <summary>
-        /// Offset of the entity in UTF-16 code units
+        /// Offset of the entity, in UTF-16 code units
         /// </summary>
         public int Offset { get; set; }
 
@@ -966,7 +1006,7 @@ namespace TDLib.Api
     public partial class RemoteFile : TLObject
     {
         /// <summary>
-        /// Remote file identifier; may be empty. Can be used across application restarts or even from other devices for the current user. Uniquely identifies a file, but a file can have a lot of different valid identifiers. -If the ID starts with "http://" or "https://", it represents the HTTP URL of the file. TDLib is currently unable to download files if only their URL is known. -If downloadFile is called on such a file or if it is sent to a secret chat, TDLib starts a file generation process by sending updateFileGenerationStart to the client with the HTTP URL in the original_path and "#url#" as the conversion string. Clients should generate the file by downloading it to the specified location
+        /// Remote file identifier; may be empty. Can be used by the current user across application restarts or even from other devices. Uniquely identifies a file, but a file can have a lot of different valid identifiers. -If the ID starts with "http://" or "https://", it represents the HTTP URL of the file. TDLib is currently unable to download files if only their URL is known. -If downloadFile is called on such a file or if it is sent to a secret chat, TDLib starts a file generation process by sending updateFileGenerationStart to the application with the HTTP URL in the original_path and "#url#" as the conversion string. Application should generate the file by downloading it to the specified location
         /// </summary>
         public string Id { get; set; }
 
@@ -1045,7 +1085,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A file defined by its remote ID. The remote ID is guaranteed to be usable only if the corresponding file is still accessible to the user and known to TDLib. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the client
+    /// A file defined by its remote ID. The remote ID is guaranteed to be usable only if the corresponding file is still accessible to the user and known to TDLib. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -1077,7 +1117,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A file generated by the client
+    /// A file generated by the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -1103,33 +1143,38 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Photo description
+    /// Describes an image in JPEG format
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// photoSize type:string photo:file width:int32 height:int32 = PhotoSize;
+    /// photoSize type:string photo:file width:int32 height:int32 progressive_sizes:vector&lt;int32&gt; = PhotoSize;
     /// </remarks>
     public partial class PhotoSize : TLObject
     {
         /// <summary>
-        /// Thumbnail type (see https://core.telegram.org/constructor/photoSize)
+        /// Image type (see https://core.telegram.org/constructor/photoSize)
         /// </summary>
         public string Type { get; set; }
 
         /// <summary>
-        /// Information about the photo file
+        /// Information about the image file
         /// </summary>
         public File Photo { get; set; }
 
         /// <summary>
-        /// Photo width
+        /// Image width
         /// </summary>
         public int Width { get; set; }
 
         /// <summary>
-        /// Photo height
+        /// Image height
         /// </summary>
         public int Height { get; set; }
+
+        /// <summary>
+        /// Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image
+        /// </summary>
+        public int[] ProgressiveSizes { get; set; }
 
     }
 
@@ -1156,6 +1201,103 @@ namespace TDLib.Api
         /// The thumbnail in JPEG format
         /// </summary>
         public byte[] Data { get; set; }
+
+    }
+
+    /// <summary>
+    /// The thumbnail is in JPEG format
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// thumbnailFormatJpeg = ThumbnailFormat;
+    /// </remarks>
+    public partial class ThumbnailFormatJpeg : ThumbnailFormat
+    {
+    }
+
+    /// <summary>
+    /// The thumbnail is in PNG format. It will be used only for background patterns
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// thumbnailFormatPng = ThumbnailFormat;
+    /// </remarks>
+    public partial class ThumbnailFormatPng : ThumbnailFormat
+    {
+    }
+
+    /// <summary>
+    /// The thumbnail is in WEBP format. It will be used only for some stickers
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// thumbnailFormatWebp = ThumbnailFormat;
+    /// </remarks>
+    public partial class ThumbnailFormatWebp : ThumbnailFormat
+    {
+    }
+
+    /// <summary>
+    /// The thumbnail is in static GIF format. It will be used only for some bot inline results
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// thumbnailFormatGif = ThumbnailFormat;
+    /// </remarks>
+    public partial class ThumbnailFormatGif : ThumbnailFormat
+    {
+    }
+
+    /// <summary>
+    /// The thumbnail is in TGS format. It will be used only for animated sticker sets
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// thumbnailFormatTgs = ThumbnailFormat;
+    /// </remarks>
+    public partial class ThumbnailFormatTgs : ThumbnailFormat
+    {
+    }
+
+    /// <summary>
+    /// The thumbnail is in MPEG4 format. It will be used only for some animations and videos
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// thumbnailFormatMpeg4 = ThumbnailFormat;
+    /// </remarks>
+    public partial class ThumbnailFormatMpeg4 : ThumbnailFormat
+    {
+    }
+
+    /// <summary>
+    /// Represents a thumbnail
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// thumbnail format:ThumbnailFormat width:int32 height:int32 file:file = Thumbnail;
+    /// </remarks>
+    public partial class Thumbnail : TLObject
+    {
+        /// <summary>
+        /// Thumbnail format
+        /// </summary>
+        public ThumbnailFormat Format { get; set; }
+
+        /// <summary>
+        /// Thumbnail width
+        /// </summary>
+        public int Width { get; set; }
+
+        /// <summary>
+        /// Thumbnail height
+        /// </summary>
+        public int Height { get; set; }
+
+        /// <summary>
+        /// The thumbnail
+        /// </summary>
+        public File File { get; set; }
 
     }
 
@@ -1291,7 +1433,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// pollTypeQuiz correct_option_id:int32 = PollType;
+    /// pollTypeQuiz correct_option_id:int32 explanation:formattedText = PollType;
     /// </remarks>
     public partial class PollTypeQuiz : PollType
     {
@@ -1300,6 +1442,11 @@ namespace TDLib.Api
         /// </summary>
         public int CorrectOptionId { get; set; }
 
+        /// <summary>
+        /// Text that is shown when the user chooses an incorrect answer or taps on the lamp icon, 0-200 characters with at most 2 line feeds; empty for a yet unanswered poll
+        /// </summary>
+        public FormattedText Explanation { get; set; }
+
     }
 
     /// <summary>
@@ -1307,7 +1454,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// animation duration:int32 width:int32 height:int32 file_name:string mime_type:string minithumbnail:minithumbnail thumbnail:photoSize animation:file = Animation;
+    /// animation duration:int32 width:int32 height:int32 file_name:string mime_type:string has_stickers:Bool minithumbnail:minithumbnail thumbnail:thumbnail animation:file = Animation;
     /// </remarks>
     public partial class Animation : TLObject
     {
@@ -1337,14 +1484,19 @@ namespace TDLib.Api
         public string MimeType { get; set; }
 
         /// <summary>
+        /// True, if stickers were added to the animation. The list of corresponding sticker set can be received using getAttachedStickerSets
+        /// </summary>
+        public bool HasStickers { get; set; }
+
+        /// <summary>
         /// Animation minithumbnail; may be null
         /// </summary>
         public Minithumbnail Minithumbnail { get; set; }
 
         /// <summary>
-        /// Animation thumbnail; may be null
+        /// Animation thumbnail in JPEG or MPEG4 format; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the animation
@@ -1358,7 +1510,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// audio duration:int32 title:string performer:string file_name:string mime_type:string album_cover_minithumbnail:minithumbnail album_cover_thumbnail:photoSize audio:file = Audio;
+    /// audio duration:int32 title:string performer:string file_name:string mime_type:string album_cover_minithumbnail:minithumbnail album_cover_thumbnail:thumbnail audio:file = Audio;
     /// </remarks>
     public partial class Audio : TLObject
     {
@@ -1393,9 +1545,9 @@ namespace TDLib.Api
         public Minithumbnail AlbumCoverMinithumbnail { get; set; }
 
         /// <summary>
-        /// The thumbnail of the album cover; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null
+        /// The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null
         /// </summary>
-        public PhotoSize AlbumCoverThumbnail { get; set; }
+        public Thumbnail AlbumCoverThumbnail { get; set; }
 
         /// <summary>
         /// File containing the audio
@@ -1409,7 +1561,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// document file_name:string mime_type:string minithumbnail:minithumbnail thumbnail:photoSize document:file = Document;
+    /// document file_name:string mime_type:string minithumbnail:minithumbnail thumbnail:thumbnail document:file = Document;
     /// </remarks>
     public partial class Document : TLObject
     {
@@ -1431,7 +1583,7 @@ namespace TDLib.Api
         /// <summary>
         /// Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the document
@@ -1450,7 +1602,7 @@ namespace TDLib.Api
     public partial class Photo : TLObject
     {
         /// <summary>
-        /// True, if stickers were added to the photo
+        /// True, if stickers were added to the photo. The list of corresponding sticker sets can be received using getAttachedStickerSets
         /// </summary>
         public bool HasStickers { get; set; }
 
@@ -1471,7 +1623,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// sticker set_id:int64 width:int32 height:int32 emoji:string is_animated:Bool is_mask:Bool mask_position:maskPosition thumbnail:photoSize sticker:file = Sticker;
+    /// sticker set_id:int64 width:int32 height:int32 emoji:string is_animated:Bool is_mask:Bool mask_position:maskPosition thumbnail:thumbnail sticker:file = Sticker;
     /// </remarks>
     public partial class Sticker : TLObject
     {
@@ -1513,7 +1665,7 @@ namespace TDLib.Api
         /// <summary>
         /// Sticker thumbnail in WEBP or JPEG format; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the sticker
@@ -1527,7 +1679,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// video duration:int32 width:int32 height:int32 file_name:string mime_type:string has_stickers:Bool supports_streaming:Bool minithumbnail:minithumbnail thumbnail:photoSize video:file = Video;
+    /// video duration:int32 width:int32 height:int32 file_name:string mime_type:string has_stickers:Bool supports_streaming:Bool minithumbnail:minithumbnail thumbnail:thumbnail video:file = Video;
     /// </remarks>
     public partial class Video : TLObject
     {
@@ -1557,7 +1709,7 @@ namespace TDLib.Api
         public string MimeType { get; set; }
 
         /// <summary>
-        /// True, if stickers were added to the video
+        /// True, if stickers were added to the video. The list of corresponding sticker sets can be received using getAttachedStickerSets
         /// </summary>
         public bool HasStickers { get; set; }
 
@@ -1572,9 +1724,9 @@ namespace TDLib.Api
         public Minithumbnail Minithumbnail { get; set; }
 
         /// <summary>
-        /// Video thumbnail; as defined by the sender; may be null
+        /// Video thumbnail in JPEG or MPEG4 format; as defined by the sender; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the video
@@ -1588,7 +1740,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// videoNote duration:int32 length:int32 minithumbnail:minithumbnail thumbnail:photoSize video:file = VideoNote;
+    /// videoNote duration:int32 length:int32 minithumbnail:minithumbnail thumbnail:thumbnail video:file = VideoNote;
     /// </remarks>
     public partial class VideoNote : TLObject
     {
@@ -1608,9 +1760,9 @@ namespace TDLib.Api
         public Minithumbnail Minithumbnail { get; set; }
 
         /// <summary>
-        /// Video thumbnail; as defined by the sender; may be null
+        /// Video thumbnail in JPEG format; as defined by the sender; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// File containing the video
@@ -1732,7 +1884,7 @@ namespace TDLib.Api
         public string Address { get; set; }
 
         /// <summary>
-        /// Provider of the venue database; as defined by the sender. Currently only "foursquare" needs to be supported
+        /// Provider of the venue database; as defined by the sender. Currently only "foursquare" and "gplaces" (Google Places) need to be supported
         /// </summary>
         public string Provider { get; set; }
 
@@ -1799,7 +1951,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// poll id:int64 question:string options:vector&lt;pollOption&gt; total_voter_count:int32 recent_voter_user_ids:vector&lt;int32&gt; is_anonymous:Bool type:PollType is_closed:Bool = Poll;
+    /// poll id:int64 question:string options:vector&lt;pollOption&gt; total_voter_count:int32 recent_voter_user_ids:vector&lt;int32&gt; is_anonymous:Bool type:PollType open_period:int32 close_date:int32 is_closed:Bool = Poll;
     /// </remarks>
     public partial class Poll : TLObject
     {
@@ -1809,7 +1961,7 @@ namespace TDLib.Api
         public long Id { get; set; }
 
         /// <summary>
-        /// Poll question, 1-255 characters
+        /// Poll question, 1-300 characters
         /// </summary>
         public string Question { get; set; }
 
@@ -1839,6 +1991,16 @@ namespace TDLib.Api
         public PollType Type { get; set; }
 
         /// <summary>
+        /// Amount of time the poll will be active after creation, in seconds
+        /// </summary>
+        public int OpenPeriod { get; set; }
+
+        /// <summary>
+        /// Point in time (Unix timestamp) when the poll will be automatically closed
+        /// </summary>
+        public int CloseDate { get; set; }
+
+        /// <summary>
         /// True, if the poll is closed
         /// </summary>
         public bool IsClosed { get; set; }
@@ -1850,12 +2012,12 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// profilePhoto id:int64 small:file big:file = ProfilePhoto;
+    /// profilePhoto id:int64 small:file big:file has_animation:Bool = ProfilePhoto;
     /// </remarks>
     public partial class ProfilePhoto : TLObject
     {
         /// <summary>
-        /// Photo identifier; 0 for an empty photo. Can be used to find a photo in a list of userProfilePhotos
+        /// Photo identifier; 0 for an empty photo. Can be used to find a photo in a list of user profile photos
         /// </summary>
         public long Id { get; set; }
 
@@ -1869,26 +2031,36 @@ namespace TDLib.Api
         /// </summary>
         public File Big { get; set; }
 
+        /// <summary>
+        /// True, if the photo has animated variant
+        /// </summary>
+        public bool HasAnimation { get; set; }
+
     }
 
     /// <summary>
-    /// Describes the photo of a chat
+    /// Contains basic information about the photo of a chat
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatPhoto small:file big:file = ChatPhoto;
+    /// chatPhotoInfo small:file big:file has_animation:Bool = ChatPhotoInfo;
     /// </remarks>
-    public partial class ChatPhoto : TLObject
+    public partial class ChatPhotoInfo : TLObject
     {
         /// <summary>
-        /// A small (160x160) chat photo. The file can be downloaded only before the photo is changed
+        /// A small (160x160) chat photo variant in JPEG format. The file can be downloaded only before the photo is changed
         /// </summary>
         public File Small { get; set; }
 
         /// <summary>
-        /// A big (640x640) chat photo. The file can be downloaded only before the photo is changed
+        /// A big (640x640) chat photo variant in JPEG format. The file can be downloaded only before the photo is changed
         /// </summary>
         public File Big { get; set; }
+
+        /// <summary>
+        /// True, if the photo has animated variant
+        /// </summary>
+        public bool HasAnimation { get; set; }
 
     }
 
@@ -1939,7 +2111,7 @@ namespace TDLib.Api
         public bool IsInline { get; set; }
 
         /// <summary>
-        /// Placeholder for inline queries (displayed on the client input field)
+        /// Placeholder for inline queries (displayed on the application input field)
         /// </summary>
         public string InlineQueryPlaceholder { get; set; }
 
@@ -1962,7 +2134,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Represents commands supported by a bot
+    /// Represents a command supported by a bot
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -1976,7 +2148,7 @@ namespace TDLib.Api
         public string Command { get; set; }
 
         /// <summary>
-        /// Represents commands supported by a bot
+        /// Represents a command supported by a bot
         /// </summary>
         public string Description { get; set; }
 
@@ -2021,6 +2193,142 @@ namespace TDLib.Api
         /// Location address; 1-64 characters, as defined by the chat owner
         /// </summary>
         public string Address { get; set; }
+
+    }
+
+    /// <summary>
+    /// Animated variant of a chat photo in MPEG4 format
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// animatedChatPhoto length:int32 file:file main_frame_timestamp:double = AnimatedChatPhoto;
+    /// </remarks>
+    public partial class AnimatedChatPhoto : TLObject
+    {
+        /// <summary>
+        /// Animation width and height
+        /// </summary>
+        public int Length { get; set; }
+
+        /// <summary>
+        /// Information about the animation file
+        /// </summary>
+        public File File { get; set; }
+
+        /// <summary>
+        /// Timestamp of the frame, used as a static chat photo
+        /// </summary>
+        public double MainFrameTimestamp { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a chat or user profile photo
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatPhoto id:int64 added_date:int32 minithumbnail:minithumbnail sizes:vector&lt;photoSize&gt; animation:animatedChatPhoto = ChatPhoto;
+    /// </remarks>
+    public partial class ChatPhoto : TLObject
+    {
+        /// <summary>
+        /// Unique photo identifier
+        /// </summary>
+        public long Id { get; set; }
+
+        /// <summary>
+        /// Point in time (Unix timestamp) when the photo has been added
+        /// </summary>
+        public int AddedDate { get; set; }
+
+        /// <summary>
+        /// Photo minithumbnail; may be null
+        /// </summary>
+        public Minithumbnail Minithumbnail { get; set; }
+
+        /// <summary>
+        /// Available variants of the photo in JPEG format, in different size
+        /// </summary>
+        public PhotoSize[] Sizes { get; set; }
+
+        /// <summary>
+        /// Animated variant of the photo in MPEG4 format; may be null
+        /// </summary>
+        public AnimatedChatPhoto Animation { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains a list of chat or user profile photos
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatPhotos total_count:int32 photos:vector&lt;chatPhoto&gt; = ChatPhotos;
+    /// </remarks>
+    public partial class ChatPhotos : TLObject
+    {
+        /// <summary>
+        /// Total number of photos
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// List of photos
+        /// </summary>
+        public ChatPhoto[] Photos { get; set; }
+
+    }
+
+    /// <summary>
+    /// A previously used profile photo of the current user
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// inputChatPhotoPrevious chat_photo_id:int64 = InputChatPhoto;
+    /// </remarks>
+    public partial class InputChatPhotoPrevious : InputChatPhoto
+    {
+        /// <summary>
+        /// Identifier of the profile photo to reuse
+        /// </summary>
+        public long ChatPhotoId { get; set; }
+
+    }
+
+    /// <summary>
+    /// A static photo in JPEG format
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// inputChatPhotoStatic photo:InputFile = InputChatPhoto;
+    /// </remarks>
+    public partial class InputChatPhotoStatic : InputChatPhoto
+    {
+        /// <summary>
+        /// Photo to be set as profile photo. Only inputFileLocal and inputFileGenerated are allowed
+        /// </summary>
+        public InputFile Photo { get; set; }
+
+    }
+
+    /// <summary>
+    /// An animation in MPEG4 format; must be square, at most 10 seconds long, have width between 160 and 800 and be at most 2MB in size
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// inputChatPhotoAnimation animation:InputFile main_frame_timestamp:double = InputChatPhoto;
+    /// </remarks>
+    public partial class InputChatPhotoAnimation : InputChatPhoto
+    {
+        /// <summary>
+        /// Animation to be set as profile photo. Only inputFileLocal and inputFileGenerated are allowed
+        /// </summary>
+        public InputFile Animation { get; set; }
+
+        /// <summary>
+        /// Timestamp of the frame, which will be used as static chat photo
+        /// </summary>
+        public double MainFrameTimestamp { get; set; }
 
     }
 
@@ -2116,23 +2424,28 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Contains full information about a user (except the full list of profile photos)
+    /// Contains full information about a user
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// userFullInfo is_blocked:Bool can_be_called:Bool has_private_calls:Bool need_phone_number_privacy_exception:Bool bio:string share_text:string group_in_common_count:int32 bot_info:botInfo = UserFullInfo;
+    /// userFullInfo photo:chatPhoto can_be_called:Bool supports_video_calls:Bool has_private_calls:Bool need_phone_number_privacy_exception:Bool bio:string share_text:string group_in_common_count:int32 bot_info:botInfo = UserFullInfo;
     /// </remarks>
     public partial class UserFullInfo : TLObject
     {
         /// <summary>
-        /// True, if the user is blacklisted by the current user
+        /// User profile photo; may be null
         /// </summary>
-        public bool IsBlocked { get; set; }
+        public ChatPhoto Photo { get; set; }
 
         /// <summary>
         /// True, if the user can be called
         /// </summary>
         public bool CanBeCalled { get; set; }
+
+        /// <summary>
+        /// True, if a video call can be created with the user
+        /// </summary>
+        public bool SupportsVideoCalls { get; set; }
 
         /// <summary>
         /// True, if the user can't be called due to their privacy settings
@@ -2163,53 +2476,6 @@ namespace TDLib.Api
         /// If the user is a bot, information about the bot; may be null
         /// </summary>
         public BotInfo BotInfo { get; set; }
-
-    }
-
-    /// <summary>
-    /// Contains full information about a user profile photo
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// userProfilePhoto id:int64 added_date:int32 sizes:vector&lt;photoSize&gt; = UserProfilePhoto;
-    /// </remarks>
-    public partial class UserProfilePhoto : TLObject
-    {
-        /// <summary>
-        /// Unique user profile photo identifier
-        /// </summary>
-        public long Id { get; set; }
-
-        /// <summary>
-        /// Point in time (Unix timestamp) when the photo has been added
-        /// </summary>
-        public int AddedDate { get; set; }
-
-        /// <summary>
-        /// Available variants of the user photo, in different sizes
-        /// </summary>
-        public PhotoSize[] Sizes { get; set; }
-
-    }
-
-    /// <summary>
-    /// Contains part of the list of user photos
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// userProfilePhotos total_count:int32 photos:vector&lt;userProfilePhoto&gt; = UserProfilePhotos;
-    /// </remarks>
-    public partial class UserProfilePhotos : TLObject
-    {
-        /// <summary>
-        /// Total number of user profile photos
-        /// </summary>
-        public int TotalCount { get; set; }
-
-        /// <summary>
-        /// A list of photos
-        /// </summary>
-        public UserProfilePhoto[] Photos { get; set; }
 
     }
 
@@ -2301,7 +2567,7 @@ namespace TDLib.Api
         public bool CanSendPolls { get; set; }
 
         /// <summary>
-        /// True, if the user can send animations, games, and stickers and use inline bots. Implies can_send_messages permissions
+        /// True, if the user can send animations, games, stickers, and dice and use inline bots. Implies can_send_messages permissions
         /// </summary>
         public bool CanSendOtherMessages { get; set; }
 
@@ -2332,7 +2598,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatMemberStatusCreator custom_title:string is_member:Bool = ChatMemberStatus;
+    /// chatMemberStatusCreator custom_title:string is_anonymous:Bool is_member:Bool = ChatMemberStatus;
     /// </remarks>
     public partial class ChatMemberStatusCreator : ChatMemberStatus
     {
@@ -2340,6 +2606,11 @@ namespace TDLib.Api
         /// A custom title of the owner; 0-16 characters without emojis; applicable to supergroups only
         /// </summary>
         public string CustomTitle { get; set; }
+
+        /// <summary>
+        /// True, if the creator isn't shown in the chat member list and sends messages anonymously
+        /// </summary>
+        public bool IsAnonymous { get; set; }
 
         /// <summary>
         /// True, if the user is a member of the chat
@@ -2353,7 +2624,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatMemberStatusAdministrator custom_title:string can_be_edited:Bool can_change_info:Bool can_post_messages:Bool can_edit_messages:Bool can_delete_messages:Bool can_invite_users:Bool can_restrict_members:Bool can_pin_messages:Bool can_promote_members:Bool = ChatMemberStatus;
+    /// chatMemberStatusAdministrator custom_title:string can_be_edited:Bool can_change_info:Bool can_post_messages:Bool can_edit_messages:Bool can_delete_messages:Bool can_invite_users:Bool can_restrict_members:Bool can_pin_messages:Bool can_promote_members:Bool is_anonymous:Bool = ChatMemberStatus;
     /// </remarks>
     public partial class ChatMemberStatusAdministrator : ChatMemberStatus
     {
@@ -2406,6 +2677,11 @@ namespace TDLib.Api
         /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by them
         /// </summary>
         public bool CanPromoteMembers { get; set; }
+
+        /// <summary>
+        /// True, if the administrator isn't shown in the chat member list and sends messages anonymously
+        /// </summary>
+        public bool IsAnonymous { get; set; }
 
     }
 
@@ -2493,7 +2769,7 @@ namespace TDLib.Api
         public int InviterUserId { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the user joined a chat
+        /// Point in time (Unix timestamp) when the user joined the chat
         /// </summary>
         public int JoinedChatDate { get; set; }
 
@@ -2503,7 +2779,7 @@ namespace TDLib.Api
         public ChatMemberStatus Status { get; set; }
 
         /// <summary>
-        /// If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not a chat member
+        /// If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not the chat member
         /// </summary>
         public BotInfo BotInfo { get; set; }
 
@@ -2734,10 +3010,15 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// basicGroupFullInfo description:string creator_user_id:int32 members:vector&lt;chatMember&gt; invite_link:string = BasicGroupFullInfo;
+    /// basicGroupFullInfo photo:chatPhoto description:string creator_user_id:int32 members:vector&lt;chatMember&gt; invite_link:string = BasicGroupFullInfo;
     /// </remarks>
     public partial class BasicGroupFullInfo : TLObject
     {
+        /// <summary>
+        /// Chat photo; may be null
+        /// </summary>
+        public ChatPhoto Photo { get; set; }
+
         /// <summary>
         /// Contains full information about a basic group
         /// </summary>
@@ -2790,7 +3071,7 @@ namespace TDLib.Api
         public ChatMemberStatus Status { get; set; }
 
         /// <summary>
-        /// Member count; 0 if unknown. Currently it is guaranteed to be known only if the supergroup or channel was found through SearchPublicChats
+        /// Number of members in the supergroup or channel; 0 if unknown. Currently it is guaranteed to be known only if the supergroup or channel was received through searchPublicChats, searchChatsNearby, getInactiveSupergroupChats, getSuitableDiscussionChats, getGroupsInCommon, or getUserPrivacySettingRules
         /// </summary>
         public int MemberCount { get; set; }
 
@@ -2841,10 +3122,15 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// supergroupFullInfo description:string member_count:int32 administrator_count:int32 restricted_count:int32 banned_count:int32 linked_chat_id:int53 slow_mode_delay:int32 slow_mode_delay_expires_in:double can_get_members:Bool can_set_username:Bool can_set_sticker_set:Bool can_set_location:Bool can_view_statistics:Bool is_all_history_available:Bool sticker_set_id:int64 location:chatLocation invite_link:string upgraded_from_basic_group_id:int32 upgraded_from_max_message_id:int53 = SupergroupFullInfo;
+    /// supergroupFullInfo photo:chatPhoto description:string member_count:int32 administrator_count:int32 restricted_count:int32 banned_count:int32 linked_chat_id:int53 slow_mode_delay:int32 slow_mode_delay_expires_in:double can_get_members:Bool can_set_username:Bool can_set_sticker_set:Bool can_set_location:Bool can_get_statistics:Bool is_all_history_available:Bool sticker_set_id:int64 location:chatLocation invite_link:string upgraded_from_basic_group_id:int32 upgraded_from_max_message_id:int53 = SupergroupFullInfo;
     /// </remarks>
     public partial class SupergroupFullInfo : TLObject
     {
+        /// <summary>
+        /// Chat photo; may be null
+        /// </summary>
+        public ChatPhoto Photo { get; set; }
+
         /// <summary>
         /// Contains full information about a supergroup or channel
         /// </summary>
@@ -2906,9 +3192,9 @@ namespace TDLib.Api
         public bool CanSetLocation { get; set; }
 
         /// <summary>
-        /// True, if the channel statistics is available through getChatStatisticsUrl
+        /// True, if the supergroup or channel statistics are available
         /// </summary>
-        public bool CanViewStatistics { get; set; }
+        public bool CanGetStatistics { get; set; }
 
         /// <summary>
         /// True, if new chat members will have access to old messages. In public or discussion groups and both public and private channels, old messages are always available, so this option affects only private supergroups without a linked chat. The value of this field is only available for chat administrators
@@ -3015,7 +3301,7 @@ namespace TDLib.Api
         public byte[] KeyHash { get; set; }
 
         /// <summary>
-        /// Secret chat layer; determines features supported by the other client. Video notes are supported if the layer &gt;= 66; nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101
+        /// Secret chat layer; determines features supported by the chat partner's application. Video notes are supported if the layer &gt;= 66; nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101
         /// </summary>
         public int Layer { get; set; }
 
@@ -3034,6 +3320,22 @@ namespace TDLib.Api
         /// Identifier of the user that originally sent the message
         /// </summary>
         public int SenderUserId { get; set; }
+
+    }
+
+    /// <summary>
+    /// The message was originally written by an anonymous chat administrator on behalf of the chat
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageForwardOriginChat sender_chat_id:int53 = MessageForwardOrigin;
+    /// </remarks>
+    public partial class MessageForwardOriginChat : MessageForwardOrigin
+    {
+        /// <summary>
+        /// Identifier of the chat that originally sent the message
+        /// </summary>
+        public long SenderChatId { get; set; }
 
     }
 
@@ -3084,7 +3386,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageForwardInfo origin:MessageForwardOrigin date:int32 from_chat_id:int53 from_message_id:int53 = MessageForwardInfo;
+    /// messageForwardInfo origin:MessageForwardOrigin date:int32 public_service_announcement_type:string from_chat_id:int53 from_message_id:int53 = MessageForwardInfo;
     /// </remarks>
     public partial class MessageForwardInfo : TLObject
     {
@@ -3099,14 +3401,81 @@ namespace TDLib.Api
         public int Date { get; set; }
 
         /// <summary>
-        /// For messages forwarded to the chat with the current user (Saved Messages) or to the channel's discussion group, the identifier of the chat from which the message was forwarded last time; 0 if unknown
+        /// The type of a public service announcement for the forwarded message
+        /// </summary>
+        public string PublicServiceAnnouncementType { get; set; }
+
+        /// <summary>
+        /// For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the chat from which the message was forwarded last time; 0 if unknown
         /// </summary>
         public long FromChatId { get; set; }
 
         /// <summary>
-        /// For messages forwarded to the chat with the current user (Saved Messages) or to the channel's discussion group, the identifier of the original message from which the new message was forwarded last time; 0 if unknown
+        /// For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the original message from which the new message was forwarded last time; 0 if unknown
         /// </summary>
         public long FromMessageId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about message replies
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageReplyInfo reply_count:int32 recent_replier_user_ids:vector&lt;int32&gt; last_read_inbox_message_id:int53 last_read_outbox_message_id:int53 last_message_id:int53 = MessageReplyInfo;
+    /// </remarks>
+    public partial class MessageReplyInfo : TLObject
+    {
+        /// <summary>
+        /// Number of times the message was directly or indirectly replied
+        /// </summary>
+        public int ReplyCount { get; set; }
+
+        /// <summary>
+        /// User identifiers of the recent repliers to the message; available in channels with a discussion supergroup
+        /// </summary>
+        public int[] RecentReplierUserIds { get; set; }
+
+        /// <summary>
+        /// Identifier of the last read incoming reply to the message
+        /// </summary>
+        public long LastReadInboxMessageId { get; set; }
+
+        /// <summary>
+        /// Identifier of the last read outgoing reply to the message
+        /// </summary>
+        public long LastReadOutboxMessageId { get; set; }
+
+        /// <summary>
+        /// Identifier of the last reply to the message
+        /// </summary>
+        public long LastMessageId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about interactions with a message
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageInteractionInfo view_count:int32 forward_count:int32 reply_info:messageReplyInfo = MessageInteractionInfo;
+    /// </remarks>
+    public partial class MessageInteractionInfo : TLObject
+    {
+        /// <summary>
+        /// Number of times the message was viewed
+        /// </summary>
+        public int ViewCount { get; set; }
+
+        /// <summary>
+        /// Number of times the message was forwarded
+        /// </summary>
+        public int ForwardCount { get; set; }
+
+        /// <summary>
+        /// Contains information about direct or indirect replies to the message; may be null. Currently, available only in channels with a discussion supergroup and discussion supergroups for messages, which are not replies itself
+        /// </summary>
+        public MessageReplyInfo ReplyInfo { get; set; }
 
     }
 
@@ -3157,19 +3526,24 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// message id:int53 sender_user_id:int32 chat_id:int53 sending_state:MessageSendingState scheduling_state:MessageSchedulingState is_outgoing:Bool can_be_edited:Bool can_be_forwarded:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool is_channel_post:Bool contains_unread_mention:Bool date:int32 edit_date:int32 forward_info:messageForwardInfo reply_to_message_id:int53 ttl:int32 ttl_expires_in:double via_bot_user_id:int32 author_signature:string views:int32 media_album_id:int64 restriction_reason:string content:MessageContent reply_markup:ReplyMarkup = Message;
+    /// message id:int53 sender_user_id:int32 sender_chat_id:int53 chat_id:int53 sending_state:MessageSendingState scheduling_state:MessageSchedulingState is_outgoing:Bool can_be_edited:Bool can_be_forwarded:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool can_get_statistics:Bool can_get_message_thread:Bool is_channel_post:Bool contains_unread_mention:Bool date:int32 edit_date:int32 forward_info:messageForwardInfo interaction_info:messageInteractionInfo reply_in_chat_id:int53 reply_to_message_id:int53 message_thread_id:int53 ttl:int32 ttl_expires_in:double via_bot_user_id:int32 author_signature:string media_album_id:int64 restriction_reason:string content:MessageContent reply_markup:ReplyMarkup = Message;
     /// </remarks>
     public partial class Message : TLObject
     {
         /// <summary>
-        /// Message identifier, unique for the chat to which the message belongs
+        /// Message identifier; unique for the chat to which the message belongs
         /// </summary>
         public long Id { get; set; }
 
         /// <summary>
-        /// Identifier of the user who sent the message; 0 if unknown. Currently, it is unknown for channel posts and for channel posts automatically forwarded to discussion group
+        /// Identifier of the user who sent the message; 0 if unknown. Currently, it is unknown for channel posts, for channel posts automatically forwarded to discussion group and for anonymously sent supergroup messages
         /// </summary>
         public int SenderUserId { get; set; }
+
+        /// <summary>
+        /// Identifier of the chat on behalf of which the message was sent; 0 if none
+        /// </summary>
+        public long SenderChatId { get; set; }
 
         /// <summary>
         /// Chat identifier
@@ -3192,7 +3566,7 @@ namespace TDLib.Api
         public bool IsOutgoing { get; set; }
 
         /// <summary>
-        /// True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the client
+        /// True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application
         /// </summary>
         public bool CanBeEdited { get; set; }
 
@@ -3210,6 +3584,16 @@ namespace TDLib.Api
         /// True, if the message can be deleted for all users
         /// </summary>
         public bool CanBeDeletedForAllUsers { get; set; }
+
+        /// <summary>
+        /// True, if the message statistics are available
+        /// </summary>
+        public bool CanGetStatistics { get; set; }
+
+        /// <summary>
+        /// True, if the message thread info is available
+        /// </summary>
+        public bool CanGetMessageThread { get; set; }
 
         /// <summary>
         /// True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
@@ -3237,9 +3621,24 @@ namespace TDLib.Api
         public MessageForwardInfo ForwardInfo { get; set; }
 
         /// <summary>
+        /// Information about interactions with the message; may be null
+        /// </summary>
+        public MessageInteractionInfo InteractionInfo { get; set; }
+
+        /// <summary>
+        /// If non-zero, the identifier of the chat to which the replied message belongs; Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id
+        /// </summary>
+        public long ReplyInChatId { get; set; }
+
+        /// <summary>
         /// If non-zero, the identifier of the message this message is replying to; can be the identifier of a deleted message
         /// </summary>
         public long ReplyToMessageId { get; set; }
+
+        /// <summary>
+        /// If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs
+        /// </summary>
+        public long MessageThreadId { get; set; }
 
         /// <summary>
         /// For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the TTL expires
@@ -3260,11 +3659,6 @@ namespace TDLib.Api
         /// For channel posts, optional author signature
         /// </summary>
         public string AuthorSignature { get; set; }
-
-        /// <summary>
-        /// Number of times this message was viewed
-        /// </summary>
-        public int Views { get; set; }
 
         /// <summary>
         /// Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums
@@ -3314,19 +3708,24 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// foundMessages messages:vector&lt;message&gt; next_from_search_id:int64 = FoundMessages;
+    /// foundMessages total_count:int32 messages:vector&lt;message&gt; next_offset:string = FoundMessages;
     /// </remarks>
     public partial class FoundMessages : TLObject
     {
+        /// <summary>
+        /// Approximate total count of messages found; -1 if unknown
+        /// </summary>
+        public int TotalCount { get; set; }
+
         /// <summary>
         /// List of messages
         /// </summary>
         public Message[] Messages { get; set; }
 
         /// <summary>
-        /// Value to pass as from_search_id to get more results
+        /// The offset for the next request. If empty, there are no more results
         /// </summary>
-        public long NextFromSearchId { get; set; }
+        public string NextOffset { get; set; }
 
     }
 
@@ -3465,7 +3864,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// draftMessage reply_to_message_id:int53 input_message_text:InputMessageContent = DraftMessage;
+    /// draftMessage reply_to_message_id:int53 date:int32 input_message_text:InputMessageContent = DraftMessage;
     /// </remarks>
     public partial class DraftMessage : TLObject
     {
@@ -3473,6 +3872,11 @@ namespace TDLib.Api
         /// Identifier of the message to reply to; 0 if none
         /// </summary>
         public long ReplyToMessageId { get; set; }
+
+        /// <summary>
+        /// Point in time (Unix timestamp) when the draft was created
+        /// </summary>
+        public int Date { get; set; }
 
         /// <summary>
         /// Content of the message draft; this should always be of type inputMessageText
@@ -3556,6 +3960,145 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// Represents a filter of user chats
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatFilter title:string icon_name:string pinned_chat_ids:vector&lt;int53&gt; included_chat_ids:vector&lt;int53&gt; excluded_chat_ids:vector&lt;int53&gt; exclude_muted:Bool exclude_read:Bool exclude_archived:Bool include_contacts:Bool include_non_contacts:Bool include_bots:Bool include_groups:Bool include_channels:Bool = ChatFilter;
+    /// </remarks>
+    public partial class ChatFilter : TLObject
+    {
+        /// <summary>
+        /// The title of the filter; 1-12 characters without line feeds
+        /// </summary>
+        public string Title { get; set; }
+
+        /// <summary>
+        /// The icon name for short filter representation. If non-empty, must be one of "All", "Unread", "Unmuted", "Bots", "Channels", "Groups", "Private", "Custom", "Setup", "Cat", "Crown", "Favorite", "Flower", "Game", "Home", "Love", "Mask", "Party", "Sport", "Study", "Trade", "Travel", "Work". -If empty, use getChatFilterDefaultIconName to get default icon name for the filter
+        /// </summary>
+        public string IconName { get; set; }
+
+        /// <summary>
+        /// The chat identifiers of pinned chats in the filtered chat list
+        /// </summary>
+        public long[] PinnedChatIds { get; set; }
+
+        /// <summary>
+        /// The chat identifiers of always included chats in the filtered chat list
+        /// </summary>
+        public long[] IncludedChatIds { get; set; }
+
+        /// <summary>
+        /// The chat identifiers of always excluded chats in the filtered chat list
+        /// </summary>
+        public long[] ExcludedChatIds { get; set; }
+
+        /// <summary>
+        /// True, if the muted chats need to be excluded
+        /// </summary>
+        public bool ExcludeMuted { get; set; }
+
+        /// <summary>
+        /// True, if read chats need to be excluded
+        /// </summary>
+        public bool ExcludeRead { get; set; }
+
+        /// <summary>
+        /// True, if archived chats need to be excluded
+        /// </summary>
+        public bool ExcludeArchived { get; set; }
+
+        /// <summary>
+        /// True, if contacts need to be included
+        /// </summary>
+        public bool IncludeContacts { get; set; }
+
+        /// <summary>
+        /// True, if non-contact users need to be included
+        /// </summary>
+        public bool IncludeNonContacts { get; set; }
+
+        /// <summary>
+        /// True, if bots need to be included
+        /// </summary>
+        public bool IncludeBots { get; set; }
+
+        /// <summary>
+        /// True, if basic groups and supergroups need to be included
+        /// </summary>
+        public bool IncludeGroups { get; set; }
+
+        /// <summary>
+        /// True, if channels need to be included
+        /// </summary>
+        public bool IncludeChannels { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains basic information about a chat filter
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatFilterInfo id:int32 title:string icon_name:string = ChatFilterInfo;
+    /// </remarks>
+    public partial class ChatFilterInfo : TLObject
+    {
+        /// <summary>
+        /// Unique chat filter identifier
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The title of the filter; 1-12 characters without line feeds
+        /// </summary>
+        public string Title { get; set; }
+
+        /// <summary>
+        /// The icon name for short filter representation. One of "All", "Unread", "Unmuted", "Bots", "Channels", "Groups", "Private", "Custom", "Setup", "Cat", "Crown", "Favorite", "Flower", "Game", "Home", "Love", "Mask", "Party", "Sport", "Study", "Trade", "Travel", "Work"
+        /// </summary>
+        public string IconName { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a recommended chat filter
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// recommendedChatFilter filter:chatFilter description:string = RecommendedChatFilter;
+    /// </remarks>
+    public partial class RecommendedChatFilter : TLObject
+    {
+        /// <summary>
+        /// The chat filter
+        /// </summary>
+        public ChatFilter Filter { get; set; }
+
+        /// <summary>
+        /// Describes a recommended chat filter
+        /// </summary>
+        public string Description { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains a list of recommended chat filters
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// recommendedChatFilters chat_filters:vector&lt;recommendedChatFilter&gt; = RecommendedChatFilters;
+    /// </remarks>
+    public partial class RecommendedChatFilters : TLObject
+    {
+        /// <summary>
+        /// List of recommended chat filters
+        /// </summary>
+        public RecommendedChatFilter[] ChatFilters { get; set; }
+
+    }
+
+    /// <summary>
     /// A main list of chats
     /// </summary>
     /// <remarks>
@@ -3578,11 +4121,106 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// A list of chats belonging to a chat filter
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatListFilter chat_filter_id:int32 = ChatList;
+    /// </remarks>
+    public partial class ChatListFilter : ChatList
+    {
+        /// <summary>
+        /// Chat filter identifier
+        /// </summary>
+        public int ChatFilterId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains a list of chat lists
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatLists chat_lists:vector&lt;ChatList&gt; = ChatLists;
+    /// </remarks>
+    public partial class ChatLists : TLObject
+    {
+        /// <summary>
+        /// List of chat lists
+        /// </summary>
+        public ChatList[] ChatLists_ { get; set; }
+
+    }
+
+    /// <summary>
+    /// The chat is sponsored by the user's MTProxy server
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatSourceMtprotoProxy = ChatSource;
+    /// </remarks>
+    public partial class ChatSourceMtprotoProxy : ChatSource
+    {
+    }
+
+    /// <summary>
+    /// The chat contains a public service announcement
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatSourcePublicServiceAnnouncement type:string text:string = ChatSource;
+    /// </remarks>
+    public partial class ChatSourcePublicServiceAnnouncement : ChatSource
+    {
+        /// <summary>
+        /// The type of the announcement
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
+        /// The text of the announcement
+        /// </summary>
+        public string Text { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a position of a chat in a chat list
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatPosition list:ChatList order:int64 is_pinned:Bool source:ChatSource = ChatPosition;
+    /// </remarks>
+    public partial class ChatPosition : TLObject
+    {
+        /// <summary>
+        /// The chat list
+        /// </summary>
+        public ChatList List { get; set; }
+
+        /// <summary>
+        /// A parameter used to determine order of the chat in the chat list. Chats must be sorted by the pair (order, chat.id) in descending order
+        /// </summary>
+        public long Order { get; set; }
+
+        /// <summary>
+        /// True, if the chat is pinned in the chat list
+        /// </summary>
+        public bool IsPinned { get; set; }
+
+        /// <summary>
+        /// Source of the chat in the chat list; may be null
+        /// </summary>
+        public ChatSource Source { get; set; }
+
+    }
+
+    /// <summary>
     /// A chat. (Can be a private chat, basic group, supergroup, or secret chat)
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chat id:int53 type:ChatType chat_list:ChatList title:string photo:chatPhoto permissions:chatPermissions last_message:message order:int64 is_pinned:Bool is_marked_as_unread:Bool is_sponsored:Bool has_scheduled_messages:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool can_be_reported:Bool default_disable_notification:Bool unread_count:int32 last_read_inbox_message_id:int53 last_read_outbox_message_id:int53 unread_mention_count:int32 notification_settings:chatNotificationSettings action_bar:ChatActionBar pinned_message_id:int53 reply_markup_message_id:int53 draft_message:draftMessage client_data:string = Chat;
+    /// chat id:int53 type:ChatType title:string photo:chatPhotoInfo permissions:chatPermissions last_message:message positions:vector&lt;chatPosition&gt; is_marked_as_unread:Bool is_blocked:Bool has_scheduled_messages:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool can_be_reported:Bool default_disable_notification:Bool unread_count:int32 last_read_inbox_message_id:int53 last_read_outbox_message_id:int53 unread_mention_count:int32 notification_settings:chatNotificationSettings action_bar:ChatActionBar pinned_message_id:int53 reply_markup_message_id:int53 draft_message:draftMessage client_data:string = Chat;
     /// </remarks>
     public partial class Chat : TLObject
     {
@@ -3597,11 +4235,6 @@ namespace TDLib.Api
         public ChatType Type { get; set; }
 
         /// <summary>
-        /// A chat list to which the chat belongs; may be null
-        /// </summary>
-        public ChatList ChatList { get; set; }
-
-        /// <summary>
         /// Chat title
         /// </summary>
         public string Title { get; set; }
@@ -3609,7 +4242,7 @@ namespace TDLib.Api
         /// <summary>
         /// Chat photo; may be null
         /// </summary>
-        public ChatPhoto Photo { get; set; }
+        public ChatPhotoInfo Photo { get; set; }
 
         /// <summary>
         /// Actions that non-administrator chat members are allowed to take in the chat
@@ -3622,14 +4255,9 @@ namespace TDLib.Api
         public Message LastMessage { get; set; }
 
         /// <summary>
-        /// Descending parameter by which chats are sorted in the main chat list. If the order number of two chats is the same, they must be sorted in descending order by ID. If 0, the position of the chat in the list is undetermined
+        /// Positions of the chat in chat lists
         /// </summary>
-        public long Order { get; set; }
-
-        /// <summary>
-        /// True, if the chat is pinned
-        /// </summary>
-        public bool IsPinned { get; set; }
+        public ChatPosition[] Positions { get; set; }
 
         /// <summary>
         /// True, if the chat is marked as unread
@@ -3637,9 +4265,9 @@ namespace TDLib.Api
         public bool IsMarkedAsUnread { get; set; }
 
         /// <summary>
-        /// True, if the chat is sponsored by the user's MTProxy server
+        /// True, if the chat is blocked by the current user and private messages from the chat can't be received
         /// </summary>
-        public bool IsSponsored { get; set; }
+        public bool IsBlocked { get; set; }
 
         /// <summary>
         /// True, if the chat has scheduled messages
@@ -3712,7 +4340,7 @@ namespace TDLib.Api
         public DraftMessage DraftMessage { get; set; }
 
         /// <summary>
-        /// Contains client-specific data associated with the chat. (For example, the chat position or local chat notification settings can be stored here.) Persistent if the message database is used
+        /// Contains application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used
         /// </summary>
         public string ClientData { get; set; }
 
@@ -3723,10 +4351,15 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chats chat_ids:vector&lt;int53&gt; = Chats;
+    /// chats total_count:int32 chat_ids:vector&lt;int53&gt; = Chats;
     /// </remarks>
     public partial class Chats : TLObject
     {
+        /// <summary>
+        /// Approximate total count of chats found
+        /// </summary>
+        public int TotalCount { get; set; }
+
         /// <summary>
         /// List of chat identifiers
         /// </summary>
@@ -3797,14 +4430,19 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatInviteLinkInfo chat_id:int53 type:ChatType title:string photo:chatPhoto member_count:int32 member_user_ids:vector&lt;int32&gt; is_public:Bool = ChatInviteLinkInfo;
+    /// chatInviteLinkInfo chat_id:int53 accessible_for:int32 type:ChatType title:string photo:chatPhotoInfo member_count:int32 member_user_ids:vector&lt;int32&gt; is_public:Bool = ChatInviteLinkInfo;
     /// </remarks>
     public partial class ChatInviteLinkInfo : TLObject
     {
         /// <summary>
-        /// Chat identifier of the invite link; 0 if the user is not a member of this chat
+        /// Chat identifier of the invite link; 0 if the user has no access to the chat before joining
         /// </summary>
         public long ChatId { get; set; }
+
+        /// <summary>
+        /// If non-zero, the remaining time for which read access is granted to the chat, in seconds
+        /// </summary>
+        public int AccessibleFor { get; set; }
 
         /// <summary>
         /// Contains information about the type of the chat
@@ -3819,10 +4457,10 @@ namespace TDLib.Api
         /// <summary>
         /// Chat photo; may be null
         /// </summary>
-        public ChatPhoto Photo { get; set; }
+        public ChatPhotoInfo Photo { get; set; }
 
         /// <summary>
-        /// Number of members
+        /// Number of members in the chat
         /// </summary>
         public int MemberCount { get; set; }
 
@@ -3865,10 +4503,15 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatActionBarReportSpam = ChatActionBar;
+    /// chatActionBarReportSpam can_unarchive:Bool = ChatActionBar;
     /// </remarks>
     public partial class ChatActionBarReportSpam : ChatActionBar
     {
+        /// <summary>
+        /// If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
+        /// </summary>
+        public bool CanUnarchive { get; set; }
+
     }
 
     /// <summary>
@@ -3883,14 +4526,24 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// The chat is a private or secret chat, which can be reported using the method reportChat, or the other user can be added to the contact list using the method addContact, or the other user can be blocked using the method blockUser
+    /// The chat is a private or secret chat, which can be reported using the method reportChat, or the other user can be blocked using the method blockUser, or the other user can be added to the contact list using the method addContact
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatActionBarReportAddBlock = ChatActionBar;
+    /// chatActionBarReportAddBlock can_unarchive:Bool distance:int32 = ChatActionBar;
     /// </remarks>
     public partial class ChatActionBarReportAddBlock : ChatActionBar
     {
+        /// <summary>
+        /// If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
+        /// </summary>
+        public bool CanUnarchive { get; set; }
+
+        /// <summary>
+        /// If non-negative, the current user was found by the peer through searchChatsNearby and this is the distance between the users
+        /// </summary>
+        public int Distance { get; set; }
+
     }
 
     /// <summary>
@@ -4033,7 +4686,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A button that sends a special callback query to a bot
+    /// A button that sends a callback query to a bot
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -4049,7 +4702,23 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A button with a game that sends a special callback query to a bot. This button must be in the first column and row of the keyboard and can be attached only to a message with content of the type messageGame
+    /// A button that asks for password of the current user and then sends a callback query to a bot
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// inlineKeyboardButtonTypeCallbackWithPassword data:bytes = InlineKeyboardButtonType;
+    /// </remarks>
+    public partial class InlineKeyboardButtonTypeCallbackWithPassword : InlineKeyboardButtonType
+    {
+        /// <summary>
+        /// Data to be sent to the bot via a callback query
+        /// </summary>
+        public byte[] Data { get; set; }
+
+    }
+
+    /// <summary>
+    /// A button with a game that sends a callback query to a bot. This button must be in the first column and row of the keyboard and can be attached only to a message with content of the type messageGame
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -4113,7 +4782,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Instructs clients to remove the keyboard once this message has been received. This kind of keyboard can't be received in an incoming message; instead, UpdateChatReplyMarkup with message_id == 0 will be sent
+    /// Instructs application to remove the keyboard once this message has been received. This kind of keyboard can't be received in an incoming message; instead, UpdateChatReplyMarkup with message_id == 0 will be sent
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -4129,7 +4798,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Instructs clients to force a reply to this message
+    /// Instructs application to force a reply to this message
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -4159,12 +4828,12 @@ namespace TDLib.Api
         public KeyboardButton[][] Rows { get; set; }
 
         /// <summary>
-        /// True, if the client needs to resize the keyboard vertically
+        /// True, if the application needs to resize the keyboard vertically
         /// </summary>
         public bool ResizeKeyboard { get; set; }
 
         /// <summary>
-        /// True, if the client needs to hide the keyboard after use
+        /// True, if the application needs to hide the keyboard after use
         /// </summary>
         public bool OneTime { get; set; }
 
@@ -4240,6 +4909,37 @@ namespace TDLib.Api
         /// True, if the user needs to be requested to give the permission to the bot to send them messages
         /// </summary>
         public bool RequestWriteAccess { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about a message thread
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageThreadInfo chat_id:int53 message_thread_id:int53 messages:vector&lt;message&gt; draft_message:draftMessage = MessageThreadInfo;
+    /// </remarks>
+    public partial class MessageThreadInfo : TLObject
+    {
+        /// <summary>
+        /// Identifier of the chat to which the message thread belongs
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Message thread identifier, unique within the chat
+        /// </summary>
+        public long MessageThreadId { get; set; }
+
+        /// <summary>
+        /// The messages from which the thread starts. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
+        /// </summary>
+        public Message[] Messages { get; set; }
+
+        /// <summary>
+        /// A draft of a message in the message thread; may be null
+        /// </summary>
+        public DraftMessage DraftMessage { get; set; }
 
     }
 
@@ -4482,23 +5182,70 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A rich text anchor
+    /// A rich text reference of a text on the same web page
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// richTextAnchor text:RichText name:string = RichText;
+    /// richTextReference text:RichText reference_text:RichText url:string = RichText;
     /// </remarks>
-    public partial class RichTextAnchor : RichText
+    public partial class RichTextReference : RichText
     {
         /// <summary>
-        /// Text
+        /// The text
         /// </summary>
         public RichText Text { get; set; }
 
         /// <summary>
+        /// The text to show on click
+        /// </summary>
+        public RichText ReferenceText { get; set; }
+
+        /// <summary>
+        /// An HTTP URL, opening the reference
+        /// </summary>
+        public string Url { get; set; }
+
+    }
+
+    /// <summary>
+    /// An anchor
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// richTextAnchor name:string = RichText;
+    /// </remarks>
+    public partial class RichTextAnchor : RichText
+    {
+        /// <summary>
         /// Anchor name
         /// </summary>
         public string Name { get; set; }
+
+    }
+
+    /// <summary>
+    /// A link to an anchor on the same web page
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// richTextAnchorLink text:RichText name:string url:string = RichText;
+    /// </remarks>
+    public partial class RichTextAnchorLink : RichText
+    {
+        /// <summary>
+        /// The link text
+        /// </summary>
+        public RichText Text { get; set; }
+
+        /// <summary>
+        /// The anchor name. If the name is empty, the link should bring back to top
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// An HTTP URL, opening the anchor
+        /// </summary>
+        public string Url { get; set; }
 
     }
 
@@ -5227,7 +5974,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// pageBlockChatLink title:string photo:chatPhoto username:string = PageBlock;
+    /// pageBlockChatLink title:string photo:chatPhotoInfo username:string = PageBlock;
     /// </remarks>
     public partial class PageBlockChatLink : PageBlock
     {
@@ -5239,7 +5986,7 @@ namespace TDLib.Api
         /// <summary>
         /// Chat photo; may be null
         /// </summary>
-        public ChatPhoto Photo { get; set; }
+        public ChatPhotoInfo Photo { get; set; }
 
         /// <summary>
         /// Chat username, by which all other information about the chat should be resolved
@@ -5367,7 +6114,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// webPageInstantView page_blocks:vector&lt;PageBlock&gt; version:int32 url:string is_rtl:Bool is_full:Bool = WebPageInstantView;
+    /// webPageInstantView page_blocks:vector&lt;PageBlock&gt; view_count:int32 version:int32 is_rtl:Bool is_full:Bool = WebPageInstantView;
     /// </remarks>
     public partial class WebPageInstantView : TLObject
     {
@@ -5377,14 +6124,14 @@ namespace TDLib.Api
         public PageBlock[] PageBlocks { get; set; }
 
         /// <summary>
+        /// Number of the instant view views; 0 if unknown
+        /// </summary>
+        public int ViewCount { get; set; }
+
+        /// <summary>
         /// Version of the instant view, currently can be 1 or 2
         /// </summary>
         public int Version { get; set; }
-
-        /// <summary>
-        /// Instant view URL; may be different from WebPage.url and must be used for the correct anchors handling
-        /// </summary>
-        public string Url { get; set; }
 
         /// <summary>
         /// True, if the instant view must be shown from right to left
@@ -5403,7 +6150,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// webPage url:string display_url:string type:string site_name:string title:string description:string photo:photo embed_url:string embed_type:string embed_width:int32 embed_height:int32 duration:int32 author:string animation:animation audio:audio document:document sticker:sticker video:video video_note:videoNote voice_note:voiceNote instant_view_version:int32 = WebPage;
+    /// webPage url:string display_url:string type:string site_name:string title:string description:formattedText photo:photo embed_url:string embed_type:string embed_width:int32 embed_height:int32 duration:int32 author:string animation:animation audio:audio document:document sticker:sticker video:video video_note:videoNote voice_note:voiceNote instant_view_version:int32 = WebPage;
     /// </remarks>
     public partial class WebPage : TLObject
     {
@@ -5435,7 +6182,7 @@ namespace TDLib.Api
         /// <summary>
         /// Describes a web page preview
         /// </summary>
-        public string Description { get; set; }
+        public FormattedText Description { get; set; }
 
         /// <summary>
         /// Image representing the content; may be null
@@ -5511,6 +6258,126 @@ namespace TDLib.Api
         /// Version of instant view, available for the web page (currently can be 1 or 2), 0 if none
         /// </summary>
         public int InstantViewVersion { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about a country
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// countryInfo country_code:string name:string english_name:string is_hidden:Bool calling_codes:vector&lt;string&gt; = CountryInfo;
+    /// </remarks>
+    public partial class CountryInfo : TLObject
+    {
+        /// <summary>
+        /// A two-letter ISO 3166-1 alpha-2 country code
+        /// </summary>
+        public string CountryCode { get; set; }
+
+        /// <summary>
+        /// Native name of the country
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// English name of the country
+        /// </summary>
+        public string EnglishName { get; set; }
+
+        /// <summary>
+        /// True, if the country should be hidden from the list of all countries
+        /// </summary>
+        public bool IsHidden { get; set; }
+
+        /// <summary>
+        /// List of country calling codes
+        /// </summary>
+        public string[] CallingCodes { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about countries
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// countries countries:vector&lt;countryInfo&gt; = Countries;
+    /// </remarks>
+    public partial class Countries : TLObject
+    {
+        /// <summary>
+        /// The list of countries
+        /// </summary>
+        public CountryInfo[] Countries_ { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about a phone number
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// phoneNumberInfo country:countryInfo country_calling_code:string formatted_phone_number:string = PhoneNumberInfo;
+    /// </remarks>
+    public partial class PhoneNumberInfo : TLObject
+    {
+        /// <summary>
+        /// Information about the country to which the phone number belongs; may be null
+        /// </summary>
+        public CountryInfo Country { get; set; }
+
+        /// <summary>
+        /// The part of the phone number denoting country calling code or its part
+        /// </summary>
+        public string CountryCallingCode { get; set; }
+
+        /// <summary>
+        /// The phone number without country calling code formatted accordingly to local rules
+        /// </summary>
+        public string FormattedPhoneNumber { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes an action associated with a bank card number
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// bankCardActionOpenUrl text:string url:string = BankCardActionOpenUrl;
+    /// </remarks>
+    public partial class BankCardActionOpenUrl : TLObject
+    {
+        /// <summary>
+        /// Action text
+        /// </summary>
+        public string Text { get; set; }
+
+        /// <summary>
+        /// The URL to be opened
+        /// </summary>
+        public string Url { get; set; }
+
+    }
+
+    /// <summary>
+    /// Information about a bank card
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// bankCardInfo title:string actions:vector&lt;bankCardActionOpenUrl&gt; = BankCardInfo;
+    /// </remarks>
+    public partial class BankCardInfo : TLObject
+    {
+        /// <summary>
+        /// Title of the bank card description
+        /// </summary>
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Actions that can be done with the bank card number
+        /// </summary>
+        public BankCardActionOpenUrl[] Actions { get; set; }
 
     }
 
@@ -7532,6 +8399,42 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// A dice message. The dice value is randomly generated by the server
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageDice initial_state_sticker:sticker final_state_sticker:sticker emoji:string value:int32 success_animation_frame_number:int32 = MessageContent;
+    /// </remarks>
+    public partial class MessageDice : MessageContent
+    {
+        /// <summary>
+        /// The animated sticker with the initial dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
+        /// </summary>
+        public Sticker InitialStateSticker { get; set; }
+
+        /// <summary>
+        /// The animated sticker with the final dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
+        /// </summary>
+        public Sticker FinalStateSticker { get; set; }
+
+        /// <summary>
+        /// Emoji on which the dice throw animation is based
+        /// </summary>
+        public string Emoji { get; set; }
+
+        /// <summary>
+        /// The dice value. If the value is 0, the dice don't have final state yet
+        /// </summary>
+        public int Value { get; set; }
+
+        /// <summary>
+        /// Number of frame after which a success animation like a shower of confetti needs to be shown on updateMessageSendSucceeded
+        /// </summary>
+        public int SuccessAnimationFrameNumber { get; set; }
+
+    }
+
+    /// <summary>
     /// A message with a game
     /// </summary>
     /// <remarks>
@@ -7624,10 +8527,15 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageCall discard_reason:CallDiscardReason duration:int32 = MessageContent;
+    /// messageCall is_video:Bool discard_reason:CallDiscardReason duration:int32 = MessageContent;
     /// </remarks>
     public partial class MessageCall : MessageContent
     {
+        /// <summary>
+        /// True, if the call was a video call
+        /// </summary>
+        public bool IsVideo { get; set; }
+
         /// <summary>
         /// Reason why the call was discarded
         /// </summary>
@@ -7698,14 +8606,14 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageChatChangePhoto photo:photo = MessageContent;
+    /// messageChatChangePhoto photo:chatPhoto = MessageContent;
     /// </remarks>
     public partial class MessageChatChangePhoto : MessageContent
     {
         /// <summary>
         /// New chat photo
         /// </summary>
-        public Photo Photo { get; set; }
+        public ChatPhoto Photo { get; set; }
 
     }
 
@@ -8027,7 +8935,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Message content that is not supported by the client
+    /// Message content that is not supported in the current TDLib version
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -8111,6 +9019,17 @@ namespace TDLib.Api
     /// textEntityTypePhoneNumber = TextEntityType;
     /// </remarks>
     public partial class TextEntityTypePhoneNumber : TextEntityType
+    {
+    }
+
+    /// <summary>
+    /// A bank card number. The getBankCardInfo method can be used to get information about the bank card
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// textEntityTypeBankCardNumber = TextEntityType;
+    /// </remarks>
+    public partial class TextEntityTypeBankCardNumber : TextEntityType
     {
     }
 
@@ -8229,7 +9148,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A thumbnail to be sent along with a file; should be in JPEG or WEBP format for stickers, and less than 200 kB in size
+    /// A thumbnail to be sent along with a file; must be in JPEG or WEBP format for stickers, and less than 200 KB in size
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -8282,16 +9201,16 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Options to be used when a message is send
+    /// Options to be used when a message is sent
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// sendMessageOptions disable_notification:Bool from_background:Bool scheduling_state:MessageSchedulingState = SendMessageOptions;
+    /// messageSendOptions disable_notification:Bool from_background:Bool scheduling_state:MessageSchedulingState = MessageSendOptions;
     /// </remarks>
-    public partial class SendMessageOptions : TLObject
+    public partial class MessageSendOptions : TLObject
     {
         /// <summary>
-        /// Pass true to disable notification for the message. Must be false if the message is sent to a secret chat
+        /// Pass true to disable notification for the message
         /// </summary>
         public bool DisableNotification { get; set; }
 
@@ -8304,6 +9223,32 @@ namespace TDLib.Api
         /// Message scheduling state. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
         /// </summary>
         public MessageSchedulingState SchedulingState { get; set; }
+
+    }
+
+    /// <summary>
+    /// Options to be used when a message content is copied without a link to the original message
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageCopyOptions send_copy:Bool replace_caption:Bool new_caption:formattedText = MessageCopyOptions;
+    /// </remarks>
+    public partial class MessageCopyOptions : TLObject
+    {
+        /// <summary>
+        /// True, if content of the message needs to be copied without a link to the original message. Always true if the message is forwarded to a secret chat
+        /// </summary>
+        public bool SendCopy { get; set; }
+
+        /// <summary>
+        /// True, if media caption of the message copy needs to be replaced. Ignored if send_copy is false
+        /// </summary>
+        public bool ReplaceCaption { get; set; }
+
+        /// <summary>
+        /// New message caption. Ignored if replace_caption is false
+        /// </summary>
+        public FormattedText NewCaption { get; set; }
 
     }
 
@@ -8338,7 +9283,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inputMessageAnimation animation:InputFile thumbnail:inputThumbnail duration:int32 width:int32 height:int32 caption:formattedText = InputMessageContent;
+    /// inputMessageAnimation animation:InputFile thumbnail:inputThumbnail added_sticker_file_ids:vector&lt;int32&gt; duration:int32 width:int32 height:int32 caption:formattedText = InputMessageContent;
     /// </remarks>
     public partial class InputMessageAnimation : InputMessageContent
     {
@@ -8351,6 +9296,11 @@ namespace TDLib.Api
         /// Animation thumbnail, if available
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
+
+        /// <summary>
+        /// File identifiers of the stickers added to the animation, if applicable
+        /// </summary>
+        public int[] AddedStickerFileIds { get; set; }
 
         /// <summary>
         /// Duration of the animation, in seconds
@@ -8420,7 +9370,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inputMessageDocument document:InputFile thumbnail:inputThumbnail caption:formattedText = InputMessageContent;
+    /// inputMessageDocument document:InputFile thumbnail:inputThumbnail disable_content_type_detection:Bool caption:formattedText = InputMessageContent;
     /// </remarks>
     public partial class InputMessageDocument : InputMessageContent
     {
@@ -8433,6 +9383,11 @@ namespace TDLib.Api
         /// Document thumbnail, if available
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
+
+        /// <summary>
+        /// If true, automatic file type detection will be disabled and the document will be always sent as file. Always true for files sent to secret chats
+        /// </summary>
+        public bool DisableContentTypeDetection { get; set; }
 
         /// <summary>
         /// Document caption; 0-GetOption("message_caption_length_max") characters
@@ -8690,6 +9645,27 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// A dice message
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// inputMessageDice emoji:string clear_draft:Bool = InputMessageContent;
+    /// </remarks>
+    public partial class InputMessageDice : InputMessageContent
+    {
+        /// <summary>
+        /// Emoji on which the dice throw animation is based
+        /// </summary>
+        public string Emoji { get; set; }
+
+        /// <summary>
+        /// True, if a chat message draft should be deleted
+        /// </summary>
+        public bool ClearDraft { get; set; }
+
+    }
+
+    /// <summary>
     /// A message with a game; not supported for channels or secret chats
     /// </summary>
     /// <remarks>
@@ -8781,12 +9757,12 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inputMessagePoll question:string options:vector&lt;string&gt; is_anonymous:Bool type:PollType is_closed:Bool = InputMessageContent;
+    /// inputMessagePoll question:string options:vector&lt;string&gt; is_anonymous:Bool type:PollType open_period:int32 close_date:int32 is_closed:Bool = InputMessageContent;
     /// </remarks>
     public partial class InputMessagePoll : InputMessageContent
     {
         /// <summary>
-        /// Poll question, 1-255 characters
+        /// Poll question, 1-255 characters (up to 300 characters for bots)
         /// </summary>
         public string Question { get; set; }
 
@@ -8806,6 +9782,16 @@ namespace TDLib.Api
         public PollType Type { get; set; }
 
         /// <summary>
+        /// Amount of time the poll will be active after creation, in seconds; for bots only
+        /// </summary>
+        public int OpenPeriod { get; set; }
+
+        /// <summary>
+        /// Point in time (Unix timestamp) when the poll will be automatically closed; for bots only
+        /// </summary>
+        public int CloseDate { get; set; }
+
+        /// <summary>
         /// True, if the poll needs to be sent already closed; for bots only
         /// </summary>
         public bool IsClosed { get; set; }
@@ -8817,7 +9803,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inputMessageForwarded from_chat_id:int53 message_id:int53 in_game_share:Bool send_copy:Bool remove_caption:Bool = InputMessageContent;
+    /// inputMessageForwarded from_chat_id:int53 message_id:int53 in_game_share:Bool copy_options:messageCopyOptions = InputMessageContent;
     /// </remarks>
     public partial class InputMessageForwarded : InputMessageContent
     {
@@ -8837,14 +9823,9 @@ namespace TDLib.Api
         public bool InGameShare { get; set; }
 
         /// <summary>
-        /// True, if content of the message needs to be copied without a link to the original message. Always true if the message is forwarded to a secret chat
+        /// Options to be used to copy content of the message without a link to the original message
         /// </summary>
-        public bool SendCopy { get; set; }
-
-        /// <summary>
-        /// True, if media caption of the message copy needs to be removed. Ignored if send_copy is false
-        /// </summary>
-        public bool RemoveCaption { get; set; }
+        public MessageCopyOptions CopyOptions { get; set; }
 
     }
 
@@ -9014,13 +9995,24 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns only messages with unread mentions of the current user, or messages that are replies to their messages. When using this filter the results can't be additionally filtered by a query or by the sending user
+    /// Returns only messages with unread mentions of the current user, or messages that are replies to their messages. When using this filter the results can't be additionally filtered by a query, a message thread or by the sending user
     /// </summary>
     /// <remarks>
     /// TL source:
     /// searchMessagesFilterUnreadMention = SearchMessagesFilter;
     /// </remarks>
     public partial class SearchMessagesFilterUnreadMention : SearchMessagesFilter
+    {
+    }
+
+    /// <summary>
+    /// Returns only failed to send messages. This filter can be used only if the message database is used
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// searchMessagesFilterFailedToSend = SearchMessagesFilter;
+    /// </remarks>
+    public partial class SearchMessagesFilterFailedToSend : SearchMessagesFilter
     {
     }
 
@@ -9305,7 +10297,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// stickerSet id:int64 title:string name:string thumbnail:photoSize is_installed:Bool is_archived:Bool is_official:Bool is_animated:Bool is_masks:Bool is_viewed:Bool stickers:vector&lt;sticker&gt; emojis:vector&lt;emojis&gt; = StickerSet;
+    /// stickerSet id:int64 title:string name:string thumbnail:thumbnail is_installed:Bool is_archived:Bool is_official:Bool is_animated:Bool is_masks:Bool is_viewed:Bool stickers:vector&lt;sticker&gt; emojis:vector&lt;emojis&gt; = StickerSet;
     /// </remarks>
     public partial class StickerSet : TLObject
     {
@@ -9325,9 +10317,9 @@ namespace TDLib.Api
         public string Name { get; set; }
 
         /// <summary>
-        /// Sticker set thumbnail in WEBP format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed
+        /// Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// True, if the sticker set has been installed by the current user
@@ -9376,7 +10368,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// stickerSetInfo id:int64 title:string name:string thumbnail:photoSize is_installed:Bool is_archived:Bool is_official:Bool is_animated:Bool is_masks:Bool is_viewed:Bool size:int32 covers:vector&lt;sticker&gt; = StickerSetInfo;
+    /// stickerSetInfo id:int64 title:string name:string thumbnail:thumbnail is_installed:Bool is_archived:Bool is_official:Bool is_animated:Bool is_masks:Bool is_viewed:Bool size:int32 covers:vector&lt;sticker&gt; = StickerSetInfo;
     /// </remarks>
     public partial class StickerSetInfo : TLObject
     {
@@ -9396,9 +10388,9 @@ namespace TDLib.Api
         public string Name { get; set; }
 
         /// <summary>
-        /// Sticker set thumbnail in WEBP format with width and height 100; may be null
+        /// Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// True, if the sticker set has been installed by current user
@@ -9436,7 +10428,7 @@ namespace TDLib.Api
         public int Size { get; set; }
 
         /// <summary>
-        /// Contains up to the first 5 stickers from the set, depending on the context. If the client needs more stickers the full set should be requested
+        /// Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested
         /// </summary>
         public Sticker[] Covers { get; set; }
 
@@ -9523,7 +10515,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// callProtocol udp_p2p:Bool udp_reflector:Bool min_layer:int32 max_layer:int32 = CallProtocol;
+    /// callProtocol udp_p2p:Bool udp_reflector:Bool min_layer:int32 max_layer:int32 library_versions:vector&lt;string&gt; = CallProtocol;
     /// </remarks>
     public partial class CallProtocol : TLObject
     {
@@ -9547,41 +10539,93 @@ namespace TDLib.Api
         /// </summary>
         public int MaxLayer { get; set; }
 
+        /// <summary>
+        /// List of supported libtgvoip versions
+        /// </summary>
+        public string[] LibraryVersions { get; set; }
+
     }
 
     /// <summary>
-    /// Describes the address of UDP reflectors
+    /// A Telegram call reflector
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// callConnection id:int64 ip:string ipv6:string port:int32 peer_tag:bytes = CallConnection;
+    /// callServerTypeTelegramReflector peer_tag:bytes = CallServerType;
     /// </remarks>
-    public partial class CallConnection : TLObject
+    public partial class CallServerTypeTelegramReflector : CallServerType
     {
         /// <summary>
-        /// Reflector identifier
+        /// A peer tag to be used with the reflector
+        /// </summary>
+        public byte[] PeerTag { get; set; }
+
+    }
+
+    /// <summary>
+    /// A WebRTC server
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// callServerTypeWebrtc username:string password:string supports_turn:Bool supports_stun:Bool = CallServerType;
+    /// </remarks>
+    public partial class CallServerTypeWebrtc : CallServerType
+    {
+        /// <summary>
+        /// Username to be used for authentication
+        /// </summary>
+        public string Username { get; set; }
+
+        /// <summary>
+        /// Authentication password
+        /// </summary>
+        public string Password { get; set; }
+
+        /// <summary>
+        /// True, if the server supports TURN
+        /// </summary>
+        public bool SupportsTurn { get; set; }
+
+        /// <summary>
+        /// True, if the server supports STUN
+        /// </summary>
+        public bool SupportsStun { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a server for relaying call data
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// callServer id:int64 ip_address:string ipv6_address:string port:int32 type:CallServerType = CallServer;
+    /// </remarks>
+    public partial class CallServer : TLObject
+    {
+        /// <summary>
+        /// Server identifier
         /// </summary>
         public long Id { get; set; }
 
         /// <summary>
-        /// IPv4 reflector address
+        /// Server IPv4 address
         /// </summary>
-        public string Ip { get; set; }
+        public string IpAddress { get; set; }
 
         /// <summary>
-        /// IPv6 reflector address
+        /// Server IPv6 address
         /// </summary>
-        public string Ipv6 { get; set; }
+        public string Ipv6Address { get; set; }
 
         /// <summary>
-        /// Reflector port number
+        /// Server port number
         /// </summary>
         public int Port { get; set; }
 
         /// <summary>
-        /// Connection peer tag
+        /// Server type
         /// </summary>
-        public byte[] PeerTag { get; set; }
+        public CallServerType Type { get; set; }
 
     }
 
@@ -9638,7 +10682,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// callStateReady protocol:callProtocol connections:vector&lt;callConnection&gt; config:string encryption_key:bytes emojis:vector&lt;string&gt; allow_p2p:Bool = CallState;
+    /// callStateReady protocol:callProtocol servers:vector&lt;callServer&gt; config:string encryption_key:bytes emojis:vector&lt;string&gt; allow_p2p:Bool = CallState;
     /// </remarks>
     public partial class CallStateReady : CallState
     {
@@ -9648,9 +10692,9 @@ namespace TDLib.Api
         public CallProtocol Protocol { get; set; }
 
         /// <summary>
-        /// Available UDP reflectors
+        /// List of available call servers
         /// </summary>
-        public CallConnection[] Connections { get; set; }
+        public CallServer[] Servers { get; set; }
 
         /// <summary>
         /// A JSON-encoded call config
@@ -9805,11 +10849,33 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// The video was distorted
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// callProblemDistortedVideo = CallProblem;
+    /// </remarks>
+    public partial class CallProblemDistortedVideo : CallProblem
+    {
+    }
+
+    /// <summary>
+    /// The video was pixelated
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// callProblemPixelatedVideo = CallProblem;
+    /// </remarks>
+    public partial class CallProblemPixelatedVideo : CallProblem
+    {
+    }
+
+    /// <summary>
     /// Describes a call
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// call id:int32 user_id:int32 is_outgoing:Bool state:CallState = Call;
+    /// call id:int32 user_id:int32 is_outgoing:Bool is_video:Bool state:CallState = Call;
     /// </remarks>
     public partial class Call : TLObject
     {
@@ -9827,6 +10893,11 @@ namespace TDLib.Api
         /// True, if the call is outgoing
         /// </summary>
         public bool IsOutgoing { get; set; }
+
+        /// <summary>
+        /// True, if the call is a video call
+        /// </summary>
+        public bool IsVideo { get; set; }
 
         /// <summary>
         /// Call state
@@ -9855,7 +10926,7 @@ namespace TDLib.Api
         public bool IsCurrentPhoneNumber { get; set; }
 
         /// <summary>
-        /// For official applications only. True, if the app can use Android SMS Retriever API (requires Google Play Services &gt;= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details
+        /// For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services &gt;= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details
         /// </summary>
         public bool AllowSmsRetrieverApi { get; set; }
 
@@ -9915,13 +10986,13 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Represents a link to an animated GIF
+    /// Represents a link to an animated GIF or an animated (i.e. without sound) H.264/MPEG-4 AVC video
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inputInlineQueryResultAnimatedGif id:string title:string thumbnail_url:string gif_url:string gif_duration:int32 gif_width:int32 gif_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
+    /// inputInlineQueryResultAnimation id:string title:string thumbnail_url:string thumbnail_mime_type:string video_url:string video_mime_type:string video_duration:int32 video_width:int32 video_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
     /// </remarks>
-    public partial class InputInlineQueryResultAnimatedGif : InputInlineQueryResult
+    public partial class InputInlineQueryResultAnimation : InputInlineQueryResult
     {
         /// <summary>
         /// Unique identifier of the query result
@@ -9934,85 +11005,39 @@ namespace TDLib.Api
         public string Title { get; set; }
 
         /// <summary>
-        /// URL of the static result thumbnail (JPEG or GIF), if it exists
+        /// URL of the result thumbnail (JPEG, GIF, or MPEG4), if it exists
         /// </summary>
         public string ThumbnailUrl { get; set; }
 
         /// <summary>
-        /// The URL of the GIF-file (file size must not exceed 1MB)
+        /// MIME type of the video thumbnail. If non-empty, must be one of "image/jpeg", "image/gif" and "video/mp4"
         /// </summary>
-        public string GifUrl { get; set; }
+        public string ThumbnailMimeType { get; set; }
 
         /// <summary>
-        /// Duration of the GIF, in seconds
+        /// The URL of the video file (file size must not exceed 1MB)
         /// </summary>
-        public int GifDuration { get; set; }
+        public string VideoUrl { get; set; }
 
         /// <summary>
-        /// Width of the GIF
+        /// MIME type of the video file. Must be one of "image/gif" and "video/mp4"
         /// </summary>
-        public int GifWidth { get; set; }
-
-        /// <summary>
-        /// Height of the GIF
-        /// </summary>
-        public int GifHeight { get; set; }
-
-        /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
-        /// </summary>
-        public ReplyMarkup ReplyMarkup { get; set; }
-
-        /// <summary>
-        /// The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact
-        /// </summary>
-        public InputMessageContent InputMessageContent { get; set; }
-
-    }
-
-    /// <summary>
-    /// Represents a link to an animated (i.e. without sound) H.264/MPEG-4 AVC video
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// inputInlineQueryResultAnimatedMpeg4 id:string title:string thumbnail_url:string mpeg4_url:string mpeg4_duration:int32 mpeg4_width:int32 mpeg4_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
-    /// </remarks>
-    public partial class InputInlineQueryResultAnimatedMpeg4 : InputInlineQueryResult
-    {
-        /// <summary>
-        /// Unique identifier of the query result
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Title of the result
-        /// </summary>
-        public string Title { get; set; }
-
-        /// <summary>
-        /// URL of the static result thumbnail (JPEG or GIF), if it exists
-        /// </summary>
-        public string ThumbnailUrl { get; set; }
-
-        /// <summary>
-        /// The URL of the MPEG4-file (file size must not exceed 1MB)
-        /// </summary>
-        public string Mpeg4Url { get; set; }
+        public string VideoMimeType { get; set; }
 
         /// <summary>
         /// Duration of the video, in seconds
         /// </summary>
-        public int Mpeg4Duration { get; set; }
+        public int VideoDuration { get; set; }
 
         /// <summary>
         /// Width of the video
         /// </summary>
-        public int Mpeg4Width { get; set; }
+        public int VideoWidth { get; set; }
 
         /// <summary>
         /// Height of the video
         /// </summary>
-        public int Mpeg4Height { get; set; }
+        public int VideoHeight { get; set; }
 
         /// <summary>
         /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
@@ -10582,7 +11607,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inlineQueryResultArticle id:string url:string hide_url:Bool title:string description:string thumbnail:photoSize = InlineQueryResult;
+    /// inlineQueryResultArticle id:string url:string hide_url:Bool title:string description:string thumbnail:thumbnail = InlineQueryResult;
     /// </remarks>
     public partial class InlineQueryResultArticle : InlineQueryResult
     {
@@ -10612,9 +11637,9 @@ namespace TDLib.Api
         public string Description { get; set; }
 
         /// <summary>
-        /// Result thumbnail; may be null
+        /// Result thumbnail in JPEG format; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
     }
 
@@ -10623,7 +11648,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inlineQueryResultContact id:string contact:contact thumbnail:photoSize = InlineQueryResult;
+    /// inlineQueryResultContact id:string contact:contact thumbnail:thumbnail = InlineQueryResult;
     /// </remarks>
     public partial class InlineQueryResultContact : InlineQueryResult
     {
@@ -10638,9 +11663,9 @@ namespace TDLib.Api
         public Contact Contact { get; set; }
 
         /// <summary>
-        /// Result thumbnail; may be null
+        /// Result thumbnail in JPEG format; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
     }
 
@@ -10649,7 +11674,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inlineQueryResultLocation id:string location:location title:string thumbnail:photoSize = InlineQueryResult;
+    /// inlineQueryResultLocation id:string location:location title:string thumbnail:thumbnail = InlineQueryResult;
     /// </remarks>
     public partial class InlineQueryResultLocation : InlineQueryResult
     {
@@ -10669,9 +11694,9 @@ namespace TDLib.Api
         public string Title { get; set; }
 
         /// <summary>
-        /// Result thumbnail; may be null
+        /// Result thumbnail in JPEG format; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
     }
 
@@ -10680,7 +11705,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inlineQueryResultVenue id:string venue:venue thumbnail:photoSize = InlineQueryResult;
+    /// inlineQueryResultVenue id:string venue:venue thumbnail:thumbnail = InlineQueryResult;
     /// </remarks>
     public partial class InlineQueryResultVenue : InlineQueryResult
     {
@@ -10695,9 +11720,9 @@ namespace TDLib.Api
         public Venue Venue { get; set; }
 
         /// <summary>
-        /// Result thumbnail; may be null
+        /// Result thumbnail in JPEG format; may be null
         /// </summary>
-        public PhotoSize Thumbnail { get; set; }
+        public Thumbnail Thumbnail { get; set; }
 
     }
 
@@ -10946,7 +11971,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// The payload from a general callback button
+    /// The payload for a general callback button
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -10962,7 +11987,28 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// The payload from a game callback button
+    /// The payload for a callback button requiring password
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// callbackQueryPayloadDataWithPassword password:string data:bytes = CallbackQueryPayload;
+    /// </remarks>
+    public partial class CallbackQueryPayloadDataWithPassword : CallbackQueryPayload
+    {
+        /// <summary>
+        /// The password for the current user
+        /// </summary>
+        public string Password { get; set; }
+
+        /// <summary>
+        /// Data that was attached to the callback button
+        /// </summary>
+        public byte[] Data { get; set; }
+
+    }
+
+    /// <summary>
+    /// The payload for a game callback button
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -11325,19 +12371,19 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatEventPhotoChanged old_photo:photo new_photo:photo = ChatEventAction;
+    /// chatEventPhotoChanged old_photo:chatPhoto new_photo:chatPhoto = ChatEventAction;
     /// </remarks>
     public partial class ChatEventPhotoChanged : ChatEventAction
     {
         /// <summary>
         /// Previous chat photo value; may be null
         /// </summary>
-        public Photo OldPhoto { get; set; }
+        public ChatPhoto OldPhoto { get; set; }
 
         /// <summary>
         /// New chat photo value; may be null
         /// </summary>
-        public Photo NewPhoto { get; set; }
+        public ChatPhoto NewPhoto { get; set; }
 
     }
 
@@ -12903,19 +13949,34 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// notificationTypeNewPushMessage message_id:int53 sender_user_id:int32 content:PushMessageContent = NotificationType;
+    /// notificationTypeNewPushMessage message_id:int53 sender_user_id:int32 sender_chat_id:int53 sender_name:string is_outgoing:Bool content:PushMessageContent = NotificationType;
     /// </remarks>
     public partial class NotificationTypeNewPushMessage : NotificationType
     {
         /// <summary>
-        /// The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages and as reply_to_message_id
+        /// The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages, or as reply_to_message_id
         /// </summary>
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Sender of the message. Corresponding user may be inaccessible
+        /// Sender of the message; 0 if unknown. Corresponding user may be inaccessible
         /// </summary>
         public int SenderUserId { get; set; }
+
+        /// <summary>
+        /// Sender chat of the message; 0 if none
+        /// </summary>
+        public long SenderChatId { get; set; }
+
+        /// <summary>
+        /// Name of the sender; can be different from the name of the sender user
+        /// </summary>
+        public string SenderName { get; set; }
+
+        /// <summary>
+        /// True, if the message is outgoing
+        /// </summary>
+        public bool IsOutgoing { get; set; }
 
         /// <summary>
         /// Push message content
@@ -13067,14 +14128,14 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// optionValueInteger value:int32 = OptionValue;
+    /// optionValueInteger value:int64 = OptionValue;
     /// </remarks>
     public partial class OptionValueInteger : OptionValue
     {
         /// <summary>
         /// The value of the option
         /// </summary>
-        public int Value { get; set; }
+        public long Value { get; set; }
 
     }
 
@@ -13691,13 +14752,13 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Contains a public HTTPS link to a message in a supergroup or channel with a username
+    /// Contains an HTTPS link to a message in a supergroup or channel
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// publicMessageLink link:string html:string = PublicMessageLink;
+    /// messageLink link:string is_public:Bool = MessageLink;
     /// </remarks>
-    public partial class PublicMessageLink : TLObject
+    public partial class MessageLink : TLObject
     {
         /// <summary>
         /// Message link
@@ -13705,9 +14766,9 @@ namespace TDLib.Api
         public string Link { get; set; }
 
         /// <summary>
-        /// HTML-code for embedding the message
+        /// True, if the link will work for non-members of the chat
         /// </summary>
-        public string Html { get; set; }
+        public bool IsPublic { get; set; }
 
     }
 
@@ -13716,7 +14777,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageLinkInfo is_public:Bool chat_id:int53 message:message for_album:Bool = MessageLinkInfo;
+    /// messageLinkInfo is_public:Bool chat_id:int53 message:message for_album:Bool for_comment:Bool = MessageLinkInfo;
     /// </remarks>
     public partial class MessageLinkInfo : TLObject
     {
@@ -13739,6 +14800,11 @@ namespace TDLib.Api
         /// True, if the whole media album to which the message belongs is linked
         /// </summary>
         public bool ForAlbum { get; set; }
+
+        /// <summary>
+        /// True, if the message is linked as a channel post comment or from a message thread
+        /// </summary>
+        public bool ForComment { get; set; }
 
     }
 
@@ -14196,7 +15262,7 @@ namespace TDLib.Api
     public partial class NetworkStatistics : TLObject
     {
         /// <summary>
-        /// Point in time (Unix timestamp) when the app began collecting statistics
+        /// Point in time (Unix timestamp) from which the statistics are collected
         /// </summary>
         public int SinceDate { get; set; }
 
@@ -14242,7 +15308,7 @@ namespace TDLib.Api
         public int VideoUploadBitrate { get; set; }
 
         /// <summary>
-        /// True, if the beginning of videos needs to be preloaded for instant playback
+        /// True, if the beginning of video files needs to be preloaded for instant playback
         /// </summary>
         public bool PreloadLargeVideos { get; set; }
 
@@ -14318,7 +15384,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Downloading data received while the client was offline
+    /// Downloading data received while the application was offline
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -14518,6 +15584,28 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// Suggests the user to enable "archive_and_mute_new_chats_from_unknown_users" option
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// suggestedActionEnableArchiveAndMuteNewChats = SuggestedAction;
+    /// </remarks>
+    public partial class SuggestedActionEnableArchiveAndMuteNewChats : SuggestedAction
+    {
+    }
+
+    /// <summary>
+    /// Suggests the user to check authorization phone number and change the phone number if it is inaccessible
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// suggestedActionCheckPhoneNumber = SuggestedAction;
+    /// </remarks>
+    public partial class SuggestedActionCheckPhoneNumber : SuggestedAction
+    {
+    }
+
+    /// <summary>
     /// Contains a counter
     /// </summary>
     /// <remarks>
@@ -14587,7 +15675,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// The text should be parsed in markdown-style
+    /// The text uses Markdown-style formatting
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -14596,14 +15684,14 @@ namespace TDLib.Api
     public partial class TextParseModeMarkdown : TextParseMode
     {
         /// <summary>
-        /// Version of the parser: 0 or 1 - Bot API Markdown parse mode, 2 - Bot API MarkdownV2 parse mode
+        /// Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode
         /// </summary>
         public int Version { get; set; }
 
     }
 
     /// <summary>
-    /// The text should be parsed in HTML-style
+    /// The text uses HTML-style formatting. The same as Telegram Bot API "HTML" parse mode
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -14654,7 +15742,7 @@ namespace TDLib.Api
         public string Password { get; set; }
 
         /// <summary>
-        /// Pass true, if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method
+        /// Pass true if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method
         /// </summary>
         public bool HttpOnly { get; set; }
 
@@ -14734,21 +15822,21 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Describes a sticker that should be added to a sticker set
+    /// A static sticker in PNG format, which will be converted to WEBP server-side
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inputSticker png_sticker:InputFile emojis:string mask_position:maskPosition = InputSticker;
+    /// inputStickerStatic sticker:InputFile emojis:string mask_position:maskPosition = InputSticker;
     /// </remarks>
-    public partial class InputSticker : TLObject
+    public partial class InputStickerStatic : InputSticker
     {
         /// <summary>
-        /// PNG image with the sticker; must be up to 512 kB in size and fit in a 512x512 square
+        /// PNG image with the sticker; must be up to 512 KB in size and fit in a 512x512 square
         /// </summary>
-        public InputFile PngSticker { get; set; }
+        public InputFile Sticker { get; set; }
 
         /// <summary>
-        /// Emoji corresponding to the sticker
+        /// Emojis corresponding to the sticker
         /// </summary>
         public string Emojis { get; set; }
 
@@ -14756,6 +15844,424 @@ namespace TDLib.Api
         /// For masks, position where the mask should be placed; may be null
         /// </summary>
         public MaskPosition MaskPosition { get; set; }
+
+    }
+
+    /// <summary>
+    /// An animated sticker in TGS format
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// inputStickerAnimated sticker:InputFile emojis:string = InputSticker;
+    /// </remarks>
+    public partial class InputStickerAnimated : InputSticker
+    {
+        /// <summary>
+        /// File with the animated sticker. Only local or uploaded within a week files are supported. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements
+        /// </summary>
+        public InputFile Sticker { get; set; }
+
+        /// <summary>
+        /// Emojis corresponding to the sticker
+        /// </summary>
+        public string Emojis { get; set; }
+
+    }
+
+    /// <summary>
+    /// Represents a date range
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// dateRange start_date:int32 end_date:int32 = DateRange;
+    /// </remarks>
+    public partial class DateRange : TLObject
+    {
+        /// <summary>
+        /// Point in time (Unix timestamp) at which the date range begins
+        /// </summary>
+        public int StartDate { get; set; }
+
+        /// <summary>
+        /// Point in time (Unix timestamp) at which the date range ends
+        /// </summary>
+        public int EndDate { get; set; }
+
+    }
+
+    /// <summary>
+    /// A statistics value
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// statisticsValue value:double previous_value:double growth_rate_percentage:double = StatisticsValue;
+    /// </remarks>
+    public partial class StatisticsValue : TLObject
+    {
+        /// <summary>
+        /// The value
+        /// </summary>
+        public double Value { get; set; }
+
+        /// <summary>
+        /// The value for the previous day
+        /// </summary>
+        public double PreviousValue { get; set; }
+
+        /// <summary>
+        /// The growth rate of the value, as a percentage
+        /// </summary>
+        public double GrowthRatePercentage { get; set; }
+
+    }
+
+    /// <summary>
+    /// A graph data
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// statisticsGraphData json_data:string zoom_token:string = StatisticsGraph;
+    /// </remarks>
+    public partial class StatisticsGraphData : StatisticsGraph
+    {
+        /// <summary>
+        /// Graph data in JSON format
+        /// </summary>
+        public string JsonData { get; set; }
+
+        /// <summary>
+        /// If non-empty, a token which can be used to receive a zoomed in graph
+        /// </summary>
+        public string ZoomToken { get; set; }
+
+    }
+
+    /// <summary>
+    /// The graph data to be asynchronously loaded through getStatisticsGraph
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// statisticsGraphAsync token:string = StatisticsGraph;
+    /// </remarks>
+    public partial class StatisticsGraphAsync : StatisticsGraph
+    {
+        /// <summary>
+        /// The token to use for data loading
+        /// </summary>
+        public string Token { get; set; }
+
+    }
+
+    /// <summary>
+    /// An error message to be shown to the user instead of the graph
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// statisticsGraphError error_message:string = StatisticsGraph;
+    /// </remarks>
+    public partial class StatisticsGraphError : StatisticsGraph
+    {
+        /// <summary>
+        /// The error message
+        /// </summary>
+        public string ErrorMessage { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains statistics about interactions with a message
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatStatisticsMessageInteractionInfo message_id:int53 view_count:int32 forward_count:int32 = ChatStatisticsMessageInteractionInfo;
+    /// </remarks>
+    public partial class ChatStatisticsMessageInteractionInfo : TLObject
+    {
+        /// <summary>
+        /// Message identifier
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// Number of times the message was viewed
+        /// </summary>
+        public int ViewCount { get; set; }
+
+        /// <summary>
+        /// Number of times the message was forwarded
+        /// </summary>
+        public int ForwardCount { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains statistics about messages sent by a user
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatStatisticsMessageSenderInfo user_id:int32 sent_message_count:int32 average_character_count:int32 = ChatStatisticsMessageSenderInfo;
+    /// </remarks>
+    public partial class ChatStatisticsMessageSenderInfo : TLObject
+    {
+        /// <summary>
+        /// User identifier
+        /// </summary>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// Number of sent messages
+        /// </summary>
+        public int SentMessageCount { get; set; }
+
+        /// <summary>
+        /// Average number of characters in sent messages
+        /// </summary>
+        public int AverageCharacterCount { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains statistics about administrator actions done by a user
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatStatisticsAdministratorActionsInfo user_id:int32 deleted_message_count:int32 banned_user_count:int32 restricted_user_count:int32 = ChatStatisticsAdministratorActionsInfo;
+    /// </remarks>
+    public partial class ChatStatisticsAdministratorActionsInfo : TLObject
+    {
+        /// <summary>
+        /// Administrator user identifier
+        /// </summary>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// Number of messages deleted by the administrator
+        /// </summary>
+        public int DeletedMessageCount { get; set; }
+
+        /// <summary>
+        /// Number of users banned by the administrator
+        /// </summary>
+        public int BannedUserCount { get; set; }
+
+        /// <summary>
+        /// Number of users restricted by the administrator
+        /// </summary>
+        public int RestrictedUserCount { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains statistics about number of new members invited by a user
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatStatisticsInviterInfo user_id:int32 added_member_count:int32 = ChatStatisticsInviterInfo;
+    /// </remarks>
+    public partial class ChatStatisticsInviterInfo : TLObject
+    {
+        /// <summary>
+        /// User identifier
+        /// </summary>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// Number of new members invited by the user
+        /// </summary>
+        public int AddedMemberCount { get; set; }
+
+    }
+
+    /// <summary>
+    /// A detailed statistics about a supergroup chat
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatStatisticsSupergroup period:dateRange member_count:statisticsValue message_count:statisticsValue viewer_count:statisticsValue sender_count:statisticsValue member_count_graph:StatisticsGraph join_graph:StatisticsGraph join_by_source_graph:StatisticsGraph language_graph:StatisticsGraph message_content_graph:StatisticsGraph action_graph:StatisticsGraph day_graph:StatisticsGraph week_graph:StatisticsGraph top_senders:vector&lt;chatStatisticsMessageSenderInfo&gt; top_administrators:vector&lt;chatStatisticsAdministratorActionsInfo&gt; top_inviters:vector&lt;chatStatisticsInviterInfo&gt; = ChatStatistics;
+    /// </remarks>
+    public partial class ChatStatisticsSupergroup : ChatStatistics
+    {
+        /// <summary>
+        /// A period to which the statistics applies
+        /// </summary>
+        public DateRange Period { get; set; }
+
+        /// <summary>
+        /// Number of members in the chat
+        /// </summary>
+        public StatisticsValue MemberCount { get; set; }
+
+        /// <summary>
+        /// Number of messages sent to the chat
+        /// </summary>
+        public StatisticsValue MessageCount { get; set; }
+
+        /// <summary>
+        /// Number of users who viewed messages in the chat
+        /// </summary>
+        public StatisticsValue ViewerCount { get; set; }
+
+        /// <summary>
+        /// Number of users who sent messages to the chat
+        /// </summary>
+        public StatisticsValue SenderCount { get; set; }
+
+        /// <summary>
+        /// A graph containing number of members in the chat
+        /// </summary>
+        public StatisticsGraph MemberCountGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of members joined and left the chat
+        /// </summary>
+        public StatisticsGraph JoinGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of new member joins per source
+        /// </summary>
+        public StatisticsGraph JoinBySourceGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing distribution of active users per language
+        /// </summary>
+        public StatisticsGraph LanguageGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing distribution of sent messages by content type
+        /// </summary>
+        public StatisticsGraph MessageContentGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of different actions in the chat
+        /// </summary>
+        public StatisticsGraph ActionGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing distribution of message views per hour
+        /// </summary>
+        public StatisticsGraph DayGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing distribution of message views per day of week
+        /// </summary>
+        public StatisticsGraph WeekGraph { get; set; }
+
+        /// <summary>
+        /// List of users sent most messages in the last week
+        /// </summary>
+        public ChatStatisticsMessageSenderInfo[] TopSenders { get; set; }
+
+        /// <summary>
+        /// List of most active administrators in the last week
+        /// </summary>
+        public ChatStatisticsAdministratorActionsInfo[] TopAdministrators { get; set; }
+
+        /// <summary>
+        /// List of most active inviters of new members in the last week
+        /// </summary>
+        public ChatStatisticsInviterInfo[] TopInviters { get; set; }
+
+    }
+
+    /// <summary>
+    /// A detailed statistics about a channel chat
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatStatisticsChannel period:dateRange member_count:statisticsValue mean_view_count:statisticsValue mean_share_count:statisticsValue enabled_notifications_percentage:double member_count_graph:StatisticsGraph join_graph:StatisticsGraph mute_graph:StatisticsGraph view_count_by_hour_graph:StatisticsGraph view_count_by_source_graph:StatisticsGraph join_by_source_graph:StatisticsGraph language_graph:StatisticsGraph message_interaction_graph:StatisticsGraph instant_view_interaction_graph:StatisticsGraph recent_message_interactions:vector&lt;chatStatisticsMessageInteractionInfo&gt; = ChatStatistics;
+    /// </remarks>
+    public partial class ChatStatisticsChannel : ChatStatistics
+    {
+        /// <summary>
+        /// A period to which the statistics applies
+        /// </summary>
+        public DateRange Period { get; set; }
+
+        /// <summary>
+        /// Number of members in the chat
+        /// </summary>
+        public StatisticsValue MemberCount { get; set; }
+
+        /// <summary>
+        /// Mean number of times the recently sent messages was viewed
+        /// </summary>
+        public StatisticsValue MeanViewCount { get; set; }
+
+        /// <summary>
+        /// Mean number of times the recently sent messages was shared
+        /// </summary>
+        public StatisticsValue MeanShareCount { get; set; }
+
+        /// <summary>
+        /// A percentage of users with enabled notifications for the chat
+        /// </summary>
+        public double EnabledNotificationsPercentage { get; set; }
+
+        /// <summary>
+        /// A graph containing number of members in the chat
+        /// </summary>
+        public StatisticsGraph MemberCountGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of members joined and left the chat
+        /// </summary>
+        public StatisticsGraph JoinGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of members muted and unmuted the chat
+        /// </summary>
+        public StatisticsGraph MuteGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of message views in a given hour in the last two weeks
+        /// </summary>
+        public StatisticsGraph ViewCountByHourGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of message views per source
+        /// </summary>
+        public StatisticsGraph ViewCountBySourceGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of new member joins per source
+        /// </summary>
+        public StatisticsGraph JoinBySourceGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of users viewed chat messages per language
+        /// </summary>
+        public StatisticsGraph LanguageGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of chat message views and shares
+        /// </summary>
+        public StatisticsGraph MessageInteractionGraph { get; set; }
+
+        /// <summary>
+        /// A graph containing number of views of associated with the chat instant views
+        /// </summary>
+        public StatisticsGraph InstantViewInteractionGraph { get; set; }
+
+        /// <summary>
+        /// Detailed statistics about number of views and shares of recently sent messages
+        /// </summary>
+        public ChatStatisticsMessageInteractionInfo[] RecentMessageInteractions { get; set; }
+
+    }
+
+    /// <summary>
+    /// A detailed statistics about a message
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageStatistics message_interaction_graph:StatisticsGraph = MessageStatistics;
+    /// </remarks>
+    public partial class MessageStatistics : TLObject
+    {
+        /// <summary>
+        /// A graph containing number of message views and shares
+        /// </summary>
+        public StatisticsGraph MessageInteractionGraph { get; set; }
 
     }
 
@@ -14922,13 +16428,13 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// The view count of the message has changed
+    /// The information about interactions with a message has changed
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// updateMessageViews chat_id:int53 message_id:int53 views:int32 = Update;
+    /// updateMessageInteractionInfo chat_id:int53 message_id:int53 interaction_info:messageInteractionInfo = Update;
     /// </remarks>
-    public partial class UpdateMessageViews : Update
+    public partial class UpdateMessageInteractionInfo : Update
     {
         /// <summary>
         /// Chat identifier
@@ -14941,9 +16447,9 @@ namespace TDLib.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// New value of the view count
+        /// New information about interactions with the message; may be null
         /// </summary>
-        public int Views { get; set; }
+        public MessageInteractionInfo InteractionInfo { get; set; }
 
     }
 
@@ -14995,7 +16501,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A message with a live location was viewed. When the update is received, the client is supposed to update the live location
+    /// A message with a live location was viewed. When the update is received, the application is supposed to update the live location
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15016,7 +16522,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A new chat has been loaded/created. This update is guaranteed to come before the chat identifier is returned to the client. The chat field changes will be reported through separate updates
+    /// A new chat has been loaded/created. This update is guaranteed to come before the chat identifier is returned to the application. The chat field changes will be reported through separate updates
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15028,27 +16534,6 @@ namespace TDLib.Api
         /// The chat
         /// </summary>
         public Chat Chat { get; set; }
-
-    }
-
-    /// <summary>
-    /// The list to which the chat belongs was changed. This update is guaranteed to be sent only when chat.order == 0 and the current or the new chat list is null
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// updateChatChatList chat_id:int53 chat_list:ChatList = Update;
-    /// </remarks>
-    public partial class UpdateChatChatList : Update
-    {
-        /// <summary>
-        /// Chat identifier
-        /// </summary>
-        public long ChatId { get; set; }
-
-        /// <summary>
-        /// The new chat's chat list; may be null
-        /// </summary>
-        public ChatList ChatList { get; set; }
 
     }
 
@@ -15078,7 +16563,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// updateChatPhoto chat_id:int53 photo:chatPhoto = Update;
+    /// updateChatPhoto chat_id:int53 photo:chatPhotoInfo = Update;
     /// </remarks>
     public partial class UpdateChatPhoto : Update
     {
@@ -15090,7 +16575,7 @@ namespace TDLib.Api
         /// <summary>
         /// The new chat photo; may be null
         /// </summary>
-        public ChatPhoto Photo { get; set; }
+        public ChatPhotoInfo Photo { get; set; }
 
     }
 
@@ -15120,7 +16605,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// updateChatLastMessage chat_id:int53 last_message:message order:int64 = Update;
+    /// updateChatLastMessage chat_id:int53 last_message:message positions:vector&lt;chatPosition&gt; = Update;
     /// </remarks>
     public partial class UpdateChatLastMessage : Update
     {
@@ -15135,20 +16620,20 @@ namespace TDLib.Api
         public Message LastMessage { get; set; }
 
         /// <summary>
-        /// New value of the chat order
+        /// The new chat positions in the chat lists
         /// </summary>
-        public long Order { get; set; }
+        public ChatPosition[] Positions { get; set; }
 
     }
 
     /// <summary>
-    /// The order of the chat in the chat list has changed. Instead of this update updateChatLastMessage, updateChatIsPinned, updateChatDraftMessage, or updateChatIsSponsored might be sent
+    /// The position of a chat in a chat list has changed. Instead of this update updateChatLastMessage or updateChatDraftMessage might be sent
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// updateChatOrder chat_id:int53 order:int64 = Update;
+    /// updateChatPosition chat_id:int53 position:chatPosition = Update;
     /// </remarks>
-    public partial class UpdateChatOrder : Update
+    public partial class UpdateChatPosition : Update
     {
         /// <summary>
         /// Chat identifier
@@ -15156,35 +16641,9 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New value of the order
+        /// New chat position. If new order is 0, then the chat needs to be removed from the list
         /// </summary>
-        public long Order { get; set; }
-
-    }
-
-    /// <summary>
-    /// A chat was pinned or unpinned
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// updateChatIsPinned chat_id:int53 is_pinned:Bool order:int64 = Update;
-    /// </remarks>
-    public partial class UpdateChatIsPinned : Update
-    {
-        /// <summary>
-        /// Chat identifier
-        /// </summary>
-        public long ChatId { get; set; }
-
-        /// <summary>
-        /// New value of is_pinned
-        /// </summary>
-        public bool IsPinned { get; set; }
-
-        /// <summary>
-        /// New value of the chat order
-        /// </summary>
-        public long Order { get; set; }
+        public ChatPosition Position { get; set; }
 
     }
 
@@ -15210,13 +16669,13 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// A chat's is_sponsored field has changed
+    /// A chat was blocked or unblocked
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// updateChatIsSponsored chat_id:int53 is_sponsored:Bool order:int64 = Update;
+    /// updateChatIsBlocked chat_id:int53 is_blocked:Bool = Update;
     /// </remarks>
-    public partial class UpdateChatIsSponsored : Update
+    public partial class UpdateChatIsBlocked : Update
     {
         /// <summary>
         /// Chat identifier
@@ -15224,14 +16683,9 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New value of is_sponsored
+        /// New value of is_blocked
         /// </summary>
-        public bool IsSponsored { get; set; }
-
-        /// <summary>
-        /// New value of chat order
-        /// </summary>
-        public long Order { get; set; }
+        public bool IsBlocked { get; set; }
 
     }
 
@@ -15455,7 +16909,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// updateChatDraftMessage chat_id:int53 draft_message:draftMessage order:int64 = Update;
+    /// updateChatDraftMessage chat_id:int53 draft_message:draftMessage positions:vector&lt;chatPosition&gt; = Update;
     /// </remarks>
     public partial class UpdateChatDraftMessage : Update
     {
@@ -15470,9 +16924,25 @@ namespace TDLib.Api
         public DraftMessage DraftMessage { get; set; }
 
         /// <summary>
-        /// New value of the chat order
+        /// The new chat positions in the chat lists
         /// </summary>
-        public long Order { get; set; }
+        public ChatPosition[] Positions { get; set; }
+
+    }
+
+    /// <summary>
+    /// The list of chat filters or a chat filter has changed
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// updateChatFilters chat_filters:vector&lt;chatFilterInfo&gt; = Update;
+    /// </remarks>
+    public partial class UpdateChatFilters : Update
+    {
+        /// <summary>
+        /// The new list of chat filters
+        /// </summary>
+        public ChatFilterInfo[] ChatFilters { get; set; }
 
     }
 
@@ -15642,7 +17112,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// updateUserChatAction chat_id:int53 user_id:int32 action:ChatAction = Update;
+    /// updateUserChatAction chat_id:int53 message_thread_id:int53 user_id:int32 action:ChatAction = Update;
     /// </remarks>
     public partial class UpdateUserChatAction : Update
     {
@@ -15650,6 +17120,11 @@ namespace TDLib.Api
         /// Chat identifier
         /// </summary>
         public long ChatId { get; set; }
+
+        /// <summary>
+        /// If not 0, a message thread identifier in which the action was performed
+        /// </summary>
+        public long MessageThreadId { get; set; }
 
         /// <summary>
         /// Identifier of a user performing an action
@@ -15685,7 +17160,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Some data of a user has changed. This update is guaranteed to come before the user identifier is returned to the client
+    /// Some data of a user has changed. This update is guaranteed to come before the user identifier is returned to the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15701,7 +17176,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Some data of a basic group has changed. This update is guaranteed to come before the basic group identifier is returned to the client
+    /// Some data of a basic group has changed. This update is guaranteed to come before the basic group identifier is returned to the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15717,7 +17192,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Some data of a supergroup or a channel has changed. This update is guaranteed to come before the supergroup identifier is returned to the client
+    /// Some data of a supergroup or a channel has changed. This update is guaranteed to come before the supergroup identifier is returned to the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15733,7 +17208,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Some data of a secret chat has changed. This update is guaranteed to come before the secret chat identifier is returned to the client
+    /// Some data of a secret chat has changed. This update is guaranteed to come before the secret chat identifier is returned to the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15812,7 +17287,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Service notification from the server. Upon receiving this the client must show a popup with the content of the notification
+    /// Service notification from the server. Upon receiving this the application must show a popup with the content of the notification
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15849,7 +17324,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// The file generation process needs to be started by the client
+    /// The file generation process needs to be started by the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -15873,7 +17348,7 @@ namespace TDLib.Api
         public string DestinationPath { get; set; }
 
         /// <summary>
-        /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the client
+        /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the application
         /// </summary>
         public string Conversion { get; set; }
 
@@ -15908,6 +17383,27 @@ namespace TDLib.Api
         /// New data about a call
         /// </summary>
         public Call Call { get; set; }
+
+    }
+
+    /// <summary>
+    /// New call signaling data arrived
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// updateNewCallSignalingData call_id:int32 data:bytes = Update;
+    /// </remarks>
+    public partial class UpdateNewCallSignalingData : Update
+    {
+        /// <summary>
+        /// The call identifier
+        /// </summary>
+        public int CallId { get; set; }
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        public byte[] Data { get; set; }
 
     }
 
@@ -16021,6 +17517,22 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// A sticker set has changed
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// updateStickerSet sticker_set:stickerSet = Update;
+    /// </remarks>
+    public partial class UpdateStickerSet : Update
+    {
+        /// <summary>
+        /// The sticker set
+        /// </summary>
+        public StickerSet StickerSet { get; set; }
+
+    }
+
+    /// <summary>
     /// The list of installed sticker sets was updated
     /// </summary>
     /// <remarks>
@@ -16051,7 +17563,7 @@ namespace TDLib.Api
     public partial class UpdateTrendingStickerSets : Update
     {
         /// <summary>
-        /// The new list of trending sticker sets
+        /// The prefix of the list of trending sticker sets with the newest trending sticker sets
         /// </summary>
         public StickerSets StickerSets { get; set; }
 
@@ -16158,7 +17670,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// The connection state has changed
+    /// The connection state has changed. This update must be used only to show the user a human-readable description of the connection state
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -16195,7 +17707,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// List of users nearby has changed. The update is sent only 60 seconds after a successful searchChatsNearby request
+    /// The list of users nearby has changed. The update is guaranteed to be sent only 60 seconds after a successful searchChatsNearby request
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -16207,6 +17719,64 @@ namespace TDLib.Api
         /// The new list of users nearby
         /// </summary>
         public ChatNearby[] UsersNearby { get; set; }
+
+    }
+
+    /// <summary>
+    /// The list of supported dice emojis has changed
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// updateDiceEmojis emojis:vector&lt;string&gt; = Update;
+    /// </remarks>
+    public partial class UpdateDiceEmojis : Update
+    {
+        /// <summary>
+        /// The new list of supported dice emojis
+        /// </summary>
+        public string[] Emojis { get; set; }
+
+    }
+
+    /// <summary>
+    /// The parameters of animation search through GetOption("animation_search_bot_username") bot has changed
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// updateAnimationSearchParameters provider:string emojis:vector&lt;string&gt; = Update;
+    /// </remarks>
+    public partial class UpdateAnimationSearchParameters : Update
+    {
+        /// <summary>
+        /// Name of the animation search provider
+        /// </summary>
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// The new list of emojis suggested for searching
+        /// </summary>
+        public string[] Emojis { get; set; }
+
+    }
+
+    /// <summary>
+    /// The list of suggested to the user actions has changed
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// updateSuggestedActions added_actions:vector&lt;SuggestedAction&gt; removed_actions:vector&lt;SuggestedAction&gt; = Update;
+    /// </remarks>
+    public partial class UpdateSuggestedActions : Update
+    {
+        /// <summary>
+        /// Added suggested actions
+        /// </summary>
+        public SuggestedAction[] AddedActions { get; set; }
+
+        /// <summary>
+        /// Removed suggested actions
+        /// </summary>
+        public SuggestedAction[] RemovedActions { get; set; }
 
     }
 
@@ -16230,7 +17800,7 @@ namespace TDLib.Api
         public int SenderUserId { get; set; }
 
         /// <summary>
-        /// User location, provided by the client; may be null
+        /// User location; may be null
         /// </summary>
         public Location UserLocation { get; set; }
 
@@ -16261,7 +17831,7 @@ namespace TDLib.Api
         public int SenderUserId { get; set; }
 
         /// <summary>
-        /// User location, provided by the client; may be null
+        /// User location; may be null
         /// </summary>
         public Location UserLocation { get; set; }
 
@@ -16552,7 +18122,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// logStreamFile path:string max_file_size:int53 = LogStream;
+    /// logStreamFile path:string max_file_size:int53 redirect_stderr:Bool = LogStream;
     /// </remarks>
     public partial class LogStreamFile : LogStream
     {
@@ -16565,6 +18135,11 @@ namespace TDLib.Api
         /// The maximum size of the file to where the internal TDLib log is written before the file will be auto-rotated
         /// </summary>
         public long MaxFileSize { get; set; }
+
+        /// <summary>
+        /// Pass true to additionally redirect stderr to the log file. Ignored on Windows
+        /// </summary>
+        public bool RedirectStderr { get; set; }
 
     }
 
@@ -16724,7 +18299,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state
+    /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state. Can be called before initialization
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -16815,7 +18390,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber
+    /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber, -or if there is no pending authentication query and the current authorization state is authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -16824,7 +18399,7 @@ namespace TDLib.Api
     public partial class RequestQrCodeAuthentication : Function<Ok>
     {
         /// <summary>
-        /// List of user identifiers of other users currently using the client
+        /// List of user identifiers of other users currently using the application
         /// </summary>
         public int[] OtherUserIds { get; set; }
 
@@ -16922,7 +18497,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent
+    /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent. Can be called before initialization
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -16933,7 +18508,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Closes the TDLib instance, destroying all local data without a proper logout. The current user session will remain in the list of all active sessions. All local data will be destroyed. After the destruction completes updateAuthorizationState with authorizationStateClosed will be sent
+    /// Closes the TDLib instance, destroying all local data without a proper logout. The current user session will remain in the list of all active sessions. All local data will be destroyed. After the destruction completes updateAuthorizationState with authorizationStateClosed will be sent. Can be called before authorization
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -16960,7 +18535,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns all updates needed to restore current TDLib state, i.e. all actual UpdateAuthorizationState/UpdateUser/UpdateNewChat and others. This is especially useful if TDLib is run in a separate process. This is an offline method. Can be called before authorization
+    /// Returns all updates needed to restore current TDLib state, i.e. all actual UpdateAuthorizationState/UpdateUser/UpdateNewChat and others. This is especially useful if TDLib is run in a separate process. Can be called before initialization
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -17338,7 +18913,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns information about a message that is replied by given message
+    /// Returns information about a message that is replied by a given message. Also returns the pinned message, the game message, and the invoice message for messages of the types messagePinMessage, messageGameScore, and messagePaymentSuccessful respectively
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -17352,7 +18927,7 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the message reply to which get
+        /// Identifier of the message reply to which to get
         /// </summary>
         public long MessageId { get; set; }
 
@@ -17396,6 +18971,27 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// Returns information about a message thread. Can be used only if message.can_get_message_thread == true
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getMessageThread chat_id:int53 message_id:int53 = MessageThreadInfo;
+    /// </remarks>
+    public partial class GetMessageThread : Function<MessageThreadInfo>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Identifier of the message
+        /// </summary>
+        public long MessageId { get; set; }
+
+    }
+
+    /// <summary>
     /// Returns information about a file; this is an offline request
     /// </summary>
     /// <remarks>
@@ -17412,7 +19008,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the client
+    /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user. -For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the application
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -17433,7 +19029,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library
+    /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -17496,7 +19092,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the chat list
+    /// Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the main chat list
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -17517,7 +19113,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the chat list
+    /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -17764,7 +19360,7 @@ namespace TDLib.Api
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
         /// </summary>
         public int Limit { get; set; }
 
@@ -17772,6 +19368,42 @@ namespace TDLib.Api
         /// If true, returns only messages that are available locally without sending network requests
         /// </summary>
         public bool OnlyLocal { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns messages in a message thread of a message. Can be used only if message.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup. -The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). For optimal performance the number of returned messages is chosen by the library
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getMessageThreadHistory chat_id:int53 message_id:int53 from_message_id:int53 offset:int32 limit:int32 = Messages;
+    /// </remarks>
+    public partial class GetMessageThreadHistory : Function<Messages>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Message identifier, which thread history needs to be returned
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
+        /// </summary>
+        public long FromMessageId { get; set; }
+
+        /// <summary>
+        /// Specify 0 to get results from exactly the from_message_id or a negative offset up to 99 to get additionally some newer messages
+        /// </summary>
+        public int Offset { get; set; }
+
+        /// <summary>
+        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message thread history has not been reached
+        /// </summary>
+        public int Limit { get; set; }
 
     }
 
@@ -17806,7 +19438,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// searchChatMessages chat_id:int53 query:string sender_user_id:int32 from_message_id:int53 offset:int32 limit:int32 filter:SearchMessagesFilter = Messages;
+    /// searchChatMessages chat_id:int53 query:string sender_user_id:int32 from_message_id:int53 offset:int32 limit:int32 filter:SearchMessagesFilter message_thread_id:int53 = Messages;
     /// </remarks>
     public partial class SearchChatMessages : Function<Messages>
     {
@@ -17845,6 +19477,11 @@ namespace TDLib.Api
         /// </summary>
         public SearchMessagesFilter Filter { get; set; }
 
+        /// <summary>
+        /// If not 0, only messages in the specified thread will be returned; supergroups only
+        /// </summary>
+        public long MessageThreadId { get; set; }
+
     }
 
     /// <summary>
@@ -17852,7 +19489,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// searchMessages chat_list:ChatList query:string offset_date:int32 offset_chat_id:int53 offset_message_id:int53 limit:int32 = Messages;
+    /// searchMessages chat_list:ChatList query:string offset_date:int32 offset_chat_id:int53 offset_message_id:int53 limit:int32 filter:SearchMessagesFilter min_date:int32 max_date:int32 = Messages;
     /// </remarks>
     public partial class SearchMessages : Function<Messages>
     {
@@ -17882,9 +19519,24 @@ namespace TDLib.Api
         public long OffsetMessageId { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned, up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+        /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
         /// </summary>
         public int Limit { get; set; }
+
+        /// <summary>
+        /// Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention and searchMessagesFilterFailedToSend are unsupported in this function
+        /// </summary>
+        public SearchMessagesFilter Filter { get; set; }
+
+        /// <summary>
+        /// If not 0, the minimum date of the messages to return
+        /// </summary>
+        public int MinDate { get; set; }
+
+        /// <summary>
+        /// If not 0, the maximum date of the messages to return
+        /// </summary>
+        public int MaxDate { get; set; }
 
     }
 
@@ -17893,7 +19545,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// searchSecretMessages chat_id:int53 query:string from_search_id:int64 limit:int32 filter:SearchMessagesFilter = FoundMessages;
+    /// searchSecretMessages chat_id:int53 query:string offset:string limit:int32 filter:SearchMessagesFilter = FoundMessages;
     /// </remarks>
     public partial class SearchSecretMessages : Function<FoundMessages>
     {
@@ -17908,9 +19560,9 @@ namespace TDLib.Api
         public string Query { get; set; }
 
         /// <summary>
-        /// The identifier from the result of a previous request, use 0 to get results from the last message
+        /// Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results
         /// </summary>
-        public long FromSearchId { get; set; }
+        public string Offset { get; set; }
 
         /// <summary>
         /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
@@ -17918,7 +19570,7 @@ namespace TDLib.Api
         public int Limit { get; set; }
 
         /// <summary>
-        /// A filter for the content of messages in the search results
+        /// A filter for message content in the search results
         /// </summary>
         public SearchMessagesFilter Filter { get; set; }
 
@@ -17972,7 +19624,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns all active live locations that should be updated by the client. The list is persistent across application restarts only if the message database is used
+    /// Returns all active live locations that should be updated by the application. The list is persistent across application restarts only if the message database is used
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18046,6 +19698,37 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// Returns forwarded copies of a channel message to another public channels. For optimal performance the number of returned messages is chosen by the library. The method is under development and may or may not work
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getMessagePublicForwards chat_id:int53 message_id:int53 offset:string limit:int32 = FoundMessages;
+    /// </remarks>
+    public partial class GetMessagePublicForwards : Function<FoundMessages>
+    {
+        /// <summary>
+        /// Chat identifier of the message
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Message identifier
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results
+        /// </summary>
+        public string Offset { get; set; }
+
+        /// <summary>
+        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. Fewer messages may be returned than specified by the limit, even if the end of the list has not been reached
+        /// </summary>
+        public int Limit { get; set; }
+
+    }
+
+    /// <summary>
     /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
     /// </summary>
     /// <remarks>
@@ -18088,13 +19771,13 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns a public HTTPS link to a message. Available only for messages in supergroups and channels with a username
+    /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// getPublicMessageLink chat_id:int53 message_id:int53 for_album:Bool = PublicMessageLink;
+    /// getMessageLink chat_id:int53 message_id:int53 for_album:Bool for_comment:Bool = MessageLink;
     /// </remarks>
-    public partial class GetPublicMessageLink : Function<PublicMessageLink>
+    public partial class GetMessageLink : Function<MessageLink>
     {
         /// <summary>
         /// Identifier of the chat to which the message belongs
@@ -18107,20 +19790,25 @@ namespace TDLib.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Pass true if a link for a whole media album should be returned
+        /// Pass true to create a link for the whole media album
         /// </summary>
         public bool ForAlbum { get; set; }
+
+        /// <summary>
+        /// Pass true to create a link to the message as a channel post comment, or from a message thread
+        /// </summary>
+        public bool ForComment { get; set; }
 
     }
 
     /// <summary>
-    /// Returns a private HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. The link will work only for members of the chat
+    /// Returns an HTML code for embedding the message. Available only for messages in supergroups and channels with a username
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// getMessageLink chat_id:int53 message_id:int53 = HttpUrl;
+    /// getMessageEmbeddingCode chat_id:int53 message_id:int53 for_album:Bool = Text;
     /// </remarks>
-    public partial class GetMessageLink : Function<HttpUrl>
+    public partial class GetMessageEmbeddingCode : Function<Text>
     {
         /// <summary>
         /// Identifier of the chat to which the message belongs
@@ -18131,6 +19819,11 @@ namespace TDLib.Api
         /// Identifier of the message
         /// </summary>
         public long MessageId { get; set; }
+
+        /// <summary>
+        /// Pass true to return an HTML code for embedding of the whole media album
+        /// </summary>
+        public bool ForAlbum { get; set; }
 
     }
 
@@ -18155,7 +19848,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// sendMessage chat_id:int53 reply_to_message_id:int53 options:sendMessageOptions reply_markup:ReplyMarkup input_message_content:InputMessageContent = Message;
+    /// sendMessage chat_id:int53 message_thread_id:int53 reply_to_message_id:int53 options:messageSendOptions reply_markup:ReplyMarkup input_message_content:InputMessageContent = Message;
     /// </remarks>
     public partial class SendMessage : Function<Message>
     {
@@ -18165,6 +19858,11 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
+        /// If not 0, a message thread identifier in which the message will be sent
+        /// </summary>
+        public long MessageThreadId { get; set; }
+
+        /// <summary>
         /// Identifier of the message to reply to or 0
         /// </summary>
         public long ReplyToMessageId { get; set; }
@@ -18172,7 +19870,7 @@ namespace TDLib.Api
         /// <summary>
         /// Options to be used to send the message
         /// </summary>
-        public SendMessageOptions Options { get; set; }
+        public MessageSendOptions Options { get; set; }
 
         /// <summary>
         /// Markup for replying to the message; for bots only
@@ -18191,7 +19889,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// sendMessageAlbum chat_id:int53 reply_to_message_id:int53 options:sendMessageOptions input_message_contents:vector&lt;InputMessageContent&gt; = Messages;
+    /// sendMessageAlbum chat_id:int53 message_thread_id:int53 reply_to_message_id:int53 options:messageSendOptions input_message_contents:vector&lt;InputMessageContent&gt; = Messages;
     /// </remarks>
     public partial class SendMessageAlbum : Function<Messages>
     {
@@ -18201,6 +19899,11 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
+        /// If not 0, a message thread identifier in which the messages will be sent
+        /// </summary>
+        public long MessageThreadId { get; set; }
+
+        /// <summary>
         /// Identifier of a message to reply to or 0
         /// </summary>
         public long ReplyToMessageId { get; set; }
@@ -18208,7 +19911,7 @@ namespace TDLib.Api
         /// <summary>
         /// Options to be used to send the messages
         /// </summary>
-        public SendMessageOptions Options { get; set; }
+        public MessageSendOptions Options { get; set; }
 
         /// <summary>
         /// Contents of messages to be sent
@@ -18248,7 +19951,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// sendInlineQueryResultMessage chat_id:int53 reply_to_message_id:int53 options:sendMessageOptions query_id:int64 result_id:string hide_via_bot:Bool = Message;
+    /// sendInlineQueryResultMessage chat_id:int53 message_thread_id:int53 reply_to_message_id:int53 options:messageSendOptions query_id:int64 result_id:string hide_via_bot:Bool = Message;
     /// </remarks>
     public partial class SendInlineQueryResultMessage : Function<Message>
     {
@@ -18258,6 +19961,11 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
+        /// If not 0, a message thread identifier in which the message will be sent
+        /// </summary>
+        public long MessageThreadId { get; set; }
+
+        /// <summary>
         /// Identifier of a message to reply to or 0
         /// </summary>
         public long ReplyToMessageId { get; set; }
@@ -18265,7 +19973,7 @@ namespace TDLib.Api
         /// <summary>
         /// Options to be used to send the message
         /// </summary>
-        public SendMessageOptions Options { get; set; }
+        public MessageSendOptions Options { get; set; }
 
         /// <summary>
         /// Identifier of the inline query
@@ -18289,7 +19997,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// forwardMessages chat_id:int53 from_chat_id:int53 message_ids:vector&lt;int53&gt; options:sendMessageOptions as_album:Bool send_copy:Bool remove_caption:Bool = Messages;
+    /// forwardMessages chat_id:int53 from_chat_id:int53 message_ids:vector&lt;int53&gt; options:messageSendOptions send_copy:Bool remove_caption:Bool = Messages;
     /// </remarks>
     public partial class ForwardMessages : Function<Messages>
     {
@@ -18304,19 +20012,14 @@ namespace TDLib.Api
         public long FromChatId { get; set; }
 
         /// <summary>
-        /// Identifiers of the messages to forward
+        /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order
         /// </summary>
         public long[] MessageIds { get; set; }
 
         /// <summary>
         /// Options to be used to send the messages
         /// </summary>
-        public SendMessageOptions Options { get; set; }
-
-        /// <summary>
-        /// True, if the messages should be grouped into an album after forwarding. For this to work, no more than 10 messages may be forwarded, and all of them must be photo or video messages
-        /// </summary>
-        public bool AsAlbum { get; set; }
+        public MessageSendOptions Options { get; set; }
 
         /// <summary>
         /// True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat
@@ -18324,7 +20027,7 @@ namespace TDLib.Api
         public bool SendCopy { get; set; }
 
         /// <summary>
-        /// True, if media captions of message copies needs to be removed. Ignored if send_copy is false
+        /// True, if media caption of message copies needs to be removed. Ignored if send_copy is false
         /// </summary>
         public bool RemoveCaption { get; set; }
 
@@ -18773,7 +20476,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns all entities (mentions, hashtags, cashtags, bot commands, URLs, and email addresses) contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18789,7 +20492,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18798,7 +20501,7 @@ namespace TDLib.Api
     public partial class ParseTextEntities : Function<FormattedText>
     {
         /// <summary>
-        /// The text which should be parsed
+        /// The text to parse
         /// </summary>
         public string Text { get; set; }
 
@@ -18810,7 +20513,39 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Parses Markdown entities in a human-friendly format, ignoring markup errors. Can be called synchronously
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// parseMarkdown text:formattedText = FormattedText;
+    /// </remarks>
+    public partial class ParseMarkdown : Function<FormattedText>
+    {
+        /// <summary>
+        /// The text to parse. For example, "__italic__ ~~strikethrough~~ **bold** `code` ```pre``` __[italic__ text_url](telegram.org) __italic**bold italic__bold**"
+        /// </summary>
+        public FormattedText Text { get; set; }
+
+    }
+
+    /// <summary>
+    /// Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getMarkdownText text:formattedText = FormattedText;
+    /// </remarks>
+    public partial class GetMarkdownText : Function<FormattedText>
+    {
+        /// <summary>
+        /// The text
+        /// </summary>
+        public FormattedText Text { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18826,7 +20561,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18842,7 +20577,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18858,7 +20593,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18889,7 +20624,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Converts a JSON-serialized string to corresponding JsonValue object. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Converts a JSON-serialized string to corresponding JsonValue object. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18905,7 +20640,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Converts a JsonValue object to corresponding JSON-serialized string. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -19005,6 +20740,22 @@ namespace TDLib.Api
         /// The new message reply markup; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
+
+    }
+
+    /// <summary>
+    /// Hides a suggested action
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// hideSuggestedAction action:SuggestedAction = Ok;
+    /// </remarks>
+    public partial class HideSuggestedAction : Function<Ok>
+    {
+        /// <summary>
+        /// Suggested action to hide
+        /// </summary>
+        public SuggestedAction Action { get; set; }
 
     }
 
@@ -19406,7 +21157,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// sendChatAction chat_id:int53 action:ChatAction = Ok;
+    /// sendChatAction chat_id:int53 message_thread_id:int53 action:ChatAction = Ok;
     /// </remarks>
     public partial class SendChatAction : Function<Ok>
     {
@@ -19414,6 +21165,11 @@ namespace TDLib.Api
         /// Chat identifier
         /// </summary>
         public long ChatId { get; set; }
+
+        /// <summary>
+        /// If not 0, a message thread identifier in which the action was performed
+        /// </summary>
+        public long MessageThreadId { get; set; }
 
         /// <summary>
         /// The action description
@@ -19459,7 +21215,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// viewMessages chat_id:int53 message_ids:vector&lt;int53&gt; force_read:Bool = Ok;
+    /// viewMessages chat_id:int53 message_thread_id:int53 message_ids:vector&lt;int53&gt; force_read:Bool = Ok;
     /// </remarks>
     public partial class ViewMessages : Function<Ok>
     {
@@ -19469,12 +21225,17 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
+        /// If not 0, a message thread identifier in which the messages are being viewed
+        /// </summary>
+        public long MessageThreadId { get; set; }
+
+        /// <summary>
         /// The identifiers of the messages being viewed
         /// </summary>
         public long[] MessageIds { get; set; }
 
         /// <summary>
-        /// True, if messages in closed chats should be marked as read
+        /// True, if messages in closed chats should be marked as read by the request
         /// </summary>
         public bool ForceRead { get; set; }
 
@@ -19681,13 +21442,29 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Moves a chat to a different chat list. Current chat list of the chat must ne non-null
+    /// Returns chat lists to which the chat can be added. This is an offline request
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// setChatChatList chat_id:int53 chat_list:ChatList = Ok;
+    /// getChatListsToAddChat chat_id:int53 = ChatLists;
     /// </remarks>
-    public partial class SetChatChatList : Function<Ok>
+    public partial class GetChatListsToAddChat : Function<ChatLists>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Adds a chat to a chat list. A chat can't be simultaneously in Main and Archive chat lists, so it is automatically removed from another one if needed
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// addChatToList chat_id:int53 chat_list:ChatList = Ok;
+    /// </remarks>
+    public partial class AddChatToList : Function<Ok>
     {
         /// <summary>
         /// Chat identifier
@@ -19695,14 +21472,126 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New chat list of the chat
+        /// The chat list. Use getChatListsToAddChat to get suitable chat lists
         /// </summary>
         public ChatList ChatList { get; set; }
 
     }
 
     /// <summary>
-    /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The title will not be changed until the request to the server has been completed
+    /// Returns information about a chat filter by its identifier
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getChatFilter chat_filter_id:int32 = ChatFilter;
+    /// </remarks>
+    public partial class GetChatFilter : Function<ChatFilter>
+    {
+        /// <summary>
+        /// Chat filter identifier
+        /// </summary>
+        public int ChatFilterId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Creates new chat filter. Returns information about the created chat filter
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// createChatFilter filter:chatFilter = ChatFilterInfo;
+    /// </remarks>
+    public partial class CreateChatFilter : Function<ChatFilterInfo>
+    {
+        /// <summary>
+        /// Chat filter
+        /// </summary>
+        public ChatFilter Filter { get; set; }
+
+    }
+
+    /// <summary>
+    /// Edits existing chat filter. Returns information about the edited chat filter
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// editChatFilter chat_filter_id:int32 filter:chatFilter = ChatFilterInfo;
+    /// </remarks>
+    public partial class EditChatFilter : Function<ChatFilterInfo>
+    {
+        /// <summary>
+        /// Chat filter identifier
+        /// </summary>
+        public int ChatFilterId { get; set; }
+
+        /// <summary>
+        /// The edited chat filter
+        /// </summary>
+        public ChatFilter Filter { get; set; }
+
+    }
+
+    /// <summary>
+    /// Deletes existing chat filter
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// deleteChatFilter chat_filter_id:int32 = Ok;
+    /// </remarks>
+    public partial class DeleteChatFilter : Function<Ok>
+    {
+        /// <summary>
+        /// Chat filter identifier
+        /// </summary>
+        public int ChatFilterId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Changes the order of chat filters
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// reorderChatFilters chat_filter_ids:vector&lt;int32&gt; = Ok;
+    /// </remarks>
+    public partial class ReorderChatFilters : Function<Ok>
+    {
+        /// <summary>
+        /// Identifiers of chat filters in the new correct order
+        /// </summary>
+        public int[] ChatFilterIds { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns recommended chat filters for the current user
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getRecommendedChatFilters = RecommendedChatFilters;
+    /// </remarks>
+    public partial class GetRecommendedChatFilters : Function<RecommendedChatFilters>
+    {
+    }
+
+    /// <summary>
+    /// Returns default icon name for a filter. Can be called synchronously
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getChatFilterDefaultIconName filter:chatFilter = Text;
+    /// </remarks>
+    public partial class GetChatFilterDefaultIconName : Function<Text>
+    {
+        /// <summary>
+        /// Chat filter
+        /// </summary>
+        public ChatFilter Filter { get; set; }
+
+    }
+
+    /// <summary>
+    /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -19723,11 +21612,11 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The photo will not be changed before request to the server has been completed
+    /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// setChatPhoto chat_id:int53 photo:InputFile = Ok;
+    /// setChatPhoto chat_id:int53 photo:InputChatPhoto = Ok;
     /// </remarks>
     public partial class SetChatPhoto : Function<Ok>
     {
@@ -19737,9 +21626,9 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New chat photo. You can use a zero InputFileId to delete the chat photo. Files that are accessible only by HTTP URL are not acceptable
+        /// New chat photo. Pass null to delete the chat photo
         /// </summary>
-        public InputFile Photo { get; set; }
+        public InputChatPhoto Photo { get; set; }
 
     }
 
@@ -19769,7 +21658,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// setChatDraftMessage chat_id:int53 draft_message:draftMessage = Ok;
+    /// setChatDraftMessage chat_id:int53 message_thread_id:int53 draft_message:draftMessage = Ok;
     /// </remarks>
     public partial class SetChatDraftMessage : Function<Ok>
     {
@@ -19777,6 +21666,11 @@ namespace TDLib.Api
         /// Chat identifier
         /// </summary>
         public long ChatId { get; set; }
+
+        /// <summary>
+        /// If not 0, a message thread identifier in which the draft was changed
+        /// </summary>
+        public long MessageThreadId { get; set; }
 
         /// <summary>
         /// New draft message; may be null
@@ -19807,27 +21701,6 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") non-secret chats and the same number of secret chats in the main/archive chat list
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// toggleChatIsPinned chat_id:int53 is_pinned:Bool = Ok;
-    /// </remarks>
-    public partial class ToggleChatIsPinned : Function<Ok>
-    {
-        /// <summary>
-        /// Chat identifier
-        /// </summary>
-        public long ChatId { get; set; }
-
-        /// <summary>
-        /// New value of is_pinned
-        /// </summary>
-        public bool IsPinned { get; set; }
-
-    }
-
-    /// <summary>
     /// Changes the marked as unread state of a chat
     /// </summary>
     /// <remarks>
@@ -19845,6 +21718,27 @@ namespace TDLib.Api
         /// New value of is_marked_as_unread
         /// </summary>
         public bool IsMarkedAsUnread { get; set; }
+
+    }
+
+    /// <summary>
+    /// Changes the block state of a chat. Currently, only private chats and supergroups can be blocked
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// toggleChatIsBlocked chat_id:int53 is_blocked:Bool = Ok;
+    /// </remarks>
+    public partial class ToggleChatIsBlocked : Function<Ok>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// New value of is_blocked
+        /// </summary>
+        public bool IsBlocked { get; set; }
 
     }
 
@@ -19870,7 +21764,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Changes client data associated with a chat
+    /// Changes application-specific data associated with a chat
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -19926,7 +21820,7 @@ namespace TDLib.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats needs to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that
+        /// Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that
         /// </summary>
         public long DiscussionChatId { get; set; }
 
@@ -20312,6 +22206,32 @@ namespace TDLib.Api
     }
 
     /// <summary>
+    /// Changes the pinned state of a chat. There can be up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/arhive chat list
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// toggleChatIsPinned chat_list:ChatList chat_id:int53 is_pinned:Bool = Ok;
+    /// </remarks>
+    public partial class ToggleChatIsPinned : Function<Ok>
+    {
+        /// <summary>
+        /// Chat list in which to change the pinned state of the chat
+        /// </summary>
+        public ChatList ChatList { get; set; }
+
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// True, if the chat is pinned
+        /// </summary>
+        public bool IsPinned { get; set; }
+
+    }
+
+    /// <summary>
     /// Changes the order of pinned chats
     /// </summary>
     /// <remarks>
@@ -20453,7 +22373,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Writes a part of a generated file. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+    /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -20526,7 +22446,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
+    /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -20620,7 +22540,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// createCall user_id:int32 protocol:callProtocol = CallId;
+    /// createCall user_id:int32 protocol:callProtocol is_video:Bool = CallId;
     /// </remarks>
     public partial class CreateCall : Function<CallId>
     {
@@ -20630,9 +22550,14 @@ namespace TDLib.Api
         public int UserId { get; set; }
 
         /// <summary>
-        /// Description of the call protocols supported by the client
+        /// Description of the call protocols supported by the application
         /// </summary>
         public CallProtocol Protocol { get; set; }
+
+        /// <summary>
+        /// True, if a video call needs to be created
+        /// </summary>
+        public bool IsVideo { get; set; }
 
     }
 
@@ -20651,9 +22576,30 @@ namespace TDLib.Api
         public int CallId { get; set; }
 
         /// <summary>
-        /// Description of the call protocols supported by the client
+        /// Description of the call protocols supported by the application
         /// </summary>
         public CallProtocol Protocol { get; set; }
+
+    }
+
+    /// <summary>
+    /// Sends call signaling data
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// sendCallSignalingData call_id:int32 data:bytes = Ok;
+    /// </remarks>
+    public partial class SendCallSignalingData : Function<Ok>
+    {
+        /// <summary>
+        /// Call identifier
+        /// </summary>
+        public int CallId { get; set; }
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        public byte[] Data { get; set; }
 
     }
 
@@ -20662,7 +22608,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// discardCall call_id:int32 is_disconnected:Bool duration:int32 connection_id:int64 = Ok;
+    /// discardCall call_id:int32 is_disconnected:Bool duration:int32 is_video:Bool connection_id:int64 = Ok;
     /// </remarks>
     public partial class DiscardCall : Function<Ok>
     {
@@ -20680,6 +22626,11 @@ namespace TDLib.Api
         /// The call duration, in seconds
         /// </summary>
         public int Duration { get; set; }
+
+        /// <summary>
+        /// True, if the call was a video call
+        /// </summary>
+        public bool IsVideo { get; set; }
 
         /// <summary>
         /// Identifier of the connection used during the call
@@ -20741,53 +22692,52 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Adds a user to the blacklist
+    /// Blocks an original sender of a message in the Replies chat
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// blockUser user_id:int32 = Ok;
+    /// blockChatFromReplies message_id:int53 delete_message:Bool delete_all_messages:Bool report_spam:Bool = Ok;
     /// </remarks>
-    public partial class BlockUser : Function<Ok>
+    public partial class BlockChatFromReplies : Function<Ok>
     {
         /// <summary>
-        /// User identifier
+        /// The identifier of an incoming message in the Replies chat
         /// </summary>
-        public int UserId { get; set; }
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// Pass true if the message must be deleted
+        /// </summary>
+        public bool DeleteMessage { get; set; }
+
+        /// <summary>
+        /// Pass true if all messages from the same sender must be deleted
+        /// </summary>
+        public bool DeleteAllMessages { get; set; }
+
+        /// <summary>
+        /// Pass true if the sender must be reported to the Telegram moderators
+        /// </summary>
+        public bool ReportSpam { get; set; }
 
     }
 
     /// <summary>
-    /// Removes a user from the blacklist
+    /// Returns chats that were blocked by the current user
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// unblockUser user_id:int32 = Ok;
+    /// getBlockedChats offset:int32 limit:int32 = Chats;
     /// </remarks>
-    public partial class UnblockUser : Function<Ok>
+    public partial class GetBlockedChats : Function<Chats>
     {
         /// <summary>
-        /// User identifier
-        /// </summary>
-        public int UserId { get; set; }
-
-    }
-
-    /// <summary>
-    /// Returns users that were blocked by the current user
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// getBlockedUsers offset:int32 limit:int32 = Users;
-    /// </remarks>
-    public partial class GetBlockedUsers : Function<Users>
-    {
-        /// <summary>
-        /// Number of users to skip in the result; must be non-negative
+        /// Number of chats to skip in the result; must be non-negative
         /// </summary>
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of users to return; up to 100
+        /// The maximum number of chats to return; up to 100
         /// </summary>
         public int Limit { get; set; }
 
@@ -20937,9 +22887,9 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// getUserProfilePhotos user_id:int32 offset:int32 limit:int32 = UserProfilePhotos;
+    /// getUserProfilePhotos user_id:int32 offset:int32 limit:int32 = ChatPhotos;
     /// </remarks>
-    public partial class GetUserProfilePhotos : Function<UserProfilePhotos>
+    public partial class GetUserProfilePhotos : Function<ChatPhotos>
     {
         /// <summary>
         /// User identifier
@@ -21043,14 +22993,24 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns a list of trending sticker sets
+    /// Returns a list of trending sticker sets. For the optimal performance the number of returned sticker sets is chosen by the library
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// getTrendingStickerSets = StickerSets;
+    /// getTrendingStickerSets offset:int32 limit:int32 = StickerSets;
     /// </remarks>
     public partial class GetTrendingStickerSets : Function<StickerSets>
     {
+        /// <summary>
+        /// The offset from which to return the sticker sets; must be non-negative
+        /// </summary>
+        public int Offset { get; set; }
+
+        /// <summary>
+        /// The maximum number of sticker sets to be returned; must be non-negative. Fewer sticker sets may be returned than specified by the limit, even if the end of the list has not been reached
+        /// </summary>
+        public int Limit { get; set; }
+
     }
 
     /// <summary>
@@ -21344,7 +23304,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// searchEmojis text:string exact_match:Bool input_language_code:string = Emojis;
+    /// searchEmojis text:string exact_match:Bool input_language_codes:vector&lt;string&gt; = Emojis;
     /// </remarks>
     public partial class SearchEmojis : Function<Emojis>
     {
@@ -21359,9 +23319,9 @@ namespace TDLib.Api
         public bool ExactMatch { get; set; }
 
         /// <summary>
-        /// IETF language tag of the user's input language; may be empty if unknown
+        /// List of possible IETF language tags of the user's input language; may be empty if unknown
         /// </summary>
-        public string InputLanguageCode { get; set; }
+        public string[] InputLanguageCodes { get; set; }
 
     }
 
@@ -21510,23 +23470,23 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Uploads a new profile photo for the current user. If something changes, updateUser will be sent
+    /// Changes a profile photo for the current user
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// setProfilePhoto photo:InputFile = Ok;
+    /// setProfilePhoto photo:InputChatPhoto = Ok;
     /// </remarks>
     public partial class SetProfilePhoto : Function<Ok>
     {
         /// <summary>
-        /// Profile photo to set. inputFileId and inputFileRemote may still be unsupported
+        /// Profile photo to set
         /// </summary>
-        public InputFile Photo { get; set; }
+        public InputChatPhoto Photo { get; set; }
 
     }
 
     /// <summary>
-    /// Deletes a profile photo. If something changes, updateUser will be sent
+    /// Deletes a profile photo
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -21542,7 +23502,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Changes the first and last name of the current user. If something changes, updateUser will be sent
+    /// Changes the first and last name of the current user
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -21579,7 +23539,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Changes the username of the current user. If something changes, updateUser will be sent
+    /// Changes the username of the current user
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -21591,6 +23551,22 @@ namespace TDLib.Api
         /// The new value of the username. Use an empty string to remove the username
         /// </summary>
         public string Username { get; set; }
+
+    }
+
+    /// <summary>
+    /// Changes the location of the current user. Needs to be called if GetOption("is_location_visible") is true and location changes for more than 1 kilometer
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// setLocation location:location = Ok;
+    /// </remarks>
+    public partial class SetLocation : Function<Ok>
+    {
+        /// <summary>
+        /// The new location of the user
+        /// </summary>
+        public Location Location { get; set; }
 
     }
 
@@ -21639,6 +23615,22 @@ namespace TDLib.Api
         /// Verification code received by SMS, phone call or flash call
         /// </summary>
         public string Code { get; set; }
+
+    }
+
+    /// <summary>
+    /// Sets the list of commands supported by the bot; for bots only
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// setCommands commands:vector&lt;botCommand&gt; = Ok;
+    /// </remarks>
+    public partial class SetCommands : Function<Ok>
+    {
+        /// <summary>
+        /// List of the bot's commands
+        /// </summary>
+        public BotCommand[] Commands { get; set; }
 
     }
 
@@ -22095,7 +24087,7 @@ namespace TDLib.Api
     public partial class GetBackgrounds : Function<Backgrounds>
     {
         /// <summary>
-        /// True, if the backgrounds needs to be ordered for dark theme
+        /// True, if the backgrounds need to be ordered for dark theme
         /// </summary>
         public bool ForDarkTheme { get; set; }
 
@@ -22365,7 +24357,7 @@ namespace TDLib.Api
         public DeviceToken DeviceToken { get; set; }
 
         /// <summary>
-        /// List of user identifiers of other users currently using the client
+        /// List of user identifiers of other users currently using the application
         /// </summary>
         public int[] OtherUserIds { get; set; }
 
@@ -22388,7 +24380,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -22553,7 +24545,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Reports a chat to the Telegram moderators. Supported only for supergroups, channels, or private chats with bots, since other chats can't be checked by moderators, or when the report is done from the chat action bar
+    /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -22579,7 +24571,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns an HTTP URL with the chat statistics. Currently this method can be used only for channels. Can be used only if SupergroupFullInfo.can_view_statistics == true
+    /// Returns an HTTP URL with the chat statistics. Currently this method of getting the statistics are disabled and can be deleted in the future
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -22601,6 +24593,79 @@ namespace TDLib.Api
         /// Pass true if a URL with the dark theme must be returned
         /// </summary>
         public bool IsDark { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns detailed statistics about a chat. Currently this method can be used only for supergroups and channels. Can be used only if SupergroupFullInfo.can_get_statistics == true
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getChatStatistics chat_id:int53 is_dark:Bool = ChatStatistics;
+    /// </remarks>
+    public partial class GetChatStatistics : Function<ChatStatistics>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Pass true if a dark theme is used by the application
+        /// </summary>
+        public bool IsDark { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true. The method is under development and may or may not work
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getMessageStatistics chat_id:int53 message_id:int53 is_dark:Bool = MessageStatistics;
+    /// </remarks>
+    public partial class GetMessageStatistics : Function<MessageStatistics>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Message identifier
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// Pass true if a dark theme is used by the application
+        /// </summary>
+        public bool IsDark { get; set; }
+
+    }
+
+    /// <summary>
+    /// Loads asynchronous or zoomed in chat or message statistics graph
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getStatisticsGraph chat_id:int53 token:string x:int53 = StatisticsGraph;
+    /// </remarks>
+    public partial class GetStatisticsGraph : Function<StatisticsGraph>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// The token for graph loading
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// X-value for zoomed in graph or 0 otherwise
+        /// </summary>
+        public long X { get; set; }
 
     }
 
@@ -22647,7 +24712,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// optimizeStorage size:int53 ttl:int32 count:int32 immunity_delay:int32 file_types:vector&lt;FileType&gt; chat_ids:vector&lt;int53&gt; exclude_chat_ids:vector&lt;int53&gt; chat_limit:int32 = StorageStatistics;
+    /// optimizeStorage size:int53 ttl:int32 count:int32 immunity_delay:int32 file_types:vector&lt;FileType&gt; chat_ids:vector&lt;int53&gt; exclude_chat_ids:vector&lt;int53&gt; return_deleted_file_statistics:Bool chat_limit:int32 = StorageStatistics;
     /// </remarks>
     public partial class OptimizeStorage : Function<StorageStatistics>
     {
@@ -22685,6 +24750,11 @@ namespace TDLib.Api
         /// If not empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)
         /// </summary>
         public long[] ExcludeChatIds { get; set; }
+
+        /// <summary>
+        /// Pass true if deleted file statistics need to be returned instead of the whole storage usage statistics. Affects only returned statistics
+        /// </summary>
+        public bool ReturnDeletedFileStatistics { get; set; }
 
         /// <summary>
         /// Same as in getStorageStatistics. Affects only returned statistics
@@ -22753,7 +24823,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns auto-download settings presets for the currently logged in user
+    /// Returns auto-download settings presets for the current user
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -22781,6 +24851,22 @@ namespace TDLib.Api
         /// Type of the network for which the new settings are applied
         /// </summary>
         public NetworkType Type { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns information about a bank card
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getBankCardInfo bank_card_number:string = BankCardInfo;
+    /// </remarks>
+    public partial class GetBankCardInfo : Function<BankCardInfo>
+    {
+        /// <summary>
+        /// The bank card number
+        /// </summary>
+        public string BankCardNumber { get; set; }
 
     }
 
@@ -23148,7 +25234,7 @@ namespace TDLib.Api
         public int UserId { get; set; }
 
         /// <summary>
-        /// PNG image with the sticker; must be up to 512 kB in size and fit in 512x512 square
+        /// PNG image with the sticker; must be up to 512 KB in size and fit in 512x512 square
         /// </summary>
         public InputFile PngSticker { get; set; }
 
@@ -23159,7 +25245,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// createNewStickerSet user_id:int32 title:string name:string is_masks:Bool stickers:vector&lt;inputSticker&gt; = StickerSet;
+    /// createNewStickerSet user_id:int32 title:string name:string is_masks:Bool stickers:vector&lt;InputSticker&gt; = StickerSet;
     /// </remarks>
     public partial class CreateNewStickerSet : Function<StickerSet>
     {
@@ -23179,12 +25265,12 @@ namespace TDLib.Api
         public string Name { get; set; }
 
         /// <summary>
-        /// True, if stickers are masks
+        /// True, if stickers are masks. Animated stickers can't be masks
         /// </summary>
         public bool IsMasks { get; set; }
 
         /// <summary>
-        /// List of stickers to be added to the set
+        /// List of stickers to be added to the set; must be non-empty. All stickers must be of the same type
         /// </summary>
         public InputSticker[] Stickers { get; set; }
 
@@ -23195,7 +25281,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// addStickerToSet user_id:int32 name:string sticker:inputSticker = StickerSet;
+    /// addStickerToSet user_id:int32 name:string sticker:InputSticker = StickerSet;
     /// </remarks>
     public partial class AddStickerToSet : Function<StickerSet>
     {
@@ -23213,6 +25299,32 @@ namespace TDLib.Api
         /// Sticker to add to the set
         /// </summary>
         public InputSticker Sticker { get; set; }
+
+    }
+
+    /// <summary>
+    /// Sets a sticker set thumbnail; for bots only. Returns the sticker set
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// setStickerSetThumbnail user_id:int32 name:string thumbnail:InputFile = StickerSet;
+    /// </remarks>
+    public partial class SetStickerSetThumbnail : Function<StickerSet>
+    {
+        /// <summary>
+        /// Sticker set owner
+        /// </summary>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// Sticker set name
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Thumbnail to set in PNG or TGS format. Animated thumbnail must be set for animated sticker sets and only for them. Pass a zero InputFileId to delete the thumbnail
+        /// </summary>
+        public InputFile Thumbnail { get; set; }
 
     }
 
@@ -23353,7 +25465,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Succeeds after a specified amount of time has passed. Can be called before authorization. Can be called before initialization
+    /// Succeeds after a specified amount of time has passed. Can be called before initialization
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23369,7 +25481,18 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Uses current user IP to found their country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
+    /// Returns information about existing countries. Can be called before authorization
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getCountries = Countries;
+    /// </remarks>
+    public partial class GetCountries : Function<Countries>
+    {
+    }
+
+    /// <summary>
+    /// Uses current user IP address to find their country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23377,6 +25500,22 @@ namespace TDLib.Api
     /// </remarks>
     public partial class GetCountryCode : Function<Text>
     {
+    }
+
+    /// <summary>
+    /// Returns information about a phone number by its prefix. Can be called before authorization
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getPhoneNumberInfo phone_number_prefix:string = PhoneNumberInfo;
+    /// </remarks>
+    public partial class GetPhoneNumberInfo : Function<PhoneNumberInfo>
+    {
+        /// <summary>
+        /// The phone number prefix
+        /// </summary>
+        public string PhoneNumberPrefix { get; set; }
+
     }
 
     /// <summary>
@@ -23597,7 +25736,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Sets new log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Sets new log stream for internal logging of TDLib. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23613,7 +25752,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns information about currently used log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23624,7 +25763,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Sets the verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Sets the verbosity level of the internal logging of TDLib. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23640,7 +25779,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns current verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns current verbosity level of the internal logging of TDLib. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23651,7 +25790,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23662,7 +25801,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Sets the verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23683,7 +25822,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns current verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23699,7 +25838,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Adds a message to TDLib internal log. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Adds a message to TDLib internal log. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -23912,7 +26051,7 @@ namespace TDLib.Api
     }
 
     /// <summary>
-    /// Returns the specified error and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization. Can be called synchronously
+    /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
     /// </summary>
     /// <remarks>
     /// TL source:

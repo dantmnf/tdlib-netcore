@@ -5,9 +5,12 @@ using namespace td::td_api;
 using objptr = object_ptr<BaseObject>;
 using objvec = std::vector<objptr>;
 
-EXPORT const objptr* td_bridge_vector_object_data(const objvec *vecptr, int64_t *size) {
-	*size = vecptr->size();
-	return vecptr->data();
+EXPORT int64_t td_bridge_vector_object_size(const objvec *vecptr) {
+	return vecptr->size();
+}
+
+EXPORT const objptr* td_bridge_vector_object_at(const objvec *vecptr, int64_t index) {
+	return &vecptr->at(index);
 }
 
 EXPORT void td_bridge_vector_object_clear(objvec *vecptr) {

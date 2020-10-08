@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Buffers.Binary;
-using TDLib.Api;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text;
+using System.Text.Json;
+using TDLib.Api;
 
 namespace TDLib.JsonClient
 {
@@ -24,92 +23,83 @@ namespace TDLib.JsonClient
 
     }
 
-    public ref struct TdJsonReader
+    internal unsafe ref partial struct TdJsonReader
     {
-        public ReadOnlySpan<byte> Span;
-        public int Position;
-        public TdJsonReader(ReadOnlySpan<byte> jsonspan)
+        private readonly byte* cstr;
+        private int position;
+        public int BytesConsumed => position;
+        public TdJsonReader(byte* json_cstr)
         {
-            Span = jsonspan;
-            Position = 0;
+            cstr = json_cstr;
+            position = 0;
         }
 
-        public void SkipWhiteSpace()
+        private ReadOnlySpan<byte> Slice(int begin, int end)
         {
-            while (Position < Span.Length)
+            return new ReadOnlySpan<byte>(cstr + begin, end - begin);
+        }
+        private void ConsumeWhitespace()
+        {
+            while (cstr[position] != 0)
             {
-                switch (Span[Position])
+                
+                switch (cstr[position])
                 {
                     case 0x09:
                     case 0x0a:
                     case 0x0d:
                     case 0x20:
-                        Position++;
+                        position++;
                         continue;
                     default:
                         return;
                 }
             }
+            throw new EndOfStreamException();
         }
 
-        public object ReadValue()
+        public JsonTokenType GetCurrentTokenType()
         {
-            try
+            switch (cstr[position])
             {
-                SkipWhiteSpace();
-                while (Position < Span.Length)
-                {
-                    switch (Span[Position])
-                    {
-                        case (byte)'{':
-                            return ReadTLObject().TLObject;
+                case 0:
+                    throw new EndOfStreamException();
 
-                        case (byte)'[':
-                            return ReadArray();
+                case (byte)'{':
+                    return JsonTokenType.StartObject;
 
-                        case (byte)'"':
-                            return ReadStringAsUTF16String();
+                case (byte)'[':
+                    return JsonTokenType.StartArray;
 
-                        case (byte)'-':
-                        case 0x30:
-                        case 0x31:
-                        case 0x32:
-                        case 0x33:
-                        case 0x34:
-                        case 0x35:
-                        case 0x36:
-                        case 0x37:
-                        case 0x38:
-                        case 0x39:
-                            return ReadNumber();
+                case (byte)'"':
+                    return JsonTokenType.String;
 
-                        case (byte)'t':
-                            return ReadTrue();
+                case (byte)'-':
+                case 0x30:
+                case 0x31:
+                case 0x32:
+                case 0x33:
+                case 0x34:
+                case 0x35:
+                case 0x36:
+                case 0x37:
+                case 0x38:
+                case 0x39:
+                    return JsonTokenType.Number;
 
-                        case (byte)'f':
-                            return ReadFalse();
+                case (byte)'t':
+                    return JsonTokenType.True;
 
-                        case (byte)'n':
-                            return ReadNull();
+                case (byte)'f':
+                    return JsonTokenType.False;
 
-                        default:
-                            throw new TdJsonReaderException(Position, string.Format("unrecognized token in: 0x{0:x2}", Span[Position]));
-                    }
-                }
-                throw new TdJsonReaderException(Position, "incomplete input");
+                case (byte)'n':
+                    return JsonTokenType.Null;
+
+                default:
+                    return JsonTokenType.None;
             }
-            catch (IndexOutOfRangeException e)
-            {
-                throw new TdJsonReaderException(Position, "IndexOutOfRangeException thrown, incomplete input?", e);
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                throw new TdJsonReaderException(Position, "ArgumentOutOfRangeException thrown, incomplete input?", e);
-            }
-            catch (Exception e)
-            {
-                throw new TdJsonReaderException(Position, "Unhandled exception in TdJsonReader", e);
-            }
+
         }
 
         static readonly byte[] trueBytes = new byte[] { 116, 114, 117, 101 };
@@ -117,133 +107,140 @@ namespace TDLib.JsonClient
         static readonly byte[] nullBytes = new byte[] { 110, 117, 108, 108 };
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void AssertRemainingLength(int x = 1)
+        private void AssertRemainingLength(uint size = 1)
         {
-            if(Span.Length - Position < x)
-                throw new TdJsonReaderException(Position, "incomplete input");
+            var p = position;
+            do
+            {
+                if (cstr[p] == 0) throw new EndOfStreamException();
+                p++;
+                size--;
+            } while (size != 0);
         }
 
         private object ReadNull()
         {
-            AssertRemainingLength(4);
-            if (Span.Slice(Position, 4).SequenceEqual(nullBytes))
+            position++; // first byte examined before
+            for (var i = 1; i < 4; i++)
             {
-                Position += 4;
-                return null;
+                if (cstr[position] == 0) throw new EndOfStreamException();
+                if (cstr[position] != nullBytes[i]) throw new TdJsonReaderException(position, "invalid value");
+                position++;
             }
-            throw new TdJsonReaderException(Position, "invalid value");
+            return null;
         }
 
         private bool ReadFalse()
         {
-            AssertRemainingLength(5);
-            if (Span.Slice(Position, 5).SequenceEqual(falseBytes))
+            position++; // first byte examined before
+            for (var i = 1; i < 5; i++)
             {
-                Position += 5;
-                return false;
+                if (cstr[position] == 0) throw new EndOfStreamException();
+                if (cstr[position] != falseBytes[i]) throw new TdJsonReaderException(position, "invalid value");
+                position++;
             }
-            throw new TdJsonReaderException(Position, "invalid value");
+            return false;
         }
 
         private bool ReadTrue()
         {
-            AssertRemainingLength(4);
-            if (Span.Slice(Position, 4).SequenceEqual(trueBytes))
+            position++; // first byte examined before
+            for (var i = 1; i < 4; i++)
             {
-                Position += 4;
-                return true;
+                if (cstr[position] == 0) throw new EndOfStreamException();
+                if (cstr[position] != trueBytes[i]) throw new TdJsonReaderException(position, "invalid value");
+                position++;
             }
-            throw new TdJsonReaderException(Position, "invalid value");
+            return true;
         }
 
-        internal bool ReadBool()
+        public bool ReadBool()
         {
             AssertRemainingLength();
-            if (Span[Position] == 't') return ReadTrue();
-            else if (Span[Position] == 'f') return ReadFalse();
-            else throw new TdJsonReaderException(Position, "invalid value type");
+            if (cstr[position] == 't') return ReadTrue();
+            else if (cstr[position] == 'f') return ReadFalse();
+            else throw new TdJsonReaderException(position, "invalid value type");
         }
 
-        internal long ReadInteger()
+        private long ReadInteger()
         {
             AssertRemainingLength();
-            if (Span[Position] != 0x2d && (Span[Position] < 0x30 || Span[Position] > 0x39))
-                throw new TdJsonReaderException(Position, "invalid value type");
+            if (cstr[position] != 0x2d && (cstr[position] < 0x30 || cstr[position] > 0x39))
+                throw new TdJsonReaderException(position, "invalid value type");
             var negative = false;
             long result = 0;
-            if (Span[Position] == 0x2d)
+            if (cstr[position] == 0x2d)
             {
                 negative = true;
-                Position++;
+                position++;
+                AssertRemainingLength();
             }
-            if (Span[Position] == 0x30)
+            if (cstr[position] == 0x30)
             {
-                Position++;
+                position++;
                 return 0;
             }
-            while (Position < Span.Length && Span[Position] >= 0x30 && Span[Position] <= 0x39)
+            while (cstr[position] != 0 && cstr[position] >= 0x30 && cstr[position] <= 0x39)
             {
-                result = checked(result * 10 + (Span[Position] - 0x30));
-                Position++;
+                result = checked(result * 10 + (cstr[position] - 0x30));
+                position++;
             }
             return negative ? -result : result;
         }
 
-        internal long ReadIntegerString()
+        public long ReadInt64String()
         {
             AssertRemainingLength();
-            if (Span[Position] != (byte)'"')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
+            if (cstr[position] != (byte)'"')
+                throw new TdJsonReaderException(position, "invalid value type");
+            position++;
             var result = ReadInteger();
-            if (Span[Position] != (byte)'"')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
+            if (cstr[position] != (byte)'"')
+                throw new TdJsonReaderException(position, "invalid value type");
+            position++;
             return result;
         }
 
-        private void ReadNumberInternal(out long intpart, out ReadOnlySpan<byte> fracpart, out long exp)
+        public LongOrDouble ReadNumber()
         {
-            intpart = ReadInteger();
-            exp = 0;
-            fracpart = new ReadOnlySpan<byte>();
-            if (Position < Span.Length && Span[Position] == (byte)'.')
+            var intpart = ReadInteger();
+            var fracpart = new ReadOnlySpan<byte>();
+            int? exp = null;
+            if (cstr[position] == (byte)'.')
             {
-                Position++;
-                var fracstart = Position;
-                while (Position < Span.Length && Span[Position] >= 0x30 && Span[Position] <= 0x39) Position++;
-                fracpart = Span.Slice(fracstart, Position - fracstart);
+                position++;
+                var fracstart = position;
+                while (cstr[position] != 0 && cstr[position] >= 0x30 && cstr[position] <= 0x39) position++;
+                fracpart = Slice(fracstart, position);
             }
-            if (Position < Span.Length && Span[Position] == (byte)'e' || Span[Position] == (byte)'E')
+            if (cstr[position] == (byte)'e' || cstr[position] == (byte)'E')
             {
-                Position++;
-                exp = ReadInteger();
+                position++;
+                AssertRemainingLength();
+                var negative = false;
+                exp = 0;
+                if (cstr[position] == (byte)'-')
+                {
+                    negative = true;
+                    position++;
+                    AssertRemainingLength();
+                }
+                else if (cstr[position] == (byte)'+')
+                {
+                    position++;
+                    AssertRemainingLength();
+                }
+                while (cstr[position] != 0 && cstr[position] >= 0x30 && cstr[position] <= 0x39)
+                {
+                    var digit = cstr[position] - 0x30;
+                    exp = exp * 10 + digit;
+                }
+                if (negative) exp = -exp;
             }
-        }
-
-        public object ReadNumber()
-        {
-            ReadNumberInternal(out var intpart, out var fracpart, out var exp);
-            if (fracpart.IsEmpty && exp == 0)
+            if (fracpart.IsEmpty && !exp.HasValue)
             {
-                return intpart;
+                return LongOrDouble.FromLong(intpart);
             }
-            return FormatDouble(intpart, fracpart, exp);
-        }
-
-        public int ReadInt()
-        {
-            return unchecked((int)ReadDouble());
-        }
-
-        public long ReadLong()
-        {
-
-            return unchecked((long)ReadDouble());
-        }
-
-        private double FormatDouble(long intpart, ReadOnlySpan<byte> fracpart, long exp)
-        {
             double result = intpart;
             if (!fracpart.IsEmpty)
             {
@@ -252,24 +249,24 @@ namespace TDLib.JsonClient
                     result += (fracpart[i] - 0x30) / Math.Pow(10, i + 1);
                 }
             }
-            if (exp != 0)
+            if (exp.HasValue)
             {
-                result = result * Math.Pow(10, exp);
+                result *= Math.Pow(10, exp.Value);
             }
-            return result;
+            return LongOrDouble.FromDouble(result);
         }
 
-        public double ReadDouble()
-        {
-            ReadNumberInternal(out var intpart, out var fracpart, out var exp);
-            return FormatDouble(intpart, fracpart, exp);
-        }
+        public int ReadInt() => unchecked((int)ReadLong());
+
+        public long ReadLong() => ReadNumber().GetLong();
+
+        public double ReadDouble() => ReadNumber().GetDouble();
 
         private int ReadHex1()
         {
             AssertRemainingLength();
-            var value = Span[Position];
-            var result = 0;
+            var value = cstr[position];
+            int result;
             if (value >= 0x30 && value <= 0x39)
             {
                 result = value - 0x30;
@@ -284,9 +281,9 @@ namespace TDLib.JsonClient
             }
             else
             {
-                throw new TdJsonReaderException(Position, "hexadecimal digit out of range");
+                throw new TdJsonReaderException(position, "hexadecimal digit out of range");
             }
-            Position++;
+            position++;
             return result;
         }
 
@@ -303,7 +300,7 @@ namespace TDLib.JsonClient
             return result;
         }
 
-        private unsafe void StreamWriteUTF8Codepoint(Stream ms, uint codepoint)
+        private unsafe void StreamWriteUTF8Codepoint<T>(ref T ms, uint codepoint) where T : ISlimStreamWriter
         {
             if (codepoint <= 0x7F)
             {
@@ -337,61 +334,60 @@ namespace TDLib.JsonClient
             }
             else
             {
-                throw new TdJsonReaderException(Position, "Unicode codepoint out of range");
+                throw new TdJsonReaderException(position, "Unicode codepoint out of range");
             }
         }
 
-        private void ReadStringToStream(Stream ms)
+        private void ReadStringToStream<T>(ref T ms) where T : ISlimStreamWriter // generics with type constraint is needed to pass struct reference without boxing
         {
-            AssertRemainingLength();
-            if (Span[Position] != (byte)'"')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
+            if (cstr[position] != (byte)'"')
+                throw new TdJsonReaderException(position, "invalid value type");
+            position++;
             ushort prevu16 = 0;
             var instr = true;
-            var beginliteral = Position;
-            while (Position < Span.Length && instr)
+            var beginliteral = position;
+            while (cstr[position] != 0 && instr)
             {
-                switch (Span[Position])
+                switch (cstr[position])
                 {
                     case (byte)'\\':
-                        if (Position - beginliteral > 0)
+                        if (position - beginliteral > 0)
                         {
-                            // var bytes = Span.Slice(beginliteral, Position - beginliteral).ToArray();
-                            ms.Write(Span.Slice(beginliteral, Position - beginliteral));
+                            // write saved literal
+                            ms.Write(Slice(beginliteral, position));
                         }
                         AssertRemainingLength(2);
-                        Position++;
-                        switch (Span[Position])
+                        position++;
+                        switch (cstr[position])
                         {
                             case (byte)'"':
                             case (byte)'\\':
                             case (byte)'/':
-                                ms.WriteByte(Span[Position]);
-                                Position++;
+                                ms.WriteByte(cstr[position]);
+                                position++;
                                 break;
                             case (byte)'b':
                                 ms.WriteByte((byte)'\b');
-                                Position++;
+                                position++;
                                 break;
                             case (byte)'f':
                                 ms.WriteByte((byte)'\f');
-                                Position++;
+                                position++;
                                 break;
                             case (byte)'n':
                                 ms.WriteByte((byte)'\n');
-                                Position++;
+                                position++;
                                 break;
                             case (byte)'r':
                                 ms.WriteByte((byte)'\r');
-                                Position++;
+                                position++;
                                 break;
                             case (byte)'t':
                                 ms.WriteByte((byte)'\t');
-                                Position++;
+                                position++;
                                 break;
                             case (byte)'u':
-                                Position++;
+                                position++;
                                 var hex4 = ReadHex4();
                                 if (hex4 >= 0xD800 && hex4 <= 0xDBFF)
                                 {
@@ -401,428 +397,313 @@ namespace TDLib.JsonClient
                                 {
                                     if (prevu16 == 0)
                                     {
-                                        throw new TdJsonReaderException(Position, "UTF-16 surrogate pair without leading one");
+                                        throw new TdJsonReaderException(position, "UTF-16 surrogate pair without leading one");
                                     }
                                     uint uni = unchecked(((uint)prevu16 << 10) + hex4 + (0x10000u - (0xD800u << 10) - 0xDC00u));
-                                    StreamWriteUTF8Codepoint(ms, uni);
+                                    StreamWriteUTF8Codepoint(ref ms, uni);
                                 }
                                 else
                                 {
-                                    StreamWriteUTF8Codepoint(ms, hex4);
+                                    StreamWriteUTF8Codepoint(ref ms, hex4);
                                 }
                                 break;
                             default:
-                                throw new TdJsonReaderException(Position, "invalid escape sequence");
+                                throw new TdJsonReaderException(position, "invalid escape sequence");
                         }
-                        beginliteral = Position;
+                        beginliteral = position;
                         break;
                     case (byte)'"':
-                        if (Position - beginliteral > 0)
+                        if (position - beginliteral > 0)
                         {
                             //var bytes = Span.Slice(beginliteral, Position - beginliteral).ToArray();
-                            ms.Write(Span.Slice(beginliteral, Position - beginliteral));
+                            ms.Write(Slice(beginliteral, position));
                         }
-                        beginliteral = Position;
+                        beginliteral = position;
                         instr = false;
-                        Position++;
+                        position++;
                         break;
                     default:
-                        Position++;
+                        position++;
                         break;
                 }
             }
-            if (instr) throw new TdJsonReaderException(Position, "incomplete input");
+            if (instr) throw new TdJsonReaderException(position, "incomplete input");
         }
 
-        public ArraySegment<byte> ReadStringAsUTF8ByteArray()
+        public string ReadString()
         {
-            var ms = new MemoryStream(24);
-            ReadStringToStream(ms);
-            var len = ms.Length;
-            if (ms.TryGetBuffer(out var buffer))
-            {
-                return buffer;
-            }
-            else
-            {
-                return new ArraySegment<byte>(ms.ToArray());
-            }
+            var buffer = stackalloc byte[512];
+            var ms = new SlimMemoryStream(buffer, 512);
+            ReadStringToStream(ref ms);
+            return Encoding.UTF8.GetString(ms.GetReadOnlySpan());
+        }
+
+        public byte[] ReadBase64String()
+        {
+            var buffer = stackalloc byte[512];
+            var ms = new SlimMemoryStream(buffer, 512);
+            ReadStringToStream(ref ms);
+            var span = ms.GetSpan();
+            System.Buffers.Text.Base64.DecodeFromUtf8InPlace(span, out var length);
+            return span.Slice(0, length).ToArray();
         }
 
         internal uint ReadStringAsHash()
         {
-            var s = new Crc32Stream();
-            ReadStringToStream(s);
+            var s = Crc32Stream.Create();
+            ReadStringToStream(ref s);
             return s.Hash;
         }
 
-        internal void SkipString()
-        {
-            ReadStringToStream(Stream.Null);
-        }
-
-        public string ReadStringAsUTF16StringAlt()
-        {
-            AssertRemainingLength();
-            if (Span[Position] != (byte)'"')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
-            var sb = new StringBuilder(24, int.MaxValue);
-            var instr = true;
-            var beginliteral = Position;
-            while (Position < Span.Length && instr)
-            {
-                switch (Span[Position])
-                {
-                    case (byte)'\\':
-                        Position++;
-                        AssertRemainingLength();
-                        switch (Span[Position])
-                        {
-                            case (byte)'"':
-                            case (byte)'\\':
-                            case (byte)'/':
-                                sb.Append((char)Span[Position]);
-                                Position++;
-                                break;
-                            case (byte)'b':
-                                sb.Append('\b');
-                                Position++;
-                                break;
-                            case (byte)'f':
-                                sb.Append('\f');
-                                Position++;
-                                break;
-                            case (byte)'n':
-                                sb.Append('\n');
-                                Position++;
-                                break;
-                            case (byte)'r':
-                                sb.Append('\r');
-                                Position++;
-                                break;
-                            case (byte)'t':
-                                sb.Append('\t');
-                                Position++;
-                                break;
-                            case (byte)'u':
-                                Position++;
-                                var hex4 = ReadHex4();
-                                sb.Append((char)hex4);
-                                break;
-                            default:
-                                throw new TdJsonReaderException(Position, "invalid escape sequence");
-                        }
-                        beginliteral = Position;
-                        break;
-                    case (byte)'"':
-                        beginliteral = Position;
-                        instr = false;
-                        Position++;
-                        break;
-                    default:
-                        var cp = ReadUTF8CodePoint();
-                        if (cp <= 0xFFFF)
-                        {
-                            sb.Append((char)cp);
-                        }
-                        else
-                        {
-                            unchecked
-                            {
-                                const uint LEAD_OFFSET = 0xD800 - (0x10000 >> 10);
-                                var lead = LEAD_OFFSET + (cp >> 10);
-                                var trail = 0xDC00 + (cp & 0x3FF);
-                                sb.Append((char)lead);
-                                sb.Append((char)trail);
-                            }
-                        }
-                        break;
-                }
-            }
-            if (instr) throw new TdJsonReaderException(Position, "incomplete input");
-            return sb.ToString();
-        }
-
-        private int ReadUTF8CodePoint()
-        {
-            int result;
-            if ((Span[Position] & 0x80) == 0)
-            {
-                result = Span[Position];
-                Position++;
-            }
-            else if ((Span[Position] >> 5) == 0b110 && Span.Length - Position >= 2) // 2-byte UTF-8
-            {
-                result = (Span[Position] & 0b00011111) << 6;
-                Position++;
-                result |= (Span[Position] & 0b00111111);
-                Position++;
-            }
-            else if ((Span[Position] >> 4) == 0b1110 && Span.Length - Position >= 3) // 3-byte UTF-8
-            {
-                result = (Span[Position] & 0b00001111) << 12;
-                Position++;
-                result |= (Span[Position] & 0b00111111) << 6;
-                Position++;
-                result |= (Span[Position] & 0b00111111);
-                Position++;
-            }
-            else if ((Span[Position] >> 3) == 0b11110 && Span.Length - Position >= 4) // 4-byte UTF-8
-            {
-                result = (Span[Position] & 0b00000111) << 18;
-                Position++;
-                result |= (Span[Position] & 0b00111111) << 12;
-                Position++;
-                result |= (Span[Position] & 0b00111111) << 6;
-                Position++;
-                result |= (Span[Position] & 0b00111111);
-                Position++;
-            }
-            else
-            {
-                throw new TdJsonReaderException(Position, "incomplete UTF-8 byte sequence");
-            }
-            return result;
-        }
-
-        public string ReadStringAsUTF16String()
-        {
-            // TODO: use StringBuilder?
-            // NOTE: StringBuilder gives little performance benefit
-            var u8str = ReadStringAsUTF8ByteArray();
-            return Encoding.UTF8.GetString(u8str.Array, u8str.Offset, u8str.Count);
-        }
-
-        internal byte[] ReadBase64String()
-        {
-            // TODO: convert from UTF-8 span
-            var str = ReadStringAsUTF16String();
-            var result = Convert.FromBase64String(str);
-            return result;
-        }
-
-        public object[] ReadArray()
-        {
-            return ReadArray<object>();
-        }
-
-        private static object CheckNestedArray<T>(object obj)
-        {
-            if (!typeof(T).IsSubclassOf(typeof(Array))) return obj;
-            var elemtype = typeof(T).GetElementType(); // T: X[]
-            var objarr = (object[])obj;
-            var newarr = Array.CreateInstance(elemtype, objarr.Length);
-            for (var i = 0; i < objarr.Length; i++)
-            {
-                var value = objarr[i];
-                if (elemtype == typeof(byte[]))
-                {
-                    value = Convert.FromBase64String((string)value);
-                }
-                newarr.SetValue(value, i);
-            }
-            return newarr;
-        }
-
-        public T[] ReadArray<T>()
+        /// <summary>
+        /// Begin to consume an array.
+        /// </summary>
+        /// <returns><see cref="JsonTokenType"/> of first array element, or <see cref="JsonTokenType.None"/> if array is empty.</returns>
+        public JsonTokenType BeginReadArray()
         {
             AssertRemainingLength();
-            if (Span[Position] != (byte)'[')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
-            SkipWhiteSpace();
+            if (GetCurrentTokenType() != JsonTokenType.StartArray)
+                throw new TdJsonReaderException(position, "invalid value type");
+            position++;
+            ConsumeWhitespace();
             AssertRemainingLength();
-            if (Span[Position] == (byte)']')
+            if (cstr[position] == (byte)']')
             {
-                Position++;
-                return Array.Empty<T>();
+                position++;
+                return JsonTokenType.None;
             }
-            var objs = new List<T>();
-            objs.Add((T)CheckNestedArray<T>(ReadValue()));
-            bool inarray = true;
-            while (inarray && Position < Span.Length)
+            return GetCurrentTokenType();
+        }
+
+        /// <summary>
+        /// Consume array element separator or EndArray token ']'.
+        /// </summary>
+        /// <returns><see cref="JsonTokenType"/> of next array element, or <see cref="JsonTokenType.None"/> if no more elements and the entire array is consumed.</returns>
+        public JsonTokenType MoveToNextArrayElement()
+        {
+            if (cstr[position] != 0)
             {
-                SkipWhiteSpace();
+                ConsumeWhitespace();
                 AssertRemainingLength();
-                switch (Span[Position])
+                switch (cstr[position])
                 {
                     case (byte)',':
-                        Position++;
-                        objs.Add((T)CheckNestedArray<T>(ReadValue()));
-                        break;
+                        position++;
+                        ConsumeWhitespace();
+                        return GetCurrentTokenType();
                     case (byte)']':
-                        Position++;
-                        inarray = false;
-                        break;
+                        position++;
+                        return JsonTokenType.None;
                     default:
-                        throw new TdJsonReaderException(Position, "invalid token in array");
+                        throw new TdJsonReaderException(position, "invalid token in array");
                 }
             }
-            if (inarray) throw new TdJsonReaderException(Position, "incomplete input");
-            return objs.ToArray();
+            throw new TdJsonReaderException(position, "incomplete input");
+        }
+
+        public string[] ReadStringArray()
+        {
+            if (BeginReadArray() != JsonTokenType.None)
+            {
+                var objs = new List<string>();
+                objs.Add(ReadString());
+                while (MoveToNextArrayElement() != JsonTokenType.None)
+                {
+                    objs.Add(ReadString());
+                }
+                return objs.ToArray();
+            }
+            return Array.Empty<string>();
         }
 
         public byte[][] ReadBytesArray()
         {
-            AssertRemainingLength();
-            if (Span[Position] != (byte)'[')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
-            SkipWhiteSpace();
-            AssertRemainingLength();
-            if (Span[Position] == (byte)']')
+            if (BeginReadArray() != JsonTokenType.None)
             {
-                Position++;
-                return Array.Empty<byte[]>();
-            }
-            var objs = new List<byte[]>();
-            objs.Add(ReadBase64String());
-            bool inarray = true;
-            while (inarray && Position < Span.Length)
-            {
-                SkipWhiteSpace();
-                AssertRemainingLength();
-                switch (Span[Position])
+                var objs = new List<byte[]>();
+                objs.Add(ReadBase64String());
+                while (MoveToNextArrayElement() != JsonTokenType.None)
                 {
-                    case (byte)',':
-                        Position++;
-                        objs.Add(ReadBase64String());
-                        break;
-                    case (byte)']':
-                        Position++;
-                        inarray = false;
-                        break;
-                    default:
-                        throw new TdJsonReaderException(Position, "invalid token in array");
+                    objs.Add(ReadBase64String());
                 }
+                return objs.ToArray();
             }
-            if (inarray) throw new TdJsonReaderException(Position, "incomplete input");
-            return objs.ToArray();
+            return Array.Empty<byte[]>();
         }
 
-        public T[][] ReadNestedArray<T>()
+        public int[] ReadInt32Array()
+        {
+            if (BeginReadArray() != JsonTokenType.None)
+            {
+                var objs = new List<int>();
+                objs.Add(ReadInt());
+                while (MoveToNextArrayElement() != JsonTokenType.None)
+                {
+                    objs.Add(ReadInt());
+                }
+                return objs.ToArray();
+            }
+            return Array.Empty<int>();
+        }
+
+        public long[] ReadInt53Array()
+        {
+            if (BeginReadArray() != JsonTokenType.None)
+            {
+                var objs = new List<long>();
+                objs.Add(ReadLong());
+                while (MoveToNextArrayElement() != JsonTokenType.None)
+                {
+                    objs.Add(ReadLong());
+                }
+                return objs.ToArray();
+            }
+            return Array.Empty<long>();
+        }
+
+        public long[] ReadInt64Array()
+        {
+            if (BeginReadArray() != JsonTokenType.None)
+            {
+                var objs = new List<long>();
+                objs.Add(ReadInt64String());
+                while (MoveToNextArrayElement() != JsonTokenType.None)
+                {
+                    objs.Add(ReadInt64String());
+                }
+                return objs.ToArray();
+            }
+            return Array.Empty<long>();
+        }
+
+        public T[] ReadObjectArray<T>() where T : TLObject
+        {
+            if (BeginReadArray() != JsonTokenType.None)
+            {
+                var objs = new List<T>();
+                objs.Add(ReadTLObject<T>());
+                while (MoveToNextArrayElement() != JsonTokenType.None)
+                {
+                    objs.Add(ReadTLObject<T>());
+                }
+                return objs.ToArray();
+            }
+            return Array.Empty<T>();
+        }
+
+        public T[][] ReadNestedObjectArray<T>() where T : TLObject
+        {
+            if (BeginReadArray() != JsonTokenType.None)
+            {
+                var objs = new List<T[]>();
+                objs.Add(ReadObjectArray<T>());
+                while (MoveToNextArrayElement() != JsonTokenType.None)
+                {
+                    objs.Add(ReadObjectArray<T>());
+                }
+                return objs.ToArray();
+            }
+            return Array.Empty<T[]>();
+        }
+
+        /// <summary>
+        /// Begin to consume an object.
+        /// </summary>
+        /// <returns>true if object is not empty. Caller should use <see cref="ReadString"/> family to consume object member key.</returns>
+        public bool BeginReadObject()
         {
             AssertRemainingLength();
-            if (Span[Position] != (byte)'[')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
-            SkipWhiteSpace();
-            AssertRemainingLength();
-            if (Span[Position] == (byte)']')
+            if (cstr[position] != (byte)'{')
+                throw new TdJsonReaderException(position, "invalid value type");
+            position++;
+            ConsumeWhitespace();
+            switch (cstr[position])
             {
-                Position++;
-                return Array.Empty<T[]>();
+                case (byte)'"':
+                    return true;
+                case (byte)'}':
+                    position++;
+                    return false;
+                default:
+                    throw new TdJsonReaderException(position, "invalid token in object");
             }
-            var objs = new List<T[]>();
-            objs.Add(ReadArray<T>());
-            bool inarray = true;
-            while (inarray && Position < Span.Length)
-            {
-                SkipWhiteSpace();
-                switch (Span[Position])
-                {
-                    case (byte)',':
-                        Position++;
-                        objs.Add(ReadArray<T>());
-                        break;
-                    case (byte)']':
-                        Position++;
-                        inarray = false;
-                        break;
-                    default:
-                        throw new TdJsonReaderException(Position, "invalid token in array");
-                }
-            }
-            if (inarray) throw new TdJsonReaderException(Position, "incomplete input");
-            return objs.ToArray();
         }
 
+        /// <summary>
+        /// Called after member key is consumed.
+        /// </summary>
+        /// <returns><see cref="JsonTokenType"/> of object member value.</returns>
+        public JsonTokenType MoveToObjectMemberValue()
+        {
+            ConsumeWhitespace();
+            AssertRemainingLength();
+            if (cstr[position] == (byte)':')
+            {
+                position++;
+                ConsumeWhitespace();
+                return GetCurrentTokenType();
+            }
+            throw new TdJsonReaderException(position, "invalid token in object");
+
+        }
+
+        /// <summary>
+        /// Called after value of current member is consumed.
+        /// </summary>
+        /// <returns>true if next member availiable, false means the entire object is consumed.</returns>
+        public bool MoveToNextObjectMember()
+        {
+            ConsumeWhitespace();
+            AssertRemainingLength();
+            switch (cstr[position])
+            {
+                case (byte)',':
+                    position++;
+                    ConsumeWhitespace();
+                    if (cstr[position] == (byte)'"')
+                        return true;
+                    throw new TdJsonReaderException(position, "invalid token in object");
+                case (byte)'}':
+                    position++;
+                    return false;
+                default:
+                    throw new TdJsonReaderException(position, "invalid token in object");
+            }
+        }
         internal bool ReadNextObjectKey(out uint key, bool firstkey = false)
         {
             key = 0;
-            while (Position < Span.Length)
+            while (cstr[position] != 0)
             {
-                SkipWhiteSpace();
-                switch (Span[Position])
+                ConsumeWhitespace();
+                switch (cstr[position])
                 {
                     case (byte)',' when !firstkey:
-                        Position++;
+                        position++;
                         continue;
                     case (byte)'"':
                         key = ReadStringAsHash();
-                        SkipWhiteSpace();
-                        if (Span[Position] != (byte)':')
-                            throw new TdJsonReaderException(Position, "object missing key-value delimiter");
-                        Position++;
-                        SkipWhiteSpace();
+                        ConsumeWhitespace();
+                        if (cstr[position] != (byte)':')
+                            throw new TdJsonReaderException(position, "object missing key-value delimiter");
+                        position++;
+                        ConsumeWhitespace();
                         return true;
                     case (byte)'}':
-                        Position++;
+                        position++;
                         return false;
                     default:
-                        throw new TdJsonReaderException(Position, "invalid token in object");
+                        throw new TdJsonReaderException(position, "invalid token in object");
                 }
             }
-            throw new TdJsonReaderException(Position, "incomplete input");
+            throw new TdJsonReaderException(position, "incomplete input");
         }
 
-        internal bool SkipNextObjectKey(bool firstkey = false)
+        internal T ReadTLObject<T>() where T : TLObject
         {
-            while (Position < Span.Length)
-            {
-                SkipWhiteSpace();
-                switch (Span[Position])
-                {
-                    case (byte)',' when !firstkey:
-                        Position++;
-                        continue;
-                    case (byte)'"':
-                        SkipString();
-                        SkipWhiteSpace();
-                        if (Span[Position] != (byte)':')
-                            throw new TdJsonReaderException(Position, "object missing key-value delimiter");
-                        Position++;
-                        SkipWhiteSpace();
-                        return true;
-                    case (byte)'}':
-                        Position++;
-                        return false;
-                    default:
-                        throw new TdJsonReaderException(Position, "invalid token in object");
-                }
-            }
-            throw new TdJsonReaderException(Position, "incomplete input");
+            var result = TLObjectFactory.ReadObject(ref this);
+            return (T)result;
         }
-
-        internal TLObjectWithExtra ReadTLObject()
-        {
-            AssertRemainingLength();
-            if (Span[Position] != (byte)'{')
-                throw new TdJsonReaderException(Position, "invalid value type");
-            Position++;
-            SkipWhiteSpace();
-
-            if (!(ReadNextObjectKey(out uint key, true) && key == 0x334B2761u))
-                throw new TdJsonReaderException(Position, "object without @type");
-
-            var typehash = ReadStringAsHash();
-            var (obj, mar) = TLObjectFactory.CreateTLObjectAndMarshal(typehash);
-            var result = new TLObjectWithExtra() { TLObject = obj };
-            if (obj == null)
-            {
-                throw new TdJsonReaderException(Position, string.Format("cannot create object with type hash 0x{0:x8}", typehash));
-            }
-            while (ReadNextObjectKey(out key))
-            {
-                if (!mar.TdJsonReadItem(ref this, ref result, key))
-                {
-                    throw new TdJsonReaderException(Position, string.Format("unrecognized key 0x{0:x8} in type {1}", key, obj.GetType().Name));
-                }
-            }
-            return result;
-        }
-
 
     }
 }
