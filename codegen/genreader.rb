@@ -1,20 +1,9 @@
 require 'zlib'
 require_relative 'common'
-require 'irb'
-
-FNV_PRIME32 = 16777619
-def fnv1a(s)
-  hash = 2166136261
-  s.each_byte do |octet|
-    hash ^= octet
-    hash *= FNV_PRIME32
-    hash &= 0xFFFFFFFF
-  end
-  hash
-end
+require_relative 'crc32c'
 
 def hashfn(x)
-  Zlib.crc32(x)
+  CRC32c.checksum(x)
 end
 
 def hashof(name)

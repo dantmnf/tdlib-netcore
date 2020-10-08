@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace TDLib.JsonClient
@@ -7,7 +8,6 @@ namespace TDLib.JsonClient
     internal class JsonClientLogging : ITdClientLogging
     {
         private static int loglevelvalue = 5;
-        private static Action<string> usercallback;
         private static Native.td_log_fatal_error_callback_ptr mappedcallback;
         public int VerbosityLevel
         {
@@ -41,16 +41,16 @@ namespace TDLib.JsonClient
 
         public void SetLogFatalErrorCallback(Action<string> callback)
         {
-            usercallback = callback;
             mappedcallback = cstrptr =>
             {
                 unsafe
                 {
                     var cstr = (byte*)cstrptr;
                     var netstr = Encoding.UTF8.GetString(cstr, (int)Native.strlen(cstr));
-                    usercallback(netstr);
+                    callback(netstr);
                 }
             };
+            // the delegate stub is not in GC heap
             Native.td_set_log_fatal_error_callback(mappedcallback);
         }
     }
