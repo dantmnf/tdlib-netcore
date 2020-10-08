@@ -3,7 +3,7 @@ require_relative 'common'
 require_relative 'crc32c'
 
 def hashfn(x)
-  CRC32c.checksum(x)
+  Zlib.crc32(x)
 end
 
 def hashof(name)

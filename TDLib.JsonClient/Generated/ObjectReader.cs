@@ -6,10 +6,10 @@ namespace TDLib.JsonClient
 {
     partial class TLObjectFactory
     {
-        internal const uint @type_hash = 0xBC1B2E3Cu;
-        internal const uint @extra_hash = 0x0DCCE666u;
+        internal const uint @type_hash = 0x334B2761u;
+        internal const uint @extra_hash = 0x358751B7u;
     }
-    [TLTypeHash(0x75F5FE4Bu)]
+    [TLTypeHash(0x5DDDBC71u)]
     partial class ErrorConverter : TLObjectConverter<Error>
     {
         internal static BaseConverter CreateConverterInstance() => new ErrorConverter();
@@ -20,10 +20,10 @@ namespace TDLib.JsonClient
             var obj = (Error)tlobj;
             switch (hash)
             {
-                case 0xA6676B57u:
+                case 0x77153098u:
                     obj.Code = reader.ReadInt();
                     return true;
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadString();
                     return true;
             }
@@ -31,14 +31,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6ECB6070u)]
+    [TLTypeHash(0x79DCDD47u)]
     partial class OkConverter : TLObjectConverter<Ok>
     {
         internal static BaseConverter CreateConverterInstance() => new OkConverter();
         internal static TLObject CreateObjectInstance() => new Ok();
     }
 
-    [TLTypeHash(0x14EBE4AAu)]
+    [TLTypeHash(0x4DCC8587u)]
     partial class TdlibParametersConverter : TLObjectConverter<TdlibParameters>
     {
         internal static BaseConverter CreateConverterInstance() => new TdlibParametersConverter();
@@ -49,49 +49,49 @@ namespace TDLib.JsonClient
             var obj = (TdlibParameters)tlobj;
             switch (hash)
             {
-                case 0xD512510Fu:
+                case 0xCB85648Eu:
                     obj.UseTestDc = reader.ReadBool();
                     return true;
-                case 0xDFC32C4Eu:
+                case 0xAB468153u:
                     obj.DatabaseDirectory = reader.ReadString();
                     return true;
-                case 0x569A4CE8u:
+                case 0x3E8A2361u:
                     obj.FilesDirectory = reader.ReadString();
                     return true;
-                case 0xB6ABC885u:
+                case 0xD80A9F9Bu:
                     obj.UseFileDatabase = reader.ReadBool();
                     return true;
-                case 0x20D73C63u:
+                case 0x6132CE7Bu:
                     obj.UseChatInfoDatabase = reader.ReadBool();
                     return true;
-                case 0x917E24B1u:
+                case 0x936FD8B4u:
                     obj.UseMessageDatabase = reader.ReadBool();
                     return true;
-                case 0x6ABD135Eu:
+                case 0x784DA406u:
                     obj.UseSecretChats = reader.ReadBool();
                     return true;
-                case 0x94A3BBA6u:
+                case 0x54963938u:
                     obj.ApiId = reader.ReadInt();
                     return true;
-                case 0xB1015925u:
+                case 0xF04F144Bu:
                     obj.ApiHash = reader.ReadString();
                     return true;
-                case 0xF424D94Au:
+                case 0x3BBE9541u:
                     obj.SystemLanguageCode = reader.ReadString();
                     return true;
-                case 0x5DF57F47u:
+                case 0x111092BEu:
                     obj.DeviceModel = reader.ReadString();
                     return true;
-                case 0x5D13E231u:
+                case 0x536FAF50u:
                     obj.SystemVersion = reader.ReadString();
                     return true;
-                case 0x4ACD0E08u:
+                case 0x54A2D6F0u:
                     obj.ApplicationVersion = reader.ReadString();
                     return true;
-                case 0x21FF518Du:
+                case 0x670519C1u:
                     obj.EnableStorageOptimizer = reader.ReadBool();
                     return true;
-                case 0xB20C4562u:
+                case 0x50255BE1u:
                     obj.IgnoreFileNames = reader.ReadBool();
                     return true;
             }
@@ -99,7 +99,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE97E95C0u)]
+    [TLTypeHash(0xF0AF66CEu)]
     partial class AuthenticationCodeTypeTelegramMessageConverter : TLObjectConverter<AuthenticationCodeTypeTelegramMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeTelegramMessageConverter();
@@ -110,7 +110,7 @@ namespace TDLib.JsonClient
             var obj = (AuthenticationCodeTypeTelegramMessage)tlobj;
             switch (hash)
             {
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
             }
@@ -118,7 +118,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEAB7B7A3u)]
+    [TLTypeHash(0xDDE9A4B7u)]
     partial class AuthenticationCodeTypeSmsConverter : TLObjectConverter<AuthenticationCodeTypeSms>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeSmsConverter();
@@ -129,7 +129,7 @@ namespace TDLib.JsonClient
             var obj = (AuthenticationCodeTypeSms)tlobj;
             switch (hash)
             {
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
             }
@@ -137,7 +137,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x585E2E98u)]
+    [TLTypeHash(0x5787AD10u)]
     partial class AuthenticationCodeTypeCallConverter : TLObjectConverter<AuthenticationCodeTypeCall>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeCallConverter();
@@ -148,7 +148,7 @@ namespace TDLib.JsonClient
             var obj = (AuthenticationCodeTypeCall)tlobj;
             switch (hash)
             {
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
             }
@@ -156,7 +156,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFECB7270u)]
+    [TLTypeHash(0xAE3C8551u)]
     partial class AuthenticationCodeTypeFlashCallConverter : TLObjectConverter<AuthenticationCodeTypeFlashCall>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeFlashCallConverter();
@@ -167,7 +167,7 @@ namespace TDLib.JsonClient
             var obj = (AuthenticationCodeTypeFlashCall)tlobj;
             switch (hash)
             {
-                case 0xE10E7CCEu:
+                case 0xA3BCFC8Eu:
                     obj.Pattern = reader.ReadString();
                     return true;
             }
@@ -175,7 +175,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC1C07CB2u)]
+    [TLTypeHash(0x7C32B6F3u)]
     partial class AuthenticationCodeInfoConverter : TLObjectConverter<AuthenticationCodeInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthenticationCodeInfoConverter();
@@ -186,16 +186,16 @@ namespace TDLib.JsonClient
             var obj = (AuthenticationCodeInfo)tlobj;
             switch (hash)
             {
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<AuthenticationCodeType>();
                     return true;
-                case 0x03F538A6u:
+                case 0xB24EE1F3u:
                     obj.NextType = reader.ReadTLObject<AuthenticationCodeType>();
                     return true;
-                case 0x1472F5B1u:
+                case 0x81417592u:
                     obj.Timeout = reader.ReadInt();
                     return true;
             }
@@ -203,7 +203,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD125C1B6u)]
+    [TLTypeHash(0xA8DCCCD6u)]
     partial class EmailAddressAuthenticationCodeInfoConverter : TLObjectConverter<EmailAddressAuthenticationCodeInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new EmailAddressAuthenticationCodeInfoConverter();
@@ -214,10 +214,10 @@ namespace TDLib.JsonClient
             var obj = (EmailAddressAuthenticationCodeInfo)tlobj;
             switch (hash)
             {
-                case 0x485BF9ABu:
+                case 0x1A398E1Eu:
                     obj.EmailAddressPattern = reader.ReadString();
                     return true;
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
             }
@@ -225,7 +225,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5786BADDu)]
+    [TLTypeHash(0xD508179Fu)]
     partial class TextEntityConverter : TLObjectConverter<TextEntity>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityConverter();
@@ -236,13 +236,13 @@ namespace TDLib.JsonClient
             var obj = (TextEntity)tlobj;
             switch (hash)
             {
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<TextEntityType>();
                     return true;
             }
@@ -250,7 +250,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1C658B14u)]
+    [TLTypeHash(0xF973C8F1u)]
     partial class TextEntitiesConverter : TLObjectConverter<TextEntities>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntitiesConverter();
@@ -261,7 +261,7 @@ namespace TDLib.JsonClient
             var obj = (TextEntities)tlobj;
             switch (hash)
             {
-                case 0x4D2090D5u:
+                case 0x50EC64E5u:
                     obj.Entities = reader.ReadObjectArray<TextEntity>();
                     return true;
             }
@@ -269,7 +269,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC0306704u)]
+    [TLTypeHash(0x8CA0B2BEu)]
     partial class FormattedTextConverter : TLObjectConverter<FormattedText>
     {
         internal static BaseConverter CreateConverterInstance() => new FormattedTextConverter();
@@ -280,10 +280,10 @@ namespace TDLib.JsonClient
             var obj = (FormattedText)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x4D2090D5u:
+                case 0x50EC64E5u:
                     obj.Entities = reader.ReadObjectArray<TextEntity>();
                     return true;
             }
@@ -291,7 +291,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x44C0BED7u)]
+    [TLTypeHash(0xDB08CFC1u)]
     partial class TermsOfServiceConverter : TLObjectConverter<TermsOfService>
     {
         internal static BaseConverter CreateConverterInstance() => new TermsOfServiceConverter();
@@ -302,13 +302,13 @@ namespace TDLib.JsonClient
             var obj = (TermsOfService)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xE72C2FE4u:
+                case 0xAB701700u:
                     obj.MinUserAge = reader.ReadInt();
                     return true;
-                case 0x2251E060u:
+                case 0x08B80084u:
                     obj.ShowPopup = reader.ReadBool();
                     return true;
             }
@@ -316,14 +316,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5E667B0Bu)]
+    [TLTypeHash(0x8A974939u)]
     partial class AuthorizationStateWaitTdlibParametersConverter : TLObjectConverter<AuthorizationStateWaitTdlibParameters>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitTdlibParametersConverter();
         internal static TLObject CreateObjectInstance() => new AuthorizationStateWaitTdlibParameters();
     }
 
-    [TLTypeHash(0x47768ED2u)]
+    [TLTypeHash(0x1BBCA758u)]
     partial class AuthorizationStateWaitEncryptionKeyConverter : TLObjectConverter<AuthorizationStateWaitEncryptionKey>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitEncryptionKeyConverter();
@@ -334,7 +334,7 @@ namespace TDLib.JsonClient
             var obj = (AuthorizationStateWaitEncryptionKey)tlobj;
             switch (hash)
             {
-                case 0x86E1E5E6u:
+                case 0x50802D1Cu:
                     obj.IsEncrypted = reader.ReadBool();
                     return true;
             }
@@ -342,14 +342,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x41F9380Bu)]
+    [TLTypeHash(0x5D887154u)]
     partial class AuthorizationStateWaitPhoneNumberConverter : TLObjectConverter<AuthorizationStateWaitPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitPhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new AuthorizationStateWaitPhoneNumber();
     }
 
-    [TLTypeHash(0xC161D813u)]
+    [TLTypeHash(0xA10BC512u)]
     partial class AuthorizationStateWaitCodeConverter : TLObjectConverter<AuthorizationStateWaitCode>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitCodeConverter();
@@ -360,7 +360,7 @@ namespace TDLib.JsonClient
             var obj = (AuthorizationStateWaitCode)tlobj;
             switch (hash)
             {
-                case 0x99636125u:
+                case 0xFD625B96u:
                     obj.CodeInfo = reader.ReadTLObject<AuthenticationCodeInfo>();
                     return true;
             }
@@ -368,7 +368,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAE576EFCu)]
+    [TLTypeHash(0x49F6C1AFu)]
     partial class AuthorizationStateWaitOtherDeviceConfirmationConverter : TLObjectConverter<AuthorizationStateWaitOtherDeviceConfirmation>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitOtherDeviceConfirmationConverter();
@@ -379,7 +379,7 @@ namespace TDLib.JsonClient
             var obj = (AuthorizationStateWaitOtherDeviceConfirmation)tlobj;
             switch (hash)
             {
-                case 0x8EBB0A1Du:
+                case 0x36AC99F1u:
                     obj.Link = reader.ReadString();
                     return true;
             }
@@ -387,7 +387,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x57061749u)]
+    [TLTypeHash(0xA97CC2D9u)]
     partial class AuthorizationStateWaitRegistrationConverter : TLObjectConverter<AuthorizationStateWaitRegistration>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitRegistrationConverter();
@@ -398,7 +398,7 @@ namespace TDLib.JsonClient
             var obj = (AuthorizationStateWaitRegistration)tlobj;
             switch (hash)
             {
-                case 0x05B15276u:
+                case 0x937BFB98u:
                     obj.TermsOfService = reader.ReadTLObject<TermsOfService>();
                     return true;
             }
@@ -406,7 +406,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x80967F29u)]
+    [TLTypeHash(0xBFD8E98Fu)]
     partial class AuthorizationStateWaitPasswordConverter : TLObjectConverter<AuthorizationStateWaitPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitPasswordConverter();
@@ -417,13 +417,13 @@ namespace TDLib.JsonClient
             var obj = (AuthorizationStateWaitPassword)tlobj;
             switch (hash)
             {
-                case 0x3F48AEDBu:
+                case 0xA6930418u:
                     obj.PasswordHint = reader.ReadString();
                     return true;
-                case 0xA532DD19u:
+                case 0xB7950DA4u:
                     obj.HasRecoveryEmailAddress = reader.ReadBool();
                     return true;
-                case 0xCBA82338u:
+                case 0xBE6EB4C4u:
                     obj.RecoveryEmailAddressPattern = reader.ReadString();
                     return true;
             }
@@ -431,35 +431,35 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB0ADD5EBu)]
+    [TLTypeHash(0x4ED0A2C7u)]
     partial class AuthorizationStateReadyConverter : TLObjectConverter<AuthorizationStateReady>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateReadyConverter();
         internal static TLObject CreateObjectInstance() => new AuthorizationStateReady();
     }
 
-    [TLTypeHash(0xC859B927u)]
+    [TLTypeHash(0x3F0B9B5Au)]
     partial class AuthorizationStateLoggingOutConverter : TLObjectConverter<AuthorizationStateLoggingOut>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateLoggingOutConverter();
         internal static TLObject CreateObjectInstance() => new AuthorizationStateLoggingOut();
     }
 
-    [TLTypeHash(0xAA0C7D7Fu)]
+    [TLTypeHash(0x5D6CD935u)]
     partial class AuthorizationStateClosingConverter : TLObjectConverter<AuthorizationStateClosing>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateClosingConverter();
         internal static TLObject CreateObjectInstance() => new AuthorizationStateClosing();
     }
 
-    [TLTypeHash(0x866AFD50u)]
+    [TLTypeHash(0x47C8E1A9u)]
     partial class AuthorizationStateClosedConverter : TLObjectConverter<AuthorizationStateClosed>
     {
         internal static BaseConverter CreateConverterInstance() => new AuthorizationStateClosedConverter();
         internal static TLObject CreateObjectInstance() => new AuthorizationStateClosed();
     }
 
-    [TLTypeHash(0x219880ACu)]
+    [TLTypeHash(0xAD228AAFu)]
     partial class PasswordStateConverter : TLObjectConverter<PasswordState>
     {
         internal static BaseConverter CreateConverterInstance() => new PasswordStateConverter();
@@ -470,19 +470,19 @@ namespace TDLib.JsonClient
             var obj = (PasswordState)tlobj;
             switch (hash)
             {
-                case 0x71EF5D24u:
+                case 0x24A4BCE1u:
                     obj.HasPassword = reader.ReadBool();
                     return true;
-                case 0x3F48AEDBu:
+                case 0xA6930418u:
                     obj.PasswordHint = reader.ReadString();
                     return true;
-                case 0xA532DD19u:
+                case 0xB7950DA4u:
                     obj.HasRecoveryEmailAddress = reader.ReadBool();
                     return true;
-                case 0xD593B7EDu:
+                case 0xFAE8E77Du:
                     obj.HasPassportData = reader.ReadBool();
                     return true;
-                case 0xBB00D238u:
+                case 0x8FF32869u:
                     obj.RecoveryEmailAddressCodeInfo = reader.ReadTLObject<EmailAddressAuthenticationCodeInfo>();
                     return true;
             }
@@ -490,7 +490,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCE41935Au)]
+    [TLTypeHash(0x09658FBEu)]
     partial class RecoveryEmailAddressConverter : TLObjectConverter<RecoveryEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new RecoveryEmailAddressConverter();
@@ -501,7 +501,7 @@ namespace TDLib.JsonClient
             var obj = (RecoveryEmailAddress)tlobj;
             switch (hash)
             {
-                case 0x7638CA1Fu:
+                case 0x8D392B5Du:
                     obj.RecoveryEmailAddress_ = reader.ReadString();
                     return true;
             }
@@ -509,7 +509,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0DCCE39Eu)]
+    [TLTypeHash(0xDDE1EF55u)]
     partial class TemporaryPasswordStateConverter : TLObjectConverter<TemporaryPasswordState>
     {
         internal static BaseConverter CreateConverterInstance() => new TemporaryPasswordStateConverter();
@@ -520,10 +520,10 @@ namespace TDLib.JsonClient
             var obj = (TemporaryPasswordState)tlobj;
             switch (hash)
             {
-                case 0x71EF5D24u:
+                case 0x24A4BCE1u:
                     obj.HasPassword = reader.ReadBool();
                     return true;
-                case 0x51527ED0u:
+                case 0xF5F46844u:
                     obj.ValidFor = reader.ReadInt();
                     return true;
             }
@@ -531,7 +531,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x08FBCE86u)]
+    [TLTypeHash(0x7D4882F0u)]
     partial class LocalFileConverter : TLObjectConverter<LocalFile>
     {
         internal static BaseConverter CreateConverterInstance() => new LocalFileConverter();
@@ -542,28 +542,28 @@ namespace TDLib.JsonClient
             var obj = (LocalFile)tlobj;
             switch (hash)
             {
-                case 0x442C26D3u:
+                case 0x0B548B0Fu:
                     obj.Path = reader.ReadString();
                     return true;
-                case 0x704B3383u:
+                case 0x49FC3DF9u:
                     obj.CanBeDownloaded = reader.ReadBool();
                     return true;
-                case 0x9D449158u:
+                case 0xE1F0269Bu:
                     obj.CanBeDeleted = reader.ReadBool();
                     return true;
-                case 0x16341FAAu:
+                case 0xA100D140u:
                     obj.IsDownloadingActive = reader.ReadBool();
                     return true;
-                case 0xA0D69D65u:
+                case 0x93C362A6u:
                     obj.IsDownloadingCompleted = reader.ReadBool();
                     return true;
-                case 0x4767EC9Du:
+                case 0x9BF24FFBu:
                     obj.DownloadOffset = reader.ReadInt();
                     return true;
-                case 0xEE59BD3Fu:
+                case 0x48813773u:
                     obj.DownloadedPrefixSize = reader.ReadInt();
                     return true;
-                case 0x371CD61Du:
+                case 0x808B30B4u:
                     obj.DownloadedSize = reader.ReadInt();
                     return true;
             }
@@ -571,7 +571,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x38F980CCu)]
+    [TLTypeHash(0xFD5A8186u)]
     partial class RemoteFileConverter : TLObjectConverter<RemoteFile>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoteFileConverter();
@@ -582,19 +582,19 @@ namespace TDLib.JsonClient
             var obj = (RemoteFile)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x0EE10221u:
+                case 0xE3C68343u:
                     obj.UniqueId = reader.ReadString();
                     return true;
-                case 0x9878661Bu:
+                case 0xF3B23038u:
                     obj.IsUploadingActive = reader.ReadBool();
                     return true;
-                case 0x2281A36Cu:
+                case 0xAB2B4B11u:
                     obj.IsUploadingCompleted = reader.ReadBool();
                     return true;
-                case 0xA7AB7AAFu:
+                case 0xCF52E527u:
                     obj.UploadedSize = reader.ReadInt();
                     return true;
             }
@@ -602,7 +602,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4CA5C5B3u)]
+    [TLTypeHash(0x8C9F3610u)]
     partial class FileConverter : TLObjectConverter<File>
     {
         internal static BaseConverter CreateConverterInstance() => new FileConverter();
@@ -613,19 +613,19 @@ namespace TDLib.JsonClient
             var obj = (File)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x55AC4F76u:
+                case 0xF7C0246Au:
                     obj.Size = reader.ReadInt();
                     return true;
-                case 0x3112E3BEu:
+                case 0x9CDAEA6Bu:
                     obj.ExpectedSize = reader.ReadInt();
                     return true;
-                case 0xACDAD6D0u:
+                case 0x8BD688E8u:
                     obj.Local = reader.ReadTLObject<LocalFile>();
                     return true;
-                case 0xD0330F71u:
+                case 0x5AB67FB2u:
                     obj.Remote = reader.ReadTLObject<RemoteFile>();
                     return true;
             }
@@ -633,7 +633,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCAE479EFu)]
+    [TLTypeHash(0x9AAF69BBu)]
     partial class InputFileIdConverter : TLObjectConverter<InputFileId>
     {
         internal static BaseConverter CreateConverterInstance() => new InputFileIdConverter();
@@ -644,7 +644,7 @@ namespace TDLib.JsonClient
             var obj = (InputFileId)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
             }
@@ -652,7 +652,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x904A2449u)]
+    [TLTypeHash(0x3D496D5Au)]
     partial class InputFileRemoteConverter : TLObjectConverter<InputFileRemote>
     {
         internal static BaseConverter CreateConverterInstance() => new InputFileRemoteConverter();
@@ -663,7 +663,7 @@ namespace TDLib.JsonClient
             var obj = (InputFileRemote)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
             }
@@ -671,7 +671,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAB002461u)]
+    [TLTypeHash(0xA98EAC73u)]
     partial class InputFileLocalConverter : TLObjectConverter<InputFileLocal>
     {
         internal static BaseConverter CreateConverterInstance() => new InputFileLocalConverter();
@@ -682,7 +682,7 @@ namespace TDLib.JsonClient
             var obj = (InputFileLocal)tlobj;
             switch (hash)
             {
-                case 0x442C26D3u:
+                case 0x0B548B0Fu:
                     obj.Path = reader.ReadString();
                     return true;
             }
@@ -690,7 +690,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x250C5864u)]
+    [TLTypeHash(0x3692388Au)]
     partial class InputFileGeneratedConverter : TLObjectConverter<InputFileGenerated>
     {
         internal static BaseConverter CreateConverterInstance() => new InputFileGeneratedConverter();
@@ -701,13 +701,13 @@ namespace TDLib.JsonClient
             var obj = (InputFileGenerated)tlobj;
             switch (hash)
             {
-                case 0x1F649CDEu:
+                case 0x0121E039u:
                     obj.OriginalPath = reader.ReadString();
                     return true;
-                case 0x77E9A038u:
+                case 0xBD912744u:
                     obj.Conversion = reader.ReadString();
                     return true;
-                case 0x3112E3BEu:
+                case 0x9CDAEA6Bu:
                     obj.ExpectedSize = reader.ReadInt();
                     return true;
             }
@@ -715,7 +715,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC62B061Au)]
+    [TLTypeHash(0x953DAB7Au)]
     partial class PhotoSizeConverter : TLObjectConverter<PhotoSize>
     {
         internal static BaseConverter CreateConverterInstance() => new PhotoSizeConverter();
@@ -726,19 +726,19 @@ namespace TDLib.JsonClient
             var obj = (PhotoSize)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<File>();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x0BF80E26u:
+                case 0xD4C9D461u:
                     obj.ProgressiveSizes = reader.ReadInt32Array();
                     return true;
             }
@@ -746,7 +746,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4E571713u)]
+    [TLTypeHash(0xF95E0AF7u)]
     partial class MinithumbnailConverter : TLObjectConverter<Minithumbnail>
     {
         internal static BaseConverter CreateConverterInstance() => new MinithumbnailConverter();
@@ -757,13 +757,13 @@ namespace TDLib.JsonClient
             var obj = (Minithumbnail)tlobj;
             switch (hash)
             {
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -771,49 +771,49 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x54E7233Cu)]
+    [TLTypeHash(0x3A1F321Au)]
     partial class ThumbnailFormatJpegConverter : TLObjectConverter<ThumbnailFormatJpeg>
     {
         internal static BaseConverter CreateConverterInstance() => new ThumbnailFormatJpegConverter();
         internal static TLObject CreateObjectInstance() => new ThumbnailFormatJpeg();
     }
 
-    [TLTypeHash(0xABA059FFu)]
+    [TLTypeHash(0x8EF7DC75u)]
     partial class ThumbnailFormatPngConverter : TLObjectConverter<ThumbnailFormatPng>
     {
         internal static BaseConverter CreateConverterInstance() => new ThumbnailFormatPngConverter();
         internal static TLObject CreateObjectInstance() => new ThumbnailFormatPng();
     }
 
-    [TLTypeHash(0x18644B83u)]
+    [TLTypeHash(0x4E13CFC3u)]
     partial class ThumbnailFormatWebpConverter : TLObjectConverter<ThumbnailFormatWebp>
     {
         internal static BaseConverter CreateConverterInstance() => new ThumbnailFormatWebpConverter();
         internal static TLObject CreateObjectInstance() => new ThumbnailFormatWebp();
     }
 
-    [TLTypeHash(0x27F40A5Au)]
+    [TLTypeHash(0xAFD8CFD1u)]
     partial class ThumbnailFormatGifConverter : TLObjectConverter<ThumbnailFormatGif>
     {
         internal static BaseConverter CreateConverterInstance() => new ThumbnailFormatGifConverter();
         internal static TLObject CreateObjectInstance() => new ThumbnailFormatGif();
     }
 
-    [TLTypeHash(0x6C0CF65Au)]
+    [TLTypeHash(0x42E61B9Du)]
     partial class ThumbnailFormatTgsConverter : TLObjectConverter<ThumbnailFormatTgs>
     {
         internal static BaseConverter CreateConverterInstance() => new ThumbnailFormatTgsConverter();
         internal static TLObject CreateObjectInstance() => new ThumbnailFormatTgs();
     }
 
-    [TLTypeHash(0x7086E2F9u)]
+    [TLTypeHash(0xBCCE2160u)]
     partial class ThumbnailFormatMpeg4Converter : TLObjectConverter<ThumbnailFormatMpeg4>
     {
         internal static BaseConverter CreateConverterInstance() => new ThumbnailFormatMpeg4Converter();
         internal static TLObject CreateObjectInstance() => new ThumbnailFormatMpeg4();
     }
 
-    [TLTypeHash(0x6D3EE2F3u)]
+    [TLTypeHash(0xC35726E6u)]
     partial class ThumbnailConverter : TLObjectConverter<Thumbnail>
     {
         internal static BaseConverter CreateConverterInstance() => new ThumbnailConverter();
@@ -824,16 +824,16 @@ namespace TDLib.JsonClient
             var obj = (Thumbnail)tlobj;
             switch (hash)
             {
-                case 0xDE18A8ABu:
+                case 0xDEBA72DFu:
                     obj.Format = reader.ReadTLObject<ThumbnailFormat>();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x4CA5C5B3u:
+                case 0x8C9F3610u:
                     obj.File = reader.ReadTLObject<File>();
                     return true;
             }
@@ -841,35 +841,35 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4E526EE3u)]
+    [TLTypeHash(0xF26E5D18u)]
     partial class MaskPointForeheadConverter : TLObjectConverter<MaskPointForehead>
     {
         internal static BaseConverter CreateConverterInstance() => new MaskPointForeheadConverter();
         internal static TLObject CreateObjectInstance() => new MaskPointForehead();
     }
 
-    [TLTypeHash(0x67385123u)]
+    [TLTypeHash(0xC6EC8176u)]
     partial class MaskPointEyesConverter : TLObjectConverter<MaskPointEyes>
     {
         internal static BaseConverter CreateConverterInstance() => new MaskPointEyesConverter();
         internal static TLObject CreateObjectInstance() => new MaskPointEyes();
     }
 
-    [TLTypeHash(0x6861C196u)]
+    [TLTypeHash(0x3EAE485Au)]
     partial class MaskPointMouthConverter : TLObjectConverter<MaskPointMouth>
     {
         internal static BaseConverter CreateConverterInstance() => new MaskPointMouthConverter();
         internal static TLObject CreateObjectInstance() => new MaskPointMouth();
     }
 
-    [TLTypeHash(0x0A76857Du)]
+    [TLTypeHash(0x31D03438u)]
     partial class MaskPointChinConverter : TLObjectConverter<MaskPointChin>
     {
         internal static BaseConverter CreateConverterInstance() => new MaskPointChinConverter();
         internal static TLObject CreateObjectInstance() => new MaskPointChin();
     }
 
-    [TLTypeHash(0xEFAE8293u)]
+    [TLTypeHash(0x45429A59u)]
     partial class MaskPositionConverter : TLObjectConverter<MaskPosition>
     {
         internal static BaseConverter CreateConverterInstance() => new MaskPositionConverter();
@@ -880,16 +880,16 @@ namespace TDLib.JsonClient
             var obj = (MaskPosition)tlobj;
             switch (hash)
             {
-                case 0x0C1AFBB7u:
+                case 0xB7A5F324u:
                     obj.Point = reader.ReadTLObject<MaskPoint>();
                     return true;
-                case 0x83AC203Cu:
+                case 0xDC1A3748u:
                     obj.XShift = reader.ReadDouble();
                     return true;
-                case 0xEBAF0CF4u:
+                case 0x7A6D3CFCu:
                     obj.YShift = reader.ReadDouble();
                     return true;
-                case 0x346E5311u:
+                case 0xEC462584u:
                     obj.Scale = reader.ReadDouble();
                     return true;
             }
@@ -897,7 +897,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x651EE1D2u)]
+    [TLTypeHash(0xB1A394DBu)]
     partial class PollOptionConverter : TLObjectConverter<PollOption>
     {
         internal static BaseConverter CreateConverterInstance() => new PollOptionConverter();
@@ -908,19 +908,19 @@ namespace TDLib.JsonClient
             var obj = (PollOption)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0xC8655F17u:
+                case 0xAD6C82F8u:
                     obj.VoterCount = reader.ReadInt();
                     return true;
-                case 0xFBE3806Cu:
+                case 0x78473AC6u:
                     obj.VotePercentage = reader.ReadInt();
                     return true;
-                case 0x58D93677u:
+                case 0x41DB8FE5u:
                     obj.IsChosen = reader.ReadBool();
                     return true;
-                case 0x13CBCB3Fu:
+                case 0xA8310BB5u:
                     obj.IsBeingChosen = reader.ReadBool();
                     return true;
             }
@@ -928,7 +928,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6BEC22C0u)]
+    [TLTypeHash(0x00E42870u)]
     partial class PollTypeRegularConverter : TLObjectConverter<PollTypeRegular>
     {
         internal static BaseConverter CreateConverterInstance() => new PollTypeRegularConverter();
@@ -939,7 +939,7 @@ namespace TDLib.JsonClient
             var obj = (PollTypeRegular)tlobj;
             switch (hash)
             {
-                case 0x32B355B7u:
+                case 0xD7F9EE36u:
                     obj.AllowMultipleAnswers = reader.ReadBool();
                     return true;
             }
@@ -947,7 +947,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEA53486Fu)]
+    [TLTypeHash(0x3A37A4A3u)]
     partial class PollTypeQuizConverter : TLObjectConverter<PollTypeQuiz>
     {
         internal static BaseConverter CreateConverterInstance() => new PollTypeQuizConverter();
@@ -958,10 +958,10 @@ namespace TDLib.JsonClient
             var obj = (PollTypeQuiz)tlobj;
             switch (hash)
             {
-                case 0xD42332D0u:
+                case 0xF0D9299Fu:
                     obj.CorrectOptionId = reader.ReadInt();
                     return true;
-                case 0x3708B81Cu:
+                case 0x8824B30Eu:
                     obj.Explanation = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -969,7 +969,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAEE681FEu)]
+    [TLTypeHash(0x8D5284DCu)]
     partial class AnimationConverter : TLObjectConverter<Animation>
     {
         internal static BaseConverter CreateConverterInstance() => new AnimationConverter();
@@ -980,31 +980,31 @@ namespace TDLib.JsonClient
             var obj = (Animation)tlobj;
             switch (hash)
             {
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xD96A5151u:
+                case 0xD7DF1668u:
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0xD81F0CA7u:
+                case 0xC9EB5622u:
                     obj.HasStickers = reader.ReadBool();
                     return true;
-                case 0x4E571713u:
+                case 0xF95E0AF7u:
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1012,7 +1012,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEB1AA922u)]
+    [TLTypeHash(0x187D3695u)]
     partial class AudioConverter : TLObjectConverter<Audio>
     {
         internal static BaseConverter CreateConverterInstance() => new AudioConverter();
@@ -1023,28 +1023,28 @@ namespace TDLib.JsonClient
             var obj = (Audio)tlobj;
             switch (hash)
             {
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x60B2C14Au:
+                case 0x17210BEBu:
                     obj.Performer = reader.ReadString();
                     return true;
-                case 0xD96A5151u:
+                case 0xD7DF1668u:
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0x14EFC64Du:
+                case 0x7C90BB42u:
                     obj.AlbumCoverMinithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x2E7E1D62u:
+                case 0xBC627951u:
                     obj.AlbumCoverThumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xEB1AA922u:
+                case 0x187D3695u:
                     obj.Audio_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1052,7 +1052,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9989342Du)]
+    [TLTypeHash(0xD8698A76u)]
     partial class DocumentConverter : TLObjectConverter<Document>
     {
         internal static BaseConverter CreateConverterInstance() => new DocumentConverter();
@@ -1063,19 +1063,19 @@ namespace TDLib.JsonClient
             var obj = (Document)tlobj;
             switch (hash)
             {
-                case 0xD96A5151u:
+                case 0xD7DF1668u:
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0x4E571713u:
+                case 0xF95E0AF7u:
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1083,7 +1083,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC8E8DBE9u)]
+    [TLTypeHash(0x14B78418u)]
     partial class PhotoConverter : TLObjectConverter<Photo>
     {
         internal static BaseConverter CreateConverterInstance() => new PhotoConverter();
@@ -1094,13 +1094,13 @@ namespace TDLib.JsonClient
             var obj = (Photo)tlobj;
             switch (hash)
             {
-                case 0xD81F0CA7u:
+                case 0xC9EB5622u:
                     obj.HasStickers = reader.ReadBool();
                     return true;
-                case 0x4E571713u:
+                case 0xF95E0AF7u:
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x67D9EB02u:
+                case 0xB69E8769u:
                     obj.Sizes = reader.ReadObjectArray<PhotoSize>();
                     return true;
             }
@@ -1108,7 +1108,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x57E22FC6u)]
+    [TLTypeHash(0x8FEDBCFDu)]
     partial class StickerConverter : TLObjectConverter<Sticker>
     {
         internal static BaseConverter CreateConverterInstance() => new StickerConverter();
@@ -1119,31 +1119,31 @@ namespace TDLib.JsonClient
             var obj = (Sticker)tlobj;
             switch (hash)
             {
-                case 0x6112D204u:
+                case 0x10FB0D18u:
                     obj.SetId = reader.ReadInt64String();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xD446748Eu:
+                case 0xB64BF632u:
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0x71849EE0u:
+                case 0xFB2DB9D7u:
                     obj.IsAnimated = reader.ReadBool();
                     return true;
-                case 0xACEF992Eu:
+                case 0xEA9CED11u:
                     obj.IsMask = reader.ReadBool();
                     return true;
-                case 0xB8863CFAu:
+                case 0x357EA28Bu:
                     obj.MaskPosition = reader.ReadTLObject<MaskPosition>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1151,7 +1151,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7BD287F9u)]
+    [TLTypeHash(0x7CC7DA2Cu)]
     partial class VideoConverter : TLObjectConverter<Video>
     {
         internal static BaseConverter CreateConverterInstance() => new VideoConverter();
@@ -1162,34 +1162,34 @@ namespace TDLib.JsonClient
             var obj = (Video)tlobj;
             switch (hash)
             {
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xD96A5151u:
+                case 0xD7DF1668u:
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0xD81F0CA7u:
+                case 0xC9EB5622u:
                     obj.HasStickers = reader.ReadBool();
                     return true;
-                case 0x37035326u:
+                case 0xC5ED604Eu:
                     obj.SupportsStreaming = reader.ReadBool();
                     return true;
-                case 0x4E571713u:
+                case 0xF95E0AF7u:
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1197,7 +1197,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF9709D4Eu)]
+    [TLTypeHash(0xD87D89D4u)]
     partial class VideoNoteConverter : TLObjectConverter<VideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new VideoNoteConverter();
@@ -1208,19 +1208,19 @@ namespace TDLib.JsonClient
             var obj = (VideoNote)tlobj;
             switch (hash)
             {
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
-                case 0x4E571713u:
+                case 0xF95E0AF7u:
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1228,7 +1228,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x15E7B25Au)]
+    [TLTypeHash(0xE32C1A2Fu)]
     partial class VoiceNoteConverter : TLObjectConverter<VoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new VoiceNoteConverter();
@@ -1239,16 +1239,16 @@ namespace TDLib.JsonClient
             var obj = (VoiceNote)tlobj;
             switch (hash)
             {
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x88741F30u:
+                case 0x11133403u:
                     obj.Waveform = reader.ReadBase64String();
                     return true;
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0xBE74E420u:
+                case 0xE7FB583Bu:
                     obj.Voice = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1256,7 +1256,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3F4DEB3Au)]
+    [TLTypeHash(0x4C62E638u)]
     partial class ContactConverter : TLObjectConverter<Contact>
     {
         internal static BaseConverter CreateConverterInstance() => new ContactConverter();
@@ -1267,19 +1267,19 @@ namespace TDLib.JsonClient
             var obj = (Contact)tlobj;
             switch (hash)
             {
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0x9042082Fu:
+                case 0xA9D1C132u:
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x2E1C9126u:
+                case 0xC808BA5Au:
                     obj.LastName = reader.ReadString();
                     return true;
-                case 0xD54F6205u:
+                case 0x87E0A5BDu:
                     obj.Vcard = reader.ReadString();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -1287,7 +1287,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB8217A08u)]
+    [TLTypeHash(0x5E9E89CBu)]
     partial class LocationConverter : TLObjectConverter<Location>
     {
         internal static BaseConverter CreateConverterInstance() => new LocationConverter();
@@ -1298,10 +1298,10 @@ namespace TDLib.JsonClient
             var obj = (Location)tlobj;
             switch (hash)
             {
-                case 0xE69FFB57u:
+                case 0x4118D123u:
                     obj.Latitude = reader.ReadDouble();
                     return true;
-                case 0xF0073EBEu:
+                case 0x85E16F6Bu:
                     obj.Longitude = reader.ReadDouble();
                     return true;
             }
@@ -1309,7 +1309,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD5AD609Du)]
+    [TLTypeHash(0x91911B0Du)]
     partial class VenueConverter : TLObjectConverter<Venue>
     {
         internal static BaseConverter CreateConverterInstance() => new VenueConverter();
@@ -1320,22 +1320,22 @@ namespace TDLib.JsonClient
             var obj = (Venue)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xBF2096A4u:
+                case 0x0D4E6F81u:
                     obj.Address = reader.ReadString();
                     return true;
-                case 0xE886E1C0u:
+                case 0x92C4739Cu:
                     obj.Provider = reader.ReadString();
                     return true;
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadString();
                     return true;
             }
@@ -1343,7 +1343,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBA13C9B9u)]
+    [TLTypeHash(0x232B318Cu)]
     partial class GameConverter : TLObjectConverter<Game>
     {
         internal static BaseConverter CreateConverterInstance() => new GameConverter();
@@ -1354,25 +1354,25 @@ namespace TDLib.JsonClient
             var obj = (Game)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0xC79DD8B5u:
+                case 0x3EE4B093u:
                     obj.ShortName = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
             }
@@ -1380,7 +1380,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC8874B27u)]
+    [TLTypeHash(0x84BCFA45u)]
     partial class PollConverter : TLObjectConverter<Poll>
     {
         internal static BaseConverter CreateConverterInstance() => new PollConverter();
@@ -1391,34 +1391,34 @@ namespace TDLib.JsonClient
             var obj = (Poll)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x8244FF76u:
+                case 0xB6F7494Eu:
                     obj.Question = reader.ReadString();
                     return true;
-                case 0x8CF56D94u:
+                case 0xD035FA87u:
                     obj.Options = reader.ReadObjectArray<PollOption>();
                     return true;
-                case 0x560E8039u:
+                case 0xE847B6E0u:
                     obj.TotalVoterCount = reader.ReadInt();
                     return true;
-                case 0x64442176u:
+                case 0x3DB7E9ABu:
                     obj.RecentVoterUserIds = reader.ReadInt32Array();
                     return true;
-                case 0x41D798A8u:
+                case 0xC5C980C1u:
                     obj.IsAnonymous = reader.ReadBool();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PollType>();
                     return true;
-                case 0x273BF121u:
+                case 0x2C9006DBu:
                     obj.OpenPeriod = reader.ReadInt();
                     return true;
-                case 0x2B88515Cu:
+                case 0xDEE6F381u:
                     obj.CloseDate = reader.ReadInt();
                     return true;
-                case 0xD37EA0FFu:
+                case 0x548EC03Bu:
                     obj.IsClosed = reader.ReadBool();
                     return true;
             }
@@ -1426,7 +1426,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3C2E0F84u)]
+    [TLTypeHash(0x3E9B5493u)]
     partial class ProfilePhotoConverter : TLObjectConverter<ProfilePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new ProfilePhotoConverter();
@@ -1437,16 +1437,16 @@ namespace TDLib.JsonClient
             var obj = (ProfilePhoto)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x7EDDF949u:
+                case 0x7545EA13u:
                     obj.Small = reader.ReadTLObject<File>();
                     return true;
-                case 0xB20C03FAu:
+                case 0xD3FBE249u:
                     obj.Big = reader.ReadTLObject<File>();
                     return true;
-                case 0xE3A89FF5u:
+                case 0xACF71693u:
                     obj.HasAnimation = reader.ReadBool();
                     return true;
             }
@@ -1454,7 +1454,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x29B0C0B5u)]
+    [TLTypeHash(0x3167AEB4u)]
     partial class ChatPhotoInfoConverter : TLObjectConverter<ChatPhotoInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatPhotoInfoConverter();
@@ -1465,13 +1465,13 @@ namespace TDLib.JsonClient
             var obj = (ChatPhotoInfo)tlobj;
             switch (hash)
             {
-                case 0x7EDDF949u:
+                case 0x7545EA13u:
                     obj.Small = reader.ReadTLObject<File>();
                     return true;
-                case 0xB20C03FAu:
+                case 0xD3FBE249u:
                     obj.Big = reader.ReadTLObject<File>();
                     return true;
-                case 0xE3A89FF5u:
+                case 0xACF71693u:
                     obj.HasAnimation = reader.ReadBool();
                     return true;
             }
@@ -1479,21 +1479,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB84EBA24u)]
+    [TLTypeHash(0x1D980FB0u)]
     partial class UserTypeRegularConverter : TLObjectConverter<UserTypeRegular>
     {
         internal static BaseConverter CreateConverterInstance() => new UserTypeRegularConverter();
         internal static TLObject CreateObjectInstance() => new UserTypeRegular();
     }
 
-    [TLTypeHash(0x0545D48Fu)]
+    [TLTypeHash(0xBCD24257u)]
     partial class UserTypeDeletedConverter : TLObjectConverter<UserTypeDeleted>
     {
         internal static BaseConverter CreateConverterInstance() => new UserTypeDeletedConverter();
         internal static TLObject CreateObjectInstance() => new UserTypeDeleted();
     }
 
-    [TLTypeHash(0xBFB54512u)]
+    [TLTypeHash(0xC983CE70u)]
     partial class UserTypeBotConverter : TLObjectConverter<UserTypeBot>
     {
         internal static BaseConverter CreateConverterInstance() => new UserTypeBotConverter();
@@ -1504,19 +1504,19 @@ namespace TDLib.JsonClient
             var obj = (UserTypeBot)tlobj;
             switch (hash)
             {
-                case 0xDE5BB844u:
+                case 0x1CBC440Bu:
                     obj.CanJoinGroups = reader.ReadBool();
                     return true;
-                case 0x1C46AD8Fu:
+                case 0x2604F349u:
                     obj.CanReadAllGroupMessages = reader.ReadBool();
                     return true;
-                case 0x26F0B722u:
+                case 0x1822D028u:
                     obj.IsInline = reader.ReadBool();
                     return true;
-                case 0x926BBEC6u:
+                case 0x6C5C0BEBu:
                     obj.InlineQueryPlaceholder = reader.ReadString();
                     return true;
-                case 0xD32DE252u:
+                case 0x2448CD01u:
                     obj.NeedLocation = reader.ReadBool();
                     return true;
             }
@@ -1524,14 +1524,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x48085FD4u)]
+    [TLTypeHash(0xFACFABA3u)]
     partial class UserTypeUnknownConverter : TLObjectConverter<UserTypeUnknown>
     {
         internal static BaseConverter CreateConverterInstance() => new UserTypeUnknownConverter();
         internal static TLObject CreateObjectInstance() => new UserTypeUnknown();
     }
 
-    [TLTypeHash(0x46A42E46u)]
+    [TLTypeHash(0x41436112u)]
     partial class BotCommandConverter : TLObjectConverter<BotCommand>
     {
         internal static BaseConverter CreateConverterInstance() => new BotCommandConverter();
@@ -1542,10 +1542,10 @@ namespace TDLib.JsonClient
             var obj = (BotCommand)tlobj;
             switch (hash)
             {
-                case 0x6579DED1u:
+                case 0x8ECAEAD4u:
                     obj.Command = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -1553,7 +1553,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9B15E0A0u)]
+    [TLTypeHash(0x3E4A3847u)]
     partial class BotInfoConverter : TLObjectConverter<BotInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new BotInfoConverter();
@@ -1564,10 +1564,10 @@ namespace TDLib.JsonClient
             var obj = (BotInfo)tlobj;
             switch (hash)
             {
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x1168EFDEu:
+                case 0x9A3E132Cu:
                     obj.Commands = reader.ReadObjectArray<BotCommand>();
                     return true;
             }
@@ -1575,7 +1575,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0B717316u)]
+    [TLTypeHash(0x9FAEC689u)]
     partial class ChatLocationConverter : TLObjectConverter<ChatLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatLocationConverter();
@@ -1586,10 +1586,10 @@ namespace TDLib.JsonClient
             var obj = (ChatLocation)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0xBF2096A4u:
+                case 0x0D4E6F81u:
                     obj.Address = reader.ReadString();
                     return true;
             }
@@ -1597,7 +1597,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x10706DF0u)]
+    [TLTypeHash(0x6C954C49u)]
     partial class AnimatedChatPhotoConverter : TLObjectConverter<AnimatedChatPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new AnimatedChatPhotoConverter();
@@ -1608,13 +1608,13 @@ namespace TDLib.JsonClient
             var obj = (AnimatedChatPhoto)tlobj;
             switch (hash)
             {
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
-                case 0x4CA5C5B3u:
+                case 0x8C9F3610u:
                     obj.File = reader.ReadTLObject<File>();
                     return true;
-                case 0x4320B781u:
+                case 0x654A3AC9u:
                     obj.MainFrameTimestamp = reader.ReadDouble();
                     return true;
             }
@@ -1622,7 +1622,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8C702A63u)]
+    [TLTypeHash(0x2ECF4646u)]
     partial class ChatPhotoConverter : TLObjectConverter<ChatPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatPhotoConverter();
@@ -1633,19 +1633,19 @@ namespace TDLib.JsonClient
             var obj = (ChatPhoto)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x9F49AC3Du:
+                case 0xF3F3E7A3u:
                     obj.AddedDate = reader.ReadInt();
                     return true;
-                case 0x4E571713u:
+                case 0xF95E0AF7u:
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x67D9EB02u:
+                case 0xB69E8769u:
                     obj.Sizes = reader.ReadObjectArray<PhotoSize>();
                     return true;
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<AnimatedChatPhoto>();
                     return true;
             }
@@ -1653,7 +1653,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x42AFE414u)]
+    [TLTypeHash(0x849FE4E8u)]
     partial class ChatPhotosConverter : TLObjectConverter<ChatPhotos>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatPhotosConverter();
@@ -1664,10 +1664,10 @@ namespace TDLib.JsonClient
             var obj = (ChatPhotos)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xABFF6FA5u:
+                case 0x0876E0D9u:
                     obj.Photos = reader.ReadObjectArray<ChatPhoto>();
                     return true;
             }
@@ -1675,7 +1675,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x33D16E4Cu)]
+    [TLTypeHash(0xF5A098A7u)]
     partial class InputChatPhotoPreviousConverter : TLObjectConverter<InputChatPhotoPrevious>
     {
         internal static BaseConverter CreateConverterInstance() => new InputChatPhotoPreviousConverter();
@@ -1686,7 +1686,7 @@ namespace TDLib.JsonClient
             var obj = (InputChatPhotoPrevious)tlobj;
             switch (hash)
             {
-                case 0x42FCCB4Du:
+                case 0x4ABC9BBCu:
                     obj.ChatPhotoId = reader.ReadInt64String();
                     return true;
             }
@@ -1694,7 +1694,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC2D342D1u)]
+    [TLTypeHash(0xBF8C82AFu)]
     partial class InputChatPhotoStaticConverter : TLObjectConverter<InputChatPhotoStatic>
     {
         internal static BaseConverter CreateConverterInstance() => new InputChatPhotoStaticConverter();
@@ -1705,7 +1705,7 @@ namespace TDLib.JsonClient
             var obj = (InputChatPhotoStatic)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -1713,7 +1713,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x08C58938u)]
+    [TLTypeHash(0x4A72436Du)]
     partial class InputChatPhotoAnimationConverter : TLObjectConverter<InputChatPhotoAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new InputChatPhotoAnimationConverter();
@@ -1724,10 +1724,10 @@ namespace TDLib.JsonClient
             var obj = (InputChatPhotoAnimation)tlobj;
             switch (hash)
             {
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x4320B781u:
+                case 0x654A3AC9u:
                     obj.MainFrameTimestamp = reader.ReadDouble();
                     return true;
             }
@@ -1735,7 +1735,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8A5D14BEu)]
+    [TLTypeHash(0x8D93D649u)]
     partial class UserConverter : TLObjectConverter<User>
     {
         internal static BaseConverter CreateConverterInstance() => new UserConverter();
@@ -1746,52 +1746,52 @@ namespace TDLib.JsonClient
             var obj = (User)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x9042082Fu:
+                case 0xA9D1C132u:
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x2E1C9126u:
+                case 0xC808BA5Au:
                     obj.LastName = reader.ReadString();
                     return true;
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0x82D603CEu:
+                case 0x7B00651Cu:
                     obj.Status = reader.ReadTLObject<UserStatus>();
                     return true;
-                case 0xA91951D9u:
+                case 0xE3631BCAu:
                     obj.ProfilePhoto = reader.ReadTLObject<ProfilePhoto>();
                     return true;
-                case 0xB8CFCC51u:
+                case 0x5A5E60F0u:
                     obj.IsContact = reader.ReadBool();
                     return true;
-                case 0xE17CD0B0u:
+                case 0x1ABCB327u:
                     obj.IsMutualContact = reader.ReadBool();
                     return true;
-                case 0xE71C8AF1u:
+                case 0x9AEC891Du:
                     obj.IsVerified = reader.ReadBool();
                     return true;
-                case 0x3B952568u:
+                case 0x96386D6Du:
                     obj.IsSupport = reader.ReadBool();
                     return true;
-                case 0x8D8A128Eu:
+                case 0xF19C6840u:
                     obj.RestrictionReason = reader.ReadString();
                     return true;
-                case 0x06C42D0Du:
+                case 0xC849CC35u:
                     obj.IsScam = reader.ReadBool();
                     return true;
-                case 0x7B58577Du:
+                case 0xC631AEF6u:
                     obj.HaveAccess = reader.ReadBool();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<UserType>();
                     return true;
-                case 0x5D862C00u:
+                case 0x451CDAD4u:
                     obj.LanguageCode = reader.ReadString();
                     return true;
             }
@@ -1799,7 +1799,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA79FF717u)]
+    [TLTypeHash(0x71CE00E0u)]
     partial class UserFullInfoConverter : TLObjectConverter<UserFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new UserFullInfoConverter();
@@ -1810,31 +1810,31 @@ namespace TDLib.JsonClient
             var obj = (UserFullInfo)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
-                case 0xA926A5BBu:
+                case 0x325E4D78u:
                     obj.CanBeCalled = reader.ReadBool();
                     return true;
-                case 0x1D3490F6u:
+                case 0x190377E0u:
                     obj.SupportsVideoCalls = reader.ReadBool();
                     return true;
-                case 0x26CB6B43u:
+                case 0x54137C77u:
                     obj.HasPrivateCalls = reader.ReadBool();
                     return true;
-                case 0x5B1C851Bu:
+                case 0x4162AE96u:
                     obj.NeedPhoneNumberPrivacyException = reader.ReadBool();
                     return true;
-                case 0x38D55B35u:
+                case 0xDD206A7Bu:
                     obj.Bio = reader.ReadString();
                     return true;
-                case 0xA7BEE66Du:
+                case 0x864CAA5Eu:
                     obj.ShareText = reader.ReadString();
                     return true;
-                case 0x915BE050u:
+                case 0x4D044D98u:
                     obj.GroupInCommonCount = reader.ReadInt();
                     return true;
-                case 0x7FDA81AAu:
+                case 0x4A2FBD25u:
                     obj.BotInfo = reader.ReadTLObject<BotInfo>();
                     return true;
             }
@@ -1842,7 +1842,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2E526452u)]
+    [TLTypeHash(0x1483A5E9u)]
     partial class UsersConverter : TLObjectConverter<Users>
     {
         internal static BaseConverter CreateConverterInstance() => new UsersConverter();
@@ -1853,10 +1853,10 @@ namespace TDLib.JsonClient
             var obj = (Users)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -1864,7 +1864,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xACFDC035u)]
+    [TLTypeHash(0x4F11468Cu)]
     partial class ChatAdministratorConverter : TLObjectConverter<ChatAdministrator>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatAdministratorConverter();
@@ -1875,13 +1875,13 @@ namespace TDLib.JsonClient
             var obj = (ChatAdministrator)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x843E045Eu:
+                case 0xE83B8002u:
                     obj.CustomTitle = reader.ReadString();
                     return true;
-                case 0x9403327Du:
+                case 0x839C050Cu:
                     obj.IsOwner = reader.ReadBool();
                     return true;
             }
@@ -1889,7 +1889,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x350B54C5u)]
+    [TLTypeHash(0xFF4F1146u)]
     partial class ChatAdministratorsConverter : TLObjectConverter<ChatAdministrators>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatAdministratorsConverter();
@@ -1900,7 +1900,7 @@ namespace TDLib.JsonClient
             var obj = (ChatAdministrators)tlobj;
             switch (hash)
             {
-                case 0xB3235019u:
+                case 0x073A716Fu:
                     obj.Administrators = reader.ReadObjectArray<ChatAdministrator>();
                     return true;
             }
@@ -1908,7 +1908,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF21EFB08u)]
+    [TLTypeHash(0x0FCBF666u)]
     partial class ChatPermissionsConverter : TLObjectConverter<ChatPermissions>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatPermissionsConverter();
@@ -1919,28 +1919,28 @@ namespace TDLib.JsonClient
             var obj = (ChatPermissions)tlobj;
             switch (hash)
             {
-                case 0xADB68E1Cu:
+                case 0xDEC19EE2u:
                     obj.CanSendMessages = reader.ReadBool();
                     return true;
-                case 0xBE898A12u:
+                case 0x97054C62u:
                     obj.CanSendMediaMessages = reader.ReadBool();
                     return true;
-                case 0x046D9C15u:
+                case 0x4F93EDC4u:
                     obj.CanSendPolls = reader.ReadBool();
                     return true;
-                case 0x4165F921u:
+                case 0xDC73123Du:
                     obj.CanSendOtherMessages = reader.ReadBool();
                     return true;
-                case 0x5CADEFA9u:
+                case 0x8842E484u:
                     obj.CanAddWebPagePreviews = reader.ReadBool();
                     return true;
-                case 0x79A92554u:
+                case 0xEC6198B1u:
                     obj.CanChangeInfo = reader.ReadBool();
                     return true;
-                case 0x5FEE4B04u:
+                case 0x0C68E9BFu:
                     obj.CanInviteUsers = reader.ReadBool();
                     return true;
-                case 0x604D8D12u:
+                case 0xBD7D8614u:
                     obj.CanPinMessages = reader.ReadBool();
                     return true;
             }
@@ -1948,7 +1948,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD19AAE3Au)]
+    [TLTypeHash(0xD2FC509Du)]
     partial class ChatMemberStatusCreatorConverter : TLObjectConverter<ChatMemberStatusCreator>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMemberStatusCreatorConverter();
@@ -1959,13 +1959,13 @@ namespace TDLib.JsonClient
             var obj = (ChatMemberStatusCreator)tlobj;
             switch (hash)
             {
-                case 0x843E045Eu:
+                case 0xE83B8002u:
                     obj.CustomTitle = reader.ReadString();
                     return true;
-                case 0x41D798A8u:
+                case 0xC5C980C1u:
                     obj.IsAnonymous = reader.ReadBool();
                     return true;
-                case 0x7B0CA79Bu:
+                case 0x20AD77A7u:
                     obj.IsMember = reader.ReadBool();
                     return true;
             }
@@ -1973,7 +1973,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x98FB9A30u)]
+    [TLTypeHash(0x86A27E64u)]
     partial class ChatMemberStatusAdministratorConverter : TLObjectConverter<ChatMemberStatusAdministrator>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMemberStatusAdministratorConverter();
@@ -1984,37 +1984,37 @@ namespace TDLib.JsonClient
             var obj = (ChatMemberStatusAdministrator)tlobj;
             switch (hash)
             {
-                case 0x843E045Eu:
+                case 0xE83B8002u:
                     obj.CustomTitle = reader.ReadString();
                     return true;
-                case 0xF69F3B17u:
+                case 0x090C23EFu:
                     obj.CanBeEdited = reader.ReadBool();
                     return true;
-                case 0x79A92554u:
+                case 0xEC6198B1u:
                     obj.CanChangeInfo = reader.ReadBool();
                     return true;
-                case 0xAD34723Cu:
+                case 0xCBF01269u:
                     obj.CanPostMessages = reader.ReadBool();
                     return true;
-                case 0x5AE85C79u:
+                case 0x5F133FE1u:
                     obj.CanEditMessages = reader.ReadBool();
                     return true;
-                case 0xD1B603D2u:
+                case 0xE043B3E9u:
                     obj.CanDeleteMessages = reader.ReadBool();
                     return true;
-                case 0x5FEE4B04u:
+                case 0x0C68E9BFu:
                     obj.CanInviteUsers = reader.ReadBool();
                     return true;
-                case 0x055CEF60u:
+                case 0xA4E4B2B2u:
                     obj.CanRestrictMembers = reader.ReadBool();
                     return true;
-                case 0x604D8D12u:
+                case 0xBD7D8614u:
                     obj.CanPinMessages = reader.ReadBool();
                     return true;
-                case 0x857F7E60u:
+                case 0x82AA0B58u:
                     obj.CanPromoteMembers = reader.ReadBool();
                     return true;
-                case 0x41D798A8u:
+                case 0xC5C980C1u:
                     obj.IsAnonymous = reader.ReadBool();
                     return true;
             }
@@ -2022,14 +2022,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA57AC4E0u)]
+    [TLTypeHash(0xE158E3EFu)]
     partial class ChatMemberStatusMemberConverter : TLObjectConverter<ChatMemberStatusMember>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMemberStatusMemberConverter();
         internal static TLObject CreateObjectInstance() => new ChatMemberStatusMember();
     }
 
-    [TLTypeHash(0xE3CC13A3u)]
+    [TLTypeHash(0x3BD483C3u)]
     partial class ChatMemberStatusRestrictedConverter : TLObjectConverter<ChatMemberStatusRestricted>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMemberStatusRestrictedConverter();
@@ -2040,13 +2040,13 @@ namespace TDLib.JsonClient
             var obj = (ChatMemberStatusRestricted)tlobj;
             switch (hash)
             {
-                case 0x7B0CA79Bu:
+                case 0x20AD77A7u:
                     obj.IsMember = reader.ReadBool();
                     return true;
-                case 0x99910061u:
+                case 0x4B7DDEFAu:
                     obj.RestrictedUntilDate = reader.ReadInt();
                     return true;
-                case 0xB4CFCFFFu:
+                case 0x2DEDCC6Fu:
                     obj.Permissions = reader.ReadTLObject<ChatPermissions>();
                     return true;
             }
@@ -2054,14 +2054,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF3594417u)]
+    [TLTypeHash(0x024C73C0u)]
     partial class ChatMemberStatusLeftConverter : TLObjectConverter<ChatMemberStatusLeft>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMemberStatusLeftConverter();
         internal static TLObject CreateObjectInstance() => new ChatMemberStatusLeft();
     }
 
-    [TLTypeHash(0x5122AD83u)]
+    [TLTypeHash(0x0AF51421u)]
     partial class ChatMemberStatusBannedConverter : TLObjectConverter<ChatMemberStatusBanned>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMemberStatusBannedConverter();
@@ -2072,7 +2072,7 @@ namespace TDLib.JsonClient
             var obj = (ChatMemberStatusBanned)tlobj;
             switch (hash)
             {
-                case 0x8D9C1321u:
+                case 0x3E80476Eu:
                     obj.BannedUntilDate = reader.ReadInt();
                     return true;
             }
@@ -2080,7 +2080,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF41D929Fu)]
+    [TLTypeHash(0xFC0DFE49u)]
     partial class ChatMemberConverter : TLObjectConverter<ChatMember>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMemberConverter();
@@ -2091,19 +2091,19 @@ namespace TDLib.JsonClient
             var obj = (ChatMember)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xCC956F6Bu:
+                case 0x1A579695u:
                     obj.InviterUserId = reader.ReadInt();
                     return true;
-                case 0xD8798A74u:
+                case 0x1389C1F5u:
                     obj.JoinedChatDate = reader.ReadInt();
                     return true;
-                case 0x82D603CEu:
+                case 0x7B00651Cu:
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0x7FDA81AAu:
+                case 0x4A2FBD25u:
                     obj.BotInfo = reader.ReadTLObject<BotInfo>();
                     return true;
             }
@@ -2111,7 +2111,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFCFA2909u)]
+    [TLTypeHash(0x14F23BC1u)]
     partial class ChatMembersConverter : TLObjectConverter<ChatMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMembersConverter();
@@ -2122,10 +2122,10 @@ namespace TDLib.JsonClient
             var obj = (ChatMembers)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xBC6D8848u:
+                case 0x45A0D2FFu:
                     obj.Members = reader.ReadObjectArray<ChatMember>();
                     return true;
             }
@@ -2133,56 +2133,56 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8B1DF0C9u)]
+    [TLTypeHash(0xCD66F5CEu)]
     partial class ChatMembersFilterContactsConverter : TLObjectConverter<ChatMembersFilterContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMembersFilterContactsConverter();
         internal static TLObject CreateObjectInstance() => new ChatMembersFilterContacts();
     }
 
-    [TLTypeHash(0x8BD743FBu)]
+    [TLTypeHash(0xB3B91823u)]
     partial class ChatMembersFilterAdministratorsConverter : TLObjectConverter<ChatMembersFilterAdministrators>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMembersFilterAdministratorsConverter();
         internal static TLObject CreateObjectInstance() => new ChatMembersFilterAdministrators();
     }
 
-    [TLTypeHash(0x14D90ABBu)]
+    [TLTypeHash(0xB75B1967u)]
     partial class ChatMembersFilterMembersConverter : TLObjectConverter<ChatMembersFilterMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMembersFilterMembersConverter();
         internal static TLObject CreateObjectInstance() => new ChatMembersFilterMembers();
     }
 
-    [TLTypeHash(0x8B891980u)]
+    [TLTypeHash(0x36AD4CECu)]
     partial class ChatMembersFilterRestrictedConverter : TLObjectConverter<ChatMembersFilterRestricted>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMembersFilterRestrictedConverter();
         internal static TLObject CreateObjectInstance() => new ChatMembersFilterRestricted();
     }
 
-    [TLTypeHash(0x32997F87u)]
+    [TLTypeHash(0x0282DBE5u)]
     partial class ChatMembersFilterBannedConverter : TLObjectConverter<ChatMembersFilterBanned>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMembersFilterBannedConverter();
         internal static TLObject CreateObjectInstance() => new ChatMembersFilterBanned();
     }
 
-    [TLTypeHash(0x62763368u)]
+    [TLTypeHash(0x21A95441u)]
     partial class ChatMembersFilterBotsConverter : TLObjectConverter<ChatMembersFilterBots>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatMembersFilterBotsConverter();
         internal static TLObject CreateObjectInstance() => new ChatMembersFilterBots();
     }
 
-    [TLTypeHash(0x339BB533u)]
+    [TLTypeHash(0x4DC061AAu)]
     partial class SupergroupMembersFilterRecentConverter : TLObjectConverter<SupergroupMembersFilterRecent>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterRecentConverter();
         internal static TLObject CreateObjectInstance() => new SupergroupMembersFilterRecent();
     }
 
-    [TLTypeHash(0xA3B0D2B5u)]
+    [TLTypeHash(0x19AEA052u)]
     partial class SupergroupMembersFilterContactsConverter : TLObjectConverter<SupergroupMembersFilterContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterContactsConverter();
@@ -2193,7 +2193,7 @@ namespace TDLib.JsonClient
             var obj = (SupergroupMembersFilterContacts)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
             }
@@ -2201,14 +2201,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x75E19B0Cu)]
+    [TLTypeHash(0x1097D5A5u)]
     partial class SupergroupMembersFilterAdministratorsConverter : TLObjectConverter<SupergroupMembersFilterAdministrators>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterAdministratorsConverter();
         internal static TLObject CreateObjectInstance() => new SupergroupMembersFilterAdministrators();
     }
 
-    [TLTypeHash(0xFABFD6E4u)]
+    [TLTypeHash(0x9453ED73u)]
     partial class SupergroupMembersFilterSearchConverter : TLObjectConverter<SupergroupMembersFilterSearch>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterSearchConverter();
@@ -2219,7 +2219,7 @@ namespace TDLib.JsonClient
             var obj = (SupergroupMembersFilterSearch)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
             }
@@ -2227,7 +2227,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x26C8B9E7u)]
+    [TLTypeHash(0xF058F849u)]
     partial class SupergroupMembersFilterRestrictedConverter : TLObjectConverter<SupergroupMembersFilterRestricted>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterRestrictedConverter();
@@ -2238,7 +2238,7 @@ namespace TDLib.JsonClient
             var obj = (SupergroupMembersFilterRestricted)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
             }
@@ -2246,7 +2246,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x282391E8u)]
+    [TLTypeHash(0xBBEA3B62u)]
     partial class SupergroupMembersFilterBannedConverter : TLObjectConverter<SupergroupMembersFilterBanned>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterBannedConverter();
@@ -2257,7 +2257,7 @@ namespace TDLib.JsonClient
             var obj = (SupergroupMembersFilterBanned)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
             }
@@ -2265,14 +2265,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x733E16BBu)]
+    [TLTypeHash(0xCEAF1049u)]
     partial class SupergroupMembersFilterBotsConverter : TLObjectConverter<SupergroupMembersFilterBots>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterBotsConverter();
         internal static TLObject CreateObjectInstance() => new SupergroupMembersFilterBots();
     }
 
-    [TLTypeHash(0x468CC01Cu)]
+    [TLTypeHash(0xA53257B1u)]
     partial class BasicGroupConverter : TLObjectConverter<BasicGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new BasicGroupConverter();
@@ -2283,19 +2283,19 @@ namespace TDLib.JsonClient
             var obj = (BasicGroup)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x510F06B4u:
+                case 0xE7F8D191u:
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0x82D603CEu:
+                case 0x7B00651Cu:
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0xE6349552u:
+                case 0x1B5771DDu:
                     obj.IsActive = reader.ReadBool();
                     return true;
-                case 0xF1E7131Au:
+                case 0x04E045E0u:
                     obj.UpgradedToSupergroupId = reader.ReadInt();
                     return true;
             }
@@ -2303,7 +2303,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFB657594u)]
+    [TLTypeHash(0x50D048D7u)]
     partial class BasicGroupFullInfoConverter : TLObjectConverter<BasicGroupFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new BasicGroupFullInfoConverter();
@@ -2314,19 +2314,19 @@ namespace TDLib.JsonClient
             var obj = (BasicGroupFullInfo)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x94699334u:
+                case 0x29FC6AE1u:
                     obj.CreatorUserId = reader.ReadInt();
                     return true;
-                case 0xBC6D8848u:
+                case 0x45A0D2FFu:
                     obj.Members = reader.ReadObjectArray<ChatMember>();
                     return true;
-                case 0x56350A39u:
+                case 0x2E98587Bu:
                     obj.InviteLink = reader.ReadString();
                     return true;
             }
@@ -2334,7 +2334,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAFB66DD2u)]
+    [TLTypeHash(0xDC163DB7u)]
     partial class SupergroupConverter : TLObjectConverter<Supergroup>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupConverter();
@@ -2345,43 +2345,43 @@ namespace TDLib.JsonClient
             var obj = (Supergroup)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0x82D603CEu:
+                case 0x7B00651Cu:
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0x510F06B4u:
+                case 0xE7F8D191u:
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0x5EAC8035u:
+                case 0xD80AA7D7u:
                     obj.HasLinkedChat = reader.ReadBool();
                     return true;
-                case 0xB5F0A104u:
+                case 0x4FF873FFu:
                     obj.HasLocation = reader.ReadBool();
                     return true;
-                case 0x4E322A51u:
+                case 0x18BBF871u:
                     obj.SignMessages = reader.ReadBool();
                     return true;
-                case 0x32493F6Au:
+                case 0x85BD7585u:
                     obj.IsSlowModeEnabled = reader.ReadBool();
                     return true;
-                case 0x4C39504Du:
+                case 0xB4C5088Fu:
                     obj.IsChannel = reader.ReadBool();
                     return true;
-                case 0xE71C8AF1u:
+                case 0x9AEC891Du:
                     obj.IsVerified = reader.ReadBool();
                     return true;
-                case 0x8D8A128Eu:
+                case 0xF19C6840u:
                     obj.RestrictionReason = reader.ReadString();
                     return true;
-                case 0x06C42D0Du:
+                case 0xC849CC35u:
                     obj.IsScam = reader.ReadBool();
                     return true;
             }
@@ -2389,7 +2389,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2E9E3DCFu)]
+    [TLTypeHash(0xD1869765u)]
     partial class SupergroupFullInfoConverter : TLObjectConverter<SupergroupFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new SupergroupFullInfoConverter();
@@ -2400,64 +2400,64 @@ namespace TDLib.JsonClient
             var obj = (SupergroupFullInfo)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x510F06B4u:
+                case 0xE7F8D191u:
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0xFEB76490u:
+                case 0x5BEB50CBu:
                     obj.AdministratorCount = reader.ReadInt();
                     return true;
-                case 0x368890CFu:
+                case 0x0421F3C3u:
                     obj.RestrictedCount = reader.ReadInt();
                     return true;
-                case 0xC83063EEu:
+                case 0x2CB8DC81u:
                     obj.BannedCount = reader.ReadInt();
                     return true;
-                case 0xCA5981CAu:
+                case 0x71D249B2u:
                     obj.LinkedChatId = reader.ReadLong();
                     return true;
-                case 0x2D2C660Bu:
+                case 0x574122D6u:
                     obj.SlowModeDelay = reader.ReadInt();
                     return true;
-                case 0x8EA41172u:
+                case 0x63251C66u:
                     obj.SlowModeDelayExpiresIn = reader.ReadDouble();
                     return true;
-                case 0x0E2F47A4u:
+                case 0x981C630Cu:
                     obj.CanGetMembers = reader.ReadBool();
                     return true;
-                case 0xBA5B776Au:
+                case 0xD329CFE3u:
                     obj.CanSetUsername = reader.ReadBool();
                     return true;
-                case 0xAC223EE6u:
+                case 0xABA37EA7u:
                     obj.CanSetStickerSet = reader.ReadBool();
                     return true;
-                case 0xCA0ED7DEu:
+                case 0x75E9405Fu:
                     obj.CanSetLocation = reader.ReadBool();
                     return true;
-                case 0x81815F75u:
+                case 0x6A582628u:
                     obj.CanGetStatistics = reader.ReadBool();
                     return true;
-                case 0xCED8BA39u:
+                case 0xF4846EB9u:
                     obj.IsAllHistoryAvailable = reader.ReadBool();
                     return true;
-                case 0xC81D90F8u:
+                case 0xE417C78Fu:
                     obj.StickerSetId = reader.ReadInt64String();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<ChatLocation>();
                     return true;
-                case 0x56350A39u:
+                case 0x2E98587Bu:
                     obj.InviteLink = reader.ReadString();
                     return true;
-                case 0x7498EB7Cu:
+                case 0xF73F873Du:
                     obj.UpgradedFromBasicGroupId = reader.ReadInt();
                     return true;
-                case 0x78CE8860u:
+                case 0xAC5B5A3Fu:
                     obj.UpgradedFromMaxMessageId = reader.ReadLong();
                     return true;
             }
@@ -2465,28 +2465,28 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x65E7EEC1u)]
+    [TLTypeHash(0x65C2874Du)]
     partial class SecretChatStatePendingConverter : TLObjectConverter<SecretChatStatePending>
     {
         internal static BaseConverter CreateConverterInstance() => new SecretChatStatePendingConverter();
         internal static TLObject CreateObjectInstance() => new SecretChatStatePending();
     }
 
-    [TLTypeHash(0xC87ECF27u)]
+    [TLTypeHash(0x5024DCFEu)]
     partial class SecretChatStateReadyConverter : TLObjectConverter<SecretChatStateReady>
     {
         internal static BaseConverter CreateConverterInstance() => new SecretChatStateReadyConverter();
         internal static TLObject CreateObjectInstance() => new SecretChatStateReady();
     }
 
-    [TLTypeHash(0x08DCC75Eu)]
+    [TLTypeHash(0x18D39DDFu)]
     partial class SecretChatStateClosedConverter : TLObjectConverter<SecretChatStateClosed>
     {
         internal static BaseConverter CreateConverterInstance() => new SecretChatStateClosedConverter();
         internal static TLObject CreateObjectInstance() => new SecretChatStateClosed();
     }
 
-    [TLTypeHash(0xA4444B6Eu)]
+    [TLTypeHash(0x7D13AE32u)]
     partial class SecretChatConverter : TLObjectConverter<SecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new SecretChatConverter();
@@ -2497,25 +2497,25 @@ namespace TDLib.JsonClient
             var obj = (SecretChat)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x66DB68DFu:
+                case 0xA393D2FBu:
                     obj.State = reader.ReadTLObject<SecretChatState>();
                     return true;
-                case 0x44C469E5u:
+                case 0xB48F218Au:
                     obj.IsOutbound = reader.ReadBool();
                     return true;
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadInt();
                     return true;
-                case 0xF0F68430u:
+                case 0x57BFB971u:
                     obj.KeyHash = reader.ReadBase64String();
                     return true;
-                case 0x6BEBAF92u:
+                case 0xE4DB211Au:
                     obj.Layer = reader.ReadInt();
                     return true;
             }
@@ -2523,7 +2523,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDE8A2014u)]
+    [TLTypeHash(0x967D76DDu)]
     partial class MessageForwardOriginUserConverter : TLObjectConverter<MessageForwardOriginUser>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageForwardOriginUserConverter();
@@ -2534,7 +2534,7 @@ namespace TDLib.JsonClient
             var obj = (MessageForwardOriginUser)tlobj;
             switch (hash)
             {
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
             }
@@ -2542,7 +2542,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x395D8653u)]
+    [TLTypeHash(0x7E73523Eu)]
     partial class MessageForwardOriginChatConverter : TLObjectConverter<MessageForwardOriginChat>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageForwardOriginChatConverter();
@@ -2553,7 +2553,7 @@ namespace TDLib.JsonClient
             var obj = (MessageForwardOriginChat)tlobj;
             switch (hash)
             {
-                case 0xDA540536u:
+                case 0x976CB7EEu:
                     obj.SenderChatId = reader.ReadLong();
                     return true;
             }
@@ -2561,7 +2561,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE91779ADu)]
+    [TLTypeHash(0x58FF9D4Du)]
     partial class MessageForwardOriginHiddenUserConverter : TLObjectConverter<MessageForwardOriginHiddenUser>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageForwardOriginHiddenUserConverter();
@@ -2572,7 +2572,7 @@ namespace TDLib.JsonClient
             var obj = (MessageForwardOriginHiddenUser)tlobj;
             switch (hash)
             {
-                case 0xD88ED020u:
+                case 0xA1C988D5u:
                     obj.SenderName = reader.ReadString();
                     return true;
             }
@@ -2580,7 +2580,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDF3B61F2u)]
+    [TLTypeHash(0xB156EDE6u)]
     partial class MessageForwardOriginChannelConverter : TLObjectConverter<MessageForwardOriginChannel>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageForwardOriginChannelConverter();
@@ -2591,13 +2591,13 @@ namespace TDLib.JsonClient
             var obj = (MessageForwardOriginChannel)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xD067E72Du:
+                case 0x156CD668u:
                     obj.AuthorSignature = reader.ReadString();
                     return true;
             }
@@ -2605,7 +2605,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAEFC7258u)]
+    [TLTypeHash(0xECABE9E3u)]
     partial class MessageForwardInfoConverter : TLObjectConverter<MessageForwardInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageForwardInfoConverter();
@@ -2616,19 +2616,19 @@ namespace TDLib.JsonClient
             var obj = (MessageForwardInfo)tlobj;
             switch (hash)
             {
-                case 0x2FAB7B36u:
+                case 0xDEF1561Eu:
                     obj.Origin = reader.ReadTLObject<MessageForwardOrigin>();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xC85A243Du:
+                case 0x7A7C0D21u:
                     obj.PublicServiceAnnouncementType = reader.ReadString();
                     return true;
-                case 0x48E8721Bu:
+                case 0x9CC4928Au:
                     obj.FromChatId = reader.ReadLong();
                     return true;
-                case 0xCB003A8Du:
+                case 0x78DED52Eu:
                     obj.FromMessageId = reader.ReadLong();
                     return true;
             }
@@ -2636,7 +2636,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCB9E1E93u)]
+    [TLTypeHash(0x28238E31u)]
     partial class MessageReplyInfoConverter : TLObjectConverter<MessageReplyInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageReplyInfoConverter();
@@ -2647,19 +2647,19 @@ namespace TDLib.JsonClient
             var obj = (MessageReplyInfo)tlobj;
             switch (hash)
             {
-                case 0x68003481u:
+                case 0x4A337F6Eu:
                     obj.ReplyCount = reader.ReadInt();
                     return true;
-                case 0x6BB81C41u:
+                case 0x5FB6FB94u:
                     obj.RecentReplierUserIds = reader.ReadInt32Array();
                     return true;
-                case 0xE4D52BA2u:
+                case 0x1123A8C1u:
                     obj.LastReadInboxMessageId = reader.ReadLong();
                     return true;
-                case 0x3E7162A6u:
+                case 0xF1D5DB98u:
                     obj.LastReadOutboxMessageId = reader.ReadLong();
                     return true;
-                case 0x7D672757u:
+                case 0xBA0E79C3u:
                     obj.LastMessageId = reader.ReadLong();
                     return true;
             }
@@ -2667,7 +2667,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x937FA225u)]
+    [TLTypeHash(0x3AA02B06u)]
     partial class MessageInteractionInfoConverter : TLObjectConverter<MessageInteractionInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageInteractionInfoConverter();
@@ -2678,13 +2678,13 @@ namespace TDLib.JsonClient
             var obj = (MessageInteractionInfo)tlobj;
             switch (hash)
             {
-                case 0x43352C62u:
+                case 0xE7FAE371u:
                     obj.ViewCount = reader.ReadInt();
                     return true;
-                case 0x6DAA5B53u:
+                case 0x2DC8A70Au:
                     obj.ForwardCount = reader.ReadInt();
                     return true;
-                case 0xAFBE332Cu:
+                case 0x9B27A461u:
                     obj.ReplyInfo = reader.ReadTLObject<MessageReplyInfo>();
                     return true;
             }
@@ -2692,14 +2692,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1C90B67Eu)]
+    [TLTypeHash(0x5465BC28u)]
     partial class MessageSendingStatePendingConverter : TLObjectConverter<MessageSendingStatePending>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageSendingStatePendingConverter();
         internal static TLObject CreateObjectInstance() => new MessageSendingStatePending();
     }
 
-    [TLTypeHash(0x70037111u)]
+    [TLTypeHash(0x4B2AF9E2u)]
     partial class MessageSendingStateFailedConverter : TLObjectConverter<MessageSendingStateFailed>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageSendingStateFailedConverter();
@@ -2710,16 +2710,16 @@ namespace TDLib.JsonClient
             var obj = (MessageSendingStateFailed)tlobj;
             switch (hash)
             {
-                case 0x3519A170u:
+                case 0x3362FDA4u:
                     obj.ErrorCode = reader.ReadInt();
                     return true;
-                case 0x6E73AFBFu:
+                case 0x2BF96153u:
                     obj.ErrorMessage = reader.ReadString();
                     return true;
-                case 0xC3B5BB27u:
+                case 0x5135228Eu:
                     obj.CanRetry = reader.ReadBool();
                     return true;
-                case 0xB2D78B4Eu:
+                case 0x72730758u:
                     obj.RetryAfter = reader.ReadDouble();
                     return true;
             }
@@ -2727,7 +2727,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x98A214D0u)]
+    [TLTypeHash(0xB6BD307Fu)]
     partial class MessageConverter : TLObjectConverter<Message>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageConverter();
@@ -2738,94 +2738,94 @@ namespace TDLib.JsonClient
             var obj = (Message)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadLong();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xDA540536u:
+                case 0x976CB7EEu:
                     obj.SenderChatId = reader.ReadLong();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x9F6F8B67u:
+                case 0x81CC3C3Du:
                     obj.SendingState = reader.ReadTLObject<MessageSendingState>();
                     return true;
-                case 0x3F5B0908u:
+                case 0x692DBE97u:
                     obj.SchedulingState = reader.ReadTLObject<MessageSchedulingState>();
                     return true;
-                case 0x59EDAC58u:
+                case 0xF05AA554u:
                     obj.IsOutgoing = reader.ReadBool();
                     return true;
-                case 0xF69F3B17u:
+                case 0x090C23EFu:
                     obj.CanBeEdited = reader.ReadBool();
                     return true;
-                case 0x915C2FEBu:
+                case 0xF0331819u:
                     obj.CanBeForwarded = reader.ReadBool();
                     return true;
-                case 0x2718B38Au:
+                case 0x6335FB7Cu:
                     obj.CanBeDeletedOnlyForSelf = reader.ReadBool();
                     return true;
-                case 0x03CEE1B1u:
+                case 0x0EC2C6CDu:
                     obj.CanBeDeletedForAllUsers = reader.ReadBool();
                     return true;
-                case 0x81815F75u:
+                case 0x6A582628u:
                     obj.CanGetStatistics = reader.ReadBool();
                     return true;
-                case 0x0CFB794Fu:
+                case 0x830EB549u:
                     obj.CanGetMessageThread = reader.ReadBool();
                     return true;
-                case 0x1A140C1Du:
+                case 0xE6602C2Du:
                     obj.IsChannelPost = reader.ReadBool();
                     return true;
-                case 0x46AF72DBu:
+                case 0xAED9C680u:
                     obj.ContainsUnreadMention = reader.ReadBool();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xF050FEFFu:
+                case 0x1B588899u:
                     obj.EditDate = reader.ReadInt();
                     return true;
-                case 0x178C4C19u:
+                case 0xBDB50CFAu:
                     obj.ForwardInfo = reader.ReadTLObject<MessageForwardInfo>();
                     return true;
-                case 0xEA550364u:
+                case 0x594DE457u:
                     obj.InteractionInfo = reader.ReadTLObject<MessageInteractionInfo>();
                     return true;
-                case 0x8FC1346Eu:
+                case 0x5BE45E9Du:
                     obj.ReplyInChatId = reader.ReadLong();
                     return true;
-                case 0x2A4A6D16u:
+                case 0x5518525Du:
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadInt();
                     return true;
-                case 0x43F1D644u:
+                case 0x4787C306u:
                     obj.TtlExpiresIn = reader.ReadDouble();
                     return true;
-                case 0xDBDFE365u:
+                case 0x7F6BB42Au:
                     obj.ViaBotUserId = reader.ReadInt();
                     return true;
-                case 0xD067E72Du:
+                case 0x156CD668u:
                     obj.AuthorSignature = reader.ReadString();
                     return true;
-                case 0x39201B29u:
+                case 0x1E56857Du:
                     obj.MediaAlbumId = reader.ReadInt64String();
                     return true;
-                case 0x8D8A128Eu:
+                case 0xF19C6840u:
                     obj.RestrictionReason = reader.ReadString();
                     return true;
-                case 0x61AF7533u:
+                case 0xFEC530A9u:
                     obj.Content = reader.ReadTLObject<MessageContent>();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -2833,7 +2833,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE3FEB717u)]
+    [TLTypeHash(0xDB021E96u)]
     partial class MessagesConverter : TLObjectConverter<Messages>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagesConverter();
@@ -2844,10 +2844,10 @@ namespace TDLib.JsonClient
             var obj = (Messages)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xE3FEB717u:
+                case 0xDB021E96u:
                     obj.Messages_ = reader.ReadObjectArray<Message>();
                     return true;
             }
@@ -2855,7 +2855,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5CC41D1Fu)]
+    [TLTypeHash(0xFD26090Bu)]
     partial class FoundMessagesConverter : TLObjectConverter<FoundMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new FoundMessagesConverter();
@@ -2866,13 +2866,13 @@ namespace TDLib.JsonClient
             var obj = (FoundMessages)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xE3FEB717u:
+                case 0xDB021E96u:
                     obj.Messages = reader.ReadObjectArray<Message>();
                     return true;
-                case 0x37DD9D00u:
+                case 0x00DFCF6Cu:
                     obj.NextOffset = reader.ReadString();
                     return true;
             }
@@ -2880,28 +2880,28 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x193664C2u)]
+    [TLTypeHash(0xFC70C5FFu)]
     partial class NotificationSettingsScopePrivateChatsConverter : TLObjectConverter<NotificationSettingsScopePrivateChats>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationSettingsScopePrivateChatsConverter();
         internal static TLObject CreateObjectInstance() => new NotificationSettingsScopePrivateChats();
     }
 
-    [TLTypeHash(0x83E69433u)]
+    [TLTypeHash(0x1153960Du)]
     partial class NotificationSettingsScopeGroupChatsConverter : TLObjectConverter<NotificationSettingsScopeGroupChats>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationSettingsScopeGroupChatsConverter();
         internal static TLObject CreateObjectInstance() => new NotificationSettingsScopeGroupChats();
     }
 
-    [TLTypeHash(0xC182AFA7u)]
+    [TLTypeHash(0xF0E6123Fu)]
     partial class NotificationSettingsScopeChannelChatsConverter : TLObjectConverter<NotificationSettingsScopeChannelChats>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationSettingsScopeChannelChatsConverter();
         internal static TLObject CreateObjectInstance() => new NotificationSettingsScopeChannelChats();
     }
 
-    [TLTypeHash(0x8214A69Eu)]
+    [TLTypeHash(0x23C2F82Cu)]
     partial class ChatNotificationSettingsConverter : TLObjectConverter<ChatNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatNotificationSettingsConverter();
@@ -2912,34 +2912,34 @@ namespace TDLib.JsonClient
             var obj = (ChatNotificationSettings)tlobj;
             switch (hash)
             {
-                case 0xB113FB26u:
+                case 0x87F9C7BEu:
                     obj.UseDefaultMuteFor = reader.ReadBool();
                     return true;
-                case 0x0792872Eu:
+                case 0xD2A7ED7Bu:
                     obj.MuteFor = reader.ReadInt();
                     return true;
-                case 0x0903BC84u:
+                case 0xB1A181A2u:
                     obj.UseDefaultSound = reader.ReadBool();
                     return true;
-                case 0x825A6B79u:
+                case 0xF88EC384u:
                     obj.Sound = reader.ReadString();
                     return true;
-                case 0xB59FA08Du:
+                case 0x95A70A70u:
                     obj.UseDefaultShowPreview = reader.ReadBool();
                     return true;
-                case 0xCF02A85Cu:
+                case 0xDED702D3u:
                     obj.ShowPreview = reader.ReadBool();
                     return true;
-                case 0x28A71131u:
+                case 0x62C641CEu:
                     obj.UseDefaultDisablePinnedMessageNotifications = reader.ReadBool();
                     return true;
-                case 0x4F34D149u:
+                case 0xC8259DF1u:
                     obj.DisablePinnedMessageNotifications = reader.ReadBool();
                     return true;
-                case 0x139F9784u:
+                case 0x752CCB1Au:
                     obj.UseDefaultDisableMentionNotifications = reader.ReadBool();
                     return true;
-                case 0xD6B807BFu:
+                case 0xC957E073u:
                     obj.DisableMentionNotifications = reader.ReadBool();
                     return true;
             }
@@ -2947,7 +2947,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE75A458Eu)]
+    [TLTypeHash(0x136D5FC6u)]
     partial class ScopeNotificationSettingsConverter : TLObjectConverter<ScopeNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new ScopeNotificationSettingsConverter();
@@ -2958,19 +2958,19 @@ namespace TDLib.JsonClient
             var obj = (ScopeNotificationSettings)tlobj;
             switch (hash)
             {
-                case 0x0792872Eu:
+                case 0xD2A7ED7Bu:
                     obj.MuteFor = reader.ReadInt();
                     return true;
-                case 0x825A6B79u:
+                case 0xF88EC384u:
                     obj.Sound = reader.ReadString();
                     return true;
-                case 0xCF02A85Cu:
+                case 0xDED702D3u:
                     obj.ShowPreview = reader.ReadBool();
                     return true;
-                case 0x4F34D149u:
+                case 0xC8259DF1u:
                     obj.DisablePinnedMessageNotifications = reader.ReadBool();
                     return true;
-                case 0xD6B807BFu:
+                case 0xC957E073u:
                     obj.DisableMentionNotifications = reader.ReadBool();
                     return true;
             }
@@ -2978,7 +2978,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4ABA2287u)]
+    [TLTypeHash(0x2BE5A4BDu)]
     partial class DraftMessageConverter : TLObjectConverter<DraftMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new DraftMessageConverter();
@@ -2989,13 +2989,13 @@ namespace TDLib.JsonClient
             var obj = (DraftMessage)tlobj;
             switch (hash)
             {
-                case 0x2A4A6D16u:
+                case 0x5518525Du:
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0x6398AB77u:
+                case 0x945D433Du:
                     obj.InputMessageText = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -3003,7 +3003,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xED7BA9D0u)]
+    [TLTypeHash(0xE5794EFFu)]
     partial class ChatTypePrivateConverter : TLObjectConverter<ChatTypePrivate>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatTypePrivateConverter();
@@ -3014,7 +3014,7 @@ namespace TDLib.JsonClient
             var obj = (ChatTypePrivate)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -3022,7 +3022,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x59A4898Cu)]
+    [TLTypeHash(0xEB40D445u)]
     partial class ChatTypeBasicGroupConverter : TLObjectConverter<ChatTypeBasicGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatTypeBasicGroupConverter();
@@ -3033,7 +3033,7 @@ namespace TDLib.JsonClient
             var obj = (ChatTypeBasicGroup)tlobj;
             switch (hash)
             {
-                case 0x743FFA02u:
+                case 0x1B6DFDDBu:
                     obj.BasicGroupId = reader.ReadInt();
                     return true;
             }
@@ -3041,7 +3041,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB09E2442u)]
+    [TLTypeHash(0x9264BE43u)]
     partial class ChatTypeSupergroupConverter : TLObjectConverter<ChatTypeSupergroup>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatTypeSupergroupConverter();
@@ -3052,10 +3052,10 @@ namespace TDLib.JsonClient
             var obj = (ChatTypeSupergroup)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0x4C39504Du:
+                case 0xB4C5088Fu:
                     obj.IsChannel = reader.ReadBool();
                     return true;
             }
@@ -3063,7 +3063,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA4297384u)]
+    [TLTypeHash(0xFB16360Eu)]
     partial class ChatTypeSecretConverter : TLObjectConverter<ChatTypeSecret>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatTypeSecretConverter();
@@ -3074,10 +3074,10 @@ namespace TDLib.JsonClient
             var obj = (ChatTypeSecret)tlobj;
             switch (hash)
             {
-                case 0xB35E5819u:
+                case 0x3C9AC102u:
                     obj.SecretChatId = reader.ReadInt();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -3085,7 +3085,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF9D3D55Eu)]
+    [TLTypeHash(0xF32D5B2Cu)]
     partial class ChatFilterConverter : TLObjectConverter<ChatFilter>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatFilterConverter();
@@ -3096,43 +3096,43 @@ namespace TDLib.JsonClient
             var obj = (ChatFilter)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x9A8535D5u:
+                case 0xC2892F2Fu:
                     obj.IconName = reader.ReadString();
                     return true;
-                case 0xA1B430FDu:
+                case 0xA7248E59u:
                     obj.PinnedChatIds = reader.ReadInt53Array();
                     return true;
-                case 0xCA4B1EC0u:
+                case 0xDACDBEBFu:
                     obj.IncludedChatIds = reader.ReadInt53Array();
                     return true;
-                case 0x751CFF0Eu:
+                case 0xFA638194u:
                     obj.ExcludedChatIds = reader.ReadInt53Array();
                     return true;
-                case 0xF747C37Bu:
+                case 0xCA2E24C4u:
                     obj.ExcludeMuted = reader.ReadBool();
                     return true;
-                case 0x8EA450A1u:
+                case 0xCF620C88u:
                     obj.ExcludeRead = reader.ReadBool();
                     return true;
-                case 0xC8564642u:
+                case 0xC0D120E2u:
                     obj.ExcludeArchived = reader.ReadBool();
                     return true;
-                case 0xF85F3D14u:
+                case 0x539AC41Au:
                     obj.IncludeContacts = reader.ReadBool();
                     return true;
-                case 0x739DC9D7u:
+                case 0xB13DC0BAu:
                     obj.IncludeNonContacts = reader.ReadBool();
                     return true;
-                case 0xDDA2B7B7u:
+                case 0x65C3FE1Bu:
                     obj.IncludeBots = reader.ReadBool();
                     return true;
-                case 0xE8A8A4D6u:
+                case 0x1FF15461u:
                     obj.IncludeGroups = reader.ReadBool();
                     return true;
-                case 0xA5B6C337u:
+                case 0x93CE33DFu:
                     obj.IncludeChannels = reader.ReadBool();
                     return true;
             }
@@ -3140,7 +3140,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x22114775u)]
+    [TLTypeHash(0xE528B6F7u)]
     partial class ChatFilterInfoConverter : TLObjectConverter<ChatFilterInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatFilterInfoConverter();
@@ -3151,13 +3151,13 @@ namespace TDLib.JsonClient
             var obj = (ChatFilterInfo)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x9A8535D5u:
+                case 0xC2892F2Fu:
                     obj.IconName = reader.ReadString();
                     return true;
             }
@@ -3165,7 +3165,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8D6F32C5u)]
+    [TLTypeHash(0xF60E8A7Fu)]
     partial class RecommendedChatFilterConverter : TLObjectConverter<RecommendedChatFilter>
     {
         internal static BaseConverter CreateConverterInstance() => new RecommendedChatFilterConverter();
@@ -3176,10 +3176,10 @@ namespace TDLib.JsonClient
             var obj = (RecommendedChatFilter)tlobj;
             switch (hash)
             {
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<ChatFilter>();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -3187,7 +3187,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC644A942u)]
+    [TLTypeHash(0xDB42AD2Cu)]
     partial class RecommendedChatFiltersConverter : TLObjectConverter<RecommendedChatFilters>
     {
         internal static BaseConverter CreateConverterInstance() => new RecommendedChatFiltersConverter();
@@ -3198,7 +3198,7 @@ namespace TDLib.JsonClient
             var obj = (RecommendedChatFilters)tlobj;
             switch (hash)
             {
-                case 0x22D494F0u:
+                case 0x3479ABE4u:
                     obj.ChatFilters = reader.ReadObjectArray<RecommendedChatFilter>();
                     return true;
             }
@@ -3206,21 +3206,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAD336CB9u)]
+    [TLTypeHash(0x82C2A8CFu)]
     partial class ChatListMainConverter : TLObjectConverter<ChatListMain>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatListMainConverter();
         internal static TLObject CreateObjectInstance() => new ChatListMain();
     }
 
-    [TLTypeHash(0xC0E913F6u)]
+    [TLTypeHash(0x58847BA4u)]
     partial class ChatListArchiveConverter : TLObjectConverter<ChatListArchive>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatListArchiveConverter();
         internal static TLObject CreateObjectInstance() => new ChatListArchive();
     }
 
-    [TLTypeHash(0x95EE9FECu)]
+    [TLTypeHash(0x0FEF9202u)]
     partial class ChatListFilterConverter : TLObjectConverter<ChatListFilter>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatListFilterConverter();
@@ -3231,7 +3231,7 @@ namespace TDLib.JsonClient
             var obj = (ChatListFilter)tlobj;
             switch (hash)
             {
-                case 0x0F740B0Fu:
+                case 0xF578A025u:
                     obj.ChatFilterId = reader.ReadInt();
                     return true;
             }
@@ -3239,7 +3239,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7005BBC3u)]
+    [TLTypeHash(0x325E5DFBu)]
     partial class ChatListsConverter : TLObjectConverter<ChatLists>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatListsConverter();
@@ -3250,7 +3250,7 @@ namespace TDLib.JsonClient
             var obj = (ChatLists)tlobj;
             switch (hash)
             {
-                case 0x622652ADu:
+                case 0x095B723Eu:
                     obj.ChatLists_ = reader.ReadObjectArray<ChatList>();
                     return true;
             }
@@ -3258,14 +3258,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAA4A24AAu)]
+    [TLTypeHash(0x3920EB9Bu)]
     partial class ChatSourceMtprotoProxyConverter : TLObjectConverter<ChatSourceMtprotoProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatSourceMtprotoProxyConverter();
         internal static TLObject CreateObjectInstance() => new ChatSourceMtprotoProxy();
     }
 
-    [TLTypeHash(0x266B48D4u)]
+    [TLTypeHash(0x086D7C50u)]
     partial class ChatSourcePublicServiceAnnouncementConverter : TLObjectConverter<ChatSourcePublicServiceAnnouncement>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatSourcePublicServiceAnnouncementConverter();
@@ -3276,10 +3276,10 @@ namespace TDLib.JsonClient
             var obj = (ChatSourcePublicServiceAnnouncement)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadString();
                     return true;
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
             }
@@ -3287,7 +3287,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE94AC7BAu)]
+    [TLTypeHash(0x871CABB7u)]
     partial class ChatPositionConverter : TLObjectConverter<ChatPosition>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatPositionConverter();
@@ -3298,16 +3298,16 @@ namespace TDLib.JsonClient
             var obj = (ChatPosition)tlobj;
             switch (hash)
             {
-                case 0x3F0F3AC4u:
+                case 0x44C8F818u:
                     obj.List = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0xDBF25249u:
+                case 0xF5299398u:
                     obj.Order = reader.ReadInt64String();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
-                case 0xA3A22F95u:
+                case 0x5F8A7F73u:
                     obj.Source = reader.ReadTLObject<ChatSource>();
                     return true;
             }
@@ -3315,7 +3315,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6D8AB2F9u)]
+    [TLTypeHash(0x659DF2AAu)]
     partial class ChatConverter : TLObjectConverter<Chat>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatConverter();
@@ -3326,76 +3326,76 @@ namespace TDLib.JsonClient
             var obj = (Chat)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadLong();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<ChatType>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhotoInfo>();
                     return true;
-                case 0xB4CFCFFFu:
+                case 0x2DEDCC6Fu:
                     obj.Permissions = reader.ReadTLObject<ChatPermissions>();
                     return true;
-                case 0x0A7D5DA3u:
+                case 0xD0310C37u:
                     obj.LastMessage = reader.ReadTLObject<Message>();
                     return true;
-                case 0x553ECCDFu:
+                case 0xD69FE57Cu:
                     obj.Positions = reader.ReadObjectArray<ChatPosition>();
                     return true;
-                case 0x45AD5D11u:
+                case 0x890E79B0u:
                     obj.IsMarkedAsUnread = reader.ReadBool();
                     return true;
-                case 0x22AAB78Du:
+                case 0xCC696D48u:
                     obj.IsBlocked = reader.ReadBool();
                     return true;
-                case 0x8EB66818u:
+                case 0x1F3A0949u:
                     obj.HasScheduledMessages = reader.ReadBool();
                     return true;
-                case 0x2718B38Au:
+                case 0x6335FB7Cu:
                     obj.CanBeDeletedOnlyForSelf = reader.ReadBool();
                     return true;
-                case 0x03CEE1B1u:
+                case 0x0EC2C6CDu:
                     obj.CanBeDeletedForAllUsers = reader.ReadBool();
                     return true;
-                case 0xBDED4E58u:
+                case 0x5A05B511u:
                     obj.CanBeReported = reader.ReadBool();
                     return true;
-                case 0x6E87F504u:
+                case 0x420254ABu:
                     obj.DefaultDisableNotification = reader.ReadBool();
                     return true;
-                case 0x69D09AB3u:
+                case 0xFC4DDD75u:
                     obj.UnreadCount = reader.ReadInt();
                     return true;
-                case 0xE4D52BA2u:
+                case 0x1123A8C1u:
                     obj.LastReadInboxMessageId = reader.ReadLong();
                     return true;
-                case 0x3E7162A6u:
+                case 0xF1D5DB98u:
                     obj.LastReadOutboxMessageId = reader.ReadLong();
                     return true;
-                case 0x82BAA2D0u:
+                case 0xE9E0195Du:
                     obj.UnreadMentionCount = reader.ReadInt();
                     return true;
-                case 0xCECE9247u:
+                case 0xB0559860u:
                     obj.NotificationSettings = reader.ReadTLObject<ChatNotificationSettings>();
                     return true;
-                case 0x29C31F48u:
+                case 0x4B0512EAu:
                     obj.ActionBar = reader.ReadTLObject<ChatActionBar>();
                     return true;
-                case 0x01C543B1u:
+                case 0xC254572Fu:
                     obj.PinnedMessageId = reader.ReadLong();
                     return true;
-                case 0x84A073DBu:
+                case 0xC37A0A68u:
                     obj.ReplyMarkupMessageId = reader.ReadLong();
                     return true;
-                case 0x019DCCF8u:
+                case 0x4E74485Cu:
                     obj.DraftMessage = reader.ReadTLObject<DraftMessage>();
                     return true;
-                case 0x26552C56u:
+                case 0x7C6F3001u:
                     obj.ClientData = reader.ReadString();
                     return true;
             }
@@ -3403,7 +3403,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBB04CAA3u)]
+    [TLTypeHash(0x2D68180Fu)]
     partial class ChatsConverter : TLObjectConverter<Chats>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatsConverter();
@@ -3414,10 +3414,10 @@ namespace TDLib.JsonClient
             var obj = (Chats)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xD49AC59Au:
+                case 0x5010813Du:
                     obj.ChatIds = reader.ReadInt53Array();
                     return true;
             }
@@ -3425,7 +3425,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDE8114A4u)]
+    [TLTypeHash(0xF4FADF60u)]
     partial class ChatNearbyConverter : TLObjectConverter<ChatNearby>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatNearbyConverter();
@@ -3436,10 +3436,10 @@ namespace TDLib.JsonClient
             var obj = (ChatNearby)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x69622522u:
+                case 0x1C929A81u:
                     obj.Distance = reader.ReadInt();
                     return true;
             }
@@ -3447,7 +3447,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x404FB6BAu)]
+    [TLTypeHash(0x107EBAAEu)]
     partial class ChatsNearbyConverter : TLObjectConverter<ChatsNearby>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatsNearbyConverter();
@@ -3458,10 +3458,10 @@ namespace TDLib.JsonClient
             var obj = (ChatsNearby)tlobj;
             switch (hash)
             {
-                case 0x4C7B5693u:
+                case 0x77F455C1u:
                     obj.UsersNearby = reader.ReadObjectArray<ChatNearby>();
                     return true;
-                case 0xC57A9C4Bu:
+                case 0xD7BCC244u:
                     obj.SupergroupsNearby = reader.ReadObjectArray<ChatNearby>();
                     return true;
             }
@@ -3469,7 +3469,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x13016B01u)]
+    [TLTypeHash(0x7C5F6254u)]
     partial class ChatInviteLinkConverter : TLObjectConverter<ChatInviteLink>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatInviteLinkConverter();
@@ -3480,7 +3480,7 @@ namespace TDLib.JsonClient
             var obj = (ChatInviteLink)tlobj;
             switch (hash)
             {
-                case 0x56350A39u:
+                case 0x2E98587Bu:
                     obj.InviteLink = reader.ReadString();
                     return true;
             }
@@ -3488,7 +3488,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE830363Cu)]
+    [TLTypeHash(0x0017655Eu)]
     partial class ChatInviteLinkInfoConverter : TLObjectConverter<ChatInviteLinkInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatInviteLinkInfoConverter();
@@ -3499,28 +3499,28 @@ namespace TDLib.JsonClient
             var obj = (ChatInviteLinkInfo)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB6B8835Cu:
+                case 0xA77CFA5Fu:
                     obj.AccessibleFor = reader.ReadInt();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<ChatType>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhotoInfo>();
                     return true;
-                case 0x510F06B4u:
+                case 0xE7F8D191u:
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0xAD820684u:
+                case 0x6C1165F9u:
                     obj.MemberUserIds = reader.ReadInt32Array();
                     return true;
-                case 0x3EEE47F1u:
+                case 0x6BFDA3C2u:
                     obj.IsPublic = reader.ReadBool();
                     return true;
             }
@@ -3528,21 +3528,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFB5D432Eu)]
+    [TLTypeHash(0xB53CF767u)]
     partial class PublicChatTypeHasUsernameConverter : TLObjectConverter<PublicChatTypeHasUsername>
     {
         internal static BaseConverter CreateConverterInstance() => new PublicChatTypeHasUsernameConverter();
         internal static TLObject CreateObjectInstance() => new PublicChatTypeHasUsername();
     }
 
-    [TLTypeHash(0xC9F81E22u)]
+    [TLTypeHash(0xE3061C50u)]
     partial class PublicChatTypeIsLocationBasedConverter : TLObjectConverter<PublicChatTypeIsLocationBased>
     {
         internal static BaseConverter CreateConverterInstance() => new PublicChatTypeIsLocationBasedConverter();
         internal static TLObject CreateObjectInstance() => new PublicChatTypeIsLocationBased();
     }
 
-    [TLTypeHash(0xB1B63861u)]
+    [TLTypeHash(0x8A323E1Eu)]
     partial class ChatActionBarReportSpamConverter : TLObjectConverter<ChatActionBarReportSpam>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionBarReportSpamConverter();
@@ -3553,7 +3553,7 @@ namespace TDLib.JsonClient
             var obj = (ChatActionBarReportSpam)tlobj;
             switch (hash)
             {
-                case 0xFE133A37u:
+                case 0x72C2067Fu:
                     obj.CanUnarchive = reader.ReadBool();
                     return true;
             }
@@ -3561,14 +3561,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9E74BDC2u)]
+    [TLTypeHash(0xA7B5BF01u)]
     partial class ChatActionBarReportUnrelatedLocationConverter : TLObjectConverter<ChatActionBarReportUnrelatedLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionBarReportUnrelatedLocationConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionBarReportUnrelatedLocation();
     }
 
-    [TLTypeHash(0x01B2F775u)]
+    [TLTypeHash(0x47F2EA9Au)]
     partial class ChatActionBarReportAddBlockConverter : TLObjectConverter<ChatActionBarReportAddBlock>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionBarReportAddBlockConverter();
@@ -3579,10 +3579,10 @@ namespace TDLib.JsonClient
             var obj = (ChatActionBarReportAddBlock)tlobj;
             switch (hash)
             {
-                case 0xFE133A37u:
+                case 0x72C2067Fu:
                     obj.CanUnarchive = reader.ReadBool();
                     return true;
-                case 0x69622522u:
+                case 0x1C929A81u:
                     obj.Distance = reader.ReadInt();
                     return true;
             }
@@ -3590,42 +3590,42 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x70115C60u)]
+    [TLTypeHash(0x4278766Bu)]
     partial class ChatActionBarAddContactConverter : TLObjectConverter<ChatActionBarAddContact>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionBarAddContactConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionBarAddContact();
     }
 
-    [TLTypeHash(0x5B0C6F5Cu)]
+    [TLTypeHash(0x1DE179B3u)]
     partial class ChatActionBarSharePhoneNumberConverter : TLObjectConverter<ChatActionBarSharePhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionBarSharePhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionBarSharePhoneNumber();
     }
 
-    [TLTypeHash(0x95160785u)]
+    [TLTypeHash(0x4B9B2001u)]
     partial class KeyboardButtonTypeTextConverter : TLObjectConverter<KeyboardButtonTypeText>
     {
         internal static BaseConverter CreateConverterInstance() => new KeyboardButtonTypeTextConverter();
         internal static TLObject CreateObjectInstance() => new KeyboardButtonTypeText();
     }
 
-    [TLTypeHash(0xA894E95Eu)]
+    [TLTypeHash(0x505BF414u)]
     partial class KeyboardButtonTypeRequestPhoneNumberConverter : TLObjectConverter<KeyboardButtonTypeRequestPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new KeyboardButtonTypeRequestPhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new KeyboardButtonTypeRequestPhoneNumber();
     }
 
-    [TLTypeHash(0xE95CADBDu)]
+    [TLTypeHash(0xB4D15F1Du)]
     partial class KeyboardButtonTypeRequestLocationConverter : TLObjectConverter<KeyboardButtonTypeRequestLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new KeyboardButtonTypeRequestLocationConverter();
         internal static TLObject CreateObjectInstance() => new KeyboardButtonTypeRequestLocation();
     }
 
-    [TLTypeHash(0x9E69AF9Fu)]
+    [TLTypeHash(0x0368B402u)]
     partial class KeyboardButtonTypeRequestPollConverter : TLObjectConverter<KeyboardButtonTypeRequestPoll>
     {
         internal static BaseConverter CreateConverterInstance() => new KeyboardButtonTypeRequestPollConverter();
@@ -3636,10 +3636,10 @@ namespace TDLib.JsonClient
             var obj = (KeyboardButtonTypeRequestPoll)tlobj;
             switch (hash)
             {
-                case 0x41002FB4u:
+                case 0x2AD51D12u:
                     obj.ForceRegular = reader.ReadBool();
                     return true;
-                case 0xF8E098EAu:
+                case 0x8FAE71DCu:
                     obj.ForceQuiz = reader.ReadBool();
                     return true;
             }
@@ -3647,7 +3647,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x323C32FEu)]
+    [TLTypeHash(0xC6C90C7Bu)]
     partial class KeyboardButtonConverter : TLObjectConverter<KeyboardButton>
     {
         internal static BaseConverter CreateConverterInstance() => new KeyboardButtonConverter();
@@ -3658,10 +3658,10 @@ namespace TDLib.JsonClient
             var obj = (KeyboardButton)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<KeyboardButtonType>();
                     return true;
             }
@@ -3669,7 +3669,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBAFF1F2Fu)]
+    [TLTypeHash(0x659C9AAFu)]
     partial class InlineKeyboardButtonTypeUrlConverter : TLObjectConverter<InlineKeyboardButtonTypeUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeUrlConverter();
@@ -3680,7 +3680,7 @@ namespace TDLib.JsonClient
             var obj = (InlineKeyboardButtonTypeUrl)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -3688,7 +3688,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC6A02392u)]
+    [TLTypeHash(0x79B04871u)]
     partial class InlineKeyboardButtonTypeLoginUrlConverter : TLObjectConverter<InlineKeyboardButtonTypeLoginUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeLoginUrlConverter();
@@ -3699,13 +3699,13 @@ namespace TDLib.JsonClient
             var obj = (InlineKeyboardButtonTypeLoginUrl)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x3E7DF460u:
+                case 0x4DB79A6Au:
                     obj.ForwardText = reader.ReadString();
                     return true;
             }
@@ -3713,7 +3713,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB3143C0Bu)]
+    [TLTypeHash(0xF6811A74u)]
     partial class InlineKeyboardButtonTypeCallbackConverter : TLObjectConverter<InlineKeyboardButtonTypeCallback>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeCallbackConverter();
@@ -3724,7 +3724,7 @@ namespace TDLib.JsonClient
             var obj = (InlineKeyboardButtonTypeCallback)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -3732,7 +3732,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8FF81ECFu)]
+    [TLTypeHash(0x2E1EDE0Eu)]
     partial class InlineKeyboardButtonTypeCallbackWithPasswordConverter : TLObjectConverter<InlineKeyboardButtonTypeCallbackWithPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeCallbackWithPasswordConverter();
@@ -3743,7 +3743,7 @@ namespace TDLib.JsonClient
             var obj = (InlineKeyboardButtonTypeCallbackWithPassword)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -3751,14 +3751,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1E333ACCu)]
+    [TLTypeHash(0x00B371FCu)]
     partial class InlineKeyboardButtonTypeCallbackGameConverter : TLObjectConverter<InlineKeyboardButtonTypeCallbackGame>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeCallbackGameConverter();
         internal static TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeCallbackGame();
     }
 
-    [TLTypeHash(0xC41420B0u)]
+    [TLTypeHash(0xDE317F8Cu)]
     partial class InlineKeyboardButtonTypeSwitchInlineConverter : TLObjectConverter<InlineKeyboardButtonTypeSwitchInline>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeSwitchInlineConverter();
@@ -3769,10 +3769,10 @@ namespace TDLib.JsonClient
             var obj = (InlineKeyboardButtonTypeSwitchInline)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x3C97E855u:
+                case 0x5BD83425u:
                     obj.InCurrentChat = reader.ReadBool();
                     return true;
             }
@@ -3780,14 +3780,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE16F1CFAu)]
+    [TLTypeHash(0x5E695D76u)]
     partial class InlineKeyboardButtonTypeBuyConverter : TLObjectConverter<InlineKeyboardButtonTypeBuy>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeBuyConverter();
         internal static TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeBuy();
     }
 
-    [TLTypeHash(0xE466B01Cu)]
+    [TLTypeHash(0x7C91E567u)]
     partial class InlineKeyboardButtonConverter : TLObjectConverter<InlineKeyboardButton>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonConverter();
@@ -3798,10 +3798,10 @@ namespace TDLib.JsonClient
             var obj = (InlineKeyboardButton)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<InlineKeyboardButtonType>();
                     return true;
             }
@@ -3809,7 +3809,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x50471BFBu)]
+    [TLTypeHash(0xED8393BBu)]
     partial class ReplyMarkupRemoveKeyboardConverter : TLObjectConverter<ReplyMarkupRemoveKeyboard>
     {
         internal static BaseConverter CreateConverterInstance() => new ReplyMarkupRemoveKeyboardConverter();
@@ -3820,7 +3820,7 @@ namespace TDLib.JsonClient
             var obj = (ReplyMarkupRemoveKeyboard)tlobj;
             switch (hash)
             {
-                case 0xF5BCD3ECu:
+                case 0x64231B80u:
                     obj.IsPersonal = reader.ReadBool();
                     return true;
             }
@@ -3828,7 +3828,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x951D3494u)]
+    [TLTypeHash(0x955B214Eu)]
     partial class ReplyMarkupForceReplyConverter : TLObjectConverter<ReplyMarkupForceReply>
     {
         internal static BaseConverter CreateConverterInstance() => new ReplyMarkupForceReplyConverter();
@@ -3839,7 +3839,7 @@ namespace TDLib.JsonClient
             var obj = (ReplyMarkupForceReply)tlobj;
             switch (hash)
             {
-                case 0xF5BCD3ECu:
+                case 0x64231B80u:
                     obj.IsPersonal = reader.ReadBool();
                     return true;
             }
@@ -3847,7 +3847,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBA2F6FE3u)]
+    [TLTypeHash(0x45EC6D92u)]
     partial class ReplyMarkupShowKeyboardConverter : TLObjectConverter<ReplyMarkupShowKeyboard>
     {
         internal static BaseConverter CreateConverterInstance() => new ReplyMarkupShowKeyboardConverter();
@@ -3858,16 +3858,16 @@ namespace TDLib.JsonClient
             var obj = (ReplyMarkupShowKeyboard)tlobj;
             switch (hash)
             {
-                case 0xAF9B094Du:
+                case 0x0A8BF4A1u:
                     obj.Rows = reader.ReadNestedObjectArray<KeyboardButton>();
                     return true;
-                case 0x4FB2ACA5u:
+                case 0xA34CDB55u:
                     obj.ResizeKeyboard = reader.ReadBool();
                     return true;
-                case 0x1D596335u:
+                case 0x1BCADB6Cu:
                     obj.OneTime = reader.ReadBool();
                     return true;
-                case 0xF5BCD3ECu:
+                case 0x64231B80u:
                     obj.IsPersonal = reader.ReadBool();
                     return true;
             }
@@ -3875,7 +3875,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0081E577u)]
+    [TLTypeHash(0x64A96CA9u)]
     partial class ReplyMarkupInlineKeyboardConverter : TLObjectConverter<ReplyMarkupInlineKeyboard>
     {
         internal static BaseConverter CreateConverterInstance() => new ReplyMarkupInlineKeyboardConverter();
@@ -3886,7 +3886,7 @@ namespace TDLib.JsonClient
             var obj = (ReplyMarkupInlineKeyboard)tlobj;
             switch (hash)
             {
-                case 0xAF9B094Du:
+                case 0x0A8BF4A1u:
                     obj.Rows = reader.ReadNestedObjectArray<InlineKeyboardButton>();
                     return true;
             }
@@ -3894,7 +3894,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE35F765Du)]
+    [TLTypeHash(0x89EB9E7Du)]
     partial class LoginUrlInfoOpenConverter : TLObjectConverter<LoginUrlInfoOpen>
     {
         internal static BaseConverter CreateConverterInstance() => new LoginUrlInfoOpenConverter();
@@ -3905,10 +3905,10 @@ namespace TDLib.JsonClient
             var obj = (LoginUrlInfoOpen)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x8784DAB2u:
+                case 0x181CF528u:
                     obj.SkipConfirm = reader.ReadBool();
                     return true;
             }
@@ -3916,7 +3916,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1A8D3643u)]
+    [TLTypeHash(0x375371C6u)]
     partial class LoginUrlInfoRequestConfirmationConverter : TLObjectConverter<LoginUrlInfoRequestConfirmation>
     {
         internal static BaseConverter CreateConverterInstance() => new LoginUrlInfoRequestConfirmationConverter();
@@ -3927,16 +3927,16 @@ namespace TDLib.JsonClient
             var obj = (LoginUrlInfoRequestConfirmation)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x4393D449u:
+                case 0xA7A91E0Bu:
                     obj.Domain = reader.ReadString();
                     return true;
-                case 0x05547AC3u:
+                case 0x5898BEB0u:
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x738BEF92u:
+                case 0xECE31CEBu:
                     obj.RequestWriteAccess = reader.ReadBool();
                     return true;
             }
@@ -3944,7 +3944,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA431DA5Fu)]
+    [TLTypeHash(0x41F5737Bu)]
     partial class MessageThreadInfoConverter : TLObjectConverter<MessageThreadInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageThreadInfoConverter();
@@ -3955,16 +3955,16 @@ namespace TDLib.JsonClient
             var obj = (MessageThreadInfo)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0xE3FEB717u:
+                case 0xDB021E96u:
                     obj.Messages = reader.ReadObjectArray<Message>();
                     return true;
-                case 0x019DCCF8u:
+                case 0x4E74485Cu:
                     obj.DraftMessage = reader.ReadTLObject<DraftMessage>();
                     return true;
             }
@@ -3972,7 +3972,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4C081E0Au)]
+    [TLTypeHash(0x8D63B881u)]
     partial class RichTextPlainConverter : TLObjectConverter<RichTextPlain>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextPlainConverter();
@@ -3983,7 +3983,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextPlain)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
             }
@@ -3991,7 +3991,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDBB991DFu)]
+    [TLTypeHash(0x579627EAu)]
     partial class RichTextBoldConverter : TLObjectConverter<RichTextBold>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextBoldConverter();
@@ -4002,7 +4002,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextBold)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4010,7 +4010,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0FC8C5BAu)]
+    [TLTypeHash(0xA148D45Du)]
     partial class RichTextItalicConverter : TLObjectConverter<RichTextItalic>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextItalicConverter();
@@ -4021,7 +4021,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextItalic)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4029,7 +4029,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6E17AD67u)]
+    [TLTypeHash(0x1A3DDA94u)]
     partial class RichTextUnderlineConverter : TLObjectConverter<RichTextUnderline>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextUnderlineConverter();
@@ -4040,7 +4040,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextUnderline)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4048,7 +4048,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x52E0C980u)]
+    [TLTypeHash(0x5B517FEFu)]
     partial class RichTextStrikethroughConverter : TLObjectConverter<RichTextStrikethrough>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextStrikethroughConverter();
@@ -4059,7 +4059,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextStrikethrough)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4067,7 +4067,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA0E4DE17u)]
+    [TLTypeHash(0x0A8A147Cu)]
     partial class RichTextFixedConverter : TLObjectConverter<RichTextFixed>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextFixedConverter();
@@ -4078,7 +4078,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextFixed)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4086,7 +4086,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE805080Eu)]
+    [TLTypeHash(0x17FD66DFu)]
     partial class RichTextUrlConverter : TLObjectConverter<RichTextUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextUrlConverter();
@@ -4097,13 +4097,13 @@ namespace TDLib.JsonClient
             var obj = (RichTextUrl)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0xE1F6AB5Bu:
+                case 0xF6BBF7A3u:
                     obj.IsCached = reader.ReadBool();
                     return true;
             }
@@ -4111,7 +4111,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDE125940u)]
+    [TLTypeHash(0xCCBA0769u)]
     partial class RichTextEmailAddressConverter : TLObjectConverter<RichTextEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextEmailAddressConverter();
@@ -4122,10 +4122,10 @@ namespace TDLib.JsonClient
             var obj = (RichTextEmailAddress)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xE70A50C4u:
+                case 0xB08E074Eu:
                     obj.EmailAddress = reader.ReadString();
                     return true;
             }
@@ -4133,7 +4133,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD9AEED48u)]
+    [TLTypeHash(0xAD1EDB6Cu)]
     partial class RichTextSubscriptConverter : TLObjectConverter<RichTextSubscript>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextSubscriptConverter();
@@ -4144,7 +4144,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextSubscript)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4152,7 +4152,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0B8E5FA1u)]
+    [TLTypeHash(0x2797AA48u)]
     partial class RichTextSuperscriptConverter : TLObjectConverter<RichTextSuperscript>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextSuperscriptConverter();
@@ -4163,7 +4163,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextSuperscript)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4171,7 +4171,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x12A9D8E0u)]
+    [TLTypeHash(0xE7EBBAE2u)]
     partial class RichTextMarkedConverter : TLObjectConverter<RichTextMarked>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextMarkedConverter();
@@ -4182,7 +4182,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextMarked)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4190,7 +4190,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x71107D71u)]
+    [TLTypeHash(0x6DF268FFu)]
     partial class RichTextPhoneNumberConverter : TLObjectConverter<RichTextPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextPhoneNumberConverter();
@@ -4201,10 +4201,10 @@ namespace TDLib.JsonClient
             var obj = (RichTextPhoneNumber)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
             }
@@ -4212,7 +4212,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB655617Eu)]
+    [TLTypeHash(0x4275E352u)]
     partial class RichTextIconConverter : TLObjectConverter<RichTextIcon>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextIconConverter();
@@ -4223,13 +4223,13 @@ namespace TDLib.JsonClient
             var obj = (RichTextIcon)tlobj;
             switch (hash)
             {
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
             }
@@ -4237,7 +4237,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7FC32E7Au)]
+    [TLTypeHash(0x79409D60u)]
     partial class RichTextReferenceConverter : TLObjectConverter<RichTextReference>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextReferenceConverter();
@@ -4248,13 +4248,13 @@ namespace TDLib.JsonClient
             var obj = (RichTextReference)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0x3507DBC9u:
+                case 0x4C485F67u:
                     obj.ReferenceText = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -4262,7 +4262,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFFEAFA7Au)]
+    [TLTypeHash(0xF6A13E30u)]
     partial class RichTextAnchorConverter : TLObjectConverter<RichTextAnchor>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextAnchorConverter();
@@ -4273,7 +4273,7 @@ namespace TDLib.JsonClient
             var obj = (RichTextAnchor)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
             }
@@ -4281,7 +4281,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x43B3C694u)]
+    [TLTypeHash(0xAB82DC75u)]
     partial class RichTextAnchorLinkConverter : TLObjectConverter<RichTextAnchorLink>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextAnchorLinkConverter();
@@ -4292,13 +4292,13 @@ namespace TDLib.JsonClient
             var obj = (RichTextAnchorLink)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -4306,7 +4306,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6FA90354u)]
+    [TLTypeHash(0xB0D75484u)]
     partial class RichTextsConverter : TLObjectConverter<RichTexts>
     {
         internal static BaseConverter CreateConverterInstance() => new RichTextsConverter();
@@ -4317,7 +4317,7 @@ namespace TDLib.JsonClient
             var obj = (RichTexts)tlobj;
             switch (hash)
             {
-                case 0x21C18CA8u:
+                case 0x1E3513BFu:
                     obj.Texts = reader.ReadObjectArray<RichText>();
                     return true;
             }
@@ -4325,7 +4325,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDC381296u)]
+    [TLTypeHash(0xD86CF685u)]
     partial class PageBlockCaptionConverter : TLObjectConverter<PageBlockCaption>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockCaptionConverter();
@@ -4336,10 +4336,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockCaption)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xE1AC296Fu:
+                case 0x1CC16EFEu:
                     obj.Credit = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4347,7 +4347,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x26BE64CCu)]
+    [TLTypeHash(0x43E5FD30u)]
     partial class PageBlockListItemConverter : TLObjectConverter<PageBlockListItem>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockListItemConverter();
@@ -4358,10 +4358,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockListItem)tlobj;
             switch (hash)
             {
-                case 0x751054E6u:
+                case 0x0EA750E8u:
                     obj.Label = reader.ReadString();
                     return true;
-                case 0xAC68927Bu:
+                case 0xA13B6366u:
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
             }
@@ -4369,49 +4369,49 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x903B4EC7u)]
+    [TLTypeHash(0x8A7BDF63u)]
     partial class PageBlockHorizontalAlignmentLeftConverter : TLObjectConverter<PageBlockHorizontalAlignmentLeft>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockHorizontalAlignmentLeftConverter();
         internal static TLObject CreateObjectInstance() => new PageBlockHorizontalAlignmentLeft();
     }
 
-    [TLTypeHash(0x3FC7CFC9u)]
+    [TLTypeHash(0x8B067A6Du)]
     partial class PageBlockHorizontalAlignmentCenterConverter : TLObjectConverter<PageBlockHorizontalAlignmentCenter>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockHorizontalAlignmentCenterConverter();
         internal static TLObject CreateObjectInstance() => new PageBlockHorizontalAlignmentCenter();
     }
 
-    [TLTypeHash(0xEDF67106u)]
+    [TLTypeHash(0x23E8B0A4u)]
     partial class PageBlockHorizontalAlignmentRightConverter : TLObjectConverter<PageBlockHorizontalAlignmentRight>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockHorizontalAlignmentRightConverter();
         internal static TLObject CreateObjectInstance() => new PageBlockHorizontalAlignmentRight();
     }
 
-    [TLTypeHash(0x72FEDFFEu)]
+    [TLTypeHash(0x271A70F1u)]
     partial class PageBlockVerticalAlignmentTopConverter : TLObjectConverter<PageBlockVerticalAlignmentTop>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockVerticalAlignmentTopConverter();
         internal static TLObject CreateObjectInstance() => new PageBlockVerticalAlignmentTop();
     }
 
-    [TLTypeHash(0x258F70D8u)]
+    [TLTypeHash(0x56B6F4E5u)]
     partial class PageBlockVerticalAlignmentMiddleConverter : TLObjectConverter<PageBlockVerticalAlignmentMiddle>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockVerticalAlignmentMiddleConverter();
         internal static TLObject CreateObjectInstance() => new PageBlockVerticalAlignmentMiddle();
     }
 
-    [TLTypeHash(0x745FC963u)]
+    [TLTypeHash(0x41699C8Eu)]
     partial class PageBlockVerticalAlignmentBottomConverter : TLObjectConverter<PageBlockVerticalAlignmentBottom>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockVerticalAlignmentBottomConverter();
         internal static TLObject CreateObjectInstance() => new PageBlockVerticalAlignmentBottom();
     }
 
-    [TLTypeHash(0x21684633u)]
+    [TLTypeHash(0x2A9BC8A3u)]
     partial class PageBlockTableCellConverter : TLObjectConverter<PageBlockTableCell>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockTableCellConverter();
@@ -4422,22 +4422,22 @@ namespace TDLib.JsonClient
             var obj = (PageBlockTableCell)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0x7A1E5FF7u:
+                case 0x3E3B251Eu:
                     obj.IsHeader = reader.ReadBool();
                     return true;
-                case 0xDF75BCE5u:
+                case 0x79C5DF5Eu:
                     obj.Colspan = reader.ReadInt();
                     return true;
-                case 0x295BB03Du:
+                case 0xAF5CEEB7u:
                     obj.Rowspan = reader.ReadInt();
                     return true;
-                case 0x2C01C869u:
+                case 0xD430A0CBu:
                     obj.Align = reader.ReadTLObject<PageBlockHorizontalAlignment>();
                     return true;
-                case 0x1CDC283Au:
+                case 0x7EAB18A9u:
                     obj.Valign = reader.ReadTLObject<PageBlockVerticalAlignment>();
                     return true;
             }
@@ -4445,7 +4445,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8086787Cu)]
+    [TLTypeHash(0x5049E0E7u)]
     partial class PageBlockRelatedArticleConverter : TLObjectConverter<PageBlockRelatedArticle>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockRelatedArticleConverter();
@@ -4456,22 +4456,22 @@ namespace TDLib.JsonClient
             var obj = (PageBlockRelatedArticle)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x4F96B068u:
+                case 0xBDAFD8C8u:
                     obj.Author = reader.ReadString();
                     return true;
-                case 0xBD69DA2Du:
+                case 0x78B553BAu:
                     obj.PublishDate = reader.ReadInt();
                     return true;
             }
@@ -4479,7 +4479,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x82865757u)]
+    [TLTypeHash(0x4893680Du)]
     partial class PageBlockTitleConverter : TLObjectConverter<PageBlockTitle>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockTitleConverter();
@@ -4490,7 +4490,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockTitle)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4498,7 +4498,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x914AE22Eu)]
+    [TLTypeHash(0xF1A16576u)]
     partial class PageBlockSubtitleConverter : TLObjectConverter<PageBlockSubtitle>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockSubtitleConverter();
@@ -4509,7 +4509,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockSubtitle)tlobj;
             switch (hash)
             {
-                case 0x5946C8C8u:
+                case 0x518597B1u:
                     obj.Subtitle = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4517,7 +4517,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC50FBCE7u)]
+    [TLTypeHash(0x718827AFu)]
     partial class PageBlockAuthorDateConverter : TLObjectConverter<PageBlockAuthorDate>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockAuthorDateConverter();
@@ -4528,10 +4528,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockAuthorDate)tlobj;
             switch (hash)
             {
-                case 0x4F96B068u:
+                case 0xBDAFD8C8u:
                     obj.Author = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xBD69DA2Du:
+                case 0x78B553BAu:
                     obj.PublishDate = reader.ReadInt();
                     return true;
             }
@@ -4539,7 +4539,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x073CF100u)]
+    [TLTypeHash(0xCAC0C9BCu)]
     partial class PageBlockHeaderConverter : TLObjectConverter<PageBlockHeader>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockHeaderConverter();
@@ -4550,7 +4550,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockHeader)tlobj;
             switch (hash)
             {
-                case 0x1C5FE142u:
+                case 0x6E72A8C1u:
                     obj.Header = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4558,7 +4558,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0E05B274u)]
+    [TLTypeHash(0x0DAE5305u)]
     partial class PageBlockSubheaderConverter : TLObjectConverter<PageBlockSubheader>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockSubheaderConverter();
@@ -4569,7 +4569,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockSubheader)tlobj;
             switch (hash)
             {
-                case 0xCB5CF1ACu:
+                case 0x080E20E4u:
                     obj.Subheader = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4577,7 +4577,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE564F6D6u)]
+    [TLTypeHash(0x28F1D9A5u)]
     partial class PageBlockKickerConverter : TLObjectConverter<PageBlockKicker>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockKickerConverter();
@@ -4588,7 +4588,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockKicker)tlobj;
             switch (hash)
             {
-                case 0xFE07E694u:
+                case 0x8C43B8D8u:
                     obj.Kicker = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4596,7 +4596,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x78068A61u)]
+    [TLTypeHash(0x7873EB83u)]
     partial class PageBlockParagraphConverter : TLObjectConverter<PageBlockParagraph>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockParagraphConverter();
@@ -4607,7 +4607,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockParagraph)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4615,7 +4615,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA43B5CDAu)]
+    [TLTypeHash(0x1C765474u)]
     partial class PageBlockPreformattedConverter : TLObjectConverter<PageBlockPreformatted>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockPreformattedConverter();
@@ -4626,10 +4626,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockPreformatted)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xCFC7C27Du:
+                case 0xD4DB71B5u:
                     obj.Language = reader.ReadString();
                     return true;
             }
@@ -4637,7 +4637,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF9A5A67Cu)]
+    [TLTypeHash(0x4683642Eu)]
     partial class PageBlockFooterConverter : TLObjectConverter<PageBlockFooter>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockFooterConverter();
@@ -4648,7 +4648,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockFooter)tlobj;
             switch (hash)
             {
-                case 0xE2C6B63Eu:
+                case 0xE2310553u:
                     obj.Footer = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4656,14 +4656,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6C796130u)]
+    [TLTypeHash(0x3A9D1712u)]
     partial class PageBlockDividerConverter : TLObjectConverter<PageBlockDivider>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockDividerConverter();
         internal static TLObject CreateObjectInstance() => new PageBlockDivider();
     }
 
-    [TLTypeHash(0xA6E7736Bu)]
+    [TLTypeHash(0xC3E37000u)]
     partial class PageBlockAnchorConverter : TLObjectConverter<PageBlockAnchor>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockAnchorConverter();
@@ -4674,7 +4674,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockAnchor)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
             }
@@ -4682,7 +4682,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD91BB298u)]
+    [TLTypeHash(0xE7B44705u)]
     partial class PageBlockListConverter : TLObjectConverter<PageBlockList>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockListConverter();
@@ -4693,7 +4693,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockList)tlobj;
             switch (hash)
             {
-                case 0x45EEF316u:
+                case 0xE11EE94Du:
                     obj.Items = reader.ReadObjectArray<PageBlockListItem>();
                     return true;
             }
@@ -4701,7 +4701,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA4F406FDu)]
+    [TLTypeHash(0xE6F3B40Du)]
     partial class PageBlockBlockQuoteConverter : TLObjectConverter<PageBlockBlockQuote>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockBlockQuoteConverter();
@@ -4712,10 +4712,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockBlockQuote)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xE1AC296Fu:
+                case 0x1CC16EFEu:
                     obj.Credit = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4723,7 +4723,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x42913606u)]
+    [TLTypeHash(0xA808C133u)]
     partial class PageBlockPullQuoteConverter : TLObjectConverter<PageBlockPullQuote>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockPullQuoteConverter();
@@ -4734,10 +4734,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockPullQuote)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xE1AC296Fu:
+                case 0x1CC16EFEu:
                     obj.Credit = reader.ReadTLObject<RichText>();
                     return true;
             }
@@ -4745,7 +4745,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6BBFC226u)]
+    [TLTypeHash(0x88F2F73Du)]
     partial class PageBlockAnimationConverter : TLObjectConverter<PageBlockAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockAnimationConverter();
@@ -4756,13 +4756,13 @@ namespace TDLib.JsonClient
             var obj = (PageBlockAnimation)tlobj;
             switch (hash)
             {
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
-                case 0x98F0D7D4u:
+                case 0x49F96AE7u:
                     obj.NeedAutoplay = reader.ReadBool();
                     return true;
             }
@@ -4770,7 +4770,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF79AA8A9u)]
+    [TLTypeHash(0x7BD826F3u)]
     partial class PageBlockAudioConverter : TLObjectConverter<PageBlockAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockAudioConverter();
@@ -4781,10 +4781,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockAudio)tlobj;
             switch (hash)
             {
-                case 0xEB1AA922u:
+                case 0x187D3695u:
                     obj.Audio = reader.ReadTLObject<Audio>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -4792,7 +4792,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD468DA62u)]
+    [TLTypeHash(0x7712947Eu)]
     partial class PageBlockPhotoConverter : TLObjectConverter<PageBlockPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockPhotoConverter();
@@ -4803,13 +4803,13 @@ namespace TDLib.JsonClient
             var obj = (PageBlockPhoto)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -4817,7 +4817,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x67528672u)]
+    [TLTypeHash(0x1F62CA4Au)]
     partial class PageBlockVideoConverter : TLObjectConverter<PageBlockVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockVideoConverter();
@@ -4828,16 +4828,16 @@ namespace TDLib.JsonClient
             var obj = (PageBlockVideo)tlobj;
             switch (hash)
             {
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
-                case 0x98F0D7D4u:
+                case 0x49F96AE7u:
                     obj.NeedAutoplay = reader.ReadBool();
                     return true;
-                case 0x972C34CAu:
+                case 0xE03EB667u:
                     obj.IsLooped = reader.ReadBool();
                     return true;
             }
@@ -4845,7 +4845,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD0BEF182u)]
+    [TLTypeHash(0xE68C69CEu)]
     partial class PageBlockVoiceNoteConverter : TLObjectConverter<PageBlockVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockVoiceNoteConverter();
@@ -4856,10 +4856,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockVoiceNote)tlobj;
             switch (hash)
             {
-                case 0xD8548F7Bu:
+                case 0xE27EDDCFu:
                     obj.VoiceNote = reader.ReadTLObject<VoiceNote>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -4867,7 +4867,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x64DA80F4u)]
+    [TLTypeHash(0xEEAD96A3u)]
     partial class PageBlockCoverConverter : TLObjectConverter<PageBlockCover>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockCoverConverter();
@@ -4878,7 +4878,7 @@ namespace TDLib.JsonClient
             var obj = (PageBlockCover)tlobj;
             switch (hash)
             {
-                case 0x785A817Fu:
+                case 0x8D0886C5u:
                     obj.Cover = reader.ReadTLObject<PageBlock>();
                     return true;
             }
@@ -4886,7 +4886,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9F40C7D8u)]
+    [TLTypeHash(0x0A4DC133u)]
     partial class PageBlockEmbeddedConverter : TLObjectConverter<PageBlockEmbedded>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockEmbeddedConverter();
@@ -4897,28 +4897,28 @@ namespace TDLib.JsonClient
             var obj = (PageBlockEmbedded)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x66D882B7u:
+                case 0x1879F8E5u:
                     obj.Html = reader.ReadString();
                     return true;
-                case 0x5D1A2516u:
+                case 0xE0332FDDu:
                     obj.PosterPhoto = reader.ReadTLObject<Photo>();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
-                case 0x887E9EECu:
+                case 0x24FF850Au:
                     obj.IsFullWidth = reader.ReadBool();
                     return true;
-                case 0xF4E9E37Fu:
+                case 0x8C343DCEu:
                     obj.AllowScrolling = reader.ReadBool();
                     return true;
             }
@@ -4926,7 +4926,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB0A1EAB7u)]
+    [TLTypeHash(0x2D49B0DDu)]
     partial class PageBlockEmbeddedPostConverter : TLObjectConverter<PageBlockEmbeddedPost>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockEmbeddedPostConverter();
@@ -4937,22 +4937,22 @@ namespace TDLib.JsonClient
             var obj = (PageBlockEmbeddedPost)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x4F96B068u:
+                case 0xBDAFD8C8u:
                     obj.Author = reader.ReadString();
                     return true;
-                case 0x176CBA95u:
+                case 0x023FA4D5u:
                     obj.AuthorPhoto = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xAC68927Bu:
+                case 0xA13B6366u:
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -4960,7 +4960,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5CABCD52u)]
+    [TLTypeHash(0x83C3903Eu)]
     partial class PageBlockCollageConverter : TLObjectConverter<PageBlockCollage>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockCollageConverter();
@@ -4971,10 +4971,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockCollage)tlobj;
             switch (hash)
             {
-                case 0xAC68927Bu:
+                case 0xA13B6366u:
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -4982,7 +4982,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDA838A77u)]
+    [TLTypeHash(0x621097F1u)]
     partial class PageBlockSlideshowConverter : TLObjectConverter<PageBlockSlideshow>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockSlideshowConverter();
@@ -4993,10 +4993,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockSlideshow)tlobj;
             switch (hash)
             {
-                case 0xAC68927Bu:
+                case 0xA13B6366u:
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -5004,7 +5004,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB706BB8Eu)]
+    [TLTypeHash(0x5B1BFB57u)]
     partial class PageBlockChatLinkConverter : TLObjectConverter<PageBlockChatLink>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockChatLinkConverter();
@@ -5015,13 +5015,13 @@ namespace TDLib.JsonClient
             var obj = (PageBlockChatLink)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhotoInfo>();
                     return true;
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
             }
@@ -5029,7 +5029,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD5D1BF2Cu)]
+    [TLTypeHash(0x958C9F20u)]
     partial class PageBlockTableConverter : TLObjectConverter<PageBlockTable>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockTableConverter();
@@ -5040,16 +5040,16 @@ namespace TDLib.JsonClient
             var obj = (PageBlockTable)tlobj;
             switch (hash)
             {
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<RichText>();
                     return true;
-                case 0x4A380896u:
+                case 0x55C1CBD8u:
                     obj.Cells = reader.ReadNestedObjectArray<PageBlockTableCell>();
                     return true;
-                case 0x01907563u:
+                case 0x3C3BCE4Cu:
                     obj.IsBordered = reader.ReadBool();
                     return true;
-                case 0x0F1731C7u:
+                case 0x05FB8502u:
                     obj.IsStriped = reader.ReadBool();
                     return true;
             }
@@ -5057,7 +5057,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x47FF228Bu)]
+    [TLTypeHash(0x5C36B46Au)]
     partial class PageBlockDetailsConverter : TLObjectConverter<PageBlockDetails>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockDetailsConverter();
@@ -5068,13 +5068,13 @@ namespace TDLib.JsonClient
             var obj = (PageBlockDetails)tlobj;
             switch (hash)
             {
-                case 0x1C5FE142u:
+                case 0x6E72A8C1u:
                     obj.Header = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xAC68927Bu:
+                case 0xA13B6366u:
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
-                case 0xA590E1F4u:
+                case 0x3183AD85u:
                     obj.IsOpen = reader.ReadBool();
                     return true;
             }
@@ -5082,7 +5082,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0CEEE90Du)]
+    [TLTypeHash(0x2530F130u)]
     partial class PageBlockRelatedArticlesConverter : TLObjectConverter<PageBlockRelatedArticles>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockRelatedArticlesConverter();
@@ -5093,10 +5093,10 @@ namespace TDLib.JsonClient
             var obj = (PageBlockRelatedArticles)tlobj;
             switch (hash)
             {
-                case 0x1C5FE142u:
+                case 0x6E72A8C1u:
                     obj.Header = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xD050EF0Fu:
+                case 0xBFDD3168u:
                     obj.Articles = reader.ReadObjectArray<PageBlockRelatedArticle>();
                     return true;
             }
@@ -5104,7 +5104,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9150D2BFu)]
+    [TLTypeHash(0x5312C3D9u)]
     partial class PageBlockMapConverter : TLObjectConverter<PageBlockMap>
     {
         internal static BaseConverter CreateConverterInstance() => new PageBlockMapConverter();
@@ -5115,19 +5115,19 @@ namespace TDLib.JsonClient
             var obj = (PageBlockMap)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x472820DAu:
+                case 0xB72B7974u:
                     obj.Zoom = reader.ReadInt();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -5135,7 +5135,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5B5CFF10u)]
+    [TLTypeHash(0xC534C87Fu)]
     partial class WebPageInstantViewConverter : TLObjectConverter<WebPageInstantView>
     {
         internal static BaseConverter CreateConverterInstance() => new WebPageInstantViewConverter();
@@ -5146,19 +5146,19 @@ namespace TDLib.JsonClient
             var obj = (WebPageInstantView)tlobj;
             switch (hash)
             {
-                case 0xAC68927Bu:
+                case 0xA13B6366u:
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
-                case 0x43352C62u:
+                case 0xE7FAE371u:
                     obj.ViewCount = reader.ReadInt();
                     return true;
-                case 0xF60C5F97u:
+                case 0xBF1CD3C3u:
                     obj.Version = reader.ReadInt();
                     return true;
-                case 0xD138C461u:
+                case 0xEB075765u:
                     obj.IsRtl = reader.ReadBool();
                     return true;
-                case 0xDA8335F6u:
+                case 0x758CFA81u:
                     obj.IsFull = reader.ReadBool();
                     return true;
             }
@@ -5166,7 +5166,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x98E6D978u)]
+    [TLTypeHash(0x9A144D1Du)]
     partial class WebPageConverter : TLObjectConverter<WebPage>
     {
         internal static BaseConverter CreateConverterInstance() => new WebPageConverter();
@@ -5177,67 +5177,67 @@ namespace TDLib.JsonClient
             var obj = (WebPage)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0xBC0D5990u:
+                case 0x2023EEF4u:
                     obj.DisplayUrl = reader.ReadString();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadString();
                     return true;
-                case 0x54E6D100u:
+                case 0x65B9C3FFu:
                     obj.SiteName = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x6EBB27C8u:
+                case 0x0BE8F4CFu:
                     obj.EmbedUrl = reader.ReadString();
                     return true;
-                case 0xAC1116E8u:
+                case 0xB6949856u:
                     obj.EmbedType = reader.ReadString();
                     return true;
-                case 0xB36BC890u:
+                case 0x4C9A634Du:
                     obj.EmbedWidth = reader.ReadInt();
                     return true;
-                case 0xBFAA2365u:
+                case 0x5631655Du:
                     obj.EmbedHeight = reader.ReadInt();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x4F96B068u:
+                case 0xBDAFD8C8u:
                     obj.Author = reader.ReadString();
                     return true;
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
-                case 0xEB1AA922u:
+                case 0x187D3695u:
                     obj.Audio = reader.ReadTLObject<Audio>();
                     return true;
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<Sticker>();
                     return true;
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0x0F7C4824u:
+                case 0xC82AA7C8u:
                     obj.VideoNote = reader.ReadTLObject<VideoNote>();
                     return true;
-                case 0xD8548F7Bu:
+                case 0xE27EDDCFu:
                     obj.VoiceNote = reader.ReadTLObject<VoiceNote>();
                     return true;
-                case 0x9CC6D1CAu:
+                case 0x1B073594u:
                     obj.InstantViewVersion = reader.ReadInt();
                     return true;
             }
@@ -5245,7 +5245,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6B12232Cu)]
+    [TLTypeHash(0x1DF8B102u)]
     partial class CountryInfoConverter : TLObjectConverter<CountryInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new CountryInfoConverter();
@@ -5256,19 +5256,19 @@ namespace TDLib.JsonClient
             var obj = (CountryInfo)tlobj;
             switch (hash)
             {
-                case 0x105AB80Eu:
+                case 0xF026BB7Cu:
                     obj.CountryCode = reader.ReadString();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x0D4DD4D2u:
+                case 0x734D08E1u:
                     obj.EnglishName = reader.ReadString();
                     return true;
-                case 0xA4467922u:
+                case 0xD8146462u:
                     obj.IsHidden = reader.ReadBool();
                     return true;
-                case 0xE74DF1BDu:
+                case 0x3B484B1Bu:
                     obj.CallingCodes = reader.ReadStringArray();
                     return true;
             }
@@ -5276,7 +5276,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCF75F511u)]
+    [TLTypeHash(0x5D66EBADu)]
     partial class CountriesConverter : TLObjectConverter<Countries>
     {
         internal static BaseConverter CreateConverterInstance() => new CountriesConverter();
@@ -5287,7 +5287,7 @@ namespace TDLib.JsonClient
             var obj = (Countries)tlobj;
             switch (hash)
             {
-                case 0xCF75F511u:
+                case 0x5D66EBADu:
                     obj.Countries_ = reader.ReadObjectArray<CountryInfo>();
                     return true;
             }
@@ -5295,7 +5295,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDFE79338u)]
+    [TLTypeHash(0x5B3CF74Fu)]
     partial class PhoneNumberInfoConverter : TLObjectConverter<PhoneNumberInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new PhoneNumberInfoConverter();
@@ -5306,13 +5306,13 @@ namespace TDLib.JsonClient
             var obj = (PhoneNumberInfo)tlobj;
             switch (hash)
             {
-                case 0x450EAE1Du:
+                case 0x5373C966u:
                     obj.Country = reader.ReadTLObject<CountryInfo>();
                     return true;
-                case 0x10D75AEDu:
+                case 0x25A22F67u:
                     obj.CountryCallingCode = reader.ReadString();
                     return true;
-                case 0x41069555u:
+                case 0x200A916Du:
                     obj.FormattedPhoneNumber = reader.ReadString();
                     return true;
             }
@@ -5320,7 +5320,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x20D95E8Eu)]
+    [TLTypeHash(0xD16CB798u)]
     partial class BankCardActionOpenUrlConverter : TLObjectConverter<BankCardActionOpenUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new BankCardActionOpenUrlConverter();
@@ -5331,10 +5331,10 @@ namespace TDLib.JsonClient
             var obj = (BankCardActionOpenUrl)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -5342,7 +5342,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2478F5A7u)]
+    [TLTypeHash(0xD58AE8D7u)]
     partial class BankCardInfoConverter : TLObjectConverter<BankCardInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new BankCardInfoConverter();
@@ -5353,10 +5353,10 @@ namespace TDLib.JsonClient
             var obj = (BankCardInfo)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x438EF762u:
+                case 0x0548F1EFu:
                     obj.Actions = reader.ReadObjectArray<BankCardActionOpenUrl>();
                     return true;
             }
@@ -5364,7 +5364,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBF2096A4u)]
+    [TLTypeHash(0x0D4E6F81u)]
     partial class AddressConverter : TLObjectConverter<Address>
     {
         internal static BaseConverter CreateConverterInstance() => new AddressConverter();
@@ -5375,22 +5375,22 @@ namespace TDLib.JsonClient
             var obj = (Address)tlobj;
             switch (hash)
             {
-                case 0x105AB80Eu:
+                case 0xF026BB7Cu:
                     obj.CountryCode = reader.ReadString();
                     return true;
-                case 0x66DB68DFu:
+                case 0xA393D2FBu:
                     obj.State = reader.ReadString();
                     return true;
-                case 0x150E647Eu:
+                case 0x2D5B0234u:
                     obj.City = reader.ReadString();
                     return true;
-                case 0x7FE3AD14u:
+                case 0xEEB79EA6u:
                     obj.StreetLine1 = reader.ReadString();
                     return true;
-                case 0x6CB35EE0u:
+                case 0x77BECF1Cu:
                     obj.StreetLine2 = reader.ReadString();
                     return true;
-                case 0x8973B954u:
+                case 0xEA98E376u:
                     obj.PostalCode = reader.ReadString();
                     return true;
             }
@@ -5398,7 +5398,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8CC413ABu)]
+    [TLTypeHash(0xB6674DA1u)]
     partial class LabeledPricePartConverter : TLObjectConverter<LabeledPricePart>
     {
         internal static BaseConverter CreateConverterInstance() => new LabeledPricePartConverter();
@@ -5409,10 +5409,10 @@ namespace TDLib.JsonClient
             var obj = (LabeledPricePart)tlobj;
             switch (hash)
             {
-                case 0x751054E6u:
+                case 0x0EA750E8u:
                     obj.Label = reader.ReadString();
                     return true;
-                case 0x3EBE8B7Cu:
+                case 0x8EA17042u:
                     obj.Amount = reader.ReadLong();
                     return true;
             }
@@ -5420,7 +5420,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA3756FE9u)]
+    [TLTypeHash(0x90651744u)]
     partial class InvoiceConverter : TLObjectConverter<Invoice>
     {
         internal static BaseConverter CreateConverterInstance() => new InvoiceConverter();
@@ -5431,34 +5431,34 @@ namespace TDLib.JsonClient
             var obj = (Invoice)tlobj;
             switch (hash)
             {
-                case 0xBDC5D1BFu:
+                case 0x6956883Fu:
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0x93CD226Bu:
+                case 0x4289AF9Eu:
                     obj.PriceParts = reader.ReadObjectArray<LabeledPricePart>();
                     return true;
-                case 0xBE19BE1Cu:
+                case 0x4D8C502Du:
                     obj.IsTest = reader.ReadBool();
                     return true;
-                case 0xCB219FF3u:
+                case 0x656C3749u:
                     obj.NeedName = reader.ReadBool();
                     return true;
-                case 0x76C5F093u:
+                case 0x62D06D9Eu:
                     obj.NeedPhoneNumber = reader.ReadBool();
                     return true;
-                case 0x285C406Cu:
+                case 0x5B89E0A0u:
                     obj.NeedEmailAddress = reader.ReadBool();
                     return true;
-                case 0xEDF3D3EDu:
+                case 0xC721648Cu:
                     obj.NeedShippingAddress = reader.ReadBool();
                     return true;
-                case 0xDD76C257u:
+                case 0x5F61FB81u:
                     obj.SendPhoneNumberToProvider = reader.ReadBool();
                     return true;
-                case 0x94E5862Eu:
+                case 0x3EFC17F7u:
                     obj.SendEmailAddressToProvider = reader.ReadBool();
                     return true;
-                case 0xF5D46D64u:
+                case 0xC26F059Cu:
                     obj.IsFlexible = reader.ReadBool();
                     return true;
             }
@@ -5466,7 +5466,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x800DD8F4u)]
+    [TLTypeHash(0x658BC8F3u)]
     partial class OrderInfoConverter : TLObjectConverter<OrderInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new OrderInfoConverter();
@@ -5477,16 +5477,16 @@ namespace TDLib.JsonClient
             var obj = (OrderInfo)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0xE70A50C4u:
+                case 0xB08E074Eu:
                     obj.EmailAddress = reader.ReadString();
                     return true;
-                case 0xF780AD0Au:
+                case 0xEB066945u:
                     obj.ShippingAddress = reader.ReadTLObject<Address>();
                     return true;
             }
@@ -5494,7 +5494,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x156E4659u)]
+    [TLTypeHash(0x398D34A0u)]
     partial class ShippingOptionConverter : TLObjectConverter<ShippingOption>
     {
         internal static BaseConverter CreateConverterInstance() => new ShippingOptionConverter();
@@ -5505,13 +5505,13 @@ namespace TDLib.JsonClient
             var obj = (ShippingOption)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x93CD226Bu:
+                case 0x4289AF9Eu:
                     obj.PriceParts = reader.ReadObjectArray<LabeledPricePart>();
                     return true;
             }
@@ -5519,7 +5519,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5DBEEE88u)]
+    [TLTypeHash(0xDCEB0249u)]
     partial class SavedCredentialsConverter : TLObjectConverter<SavedCredentials>
     {
         internal static BaseConverter CreateConverterInstance() => new SavedCredentialsConverter();
@@ -5530,10 +5530,10 @@ namespace TDLib.JsonClient
             var obj = (SavedCredentials)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -5541,7 +5541,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB7F1A107u)]
+    [TLTypeHash(0x1D911F70u)]
     partial class InputCredentialsSavedConverter : TLObjectConverter<InputCredentialsSaved>
     {
         internal static BaseConverter CreateConverterInstance() => new InputCredentialsSavedConverter();
@@ -5552,7 +5552,7 @@ namespace TDLib.JsonClient
             var obj = (InputCredentialsSaved)tlobj;
             switch (hash)
             {
-                case 0x506BCEEAu:
+                case 0x34BD29D9u:
                     obj.SavedCredentialsId = reader.ReadString();
                     return true;
             }
@@ -5560,7 +5560,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEA276790u)]
+    [TLTypeHash(0xB4527F8Bu)]
     partial class InputCredentialsNewConverter : TLObjectConverter<InputCredentialsNew>
     {
         internal static BaseConverter CreateConverterInstance() => new InputCredentialsNewConverter();
@@ -5571,10 +5571,10 @@ namespace TDLib.JsonClient
             var obj = (InputCredentialsNew)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadString();
                     return true;
-                case 0xD8BB3C4Eu:
+                case 0x45047CD1u:
                     obj.AllowSave = reader.ReadBool();
                     return true;
             }
@@ -5582,7 +5582,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x55D0C2BAu)]
+    [TLTypeHash(0x2710DCB7u)]
     partial class InputCredentialsAndroidPayConverter : TLObjectConverter<InputCredentialsAndroidPay>
     {
         internal static BaseConverter CreateConverterInstance() => new InputCredentialsAndroidPayConverter();
@@ -5593,7 +5593,7 @@ namespace TDLib.JsonClient
             var obj = (InputCredentialsAndroidPay)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadString();
                     return true;
             }
@@ -5601,7 +5601,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x04B41918u)]
+    [TLTypeHash(0x44A3E6F8u)]
     partial class InputCredentialsApplePayConverter : TLObjectConverter<InputCredentialsApplePay>
     {
         internal static BaseConverter CreateConverterInstance() => new InputCredentialsApplePayConverter();
@@ -5612,7 +5612,7 @@ namespace TDLib.JsonClient
             var obj = (InputCredentialsApplePay)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadString();
                     return true;
             }
@@ -5620,7 +5620,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x64B4EC9Du)]
+    [TLTypeHash(0x954FE522u)]
     partial class PaymentsProviderStripeConverter : TLObjectConverter<PaymentsProviderStripe>
     {
         internal static BaseConverter CreateConverterInstance() => new PaymentsProviderStripeConverter();
@@ -5631,16 +5631,16 @@ namespace TDLib.JsonClient
             var obj = (PaymentsProviderStripe)tlobj;
             switch (hash)
             {
-                case 0xCA46D3ABu:
+                case 0xE5DB58DFu:
                     obj.PublishableKey = reader.ReadString();
                     return true;
-                case 0xABBECC17u:
+                case 0xEF6DABEDu:
                     obj.NeedCountry = reader.ReadBool();
                     return true;
-                case 0x5DDB2FB4u:
+                case 0x8D050D7Au:
                     obj.NeedPostalCode = reader.ReadBool();
                     return true;
-                case 0xED0AD5D7u:
+                case 0xE4605CDDu:
                     obj.NeedCardholderName = reader.ReadBool();
                     return true;
             }
@@ -5648,7 +5648,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE016E245u)]
+    [TLTypeHash(0x88B28ABFu)]
     partial class PaymentFormConverter : TLObjectConverter<PaymentForm>
     {
         internal static BaseConverter CreateConverterInstance() => new PaymentFormConverter();
@@ -5659,25 +5659,25 @@ namespace TDLib.JsonClient
             var obj = (PaymentForm)tlobj;
             switch (hash)
             {
-                case 0xA3756FE9u:
+                case 0x90651744u:
                     obj.Invoice = reader.ReadTLObject<Invoice>();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0xF3222933u:
+                case 0xAA4CFA8Au:
                     obj.PaymentsProvider = reader.ReadTLObject<PaymentsProviderStripe>();
                     return true;
-                case 0x44DEDA1Fu:
+                case 0x45415EA8u:
                     obj.SavedOrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0xD9EFE59Du:
+                case 0x54177B11u:
                     obj.SavedCredentials = reader.ReadTLObject<SavedCredentials>();
                     return true;
-                case 0xEFB82DFCu:
+                case 0x92127D7Au:
                     obj.CanSaveCredentials = reader.ReadBool();
                     return true;
-                case 0x17321E72u:
+                case 0x4F14021Fu:
                     obj.NeedPassword = reader.ReadBool();
                     return true;
             }
@@ -5685,7 +5685,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF88A823Bu)]
+    [TLTypeHash(0x67C70EE2u)]
     partial class ValidatedOrderInfoConverter : TLObjectConverter<ValidatedOrderInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ValidatedOrderInfoConverter();
@@ -5696,10 +5696,10 @@ namespace TDLib.JsonClient
             var obj = (ValidatedOrderInfo)tlobj;
             switch (hash)
             {
-                case 0xC5280CD3u:
+                case 0xABF168B3u:
                     obj.OrderInfoId = reader.ReadString();
                     return true;
-                case 0xC455563Au:
+                case 0x367DFC43u:
                     obj.ShippingOptions = reader.ReadObjectArray<ShippingOption>();
                     return true;
             }
@@ -5707,7 +5707,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE65F0E81u)]
+    [TLTypeHash(0xC9B71E0Bu)]
     partial class PaymentResultConverter : TLObjectConverter<PaymentResult>
     {
         internal static BaseConverter CreateConverterInstance() => new PaymentResultConverter();
@@ -5718,10 +5718,10 @@ namespace TDLib.JsonClient
             var obj = (PaymentResult)tlobj;
             switch (hash)
             {
-                case 0x40167B74u:
+                case 0x6F00DFB2u:
                     obj.Success = reader.ReadBool();
                     return true;
-                case 0x0ABDE26Au:
+                case 0x7F61E7E8u:
                     obj.VerificationUrl = reader.ReadString();
                     return true;
             }
@@ -5729,7 +5729,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8757F060u)]
+    [TLTypeHash(0x402FF3CCu)]
     partial class PaymentReceiptConverter : TLObjectConverter<PaymentReceipt>
     {
         internal static BaseConverter CreateConverterInstance() => new PaymentReceiptConverter();
@@ -5740,22 +5740,22 @@ namespace TDLib.JsonClient
             var obj = (PaymentReceipt)tlobj;
             switch (hash)
             {
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xDC608EF8u:
+                case 0x93DE834Du:
                     obj.PaymentsProviderUserId = reader.ReadInt();
                     return true;
-                case 0xA3756FE9u:
+                case 0x90651744u:
                     obj.Invoice = reader.ReadTLObject<Invoice>();
                     return true;
-                case 0xE97ED45Eu:
+                case 0x86780B40u:
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0x9748A727u:
+                case 0x71DCC5FFu:
                     obj.ShippingOption = reader.ReadTLObject<ShippingOption>();
                     return true;
-                case 0x042155FBu:
+                case 0xE5389776u:
                     obj.CredentialsTitle = reader.ReadString();
                     return true;
             }
@@ -5763,7 +5763,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB7FA3621u)]
+    [TLTypeHash(0xDA82994Du)]
     partial class DatedFileConverter : TLObjectConverter<DatedFile>
     {
         internal static BaseConverter CreateConverterInstance() => new DatedFileConverter();
@@ -5774,10 +5774,10 @@ namespace TDLib.JsonClient
             var obj = (DatedFile)tlobj;
             switch (hash)
             {
-                case 0x4CA5C5B3u:
+                case 0x8C9F3610u:
                     obj.File = reader.ReadTLObject<File>();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
             }
@@ -5785,98 +5785,98 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x227B7A4Fu)]
+    [TLTypeHash(0x405E6A6Bu)]
     partial class PassportElementTypePersonalDetailsConverter : TLObjectConverter<PassportElementTypePersonalDetails>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypePersonalDetailsConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypePersonalDetails();
     }
 
-    [TLTypeHash(0x72C53AE0u)]
+    [TLTypeHash(0xBAFB1EE1u)]
     partial class PassportElementTypePassportConverter : TLObjectConverter<PassportElementTypePassport>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypePassportConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypePassport();
     }
 
-    [TLTypeHash(0x1F004525u)]
+    [TLTypeHash(0x8EB7F87Cu)]
     partial class PassportElementTypeDriverLicenseConverter : TLObjectConverter<PassportElementTypeDriverLicense>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeDriverLicenseConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeDriverLicense();
     }
 
-    [TLTypeHash(0xA0930764u)]
+    [TLTypeHash(0x4C2BCEE4u)]
     partial class PassportElementTypeIdentityCardConverter : TLObjectConverter<PassportElementTypeIdentityCard>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeIdentityCardConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeIdentityCard();
     }
 
-    [TLTypeHash(0x71F8167Cu)]
+    [TLTypeHash(0xF9A28C9Au)]
     partial class PassportElementTypeInternalPassportConverter : TLObjectConverter<PassportElementTypeInternalPassport>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeInternalPassportConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeInternalPassport();
     }
 
-    [TLTypeHash(0x0366BB73u)]
+    [TLTypeHash(0x54C7B2C8u)]
     partial class PassportElementTypeAddressConverter : TLObjectConverter<PassportElementTypeAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeAddressConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeAddress();
     }
 
-    [TLTypeHash(0xE4391A10u)]
+    [TLTypeHash(0x76673EACu)]
     partial class PassportElementTypeUtilityBillConverter : TLObjectConverter<PassportElementTypeUtilityBill>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeUtilityBillConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeUtilityBill();
     }
 
-    [TLTypeHash(0xCB8F5BB2u)]
+    [TLTypeHash(0xF7A480F0u)]
     partial class PassportElementTypeBankStatementConverter : TLObjectConverter<PassportElementTypeBankStatement>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeBankStatementConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeBankStatement();
     }
 
-    [TLTypeHash(0xB2A479D6u)]
+    [TLTypeHash(0x4248D73Du)]
     partial class PassportElementTypeRentalAgreementConverter : TLObjectConverter<PassportElementTypeRentalAgreement>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeRentalAgreementConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeRentalAgreement();
     }
 
-    [TLTypeHash(0xAD8B0661u)]
+    [TLTypeHash(0x60CFE178u)]
     partial class PassportElementTypePassportRegistrationConverter : TLObjectConverter<PassportElementTypePassportRegistration>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypePassportRegistrationConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypePassportRegistration();
     }
 
-    [TLTypeHash(0xDE3E5324u)]
+    [TLTypeHash(0x34871EDBu)]
     partial class PassportElementTypeTemporaryRegistrationConverter : TLObjectConverter<PassportElementTypeTemporaryRegistration>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeTemporaryRegistrationConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeTemporaryRegistration();
     }
 
-    [TLTypeHash(0x846074E4u)]
+    [TLTypeHash(0x73E5F862u)]
     partial class PassportElementTypePhoneNumberConverter : TLObjectConverter<PassportElementTypePhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypePhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypePhoneNumber();
     }
 
-    [TLTypeHash(0x79BEC142u)]
+    [TLTypeHash(0x421AFF00u)]
     partial class PassportElementTypeEmailAddressConverter : TLObjectConverter<PassportElementTypeEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTypeEmailAddressConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementTypeEmailAddress();
     }
 
-    [TLTypeHash(0x6942EACEu)]
+    [TLTypeHash(0xAA9E377Au)]
     partial class DateConverter : TLObjectConverter<Date>
     {
         internal static BaseConverter CreateConverterInstance() => new DateConverter();
@@ -5887,13 +5887,13 @@ namespace TDLib.JsonClient
             var obj = (Date)tlobj;
             switch (hash)
             {
-                case 0x428F4E1Du:
+                case 0xE5A02990u:
                     obj.Day = reader.ReadInt();
                     return true;
-                case 0x32722EE8u:
+                case 0x8EB61006u:
                     obj.Month = reader.ReadInt();
                     return true;
-                case 0xE8A2ACEAu:
+                case 0xBB827337u:
                     obj.Year = reader.ReadInt();
                     return true;
             }
@@ -5901,7 +5901,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x74B7C4F8u)]
+    [TLTypeHash(0xB0243982u)]
     partial class PersonalDetailsConverter : TLObjectConverter<PersonalDetails>
     {
         internal static BaseConverter CreateConverterInstance() => new PersonalDetailsConverter();
@@ -5912,34 +5912,34 @@ namespace TDLib.JsonClient
             var obj = (PersonalDetails)tlobj;
             switch (hash)
             {
-                case 0x9042082Fu:
+                case 0xA9D1C132u:
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x040E0867u:
+                case 0x59107AF8u:
                     obj.MiddleName = reader.ReadString();
                     return true;
-                case 0x2E1C9126u:
+                case 0xC808BA5Au:
                     obj.LastName = reader.ReadString();
                     return true;
-                case 0xABA12F30u:
+                case 0xC951B572u:
                     obj.NativeFirstName = reader.ReadString();
                     return true;
-                case 0x4A78100Bu:
+                case 0x2FACBB1Cu:
                     obj.NativeMiddleName = reader.ReadString();
                     return true;
-                case 0x0F25138Du:
+                case 0xF8F22FC5u:
                     obj.NativeLastName = reader.ReadString();
                     return true;
-                case 0x4BA56318u:
+                case 0x92E45C23u:
                     obj.Birthdate = reader.ReadTLObject<Date>();
                     return true;
-                case 0x1554DEDCu:
+                case 0xC7470A42u:
                     obj.Gender = reader.ReadString();
                     return true;
-                case 0x105AB80Eu:
+                case 0xF026BB7Cu:
                     obj.CountryCode = reader.ReadString();
                     return true;
-                case 0x37379358u:
+                case 0xDA2EF34Bu:
                     obj.ResidenceCountryCode = reader.ReadString();
                     return true;
             }
@@ -5947,7 +5947,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA5D32252u)]
+    [TLTypeHash(0xD7E2AA35u)]
     partial class IdentityDocumentConverter : TLObjectConverter<IdentityDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new IdentityDocumentConverter();
@@ -5958,22 +5958,22 @@ namespace TDLib.JsonClient
             var obj = (IdentityDocument)tlobj;
             switch (hash)
             {
-                case 0xA6D3B327u:
+                case 0x96901F54u:
                     obj.Number = reader.ReadString();
                     return true;
-                case 0x223204A5u:
+                case 0xF6DE1BC8u:
                     obj.ExpiryDate = reader.ReadTLObject<Date>();
                     return true;
-                case 0xFACC551Cu:
+                case 0x1B51A1D9u:
                     obj.FrontSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xB7B540A5u:
+                case 0xACCE8C4Bu:
                     obj.ReverseSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0x80AFA9F9u:
+                case 0xD9EB9CE1u:
                     obj.Selfie = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xACEF242Du:
+                case 0xB469456Fu:
                     obj.Translation = reader.ReadObjectArray<DatedFile>();
                     return true;
             }
@@ -5981,7 +5981,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x82E733FFu)]
+    [TLTypeHash(0xC07FBB08u)]
     partial class InputIdentityDocumentConverter : TLObjectConverter<InputIdentityDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new InputIdentityDocumentConverter();
@@ -5992,22 +5992,22 @@ namespace TDLib.JsonClient
             var obj = (InputIdentityDocument)tlobj;
             switch (hash)
             {
-                case 0xA6D3B327u:
+                case 0x96901F54u:
                     obj.Number = reader.ReadString();
                     return true;
-                case 0x223204A5u:
+                case 0xF6DE1BC8u:
                     obj.ExpiryDate = reader.ReadTLObject<Date>();
                     return true;
-                case 0xFACC551Cu:
+                case 0x1B51A1D9u:
                     obj.FrontSide = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xB7B540A5u:
+                case 0xACCE8C4Bu:
                     obj.ReverseSide = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x80AFA9F9u:
+                case 0xD9EB9CE1u:
                     obj.Selfie = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xACEF242Du:
+                case 0xB469456Fu:
                     obj.Translation = reader.ReadObjectArray<InputFile>();
                     return true;
             }
@@ -6015,7 +6015,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x337EF1D4u)]
+    [TLTypeHash(0xD6700076u)]
     partial class PersonalDocumentConverter : TLObjectConverter<PersonalDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new PersonalDocumentConverter();
@@ -6026,10 +6026,10 @@ namespace TDLib.JsonClient
             var obj = (PersonalDocument)tlobj;
             switch (hash)
             {
-                case 0x91BCD050u:
+                case 0x06354059u:
                     obj.Files = reader.ReadObjectArray<DatedFile>();
                     return true;
-                case 0xACEF242Du:
+                case 0xB469456Fu:
                     obj.Translation = reader.ReadObjectArray<DatedFile>();
                     return true;
             }
@@ -6037,7 +6037,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x144AE079u)]
+    [TLTypeHash(0xC1ED114Bu)]
     partial class InputPersonalDocumentConverter : TLObjectConverter<InputPersonalDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPersonalDocumentConverter();
@@ -6048,10 +6048,10 @@ namespace TDLib.JsonClient
             var obj = (InputPersonalDocument)tlobj;
             switch (hash)
             {
-                case 0x91BCD050u:
+                case 0x06354059u:
                     obj.Files = reader.ReadObjectArray<InputFile>();
                     return true;
-                case 0xACEF242Du:
+                case 0xB469456Fu:
                     obj.Translation = reader.ReadObjectArray<InputFile>();
                     return true;
             }
@@ -6059,7 +6059,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFA70506Cu)]
+    [TLTypeHash(0xD34BEB8Eu)]
     partial class PassportElementPersonalDetailsConverter : TLObjectConverter<PassportElementPersonalDetails>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementPersonalDetailsConverter();
@@ -6070,7 +6070,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementPersonalDetails)tlobj;
             switch (hash)
             {
-                case 0x5151970Fu:
+                case 0xF10102A1u:
                     obj.PersonalDetails = reader.ReadTLObject<PersonalDetails>();
                     return true;
             }
@@ -6078,7 +6078,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC9EEB02Au)]
+    [TLTypeHash(0x5078709Au)]
     partial class PassportElementPassportConverter : TLObjectConverter<PassportElementPassport>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementPassportConverter();
@@ -6089,7 +6089,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementPassport)tlobj;
             switch (hash)
             {
-                case 0x7560F98Du:
+                case 0xB5A26E08u:
                     obj.Passport = reader.ReadTLObject<IdentityDocument>();
                     return true;
             }
@@ -6097,7 +6097,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC97021BFu)]
+    [TLTypeHash(0x9CAE172Du)]
     partial class PassportElementDriverLicenseConverter : TLObjectConverter<PassportElementDriverLicense>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementDriverLicenseConverter();
@@ -6108,7 +6108,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementDriverLicense)tlobj;
             switch (hash)
             {
-                case 0xEBC4EB98u:
+                case 0x92979079u:
                     obj.DriverLicense = reader.ReadTLObject<IdentityDocument>();
                     return true;
             }
@@ -6116,7 +6116,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x114B9B81u)]
+    [TLTypeHash(0xE22DCFBDu)]
     partial class PassportElementIdentityCardConverter : TLObjectConverter<PassportElementIdentityCard>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementIdentityCardConverter();
@@ -6127,7 +6127,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementIdentityCard)tlobj;
             switch (hash)
             {
-                case 0x0A43438Cu:
+                case 0x98195157u:
                     obj.IdentityCard = reader.ReadTLObject<IdentityDocument>();
                     return true;
             }
@@ -6135,7 +6135,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x42CD607Cu)]
+    [TLTypeHash(0x29518FECu)]
     partial class PassportElementInternalPassportConverter : TLObjectConverter<PassportElementInternalPassport>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementInternalPassportConverter();
@@ -6146,7 +6146,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementInternalPassport)tlobj;
             switch (hash)
             {
-                case 0xADEC5C41u:
+                case 0x7A00E3D0u:
                     obj.InternalPassport = reader.ReadTLObject<IdentityDocument>();
                     return true;
             }
@@ -6154,7 +6154,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x171179BAu)]
+    [TLTypeHash(0x02EEF04Cu)]
     partial class PassportElementAddressConverter : TLObjectConverter<PassportElementAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementAddressConverter();
@@ -6165,7 +6165,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementAddress)tlobj;
             switch (hash)
             {
-                case 0xBF2096A4u:
+                case 0x0D4E6F81u:
                     obj.Address = reader.ReadTLObject<Address>();
                     return true;
             }
@@ -6173,7 +6173,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x27E3ADB3u)]
+    [TLTypeHash(0xA10C2D44u)]
     partial class PassportElementUtilityBillConverter : TLObjectConverter<PassportElementUtilityBill>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementUtilityBillConverter();
@@ -6184,7 +6184,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementUtilityBill)tlobj;
             switch (hash)
             {
-                case 0xD4CC96E0u:
+                case 0x04EAC1B4u:
                     obj.UtilityBill = reader.ReadTLObject<PersonalDocument>();
                     return true;
             }
@@ -6192,7 +6192,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1DFF3F28u)]
+    [TLTypeHash(0xE5BD6FA1u)]
     partial class PassportElementBankStatementConverter : TLObjectConverter<PassportElementBankStatement>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementBankStatementConverter();
@@ -6203,7 +6203,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementBankStatement)tlobj;
             switch (hash)
             {
-                case 0x13B74342u:
+                case 0xB33607EFu:
                     obj.BankStatement = reader.ReadTLObject<PersonalDocument>();
                     return true;
             }
@@ -6211,7 +6211,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6AAF53F5u)]
+    [TLTypeHash(0xD15D56D8u)]
     partial class PassportElementRentalAgreementConverter : TLObjectConverter<PassportElementRentalAgreement>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementRentalAgreementConverter();
@@ -6222,7 +6222,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementRentalAgreement)tlobj;
             switch (hash)
             {
-                case 0x360B115Eu:
+                case 0x91855D2Bu:
                     obj.RentalAgreement = reader.ReadTLObject<PersonalDocument>();
                     return true;
             }
@@ -6230,7 +6230,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x146CA75Cu)]
+    [TLTypeHash(0x959FC0CBu)]
     partial class PassportElementPassportRegistrationConverter : TLObjectConverter<PassportElementPassportRegistration>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementPassportRegistrationConverter();
@@ -6241,7 +6241,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementPassportRegistration)tlobj;
             switch (hash)
             {
-                case 0x3BE37DCEu:
+                case 0x625DEA81u:
                     obj.PassportRegistration = reader.ReadTLObject<PersonalDocument>();
                     return true;
             }
@@ -6249,7 +6249,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x514CB1E7u)]
+    [TLTypeHash(0x661AACCCu)]
     partial class PassportElementTemporaryRegistrationConverter : TLObjectConverter<PassportElementTemporaryRegistration>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementTemporaryRegistrationConverter();
@@ -6260,7 +6260,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementTemporaryRegistration)tlobj;
             switch (hash)
             {
-                case 0xCECF2708u:
+                case 0xFB4EEB01u:
                     obj.TemporaryRegistration = reader.ReadTLObject<PersonalDocument>();
                     return true;
             }
@@ -6268,7 +6268,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x47BAC347u)]
+    [TLTypeHash(0xA48EEB8Au)]
     partial class PassportElementPhoneNumberConverter : TLObjectConverter<PassportElementPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementPhoneNumberConverter();
@@ -6279,7 +6279,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementPhoneNumber)tlobj;
             switch (hash)
             {
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
             }
@@ -6287,7 +6287,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC8665DA7u)]
+    [TLTypeHash(0xEC1CFE59u)]
     partial class PassportElementEmailAddressConverter : TLObjectConverter<PassportElementEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementEmailAddressConverter();
@@ -6298,7 +6298,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementEmailAddress)tlobj;
             switch (hash)
             {
-                case 0xE70A50C4u:
+                case 0xB08E074Eu:
                     obj.EmailAddress = reader.ReadString();
                     return true;
             }
@@ -6306,7 +6306,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE2928FA4u)]
+    [TLTypeHash(0xD34BF284u)]
     partial class InputPassportElementPersonalDetailsConverter : TLObjectConverter<InputPassportElementPersonalDetails>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementPersonalDetailsConverter();
@@ -6317,7 +6317,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementPersonalDetails)tlobj;
             switch (hash)
             {
-                case 0x5151970Fu:
+                case 0xF10102A1u:
                     obj.PersonalDetails = reader.ReadTLObject<PersonalDetails>();
                     return true;
             }
@@ -6325,7 +6325,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x17C3B47Bu)]
+    [TLTypeHash(0xB51EE9B1u)]
     partial class InputPassportElementPassportConverter : TLObjectConverter<InputPassportElementPassport>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementPassportConverter();
@@ -6336,7 +6336,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementPassport)tlobj;
             switch (hash)
             {
-                case 0x7560F98Du:
+                case 0xB5A26E08u:
                     obj.Passport = reader.ReadTLObject<InputIdentityDocument>();
                     return true;
             }
@@ -6344,7 +6344,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1F70D8DEu)]
+    [TLTypeHash(0x85A4172Du)]
     partial class InputPassportElementDriverLicenseConverter : TLObjectConverter<InputPassportElementDriverLicense>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementDriverLicenseConverter();
@@ -6355,7 +6355,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementDriverLicense)tlobj;
             switch (hash)
             {
-                case 0xEBC4EB98u:
+                case 0x92979079u:
                     obj.DriverLicense = reader.ReadTLObject<InputIdentityDocument>();
                     return true;
             }
@@ -6363,7 +6363,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD00EFC64u)]
+    [TLTypeHash(0x841BBE2Bu)]
     partial class InputPassportElementIdentityCardConverter : TLObjectConverter<InputPassportElementIdentityCard>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementIdentityCardConverter();
@@ -6374,7 +6374,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementIdentityCard)tlobj;
             switch (hash)
             {
-                case 0x0A43438Cu:
+                case 0x98195157u:
                     obj.IdentityCard = reader.ReadTLObject<InputIdentityDocument>();
                     return true;
             }
@@ -6382,7 +6382,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0B81FCA8u)]
+    [TLTypeHash(0xC98466EBu)]
     partial class InputPassportElementInternalPassportConverter : TLObjectConverter<InputPassportElementInternalPassport>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementInternalPassportConverter();
@@ -6393,7 +6393,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementInternalPassport)tlobj;
             switch (hash)
             {
-                case 0xADEC5C41u:
+                case 0x7A00E3D0u:
                     obj.InternalPassport = reader.ReadTLObject<InputIdentityDocument>();
                     return true;
             }
@@ -6401,7 +6401,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD4CA99D7u)]
+    [TLTypeHash(0xB1C9D681u)]
     partial class InputPassportElementAddressConverter : TLObjectConverter<InputPassportElementAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementAddressConverter();
@@ -6412,7 +6412,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementAddress)tlobj;
             switch (hash)
             {
-                case 0xBF2096A4u:
+                case 0x0D4E6F81u:
                     obj.Address = reader.ReadTLObject<Address>();
                     return true;
             }
@@ -6420,7 +6420,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE47A6191u)]
+    [TLTypeHash(0x9146719Eu)]
     partial class InputPassportElementUtilityBillConverter : TLObjectConverter<InputPassportElementUtilityBill>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementUtilityBillConverter();
@@ -6431,7 +6431,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementUtilityBill)tlobj;
             switch (hash)
             {
-                case 0xD4CC96E0u:
+                case 0x04EAC1B4u:
                     obj.UtilityBill = reader.ReadTLObject<InputPersonalDocument>();
                     return true;
             }
@@ -6439,7 +6439,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCBFFC649u)]
+    [TLTypeHash(0xFCB76FA1u)]
     partial class InputPassportElementBankStatementConverter : TLObjectConverter<InputPassportElementBankStatement>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementBankStatementConverter();
@@ -6450,7 +6450,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementBankStatement)tlobj;
             switch (hash)
             {
-                case 0x13B74342u:
+                case 0xB33607EFu:
                     obj.BankStatement = reader.ReadTLObject<InputPersonalDocument>();
                     return true;
             }
@@ -6458,7 +6458,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x724D8C3Du)]
+    [TLTypeHash(0xD15D4FD2u)]
     partial class InputPassportElementRentalAgreementConverter : TLObjectConverter<InputPassportElementRentalAgreement>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementRentalAgreementConverter();
@@ -6469,7 +6469,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementRentalAgreement)tlobj;
             switch (hash)
             {
-                case 0x360B115Eu:
+                case 0x91855D2Bu:
                     obj.RentalAgreement = reader.ReadTLObject<InputPersonalDocument>();
                     return true;
             }
@@ -6477,7 +6477,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3766834Cu)]
+    [TLTypeHash(0xF23EC07Fu)]
     partial class InputPassportElementPassportRegistrationConverter : TLObjectConverter<InputPassportElementPassportRegistration>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementPassportRegistrationConverter();
@@ -6488,7 +6488,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementPassportRegistration)tlobj;
             switch (hash)
             {
-                case 0x3BE37DCEu:
+                case 0x625DEA81u:
                     obj.PassportRegistration = reader.ReadTLObject<InputPersonalDocument>();
                     return true;
             }
@@ -6496,7 +6496,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x41317CACu)]
+    [TLTypeHash(0xAA717A59u)]
     partial class InputPassportElementTemporaryRegistrationConverter : TLObjectConverter<InputPassportElementTemporaryRegistration>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementTemporaryRegistrationConverter();
@@ -6507,7 +6507,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementTemporaryRegistration)tlobj;
             switch (hash)
             {
-                case 0xCECF2708u:
+                case 0xFB4EEB01u:
                     obj.TemporaryRegistration = reader.ReadTLObject<InputPersonalDocument>();
                     return true;
             }
@@ -6515,7 +6515,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x84230F65u)]
+    [TLTypeHash(0x94C4B750u)]
     partial class InputPassportElementPhoneNumberConverter : TLObjectConverter<InputPassportElementPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementPhoneNumberConverter();
@@ -6526,7 +6526,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementPhoneNumber)tlobj;
             switch (hash)
             {
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
             }
@@ -6534,7 +6534,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x09233A42u)]
+    [TLTypeHash(0x8A2A8FCFu)]
     partial class InputPassportElementEmailAddressConverter : TLObjectConverter<InputPassportElementEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementEmailAddressConverter();
@@ -6545,7 +6545,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementEmailAddress)tlobj;
             switch (hash)
             {
-                case 0xE70A50C4u:
+                case 0xB08E074Eu:
                     obj.EmailAddress = reader.ReadString();
                     return true;
             }
@@ -6553,7 +6553,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD57AB1FBu)]
+    [TLTypeHash(0x39A37E87u)]
     partial class PassportElementsConverter : TLObjectConverter<PassportElements>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementsConverter();
@@ -6564,7 +6564,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElements)tlobj;
             switch (hash)
             {
-                case 0x3EE93AC8u:
+                case 0x444A075Du:
                     obj.Elements = reader.ReadObjectArray<PassportElement>();
                     return true;
             }
@@ -6572,14 +6572,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBC5EA207u)]
+    [TLTypeHash(0xDE238CBBu)]
     partial class PassportElementErrorSourceUnspecifiedConverter : TLObjectConverter<PassportElementErrorSourceUnspecified>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceUnspecifiedConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceUnspecified();
     }
 
-    [TLTypeHash(0x0DAFB0D1u)]
+    [TLTypeHash(0xAE932485u)]
     partial class PassportElementErrorSourceDataFieldConverter : TLObjectConverter<PassportElementErrorSourceDataField>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceDataFieldConverter();
@@ -6590,7 +6590,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementErrorSourceDataField)tlobj;
             switch (hash)
             {
-                case 0xE1F283DDu:
+                case 0x4DEF17BCu:
                     obj.FieldName = reader.ReadString();
                     return true;
             }
@@ -6598,28 +6598,28 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x690A461Bu)]
+    [TLTypeHash(0x146DF0F3u)]
     partial class PassportElementErrorSourceFrontSideConverter : TLObjectConverter<PassportElementErrorSourceFrontSide>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceFrontSideConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceFrontSide();
     }
 
-    [TLTypeHash(0x932AE77Fu)]
+    [TLTypeHash(0xBC825C51u)]
     partial class PassportElementErrorSourceReverseSideConverter : TLObjectConverter<PassportElementErrorSourceReverseSide>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceReverseSideConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceReverseSide();
     }
 
-    [TLTypeHash(0xE76C5B8Au)]
+    [TLTypeHash(0xD2A26910u)]
     partial class PassportElementErrorSourceSelfieConverter : TLObjectConverter<PassportElementErrorSourceSelfie>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceSelfieConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceSelfie();
     }
 
-    [TLTypeHash(0x48294A89u)]
+    [TLTypeHash(0xCCD89BB5u)]
     partial class PassportElementErrorSourceTranslationFileConverter : TLObjectConverter<PassportElementErrorSourceTranslationFile>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceTranslationFileConverter();
@@ -6630,7 +6630,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementErrorSourceTranslationFile)tlobj;
             switch (hash)
             {
-                case 0xD08915C1u:
+                case 0x2AF0D736u:
                     obj.FileIndex = reader.ReadInt();
                     return true;
             }
@@ -6638,14 +6638,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCAB93D56u)]
+    [TLTypeHash(0xA0C95093u)]
     partial class PassportElementErrorSourceTranslationFilesConverter : TLObjectConverter<PassportElementErrorSourceTranslationFiles>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceTranslationFilesConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceTranslationFiles();
     }
 
-    [TLTypeHash(0x30CA2DDAu)]
+    [TLTypeHash(0x74C162DCu)]
     partial class PassportElementErrorSourceFileConverter : TLObjectConverter<PassportElementErrorSourceFile>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceFileConverter();
@@ -6656,7 +6656,7 @@ namespace TDLib.JsonClient
             var obj = (PassportElementErrorSourceFile)tlobj;
             switch (hash)
             {
-                case 0xD08915C1u:
+                case 0x2AF0D736u:
                     obj.FileIndex = reader.ReadInt();
                     return true;
             }
@@ -6664,14 +6664,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x88B4F716u)]
+    [TLTypeHash(0x941F9096u)]
     partial class PassportElementErrorSourceFilesConverter : TLObjectConverter<PassportElementErrorSourceFiles>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceFilesConverter();
         internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceFiles();
     }
 
-    [TLTypeHash(0x872B1044u)]
+    [TLTypeHash(0x31C68D91u)]
     partial class PassportElementErrorConverter : TLObjectConverter<PassportElementError>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementErrorConverter();
@@ -6682,13 +6682,13 @@ namespace TDLib.JsonClient
             var obj = (PassportElementError)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadString();
                     return true;
-                case 0xA3A22F95u:
+                case 0x5F8A7F73u:
                     obj.Source = reader.ReadTLObject<PassportElementErrorSource>();
                     return true;
             }
@@ -6696,7 +6696,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2E78F013u)]
+    [TLTypeHash(0xEA9E20CBu)]
     partial class PassportSuitableElementConverter : TLObjectConverter<PassportSuitableElement>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportSuitableElementConverter();
@@ -6707,16 +6707,16 @@ namespace TDLib.JsonClient
             var obj = (PassportSuitableElement)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
-                case 0xBF623A90u:
+                case 0x71324DCBu:
                     obj.IsSelfieRequired = reader.ReadBool();
                     return true;
-                case 0x4E7F837Eu:
+                case 0x7357BF65u:
                     obj.IsTranslationRequired = reader.ReadBool();
                     return true;
-                case 0x5C8320B3u:
+                case 0xDAE56710u:
                     obj.IsNativeNameRequired = reader.ReadBool();
                     return true;
             }
@@ -6724,7 +6724,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8E3F62C5u)]
+    [TLTypeHash(0xBD1228FFu)]
     partial class PassportRequiredElementConverter : TLObjectConverter<PassportRequiredElement>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportRequiredElementConverter();
@@ -6735,7 +6735,7 @@ namespace TDLib.JsonClient
             var obj = (PassportRequiredElement)tlobj;
             switch (hash)
             {
-                case 0x98D283D9u:
+                case 0x6AFE0883u:
                     obj.SuitableElements = reader.ReadObjectArray<PassportSuitableElement>();
                     return true;
             }
@@ -6743,7 +6743,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9F5F477Du)]
+    [TLTypeHash(0xE2F7C671u)]
     partial class PassportAuthorizationFormConverter : TLObjectConverter<PassportAuthorizationForm>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportAuthorizationFormConverter();
@@ -6754,13 +6754,13 @@ namespace TDLib.JsonClient
             var obj = (PassportAuthorizationForm)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0xB99F3330u:
+                case 0xDF0F24CAu:
                     obj.RequiredElements = reader.ReadObjectArray<PassportRequiredElement>();
                     return true;
-                case 0x46A9D7E2u:
+                case 0x202BC9D3u:
                     obj.PrivacyPolicyUrl = reader.ReadString();
                     return true;
             }
@@ -6768,7 +6768,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x443240ABu)]
+    [TLTypeHash(0x777FA209u)]
     partial class PassportElementsWithErrorsConverter : TLObjectConverter<PassportElementsWithErrors>
     {
         internal static BaseConverter CreateConverterInstance() => new PassportElementsWithErrorsConverter();
@@ -6779,10 +6779,10 @@ namespace TDLib.JsonClient
             var obj = (PassportElementsWithErrors)tlobj;
             switch (hash)
             {
-                case 0x3EE93AC8u:
+                case 0x444A075Du:
                     obj.Elements = reader.ReadObjectArray<PassportElement>();
                     return true;
-                case 0xE832B7D1u:
+                case 0x3C51531Du:
                     obj.Errors = reader.ReadObjectArray<PassportElementError>();
                     return true;
             }
@@ -6790,7 +6790,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6DB389E2u)]
+    [TLTypeHash(0x917B0F99u)]
     partial class EncryptedCredentialsConverter : TLObjectConverter<EncryptedCredentials>
     {
         internal static BaseConverter CreateConverterInstance() => new EncryptedCredentialsConverter();
@@ -6801,13 +6801,13 @@ namespace TDLib.JsonClient
             var obj = (EncryptedCredentials)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
-                case 0x21613D4Du:
+                case 0xD1B862B8u:
                     obj.Hash = reader.ReadBase64String();
                     return true;
-                case 0xB03C4D4Du:
+                case 0x5CA2E8E5u:
                     obj.Secret = reader.ReadBase64String();
                     return true;
             }
@@ -6815,7 +6815,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6C1C14B7u)]
+    [TLTypeHash(0xD9EE5066u)]
     partial class EncryptedPassportElementConverter : TLObjectConverter<EncryptedPassportElement>
     {
         internal static BaseConverter CreateConverterInstance() => new EncryptedPassportElementConverter();
@@ -6826,31 +6826,31 @@ namespace TDLib.JsonClient
             var obj = (EncryptedPassportElement)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
-                case 0xFACC551Cu:
+                case 0x1B51A1D9u:
                     obj.FrontSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xB7B540A5u:
+                case 0xACCE8C4Bu:
                     obj.ReverseSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0x80AFA9F9u:
+                case 0xD9EB9CE1u:
                     obj.Selfie = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xACEF242Du:
+                case 0xB469456Fu:
                     obj.Translation = reader.ReadObjectArray<DatedFile>();
                     return true;
-                case 0x91BCD050u:
+                case 0x06354059u:
                     obj.Files = reader.ReadObjectArray<DatedFile>();
                     return true;
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadString();
                     return true;
-                case 0x21613D4Du:
+                case 0xD1B862B8u:
                     obj.Hash = reader.ReadString();
                     return true;
             }
@@ -6858,7 +6858,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x64BC694Du)]
+    [TLTypeHash(0x5E8A80A6u)]
     partial class InputPassportElementErrorSourceUnspecifiedConverter : TLObjectConverter<InputPassportElementErrorSourceUnspecified>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceUnspecifiedConverter();
@@ -6869,7 +6869,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceUnspecified)tlobj;
             switch (hash)
             {
-                case 0x9F0350F5u:
+                case 0x92864341u:
                     obj.ElementHash = reader.ReadBase64String();
                     return true;
             }
@@ -6877,7 +6877,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2EA594C1u)]
+    [TLTypeHash(0xC9322431u)]
     partial class InputPassportElementErrorSourceDataFieldConverter : TLObjectConverter<InputPassportElementErrorSourceDataField>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceDataFieldConverter();
@@ -6888,10 +6888,10 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceDataField)tlobj;
             switch (hash)
             {
-                case 0xE1F283DDu:
+                case 0x4DEF17BCu:
                     obj.FieldName = reader.ReadString();
                     return true;
-                case 0xA63082C2u:
+                case 0x6AF7A95Au:
                     obj.DataHash = reader.ReadBase64String();
                     return true;
             }
@@ -6899,7 +6899,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4A00620Bu)]
+    [TLTypeHash(0x73CCF047u)]
     partial class InputPassportElementErrorSourceFrontSideConverter : TLObjectConverter<InputPassportElementErrorSourceFrontSide>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceFrontSideConverter();
@@ -6910,7 +6910,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceFrontSide)tlobj;
             switch (hash)
             {
-                case 0x69196CFBu:
+                case 0x58440AD6u:
                     obj.FileHash = reader.ReadBase64String();
                     return true;
             }
@@ -6918,7 +6918,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4BC82C35u)]
+    [TLTypeHash(0x3C2B504Cu)]
     partial class InputPassportElementErrorSourceReverseSideConverter : TLObjectConverter<InputPassportElementErrorSourceReverseSide>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceReverseSideConverter();
@@ -6929,7 +6929,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceReverseSide)tlobj;
             switch (hash)
             {
-                case 0x69196CFBu:
+                case 0x58440AD6u:
                     obj.FileHash = reader.ReadBase64String();
                     return true;
             }
@@ -6937,7 +6937,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF36C61A2u)]
+    [TLTypeHash(0x4C26295Au)]
     partial class InputPassportElementErrorSourceSelfieConverter : TLObjectConverter<InputPassportElementErrorSourceSelfie>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceSelfieConverter();
@@ -6948,7 +6948,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceSelfie)tlobj;
             switch (hash)
             {
-                case 0x69196CFBu:
+                case 0x58440AD6u:
                     obj.FileHash = reader.ReadBase64String();
                     return true;
             }
@@ -6956,7 +6956,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x31810A50u)]
+    [TLTypeHash(0xF5CC6913u)]
     partial class InputPassportElementErrorSourceTranslationFileConverter : TLObjectConverter<InputPassportElementErrorSourceTranslationFile>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceTranslationFileConverter();
@@ -6967,7 +6967,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceTranslationFile)tlobj;
             switch (hash)
             {
-                case 0x69196CFBu:
+                case 0x58440AD6u:
                     obj.FileHash = reader.ReadBase64String();
                     return true;
             }
@@ -6975,7 +6975,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x61A1AF71u)]
+    [TLTypeHash(0x9F4542BCu)]
     partial class InputPassportElementErrorSourceTranslationFilesConverter : TLObjectConverter<InputPassportElementErrorSourceTranslationFiles>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceTranslationFilesConverter();
@@ -6986,7 +6986,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceTranslationFiles)tlobj;
             switch (hash)
             {
-                case 0x8FF17C72u:
+                case 0xA7E87E58u:
                     obj.FileHashes = reader.ReadBytesArray();
                     return true;
             }
@@ -6994,7 +6994,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2828F212u)]
+    [TLTypeHash(0x74C17BD6u)]
     partial class InputPassportElementErrorSourceFileConverter : TLObjectConverter<InputPassportElementErrorSourceFile>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceFileConverter();
@@ -7005,7 +7005,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceFile)tlobj;
             switch (hash)
             {
-                case 0x69196CFBu:
+                case 0x58440AD6u:
                     obj.FileHash = reader.ReadBase64String();
                     return true;
             }
@@ -7013,7 +7013,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC1F86BC2u)]
+    [TLTypeHash(0x74CA7991u)]
     partial class InputPassportElementErrorSourceFilesConverter : TLObjectConverter<InputPassportElementErrorSourceFiles>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceFilesConverter();
@@ -7024,7 +7024,7 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementErrorSourceFiles)tlobj;
             switch (hash)
             {
-                case 0x8FF17C72u:
+                case 0xA7E87E58u:
                     obj.FileHashes = reader.ReadBytesArray();
                     return true;
             }
@@ -7032,7 +7032,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7DDD43C3u)]
+    [TLTypeHash(0x695F153Au)]
     partial class InputPassportElementErrorConverter : TLObjectConverter<InputPassportElementError>
     {
         internal static BaseConverter CreateConverterInstance() => new InputPassportElementErrorConverter();
@@ -7043,13 +7043,13 @@ namespace TDLib.JsonClient
             var obj = (InputPassportElementError)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadString();
                     return true;
-                case 0xA3A22F95u:
+                case 0x5F8A7F73u:
                     obj.Source = reader.ReadTLObject<InputPassportElementErrorSource>();
                     return true;
             }
@@ -7057,7 +7057,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBD147ED2u)]
+    [TLTypeHash(0xFFE79BEFu)]
     partial class MessageTextConverter : TLObjectConverter<MessageText>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageTextConverter();
@@ -7068,10 +7068,10 @@ namespace TDLib.JsonClient
             var obj = (MessageText)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x5257E69Du:
+                case 0xD008BBD5u:
                     obj.WebPage = reader.ReadTLObject<WebPage>();
                     return true;
             }
@@ -7079,7 +7079,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x470AC90Eu)]
+    [TLTypeHash(0x2845870Eu)]
     partial class MessageAnimationConverter : TLObjectConverter<MessageAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageAnimationConverter();
@@ -7090,13 +7090,13 @@ namespace TDLib.JsonClient
             var obj = (MessageAnimation)tlobj;
             switch (hash)
             {
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xD67DF3F8u:
+                case 0x0CEB653Au:
                     obj.IsSecret = reader.ReadBool();
                     return true;
             }
@@ -7104,7 +7104,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC83B5400u)]
+    [TLTypeHash(0x2D0CF253u)]
     partial class MessageAudioConverter : TLObjectConverter<MessageAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageAudioConverter();
@@ -7115,10 +7115,10 @@ namespace TDLib.JsonClient
             var obj = (MessageAudio)tlobj;
             switch (hash)
             {
-                case 0xEB1AA922u:
+                case 0x187D3695u:
                     obj.Audio = reader.ReadTLObject<Audio>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -7126,7 +7126,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x61D284A7u)]
+    [TLTypeHash(0xC5DF3351u)]
     partial class MessageDocumentConverter : TLObjectConverter<MessageDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageDocumentConverter();
@@ -7137,10 +7137,10 @@ namespace TDLib.JsonClient
             var obj = (MessageDocument)tlobj;
             switch (hash)
             {
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -7148,7 +7148,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEBC926CBu)]
+    [TLTypeHash(0x21C640DEu)]
     partial class MessagePhotoConverter : TLObjectConverter<MessagePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagePhotoConverter();
@@ -7159,13 +7159,13 @@ namespace TDLib.JsonClient
             var obj = (MessagePhoto)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xD67DF3F8u:
+                case 0x0CEB653Au:
                     obj.IsSecret = reader.ReadBool();
                     return true;
             }
@@ -7173,14 +7173,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5C4402C0u)]
+    [TLTypeHash(0x18750FBBu)]
     partial class MessageExpiredPhotoConverter : TLObjectConverter<MessageExpiredPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageExpiredPhotoConverter();
         internal static TLObject CreateObjectInstance() => new MessageExpiredPhoto();
     }
 
-    [TLTypeHash(0x436AFCADu)]
+    [TLTypeHash(0x8E44FFEDu)]
     partial class MessageStickerConverter : TLObjectConverter<MessageSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageStickerConverter();
@@ -7191,7 +7191,7 @@ namespace TDLib.JsonClient
             var obj = (MessageSticker)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<Sticker>();
                     return true;
             }
@@ -7199,7 +7199,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x58F37ADBu)]
+    [TLTypeHash(0x49B61EEAu)]
     partial class MessageVideoConverter : TLObjectConverter<MessageVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageVideoConverter();
@@ -7210,13 +7210,13 @@ namespace TDLib.JsonClient
             var obj = (MessageVideo)tlobj;
             switch (hash)
             {
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xD67DF3F8u:
+                case 0x0CEB653Au:
                     obj.IsSecret = reader.ReadBool();
                     return true;
             }
@@ -7224,14 +7224,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEF7E5ED0u)]
+    [TLTypeHash(0x7005518Fu)]
     partial class MessageExpiredVideoConverter : TLObjectConverter<MessageExpiredVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageExpiredVideoConverter();
         internal static TLObject CreateObjectInstance() => new MessageExpiredVideo();
     }
 
-    [TLTypeHash(0x109CD5BEu)]
+    [TLTypeHash(0x7D6A8A06u)]
     partial class MessageVideoNoteConverter : TLObjectConverter<MessageVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageVideoNoteConverter();
@@ -7242,13 +7242,13 @@ namespace TDLib.JsonClient
             var obj = (MessageVideoNote)tlobj;
             switch (hash)
             {
-                case 0x0F7C4824u:
+                case 0xC82AA7C8u:
                     obj.VideoNote = reader.ReadTLObject<VideoNote>();
                     return true;
-                case 0x411EF9CEu:
+                case 0xA7C194DBu:
                     obj.IsViewed = reader.ReadBool();
                     return true;
-                case 0xD67DF3F8u:
+                case 0x0CEB653Au:
                     obj.IsSecret = reader.ReadBool();
                     return true;
             }
@@ -7256,7 +7256,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFC0BFAAAu)]
+    [TLTypeHash(0x463B19FDu)]
     partial class MessageVoiceNoteConverter : TLObjectConverter<MessageVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageVoiceNoteConverter();
@@ -7267,13 +7267,13 @@ namespace TDLib.JsonClient
             var obj = (MessageVoiceNote)tlobj;
             switch (hash)
             {
-                case 0xD8548F7Bu:
+                case 0xE27EDDCFu:
                     obj.VoiceNote = reader.ReadTLObject<VoiceNote>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x33177844u:
+                case 0xF4E1F777u:
                     obj.IsListened = reader.ReadBool();
                     return true;
             }
@@ -7281,7 +7281,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x407ACA82u)]
+    [TLTypeHash(0x432830ECu)]
     partial class MessageLocationConverter : TLObjectConverter<MessageLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageLocationConverter();
@@ -7292,13 +7292,13 @@ namespace TDLib.JsonClient
             var obj = (MessageLocation)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x6EA7C561u:
+                case 0xA6EEA81Au:
                     obj.LivePeriod = reader.ReadInt();
                     return true;
-                case 0x879D494Fu:
+                case 0x3A26F090u:
                     obj.ExpiresIn = reader.ReadInt();
                     return true;
             }
@@ -7306,7 +7306,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF68C9DBFu)]
+    [TLTypeHash(0xA4E0DFCBu)]
     partial class MessageVenueConverter : TLObjectConverter<MessageVenue>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageVenueConverter();
@@ -7317,7 +7317,7 @@ namespace TDLib.JsonClient
             var obj = (MessageVenue)tlobj;
             switch (hash)
             {
-                case 0xD5AD609Du:
+                case 0x91911B0Du:
                     obj.Venue = reader.ReadTLObject<Venue>();
                     return true;
             }
@@ -7325,7 +7325,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2BC53851u)]
+    [TLTypeHash(0x4DCBA528u)]
     partial class MessageContactConverter : TLObjectConverter<MessageContact>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageContactConverter();
@@ -7336,7 +7336,7 @@ namespace TDLib.JsonClient
             var obj = (MessageContact)tlobj;
             switch (hash)
             {
-                case 0x3F4DEB3Au:
+                case 0x4C62E638u:
                     obj.Contact = reader.ReadTLObject<Contact>();
                     return true;
             }
@@ -7344,7 +7344,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x86FC8BFCu)]
+    [TLTypeHash(0x6562DE7Cu)]
     partial class MessageDiceConverter : TLObjectConverter<MessageDice>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageDiceConverter();
@@ -7355,19 +7355,19 @@ namespace TDLib.JsonClient
             var obj = (MessageDice)tlobj;
             switch (hash)
             {
-                case 0x1CCBD02Au:
+                case 0xEC2104EFu:
                     obj.InitialStateSticker = reader.ReadTLObject<Sticker>();
                     return true;
-                case 0x20A84525u:
+                case 0x26D528C6u:
                     obj.FinalStateSticker = reader.ReadTLObject<Sticker>();
                     return true;
-                case 0xD446748Eu:
+                case 0xB64BF632u:
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadInt();
                     return true;
-                case 0x7320656Du:
+                case 0x342115B9u:
                     obj.SuccessAnimationFrameNumber = reader.ReadInt();
                     return true;
             }
@@ -7375,7 +7375,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2854AE8Au)]
+    [TLTypeHash(0xE7470DA4u)]
     partial class MessageGameConverter : TLObjectConverter<MessageGame>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageGameConverter();
@@ -7386,7 +7386,7 @@ namespace TDLib.JsonClient
             var obj = (MessageGame)tlobj;
             switch (hash)
             {
-                case 0xBA13C9B9u:
+                case 0x232B318Cu:
                     obj.Game = reader.ReadTLObject<Game>();
                     return true;
             }
@@ -7394,7 +7394,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5AC02C14u)]
+    [TLTypeHash(0x40D0C66Du)]
     partial class MessagePollConverter : TLObjectConverter<MessagePoll>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagePollConverter();
@@ -7405,7 +7405,7 @@ namespace TDLib.JsonClient
             var obj = (MessagePoll)tlobj;
             switch (hash)
             {
-                case 0xC8874B27u:
+                case 0x84BCFA45u:
                     obj.Poll = reader.ReadTLObject<Poll>();
                     return true;
             }
@@ -7413,7 +7413,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB7FDBC82u)]
+    [TLTypeHash(0x91CC5454u)]
     partial class MessageInvoiceConverter : TLObjectConverter<MessageInvoice>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageInvoiceConverter();
@@ -7424,31 +7424,31 @@ namespace TDLib.JsonClient
             var obj = (MessageInvoice)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0xBDC5D1BFu:
+                case 0x6956883Fu:
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0xC58746ACu:
+                case 0x46B55354u:
                     obj.TotalAmount = reader.ReadLong();
                     return true;
-                case 0x6754DA83u:
+                case 0xE25FEAD6u:
                     obj.StartParameter = reader.ReadString();
                     return true;
-                case 0xBE19BE1Cu:
+                case 0x4D8C502Du:
                     obj.IsTest = reader.ReadBool();
                     return true;
-                case 0xEDF3D3EDu:
+                case 0xC721648Cu:
                     obj.NeedShippingAddress = reader.ReadBool();
                     return true;
-                case 0xBDE16C7Fu:
+                case 0xA959ADC2u:
                     obj.ReceiptMessageId = reader.ReadLong();
                     return true;
             }
@@ -7456,7 +7456,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3866DCC2u)]
+    [TLTypeHash(0x08E21316u)]
     partial class MessageCallConverter : TLObjectConverter<MessageCall>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageCallConverter();
@@ -7467,13 +7467,13 @@ namespace TDLib.JsonClient
             var obj = (MessageCall)tlobj;
             switch (hash)
             {
-                case 0xE57A104Eu:
+                case 0x303B395Cu:
                     obj.IsVideo = reader.ReadBool();
                     return true;
-                case 0x00A27CAEu:
+                case 0xBC7890D3u:
                     obj.DiscardReason = reader.ReadTLObject<CallDiscardReason>();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
             }
@@ -7481,7 +7481,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2D664800u)]
+    [TLTypeHash(0x7F16AF42u)]
     partial class MessageBasicGroupChatCreateConverter : TLObjectConverter<MessageBasicGroupChatCreate>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageBasicGroupChatCreateConverter();
@@ -7492,10 +7492,10 @@ namespace TDLib.JsonClient
             var obj = (MessageBasicGroupChatCreate)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xAD820684u:
+                case 0x6C1165F9u:
                     obj.MemberUserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -7503,7 +7503,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8FE5842Cu)]
+    [TLTypeHash(0xBF892D6Bu)]
     partial class MessageSupergroupChatCreateConverter : TLObjectConverter<MessageSupergroupChatCreate>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageSupergroupChatCreateConverter();
@@ -7514,7 +7514,7 @@ namespace TDLib.JsonClient
             var obj = (MessageSupergroupChatCreate)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -7522,7 +7522,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAE67E07Cu)]
+    [TLTypeHash(0xFC08639Fu)]
     partial class MessageChatChangeTitleConverter : TLObjectConverter<MessageChatChangeTitle>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatChangeTitleConverter();
@@ -7533,7 +7533,7 @@ namespace TDLib.JsonClient
             var obj = (MessageChatChangeTitle)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -7541,7 +7541,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF8896D49u)]
+    [TLTypeHash(0xC3899FECu)]
     partial class MessageChatChangePhotoConverter : TLObjectConverter<MessageChatChangePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatChangePhotoConverter();
@@ -7552,7 +7552,7 @@ namespace TDLib.JsonClient
             var obj = (MessageChatChangePhoto)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
             }
@@ -7560,14 +7560,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x93AA3E90u)]
+    [TLTypeHash(0xE55F7C8Du)]
     partial class MessageChatDeletePhotoConverter : TLObjectConverter<MessageChatDeletePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatDeletePhotoConverter();
         internal static TLObject CreateObjectInstance() => new MessageChatDeletePhoto();
     }
 
-    [TLTypeHash(0x3F5B3B4Au)]
+    [TLTypeHash(0x904583F4u)]
     partial class MessageChatAddMembersConverter : TLObjectConverter<MessageChatAddMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatAddMembersConverter();
@@ -7578,7 +7578,7 @@ namespace TDLib.JsonClient
             var obj = (MessageChatAddMembers)tlobj;
             switch (hash)
             {
-                case 0xAD820684u:
+                case 0x6C1165F9u:
                     obj.MemberUserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -7586,14 +7586,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x76A2DF57u)]
+    [TLTypeHash(0xBC8530A0u)]
     partial class MessageChatJoinByLinkConverter : TLObjectConverter<MessageChatJoinByLink>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatJoinByLinkConverter();
         internal static TLObject CreateObjectInstance() => new MessageChatJoinByLink();
     }
 
-    [TLTypeHash(0x143CD40Au)]
+    [TLTypeHash(0xF070754Bu)]
     partial class MessageChatDeleteMemberConverter : TLObjectConverter<MessageChatDeleteMember>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatDeleteMemberConverter();
@@ -7604,7 +7604,7 @@ namespace TDLib.JsonClient
             var obj = (MessageChatDeleteMember)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -7612,7 +7612,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8E1A6AFCu)]
+    [TLTypeHash(0x107102B7u)]
     partial class MessageChatUpgradeToConverter : TLObjectConverter<MessageChatUpgradeTo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatUpgradeToConverter();
@@ -7623,7 +7623,7 @@ namespace TDLib.JsonClient
             var obj = (MessageChatUpgradeTo)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
             }
@@ -7631,7 +7631,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF025D955u)]
+    [TLTypeHash(0x3BDB9E67u)]
     partial class MessageChatUpgradeFromConverter : TLObjectConverter<MessageChatUpgradeFrom>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatUpgradeFromConverter();
@@ -7642,10 +7642,10 @@ namespace TDLib.JsonClient
             var obj = (MessageChatUpgradeFrom)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x743FFA02u:
+                case 0x1B6DFDDBu:
                     obj.BasicGroupId = reader.ReadInt();
                     return true;
             }
@@ -7653,7 +7653,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3166DFAFu)]
+    [TLTypeHash(0xAC761AFEu)]
     partial class MessagePinMessageConverter : TLObjectConverter<MessagePinMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagePinMessageConverter();
@@ -7664,7 +7664,7 @@ namespace TDLib.JsonClient
             var obj = (MessagePinMessage)tlobj;
             switch (hash)
             {
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -7672,14 +7672,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x06B9E13Bu)]
+    [TLTypeHash(0x21F7CB23u)]
     partial class MessageScreenshotTakenConverter : TLObjectConverter<MessageScreenshotTaken>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageScreenshotTakenConverter();
         internal static TLObject CreateObjectInstance() => new MessageScreenshotTaken();
     }
 
-    [TLTypeHash(0xDC9AB763u)]
+    [TLTypeHash(0x0988A61Du)]
     partial class MessageChatSetTtlConverter : TLObjectConverter<MessageChatSetTtl>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageChatSetTtlConverter();
@@ -7690,7 +7690,7 @@ namespace TDLib.JsonClient
             var obj = (MessageChatSetTtl)tlobj;
             switch (hash)
             {
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadInt();
                     return true;
             }
@@ -7698,7 +7698,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8ACB559Du)]
+    [TLTypeHash(0xF00C11D2u)]
     partial class MessageCustomServiceActionConverter : TLObjectConverter<MessageCustomServiceAction>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageCustomServiceActionConverter();
@@ -7709,7 +7709,7 @@ namespace TDLib.JsonClient
             var obj = (MessageCustomServiceAction)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
             }
@@ -7717,7 +7717,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAADD99D9u)]
+    [TLTypeHash(0xE07F07B0u)]
     partial class MessageGameScoreConverter : TLObjectConverter<MessageGameScore>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageGameScoreConverter();
@@ -7728,13 +7728,13 @@ namespace TDLib.JsonClient
             var obj = (MessageGameScore)tlobj;
             switch (hash)
             {
-                case 0xED6966A8u:
+                case 0xBDA6D4C4u:
                     obj.GameMessageId = reader.ReadLong();
                     return true;
-                case 0x3DC97044u:
+                case 0xE48FD905u:
                     obj.GameId = reader.ReadInt64String();
                     return true;
-                case 0x1690F8C8u:
+                case 0x32993751u:
                     obj.Score = reader.ReadInt();
                     return true;
             }
@@ -7742,7 +7742,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9FE4974Du)]
+    [TLTypeHash(0xF701F95Du)]
     partial class MessagePaymentSuccessfulConverter : TLObjectConverter<MessagePaymentSuccessful>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagePaymentSuccessfulConverter();
@@ -7753,13 +7753,13 @@ namespace TDLib.JsonClient
             var obj = (MessagePaymentSuccessful)tlobj;
             switch (hash)
             {
-                case 0x90186B6Du:
+                case 0xAAA663B7u:
                     obj.InvoiceMessageId = reader.ReadLong();
                     return true;
-                case 0xBDC5D1BFu:
+                case 0x6956883Fu:
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0xC58746ACu:
+                case 0x46B55354u:
                     obj.TotalAmount = reader.ReadLong();
                     return true;
             }
@@ -7767,7 +7767,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x67E3E898u)]
+    [TLTypeHash(0xEF4F9587u)]
     partial class MessagePaymentSuccessfulBotConverter : TLObjectConverter<MessagePaymentSuccessfulBot>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagePaymentSuccessfulBotConverter();
@@ -7778,28 +7778,28 @@ namespace TDLib.JsonClient
             var obj = (MessagePaymentSuccessfulBot)tlobj;
             switch (hash)
             {
-                case 0x90186B6Du:
+                case 0xAAA663B7u:
                     obj.InvoiceMessageId = reader.ReadLong();
                     return true;
-                case 0xBDC5D1BFu:
+                case 0x6956883Fu:
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0xC58746ACu:
+                case 0x46B55354u:
                     obj.TotalAmount = reader.ReadLong();
                     return true;
-                case 0xF2C30B29u:
+                case 0xB0F55CC6u:
                     obj.InvoicePayload = reader.ReadBase64String();
                     return true;
-                case 0x93477416u:
+                case 0xE1314C58u:
                     obj.ShippingOptionId = reader.ReadString();
                     return true;
-                case 0xE97ED45Eu:
+                case 0x86780B40u:
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0xB03801F4u:
+                case 0x8E6B7922u:
                     obj.TelegramPaymentChargeId = reader.ReadString();
                     return true;
-                case 0x78E88554u:
+                case 0x756A0F54u:
                     obj.ProviderPaymentChargeId = reader.ReadString();
                     return true;
             }
@@ -7807,14 +7807,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0876FB37u)]
+    [TLTypeHash(0xF40A29EFu)]
     partial class MessageContactRegisteredConverter : TLObjectConverter<MessageContactRegistered>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageContactRegisteredConverter();
         internal static TLObject CreateObjectInstance() => new MessageContactRegistered();
     }
 
-    [TLTypeHash(0x4D1409DDu)]
+    [TLTypeHash(0x752C549Cu)]
     partial class MessageWebsiteConnectedConverter : TLObjectConverter<MessageWebsiteConnected>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageWebsiteConnectedConverter();
@@ -7825,7 +7825,7 @@ namespace TDLib.JsonClient
             var obj = (MessageWebsiteConnected)tlobj;
             switch (hash)
             {
-                case 0x32598F1Fu:
+                case 0xF3FF5361u:
                     obj.DomainName = reader.ReadString();
                     return true;
             }
@@ -7833,7 +7833,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4E33DE36u)]
+    [TLTypeHash(0x7C45C665u)]
     partial class MessagePassportDataSentConverter : TLObjectConverter<MessagePassportDataSent>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagePassportDataSentConverter();
@@ -7844,7 +7844,7 @@ namespace TDLib.JsonClient
             var obj = (MessagePassportDataSent)tlobj;
             switch (hash)
             {
-                case 0x51F538B3u:
+                case 0x59308930u:
                     obj.Types = reader.ReadObjectArray<PassportElementType>();
                     return true;
             }
@@ -7852,7 +7852,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x965D3BDBu)]
+    [TLTypeHash(0x05908F32u)]
     partial class MessagePassportDataReceivedConverter : TLObjectConverter<MessagePassportDataReceived>
     {
         internal static BaseConverter CreateConverterInstance() => new MessagePassportDataReceivedConverter();
@@ -7863,10 +7863,10 @@ namespace TDLib.JsonClient
             var obj = (MessagePassportDataReceived)tlobj;
             switch (hash)
             {
-                case 0x3EE93AC8u:
+                case 0x444A075Du:
                     obj.Elements = reader.ReadObjectArray<EncryptedPassportElement>();
                     return true;
-                case 0x6A52DB2Cu:
+                case 0xFA05280Eu:
                     obj.Credentials = reader.ReadTLObject<EncryptedCredentials>();
                     return true;
             }
@@ -7874,112 +7874,112 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x40576661u)]
+    [TLTypeHash(0x10F6E704u)]
     partial class MessageUnsupportedConverter : TLObjectConverter<MessageUnsupported>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageUnsupportedConverter();
         internal static TLObject CreateObjectInstance() => new MessageUnsupported();
     }
 
-    [TLTypeHash(0x0039A813u)]
+    [TLTypeHash(0x0B7F265Eu)]
     partial class TextEntityTypeMentionConverter : TLObjectConverter<TextEntityTypeMention>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeMentionConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeMention();
     }
 
-    [TLTypeHash(0x76391266u)]
+    [TLTypeHash(0xB3C855F2u)]
     partial class TextEntityTypeHashtagConverter : TLObjectConverter<TextEntityTypeHashtag>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeHashtagConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeHashtag();
     }
 
-    [TLTypeHash(0x80119A6Du)]
+    [TLTypeHash(0xB1CF0108u)]
     partial class TextEntityTypeCashtagConverter : TLObjectConverter<TextEntityTypeCashtag>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeCashtagConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeCashtag();
     }
 
-    [TLTypeHash(0x0174BFF9u)]
+    [TLTypeHash(0x38050FEAu)]
     partial class TextEntityTypeBotCommandConverter : TLObjectConverter<TextEntityTypeBotCommand>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeBotCommandConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeBotCommand();
     }
 
-    [TLTypeHash(0xAA376DA0u)]
+    [TLTypeHash(0x862245EDu)]
     partial class TextEntityTypeUrlConverter : TLObjectConverter<TextEntityTypeUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeUrlConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeUrl();
     }
 
-    [TLTypeHash(0xC2EF1B92u)]
+    [TLTypeHash(0x30353CC2u)]
     partial class TextEntityTypeEmailAddressConverter : TLObjectConverter<TextEntityTypeEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeEmailAddressConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeEmailAddress();
     }
 
-    [TLTypeHash(0xEA47AC2Du)]
+    [TLTypeHash(0x5B41BFA4u)]
     partial class TextEntityTypePhoneNumberConverter : TLObjectConverter<TextEntityTypePhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypePhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypePhoneNumber();
     }
 
-    [TLTypeHash(0xE49A5F76u)]
+    [TLTypeHash(0xDC7D0A15u)]
     partial class TextEntityTypeBankCardNumberConverter : TLObjectConverter<TextEntityTypeBankCardNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeBankCardNumberConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeBankCardNumber();
     }
 
-    [TLTypeHash(0xD5C8A93Bu)]
+    [TLTypeHash(0x9FD0A949u)]
     partial class TextEntityTypeBoldConverter : TLObjectConverter<TextEntityTypeBold>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeBoldConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeBold();
     }
 
-    [TLTypeHash(0x80276496u)]
+    [TLTypeHash(0x2E625D16u)]
     partial class TextEntityTypeItalicConverter : TLObjectConverter<TextEntityTypeItalic>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeItalicConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeItalic();
     }
 
-    [TLTypeHash(0x0315D991u)]
+    [TLTypeHash(0x570852EEu)]
     partial class TextEntityTypeUnderlineConverter : TLObjectConverter<TextEntityTypeUnderline>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeUnderlineConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeUnderline();
     }
 
-    [TLTypeHash(0x6014A59Eu)]
+    [TLTypeHash(0x1AA98AB4u)]
     partial class TextEntityTypeStrikethroughConverter : TLObjectConverter<TextEntityTypeStrikethrough>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeStrikethroughConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeStrikethrough();
     }
 
-    [TLTypeHash(0x67F24338u)]
+    [TLTypeHash(0x98B274B2u)]
     partial class TextEntityTypeCodeConverter : TLObjectConverter<TextEntityTypeCode>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeCodeConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypeCode();
     }
 
-    [TLTypeHash(0xE91A8008u)]
+    [TLTypeHash(0xF9353FA2u)]
     partial class TextEntityTypePreConverter : TLObjectConverter<TextEntityTypePre>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypePreConverter();
         internal static TLObject CreateObjectInstance() => new TextEntityTypePre();
     }
 
-    [TLTypeHash(0x12371A78u)]
+    [TLTypeHash(0x7922648Bu)]
     partial class TextEntityTypePreCodeConverter : TLObjectConverter<TextEntityTypePreCode>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypePreCodeConverter();
@@ -7990,7 +7990,7 @@ namespace TDLib.JsonClient
             var obj = (TextEntityTypePreCode)tlobj;
             switch (hash)
             {
-                case 0xCFC7C27Du:
+                case 0xD4DB71B5u:
                     obj.Language = reader.ReadString();
                     return true;
             }
@@ -7998,7 +7998,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8CA22431u)]
+    [TLTypeHash(0x2A8A8CA5u)]
     partial class TextEntityTypeTextUrlConverter : TLObjectConverter<TextEntityTypeTextUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeTextUrlConverter();
@@ -8009,7 +8009,7 @@ namespace TDLib.JsonClient
             var obj = (TextEntityTypeTextUrl)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -8017,7 +8017,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x51BBD7B6u)]
+    [TLTypeHash(0xD6762F4Au)]
     partial class TextEntityTypeMentionNameConverter : TLObjectConverter<TextEntityTypeMentionName>
     {
         internal static BaseConverter CreateConverterInstance() => new TextEntityTypeMentionNameConverter();
@@ -8028,7 +8028,7 @@ namespace TDLib.JsonClient
             var obj = (TextEntityTypeMentionName)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -8036,7 +8036,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE143C7F9u)]
+    [TLTypeHash(0xF417350Cu)]
     partial class InputThumbnailConverter : TLObjectConverter<InputThumbnail>
     {
         internal static BaseConverter CreateConverterInstance() => new InputThumbnailConverter();
@@ -8047,13 +8047,13 @@ namespace TDLib.JsonClient
             var obj = (InputThumbnail)tlobj;
             switch (hash)
             {
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
             }
@@ -8061,7 +8061,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x543E4683u)]
+    [TLTypeHash(0x5DC17BAAu)]
     partial class MessageSchedulingStateSendAtDateConverter : TLObjectConverter<MessageSchedulingStateSendAtDate>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageSchedulingStateSendAtDateConverter();
@@ -8072,7 +8072,7 @@ namespace TDLib.JsonClient
             var obj = (MessageSchedulingStateSendAtDate)tlobj;
             switch (hash)
             {
-                case 0x22D088E2u:
+                case 0xCE598FE9u:
                     obj.SendDate = reader.ReadInt();
                     return true;
             }
@@ -8080,14 +8080,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8372D41Bu)]
+    [TLTypeHash(0xD6E095F4u)]
     partial class MessageSchedulingStateSendWhenOnlineConverter : TLObjectConverter<MessageSchedulingStateSendWhenOnline>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageSchedulingStateSendWhenOnlineConverter();
         internal static TLObject CreateObjectInstance() => new MessageSchedulingStateSendWhenOnline();
     }
 
-    [TLTypeHash(0x4B4E2348u)]
+    [TLTypeHash(0x536AF108u)]
     partial class MessageSendOptionsConverter : TLObjectConverter<MessageSendOptions>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageSendOptionsConverter();
@@ -8098,13 +8098,13 @@ namespace TDLib.JsonClient
             var obj = (MessageSendOptions)tlobj;
             switch (hash)
             {
-                case 0x53B8E768u:
+                case 0x5771A509u:
                     obj.DisableNotification = reader.ReadBool();
                     return true;
-                case 0xE555ABEDu:
+                case 0x97CC7257u:
                     obj.FromBackground = reader.ReadBool();
                     return true;
-                case 0x3F5B0908u:
+                case 0x692DBE97u:
                     obj.SchedulingState = reader.ReadTLObject<MessageSchedulingState>();
                     return true;
             }
@@ -8112,7 +8112,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x930E7FAAu)]
+    [TLTypeHash(0x69021813u)]
     partial class MessageCopyOptionsConverter : TLObjectConverter<MessageCopyOptions>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageCopyOptionsConverter();
@@ -8123,13 +8123,13 @@ namespace TDLib.JsonClient
             var obj = (MessageCopyOptions)tlobj;
             switch (hash)
             {
-                case 0xC1A79199u:
+                case 0x297D0311u:
                     obj.SendCopy = reader.ReadBool();
                     return true;
-                case 0x8EBEDC60u:
+                case 0xBCB39182u:
                     obj.ReplaceCaption = reader.ReadBool();
                     return true;
-                case 0x10341651u:
+                case 0x2D3F1A8Bu:
                     obj.NewCaption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8137,7 +8137,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x12099B3Bu)]
+    [TLTypeHash(0xDFC8F617u)]
     partial class InputMessageTextConverter : TLObjectConverter<InputMessageText>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageTextConverter();
@@ -8148,13 +8148,13 @@ namespace TDLib.JsonClient
             var obj = (InputMessageText)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xC45C6F73u:
+                case 0x69F12077u:
                     obj.DisableWebPagePreview = reader.ReadBool();
                     return true;
-                case 0xCEFC4741u:
+                case 0x65AEDB4Cu:
                     obj.ClearDraft = reader.ReadBool();
                     return true;
             }
@@ -8162,7 +8162,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x603ED8A3u)]
+    [TLTypeHash(0x3FD89633u)]
     partial class InputMessageAnimationConverter : TLObjectConverter<InputMessageAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageAnimationConverter();
@@ -8173,25 +8173,25 @@ namespace TDLib.JsonClient
             var obj = (InputMessageAnimation)tlobj;
             switch (hash)
             {
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x7797097Cu:
+                case 0x2E8A75B5u:
                     obj.AddedStickerFileIds = reader.ReadInt32Array();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8199,7 +8199,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x53163A33u)]
+    [TLTypeHash(0x9E4AA710u)]
     partial class InputMessageAudioConverter : TLObjectConverter<InputMessageAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageAudioConverter();
@@ -8210,22 +8210,22 @@ namespace TDLib.JsonClient
             var obj = (InputMessageAudio)tlobj;
             switch (hash)
             {
-                case 0xEB1AA922u:
+                case 0x187D3695u:
                     obj.Audio = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x2E7E1D62u:
+                case 0xBC627951u:
                     obj.AlbumCoverThumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x60B2C14Au:
+                case 0x17210BEBu:
                     obj.Performer = reader.ReadString();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8233,7 +8233,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF1C8B750u)]
+    [TLTypeHash(0xEF704DCFu)]
     partial class InputMessageDocumentConverter : TLObjectConverter<InputMessageDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageDocumentConverter();
@@ -8244,16 +8244,16 @@ namespace TDLib.JsonClient
             var obj = (InputMessageDocument)tlobj;
             switch (hash)
             {
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x9E64D60Bu:
+                case 0xEBC3061Eu:
                     obj.DisableContentTypeDetection = reader.ReadBool();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8261,7 +8261,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x70E448F8u)]
+    [TLTypeHash(0x9280159Du)]
     partial class InputMessagePhotoConverter : TLObjectConverter<InputMessagePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessagePhotoConverter();
@@ -8272,25 +8272,25 @@ namespace TDLib.JsonClient
             var obj = (InputMessagePhoto)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x7797097Cu:
+                case 0x2E8A75B5u:
                     obj.AddedStickerFileIds = reader.ReadInt32Array();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadInt();
                     return true;
             }
@@ -8298,7 +8298,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFA7DF1DFu)]
+    [TLTypeHash(0x4E11F516u)]
     partial class InputMessageStickerConverter : TLObjectConverter<InputMessageSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageStickerConverter();
@@ -8309,16 +8309,16 @@ namespace TDLib.JsonClient
             var obj = (InputMessageSticker)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
             }
@@ -8326,7 +8326,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC3DE14E8u)]
+    [TLTypeHash(0xFAF04BA9u)]
     partial class InputMessageVideoConverter : TLObjectConverter<InputMessageVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageVideoConverter();
@@ -8337,31 +8337,31 @@ namespace TDLib.JsonClient
             var obj = (InputMessageVideo)tlobj;
             switch (hash)
             {
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x7797097Cu:
+                case 0x2E8A75B5u:
                     obj.AddedStickerFileIds = reader.ReadInt32Array();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x37035326u:
+                case 0xC5ED604Eu:
                     obj.SupportsStreaming = reader.ReadBool();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadInt();
                     return true;
             }
@@ -8369,7 +8369,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x37A8C413u)]
+    [TLTypeHash(0x6AF79B3Bu)]
     partial class InputMessageVideoNoteConverter : TLObjectConverter<InputMessageVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageVideoNoteConverter();
@@ -8380,16 +8380,16 @@ namespace TDLib.JsonClient
             var obj = (InputMessageVideoNote)tlobj;
             switch (hash)
             {
-                case 0x0F7C4824u:
+                case 0xC82AA7C8u:
                     obj.VideoNote = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0xFC1B4BCBu:
+                case 0x017D9EB2u:
                     obj.Length = reader.ReadInt();
                     return true;
             }
@@ -8397,7 +8397,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDB3FEB07u)]
+    [TLTypeHash(0x51A608C0u)]
     partial class InputMessageVoiceNoteConverter : TLObjectConverter<InputMessageVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageVoiceNoteConverter();
@@ -8408,16 +8408,16 @@ namespace TDLib.JsonClient
             var obj = (InputMessageVoiceNote)tlobj;
             switch (hash)
             {
-                case 0xD8548F7Bu:
+                case 0xE27EDDCFu:
                     obj.VoiceNote = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x88741F30u:
+                case 0x11133403u:
                     obj.Waveform = reader.ReadBase64String();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8425,7 +8425,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD060F975u)]
+    [TLTypeHash(0x69874E72u)]
     partial class InputMessageLocationConverter : TLObjectConverter<InputMessageLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageLocationConverter();
@@ -8436,10 +8436,10 @@ namespace TDLib.JsonClient
             var obj = (InputMessageLocation)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x6EA7C561u:
+                case 0xA6EEA81Au:
                     obj.LivePeriod = reader.ReadInt();
                     return true;
             }
@@ -8447,7 +8447,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6DA1F38Cu)]
+    [TLTypeHash(0x17A68A88u)]
     partial class InputMessageVenueConverter : TLObjectConverter<InputMessageVenue>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageVenueConverter();
@@ -8458,7 +8458,7 @@ namespace TDLib.JsonClient
             var obj = (InputMessageVenue)tlobj;
             switch (hash)
             {
-                case 0xD5AD609Du:
+                case 0x91911B0Du:
                     obj.Venue = reader.ReadTLObject<Venue>();
                     return true;
             }
@@ -8466,7 +8466,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x92D23523u)]
+    [TLTypeHash(0x8D9EAFD3u)]
     partial class InputMessageContactConverter : TLObjectConverter<InputMessageContact>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageContactConverter();
@@ -8477,7 +8477,7 @@ namespace TDLib.JsonClient
             var obj = (InputMessageContact)tlobj;
             switch (hash)
             {
-                case 0x3F4DEB3Au:
+                case 0x4C62E638u:
                     obj.Contact = reader.ReadTLObject<Contact>();
                     return true;
             }
@@ -8485,7 +8485,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x29E16E15u)]
+    [TLTypeHash(0x454DB384u)]
     partial class InputMessageDiceConverter : TLObjectConverter<InputMessageDice>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageDiceConverter();
@@ -8496,10 +8496,10 @@ namespace TDLib.JsonClient
             var obj = (InputMessageDice)tlobj;
             switch (hash)
             {
-                case 0xD446748Eu:
+                case 0xB64BF632u:
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0xCEFC4741u:
+                case 0x65AEDB4Cu:
                     obj.ClearDraft = reader.ReadBool();
                     return true;
             }
@@ -8507,7 +8507,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x87494B63u)]
+    [TLTypeHash(0xC768605Cu)]
     partial class InputMessageGameConverter : TLObjectConverter<InputMessageGame>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageGameConverter();
@@ -8518,10 +8518,10 @@ namespace TDLib.JsonClient
             var obj = (InputMessageGame)tlobj;
             switch (hash)
             {
-                case 0x05547AC3u:
+                case 0x5898BEB0u:
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x175F1FA8u:
+                case 0xD038777Eu:
                     obj.GameShortName = reader.ReadString();
                     return true;
             }
@@ -8529,7 +8529,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0EEAB1F0u)]
+    [TLTypeHash(0x51995EAFu)]
     partial class InputMessageInvoiceConverter : TLObjectConverter<InputMessageInvoice>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageInvoiceConverter();
@@ -8540,37 +8540,37 @@ namespace TDLib.JsonClient
             var obj = (InputMessageInvoice)tlobj;
             switch (hash)
             {
-                case 0xA3756FE9u:
+                case 0x90651744u:
                     obj.Invoice = reader.ReadTLObject<Invoice>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x78C6AB2Eu:
+                case 0x7BD27C7Au:
                     obj.PhotoUrl = reader.ReadString();
                     return true;
-                case 0xBA651280u:
+                case 0x76F1969Eu:
                     obj.PhotoSize = reader.ReadInt();
                     return true;
-                case 0x6E4EA488u:
+                case 0x364B4298u:
                     obj.PhotoWidth = reader.ReadInt();
                     return true;
-                case 0x25F099A9u:
+                case 0xA0F29227u:
                     obj.PhotoHeight = reader.ReadInt();
                     return true;
-                case 0xF4E36970u:
+                case 0x422C6A15u:
                     obj.Payload = reader.ReadBase64String();
                     return true;
-                case 0x20947696u:
+                case 0x0661144Fu:
                     obj.ProviderToken = reader.ReadString();
                     return true;
-                case 0x60E74481u:
+                case 0x487B901Fu:
                     obj.ProviderData = reader.ReadString();
                     return true;
-                case 0x6754DA83u:
+                case 0xE25FEAD6u:
                     obj.StartParameter = reader.ReadString();
                     return true;
             }
@@ -8578,7 +8578,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF5DDC9FDu)]
+    [TLTypeHash(0x60FFAB95u)]
     partial class InputMessagePollConverter : TLObjectConverter<InputMessagePoll>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessagePollConverter();
@@ -8589,25 +8589,25 @@ namespace TDLib.JsonClient
             var obj = (InputMessagePoll)tlobj;
             switch (hash)
             {
-                case 0x8244FF76u:
+                case 0xB6F7494Eu:
                     obj.Question = reader.ReadString();
                     return true;
-                case 0x8CF56D94u:
+                case 0xD035FA87u:
                     obj.Options = reader.ReadStringArray();
                     return true;
-                case 0x41D798A8u:
+                case 0xC5C980C1u:
                     obj.IsAnonymous = reader.ReadBool();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PollType>();
                     return true;
-                case 0x273BF121u:
+                case 0x2C9006DBu:
                     obj.OpenPeriod = reader.ReadInt();
                     return true;
-                case 0x2B88515Cu:
+                case 0xDEE6F381u:
                     obj.CloseDate = reader.ReadInt();
                     return true;
-                case 0xD37EA0FFu:
+                case 0x548EC03Bu:
                     obj.IsClosed = reader.ReadBool();
                     return true;
             }
@@ -8615,7 +8615,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE9AF506Cu)]
+    [TLTypeHash(0x670EDFB6u)]
     partial class InputMessageForwardedConverter : TLObjectConverter<InputMessageForwarded>
     {
         internal static BaseConverter CreateConverterInstance() => new InputMessageForwardedConverter();
@@ -8626,16 +8626,16 @@ namespace TDLib.JsonClient
             var obj = (InputMessageForwarded)tlobj;
             switch (hash)
             {
-                case 0x48E8721Bu:
+                case 0x9CC4928Au:
                     obj.FromChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x347BAC06u:
+                case 0x92888C63u:
                     obj.InGameShare = reader.ReadBool();
                     return true;
-                case 0x1DA70DADu:
+                case 0x8C232EECu:
                     obj.CopyOptions = reader.ReadTLObject<MessageCopyOptions>();
                     return true;
             }
@@ -8643,140 +8643,140 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x75DF5F26u)]
+    [TLTypeHash(0xD7904972u)]
     partial class SearchMessagesFilterEmptyConverter : TLObjectConverter<SearchMessagesFilterEmpty>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterEmptyConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterEmpty();
     }
 
-    [TLTypeHash(0x7D4E3526u)]
+    [TLTypeHash(0x48973098u)]
     partial class SearchMessagesFilterAnimationConverter : TLObjectConverter<SearchMessagesFilterAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterAnimationConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterAnimation();
     }
 
-    [TLTypeHash(0xADC001C8u)]
+    [TLTypeHash(0xA72A4223u)]
     partial class SearchMessagesFilterAudioConverter : TLObjectConverter<SearchMessagesFilterAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterAudioConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterAudio();
     }
 
-    [TLTypeHash(0xE2DC47FDu)]
+    [TLTypeHash(0xA7E670CEu)]
     partial class SearchMessagesFilterDocumentConverter : TLObjectConverter<SearchMessagesFilterDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterDocumentConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterDocument();
     }
 
-    [TLTypeHash(0x8E327303u)]
+    [TLTypeHash(0xABE0F0AEu)]
     partial class SearchMessagesFilterPhotoConverter : TLObjectConverter<SearchMessagesFilterPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterPhotoConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterPhoto();
     }
 
-    [TLTypeHash(0x3D082F13u)]
+    [TLTypeHash(0xC390AE9Au)]
     partial class SearchMessagesFilterVideoConverter : TLObjectConverter<SearchMessagesFilterVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterVideoConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterVideo();
     }
 
-    [TLTypeHash(0xC64F0682u)]
+    [TLTypeHash(0x26E9AE6Bu)]
     partial class SearchMessagesFilterVoiceNoteConverter : TLObjectConverter<SearchMessagesFilterVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterVoiceNoteConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterVoiceNote();
     }
 
-    [TLTypeHash(0xA21E6AC5u)]
+    [TLTypeHash(0x79D71FB9u)]
     partial class SearchMessagesFilterPhotoAndVideoConverter : TLObjectConverter<SearchMessagesFilterPhotoAndVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterPhotoAndVideoConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterPhotoAndVideo();
     }
 
-    [TLTypeHash(0xB83E2F58u)]
+    [TLTypeHash(0xE975A43Fu)]
     partial class SearchMessagesFilterUrlConverter : TLObjectConverter<SearchMessagesFilterUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterUrlConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterUrl();
     }
 
-    [TLTypeHash(0x5FD89EBBu)]
+    [TLTypeHash(0xEB0AF202u)]
     partial class SearchMessagesFilterChatPhotoConverter : TLObjectConverter<SearchMessagesFilterChatPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterChatPhotoConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterChatPhoto();
     }
 
-    [TLTypeHash(0x1211AD66u)]
+    [TLTypeHash(0x4B9B8F0Du)]
     partial class SearchMessagesFilterCallConverter : TLObjectConverter<SearchMessagesFilterCall>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterCallConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterCall();
     }
 
-    [TLTypeHash(0x449FEE93u)]
+    [TLTypeHash(0xC00BDCC9u)]
     partial class SearchMessagesFilterMissedCallConverter : TLObjectConverter<SearchMessagesFilterMissedCall>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterMissedCallConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterMissedCall();
     }
 
-    [TLTypeHash(0x2AD82996u)]
+    [TLTypeHash(0x1DB83D90u)]
     partial class SearchMessagesFilterVideoNoteConverter : TLObjectConverter<SearchMessagesFilterVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterVideoNoteConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterVideoNote();
     }
 
-    [TLTypeHash(0xC53D2185u)]
+    [TLTypeHash(0xBE384132u)]
     partial class SearchMessagesFilterVoiceAndVideoNoteConverter : TLObjectConverter<SearchMessagesFilterVoiceAndVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterVoiceAndVideoNoteConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterVoiceAndVideoNote();
     }
 
-    [TLTypeHash(0xC6E3C618u)]
+    [TLTypeHash(0x07F55A81u)]
     partial class SearchMessagesFilterMentionConverter : TLObjectConverter<SearchMessagesFilterMention>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterMentionConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterMention();
     }
 
-    [TLTypeHash(0xA7BFF834u)]
+    [TLTypeHash(0xDC841A1Eu)]
     partial class SearchMessagesFilterUnreadMentionConverter : TLObjectConverter<SearchMessagesFilterUnreadMention>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterUnreadMentionConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterUnreadMention();
     }
 
-    [TLTypeHash(0xE07A9DBDu)]
+    [TLTypeHash(0xEBFB4594u)]
     partial class SearchMessagesFilterFailedToSendConverter : TLObjectConverter<SearchMessagesFilterFailedToSend>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesFilterFailedToSendConverter();
         internal static TLObject CreateObjectInstance() => new SearchMessagesFilterFailedToSend();
     }
 
-    [TLTypeHash(0xFBB6AB83u)]
+    [TLTypeHash(0xC28635A3u)]
     partial class ChatActionTypingConverter : TLObjectConverter<ChatActionTyping>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionTypingConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionTyping();
     }
 
-    [TLTypeHash(0x1D9E3CD5u)]
+    [TLTypeHash(0xDB2CB409u)]
     partial class ChatActionRecordingVideoConverter : TLObjectConverter<ChatActionRecordingVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionRecordingVideoConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionRecordingVideo();
     }
 
-    [TLTypeHash(0x897FF3A7u)]
+    [TLTypeHash(0xA9C4AE9Au)]
     partial class ChatActionUploadingVideoConverter : TLObjectConverter<ChatActionUploadingVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionUploadingVideoConverter();
@@ -8787,7 +8787,7 @@ namespace TDLib.JsonClient
             var obj = (ChatActionUploadingVideo)tlobj;
             switch (hash)
             {
-                case 0x23970593u:
+                case 0x2201F246u:
                     obj.Progress = reader.ReadInt();
                     return true;
             }
@@ -8795,14 +8795,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xECF4EB45u)]
+    [TLTypeHash(0xC3B1BF65u)]
     partial class ChatActionRecordingVoiceNoteConverter : TLObjectConverter<ChatActionRecordingVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionRecordingVoiceNoteConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionRecordingVoiceNote();
     }
 
-    [TLTypeHash(0xFB58B323u)]
+    [TLTypeHash(0x5559BE7Du)]
     partial class ChatActionUploadingVoiceNoteConverter : TLObjectConverter<ChatActionUploadingVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionUploadingVoiceNoteConverter();
@@ -8813,7 +8813,7 @@ namespace TDLib.JsonClient
             var obj = (ChatActionUploadingVoiceNote)tlobj;
             switch (hash)
             {
-                case 0x23970593u:
+                case 0x2201F246u:
                     obj.Progress = reader.ReadInt();
                     return true;
             }
@@ -8821,7 +8821,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3A45AFB7u)]
+    [TLTypeHash(0xC1B4F0AEu)]
     partial class ChatActionUploadingPhotoConverter : TLObjectConverter<ChatActionUploadingPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionUploadingPhotoConverter();
@@ -8832,7 +8832,7 @@ namespace TDLib.JsonClient
             var obj = (ChatActionUploadingPhoto)tlobj;
             switch (hash)
             {
-                case 0x23970593u:
+                case 0x2201F246u:
                     obj.Progress = reader.ReadInt();
                     return true;
             }
@@ -8840,7 +8840,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2B1E4D70u)]
+    [TLTypeHash(0xCBE0E549u)]
     partial class ChatActionUploadingDocumentConverter : TLObjectConverter<ChatActionUploadingDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionUploadingDocumentConverter();
@@ -8851,7 +8851,7 @@ namespace TDLib.JsonClient
             var obj = (ChatActionUploadingDocument)tlobj;
             switch (hash)
             {
-                case 0x23970593u:
+                case 0x2201F246u:
                     obj.Progress = reader.ReadInt();
                     return true;
             }
@@ -8859,35 +8859,35 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6A8883B4u)]
+    [TLTypeHash(0x8836A083u)]
     partial class ChatActionChoosingLocationConverter : TLObjectConverter<ChatActionChoosingLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionChoosingLocationConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionChoosingLocation();
     }
 
-    [TLTypeHash(0x40B98A1Bu)]
+    [TLTypeHash(0x32E84698u)]
     partial class ChatActionChoosingContactConverter : TLObjectConverter<ChatActionChoosingContact>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionChoosingContactConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionChoosingContact();
     }
 
-    [TLTypeHash(0x9C0F40E0u)]
+    [TLTypeHash(0xD32C3D93u)]
     partial class ChatActionStartPlayingGameConverter : TLObjectConverter<ChatActionStartPlayingGame>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionStartPlayingGameConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionStartPlayingGame();
     }
 
-    [TLTypeHash(0x0063C451u)]
+    [TLTypeHash(0xF8E02C9Eu)]
     partial class ChatActionRecordingVideoNoteConverter : TLObjectConverter<ChatActionRecordingVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionRecordingVideoNoteConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionRecordingVideoNote();
     }
 
-    [TLTypeHash(0x17CF9C37u)]
+    [TLTypeHash(0x6E082D86u)]
     partial class ChatActionUploadingVideoNoteConverter : TLObjectConverter<ChatActionUploadingVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionUploadingVideoNoteConverter();
@@ -8898,7 +8898,7 @@ namespace TDLib.JsonClient
             var obj = (ChatActionUploadingVideoNote)tlobj;
             switch (hash)
             {
-                case 0x23970593u:
+                case 0x2201F246u:
                     obj.Progress = reader.ReadInt();
                     return true;
             }
@@ -8906,21 +8906,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6B976129u)]
+    [TLTypeHash(0x45B27EFAu)]
     partial class ChatActionCancelConverter : TLObjectConverter<ChatActionCancel>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatActionCancelConverter();
         internal static TLObject CreateObjectInstance() => new ChatActionCancel();
     }
 
-    [TLTypeHash(0x60995A76u)]
+    [TLTypeHash(0x8E95760Cu)]
     partial class UserStatusEmptyConverter : TLObjectConverter<UserStatusEmpty>
     {
         internal static BaseConverter CreateConverterInstance() => new UserStatusEmptyConverter();
         internal static TLObject CreateObjectInstance() => new UserStatusEmpty();
     }
 
-    [TLTypeHash(0xF06C587Fu)]
+    [TLTypeHash(0x0B6BA623u)]
     partial class UserStatusOnlineConverter : TLObjectConverter<UserStatusOnline>
     {
         internal static BaseConverter CreateConverterInstance() => new UserStatusOnlineConverter();
@@ -8931,7 +8931,7 @@ namespace TDLib.JsonClient
             var obj = (UserStatusOnline)tlobj;
             switch (hash)
             {
-                case 0x480271F2u:
+                case 0x9A9C688Cu:
                     obj.Expires = reader.ReadInt();
                     return true;
             }
@@ -8939,7 +8939,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8716888Bu)]
+    [TLTypeHash(0x3A30C53Eu)]
     partial class UserStatusOfflineConverter : TLObjectConverter<UserStatusOffline>
     {
         internal static BaseConverter CreateConverterInstance() => new UserStatusOfflineConverter();
@@ -8950,7 +8950,7 @@ namespace TDLib.JsonClient
             var obj = (UserStatusOffline)tlobj;
             switch (hash)
             {
-                case 0x7A847C17u:
+                case 0x64B57314u:
                     obj.WasOnline = reader.ReadInt();
                     return true;
             }
@@ -8958,28 +8958,28 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x665F1733u)]
+    [TLTypeHash(0xECAF6388u)]
     partial class UserStatusRecentlyConverter : TLObjectConverter<UserStatusRecently>
     {
         internal static BaseConverter CreateConverterInstance() => new UserStatusRecentlyConverter();
         internal static TLObject CreateObjectInstance() => new UserStatusRecently();
     }
 
-    [TLTypeHash(0x7ED8F6A5u)]
+    [TLTypeHash(0x9D3B6C46u)]
     partial class UserStatusLastWeekConverter : TLObjectConverter<UserStatusLastWeek>
     {
         internal static BaseConverter CreateConverterInstance() => new UserStatusLastWeekConverter();
         internal static TLObject CreateObjectInstance() => new UserStatusLastWeek();
     }
 
-    [TLTypeHash(0x57211107u)]
+    [TLTypeHash(0x8AAB5716u)]
     partial class UserStatusLastMonthConverter : TLObjectConverter<UserStatusLastMonth>
     {
         internal static BaseConverter CreateConverterInstance() => new UserStatusLastMonthConverter();
         internal static TLObject CreateObjectInstance() => new UserStatusLastMonth();
     }
 
-    [TLTypeHash(0xD5CED7ABu)]
+    [TLTypeHash(0xD88DAC16u)]
     partial class StickersConverter : TLObjectConverter<Stickers>
     {
         internal static BaseConverter CreateConverterInstance() => new StickersConverter();
@@ -8990,7 +8990,7 @@ namespace TDLib.JsonClient
             var obj = (Stickers)tlobj;
             switch (hash)
             {
-                case 0xD5CED7ABu:
+                case 0xD88DAC16u:
                     obj.Stickers_ = reader.ReadObjectArray<Sticker>();
                     return true;
             }
@@ -8998,7 +8998,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1EEF3683u)]
+    [TLTypeHash(0xD36FD57Du)]
     partial class EmojisConverter : TLObjectConverter<Emojis>
     {
         internal static BaseConverter CreateConverterInstance() => new EmojisConverter();
@@ -9009,7 +9009,7 @@ namespace TDLib.JsonClient
             var obj = (Emojis)tlobj;
             switch (hash)
             {
-                case 0x1EEF3683u:
+                case 0xD36FD57Du:
                     obj.Emojis_ = reader.ReadStringArray();
                     return true;
             }
@@ -9017,7 +9017,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5131B12Du)]
+    [TLTypeHash(0xF58EFC41u)]
     partial class StickerSetConverter : TLObjectConverter<StickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new StickerSetConverter();
@@ -9028,40 +9028,40 @@ namespace TDLib.JsonClient
             var obj = (StickerSet)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0x73CB7275u:
+                case 0x5F596777u:
                     obj.IsInstalled = reader.ReadBool();
                     return true;
-                case 0xDCE704EFu:
+                case 0xF4181FFAu:
                     obj.IsArchived = reader.ReadBool();
                     return true;
-                case 0xC0A52AF1u:
+                case 0x0DDE4409u:
                     obj.IsOfficial = reader.ReadBool();
                     return true;
-                case 0x71849EE0u:
+                case 0xFB2DB9D7u:
                     obj.IsAnimated = reader.ReadBool();
                     return true;
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x411EF9CEu:
+                case 0xA7C194DBu:
                     obj.IsViewed = reader.ReadBool();
                     return true;
-                case 0xD5CED7ABu:
+                case 0xD88DAC16u:
                     obj.Stickers = reader.ReadObjectArray<Sticker>();
                     return true;
-                case 0x1EEF3683u:
+                case 0xD36FD57Du:
                     obj.Emojis = reader.ReadObjectArray<Emojis>();
                     return true;
             }
@@ -9069,7 +9069,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x19A3E9B2u)]
+    [TLTypeHash(0x9C1A98D3u)]
     partial class StickerSetInfoConverter : TLObjectConverter<StickerSetInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new StickerSetInfoConverter();
@@ -9080,40 +9080,40 @@ namespace TDLib.JsonClient
             var obj = (StickerSetInfo)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0x73CB7275u:
+                case 0x5F596777u:
                     obj.IsInstalled = reader.ReadBool();
                     return true;
-                case 0xDCE704EFu:
+                case 0xF4181FFAu:
                     obj.IsArchived = reader.ReadBool();
                     return true;
-                case 0xC0A52AF1u:
+                case 0x0DDE4409u:
                     obj.IsOfficial = reader.ReadBool();
                     return true;
-                case 0x71849EE0u:
+                case 0xFB2DB9D7u:
                     obj.IsAnimated = reader.ReadBool();
                     return true;
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x411EF9CEu:
+                case 0xA7C194DBu:
                     obj.IsViewed = reader.ReadBool();
                     return true;
-                case 0x55AC4F76u:
+                case 0xF7C0246Au:
                     obj.Size = reader.ReadInt();
                     return true;
-                case 0x1F46C600u:
+                case 0xF08DF1B2u:
                     obj.Covers = reader.ReadObjectArray<Sticker>();
                     return true;
             }
@@ -9121,7 +9121,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAF710714u)]
+    [TLTypeHash(0x1A2030F1u)]
     partial class StickerSetsConverter : TLObjectConverter<StickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new StickerSetsConverter();
@@ -9132,10 +9132,10 @@ namespace TDLib.JsonClient
             var obj = (StickerSets)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0x310767A4u:
+                case 0x948D45D1u:
                     obj.Sets = reader.ReadObjectArray<StickerSetInfo>();
                     return true;
             }
@@ -9143,42 +9143,42 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6FADC72Du)]
+    [TLTypeHash(0xE04EB223u)]
     partial class CallDiscardReasonEmptyConverter : TLObjectConverter<CallDiscardReasonEmpty>
     {
         internal static BaseConverter CreateConverterInstance() => new CallDiscardReasonEmptyConverter();
         internal static TLObject CreateObjectInstance() => new CallDiscardReasonEmpty();
     }
 
-    [TLTypeHash(0x111120FCu)]
+    [TLTypeHash(0xD204B597u)]
     partial class CallDiscardReasonMissedConverter : TLObjectConverter<CallDiscardReasonMissed>
     {
         internal static BaseConverter CreateConverterInstance() => new CallDiscardReasonMissedConverter();
         internal static TLObject CreateObjectInstance() => new CallDiscardReasonMissed();
     }
 
-    [TLTypeHash(0x059D974Du)]
+    [TLTypeHash(0xE84FE87Fu)]
     partial class CallDiscardReasonDeclinedConverter : TLObjectConverter<CallDiscardReasonDeclined>
     {
         internal static BaseConverter CreateConverterInstance() => new CallDiscardReasonDeclinedConverter();
         internal static TLObject CreateObjectInstance() => new CallDiscardReasonDeclined();
     }
 
-    [TLTypeHash(0x77016673u)]
+    [TLTypeHash(0x27227986u)]
     partial class CallDiscardReasonDisconnectedConverter : TLObjectConverter<CallDiscardReasonDisconnected>
     {
         internal static BaseConverter CreateConverterInstance() => new CallDiscardReasonDisconnectedConverter();
         internal static TLObject CreateObjectInstance() => new CallDiscardReasonDisconnected();
     }
 
-    [TLTypeHash(0x26657A93u)]
+    [TLTypeHash(0x5B1938C7u)]
     partial class CallDiscardReasonHungUpConverter : TLObjectConverter<CallDiscardReasonHungUp>
     {
         internal static BaseConverter CreateConverterInstance() => new CallDiscardReasonHungUpConverter();
         internal static TLObject CreateObjectInstance() => new CallDiscardReasonHungUp();
     }
 
-    [TLTypeHash(0xC5E0DCEAu)]
+    [TLTypeHash(0x905BA652u)]
     partial class CallProtocolConverter : TLObjectConverter<CallProtocol>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProtocolConverter();
@@ -9189,19 +9189,19 @@ namespace TDLib.JsonClient
             var obj = (CallProtocol)tlobj;
             switch (hash)
             {
-                case 0xDA227CFFu:
+                case 0x3361DF98u:
                     obj.UdpP2p = reader.ReadBool();
                     return true;
-                case 0xAFE3F489u:
+                case 0x931FA502u:
                     obj.UdpReflector = reader.ReadBool();
                     return true;
-                case 0x744CF43Fu:
+                case 0x80299250u:
                     obj.MinLayer = reader.ReadInt();
                     return true;
-                case 0xDFCA9602u:
+                case 0x57C22011u:
                     obj.MaxLayer = reader.ReadInt();
                     return true;
-                case 0x80541B0Eu:
+                case 0x3F7FB1C6u:
                     obj.LibraryVersions = reader.ReadStringArray();
                     return true;
             }
@@ -9209,7 +9209,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x61EEAE44u)]
+    [TLTypeHash(0x445FEAAFu)]
     partial class CallServerTypeTelegramReflectorConverter : TLObjectConverter<CallServerTypeTelegramReflector>
     {
         internal static BaseConverter CreateConverterInstance() => new CallServerTypeTelegramReflectorConverter();
@@ -9220,7 +9220,7 @@ namespace TDLib.JsonClient
             var obj = (CallServerTypeTelegramReflector)tlobj;
             switch (hash)
             {
-                case 0xD374D562u:
+                case 0xA4717198u:
                     obj.PeerTag = reader.ReadBase64String();
                     return true;
             }
@@ -9228,7 +9228,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4464851Au)]
+    [TLTypeHash(0x39947FE4u)]
     partial class CallServerTypeWebrtcConverter : TLObjectConverter<CallServerTypeWebrtc>
     {
         internal static BaseConverter CreateConverterInstance() => new CallServerTypeWebrtcConverter();
@@ -9239,16 +9239,16 @@ namespace TDLib.JsonClient
             var obj = (CallServerTypeWebrtc)tlobj;
             switch (hash)
             {
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
-                case 0x23C7817Au:
+                case 0xFFD1B6C9u:
                     obj.SupportsTurn = reader.ReadBool();
                     return true;
-                case 0xE5EB628Bu:
+                case 0x2C857280u:
                     obj.SupportsStun = reader.ReadBool();
                     return true;
             }
@@ -9256,7 +9256,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x61134631u)]
+    [TLTypeHash(0xB513A0E4u)]
     partial class CallServerConverter : TLObjectConverter<CallServer>
     {
         internal static BaseConverter CreateConverterInstance() => new CallServerConverter();
@@ -9267,19 +9267,19 @@ namespace TDLib.JsonClient
             var obj = (CallServer)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x210DBDE6u:
+                case 0x22FFD58Cu:
                     obj.IpAddress = reader.ReadString();
                     return true;
-                case 0xC7C0FC41u:
+                case 0x8A54DF17u:
                     obj.Ipv6Address = reader.ReadString();
                     return true;
-                case 0x991EB78Cu:
+                case 0x43915DCCu:
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<CallServerType>();
                     return true;
             }
@@ -9287,7 +9287,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5A382BBEu)]
+    [TLTypeHash(0xC0A9A958u)]
     partial class CallIdConverter : TLObjectConverter<CallId>
     {
         internal static BaseConverter CreateConverterInstance() => new CallIdConverter();
@@ -9298,7 +9298,7 @@ namespace TDLib.JsonClient
             var obj = (CallId)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
             }
@@ -9306,7 +9306,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9F6BC453u)]
+    [TLTypeHash(0xBDEDF714u)]
     partial class CallStatePendingConverter : TLObjectConverter<CallStatePending>
     {
         internal static BaseConverter CreateConverterInstance() => new CallStatePendingConverter();
@@ -9317,10 +9317,10 @@ namespace TDLib.JsonClient
             var obj = (CallStatePending)tlobj;
             switch (hash)
             {
-                case 0xB5FBF4BEu:
+                case 0xA4013170u:
                     obj.IsCreated = reader.ReadBool();
                     return true;
-                case 0x1F581A90u:
+                case 0x5CC54FC3u:
                     obj.IsReceived = reader.ReadBool();
                     return true;
             }
@@ -9328,14 +9328,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x40997929u)]
+    [TLTypeHash(0x9D5464DCu)]
     partial class CallStateExchangingKeysConverter : TLObjectConverter<CallStateExchangingKeys>
     {
         internal static BaseConverter CreateConverterInstance() => new CallStateExchangingKeysConverter();
         internal static TLObject CreateObjectInstance() => new CallStateExchangingKeys();
     }
 
-    [TLTypeHash(0xAE29AE7Cu)]
+    [TLTypeHash(0x09B1CD48u)]
     partial class CallStateReadyConverter : TLObjectConverter<CallStateReady>
     {
         internal static BaseConverter CreateConverterInstance() => new CallStateReadyConverter();
@@ -9346,22 +9346,22 @@ namespace TDLib.JsonClient
             var obj = (CallStateReady)tlobj;
             switch (hash)
             {
-                case 0x2E66C39Du:
+                case 0xC8C0BC4Cu:
                     obj.Protocol = reader.ReadTLObject<CallProtocol>();
                     return true;
-                case 0x6B88F734u:
+                case 0x4F8AF5F7u:
                     obj.Servers = reader.ReadObjectArray<CallServer>();
                     return true;
-                case 0xABBA1E78u:
+                case 0xD48A2F7Cu:
                     obj.Config = reader.ReadString();
                     return true;
-                case 0x29D01160u:
+                case 0x2186F990u:
                     obj.EncryptionKey = reader.ReadBase64String();
                     return true;
-                case 0x1EEF3683u:
+                case 0xD36FD57Du:
                     obj.Emojis = reader.ReadStringArray();
                     return true;
-                case 0x278D68EAu:
+                case 0xAEF9C195u:
                     obj.AllowP2p = reader.ReadBool();
                     return true;
             }
@@ -9369,14 +9369,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x35F874A2u)]
+    [TLTypeHash(0xCEA15BE8u)]
     partial class CallStateHangingUpConverter : TLObjectConverter<CallStateHangingUp>
     {
         internal static BaseConverter CreateConverterInstance() => new CallStateHangingUpConverter();
         internal static TLObject CreateObjectInstance() => new CallStateHangingUp();
     }
 
-    [TLTypeHash(0x60DEF37Eu)]
+    [TLTypeHash(0x8B8DF360u)]
     partial class CallStateDiscardedConverter : TLObjectConverter<CallStateDiscarded>
     {
         internal static BaseConverter CreateConverterInstance() => new CallStateDiscardedConverter();
@@ -9387,13 +9387,13 @@ namespace TDLib.JsonClient
             var obj = (CallStateDiscarded)tlobj;
             switch (hash)
             {
-                case 0x84C78BAAu:
+                case 0x3BB8880Cu:
                     obj.Reason = reader.ReadTLObject<CallDiscardReason>();
                     return true;
-                case 0xFAF947C8u:
+                case 0xA068B793u:
                     obj.NeedRating = reader.ReadBool();
                     return true;
-                case 0xB5567693u:
+                case 0x936B15BAu:
                     obj.NeedDebugInformation = reader.ReadBool();
                     return true;
             }
@@ -9401,7 +9401,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD3EFB5FFu)]
+    [TLTypeHash(0x7CF9F496u)]
     partial class CallStateErrorConverter : TLObjectConverter<CallStateError>
     {
         internal static BaseConverter CreateConverterInstance() => new CallStateErrorConverter();
@@ -9412,7 +9412,7 @@ namespace TDLib.JsonClient
             var obj = (CallStateError)tlobj;
             switch (hash)
             {
-                case 0x75F5FE4Bu:
+                case 0x5DDDBC71u:
                     obj.Error = reader.ReadTLObject<Error>();
                     return true;
             }
@@ -9420,70 +9420,70 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x35D8674Bu)]
+    [TLTypeHash(0x54BA2AA8u)]
     partial class CallProblemEchoConverter : TLObjectConverter<CallProblemEcho>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemEchoConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemEcho();
     }
 
-    [TLTypeHash(0x97A59224u)]
+    [TLTypeHash(0xED305269u)]
     partial class CallProblemNoiseConverter : TLObjectConverter<CallProblemNoise>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemNoiseConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemNoise();
     }
 
-    [TLTypeHash(0xBC00A4E3u)]
+    [TLTypeHash(0xCBD5F5DCu)]
     partial class CallProblemInterruptionsConverter : TLObjectConverter<CallProblemInterruptions>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemInterruptionsConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemInterruptions();
     }
 
-    [TLTypeHash(0xC42EF152u)]
+    [TLTypeHash(0x7650B9F6u)]
     partial class CallProblemDistortedSpeechConverter : TLObjectConverter<CallProblemDistortedSpeech>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemDistortedSpeechConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemDistortedSpeech();
     }
 
-    [TLTypeHash(0x3D30453Cu)]
+    [TLTypeHash(0x0B45177Cu)]
     partial class CallProblemSilentLocalConverter : TLObjectConverter<CallProblemSilentLocal>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemSilentLocalConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemSilentLocal();
     }
 
-    [TLTypeHash(0x7ED18228u)]
+    [TLTypeHash(0xAD54BB70u)]
     partial class CallProblemSilentRemoteConverter : TLObjectConverter<CallProblemSilentRemote>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemSilentRemoteConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemSilentRemote();
     }
 
-    [TLTypeHash(0x1287452Au)]
+    [TLTypeHash(0xBEF65084u)]
     partial class CallProblemDroppedConverter : TLObjectConverter<CallProblemDropped>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemDroppedConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemDropped();
     }
 
-    [TLTypeHash(0x1EDC3BEDu)]
+    [TLTypeHash(0x6E17A777u)]
     partial class CallProblemDistortedVideoConverter : TLObjectConverter<CallProblemDistortedVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemDistortedVideoConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemDistortedVideo();
     }
 
-    [TLTypeHash(0x3AA66530u)]
+    [TLTypeHash(0x71996EB2u)]
     partial class CallProblemPixelatedVideoConverter : TLObjectConverter<CallProblemPixelatedVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new CallProblemPixelatedVideoConverter();
         internal static TLObject CreateObjectInstance() => new CallProblemPixelatedVideo();
     }
 
-    [TLTypeHash(0xAA21BBF1u)]
+    [TLTypeHash(0xCC8E2F3Eu)]
     partial class CallConverter : TLObjectConverter<Call>
     {
         internal static BaseConverter CreateConverterInstance() => new CallConverter();
@@ -9494,19 +9494,19 @@ namespace TDLib.JsonClient
             var obj = (Call)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x59EDAC58u:
+                case 0xF05AA554u:
                     obj.IsOutgoing = reader.ReadBool();
                     return true;
-                case 0xE57A104Eu:
+                case 0x303B395Cu:
                     obj.IsVideo = reader.ReadBool();
                     return true;
-                case 0x66DB68DFu:
+                case 0xA393D2FBu:
                     obj.State = reader.ReadTLObject<CallState>();
                     return true;
             }
@@ -9514,7 +9514,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1ECA554Eu)]
+    [TLTypeHash(0xF3D257FAu)]
     partial class PhoneNumberAuthenticationSettingsConverter : TLObjectConverter<PhoneNumberAuthenticationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new PhoneNumberAuthenticationSettingsConverter();
@@ -9525,13 +9525,13 @@ namespace TDLib.JsonClient
             var obj = (PhoneNumberAuthenticationSettings)tlobj;
             switch (hash)
             {
-                case 0xA183048Eu:
+                case 0x5C27A2A9u:
                     obj.AllowFlashCall = reader.ReadBool();
                     return true;
-                case 0xDBB63076u:
+                case 0x546E8725u:
                     obj.IsCurrentPhoneNumber = reader.ReadBool();
                     return true;
-                case 0x35A6A9EFu:
+                case 0x5420E483u:
                     obj.AllowSmsRetrieverApi = reader.ReadBool();
                     return true;
             }
@@ -9539,7 +9539,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6F0DC27Bu)]
+    [TLTypeHash(0x94E60370u)]
     partial class AnimationsConverter : TLObjectConverter<Animations>
     {
         internal static BaseConverter CreateConverterInstance() => new AnimationsConverter();
@@ -9550,7 +9550,7 @@ namespace TDLib.JsonClient
             var obj = (Animations)tlobj;
             switch (hash)
             {
-                case 0x6F0DC27Bu:
+                case 0x94E60370u:
                     obj.Animations_ = reader.ReadObjectArray<Animation>();
                     return true;
             }
@@ -9558,7 +9558,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x579ECA98u)]
+    [TLTypeHash(0x6A82CA07u)]
     partial class ImportedContactsConverter : TLObjectConverter<ImportedContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new ImportedContactsConverter();
@@ -9569,10 +9569,10 @@ namespace TDLib.JsonClient
             var obj = (ImportedContacts)tlobj;
             switch (hash)
             {
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
-                case 0x72E79A0Au:
+                case 0x5FA5F178u:
                     obj.ImporterCount = reader.ReadInt32Array();
                     return true;
             }
@@ -9580,7 +9580,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA54ED0F1u)]
+    [TLTypeHash(0xE191AEE4u)]
     partial class HttpUrlConverter : TLObjectConverter<HttpUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new HttpUrlConverter();
@@ -9591,7 +9591,7 @@ namespace TDLib.JsonClient
             var obj = (HttpUrl)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -9599,7 +9599,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8B0DDF35u)]
+    [TLTypeHash(0x2C0A9B21u)]
     partial class InputInlineQueryResultAnimationConverter : TLObjectConverter<InputInlineQueryResultAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultAnimationConverter();
@@ -9610,37 +9610,37 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultAnimation)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x92C90CECu:
+                case 0x059DF2E5u:
                     obj.ThumbnailMimeType = reader.ReadString();
                     return true;
-                case 0xDBB01D77u:
+                case 0x0EEF80AAu:
                     obj.VideoUrl = reader.ReadString();
                     return true;
-                case 0xFFEDB48Eu:
+                case 0xE37FD7BBu:
                     obj.VideoMimeType = reader.ReadString();
                     return true;
-                case 0x8D200CFBu:
+                case 0x2EDDB27Cu:
                     obj.VideoDuration = reader.ReadInt();
                     return true;
-                case 0xB49EFE95u:
+                case 0x03784C8Du:
                     obj.VideoWidth = reader.ReadInt();
                     return true;
-                case 0x8A5CC24Fu:
+                case 0xCD1A45C2u:
                     obj.VideoHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9648,7 +9648,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3F7F2286u)]
+    [TLTypeHash(0x5D924FFFu)]
     partial class InputInlineQueryResultArticleConverter : TLObjectConverter<InputInlineQueryResultArticle>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultArticleConverter();
@@ -9659,34 +9659,34 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultArticle)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x017A845Du:
+                case 0x22EC5B68u:
                     obj.HideUrl = reader.ReadBool();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0xF9EF1377u:
+                case 0x4D8D948Au:
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x881A6B4Fu:
+                case 0x533025B9u:
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9694,7 +9694,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1A0CD810u)]
+    [TLTypeHash(0xB66449FFu)]
     partial class InputInlineQueryResultAudioConverter : TLObjectConverter<InputInlineQueryResultAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultAudioConverter();
@@ -9705,25 +9705,25 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultAudio)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x60B2C14Au:
+                case 0x17210BEBu:
                     obj.Performer = reader.ReadString();
                     return true;
-                case 0x5C78E0D9u:
+                case 0x9A984B0Du:
                     obj.AudioUrl = reader.ReadString();
                     return true;
-                case 0xCFF337A9u:
+                case 0x0905A936u:
                     obj.AudioDuration = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9731,7 +9731,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDBB5EF4Fu)]
+    [TLTypeHash(0x13CAA7A1u)]
     partial class InputInlineQueryResultContactConverter : TLObjectConverter<InputInlineQueryResultContact>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultContactConverter();
@@ -9742,25 +9742,25 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultContact)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x3F4DEB3Au:
+                case 0x4C62E638u:
                     obj.Contact = reader.ReadTLObject<Contact>();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0xF9EF1377u:
+                case 0x4D8D948Au:
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x881A6B4Fu:
+                case 0x533025B9u:
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9768,7 +9768,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDD048C38u)]
+    [TLTypeHash(0x51E509D7u)]
     partial class InputInlineQueryResultDocumentConverter : TLObjectConverter<InputInlineQueryResultDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultDocumentConverter();
@@ -9779,34 +9779,34 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultDocument)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x2B35BE86u:
+                case 0x27DCB74Au:
                     obj.DocumentUrl = reader.ReadString();
                     return true;
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0xF9EF1377u:
+                case 0x4D8D948Au:
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x881A6B4Fu:
+                case 0x533025B9u:
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9814,7 +9814,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC9D563ABu)]
+    [TLTypeHash(0xEB3E1164u)]
     partial class InputInlineQueryResultGameConverter : TLObjectConverter<InputInlineQueryResultGame>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultGameConverter();
@@ -9825,13 +9825,13 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultGame)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x175F1FA8u:
+                case 0xD038777Eu:
                     obj.GameShortName = reader.ReadString();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -9839,7 +9839,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFCACC21Du)]
+    [TLTypeHash(0xD7120A6Au)]
     partial class InputInlineQueryResultLocationConverter : TLObjectConverter<InputInlineQueryResultLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultLocationConverter();
@@ -9850,31 +9850,31 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultLocation)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x6EA7C561u:
+                case 0xA6EEA81Au:
                     obj.LivePeriod = reader.ReadInt();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0xF9EF1377u:
+                case 0x4D8D948Au:
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x881A6B4Fu:
+                case 0x533025B9u:
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9882,7 +9882,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x39FEAADBu)]
+    [TLTypeHash(0xBAAEFB72u)]
     partial class InputInlineQueryResultPhotoConverter : TLObjectConverter<InputInlineQueryResultPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultPhotoConverter();
@@ -9893,31 +9893,31 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultPhoto)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x78C6AB2Eu:
+                case 0x7BD27C7Au:
                     obj.PhotoUrl = reader.ReadString();
                     return true;
-                case 0x6E4EA488u:
+                case 0x364B4298u:
                     obj.PhotoWidth = reader.ReadInt();
                     return true;
-                case 0x25F099A9u:
+                case 0xA0F29227u:
                     obj.PhotoHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9925,7 +9925,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB31A2BB3u)]
+    [TLTypeHash(0xD045FD64u)]
     partial class InputInlineQueryResultStickerConverter : TLObjectConverter<InputInlineQueryResultSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultStickerConverter();
@@ -9936,25 +9936,25 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultSticker)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x753782F2u:
+                case 0x9782864Au:
                     obj.StickerUrl = reader.ReadString();
                     return true;
-                case 0xDECE9373u:
+                case 0xB4658339u:
                     obj.StickerWidth = reader.ReadInt();
                     return true;
-                case 0x4FA7DDD0u:
+                case 0x01A12F98u:
                     obj.StickerHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9962,7 +9962,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x24BB11AFu)]
+    [TLTypeHash(0x3F886467u)]
     partial class InputInlineQueryResultVenueConverter : TLObjectConverter<InputInlineQueryResultVenue>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultVenueConverter();
@@ -9973,25 +9973,25 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultVenue)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xD5AD609Du:
+                case 0x91911B0Du:
                     obj.Venue = reader.ReadTLObject<Venue>();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0xF9EF1377u:
+                case 0x4D8D948Au:
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x881A6B4Fu:
+                case 0x533025B9u:
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9999,7 +9999,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8AC4F6CBu)]
+    [TLTypeHash(0xD2DEA546u)]
     partial class InputInlineQueryResultVideoConverter : TLObjectConverter<InputInlineQueryResultVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultVideoConverter();
@@ -10010,37 +10010,37 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultVideo)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x11134DA5u:
+                case 0x815E207Bu:
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0xDBB01D77u:
+                case 0x0EEF80AAu:
                     obj.VideoUrl = reader.ReadString();
                     return true;
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0xB49EFE95u:
+                case 0x03784C8Du:
                     obj.VideoWidth = reader.ReadInt();
                     return true;
-                case 0x8A5CC24Fu:
+                case 0xCD1A45C2u:
                     obj.VideoHeight = reader.ReadInt();
                     return true;
-                case 0x8D200CFBu:
+                case 0x2EDDB27Cu:
                     obj.VideoDuration = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -10048,7 +10048,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x300CEC91u)]
+    [TLTypeHash(0x427405D2u)]
     partial class InputInlineQueryResultVoiceNoteConverter : TLObjectConverter<InputInlineQueryResultVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new InputInlineQueryResultVoiceNoteConverter();
@@ -10059,22 +10059,22 @@ namespace TDLib.JsonClient
             var obj = (InputInlineQueryResultVoiceNote)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x2D312495u:
+                case 0xEDDAD34Bu:
                     obj.VoiceNoteUrl = reader.ReadString();
                     return true;
-                case 0xA92A2F9Fu:
+                case 0xB5227B0Bu:
                     obj.VoiceNoteDuration = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -10082,7 +10082,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9CEF5652u)]
+    [TLTypeHash(0xF1CBD026u)]
     partial class InlineQueryResultArticleConverter : TLObjectConverter<InlineQueryResultArticle>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultArticleConverter();
@@ -10093,22 +10093,22 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultArticle)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x017A845Du:
+                case 0x22EC5B68u:
                     obj.HideUrl = reader.ReadBool();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
             }
@@ -10116,7 +10116,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x78259B9Bu)]
+    [TLTypeHash(0xBF933878u)]
     partial class InlineQueryResultContactConverter : TLObjectConverter<InlineQueryResultContact>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultContactConverter();
@@ -10127,13 +10127,13 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultContact)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x3F4DEB3Au:
+                case 0x4C62E638u:
                     obj.Contact = reader.ReadTLObject<Contact>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
             }
@@ -10141,7 +10141,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE84624DDu)]
+    [TLTypeHash(0x28B13985u)]
     partial class InlineQueryResultLocationConverter : TLObjectConverter<InlineQueryResultLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultLocationConverter();
@@ -10152,16 +10152,16 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultLocation)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
             }
@@ -10169,7 +10169,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE760F1C2u)]
+    [TLTypeHash(0x8CAF42AAu)]
     partial class InlineQueryResultVenueConverter : TLObjectConverter<InlineQueryResultVenue>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultVenueConverter();
@@ -10180,13 +10180,13 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultVenue)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xD5AD609Du:
+                case 0x91911B0Du:
                     obj.Venue = reader.ReadTLObject<Venue>();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
             }
@@ -10194,7 +10194,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9F13CA6Bu)]
+    [TLTypeHash(0xAA62F29Cu)]
     partial class InlineQueryResultGameConverter : TLObjectConverter<InlineQueryResultGame>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultGameConverter();
@@ -10205,10 +10205,10 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultGame)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xBA13C9B9u:
+                case 0x232B318Cu:
                     obj.Game = reader.ReadTLObject<Game>();
                     return true;
             }
@@ -10216,7 +10216,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x48941317u)]
+    [TLTypeHash(0x1C40C7FBu)]
     partial class InlineQueryResultAnimationConverter : TLObjectConverter<InlineQueryResultAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultAnimationConverter();
@@ -10227,13 +10227,13 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultAnimation)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -10241,7 +10241,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD9D7387Du)]
+    [TLTypeHash(0x05436F32u)]
     partial class InlineQueryResultAudioConverter : TLObjectConverter<InlineQueryResultAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultAudioConverter();
@@ -10252,10 +10252,10 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultAudio)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xEB1AA922u:
+                case 0x187D3695u:
                     obj.Audio = reader.ReadTLObject<Audio>();
                     return true;
             }
@@ -10263,7 +10263,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC9EE6AF8u)]
+    [TLTypeHash(0xAE463A38u)]
     partial class InlineQueryResultDocumentConverter : TLObjectConverter<InlineQueryResultDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultDocumentConverter();
@@ -10274,16 +10274,16 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultDocument)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -10291,7 +10291,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFA254AB6u)]
+    [TLTypeHash(0x0989DDBFu)]
     partial class InlineQueryResultPhotoConverter : TLObjectConverter<InlineQueryResultPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultPhotoConverter();
@@ -10302,16 +10302,16 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultPhoto)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -10319,7 +10319,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x108A5F67u)]
+    [TLTypeHash(0x7C1C62BDu)]
     partial class InlineQueryResultStickerConverter : TLObjectConverter<InlineQueryResultSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultStickerConverter();
@@ -10330,10 +10330,10 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultSticker)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<Sticker>();
                     return true;
             }
@@ -10341,7 +10341,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x491F16A6u)]
+    [TLTypeHash(0x61F9838Bu)]
     partial class InlineQueryResultVideoConverter : TLObjectConverter<InlineQueryResultVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultVideoConverter();
@@ -10352,16 +10352,16 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultVideo)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -10369,7 +10369,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF39520B3u)]
+    [TLTypeHash(0x723E5908u)]
     partial class InlineQueryResultVoiceNoteConverter : TLObjectConverter<InlineQueryResultVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultVoiceNoteConverter();
@@ -10380,13 +10380,13 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResultVoiceNote)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xD8548F7Bu:
+                case 0xE27EDDCFu:
                     obj.VoiceNote = reader.ReadTLObject<VoiceNote>();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -10394,7 +10394,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x66A51A12u)]
+    [TLTypeHash(0x0BFA4BB7u)]
     partial class InlineQueryResultsConverter : TLObjectConverter<InlineQueryResults>
     {
         internal static BaseConverter CreateConverterInstance() => new InlineQueryResultsConverter();
@@ -10405,19 +10405,19 @@ namespace TDLib.JsonClient
             var obj = (InlineQueryResults)tlobj;
             switch (hash)
             {
-                case 0x69760C1Du:
+                case 0x975AF2A3u:
                     obj.InlineQueryId = reader.ReadInt64String();
                     return true;
-                case 0x37DD9D00u:
+                case 0x00DFCF6Cu:
                     obj.NextOffset = reader.ReadString();
                     return true;
-                case 0xAD67C0E0u:
+                case 0x9FA3E414u:
                     obj.Results = reader.ReadObjectArray<InlineQueryResult>();
                     return true;
-                case 0x81169FF1u:
+                case 0xD2D173A6u:
                     obj.SwitchPmText = reader.ReadString();
                     return true;
-                case 0x3FBC3F46u:
+                case 0xC96402E0u:
                     obj.SwitchPmParameter = reader.ReadString();
                     return true;
             }
@@ -10425,7 +10425,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7F5CDA13u)]
+    [TLTypeHash(0x857F5D9Bu)]
     partial class CallbackQueryPayloadDataConverter : TLObjectConverter<CallbackQueryPayloadData>
     {
         internal static BaseConverter CreateConverterInstance() => new CallbackQueryPayloadDataConverter();
@@ -10436,7 +10436,7 @@ namespace TDLib.JsonClient
             var obj = (CallbackQueryPayloadData)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -10444,7 +10444,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x20B2174Bu)]
+    [TLTypeHash(0x2CC70DC1u)]
     partial class CallbackQueryPayloadDataWithPasswordConverter : TLObjectConverter<CallbackQueryPayloadDataWithPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new CallbackQueryPayloadDataWithPasswordConverter();
@@ -10455,10 +10455,10 @@ namespace TDLib.JsonClient
             var obj = (CallbackQueryPayloadDataWithPassword)tlobj;
             switch (hash)
             {
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -10466,7 +10466,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6B976E7Bu)]
+    [TLTypeHash(0x0BA79F74u)]
     partial class CallbackQueryPayloadGameConverter : TLObjectConverter<CallbackQueryPayloadGame>
     {
         internal static BaseConverter CreateConverterInstance() => new CallbackQueryPayloadGameConverter();
@@ -10477,7 +10477,7 @@ namespace TDLib.JsonClient
             var obj = (CallbackQueryPayloadGame)tlobj;
             switch (hash)
             {
-                case 0x175F1FA8u:
+                case 0xD038777Eu:
                     obj.GameShortName = reader.ReadString();
                     return true;
             }
@@ -10485,7 +10485,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD0FAA458u)]
+    [TLTypeHash(0x37D44B96u)]
     partial class CallbackQueryAnswerConverter : TLObjectConverter<CallbackQueryAnswer>
     {
         internal static BaseConverter CreateConverterInstance() => new CallbackQueryAnswerConverter();
@@ -10496,13 +10496,13 @@ namespace TDLib.JsonClient
             var obj = (CallbackQueryAnswer)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x018A7292u:
+                case 0x154C221Du:
                     obj.ShowAlert = reader.ReadBool();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -10510,7 +10510,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC55A68DEu)]
+    [TLTypeHash(0x514BAADBu)]
     partial class CustomRequestResultConverter : TLObjectConverter<CustomRequestResult>
     {
         internal static BaseConverter CreateConverterInstance() => new CustomRequestResultConverter();
@@ -10521,7 +10521,7 @@ namespace TDLib.JsonClient
             var obj = (CustomRequestResult)tlobj;
             switch (hash)
             {
-                case 0x4C2EA8CFu:
+                case 0x136AC113u:
                     obj.Result = reader.ReadString();
                     return true;
             }
@@ -10529,7 +10529,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA1FD39CBu)]
+    [TLTypeHash(0x56AFA473u)]
     partial class GameHighScoreConverter : TLObjectConverter<GameHighScore>
     {
         internal static BaseConverter CreateConverterInstance() => new GameHighScoreConverter();
@@ -10540,13 +10540,13 @@ namespace TDLib.JsonClient
             var obj = (GameHighScore)tlobj;
             switch (hash)
             {
-                case 0x5A1ACEA4u:
+                case 0x462CE4F5u:
                     obj.Position = reader.ReadInt();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x1690F8C8u:
+                case 0x32993751u:
                     obj.Score = reader.ReadInt();
                     return true;
             }
@@ -10554,7 +10554,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6A10846Eu)]
+    [TLTypeHash(0xD2544029u)]
     partial class GameHighScoresConverter : TLObjectConverter<GameHighScores>
     {
         internal static BaseConverter CreateConverterInstance() => new GameHighScoresConverter();
@@ -10565,7 +10565,7 @@ namespace TDLib.JsonClient
             var obj = (GameHighScores)tlobj;
             switch (hash)
             {
-                case 0x79F71A5Bu:
+                case 0x0750375Eu:
                     obj.Scores = reader.ReadObjectArray<GameHighScore>();
                     return true;
             }
@@ -10573,7 +10573,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8C71F4E4u)]
+    [TLTypeHash(0xC00D4586u)]
     partial class ChatEventMessageEditedConverter : TLObjectConverter<ChatEventMessageEdited>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMessageEditedConverter();
@@ -10584,10 +10584,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventMessageEdited)tlobj;
             switch (hash)
             {
-                case 0x82ACE6D0u:
+                case 0xC528E92Fu:
                     obj.OldMessage = reader.ReadTLObject<Message>();
                     return true;
-                case 0xF4F51E4Cu:
+                case 0x6DFE6391u:
                     obj.NewMessage = reader.ReadTLObject<Message>();
                     return true;
             }
@@ -10595,7 +10595,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7D00E316u)]
+    [TLTypeHash(0xD557FE01u)]
     partial class ChatEventMessageDeletedConverter : TLObjectConverter<ChatEventMessageDeleted>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMessageDeletedConverter();
@@ -10606,7 +10606,7 @@ namespace TDLib.JsonClient
             var obj = (ChatEventMessageDeleted)tlobj;
             switch (hash)
             {
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
             }
@@ -10614,7 +10614,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4DC221F8u)]
+    [TLTypeHash(0xC8E075EEu)]
     partial class ChatEventPollStoppedConverter : TLObjectConverter<ChatEventPollStopped>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventPollStoppedConverter();
@@ -10625,7 +10625,7 @@ namespace TDLib.JsonClient
             var obj = (ChatEventPollStopped)tlobj;
             switch (hash)
             {
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
             }
@@ -10633,7 +10633,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1217EBB1u)]
+    [TLTypeHash(0xE7E00C00u)]
     partial class ChatEventMessagePinnedConverter : TLObjectConverter<ChatEventMessagePinned>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMessagePinnedConverter();
@@ -10644,7 +10644,7 @@ namespace TDLib.JsonClient
             var obj = (ChatEventMessagePinned)tlobj;
             switch (hash)
             {
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
             }
@@ -10652,28 +10652,28 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAF86B63Cu)]
+    [TLTypeHash(0xC6170E51u)]
     partial class ChatEventMessageUnpinnedConverter : TLObjectConverter<ChatEventMessageUnpinned>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMessageUnpinnedConverter();
         internal static TLObject CreateObjectInstance() => new ChatEventMessageUnpinned();
     }
 
-    [TLTypeHash(0x5F23FCF2u)]
+    [TLTypeHash(0x25435C5Fu)]
     partial class ChatEventMemberJoinedConverter : TLObjectConverter<ChatEventMemberJoined>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMemberJoinedConverter();
         internal static TLObject CreateObjectInstance() => new ChatEventMemberJoined();
     }
 
-    [TLTypeHash(0x25F1D4B4u)]
+    [TLTypeHash(0x6084000Bu)]
     partial class ChatEventMemberLeftConverter : TLObjectConverter<ChatEventMemberLeft>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMemberLeftConverter();
         internal static TLObject CreateObjectInstance() => new ChatEventMemberLeft();
     }
 
-    [TLTypeHash(0x8C6CDE5Cu)]
+    [TLTypeHash(0xE2004C21u)]
     partial class ChatEventMemberInvitedConverter : TLObjectConverter<ChatEventMemberInvited>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMemberInvitedConverter();
@@ -10684,10 +10684,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventMemberInvited)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x82D603CEu:
+                case 0x7B00651Cu:
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
             }
@@ -10695,7 +10695,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x04104D75u)]
+    [TLTypeHash(0x45625B6Fu)]
     partial class ChatEventMemberPromotedConverter : TLObjectConverter<ChatEventMemberPromoted>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMemberPromotedConverter();
@@ -10706,13 +10706,13 @@ namespace TDLib.JsonClient
             var obj = (ChatEventMemberPromoted)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xF65836B4u:
+                case 0x32CFB69Bu:
                     obj.OldStatus = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0x2E71E713u:
+                case 0x839A5D36u:
                     obj.NewStatus = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
             }
@@ -10720,7 +10720,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x319C0FF8u)]
+    [TLTypeHash(0x06232E0Cu)]
     partial class ChatEventMemberRestrictedConverter : TLObjectConverter<ChatEventMemberRestricted>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventMemberRestrictedConverter();
@@ -10731,13 +10731,13 @@ namespace TDLib.JsonClient
             var obj = (ChatEventMemberRestricted)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xF65836B4u:
+                case 0x32CFB69Bu:
                     obj.OldStatus = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0x2E71E713u:
+                case 0x839A5D36u:
                     obj.NewStatus = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
             }
@@ -10745,7 +10745,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCE47416Du)]
+    [TLTypeHash(0xC4D7DFC9u)]
     partial class ChatEventTitleChangedConverter : TLObjectConverter<ChatEventTitleChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventTitleChangedConverter();
@@ -10756,10 +10756,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventTitleChanged)tlobj;
             switch (hash)
             {
-                case 0x9A3A8C99u:
+                case 0x8DA2B28Du:
                     obj.OldTitle = reader.ReadString();
                     return true;
-                case 0x415DACD2u:
+                case 0xD3A03BB6u:
                     obj.NewTitle = reader.ReadString();
                     return true;
             }
@@ -10767,7 +10767,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x91D8C45Fu)]
+    [TLTypeHash(0x48D43622u)]
     partial class ChatEventPermissionsChangedConverter : TLObjectConverter<ChatEventPermissionsChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventPermissionsChangedConverter();
@@ -10778,10 +10778,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventPermissionsChanged)tlobj;
             switch (hash)
             {
-                case 0xA963912Bu:
+                case 0xA18293ABu:
                     obj.OldPermissions = reader.ReadTLObject<ChatPermissions>();
                     return true;
-                case 0x63692B52u:
+                case 0xBFE27D17u:
                     obj.NewPermissions = reader.ReadTLObject<ChatPermissions>();
                     return true;
             }
@@ -10789,7 +10789,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA349C0CEu)]
+    [TLTypeHash(0x6631E867u)]
     partial class ChatEventDescriptionChangedConverter : TLObjectConverter<ChatEventDescriptionChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventDescriptionChangedConverter();
@@ -10800,10 +10800,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventDescriptionChanged)tlobj;
             switch (hash)
             {
-                case 0x2A6852E2u:
+                case 0xE18B1FE2u:
                     obj.OldDescription = reader.ReadString();
                     return true;
-                case 0xE062E89Bu:
+                case 0xFFEBF15Eu:
                     obj.NewDescription = reader.ReadString();
                     return true;
             }
@@ -10811,7 +10811,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x478140EEu)]
+    [TLTypeHash(0x8276C22Bu)]
     partial class ChatEventUsernameChangedConverter : TLObjectConverter<ChatEventUsernameChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventUsernameChangedConverter();
@@ -10822,10 +10822,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventUsernameChanged)tlobj;
             switch (hash)
             {
-                case 0xC86ED44Eu:
+                case 0x9346C25Au:
                     obj.OldUsername = reader.ReadString();
                     return true;
-                case 0x17F3BE71u:
+                case 0xBF378A5Bu:
                     obj.NewUsername = reader.ReadString();
                     return true;
             }
@@ -10833,7 +10833,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x12B3BEBCu)]
+    [TLTypeHash(0x5FC9BDC8u)]
     partial class ChatEventPhotoChangedConverter : TLObjectConverter<ChatEventPhotoChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventPhotoChangedConverter();
@@ -10844,10 +10844,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventPhotoChanged)tlobj;
             switch (hash)
             {
-                case 0xCCD401ACu:
+                case 0xB2234EFEu:
                     obj.OldPhoto = reader.ReadTLObject<ChatPhoto>();
                     return true;
-                case 0x17B321E7u:
+                case 0xEC21C7C5u:
                     obj.NewPhoto = reader.ReadTLObject<ChatPhoto>();
                     return true;
             }
@@ -10855,7 +10855,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x36F012B6u)]
+    [TLTypeHash(0xA3C4CB9Au)]
     partial class ChatEventInvitesToggledConverter : TLObjectConverter<ChatEventInvitesToggled>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventInvitesToggledConverter();
@@ -10866,7 +10866,7 @@ namespace TDLib.JsonClient
             var obj = (ChatEventInvitesToggled)tlobj;
             switch (hash)
             {
-                case 0x5FEE4B04u:
+                case 0x0C68E9BFu:
                     obj.CanInviteUsers = reader.ReadBool();
                     return true;
             }
@@ -10874,7 +10874,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x22D8AAA6u)]
+    [TLTypeHash(0x6FE466DCu)]
     partial class ChatEventLinkedChatChangedConverter : TLObjectConverter<ChatEventLinkedChatChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventLinkedChatChangedConverter();
@@ -10885,10 +10885,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventLinkedChatChanged)tlobj;
             switch (hash)
             {
-                case 0xB36670A4u:
+                case 0x075A4AF0u:
                     obj.OldLinkedChatId = reader.ReadLong();
                     return true;
-                case 0x12CBE986u:
+                case 0x4651F2A0u:
                     obj.NewLinkedChatId = reader.ReadLong();
                     return true;
             }
@@ -10896,7 +10896,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF9F07C4Fu)]
+    [TLTypeHash(0xFD0A26E0u)]
     partial class ChatEventSlowModeDelayChangedConverter : TLObjectConverter<ChatEventSlowModeDelayChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventSlowModeDelayChangedConverter();
@@ -10907,10 +10907,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventSlowModeDelayChanged)tlobj;
             switch (hash)
             {
-                case 0xE0EB75BFu:
+                case 0xCFE58A69u:
                     obj.OldSlowModeDelay = reader.ReadInt();
                     return true;
-                case 0x21CC260Fu:
+                case 0xA4CFD025u:
                     obj.NewSlowModeDelay = reader.ReadInt();
                     return true;
             }
@@ -10918,7 +10918,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x02EABEEDu)]
+    [TLTypeHash(0xF8EC66A7u)]
     partial class ChatEventSignMessagesToggledConverter : TLObjectConverter<ChatEventSignMessagesToggled>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventSignMessagesToggledConverter();
@@ -10929,7 +10929,7 @@ namespace TDLib.JsonClient
             var obj = (ChatEventSignMessagesToggled)tlobj;
             switch (hash)
             {
-                case 0x4E322A51u:
+                case 0x18BBF871u:
                     obj.SignMessages = reader.ReadBool();
                     return true;
             }
@@ -10937,7 +10937,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA118D587u)]
+    [TLTypeHash(0xBC5A5D5Fu)]
     partial class ChatEventStickerSetChangedConverter : TLObjectConverter<ChatEventStickerSetChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventStickerSetChangedConverter();
@@ -10948,10 +10948,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventStickerSetChanged)tlobj;
             switch (hash)
             {
-                case 0xB1226196u:
+                case 0x929FC4CDu:
                     obj.OldStickerSetId = reader.ReadInt64String();
                     return true;
-                case 0x108FF8B4u:
+                case 0xD3947C9Du:
                     obj.NewStickerSetId = reader.ReadInt64String();
                     return true;
             }
@@ -10959,7 +10959,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDA3373BBu)]
+    [TLTypeHash(0x0B50EFF0u)]
     partial class ChatEventLocationChangedConverter : TLObjectConverter<ChatEventLocationChanged>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventLocationChangedConverter();
@@ -10970,10 +10970,10 @@ namespace TDLib.JsonClient
             var obj = (ChatEventLocationChanged)tlobj;
             switch (hash)
             {
-                case 0xB83B74FAu:
+                case 0x35864DE6u:
                     obj.OldLocation = reader.ReadTLObject<ChatLocation>();
                     return true;
-                case 0x67A61EC5u:
+                case 0x19F705E7u:
                     obj.NewLocation = reader.ReadTLObject<ChatLocation>();
                     return true;
             }
@@ -10981,7 +10981,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB7101B60u)]
+    [TLTypeHash(0x5D2BFC72u)]
     partial class ChatEventIsAllHistoryAvailableToggledConverter : TLObjectConverter<ChatEventIsAllHistoryAvailableToggled>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventIsAllHistoryAvailableToggledConverter();
@@ -10992,7 +10992,7 @@ namespace TDLib.JsonClient
             var obj = (ChatEventIsAllHistoryAvailableToggled)tlobj;
             switch (hash)
             {
-                case 0xCED8BA39u:
+                case 0xF4846EB9u:
                     obj.IsAllHistoryAvailable = reader.ReadBool();
                     return true;
             }
@@ -11000,7 +11000,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7B1E584Eu)]
+    [TLTypeHash(0x01D6C8F9u)]
     partial class ChatEventConverter : TLObjectConverter<ChatEvent>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventConverter();
@@ -11011,16 +11011,16 @@ namespace TDLib.JsonClient
             var obj = (ChatEvent)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xA88F2A92u:
+                case 0x47CC8C92u:
                     obj.Action = reader.ReadTLObject<ChatEventAction>();
                     return true;
             }
@@ -11028,7 +11028,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDDCD486Bu)]
+    [TLTypeHash(0xDF6E537Bu)]
     partial class ChatEventsConverter : TLObjectConverter<ChatEvents>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventsConverter();
@@ -11039,7 +11039,7 @@ namespace TDLib.JsonClient
             var obj = (ChatEvents)tlobj;
             switch (hash)
             {
-                case 0x349DC3DAu:
+                case 0x5387574Au:
                     obj.Events = reader.ReadObjectArray<ChatEvent>();
                     return true;
             }
@@ -11047,7 +11047,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x96EC293Bu)]
+    [TLTypeHash(0x9D1D9BCCu)]
     partial class ChatEventLogFiltersConverter : TLObjectConverter<ChatEventLogFilters>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatEventLogFiltersConverter();
@@ -11058,34 +11058,34 @@ namespace TDLib.JsonClient
             var obj = (ChatEventLogFilters)tlobj;
             switch (hash)
             {
-                case 0xE01A8B1Au:
+                case 0x194BFC44u:
                     obj.MessageEdits = reader.ReadBool();
                     return true;
-                case 0x0BFA3D96u:
+                case 0x3A9EC0A3u:
                     obj.MessageDeletions = reader.ReadBool();
                     return true;
-                case 0x90C00DBAu:
+                case 0x969A7259u:
                     obj.MessagePins = reader.ReadBool();
                     return true;
-                case 0xAE9EE137u:
+                case 0x61B07C57u:
                     obj.MemberJoins = reader.ReadBool();
                     return true;
-                case 0xE0B38474u:
+                case 0xB9902F6Cu:
                     obj.MemberLeaves = reader.ReadBool();
                     return true;
-                case 0xBD93F423u:
+                case 0xBC8ADDF8u:
                     obj.MemberInvites = reader.ReadBool();
                     return true;
-                case 0x2634A57Fu:
+                case 0x01552EDDu:
                     obj.MemberPromotions = reader.ReadBool();
                     return true;
-                case 0xEB0AA9A6u:
+                case 0x121B27AFu:
                     obj.MemberRestrictions = reader.ReadBool();
                     return true;
-                case 0x89896192u:
+                case 0xA2E591A3u:
                     obj.InfoChanges = reader.ReadBool();
                     return true;
-                case 0x36F8A90Du:
+                case 0x787208D5u:
                     obj.SettingChanges = reader.ReadBool();
                     return true;
             }
@@ -11093,7 +11093,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4AD78ED8u)]
+    [TLTypeHash(0x2B3A21E4u)]
     partial class LanguagePackStringValueOrdinaryConverter : TLObjectConverter<LanguagePackStringValueOrdinary>
     {
         internal static BaseConverter CreateConverterInstance() => new LanguagePackStringValueOrdinaryConverter();
@@ -11104,7 +11104,7 @@ namespace TDLib.JsonClient
             var obj = (LanguagePackStringValueOrdinary)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadString();
                     return true;
             }
@@ -11112,7 +11112,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8759074Fu)]
+    [TLTypeHash(0x8E008774u)]
     partial class LanguagePackStringValuePluralizedConverter : TLObjectConverter<LanguagePackStringValuePluralized>
     {
         internal static BaseConverter CreateConverterInstance() => new LanguagePackStringValuePluralizedConverter();
@@ -11123,22 +11123,22 @@ namespace TDLib.JsonClient
             var obj = (LanguagePackStringValuePluralized)tlobj;
             switch (hash)
             {
-                case 0x10A147ACu:
+                case 0xA1130626u:
                     obj.ZeroValue = reader.ReadString();
                     return true;
-                case 0x1FA70FA0u:
+                case 0x5FB19E1Bu:
                     obj.OneValue = reader.ReadString();
                     return true;
-                case 0xDA2AB64Bu:
+                case 0xB6A037F9u:
                     obj.TwoValue = reader.ReadString();
                     return true;
-                case 0x86C80BFAu:
+                case 0x5E39B9F1u:
                     obj.FewValue = reader.ReadString();
                     return true;
-                case 0x364D35FEu:
+                case 0x1697402Bu:
                     obj.ManyValue = reader.ReadString();
                     return true;
-                case 0xD2B2DAA2u:
+                case 0x75C3AF9Au:
                     obj.OtherValue = reader.ReadString();
                     return true;
             }
@@ -11146,14 +11146,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5CFC1CE4u)]
+    [TLTypeHash(0x666AC2B6u)]
     partial class LanguagePackStringValueDeletedConverter : TLObjectConverter<LanguagePackStringValueDeleted>
     {
         internal static BaseConverter CreateConverterInstance() => new LanguagePackStringValueDeletedConverter();
         internal static TLObject CreateObjectInstance() => new LanguagePackStringValueDeleted();
     }
 
-    [TLTypeHash(0x9A7236CCu)]
+    [TLTypeHash(0x657F0855u)]
     partial class LanguagePackStringConverter : TLObjectConverter<LanguagePackString>
     {
         internal static BaseConverter CreateConverterInstance() => new LanguagePackStringConverter();
@@ -11164,10 +11164,10 @@ namespace TDLib.JsonClient
             var obj = (LanguagePackString)tlobj;
             switch (hash)
             {
-                case 0x40A4756Du:
+                case 0x8A90ABA9u:
                     obj.Key = reader.ReadString();
                     return true;
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadTLObject<LanguagePackStringValue>();
                     return true;
             }
@@ -11175,7 +11175,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBEE16F8Au)]
+    [TLTypeHash(0x006A1578u)]
     partial class LanguagePackStringsConverter : TLObjectConverter<LanguagePackStrings>
     {
         internal static BaseConverter CreateConverterInstance() => new LanguagePackStringsConverter();
@@ -11186,7 +11186,7 @@ namespace TDLib.JsonClient
             var obj = (LanguagePackStrings)tlobj;
             switch (hash)
             {
-                case 0xF206309Eu:
+                case 0xB49A6AF5u:
                     obj.Strings = reader.ReadObjectArray<LanguagePackString>();
                     return true;
             }
@@ -11194,7 +11194,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFCA462D1u)]
+    [TLTypeHash(0xE73D270Au)]
     partial class LanguagePackInfoConverter : TLObjectConverter<LanguagePackInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new LanguagePackInfoConverter();
@@ -11205,43 +11205,43 @@ namespace TDLib.JsonClient
             var obj = (LanguagePackInfo)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x3243F551u:
+                case 0x89D908E6u:
                     obj.BaseLanguagePackId = reader.ReadString();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0xA3CBBBF1u:
+                case 0x274EC82Du:
                     obj.NativeName = reader.ReadString();
                     return true;
-                case 0x515E233Bu:
+                case 0xB4DA2878u:
                     obj.PluralCode = reader.ReadString();
                     return true;
-                case 0xC0A52AF1u:
+                case 0x0DDE4409u:
                     obj.IsOfficial = reader.ReadBool();
                     return true;
-                case 0xD138C461u:
+                case 0xEB075765u:
                     obj.IsRtl = reader.ReadBool();
                     return true;
-                case 0xCCFA0765u:
+                case 0x1A622A42u:
                     obj.IsBeta = reader.ReadBool();
                     return true;
-                case 0x73CB7275u:
+                case 0x5F596777u:
                     obj.IsInstalled = reader.ReadBool();
                     return true;
-                case 0xFED53DC1u:
+                case 0x42FCAC9Du:
                     obj.TotalStringCount = reader.ReadInt();
                     return true;
-                case 0x5256E83Bu:
+                case 0x445441A3u:
                     obj.TranslatedStringCount = reader.ReadInt();
                     return true;
-                case 0xB0D7EA8Eu:
+                case 0x60D09862u:
                     obj.LocalStringCount = reader.ReadInt();
                     return true;
-                case 0xB7D6EA95u:
+                case 0xD43A5351u:
                     obj.TranslationUrl = reader.ReadString();
                     return true;
             }
@@ -11249,7 +11249,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3D3C5666u)]
+    [TLTypeHash(0x42426C88u)]
     partial class LocalizationTargetInfoConverter : TLObjectConverter<LocalizationTargetInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new LocalizationTargetInfoConverter();
@@ -11260,7 +11260,7 @@ namespace TDLib.JsonClient
             var obj = (LocalizationTargetInfo)tlobj;
             switch (hash)
             {
-                case 0x45D324D4u:
+                case 0xC6A66476u:
                     obj.LanguagePacks = reader.ReadObjectArray<LanguagePackInfo>();
                     return true;
             }
@@ -11268,7 +11268,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAD65E725u)]
+    [TLTypeHash(0xAE8998B7u)]
     partial class DeviceTokenFirebaseCloudMessagingConverter : TLObjectConverter<DeviceTokenFirebaseCloudMessaging>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenFirebaseCloudMessagingConverter();
@@ -11279,10 +11279,10 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenFirebaseCloudMessaging)tlobj;
             switch (hash)
             {
-                case 0x717F937Cu:
+                case 0x5F37A13Bu:
                     obj.Token = reader.ReadString();
                     return true;
-                case 0x3F3CCECAu:
+                case 0x4ACF2890u:
                     obj.Encrypt = reader.ReadBool();
                     return true;
             }
@@ -11290,7 +11290,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE3CF6B59u)]
+    [TLTypeHash(0x567D24BBu)]
     partial class DeviceTokenApplePushConverter : TLObjectConverter<DeviceTokenApplePush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenApplePushConverter();
@@ -11301,10 +11301,10 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenApplePush)tlobj;
             switch (hash)
             {
-                case 0x823B50F2u:
+                case 0x99B2415Cu:
                     obj.DeviceToken = reader.ReadString();
                     return true;
-                case 0x48F30CA7u:
+                case 0xDAD11C5Fu:
                     obj.IsAppSandbox = reader.ReadBool();
                     return true;
             }
@@ -11312,7 +11312,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0AB41E07u)]
+    [TLTypeHash(0x2BD7721Au)]
     partial class DeviceTokenApplePushVoIPConverter : TLObjectConverter<DeviceTokenApplePushVoIP>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenApplePushVoIPConverter();
@@ -11323,13 +11323,13 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenApplePushVoIP)tlobj;
             switch (hash)
             {
-                case 0x823B50F2u:
+                case 0x99B2415Cu:
                     obj.DeviceToken = reader.ReadString();
                     return true;
-                case 0x48F30CA7u:
+                case 0xDAD11C5Fu:
                     obj.IsAppSandbox = reader.ReadBool();
                     return true;
-                case 0x3F3CCECAu:
+                case 0x4ACF2890u:
                     obj.Encrypt = reader.ReadBool();
                     return true;
             }
@@ -11337,7 +11337,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x70D59DA4u)]
+    [TLTypeHash(0x806F9D10u)]
     partial class DeviceTokenWindowsPushConverter : TLObjectConverter<DeviceTokenWindowsPush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenWindowsPushConverter();
@@ -11348,7 +11348,7 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenWindowsPush)tlobj;
             switch (hash)
             {
-                case 0x6564F85Eu:
+                case 0xB6A2DD68u:
                     obj.AccessToken = reader.ReadString();
                     return true;
             }
@@ -11356,7 +11356,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x43F454B7u)]
+    [TLTypeHash(0xC0ACD580u)]
     partial class DeviceTokenMicrosoftPushConverter : TLObjectConverter<DeviceTokenMicrosoftPush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenMicrosoftPushConverter();
@@ -11367,7 +11367,7 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenMicrosoftPush)tlobj;
             switch (hash)
             {
-                case 0x70FC88A6u:
+                case 0xD9B966E5u:
                     obj.ChannelUri = reader.ReadString();
                     return true;
             }
@@ -11375,7 +11375,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8027FDF6u)]
+    [TLTypeHash(0x39B4D672u)]
     partial class DeviceTokenMicrosoftPushVoIPConverter : TLObjectConverter<DeviceTokenMicrosoftPushVoIP>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenMicrosoftPushVoIPConverter();
@@ -11386,7 +11386,7 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenMicrosoftPushVoIP)tlobj;
             switch (hash)
             {
-                case 0x70FC88A6u:
+                case 0xD9B966E5u:
                     obj.ChannelUri = reader.ReadString();
                     return true;
             }
@@ -11394,7 +11394,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEEEEA639u)]
+    [TLTypeHash(0xD2DEA184u)]
     partial class DeviceTokenWebPushConverter : TLObjectConverter<DeviceTokenWebPush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenWebPushConverter();
@@ -11405,13 +11405,13 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenWebPush)tlobj;
             switch (hash)
             {
-                case 0xFF43F12Du:
+                case 0xC4420F7Bu:
                     obj.Endpoint = reader.ReadString();
                     return true;
-                case 0xCD23E582u:
+                case 0xE73BEEDCu:
                     obj.P256dhBase64url = reader.ReadString();
                     return true;
-                case 0xF7C9EF55u:
+                case 0x53842B08u:
                     obj.AuthBase64url = reader.ReadString();
                     return true;
             }
@@ -11419,7 +11419,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9B7213C6u)]
+    [TLTypeHash(0xDDEFE862u)]
     partial class DeviceTokenSimplePushConverter : TLObjectConverter<DeviceTokenSimplePush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenSimplePushConverter();
@@ -11430,7 +11430,7 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenSimplePush)tlobj;
             switch (hash)
             {
-                case 0xFF43F12Du:
+                case 0xC4420F7Bu:
                     obj.Endpoint = reader.ReadString();
                     return true;
             }
@@ -11438,7 +11438,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC476C66Cu)]
+    [TLTypeHash(0x457EDC81u)]
     partial class DeviceTokenUbuntuPushConverter : TLObjectConverter<DeviceTokenUbuntuPush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenUbuntuPushConverter();
@@ -11449,7 +11449,7 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenUbuntuPush)tlobj;
             switch (hash)
             {
-                case 0x717F937Cu:
+                case 0x5F37A13Bu:
                     obj.Token = reader.ReadString();
                     return true;
             }
@@ -11457,7 +11457,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9EA9A9A6u)]
+    [TLTypeHash(0xA6C43DD1u)]
     partial class DeviceTokenBlackBerryPushConverter : TLObjectConverter<DeviceTokenBlackBerryPush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenBlackBerryPushConverter();
@@ -11468,7 +11468,7 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenBlackBerryPush)tlobj;
             switch (hash)
             {
-                case 0x717F937Cu:
+                case 0x5F37A13Bu:
                     obj.Token = reader.ReadString();
                     return true;
             }
@@ -11476,7 +11476,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAF0DF014u)]
+    [TLTypeHash(0x27713612u)]
     partial class DeviceTokenTizenPushConverter : TLObjectConverter<DeviceTokenTizenPush>
     {
         internal static BaseConverter CreateConverterInstance() => new DeviceTokenTizenPushConverter();
@@ -11487,7 +11487,7 @@ namespace TDLib.JsonClient
             var obj = (DeviceTokenTizenPush)tlobj;
             switch (hash)
             {
-                case 0x05648119u:
+                case 0x990B26CCu:
                     obj.RegId = reader.ReadString();
                     return true;
             }
@@ -11495,7 +11495,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x18469CE9u)]
+    [TLTypeHash(0x60B3D617u)]
     partial class PushReceiverIdConverter : TLObjectConverter<PushReceiverId>
     {
         internal static BaseConverter CreateConverterInstance() => new PushReceiverIdConverter();
@@ -11506,7 +11506,7 @@ namespace TDLib.JsonClient
             var obj = (PushReceiverId)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
             }
@@ -11514,7 +11514,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBB87CD82u)]
+    [TLTypeHash(0xE1616101u)]
     partial class BackgroundFillSolidConverter : TLObjectConverter<BackgroundFillSolid>
     {
         internal static BaseConverter CreateConverterInstance() => new BackgroundFillSolidConverter();
@@ -11525,7 +11525,7 @@ namespace TDLib.JsonClient
             var obj = (BackgroundFillSolid)tlobj;
             switch (hash)
             {
-                case 0xC597636Bu:
+                case 0x665648E9u:
                     obj.Color = reader.ReadInt();
                     return true;
             }
@@ -11533,7 +11533,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x232EE5A1u)]
+    [TLTypeHash(0x12468F46u)]
     partial class BackgroundFillGradientConverter : TLObjectConverter<BackgroundFillGradient>
     {
         internal static BaseConverter CreateConverterInstance() => new BackgroundFillGradientConverter();
@@ -11544,13 +11544,13 @@ namespace TDLib.JsonClient
             var obj = (BackgroundFillGradient)tlobj;
             switch (hash)
             {
-                case 0xF7836C51u:
+                case 0xF349E19Du:
                     obj.TopColor = reader.ReadInt();
                     return true;
-                case 0x4F042B96u:
+                case 0x907B7BD9u:
                     obj.BottomColor = reader.ReadInt();
                     return true;
-                case 0xA5C2A64Eu:
+                case 0xA3746DB3u:
                     obj.RotationAngle = reader.ReadInt();
                     return true;
             }
@@ -11558,7 +11558,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB6D8597Du)]
+    [TLTypeHash(0x079D86C6u)]
     partial class BackgroundTypeWallpaperConverter : TLObjectConverter<BackgroundTypeWallpaper>
     {
         internal static BaseConverter CreateConverterInstance() => new BackgroundTypeWallpaperConverter();
@@ -11569,10 +11569,10 @@ namespace TDLib.JsonClient
             var obj = (BackgroundTypeWallpaper)tlobj;
             switch (hash)
             {
-                case 0xC15EC823u:
+                case 0x1D6B4A6Eu:
                     obj.IsBlurred = reader.ReadBool();
                     return true;
-                case 0xED686E54u:
+                case 0x6F796D59u:
                     obj.IsMoving = reader.ReadBool();
                     return true;
             }
@@ -11580,7 +11580,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0043C7A6u)]
+    [TLTypeHash(0xA938D04Du)]
     partial class BackgroundTypePatternConverter : TLObjectConverter<BackgroundTypePattern>
     {
         internal static BaseConverter CreateConverterInstance() => new BackgroundTypePatternConverter();
@@ -11591,13 +11591,13 @@ namespace TDLib.JsonClient
             var obj = (BackgroundTypePattern)tlobj;
             switch (hash)
             {
-                case 0x34171E7Fu:
+                case 0xF5438EB4u:
                     obj.Fill = reader.ReadTLObject<BackgroundFill>();
                     return true;
-                case 0x4FB501A1u:
+                case 0xE9B2B892u:
                     obj.Intensity = reader.ReadInt();
                     return true;
-                case 0xED686E54u:
+                case 0x6F796D59u:
                     obj.IsMoving = reader.ReadBool();
                     return true;
             }
@@ -11605,7 +11605,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x201229A4u)]
+    [TLTypeHash(0x53F74C90u)]
     partial class BackgroundTypeFillConverter : TLObjectConverter<BackgroundTypeFill>
     {
         internal static BaseConverter CreateConverterInstance() => new BackgroundTypeFillConverter();
@@ -11616,7 +11616,7 @@ namespace TDLib.JsonClient
             var obj = (BackgroundTypeFill)tlobj;
             switch (hash)
             {
-                case 0x34171E7Fu:
+                case 0xF5438EB4u:
                     obj.Fill = reader.ReadTLObject<BackgroundFill>();
                     return true;
             }
@@ -11624,7 +11624,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x13FE30D5u)]
+    [TLTypeHash(0xBC68B450u)]
     partial class BackgroundConverter : TLObjectConverter<Background>
     {
         internal static BaseConverter CreateConverterInstance() => new BackgroundConverter();
@@ -11635,22 +11635,22 @@ namespace TDLib.JsonClient
             var obj = (Background)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x9DC1368Eu:
+                case 0xF5628617u:
                     obj.IsDefault = reader.ReadBool();
                     return true;
-                case 0x944CC807u:
+                case 0x8E8F93DAu:
                     obj.IsDark = reader.ReadBool();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<BackgroundType>();
                     return true;
             }
@@ -11658,7 +11658,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD684FF2Fu)]
+    [TLTypeHash(0x70D9F64Bu)]
     partial class BackgroundsConverter : TLObjectConverter<Backgrounds>
     {
         internal static BaseConverter CreateConverterInstance() => new BackgroundsConverter();
@@ -11669,7 +11669,7 @@ namespace TDLib.JsonClient
             var obj = (Backgrounds)tlobj;
             switch (hash)
             {
-                case 0xD684FF2Fu:
+                case 0x70D9F64Bu:
                     obj.Backgrounds_ = reader.ReadObjectArray<Background>();
                     return true;
             }
@@ -11677,7 +11677,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x28CA1A35u)]
+    [TLTypeHash(0xC40FB458u)]
     partial class InputBackgroundLocalConverter : TLObjectConverter<InputBackgroundLocal>
     {
         internal static BaseConverter CreateConverterInstance() => new InputBackgroundLocalConverter();
@@ -11688,7 +11688,7 @@ namespace TDLib.JsonClient
             var obj = (InputBackgroundLocal)tlobj;
             switch (hash)
             {
-                case 0x13FE30D5u:
+                case 0xBC68B450u:
                     obj.Background = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -11696,7 +11696,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0676A3BBu)]
+    [TLTypeHash(0x91981502u)]
     partial class InputBackgroundRemoteConverter : TLObjectConverter<InputBackgroundRemote>
     {
         internal static BaseConverter CreateConverterInstance() => new InputBackgroundRemoteConverter();
@@ -11707,7 +11707,7 @@ namespace TDLib.JsonClient
             var obj = (InputBackgroundRemote)tlobj;
             switch (hash)
             {
-                case 0x2B530087u:
+                case 0xC93D69EAu:
                     obj.BackgroundId = reader.ReadInt64String();
                     return true;
             }
@@ -11715,7 +11715,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x95BEBBB5u)]
+    [TLTypeHash(0x21E12BEFu)]
     partial class HashtagsConverter : TLObjectConverter<Hashtags>
     {
         internal static BaseConverter CreateConverterInstance() => new HashtagsConverter();
@@ -11726,7 +11726,7 @@ namespace TDLib.JsonClient
             var obj = (Hashtags)tlobj;
             switch (hash)
             {
-                case 0x95BEBBB5u:
+                case 0x21E12BEFu:
                     obj.Hashtags_ = reader.ReadStringArray();
                     return true;
             }
@@ -11734,21 +11734,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9C33714Du)]
+    [TLTypeHash(0xC72E1FC7u)]
     partial class CanTransferOwnershipResultOkConverter : TLObjectConverter<CanTransferOwnershipResultOk>
     {
         internal static BaseConverter CreateConverterInstance() => new CanTransferOwnershipResultOkConverter();
         internal static TLObject CreateObjectInstance() => new CanTransferOwnershipResultOk();
     }
 
-    [TLTypeHash(0x56E49984u)]
+    [TLTypeHash(0xA288F095u)]
     partial class CanTransferOwnershipResultPasswordNeededConverter : TLObjectConverter<CanTransferOwnershipResultPasswordNeeded>
     {
         internal static BaseConverter CreateConverterInstance() => new CanTransferOwnershipResultPasswordNeededConverter();
         internal static TLObject CreateObjectInstance() => new CanTransferOwnershipResultPasswordNeeded();
     }
 
-    [TLTypeHash(0x81A830C2u)]
+    [TLTypeHash(0x28B4D7D5u)]
     partial class CanTransferOwnershipResultPasswordTooFreshConverter : TLObjectConverter<CanTransferOwnershipResultPasswordTooFresh>
     {
         internal static BaseConverter CreateConverterInstance() => new CanTransferOwnershipResultPasswordTooFreshConverter();
@@ -11759,7 +11759,7 @@ namespace TDLib.JsonClient
             var obj = (CanTransferOwnershipResultPasswordTooFresh)tlobj;
             switch (hash)
             {
-                case 0xB2D78B4Eu:
+                case 0x72730758u:
                     obj.RetryAfter = reader.ReadInt();
                     return true;
             }
@@ -11767,7 +11767,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC285C10Fu)]
+    [TLTypeHash(0x1405C924u)]
     partial class CanTransferOwnershipResultSessionTooFreshConverter : TLObjectConverter<CanTransferOwnershipResultSessionTooFresh>
     {
         internal static BaseConverter CreateConverterInstance() => new CanTransferOwnershipResultSessionTooFreshConverter();
@@ -11778,7 +11778,7 @@ namespace TDLib.JsonClient
             var obj = (CanTransferOwnershipResultSessionTooFresh)tlobj;
             switch (hash)
             {
-                case 0xB2D78B4Eu:
+                case 0x72730758u:
                     obj.RetryAfter = reader.ReadInt();
                     return true;
             }
@@ -11786,42 +11786,42 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE9D43230u)]
+    [TLTypeHash(0x08B0DD1Au)]
     partial class CheckChatUsernameResultOkConverter : TLObjectConverter<CheckChatUsernameResultOk>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChatUsernameResultOkConverter();
         internal static TLObject CreateObjectInstance() => new CheckChatUsernameResultOk();
     }
 
-    [TLTypeHash(0x4CE50098u)]
+    [TLTypeHash(0x02A0BC10u)]
     partial class CheckChatUsernameResultUsernameInvalidConverter : TLObjectConverter<CheckChatUsernameResultUsernameInvalid>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChatUsernameResultUsernameInvalidConverter();
         internal static TLObject CreateObjectInstance() => new CheckChatUsernameResultUsernameInvalid();
     }
 
-    [TLTypeHash(0x59B9B2F1u)]
+    [TLTypeHash(0xE77FE95Fu)]
     partial class CheckChatUsernameResultUsernameOccupiedConverter : TLObjectConverter<CheckChatUsernameResultUsernameOccupied>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChatUsernameResultUsernameOccupiedConverter();
         internal static TLObject CreateObjectInstance() => new CheckChatUsernameResultUsernameOccupied();
     }
 
-    [TLTypeHash(0xFD11C8EFu)]
+    [TLTypeHash(0x0950D8A3u)]
     partial class CheckChatUsernameResultPublicChatsTooMuchConverter : TLObjectConverter<CheckChatUsernameResultPublicChatsTooMuch>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChatUsernameResultPublicChatsTooMuchConverter();
         internal static TLObject CreateObjectInstance() => new CheckChatUsernameResultPublicChatsTooMuch();
     }
 
-    [TLTypeHash(0xF3E0D0C2u)]
+    [TLTypeHash(0x9CAD7A75u)]
     partial class CheckChatUsernameResultPublicGroupsUnavailableConverter : TLObjectConverter<CheckChatUsernameResultPublicGroupsUnavailable>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChatUsernameResultPublicGroupsUnavailableConverter();
         internal static TLObject CreateObjectInstance() => new CheckChatUsernameResultPublicGroupsUnavailable();
     }
 
-    [TLTypeHash(0xDEEBF317u)]
+    [TLTypeHash(0xDB50DDD2u)]
     partial class PushMessageContentHiddenConverter : TLObjectConverter<PushMessageContentHidden>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentHiddenConverter();
@@ -11832,7 +11832,7 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentHidden)tlobj;
             switch (hash)
             {
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11840,7 +11840,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8576E234u)]
+    [TLTypeHash(0x0B4287D8u)]
     partial class PushMessageContentAnimationConverter : TLObjectConverter<PushMessageContentAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentAnimationConverter();
@@ -11851,13 +11851,13 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentAnimation)tlobj;
             switch (hash)
             {
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadString();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11865,7 +11865,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x613B2A7Eu)]
+    [TLTypeHash(0xA6DA6967u)]
     partial class PushMessageContentAudioConverter : TLObjectConverter<PushMessageContentAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentAudioConverter();
@@ -11876,10 +11876,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentAudio)tlobj;
             switch (hash)
             {
-                case 0xEB1AA922u:
+                case 0x187D3695u:
                     obj.Audio = reader.ReadTLObject<Audio>();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11887,7 +11887,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBDA73C76u)]
+    [TLTypeHash(0x913C97C5u)]
     partial class PushMessageContentContactConverter : TLObjectConverter<PushMessageContentContact>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentContactConverter();
@@ -11898,10 +11898,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentContact)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11909,14 +11909,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2AEE50A2u)]
+    [TLTypeHash(0xAF1C3318u)]
     partial class PushMessageContentContactRegisteredConverter : TLObjectConverter<PushMessageContentContactRegistered>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentContactRegisteredConverter();
         internal static TLObject CreateObjectInstance() => new PushMessageContentContactRegistered();
     }
 
-    [TLTypeHash(0x95330C96u)]
+    [TLTypeHash(0x1BB85AA6u)]
     partial class PushMessageContentDocumentConverter : TLObjectConverter<PushMessageContentDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentDocumentConverter();
@@ -11927,10 +11927,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentDocument)tlobj;
             switch (hash)
             {
-                case 0x9989342Du:
+                case 0xD8698A76u:
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11938,7 +11938,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x42C85AB1u)]
+    [TLTypeHash(0x8F64D3FEu)]
     partial class PushMessageContentGameConverter : TLObjectConverter<PushMessageContentGame>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentGameConverter();
@@ -11949,10 +11949,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentGame)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11960,7 +11960,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x68A1B2E3u)]
+    [TLTypeHash(0xC3780766u)]
     partial class PushMessageContentGameScoreConverter : TLObjectConverter<PushMessageContentGameScore>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentGameScoreConverter();
@@ -11971,13 +11971,13 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentGameScore)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x1690F8C8u:
+                case 0x32993751u:
                     obj.Score = reader.ReadInt();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11985,7 +11985,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x219FB8A5u)]
+    [TLTypeHash(0x4D3B66B9u)]
     partial class PushMessageContentInvoiceConverter : TLObjectConverter<PushMessageContentInvoice>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentInvoiceConverter();
@@ -11996,10 +11996,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentInvoice)tlobj;
             switch (hash)
             {
-                case 0x9754CC58u:
+                case 0xCAC822D9u:
                     obj.Price = reader.ReadString();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12007,7 +12007,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB49B42B3u)]
+    [TLTypeHash(0x9D4F591Bu)]
     partial class PushMessageContentLocationConverter : TLObjectConverter<PushMessageContentLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentLocationConverter();
@@ -12018,10 +12018,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentLocation)tlobj;
             switch (hash)
             {
-                case 0xB8AB4BDFu:
+                case 0xC6FC028Eu:
                     obj.IsLive = reader.ReadBool();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12029,7 +12029,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x42C958B5u)]
+    [TLTypeHash(0xAA10DBEAu)]
     partial class PushMessageContentPhotoConverter : TLObjectConverter<PushMessageContentPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentPhotoConverter();
@@ -12040,16 +12040,16 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentPhoto)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadString();
                     return true;
-                case 0xD67DF3F8u:
+                case 0x0CEB653Au:
                     obj.IsSecret = reader.ReadBool();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12057,7 +12057,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x305CD82Fu)]
+    [TLTypeHash(0x28F31837u)]
     partial class PushMessageContentPollConverter : TLObjectConverter<PushMessageContentPoll>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentPollConverter();
@@ -12068,13 +12068,13 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentPoll)tlobj;
             switch (hash)
             {
-                case 0x8244FF76u:
+                case 0xB6F7494Eu:
                     obj.Question = reader.ReadString();
                     return true;
-                case 0xD504B3C1u:
+                case 0x5C4D851Cu:
                     obj.IsRegular = reader.ReadBool();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12082,14 +12082,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x759B7CB5u)]
+    [TLTypeHash(0x424CF411u)]
     partial class PushMessageContentScreenshotTakenConverter : TLObjectConverter<PushMessageContentScreenshotTaken>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentScreenshotTakenConverter();
         internal static TLObject CreateObjectInstance() => new PushMessageContentScreenshotTaken();
     }
 
-    [TLTypeHash(0xD508F88Au)]
+    [TLTypeHash(0x52B3CD00u)]
     partial class PushMessageContentStickerConverter : TLObjectConverter<PushMessageContentSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentStickerConverter();
@@ -12100,13 +12100,13 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentSticker)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<Sticker>();
                     return true;
-                case 0xD446748Eu:
+                case 0xB64BF632u:
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12114,7 +12114,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD7888AE9u)]
+    [TLTypeHash(0x97C445B5u)]
     partial class PushMessageContentTextConverter : TLObjectConverter<PushMessageContentText>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentTextConverter();
@@ -12125,10 +12125,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentText)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12136,7 +12136,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF1F304A5u)]
+    [TLTypeHash(0xC26085DEu)]
     partial class PushMessageContentVideoConverter : TLObjectConverter<PushMessageContentVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentVideoConverter();
@@ -12147,16 +12147,16 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentVideo)tlobj;
             switch (hash)
             {
-                case 0x7BD287F9u:
+                case 0x7CC7DA2Cu:
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadString();
                     return true;
-                case 0xD67DF3F8u:
+                case 0x0CEB653Au:
                     obj.IsSecret = reader.ReadBool();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12164,7 +12164,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD2E0FE84u)]
+    [TLTypeHash(0x5E6D8AD0u)]
     partial class PushMessageContentVideoNoteConverter : TLObjectConverter<PushMessageContentVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentVideoNoteConverter();
@@ -12175,10 +12175,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentVideoNote)tlobj;
             switch (hash)
             {
-                case 0x0F7C4824u:
+                case 0xC82AA7C8u:
                     obj.VideoNote = reader.ReadTLObject<VideoNote>();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12186,7 +12186,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3E77D190u)]
+    [TLTypeHash(0x653C192Bu)]
     partial class PushMessageContentVoiceNoteConverter : TLObjectConverter<PushMessageContentVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentVoiceNoteConverter();
@@ -12197,10 +12197,10 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentVoiceNote)tlobj;
             switch (hash)
             {
-                case 0xD8548F7Bu:
+                case 0xE27EDDCFu:
                     obj.VoiceNote = reader.ReadTLObject<VoiceNote>();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12208,14 +12208,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD8B6A28Du)]
+    [TLTypeHash(0x8B6485C6u)]
     partial class PushMessageContentBasicGroupChatCreateConverter : TLObjectConverter<PushMessageContentBasicGroupChatCreate>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentBasicGroupChatCreateConverter();
         internal static TLObject CreateObjectInstance() => new PushMessageContentBasicGroupChatCreate();
     }
 
-    [TLTypeHash(0x8E4A55D8u)]
+    [TLTypeHash(0x2D1668E9u)]
     partial class PushMessageContentChatAddMembersConverter : TLObjectConverter<PushMessageContentChatAddMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentChatAddMembersConverter();
@@ -12226,13 +12226,13 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentChatAddMembers)tlobj;
             switch (hash)
             {
-                case 0xFEFAD71Au:
+                case 0xA2AB525Au:
                     obj.MemberName = reader.ReadString();
                     return true;
-                case 0x237C863Au:
+                case 0x629E5CF1u:
                     obj.IsCurrentUser = reader.ReadBool();
                     return true;
-                case 0xE3CEAF7Du:
+                case 0xB7DBC834u:
                     obj.IsReturned = reader.ReadBool();
                     return true;
             }
@@ -12240,14 +12240,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8BABF0C7u)]
+    [TLTypeHash(0xA032A0DEu)]
     partial class PushMessageContentChatChangePhotoConverter : TLObjectConverter<PushMessageContentChatChangePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentChatChangePhotoConverter();
         internal static TLObject CreateObjectInstance() => new PushMessageContentChatChangePhoto();
     }
 
-    [TLTypeHash(0xDD457DF2u)]
+    [TLTypeHash(0x9FB35CADu)]
     partial class PushMessageContentChatChangeTitleConverter : TLObjectConverter<PushMessageContentChatChangeTitle>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentChatChangeTitleConverter();
@@ -12258,7 +12258,7 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentChatChangeTitle)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -12266,7 +12266,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3AC172C8u)]
+    [TLTypeHash(0x38C49FF4u)]
     partial class PushMessageContentChatDeleteMemberConverter : TLObjectConverter<PushMessageContentChatDeleteMember>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentChatDeleteMemberConverter();
@@ -12277,13 +12277,13 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentChatDeleteMember)tlobj;
             switch (hash)
             {
-                case 0xFEFAD71Au:
+                case 0xA2AB525Au:
                     obj.MemberName = reader.ReadString();
                     return true;
-                case 0x237C863Au:
+                case 0x629E5CF1u:
                     obj.IsCurrentUser = reader.ReadBool();
                     return true;
-                case 0xC3D464EDu:
+                case 0xEF94C949u:
                     obj.IsLeft = reader.ReadBool();
                     return true;
             }
@@ -12291,14 +12291,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC7B3B1C5u)]
+    [TLTypeHash(0x01D6DBBDu)]
     partial class PushMessageContentChatJoinByLinkConverter : TLObjectConverter<PushMessageContentChatJoinByLink>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentChatJoinByLinkConverter();
         internal static TLObject CreateObjectInstance() => new PushMessageContentChatJoinByLink();
     }
 
-    [TLTypeHash(0x0EA86091u)]
+    [TLTypeHash(0x6B14C97Du)]
     partial class PushMessageContentMessageForwardsConverter : TLObjectConverter<PushMessageContentMessageForwards>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentMessageForwardsConverter();
@@ -12309,7 +12309,7 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentMessageForwards)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
             }
@@ -12317,7 +12317,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4FBF7608u)]
+    [TLTypeHash(0x61D03A95u)]
     partial class PushMessageContentMediaAlbumConverter : TLObjectConverter<PushMessageContentMediaAlbum>
     {
         internal static BaseConverter CreateConverterInstance() => new PushMessageContentMediaAlbumConverter();
@@ -12328,13 +12328,13 @@ namespace TDLib.JsonClient
             var obj = (PushMessageContentMediaAlbum)tlobj;
             switch (hash)
             {
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0x48A73F1Au:
+                case 0x2454F742u:
                     obj.HasPhotos = reader.ReadBool();
                     return true;
-                case 0x584AC229u:
+                case 0x058873A9u:
                     obj.HasVideos = reader.ReadBool();
                     return true;
             }
@@ -12342,7 +12342,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8DFCEA62u)]
+    [TLTypeHash(0xFA28C7A8u)]
     partial class NotificationTypeNewMessageConverter : TLObjectConverter<NotificationTypeNewMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationTypeNewMessageConverter();
@@ -12353,7 +12353,7 @@ namespace TDLib.JsonClient
             var obj = (NotificationTypeNewMessage)tlobj;
             switch (hash)
             {
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
             }
@@ -12361,14 +12361,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBCF631ABu)]
+    [TLTypeHash(0x2E4D9D7Au)]
     partial class NotificationTypeNewSecretChatConverter : TLObjectConverter<NotificationTypeNewSecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationTypeNewSecretChatConverter();
         internal static TLObject CreateObjectInstance() => new NotificationTypeNewSecretChat();
     }
 
-    [TLTypeHash(0x23238E30u)]
+    [TLTypeHash(0x132A7A46u)]
     partial class NotificationTypeNewCallConverter : TLObjectConverter<NotificationTypeNewCall>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationTypeNewCallConverter();
@@ -12379,7 +12379,7 @@ namespace TDLib.JsonClient
             var obj = (NotificationTypeNewCall)tlobj;
             switch (hash)
             {
-                case 0x8B391367u:
+                case 0x50A89B2Cu:
                     obj.CallId = reader.ReadInt();
                     return true;
             }
@@ -12387,7 +12387,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x93211365u)]
+    [TLTypeHash(0xD3DDA8D1u)]
     partial class NotificationTypeNewPushMessageConverter : TLObjectConverter<NotificationTypeNewPushMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationTypeNewPushMessageConverter();
@@ -12398,22 +12398,22 @@ namespace TDLib.JsonClient
             var obj = (NotificationTypeNewPushMessage)tlobj;
             switch (hash)
             {
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xDA540536u:
+                case 0x976CB7EEu:
                     obj.SenderChatId = reader.ReadLong();
                     return true;
-                case 0xD88ED020u:
+                case 0xA1C988D5u:
                     obj.SenderName = reader.ReadString();
                     return true;
-                case 0x59EDAC58u:
+                case 0xF05AA554u:
                     obj.IsOutgoing = reader.ReadBool();
                     return true;
-                case 0x61AF7533u:
+                case 0xFEC530A9u:
                     obj.Content = reader.ReadTLObject<PushMessageContent>();
                     return true;
             }
@@ -12421,35 +12421,35 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7623580Cu)]
+    [TLTypeHash(0x104F833Cu)]
     partial class NotificationGroupTypeMessagesConverter : TLObjectConverter<NotificationGroupTypeMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationGroupTypeMessagesConverter();
         internal static TLObject CreateObjectInstance() => new NotificationGroupTypeMessages();
     }
 
-    [TLTypeHash(0x447C1405u)]
+    [TLTypeHash(0x3574EEF5u)]
     partial class NotificationGroupTypeMentionsConverter : TLObjectConverter<NotificationGroupTypeMentions>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationGroupTypeMentionsConverter();
         internal static TLObject CreateObjectInstance() => new NotificationGroupTypeMentions();
     }
 
-    [TLTypeHash(0x8F51D02Du)]
+    [TLTypeHash(0xA745DEE5u)]
     partial class NotificationGroupTypeSecretChatConverter : TLObjectConverter<NotificationGroupTypeSecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationGroupTypeSecretChatConverter();
         internal static TLObject CreateObjectInstance() => new NotificationGroupTypeSecretChat();
     }
 
-    [TLTypeHash(0x2E64EA49u)]
+    [TLTypeHash(0x00CFBF1Bu)]
     partial class NotificationGroupTypeCallsConverter : TLObjectConverter<NotificationGroupTypeCalls>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationGroupTypeCallsConverter();
         internal static TLObject CreateObjectInstance() => new NotificationGroupTypeCalls();
     }
 
-    [TLTypeHash(0xB166D682u)]
+    [TLTypeHash(0xBF5476CAu)]
     partial class NotificationConverter : TLObjectConverter<Notification>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationConverter();
@@ -12460,16 +12460,16 @@ namespace TDLib.JsonClient
             var obj = (Notification)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xB1BAEF37u:
+                case 0x6BE5F453u:
                     obj.IsSilent = reader.ReadBool();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<NotificationType>();
                     return true;
             }
@@ -12477,7 +12477,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9CA4510Bu)]
+    [TLTypeHash(0x491850E0u)]
     partial class NotificationGroupConverter : TLObjectConverter<NotificationGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new NotificationGroupConverter();
@@ -12488,19 +12488,19 @@ namespace TDLib.JsonClient
             var obj = (NotificationGroup)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<NotificationGroupType>();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0x53C9D9F1u:
+                case 0x6000B0D3u:
                     obj.Notifications = reader.ReadObjectArray<Notification>();
                     return true;
             }
@@ -12508,7 +12508,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAE1DD2C7u)]
+    [TLTypeHash(0x70F03900u)]
     partial class OptionValueBooleanConverter : TLObjectConverter<OptionValueBoolean>
     {
         internal static BaseConverter CreateConverterInstance() => new OptionValueBooleanConverter();
@@ -12519,7 +12519,7 @@ namespace TDLib.JsonClient
             var obj = (OptionValueBoolean)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadBool();
                     return true;
             }
@@ -12527,14 +12527,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x465DEEFFu)]
+    [TLTypeHash(0x8E968B4Fu)]
     partial class OptionValueEmptyConverter : TLObjectConverter<OptionValueEmpty>
     {
         internal static BaseConverter CreateConverterInstance() => new OptionValueEmptyConverter();
         internal static TLObject CreateObjectInstance() => new OptionValueEmpty();
     }
 
-    [TLTypeHash(0xC28A1953u)]
+    [TLTypeHash(0xA07A1A63u)]
     partial class OptionValueIntegerConverter : TLObjectConverter<OptionValueInteger>
     {
         internal static BaseConverter CreateConverterInstance() => new OptionValueIntegerConverter();
@@ -12545,7 +12545,7 @@ namespace TDLib.JsonClient
             var obj = (OptionValueInteger)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadInt64String();
                     return true;
             }
@@ -12553,7 +12553,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x18C8666Du)]
+    [TLTypeHash(0xE432B9B7u)]
     partial class OptionValueStringConverter : TLObjectConverter<OptionValueString>
     {
         internal static BaseConverter CreateConverterInstance() => new OptionValueStringConverter();
@@ -12564,7 +12564,7 @@ namespace TDLib.JsonClient
             var obj = (OptionValueString)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadString();
                     return true;
             }
@@ -12572,7 +12572,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x091B6C65u)]
+    [TLTypeHash(0x02837BBDu)]
     partial class JsonObjectMemberConverter : TLObjectConverter<JsonObjectMember>
     {
         internal static BaseConverter CreateConverterInstance() => new JsonObjectMemberConverter();
@@ -12583,10 +12583,10 @@ namespace TDLib.JsonClient
             var obj = (JsonObjectMember)tlobj;
             switch (hash)
             {
-                case 0x40A4756Du:
+                case 0x8A90ABA9u:
                     obj.Key = reader.ReadString();
                     return true;
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadTLObject<JsonValue>();
                     return true;
             }
@@ -12594,14 +12594,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1F32DCB8u)]
+    [TLTypeHash(0x9B91A9A9u)]
     partial class JsonValueNullConverter : TLObjectConverter<JsonValueNull>
     {
         internal static BaseConverter CreateConverterInstance() => new JsonValueNullConverter();
         internal static TLObject CreateObjectInstance() => new JsonValueNull();
     }
 
-    [TLTypeHash(0xE0E5E62Au)]
+    [TLTypeHash(0x6B98353Fu)]
     partial class JsonValueBooleanConverter : TLObjectConverter<JsonValueBoolean>
     {
         internal static BaseConverter CreateConverterInstance() => new JsonValueBooleanConverter();
@@ -12612,7 +12612,7 @@ namespace TDLib.JsonClient
             var obj = (JsonValueBoolean)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadBool();
                     return true;
             }
@@ -12620,7 +12620,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x30DAF764u)]
+    [TLTypeHash(0x85B5501Fu)]
     partial class JsonValueNumberConverter : TLObjectConverter<JsonValueNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new JsonValueNumberConverter();
@@ -12631,7 +12631,7 @@ namespace TDLib.JsonClient
             var obj = (JsonValueNumber)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadDouble();
                     return true;
             }
@@ -12639,7 +12639,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAD07C072u)]
+    [TLTypeHash(0x8D9BFDE2u)]
     partial class JsonValueStringConverter : TLObjectConverter<JsonValueString>
     {
         internal static BaseConverter CreateConverterInstance() => new JsonValueStringConverter();
@@ -12650,7 +12650,7 @@ namespace TDLib.JsonClient
             var obj = (JsonValueString)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadString();
                     return true;
             }
@@ -12658,7 +12658,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4EEBF61Eu)]
+    [TLTypeHash(0xE8DBF3AFu)]
     partial class JsonValueArrayConverter : TLObjectConverter<JsonValueArray>
     {
         internal static BaseConverter CreateConverterInstance() => new JsonValueArrayConverter();
@@ -12669,7 +12669,7 @@ namespace TDLib.JsonClient
             var obj = (JsonValueArray)tlobj;
             switch (hash)
             {
-                case 0x42C2743Du:
+                case 0x3AA74CE6u:
                     obj.Values = reader.ReadObjectArray<JsonValue>();
                     return true;
             }
@@ -12677,7 +12677,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDA209993u)]
+    [TLTypeHash(0xBB88E4A7u)]
     partial class JsonValueObjectConverter : TLObjectConverter<JsonValueObject>
     {
         internal static BaseConverter CreateConverterInstance() => new JsonValueObjectConverter();
@@ -12688,7 +12688,7 @@ namespace TDLib.JsonClient
             var obj = (JsonValueObject)tlobj;
             switch (hash)
             {
-                case 0xBC6D8848u:
+                case 0x45A0D2FFu:
                     obj.Members = reader.ReadObjectArray<JsonObjectMember>();
                     return true;
             }
@@ -12696,21 +12696,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5268F3D0u)]
+    [TLTypeHash(0x16276ADEu)]
     partial class UserPrivacySettingRuleAllowAllConverter : TLObjectConverter<UserPrivacySettingRuleAllowAll>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleAllowAllConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleAllowAll();
     }
 
-    [TLTypeHash(0x839C37A7u)]
+    [TLTypeHash(0xFCE5477Fu)]
     partial class UserPrivacySettingRuleAllowContactsConverter : TLObjectConverter<UserPrivacySettingRuleAllowContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleAllowContactsConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleAllowContacts();
     }
 
-    [TLTypeHash(0x24CD2E1Eu)]
+    [TLTypeHash(0xB5CB12F9u)]
     partial class UserPrivacySettingRuleAllowUsersConverter : TLObjectConverter<UserPrivacySettingRuleAllowUsers>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleAllowUsersConverter();
@@ -12721,7 +12721,7 @@ namespace TDLib.JsonClient
             var obj = (UserPrivacySettingRuleAllowUsers)tlobj;
             switch (hash)
             {
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -12729,7 +12729,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x81A72C0Bu)]
+    [TLTypeHash(0x33D9AADBu)]
     partial class UserPrivacySettingRuleAllowChatMembersConverter : TLObjectConverter<UserPrivacySettingRuleAllowChatMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleAllowChatMembersConverter();
@@ -12740,7 +12740,7 @@ namespace TDLib.JsonClient
             var obj = (UserPrivacySettingRuleAllowChatMembers)tlobj;
             switch (hash)
             {
-                case 0xD49AC59Au:
+                case 0x5010813Du:
                     obj.ChatIds = reader.ReadInt53Array();
                     return true;
             }
@@ -12748,21 +12748,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFB16FBA5u)]
+    [TLTypeHash(0x89C970D7u)]
     partial class UserPrivacySettingRuleRestrictAllConverter : TLObjectConverter<UserPrivacySettingRuleRestrictAll>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleRestrictAllConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleRestrictAll();
     }
 
-    [TLTypeHash(0xBBCAB7D6u)]
+    [TLTypeHash(0x9BF4F98Au)]
     partial class UserPrivacySettingRuleRestrictContactsConverter : TLObjectConverter<UserPrivacySettingRuleRestrictContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleRestrictContactsConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleRestrictContacts();
     }
 
-    [TLTypeHash(0x4C65F283u)]
+    [TLTypeHash(0x996BCF24u)]
     partial class UserPrivacySettingRuleRestrictUsersConverter : TLObjectConverter<UserPrivacySettingRuleRestrictUsers>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleRestrictUsersConverter();
@@ -12773,7 +12773,7 @@ namespace TDLib.JsonClient
             var obj = (UserPrivacySettingRuleRestrictUsers)tlobj;
             switch (hash)
             {
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -12781,7 +12781,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFE227FC8u)]
+    [TLTypeHash(0x9020B843u)]
     partial class UserPrivacySettingRuleRestrictChatMembersConverter : TLObjectConverter<UserPrivacySettingRuleRestrictChatMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleRestrictChatMembersConverter();
@@ -12792,7 +12792,7 @@ namespace TDLib.JsonClient
             var obj = (UserPrivacySettingRuleRestrictChatMembers)tlobj;
             switch (hash)
             {
-                case 0xD49AC59Au:
+                case 0x5010813Du:
                     obj.ChatIds = reader.ReadInt53Array();
                     return true;
             }
@@ -12800,7 +12800,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1E4549E2u)]
+    [TLTypeHash(0x5BEEFC5Au)]
     partial class UserPrivacySettingRulesConverter : TLObjectConverter<UserPrivacySettingRules>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingRulesConverter();
@@ -12811,7 +12811,7 @@ namespace TDLib.JsonClient
             var obj = (UserPrivacySettingRules)tlobj;
             switch (hash)
             {
-                case 0x9AD9EC1Bu:
+                case 0x899A993Cu:
                     obj.Rules = reader.ReadObjectArray<UserPrivacySettingRule>();
                     return true;
             }
@@ -12819,63 +12819,63 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x54C61545u)]
+    [TLTypeHash(0x0E590AA7u)]
     partial class UserPrivacySettingShowStatusConverter : TLObjectConverter<UserPrivacySettingShowStatus>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingShowStatusConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingShowStatus();
     }
 
-    [TLTypeHash(0x6FECA696u)]
+    [TLTypeHash(0xB1CBBD2Au)]
     partial class UserPrivacySettingShowProfilePhotoConverter : TLObjectConverter<UserPrivacySettingShowProfilePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingShowProfilePhotoConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingShowProfilePhoto();
     }
 
-    [TLTypeHash(0x5B719C34u)]
+    [TLTypeHash(0xA83A3B36u)]
     partial class UserPrivacySettingShowLinkInForwardedMessagesConverter : TLObjectConverter<UserPrivacySettingShowLinkInForwardedMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingShowLinkInForwardedMessagesConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingShowLinkInForwardedMessages();
     }
 
-    [TLTypeHash(0xEAAD1EE3u)]
+    [TLTypeHash(0xDD29C538u)]
     partial class UserPrivacySettingShowPhoneNumberConverter : TLObjectConverter<UserPrivacySettingShowPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingShowPhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingShowPhoneNumber();
     }
 
-    [TLTypeHash(0x99140CF9u)]
+    [TLTypeHash(0x7ACF0FCEu)]
     partial class UserPrivacySettingAllowChatInvitesConverter : TLObjectConverter<UserPrivacySettingAllowChatInvites>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingAllowChatInvitesConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingAllowChatInvites();
     }
 
-    [TLTypeHash(0x6FB31276u)]
+    [TLTypeHash(0xAC59A752u)]
     partial class UserPrivacySettingAllowCallsConverter : TLObjectConverter<UserPrivacySettingAllowCalls>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingAllowCallsConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingAllowCalls();
     }
 
-    [TLTypeHash(0xEC5A648Au)]
+    [TLTypeHash(0x1DF5AFE8u)]
     partial class UserPrivacySettingAllowPeerToPeerCallsConverter : TLObjectConverter<UserPrivacySettingAllowPeerToPeerCalls>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingAllowPeerToPeerCallsConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingAllowPeerToPeerCalls();
     }
 
-    [TLTypeHash(0x922F7329u)]
+    [TLTypeHash(0xDDA498AEu)]
     partial class UserPrivacySettingAllowFindingByPhoneNumberConverter : TLObjectConverter<UserPrivacySettingAllowFindingByPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new UserPrivacySettingAllowFindingByPhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new UserPrivacySettingAllowFindingByPhoneNumber();
     }
 
-    [TLTypeHash(0x8453F9E4u)]
+    [TLTypeHash(0x66895475u)]
     partial class AccountTtlConverter : TLObjectConverter<AccountTtl>
     {
         internal static BaseConverter CreateConverterInstance() => new AccountTtlConverter();
@@ -12886,7 +12886,7 @@ namespace TDLib.JsonClient
             var obj = (AccountTtl)tlobj;
             switch (hash)
             {
-                case 0x9F81F05Au:
+                case 0xEBE4FC66u:
                     obj.Days = reader.ReadInt();
                     return true;
             }
@@ -12894,7 +12894,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x03FED922u)]
+    [TLTypeHash(0xD044D5D4u)]
     partial class SessionConverter : TLObjectConverter<Session>
     {
         internal static BaseConverter CreateConverterInstance() => new SessionConverter();
@@ -12905,49 +12905,49 @@ namespace TDLib.JsonClient
             var obj = (Session)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0xF3EE1C3Au:
+                case 0xCACFB2C3u:
                     obj.IsCurrent = reader.ReadBool();
                     return true;
-                case 0x74288B3Du:
+                case 0xD05D281Bu:
                     obj.IsPasswordPending = reader.ReadBool();
                     return true;
-                case 0x94A3BBA6u:
+                case 0x54963938u:
                     obj.ApiId = reader.ReadInt();
                     return true;
-                case 0x6CC7A549u:
+                case 0xA9CF168Eu:
                     obj.ApplicationName = reader.ReadString();
                     return true;
-                case 0x4ACD0E08u:
+                case 0x54A2D6F0u:
                     obj.ApplicationVersion = reader.ReadString();
                     return true;
-                case 0xC0D081D8u:
+                case 0xB149676Eu:
                     obj.IsOfficialApplication = reader.ReadBool();
                     return true;
-                case 0x5DF57F47u:
+                case 0x111092BEu:
                     obj.DeviceModel = reader.ReadString();
                     return true;
-                case 0x0095CC92u:
+                case 0x3952D0CBu:
                     obj.Platform = reader.ReadString();
                     return true;
-                case 0x5D13E231u:
+                case 0x536FAF50u:
                     obj.SystemVersion = reader.ReadString();
                     return true;
-                case 0x4BFD38D8u:
+                case 0xB8E83089u:
                     obj.LogInDate = reader.ReadInt();
                     return true;
-                case 0x8CCFFD90u:
+                case 0x04C8DAA6u:
                     obj.LastActiveDate = reader.ReadInt();
                     return true;
-                case 0x8ED35D16u:
+                case 0xA5E3B32Du:
                     obj.Ip = reader.ReadString();
                     return true;
-                case 0x450EAE1Du:
+                case 0x5373C966u:
                     obj.Country = reader.ReadString();
                     return true;
-                case 0x471E889Au:
+                case 0x0F62F176u:
                     obj.Region = reader.ReadString();
                     return true;
             }
@@ -12955,7 +12955,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF130F458u)]
+    [TLTypeHash(0x9A609D13u)]
     partial class SessionsConverter : TLObjectConverter<Sessions>
     {
         internal static BaseConverter CreateConverterInstance() => new SessionsConverter();
@@ -12966,7 +12966,7 @@ namespace TDLib.JsonClient
             var obj = (Sessions)tlobj;
             switch (hash)
             {
-                case 0xF130F458u:
+                case 0x9A609D13u:
                     obj.Sessions_ = reader.ReadObjectArray<Session>();
                     return true;
             }
@@ -12974,7 +12974,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0A6CFAA0u)]
+    [TLTypeHash(0x8859E775u)]
     partial class ConnectedWebsiteConverter : TLObjectConverter<ConnectedWebsite>
     {
         internal static BaseConverter CreateConverterInstance() => new ConnectedWebsiteConverter();
@@ -12985,31 +12985,31 @@ namespace TDLib.JsonClient
             var obj = (ConnectedWebsite)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x32598F1Fu:
+                case 0xF3FF5361u:
                     obj.DomainName = reader.ReadString();
                     return true;
-                case 0x05547AC3u:
+                case 0x5898BEB0u:
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x8011CC75u:
+                case 0xDA130F3Au:
                     obj.Browser = reader.ReadString();
                     return true;
-                case 0x0095CC92u:
+                case 0x3952D0CBu:
                     obj.Platform = reader.ReadString();
                     return true;
-                case 0x4BFD38D8u:
+                case 0xB8E83089u:
                     obj.LogInDate = reader.ReadInt();
                     return true;
-                case 0x8CCFFD90u:
+                case 0x04C8DAA6u:
                     obj.LastActiveDate = reader.ReadInt();
                     return true;
-                case 0x8ED35D16u:
+                case 0xA5E3B32Du:
                     obj.Ip = reader.ReadString();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadString();
                     return true;
             }
@@ -13017,7 +13017,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x92F42DF4u)]
+    [TLTypeHash(0x3BE9135Fu)]
     partial class ConnectedWebsitesConverter : TLObjectConverter<ConnectedWebsites>
     {
         internal static BaseConverter CreateConverterInstance() => new ConnectedWebsitesConverter();
@@ -13028,7 +13028,7 @@ namespace TDLib.JsonClient
             var obj = (ConnectedWebsites)tlobj;
             switch (hash)
             {
-                case 0xF43FC50Fu:
+                case 0x2527D78Du:
                     obj.Websites = reader.ReadObjectArray<ConnectedWebsite>();
                     return true;
             }
@@ -13036,49 +13036,49 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x225C3D9Fu)]
+    [TLTypeHash(0xFE8EA104u)]
     partial class ChatReportReasonSpamConverter : TLObjectConverter<ChatReportReasonSpam>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatReportReasonSpamConverter();
         internal static TLObject CreateObjectInstance() => new ChatReportReasonSpam();
     }
 
-    [TLTypeHash(0x4A5650B7u)]
+    [TLTypeHash(0x09ECC6D3u)]
     partial class ChatReportReasonViolenceConverter : TLObjectConverter<ChatReportReasonViolence>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatReportReasonViolenceConverter();
         internal static TLObject CreateObjectInstance() => new ChatReportReasonViolence();
     }
 
-    [TLTypeHash(0x9EE26B9Fu)]
+    [TLTypeHash(0x3F02F332u)]
     partial class ChatReportReasonPornographyConverter : TLObjectConverter<ChatReportReasonPornography>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatReportReasonPornographyConverter();
         internal static TLObject CreateObjectInstance() => new ChatReportReasonPornography();
     }
 
-    [TLTypeHash(0xA89647F4u)]
+    [TLTypeHash(0x9CC5ADA5u)]
     partial class ChatReportReasonChildAbuseConverter : TLObjectConverter<ChatReportReasonChildAbuse>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatReportReasonChildAbuseConverter();
         internal static TLObject CreateObjectInstance() => new ChatReportReasonChildAbuse();
     }
 
-    [TLTypeHash(0x5C99BDCEu)]
+    [TLTypeHash(0x85BCE10Cu)]
     partial class ChatReportReasonCopyrightConverter : TLObjectConverter<ChatReportReasonCopyright>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatReportReasonCopyrightConverter();
         internal static TLObject CreateObjectInstance() => new ChatReportReasonCopyright();
     }
 
-    [TLTypeHash(0x5DD1E1D0u)]
+    [TLTypeHash(0x9D95AB36u)]
     partial class ChatReportReasonUnrelatedLocationConverter : TLObjectConverter<ChatReportReasonUnrelatedLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatReportReasonUnrelatedLocationConverter();
         internal static TLObject CreateObjectInstance() => new ChatReportReasonUnrelatedLocation();
     }
 
-    [TLTypeHash(0x4737038Cu)]
+    [TLTypeHash(0x77D35A86u)]
     partial class ChatReportReasonCustomConverter : TLObjectConverter<ChatReportReasonCustom>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatReportReasonCustomConverter();
@@ -13089,7 +13089,7 @@ namespace TDLib.JsonClient
             var obj = (ChatReportReasonCustom)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
             }
@@ -13097,7 +13097,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1CFC6D2Eu)]
+    [TLTypeHash(0xF2C0A5D9u)]
     partial class MessageLinkConverter : TLObjectConverter<MessageLink>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageLinkConverter();
@@ -13108,10 +13108,10 @@ namespace TDLib.JsonClient
             var obj = (MessageLink)tlobj;
             switch (hash)
             {
-                case 0x8EBB0A1Du:
+                case 0x36AC99F1u:
                     obj.Link = reader.ReadString();
                     return true;
-                case 0x3EEE47F1u:
+                case 0x6BFDA3C2u:
                     obj.IsPublic = reader.ReadBool();
                     return true;
             }
@@ -13119,7 +13119,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDB5527C5u)]
+    [TLTypeHash(0x771DB38Fu)]
     partial class MessageLinkInfoConverter : TLObjectConverter<MessageLinkInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageLinkInfoConverter();
@@ -13130,19 +13130,19 @@ namespace TDLib.JsonClient
             var obj = (MessageLinkInfo)tlobj;
             switch (hash)
             {
-                case 0x3EEE47F1u:
+                case 0x6BFDA3C2u:
                     obj.IsPublic = reader.ReadBool();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
-                case 0x8F261B50u:
+                case 0xB92EBCE9u:
                     obj.ForAlbum = reader.ReadBool();
                     return true;
-                case 0xD4FBAC3Au:
+                case 0xA8413541u:
                     obj.ForComment = reader.ReadBool();
                     return true;
             }
@@ -13150,7 +13150,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0B9D7DA7u)]
+    [TLTypeHash(0x8B15489Bu)]
     partial class FilePartConverter : TLObjectConverter<FilePart>
     {
         internal static BaseConverter CreateConverterInstance() => new FilePartConverter();
@@ -13161,7 +13161,7 @@ namespace TDLib.JsonClient
             var obj = (FilePart)tlobj;
             switch (hash)
             {
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -13169,119 +13169,119 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x509FAECBu)]
+    [TLTypeHash(0x46866AFAu)]
     partial class FileTypeNoneConverter : TLObjectConverter<FileTypeNone>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeNoneConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeNone();
     }
 
-    [TLTypeHash(0xF12CFF61u)]
+    [TLTypeHash(0xA627F635u)]
     partial class FileTypeAnimationConverter : TLObjectConverter<FileTypeAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeAnimationConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeAnimation();
     }
 
-    [TLTypeHash(0x5E0AD465u)]
+    [TLTypeHash(0x4EF7E4DCu)]
     partial class FileTypeAudioConverter : TLObjectConverter<FileTypeAudio>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeAudioConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeAudio();
     }
 
-    [TLTypeHash(0x4527F9D3u)]
+    [TLTypeHash(0x1941F1CCu)]
     partial class FileTypeDocumentConverter : TLObjectConverter<FileTypeDocument>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeDocumentConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeDocument();
     }
 
-    [TLTypeHash(0x7DF8A6AEu)]
+    [TLTypeHash(0x423D5651u)]
     partial class FileTypePhotoConverter : TLObjectConverter<FileTypePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypePhotoConverter();
         internal static TLObject CreateObjectInstance() => new FileTypePhoto();
     }
 
-    [TLTypeHash(0x68E7174Fu)]
+    [TLTypeHash(0xA5CE2150u)]
     partial class FileTypeProfilePhotoConverter : TLObjectConverter<FileTypeProfilePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeProfilePhotoConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeProfilePhoto();
     }
 
-    [TLTypeHash(0x25382467u)]
+    [TLTypeHash(0x53F49B03u)]
     partial class FileTypeSecretConverter : TLObjectConverter<FileTypeSecret>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeSecretConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeSecret();
     }
 
-    [TLTypeHash(0x609D3C3Bu)]
+    [TLTypeHash(0x10EA54B4u)]
     partial class FileTypeSecretThumbnailConverter : TLObjectConverter<FileTypeSecretThumbnail>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeSecretThumbnailConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeSecretThumbnail();
     }
 
-    [TLTypeHash(0xF6553CA6u)]
+    [TLTypeHash(0x398829E2u)]
     partial class FileTypeSecureConverter : TLObjectConverter<FileTypeSecure>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeSecureConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeSecure();
     }
 
-    [TLTypeHash(0x1C288D49u)]
+    [TLTypeHash(0xC68BADC3u)]
     partial class FileTypeStickerConverter : TLObjectConverter<FileTypeSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeStickerConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeSticker();
     }
 
-    [TLTypeHash(0x32F49C6Cu)]
+    [TLTypeHash(0xE822540Fu)]
     partial class FileTypeThumbnailConverter : TLObjectConverter<FileTypeThumbnail>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeThumbnailConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeThumbnail();
     }
 
-    [TLTypeHash(0xE90AD3D5u)]
+    [TLTypeHash(0xE440B6F9u)]
     partial class FileTypeUnknownConverter : TLObjectConverter<FileTypeUnknown>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeUnknownConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeUnknown();
     }
 
-    [TLTypeHash(0xCEC2FABEu)]
+    [TLTypeHash(0x2A4D0865u)]
     partial class FileTypeVideoConverter : TLObjectConverter<FileTypeVideo>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeVideoConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeVideo();
     }
 
-    [TLTypeHash(0xA6BAE3D1u)]
+    [TLTypeHash(0xF308FB3Du)]
     partial class FileTypeVideoNoteConverter : TLObjectConverter<FileTypeVideoNote>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeVideoNoteConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeVideoNote();
     }
 
-    [TLTypeHash(0x4A2DCCC5u)]
+    [TLTypeHash(0xC85968C6u)]
     partial class FileTypeVoiceNoteConverter : TLObjectConverter<FileTypeVoiceNote>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeVoiceNoteConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeVoiceNote();
     }
 
-    [TLTypeHash(0xDF06F9E3u)]
+    [TLTypeHash(0xFEE716C5u)]
     partial class FileTypeWallpaperConverter : TLObjectConverter<FileTypeWallpaper>
     {
         internal static BaseConverter CreateConverterInstance() => new FileTypeWallpaperConverter();
         internal static TLObject CreateObjectInstance() => new FileTypeWallpaper();
     }
 
-    [TLTypeHash(0xF9CB5404u)]
+    [TLTypeHash(0xB13CF94Bu)]
     partial class StorageStatisticsByFileTypeConverter : TLObjectConverter<StorageStatisticsByFileType>
     {
         internal static BaseConverter CreateConverterInstance() => new StorageStatisticsByFileTypeConverter();
@@ -13292,13 +13292,13 @@ namespace TDLib.JsonClient
             var obj = (StorageStatisticsByFileType)tlobj;
             switch (hash)
             {
-                case 0xCE2728D6u:
+                case 0x05223F47u:
                     obj.FileType = reader.ReadTLObject<FileType>();
                     return true;
-                case 0x55AC4F76u:
+                case 0xF7C0246Au:
                     obj.Size = reader.ReadLong();
                     return true;
-                case 0x1D26CDC5u:
+                case 0x85D94462u:
                     obj.Count = reader.ReadInt();
                     return true;
             }
@@ -13306,7 +13306,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC2AD50E1u)]
+    [TLTypeHash(0xA8454264u)]
     partial class StorageStatisticsByChatConverter : TLObjectConverter<StorageStatisticsByChat>
     {
         internal static BaseConverter CreateConverterInstance() => new StorageStatisticsByChatConverter();
@@ -13317,16 +13317,16 @@ namespace TDLib.JsonClient
             var obj = (StorageStatisticsByChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x55AC4F76u:
+                case 0xF7C0246Au:
                     obj.Size = reader.ReadLong();
                     return true;
-                case 0x1D26CDC5u:
+                case 0x85D94462u:
                     obj.Count = reader.ReadInt();
                     return true;
-                case 0x49FE5CD8u:
+                case 0x91E7AEA2u:
                     obj.ByFileType = reader.ReadObjectArray<StorageStatisticsByFileType>();
                     return true;
             }
@@ -13334,7 +13334,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9A05AED3u)]
+    [TLTypeHash(0x080936E0u)]
     partial class StorageStatisticsConverter : TLObjectConverter<StorageStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new StorageStatisticsConverter();
@@ -13345,13 +13345,13 @@ namespace TDLib.JsonClient
             var obj = (StorageStatistics)tlobj;
             switch (hash)
             {
-                case 0x55AC4F76u:
+                case 0xF7C0246Au:
                     obj.Size = reader.ReadLong();
                     return true;
-                case 0x1D26CDC5u:
+                case 0x85D94462u:
                     obj.Count = reader.ReadInt();
                     return true;
-                case 0x18914EF2u:
+                case 0x53F2AB17u:
                     obj.ByChat = reader.ReadObjectArray<StorageStatisticsByChat>();
                     return true;
             }
@@ -13359,7 +13359,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCCF99730u)]
+    [TLTypeHash(0xACD40D9Bu)]
     partial class StorageStatisticsFastConverter : TLObjectConverter<StorageStatisticsFast>
     {
         internal static BaseConverter CreateConverterInstance() => new StorageStatisticsFastConverter();
@@ -13370,19 +13370,19 @@ namespace TDLib.JsonClient
             var obj = (StorageStatisticsFast)tlobj;
             switch (hash)
             {
-                case 0x4E20A8B9u:
+                case 0x7008210Bu:
                     obj.FilesSize = reader.ReadLong();
                     return true;
-                case 0x89DA20B5u:
+                case 0x2F5AF455u:
                     obj.FileCount = reader.ReadInt();
                     return true;
-                case 0xCC6C6AA0u:
+                case 0x85BD6626u:
                     obj.DatabaseSize = reader.ReadLong();
                     return true;
-                case 0x15289280u:
+                case 0x3F007510u:
                     obj.LanguagePackDatabaseSize = reader.ReadLong();
                     return true;
-                case 0x293AE859u:
+                case 0xE6AECA1Fu:
                     obj.LogSize = reader.ReadLong();
                     return true;
             }
@@ -13390,7 +13390,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x334740E1u)]
+    [TLTypeHash(0x0D2CEC66u)]
     partial class DatabaseStatisticsConverter : TLObjectConverter<DatabaseStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new DatabaseStatisticsConverter();
@@ -13401,7 +13401,7 @@ namespace TDLib.JsonClient
             var obj = (DatabaseStatistics)tlobj;
             switch (hash)
             {
-                case 0xC9E592DDu:
+                case 0xE2D38B22u:
                     obj.Statistics = reader.ReadString();
                     return true;
             }
@@ -13409,42 +13409,42 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9760C68Fu)]
+    [TLTypeHash(0xB95304ABu)]
     partial class NetworkTypeNoneConverter : TLObjectConverter<NetworkTypeNone>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkTypeNoneConverter();
         internal static TLObject CreateObjectInstance() => new NetworkTypeNone();
     }
 
-    [TLTypeHash(0x1097D296u)]
+    [TLTypeHash(0x3A8F8F99u)]
     partial class NetworkTypeMobileConverter : TLObjectConverter<NetworkTypeMobile>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkTypeMobileConverter();
         internal static TLObject CreateObjectInstance() => new NetworkTypeMobile();
     }
 
-    [TLTypeHash(0x1794EC37u)]
+    [TLTypeHash(0xEBA20355u)]
     partial class NetworkTypeMobileRoamingConverter : TLObjectConverter<NetworkTypeMobileRoaming>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkTypeMobileRoamingConverter();
         internal static TLObject CreateObjectInstance() => new NetworkTypeMobileRoaming();
     }
 
-    [TLTypeHash(0x2B68A791u)]
+    [TLTypeHash(0xC424828Du)]
     partial class NetworkTypeWiFiConverter : TLObjectConverter<NetworkTypeWiFi>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkTypeWiFiConverter();
         internal static TLObject CreateObjectInstance() => new NetworkTypeWiFi();
     }
 
-    [TLTypeHash(0x8A0ED268u)]
+    [TLTypeHash(0x93415365u)]
     partial class NetworkTypeOtherConverter : TLObjectConverter<NetworkTypeOther>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkTypeOtherConverter();
         internal static TLObject CreateObjectInstance() => new NetworkTypeOther();
     }
 
-    [TLTypeHash(0xB219561Bu)]
+    [TLTypeHash(0xA5609291u)]
     partial class NetworkStatisticsEntryFileConverter : TLObjectConverter<NetworkStatisticsEntryFile>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkStatisticsEntryFileConverter();
@@ -13455,16 +13455,16 @@ namespace TDLib.JsonClient
             var obj = (NetworkStatisticsEntryFile)tlobj;
             switch (hash)
             {
-                case 0xCE2728D6u:
+                case 0x05223F47u:
                     obj.FileType = reader.ReadTLObject<FileType>();
                     return true;
-                case 0x391ED358u:
+                case 0xF783945Eu:
                     obj.NetworkType = reader.ReadTLObject<NetworkType>();
                     return true;
-                case 0x2180B558u:
+                case 0xBF25DA46u:
                     obj.SentBytes = reader.ReadLong();
                     return true;
-                case 0x63CE1CBFu:
+                case 0x74F3BEDDu:
                     obj.ReceivedBytes = reader.ReadLong();
                     return true;
             }
@@ -13472,7 +13472,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x549D2859u)]
+    [TLTypeHash(0xE5718BBFu)]
     partial class NetworkStatisticsEntryCallConverter : TLObjectConverter<NetworkStatisticsEntryCall>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkStatisticsEntryCallConverter();
@@ -13483,16 +13483,16 @@ namespace TDLib.JsonClient
             var obj = (NetworkStatisticsEntryCall)tlobj;
             switch (hash)
             {
-                case 0x391ED358u:
+                case 0xF783945Eu:
                     obj.NetworkType = reader.ReadTLObject<NetworkType>();
                     return true;
-                case 0x2180B558u:
+                case 0xBF25DA46u:
                     obj.SentBytes = reader.ReadLong();
                     return true;
-                case 0x63CE1CBFu:
+                case 0x74F3BEDDu:
                     obj.ReceivedBytes = reader.ReadLong();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadDouble();
                     return true;
             }
@@ -13500,7 +13500,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA1DA6523u)]
+    [TLTypeHash(0x67B74906u)]
     partial class NetworkStatisticsConverter : TLObjectConverter<NetworkStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new NetworkStatisticsConverter();
@@ -13511,10 +13511,10 @@ namespace TDLib.JsonClient
             var obj = (NetworkStatistics)tlobj;
             switch (hash)
             {
-                case 0x59AB14BAu:
+                case 0x18ABAB76u:
                     obj.SinceDate = reader.ReadInt();
                     return true;
-                case 0xDEEDB016u:
+                case 0x2DF8B3C5u:
                     obj.Entries = reader.ReadObjectArray<NetworkStatisticsEntry>();
                     return true;
             }
@@ -13522,7 +13522,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3F837955u)]
+    [TLTypeHash(0x4BD449CCu)]
     partial class AutoDownloadSettingsConverter : TLObjectConverter<AutoDownloadSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new AutoDownloadSettingsConverter();
@@ -13533,28 +13533,28 @@ namespace TDLib.JsonClient
             var obj = (AutoDownloadSettings)tlobj;
             switch (hash)
             {
-                case 0xCCA82D1Eu:
+                case 0xE378D25Du:
                     obj.IsAutoDownloadEnabled = reader.ReadBool();
                     return true;
-                case 0x8E160B0Cu:
+                case 0xEE308AACu:
                     obj.MaxPhotoFileSize = reader.ReadInt();
                     return true;
-                case 0x7488D7E8u:
+                case 0x21B1A118u:
                     obj.MaxVideoFileSize = reader.ReadInt();
                     return true;
-                case 0xCD0A3E23u:
+                case 0x3D315538u:
                     obj.MaxOtherFileSize = reader.ReadInt();
                     return true;
-                case 0xE495A131u:
+                case 0xBFA12A64u:
                     obj.VideoUploadBitrate = reader.ReadInt();
                     return true;
-                case 0x4F56A214u:
+                case 0x7D0644F3u:
                     obj.PreloadLargeVideos = reader.ReadBool();
                     return true;
-                case 0x43473BD6u:
+                case 0x0ED90A29u:
                     obj.PreloadNextAudio = reader.ReadBool();
                     return true;
-                case 0xC909E024u:
+                case 0xEDC31F77u:
                     obj.UseLessDataForCalls = reader.ReadBool();
                     return true;
             }
@@ -13562,7 +13562,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x583E6905u)]
+    [TLTypeHash(0x0FC2500Du)]
     partial class AutoDownloadSettingsPresetsConverter : TLObjectConverter<AutoDownloadSettingsPresets>
     {
         internal static BaseConverter CreateConverterInstance() => new AutoDownloadSettingsPresetsConverter();
@@ -13573,13 +13573,13 @@ namespace TDLib.JsonClient
             var obj = (AutoDownloadSettingsPresets)tlobj;
             switch (hash)
             {
-                case 0x227D5D75u:
+                case 0x928878A1u:
                     obj.Low = reader.ReadTLObject<AutoDownloadSettings>();
                     return true;
-                case 0x95BB240Cu:
+                case 0xC67345B7u:
                     obj.Medium = reader.ReadTLObject<AutoDownloadSettings>();
                     return true;
-                case 0x687F93D5u:
+                case 0xF105E455u:
                     obj.High = reader.ReadTLObject<AutoDownloadSettings>();
                     return true;
             }
@@ -13587,91 +13587,91 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1A8110A0u)]
+    [TLTypeHash(0x09FC50B0u)]
     partial class ConnectionStateWaitingForNetworkConverter : TLObjectConverter<ConnectionStateWaitingForNetwork>
     {
         internal static BaseConverter CreateConverterInstance() => new ConnectionStateWaitingForNetworkConverter();
         internal static TLObject CreateObjectInstance() => new ConnectionStateWaitingForNetwork();
     }
 
-    [TLTypeHash(0x0F7F78F0u)]
+    [TLTypeHash(0xA4289818u)]
     partial class ConnectionStateConnectingToProxyConverter : TLObjectConverter<ConnectionStateConnectingToProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new ConnectionStateConnectingToProxyConverter();
         internal static TLObject CreateObjectInstance() => new ConnectionStateConnectingToProxy();
     }
 
-    [TLTypeHash(0x4FD53FA1u)]
+    [TLTypeHash(0x9F061AD0u)]
     partial class ConnectionStateConnectingConverter : TLObjectConverter<ConnectionStateConnecting>
     {
         internal static BaseConverter CreateConverterInstance() => new ConnectionStateConnectingConverter();
         internal static TLObject CreateObjectInstance() => new ConnectionStateConnecting();
     }
 
-    [TLTypeHash(0x2595113Au)]
+    [TLTypeHash(0x476C48BBu)]
     partial class ConnectionStateUpdatingConverter : TLObjectConverter<ConnectionStateUpdating>
     {
         internal static BaseConverter CreateConverterInstance() => new ConnectionStateUpdatingConverter();
         internal static TLObject CreateObjectInstance() => new ConnectionStateUpdating();
     }
 
-    [TLTypeHash(0xFE0A9325u)]
+    [TLTypeHash(0xD593BA9Du)]
     partial class ConnectionStateReadyConverter : TLObjectConverter<ConnectionStateReady>
     {
         internal static BaseConverter CreateConverterInstance() => new ConnectionStateReadyConverter();
         internal static TLObject CreateObjectInstance() => new ConnectionStateReady();
     }
 
-    [TLTypeHash(0x38B005BDu)]
+    [TLTypeHash(0x9CFFB07Du)]
     partial class TopChatCategoryUsersConverter : TLObjectConverter<TopChatCategoryUsers>
     {
         internal static BaseConverter CreateConverterInstance() => new TopChatCategoryUsersConverter();
         internal static TLObject CreateObjectInstance() => new TopChatCategoryUsers();
     }
 
-    [TLTypeHash(0xD2D7A6DFu)]
+    [TLTypeHash(0x05F08225u)]
     partial class TopChatCategoryBotsConverter : TLObjectConverter<TopChatCategoryBots>
     {
         internal static BaseConverter CreateConverterInstance() => new TopChatCategoryBotsConverter();
         internal static TLObject CreateObjectInstance() => new TopChatCategoryBots();
     }
 
-    [TLTypeHash(0x17150971u)]
+    [TLTypeHash(0x07871238u)]
     partial class TopChatCategoryGroupsConverter : TLObjectConverter<TopChatCategoryGroups>
     {
         internal static BaseConverter CreateConverterInstance() => new TopChatCategoryGroupsConverter();
         internal static TLObject CreateObjectInstance() => new TopChatCategoryGroups();
     }
 
-    [TLTypeHash(0x46F01541u)]
+    [TLTypeHash(0x67082911u)]
     partial class TopChatCategoryChannelsConverter : TLObjectConverter<TopChatCategoryChannels>
     {
         internal static BaseConverter CreateConverterInstance() => new TopChatCategoryChannelsConverter();
         internal static TLObject CreateObjectInstance() => new TopChatCategoryChannels();
     }
 
-    [TLTypeHash(0x49521534u)]
+    [TLTypeHash(0xBDA612FAu)]
     partial class TopChatCategoryInlineBotsConverter : TLObjectConverter<TopChatCategoryInlineBots>
     {
         internal static BaseConverter CreateConverterInstance() => new TopChatCategoryInlineBotsConverter();
         internal static TLObject CreateObjectInstance() => new TopChatCategoryInlineBots();
     }
 
-    [TLTypeHash(0x27F8588Au)]
+    [TLTypeHash(0x52DF491Bu)]
     partial class TopChatCategoryCallsConverter : TLObjectConverter<TopChatCategoryCalls>
     {
         internal static BaseConverter CreateConverterInstance() => new TopChatCategoryCallsConverter();
         internal static TLObject CreateObjectInstance() => new TopChatCategoryCalls();
     }
 
-    [TLTypeHash(0xF327360Bu)]
+    [TLTypeHash(0x9BE328A0u)]
     partial class TopChatCategoryForwardChatsConverter : TLObjectConverter<TopChatCategoryForwardChats>
     {
         internal static BaseConverter CreateConverterInstance() => new TopChatCategoryForwardChatsConverter();
         internal static TLObject CreateObjectInstance() => new TopChatCategoryForwardChats();
     }
 
-    [TLTypeHash(0x21ADFBD2u)]
+    [TLTypeHash(0xD7A3C274u)]
     partial class TMeUrlTypeUserConverter : TLObjectConverter<TMeUrlTypeUser>
     {
         internal static BaseConverter CreateConverterInstance() => new TMeUrlTypeUserConverter();
@@ -13682,7 +13682,7 @@ namespace TDLib.JsonClient
             var obj = (TMeUrlTypeUser)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -13690,7 +13690,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA6A44123u)]
+    [TLTypeHash(0x60924B41u)]
     partial class TMeUrlTypeSupergroupConverter : TLObjectConverter<TMeUrlTypeSupergroup>
     {
         internal static BaseConverter CreateConverterInstance() => new TMeUrlTypeSupergroupConverter();
@@ -13701,7 +13701,7 @@ namespace TDLib.JsonClient
             var obj = (TMeUrlTypeSupergroup)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadLong();
                     return true;
             }
@@ -13709,7 +13709,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x85205D5Au)]
+    [TLTypeHash(0xF78F6210u)]
     partial class TMeUrlTypeChatInviteConverter : TLObjectConverter<TMeUrlTypeChatInvite>
     {
         internal static BaseConverter CreateConverterInstance() => new TMeUrlTypeChatInviteConverter();
@@ -13720,7 +13720,7 @@ namespace TDLib.JsonClient
             var obj = (TMeUrlTypeChatInvite)tlobj;
             switch (hash)
             {
-                case 0x06A2A198u:
+                case 0xCB893157u:
                     obj.Info = reader.ReadTLObject<ChatInviteLinkInfo>();
                     return true;
             }
@@ -13728,7 +13728,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x58239DDCu)]
+    [TLTypeHash(0x490A8AB7u)]
     partial class TMeUrlTypeStickerSetConverter : TLObjectConverter<TMeUrlTypeStickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new TMeUrlTypeStickerSetConverter();
@@ -13739,7 +13739,7 @@ namespace TDLib.JsonClient
             var obj = (TMeUrlTypeStickerSet)tlobj;
             switch (hash)
             {
-                case 0xC81D90F8u:
+                case 0xE417C78Fu:
                     obj.StickerSetId = reader.ReadInt64String();
                     return true;
             }
@@ -13747,7 +13747,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6664254Du)]
+    [TLTypeHash(0xBE90AFE1u)]
     partial class TMeUrlConverter : TLObjectConverter<TMeUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new TMeUrlConverter();
@@ -13758,10 +13758,10 @@ namespace TDLib.JsonClient
             var obj = (TMeUrl)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<TMeUrlType>();
                     return true;
             }
@@ -13769,7 +13769,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCE80C1E2u)]
+    [TLTypeHash(0xCCBD8D4Au)]
     partial class TMeUrlsConverter : TLObjectConverter<TMeUrls>
     {
         internal static BaseConverter CreateConverterInstance() => new TMeUrlsConverter();
@@ -13780,7 +13780,7 @@ namespace TDLib.JsonClient
             var obj = (TMeUrls)tlobj;
             switch (hash)
             {
-                case 0x53C15E0Cu:
+                case 0x2A9437A1u:
                     obj.Urls = reader.ReadObjectArray<TMeUrl>();
                     return true;
             }
@@ -13788,21 +13788,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0789F13Eu)]
+    [TLTypeHash(0x0BB691D8u)]
     partial class SuggestedActionEnableArchiveAndMuteNewChatsConverter : TLObjectConverter<SuggestedActionEnableArchiveAndMuteNewChats>
     {
         internal static BaseConverter CreateConverterInstance() => new SuggestedActionEnableArchiveAndMuteNewChatsConverter();
         internal static TLObject CreateObjectInstance() => new SuggestedActionEnableArchiveAndMuteNewChats();
     }
 
-    [TLTypeHash(0x7549EA3Cu)]
+    [TLTypeHash(0xF75AF29Cu)]
     partial class SuggestedActionCheckPhoneNumberConverter : TLObjectConverter<SuggestedActionCheckPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new SuggestedActionCheckPhoneNumberConverter();
         internal static TLObject CreateObjectInstance() => new SuggestedActionCheckPhoneNumber();
     }
 
-    [TLTypeHash(0x1D26CDC5u)]
+    [TLTypeHash(0x85D94462u)]
     partial class CountConverter : TLObjectConverter<Count>
     {
         internal static BaseConverter CreateConverterInstance() => new CountConverter();
@@ -13813,7 +13813,7 @@ namespace TDLib.JsonClient
             var obj = (Count)tlobj;
             switch (hash)
             {
-                case 0x1D26CDC5u:
+                case 0x85D94462u:
                     obj.Count_ = reader.ReadInt();
                     return true;
             }
@@ -13821,7 +13821,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2F5319E1u)]
+    [TLTypeHash(0x3B8BA7C7u)]
     partial class TextConverter : TLObjectConverter<Text>
     {
         internal static BaseConverter CreateConverterInstance() => new TextConverter();
@@ -13832,7 +13832,7 @@ namespace TDLib.JsonClient
             var obj = (Text)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text_ = reader.ReadString();
                     return true;
             }
@@ -13840,7 +13840,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9AABDF2Du)]
+    [TLTypeHash(0x2FD609E6u)]
     partial class SecondsConverter : TLObjectConverter<Seconds>
     {
         internal static BaseConverter CreateConverterInstance() => new SecondsConverter();
@@ -13851,7 +13851,7 @@ namespace TDLib.JsonClient
             var obj = (Seconds)tlobj;
             switch (hash)
             {
-                case 0x9AABDF2Du:
+                case 0x2FD609E6u:
                     obj.Seconds_ = reader.ReadDouble();
                     return true;
             }
@@ -13859,7 +13859,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x96F9A59Eu)]
+    [TLTypeHash(0x40901014u)]
     partial class DeepLinkInfoConverter : TLObjectConverter<DeepLinkInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new DeepLinkInfoConverter();
@@ -13870,10 +13870,10 @@ namespace TDLib.JsonClient
             var obj = (DeepLinkInfo)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x657B577Eu:
+                case 0x3D2D6B44u:
                     obj.NeedUpdateApplication = reader.ReadBool();
                     return true;
             }
@@ -13881,7 +13881,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5A3A43A5u)]
+    [TLTypeHash(0x93D591A6u)]
     partial class TextParseModeMarkdownConverter : TLObjectConverter<TextParseModeMarkdown>
     {
         internal static BaseConverter CreateConverterInstance() => new TextParseModeMarkdownConverter();
@@ -13892,7 +13892,7 @@ namespace TDLib.JsonClient
             var obj = (TextParseModeMarkdown)tlobj;
             switch (hash)
             {
-                case 0xF60C5F97u:
+                case 0xBF1CD3C3u:
                     obj.Version = reader.ReadInt();
                     return true;
             }
@@ -13900,14 +13900,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x16B03370u)]
+    [TLTypeHash(0xB29DF0BDu)]
     partial class TextParseModeHTMLConverter : TLObjectConverter<TextParseModeHTML>
     {
         internal static BaseConverter CreateConverterInstance() => new TextParseModeHTMLConverter();
         internal static TLObject CreateObjectInstance() => new TextParseModeHTML();
     }
 
-    [TLTypeHash(0x59A61173u)]
+    [TLTypeHash(0x63CD9325u)]
     partial class ProxyTypeSocks5Converter : TLObjectConverter<ProxyTypeSocks5>
     {
         internal static BaseConverter CreateConverterInstance() => new ProxyTypeSocks5Converter();
@@ -13918,10 +13918,10 @@ namespace TDLib.JsonClient
             var obj = (ProxyTypeSocks5)tlobj;
             switch (hash)
             {
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -13929,7 +13929,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x14F38FF7u)]
+    [TLTypeHash(0xE32117D9u)]
     partial class ProxyTypeHttpConverter : TLObjectConverter<ProxyTypeHttp>
     {
         internal static BaseConverter CreateConverterInstance() => new ProxyTypeHttpConverter();
@@ -13940,13 +13940,13 @@ namespace TDLib.JsonClient
             var obj = (ProxyTypeHttp)tlobj;
             switch (hash)
             {
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
-                case 0x6CCF42C9u:
+                case 0x4173E5D7u:
                     obj.HttpOnly = reader.ReadBool();
                     return true;
             }
@@ -13954,7 +13954,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x03F395D2u)]
+    [TLTypeHash(0xEC974E4Cu)]
     partial class ProxyTypeMtprotoConverter : TLObjectConverter<ProxyTypeMtproto>
     {
         internal static BaseConverter CreateConverterInstance() => new ProxyTypeMtprotoConverter();
@@ -13965,7 +13965,7 @@ namespace TDLib.JsonClient
             var obj = (ProxyTypeMtproto)tlobj;
             switch (hash)
             {
-                case 0xB03C4D4Du:
+                case 0x5CA2E8E5u:
                     obj.Secret = reader.ReadString();
                     return true;
             }
@@ -13973,7 +13973,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8DCEA850u)]
+    [TLTypeHash(0x7372C9BEu)]
     partial class ProxyConverter : TLObjectConverter<Proxy>
     {
         internal static BaseConverter CreateConverterInstance() => new ProxyConverter();
@@ -13984,22 +13984,22 @@ namespace TDLib.JsonClient
             var obj = (Proxy)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x3C62153Au:
+                case 0x5A6DD5F6u:
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x991EB78Cu:
+                case 0x43915DCCu:
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x62C2419Du:
+                case 0x125F4533u:
                     obj.LastUsedDate = reader.ReadInt();
                     return true;
-                case 0x1876036Fu:
+                case 0x46C53D4Cu:
                     obj.IsEnabled = reader.ReadBool();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
             }
@@ -14007,7 +14007,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD6FF262Eu)]
+    [TLTypeHash(0x148784BBu)]
     partial class ProxiesConverter : TLObjectConverter<Proxies>
     {
         internal static BaseConverter CreateConverterInstance() => new ProxiesConverter();
@@ -14018,7 +14018,7 @@ namespace TDLib.JsonClient
             var obj = (Proxies)tlobj;
             switch (hash)
             {
-                case 0xD6FF262Eu:
+                case 0x148784BBu:
                     obj.Proxies_ = reader.ReadObjectArray<Proxy>();
                     return true;
             }
@@ -14026,7 +14026,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x87B0E501u)]
+    [TLTypeHash(0xDA4D51E6u)]
     partial class InputStickerStaticConverter : TLObjectConverter<InputStickerStatic>
     {
         internal static BaseConverter CreateConverterInstance() => new InputStickerStaticConverter();
@@ -14037,13 +14037,13 @@ namespace TDLib.JsonClient
             var obj = (InputStickerStatic)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x1EEF3683u:
+                case 0xD36FD57Du:
                     obj.Emojis = reader.ReadString();
                     return true;
-                case 0xB8863CFAu:
+                case 0x357EA28Bu:
                     obj.MaskPosition = reader.ReadTLObject<MaskPosition>();
                     return true;
             }
@@ -14051,7 +14051,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBBD0C6A8u)]
+    [TLTypeHash(0xA78AD84Bu)]
     partial class InputStickerAnimatedConverter : TLObjectConverter<InputStickerAnimated>
     {
         internal static BaseConverter CreateConverterInstance() => new InputStickerAnimatedConverter();
@@ -14062,10 +14062,10 @@ namespace TDLib.JsonClient
             var obj = (InputStickerAnimated)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x1EEF3683u:
+                case 0xD36FD57Du:
                     obj.Emojis = reader.ReadString();
                     return true;
             }
@@ -14073,7 +14073,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA0312044u)]
+    [TLTypeHash(0x2FBD8CA2u)]
     partial class DateRangeConverter : TLObjectConverter<DateRange>
     {
         internal static BaseConverter CreateConverterInstance() => new DateRangeConverter();
@@ -14084,10 +14084,10 @@ namespace TDLib.JsonClient
             var obj = (DateRange)tlobj;
             switch (hash)
             {
-                case 0xDD24ED1Eu:
+                case 0x95275AB8u:
                     obj.StartDate = reader.ReadInt();
                     return true;
-                case 0x426CD30Eu:
+                case 0x845CBB3Eu:
                     obj.EndDate = reader.ReadInt();
                     return true;
             }
@@ -14095,7 +14095,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x29F2B4C3u)]
+    [TLTypeHash(0xBE682069u)]
     partial class StatisticsValueConverter : TLObjectConverter<StatisticsValue>
     {
         internal static BaseConverter CreateConverterInstance() => new StatisticsValueConverter();
@@ -14106,13 +14106,13 @@ namespace TDLib.JsonClient
             var obj = (StatisticsValue)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadDouble();
                     return true;
-                case 0x1123425Au:
+                case 0xF68FA163u:
                     obj.PreviousValue = reader.ReadDouble();
                     return true;
-                case 0x66316503u:
+                case 0xDDB6121Fu:
                     obj.GrowthRatePercentage = reader.ReadDouble();
                     return true;
             }
@@ -14120,7 +14120,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4029311Du)]
+    [TLTypeHash(0x725A8928u)]
     partial class StatisticsGraphDataConverter : TLObjectConverter<StatisticsGraphData>
     {
         internal static BaseConverter CreateConverterInstance() => new StatisticsGraphDataConverter();
@@ -14131,10 +14131,10 @@ namespace TDLib.JsonClient
             var obj = (StatisticsGraphData)tlobj;
             switch (hash)
             {
-                case 0x38964D7Eu:
+                case 0x746FAFA4u:
                     obj.JsonData = reader.ReadString();
                     return true;
-                case 0xABB654F1u:
+                case 0x065C4064u:
                     obj.ZoomToken = reader.ReadString();
                     return true;
             }
@@ -14142,7 +14142,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE53DD0B6u)]
+    [TLTypeHash(0x8ECEB2E4u)]
     partial class StatisticsGraphAsyncConverter : TLObjectConverter<StatisticsGraphAsync>
     {
         internal static BaseConverter CreateConverterInstance() => new StatisticsGraphAsyncConverter();
@@ -14153,7 +14153,7 @@ namespace TDLib.JsonClient
             var obj = (StatisticsGraphAsync)tlobj;
             switch (hash)
             {
-                case 0x717F937Cu:
+                case 0x5F37A13Bu:
                     obj.Token = reader.ReadString();
                     return true;
             }
@@ -14161,7 +14161,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFBD5E613u)]
+    [TLTypeHash(0xBC0C8D13u)]
     partial class StatisticsGraphErrorConverter : TLObjectConverter<StatisticsGraphError>
     {
         internal static BaseConverter CreateConverterInstance() => new StatisticsGraphErrorConverter();
@@ -14172,7 +14172,7 @@ namespace TDLib.JsonClient
             var obj = (StatisticsGraphError)tlobj;
             switch (hash)
             {
-                case 0x6E73AFBFu:
+                case 0x2BF96153u:
                     obj.ErrorMessage = reader.ReadString();
                     return true;
             }
@@ -14180,7 +14180,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD6A8C8C9u)]
+    [TLTypeHash(0x182DC9B4u)]
     partial class ChatStatisticsMessageInteractionInfoConverter : TLObjectConverter<ChatStatisticsMessageInteractionInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatStatisticsMessageInteractionInfoConverter();
@@ -14191,13 +14191,13 @@ namespace TDLib.JsonClient
             var obj = (ChatStatisticsMessageInteractionInfo)tlobj;
             switch (hash)
             {
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x43352C62u:
+                case 0xE7FAE371u:
                     obj.ViewCount = reader.ReadInt();
                     return true;
-                case 0x6DAA5B53u:
+                case 0x2DC8A70Au:
                     obj.ForwardCount = reader.ReadInt();
                     return true;
             }
@@ -14205,7 +14205,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE1BB55DCu)]
+    [TLTypeHash(0xD6DA1360u)]
     partial class ChatStatisticsMessageSenderInfoConverter : TLObjectConverter<ChatStatisticsMessageSenderInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatStatisticsMessageSenderInfoConverter();
@@ -14216,13 +14216,13 @@ namespace TDLib.JsonClient
             var obj = (ChatStatisticsMessageSenderInfo)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xEDB00161u:
+                case 0x52C97B66u:
                     obj.SentMessageCount = reader.ReadInt();
                     return true;
-                case 0xC10EDB5Eu:
+                case 0x4B97D42Eu:
                     obj.AverageCharacterCount = reader.ReadInt();
                     return true;
             }
@@ -14230,7 +14230,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0172D701u)]
+    [TLTypeHash(0xFE53116Eu)]
     partial class ChatStatisticsAdministratorActionsInfoConverter : TLObjectConverter<ChatStatisticsAdministratorActionsInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatStatisticsAdministratorActionsInfoConverter();
@@ -14241,16 +14241,16 @@ namespace TDLib.JsonClient
             var obj = (ChatStatisticsAdministratorActionsInfo)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xC9319F78u:
+                case 0x245CB13Au:
                     obj.DeletedMessageCount = reader.ReadInt();
                     return true;
-                case 0x107B9914u:
+                case 0x464B6DC9u:
                     obj.BannedUserCount = reader.ReadInt();
                     return true;
-                case 0x04768A54u:
+                case 0x33B6F45Du:
                     obj.RestrictedUserCount = reader.ReadInt();
                     return true;
             }
@@ -14258,7 +14258,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE4B0B69Fu)]
+    [TLTypeHash(0xC0198263u)]
     partial class ChatStatisticsInviterInfoConverter : TLObjectConverter<ChatStatisticsInviterInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatStatisticsInviterInfoConverter();
@@ -14269,10 +14269,10 @@ namespace TDLib.JsonClient
             var obj = (ChatStatisticsInviterInfo)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x2BC9F2C6u:
+                case 0xD4000EDDu:
                     obj.AddedMemberCount = reader.ReadInt();
                     return true;
             }
@@ -14280,7 +14280,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9211B2BAu)]
+    [TLTypeHash(0x7EE9E4ACu)]
     partial class ChatStatisticsSupergroupConverter : TLObjectConverter<ChatStatisticsSupergroup>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatStatisticsSupergroupConverter();
@@ -14291,52 +14291,52 @@ namespace TDLib.JsonClient
             var obj = (ChatStatisticsSupergroup)tlobj;
             switch (hash)
             {
-                case 0xB8732A17u:
+                case 0xC5B81ECEu:
                     obj.Period = reader.ReadTLObject<DateRange>();
                     return true;
-                case 0x510F06B4u:
+                case 0xE7F8D191u:
                     obj.MemberCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x63688144u:
+                case 0x7A7FBB89u:
                     obj.MessageCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x76D74E06u:
+                case 0x65E84D6Eu:
                     obj.ViewerCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x0A28133Au:
+                case 0x9AFC2DFAu:
                     obj.SenderCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x80E47EE2u:
+                case 0x0EAD8222u:
                     obj.MemberCountGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x6047942Bu:
+                case 0x80077671u:
                     obj.JoinGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x8D0A1489u:
+                case 0x5F8E5598u:
                     obj.JoinBySourceGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xB94FD7BEu:
+                case 0x761D018Du:
                     obj.LanguageGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xF8C9B4C5u:
+                case 0xAB2B1776u:
                     obj.MessageContentGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x40F7EB2Du:
+                case 0xEE8BC960u:
                     obj.ActionGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xAC34B946u:
+                case 0xB088B938u:
                     obj.DayGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xB834E043u:
+                case 0xC2EECC5Fu:
                     obj.WeekGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x33875E9Fu:
+                case 0xF4D322C1u:
                     obj.TopSenders = reader.ReadObjectArray<ChatStatisticsMessageSenderInfo>();
                     return true;
-                case 0x66707457u:
+                case 0xC34A74C6u:
                     obj.TopAdministrators = reader.ReadObjectArray<ChatStatisticsAdministratorActionsInfo>();
                     return true;
-                case 0xC0C8A453u:
+                case 0xE727671Fu:
                     obj.TopInviters = reader.ReadObjectArray<ChatStatisticsInviterInfo>();
                     return true;
             }
@@ -14344,7 +14344,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x57AD1769u)]
+    [TLTypeHash(0x813C64CCu)]
     partial class ChatStatisticsChannelConverter : TLObjectConverter<ChatStatisticsChannel>
     {
         internal static BaseConverter CreateConverterInstance() => new ChatStatisticsChannelConverter();
@@ -14355,49 +14355,49 @@ namespace TDLib.JsonClient
             var obj = (ChatStatisticsChannel)tlobj;
             switch (hash)
             {
-                case 0xB8732A17u:
+                case 0xC5B81ECEu:
                     obj.Period = reader.ReadTLObject<DateRange>();
                     return true;
-                case 0x510F06B4u:
+                case 0xE7F8D191u:
                     obj.MemberCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0xA69DBEE3u:
+                case 0x9CADCB64u:
                     obj.MeanViewCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0xA263C47Bu:
+                case 0x61111B4Cu:
                     obj.MeanShareCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x0F3FCB54u:
+                case 0x96B5F95Au:
                     obj.EnabledNotificationsPercentage = reader.ReadDouble();
                     return true;
-                case 0x80E47EE2u:
+                case 0x0EAD8222u:
                     obj.MemberCountGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x6047942Bu:
+                case 0x80077671u:
                     obj.JoinGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x6391DAB4u:
+                case 0xBE8CD5E7u:
                     obj.MuteGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x0F64F99Au:
+                case 0xB4BB963Fu:
                     obj.ViewCountByHourGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xA404571Du:
+                case 0xC5E02430u:
                     obj.ViewCountBySourceGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x8D0A1489u:
+                case 0x5F8E5598u:
                     obj.JoinBySourceGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xB94FD7BEu:
+                case 0x761D018Du:
                     obj.LanguageGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xFD21D298u:
+                case 0xC7E28398u:
                     obj.MessageInteractionGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x9601358Cu:
+                case 0x89067E59u:
                     obj.InstantViewInteractionGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xA322C5EBu:
+                case 0x39890F95u:
                     obj.RecentMessageInteractions = reader.ReadObjectArray<ChatStatisticsMessageInteractionInfo>();
                     return true;
             }
@@ -14405,7 +14405,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3A6211E0u)]
+    [TLTypeHash(0x8AAB2FD9u)]
     partial class MessageStatisticsConverter : TLObjectConverter<MessageStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new MessageStatisticsConverter();
@@ -14416,7 +14416,7 @@ namespace TDLib.JsonClient
             var obj = (MessageStatistics)tlobj;
             switch (hash)
             {
-                case 0xFD21D298u:
+                case 0xC7E28398u:
                     obj.MessageInteractionGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
             }
@@ -14424,7 +14424,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA23BD8B4u)]
+    [TLTypeHash(0x817895A3u)]
     partial class UpdateAuthorizationStateConverter : TLObjectConverter<UpdateAuthorizationState>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateAuthorizationStateConverter();
@@ -14435,7 +14435,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateAuthorizationState)tlobj;
             switch (hash)
             {
-                case 0x770FA050u:
+                case 0x98A5D4EBu:
                     obj.AuthorizationState = reader.ReadTLObject<AuthorizationState>();
                     return true;
             }
@@ -14443,7 +14443,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x86768A52u)]
+    [TLTypeHash(0xDB7DC102u)]
     partial class UpdateNewMessageConverter : TLObjectConverter<UpdateNewMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewMessageConverter();
@@ -14454,7 +14454,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewMessage)tlobj;
             switch (hash)
             {
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
             }
@@ -14462,7 +14462,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3C148C90u)]
+    [TLTypeHash(0xE8C53165u)]
     partial class UpdateMessageSendAcknowledgedConverter : TLObjectConverter<UpdateMessageSendAcknowledged>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageSendAcknowledgedConverter();
@@ -14473,10 +14473,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageSendAcknowledged)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -14484,7 +14484,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9C511B2Bu)]
+    [TLTypeHash(0x2519FE3Fu)]
     partial class UpdateMessageSendSucceededConverter : TLObjectConverter<UpdateMessageSendSucceeded>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageSendSucceededConverter();
@@ -14495,10 +14495,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageSendSucceeded)tlobj;
             switch (hash)
             {
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
-                case 0xF20C0018u:
+                case 0xEF592477u:
                     obj.OldMessageId = reader.ReadLong();
                     return true;
             }
@@ -14506,7 +14506,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2276CB13u)]
+    [TLTypeHash(0x58998D2Fu)]
     partial class UpdateMessageSendFailedConverter : TLObjectConverter<UpdateMessageSendFailed>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageSendFailedConverter();
@@ -14517,16 +14517,16 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageSendFailed)tlobj;
             switch (hash)
             {
-                case 0x98A214D0u:
+                case 0xB6BD307Fu:
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
-                case 0xF20C0018u:
+                case 0xEF592477u:
                     obj.OldMessageId = reader.ReadLong();
                     return true;
-                case 0x3519A170u:
+                case 0x3362FDA4u:
                     obj.ErrorCode = reader.ReadInt();
                     return true;
-                case 0x6E73AFBFu:
+                case 0x2BF96153u:
                     obj.ErrorMessage = reader.ReadString();
                     return true;
             }
@@ -14534,7 +14534,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBBC0BCE4u)]
+    [TLTypeHash(0x122E44D7u)]
     partial class UpdateMessageContentConverter : TLObjectConverter<UpdateMessageContent>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageContentConverter();
@@ -14545,13 +14545,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageContent)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x0DF87FAFu:
+                case 0x25866347u:
                     obj.NewContent = reader.ReadTLObject<MessageContent>();
                     return true;
             }
@@ -14559,7 +14559,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3F3349DDu)]
+    [TLTypeHash(0x4A4CF4A0u)]
     partial class UpdateMessageEditedConverter : TLObjectConverter<UpdateMessageEdited>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageEditedConverter();
@@ -14570,16 +14570,16 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageEdited)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xF050FEFFu:
+                case 0x1B588899u:
                     obj.EditDate = reader.ReadInt();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -14587,7 +14587,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x521C5328u)]
+    [TLTypeHash(0x00D1AA5Au)]
     partial class UpdateMessageInteractionInfoConverter : TLObjectConverter<UpdateMessageInteractionInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageInteractionInfoConverter();
@@ -14598,13 +14598,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageInteractionInfo)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xEA550364u:
+                case 0x594DE457u:
                     obj.InteractionInfo = reader.ReadTLObject<MessageInteractionInfo>();
                     return true;
             }
@@ -14612,7 +14612,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB9C8269Cu)]
+    [TLTypeHash(0x57FD5F60u)]
     partial class UpdateMessageContentOpenedConverter : TLObjectConverter<UpdateMessageContentOpened>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageContentOpenedConverter();
@@ -14623,10 +14623,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageContentOpened)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -14634,7 +14634,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x61370DF9u)]
+    [TLTypeHash(0x6F33BF3Cu)]
     partial class UpdateMessageMentionReadConverter : TLObjectConverter<UpdateMessageMentionRead>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageMentionReadConverter();
@@ -14645,13 +14645,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageMentionRead)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x82BAA2D0u:
+                case 0xE9E0195Du:
                     obj.UnreadMentionCount = reader.ReadInt();
                     return true;
             }
@@ -14659,7 +14659,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x65E6C8ACu)]
+    [TLTypeHash(0x5C414BCAu)]
     partial class UpdateMessageLiveLocationViewedConverter : TLObjectConverter<UpdateMessageLiveLocationViewed>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateMessageLiveLocationViewedConverter();
@@ -14670,10 +14670,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateMessageLiveLocationViewed)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -14681,7 +14681,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFE2BCDBFu)]
+    [TLTypeHash(0x849D9089u)]
     partial class UpdateNewChatConverter : TLObjectConverter<UpdateNewChat>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewChatConverter();
@@ -14692,7 +14692,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewChat)tlobj;
             switch (hash)
             {
-                case 0x6D8AB2F9u:
+                case 0x659DF2AAu:
                     obj.Chat = reader.ReadTLObject<Chat>();
                     return true;
             }
@@ -14700,7 +14700,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x037DA2B3u)]
+    [TLTypeHash(0x79598657u)]
     partial class UpdateChatTitleConverter : TLObjectConverter<UpdateChatTitle>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatTitleConverter();
@@ -14711,10 +14711,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatTitle)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -14722,7 +14722,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x55932F86u)]
+    [TLTypeHash(0x46D87A24u)]
     partial class UpdateChatPhotoConverter : TLObjectConverter<UpdateChatPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatPhotoConverter();
@@ -14733,10 +14733,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatPhoto)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<ChatPhotoInfo>();
                     return true;
             }
@@ -14744,7 +14744,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0D86A10Bu)]
+    [TLTypeHash(0xA52CF80Eu)]
     partial class UpdateChatPermissionsConverter : TLObjectConverter<UpdateChatPermissions>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatPermissionsConverter();
@@ -14755,10 +14755,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatPermissions)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB4CFCFFFu:
+                case 0x2DEDCC6Fu:
                     obj.Permissions = reader.ReadTLObject<ChatPermissions>();
                     return true;
             }
@@ -14766,7 +14766,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x32353BE8u)]
+    [TLTypeHash(0x82F558DBu)]
     partial class UpdateChatLastMessageConverter : TLObjectConverter<UpdateChatLastMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatLastMessageConverter();
@@ -14777,13 +14777,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatLastMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x0A7D5DA3u:
+                case 0xD0310C37u:
                     obj.LastMessage = reader.ReadTLObject<Message>();
                     return true;
-                case 0x553ECCDFu:
+                case 0xD69FE57Cu:
                     obj.Positions = reader.ReadObjectArray<ChatPosition>();
                     return true;
             }
@@ -14791,7 +14791,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD29B5FCCu)]
+    [TLTypeHash(0x3C6F48A9u)]
     partial class UpdateChatPositionConverter : TLObjectConverter<UpdateChatPosition>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatPositionConverter();
@@ -14802,10 +14802,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatPosition)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5A1ACEA4u:
+                case 0x462CE4F5u:
                     obj.Position = reader.ReadTLObject<ChatPosition>();
                     return true;
             }
@@ -14813,7 +14813,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0D17D0E4u)]
+    [TLTypeHash(0xF48AF4CAu)]
     partial class UpdateChatIsMarkedAsUnreadConverter : TLObjectConverter<UpdateChatIsMarkedAsUnread>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatIsMarkedAsUnreadConverter();
@@ -14824,10 +14824,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatIsMarkedAsUnread)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x45AD5D11u:
+                case 0x890E79B0u:
                     obj.IsMarkedAsUnread = reader.ReadBool();
                     return true;
             }
@@ -14835,7 +14835,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4C954133u)]
+    [TLTypeHash(0xDE35E633u)]
     partial class UpdateChatIsBlockedConverter : TLObjectConverter<UpdateChatIsBlocked>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatIsBlockedConverter();
@@ -14846,10 +14846,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatIsBlocked)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x22AAB78Du:
+                case 0xCC696D48u:
                     obj.IsBlocked = reader.ReadBool();
                     return true;
             }
@@ -14857,7 +14857,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDFFB2A52u)]
+    [TLTypeHash(0x252B2C38u)]
     partial class UpdateChatHasScheduledMessagesConverter : TLObjectConverter<UpdateChatHasScheduledMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatHasScheduledMessagesConverter();
@@ -14868,10 +14868,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatHasScheduledMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x8EB66818u:
+                case 0x1F3A0949u:
                     obj.HasScheduledMessages = reader.ReadBool();
                     return true;
             }
@@ -14879,7 +14879,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x90BAE83Du)]
+    [TLTypeHash(0x6DDDF13Eu)]
     partial class UpdateChatDefaultDisableNotificationConverter : TLObjectConverter<UpdateChatDefaultDisableNotification>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatDefaultDisableNotificationConverter();
@@ -14890,10 +14890,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatDefaultDisableNotification)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x6E87F504u:
+                case 0x420254ABu:
                     obj.DefaultDisableNotification = reader.ReadBool();
                     return true;
             }
@@ -14901,7 +14901,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEBB9C87Fu)]
+    [TLTypeHash(0x05A62E6Cu)]
     partial class UpdateChatReadInboxConverter : TLObjectConverter<UpdateChatReadInbox>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatReadInboxConverter();
@@ -14912,13 +14912,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatReadInbox)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xE4D52BA2u:
+                case 0x1123A8C1u:
                     obj.LastReadInboxMessageId = reader.ReadLong();
                     return true;
-                case 0x69D09AB3u:
+                case 0xFC4DDD75u:
                     obj.UnreadCount = reader.ReadInt();
                     return true;
             }
@@ -14926,7 +14926,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8614505Au)]
+    [TLTypeHash(0x719DC7D6u)]
     partial class UpdateChatReadOutboxConverter : TLObjectConverter<UpdateChatReadOutbox>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatReadOutboxConverter();
@@ -14937,10 +14937,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatReadOutbox)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3E7162A6u:
+                case 0xF1D5DB98u:
                     obj.LastReadOutboxMessageId = reader.ReadLong();
                     return true;
             }
@@ -14948,7 +14948,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x296AA7E5u)]
+    [TLTypeHash(0x2FAD2419u)]
     partial class UpdateChatUnreadMentionCountConverter : TLObjectConverter<UpdateChatUnreadMentionCount>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatUnreadMentionCountConverter();
@@ -14959,10 +14959,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatUnreadMentionCount)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x82BAA2D0u:
+                case 0xE9E0195Du:
                     obj.UnreadMentionCount = reader.ReadInt();
                     return true;
             }
@@ -14970,7 +14970,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x432DB198u)]
+    [TLTypeHash(0xAF7363B3u)]
     partial class UpdateChatNotificationSettingsConverter : TLObjectConverter<UpdateChatNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatNotificationSettingsConverter();
@@ -14981,10 +14981,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatNotificationSettings)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCECE9247u:
+                case 0xB0559860u:
                     obj.NotificationSettings = reader.ReadTLObject<ChatNotificationSettings>();
                     return true;
             }
@@ -14992,7 +14992,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC13A9B71u)]
+    [TLTypeHash(0x73516088u)]
     partial class UpdateScopeNotificationSettingsConverter : TLObjectConverter<UpdateScopeNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateScopeNotificationSettingsConverter();
@@ -15003,10 +15003,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateScopeNotificationSettings)tlobj;
             switch (hash)
             {
-                case 0x31D5C826u:
+                case 0x00AF55D3u:
                     obj.Scope = reader.ReadTLObject<NotificationSettingsScope>();
                     return true;
-                case 0xCECE9247u:
+                case 0xB0559860u:
                     obj.NotificationSettings = reader.ReadTLObject<ScopeNotificationSettings>();
                     return true;
             }
@@ -15014,7 +15014,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xADB1ED7Du)]
+    [TLTypeHash(0xD766A13Cu)]
     partial class UpdateChatActionBarConverter : TLObjectConverter<UpdateChatActionBar>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatActionBarConverter();
@@ -15025,10 +15025,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatActionBar)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x29C31F48u:
+                case 0x4B0512EAu:
                     obj.ActionBar = reader.ReadTLObject<ChatActionBar>();
                     return true;
             }
@@ -15036,7 +15036,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6E576291u)]
+    [TLTypeHash(0x369C7FC7u)]
     partial class UpdateChatPinnedMessageConverter : TLObjectConverter<UpdateChatPinnedMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatPinnedMessageConverter();
@@ -15047,10 +15047,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatPinnedMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x01C543B1u:
+                case 0xC254572Fu:
                     obj.PinnedMessageId = reader.ReadLong();
                     return true;
             }
@@ -15058,7 +15058,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCB42E4A7u)]
+    [TLTypeHash(0xECBCB544u)]
     partial class UpdateChatReplyMarkupConverter : TLObjectConverter<UpdateChatReplyMarkup>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatReplyMarkupConverter();
@@ -15069,10 +15069,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatReplyMarkup)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x84A073DBu:
+                case 0xC37A0A68u:
                     obj.ReplyMarkupMessageId = reader.ReadLong();
                     return true;
             }
@@ -15080,7 +15080,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7EF79383u)]
+    [TLTypeHash(0x11D83447u)]
     partial class UpdateChatDraftMessageConverter : TLObjectConverter<UpdateChatDraftMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatDraftMessageConverter();
@@ -15091,13 +15091,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatDraftMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x019DCCF8u:
+                case 0x4E74485Cu:
                     obj.DraftMessage = reader.ReadTLObject<DraftMessage>();
                     return true;
-                case 0x553ECCDFu:
+                case 0xD69FE57Cu:
                     obj.Positions = reader.ReadObjectArray<ChatPosition>();
                     return true;
             }
@@ -15105,7 +15105,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDE97A922u)]
+    [TLTypeHash(0x51819306u)]
     partial class UpdateChatFiltersConverter : TLObjectConverter<UpdateChatFilters>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatFiltersConverter();
@@ -15116,7 +15116,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatFilters)tlobj;
             switch (hash)
             {
-                case 0x22D494F0u:
+                case 0x3479ABE4u:
                     obj.ChatFilters = reader.ReadObjectArray<ChatFilterInfo>();
                     return true;
             }
@@ -15124,7 +15124,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5E6201BEu)]
+    [TLTypeHash(0xBA9FB72Au)]
     partial class UpdateChatOnlineMemberCountConverter : TLObjectConverter<UpdateChatOnlineMemberCount>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateChatOnlineMemberCountConverter();
@@ -15135,10 +15135,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateChatOnlineMemberCount)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDD838D82u:
+                case 0x1BDEEA2Au:
                     obj.OnlineMemberCount = reader.ReadInt();
                     return true;
             }
@@ -15146,7 +15146,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8AB74EF4u)]
+    [TLTypeHash(0x042795D4u)]
     partial class UpdateNotificationConverter : TLObjectConverter<UpdateNotification>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNotificationConverter();
@@ -15157,10 +15157,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateNotification)tlobj;
             switch (hash)
             {
-                case 0x8031826Bu:
+                case 0xAB44E1E2u:
                     obj.NotificationGroupId = reader.ReadInt();
                     return true;
-                case 0xB166D682u:
+                case 0xBF5476CAu:
                     obj.Notification = reader.ReadTLObject<Notification>();
                     return true;
             }
@@ -15168,7 +15168,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9284F4E1u)]
+    [TLTypeHash(0x038436AFu)]
     partial class UpdateNotificationGroupConverter : TLObjectConverter<UpdateNotificationGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNotificationGroupConverter();
@@ -15179,28 +15179,28 @@ namespace TDLib.JsonClient
             var obj = (UpdateNotificationGroup)tlobj;
             switch (hash)
             {
-                case 0x8031826Bu:
+                case 0xAB44E1E2u:
                     obj.NotificationGroupId = reader.ReadInt();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<NotificationGroupType>();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x59F4A661u:
+                case 0x2E9A99E8u:
                     obj.NotificationSettingsChatId = reader.ReadLong();
                     return true;
-                case 0xB1BAEF37u:
+                case 0x6BE5F453u:
                     obj.IsSilent = reader.ReadBool();
                     return true;
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xC3103BFFu:
+                case 0x1F5945B7u:
                     obj.AddedNotifications = reader.ReadObjectArray<Notification>();
                     return true;
-                case 0xD8BF22ECu:
+                case 0xBD227C6Au:
                     obj.RemovedNotificationIds = reader.ReadInt32Array();
                     return true;
             }
@@ -15208,7 +15208,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x426A9D07u)]
+    [TLTypeHash(0xBB4F2359u)]
     partial class UpdateActiveNotificationsConverter : TLObjectConverter<UpdateActiveNotifications>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateActiveNotificationsConverter();
@@ -15219,7 +15219,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateActiveNotifications)tlobj;
             switch (hash)
             {
-                case 0xAA207F2Eu:
+                case 0xF06D3970u:
                     obj.Groups = reader.ReadObjectArray<NotificationGroup>();
                     return true;
             }
@@ -15227,7 +15227,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD108B5B6u)]
+    [TLTypeHash(0xCEA82854u)]
     partial class UpdateHavePendingNotificationsConverter : TLObjectConverter<UpdateHavePendingNotifications>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateHavePendingNotificationsConverter();
@@ -15238,10 +15238,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateHavePendingNotifications)tlobj;
             switch (hash)
             {
-                case 0x0FD3A318u:
+                case 0x4D0C0C43u:
                     obj.HaveDelayedNotifications = reader.ReadBool();
                     return true;
-                case 0x2F16D2D3u:
+                case 0x361C8790u:
                     obj.HaveUnreceivedNotifications = reader.ReadBool();
                     return true;
             }
@@ -15249,7 +15249,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x17993427u)]
+    [TLTypeHash(0x188F7E85u)]
     partial class UpdateDeleteMessagesConverter : TLObjectConverter<UpdateDeleteMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateDeleteMessagesConverter();
@@ -15260,16 +15260,16 @@ namespace TDLib.JsonClient
             var obj = (UpdateDeleteMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
-                case 0x6F110A42u:
+                case 0xDB65ED47u:
                     obj.IsPermanent = reader.ReadBool();
                     return true;
-                case 0xD08CD8B9u:
+                case 0x78314EF8u:
                     obj.FromCache = reader.ReadBool();
                     return true;
             }
@@ -15277,7 +15277,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFA88DB58u)]
+    [TLTypeHash(0x244690E4u)]
     partial class UpdateUserChatActionConverter : TLObjectConverter<UpdateUserChatAction>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUserChatActionConverter();
@@ -15288,16 +15288,16 @@ namespace TDLib.JsonClient
             var obj = (UpdateUserChatAction)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xA88F2A92u:
+                case 0x47CC8C92u:
                     obj.Action = reader.ReadTLObject<ChatAction>();
                     return true;
             }
@@ -15305,7 +15305,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x002A8611u)]
+    [TLTypeHash(0xB78260A6u)]
     partial class UpdateUserStatusConverter : TLObjectConverter<UpdateUserStatus>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUserStatusConverter();
@@ -15316,10 +15316,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateUserStatus)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x82D603CEu:
+                case 0x7B00651Cu:
                     obj.Status = reader.ReadTLObject<UserStatus>();
                     return true;
             }
@@ -15327,7 +15327,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEA4C4113u)]
+    [TLTypeHash(0xB7AD1DEEu)]
     partial class UpdateUserConverter : TLObjectConverter<UpdateUser>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUserConverter();
@@ -15338,7 +15338,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateUser)tlobj;
             switch (hash)
             {
-                case 0x8A5D14BEu:
+                case 0x8D93D649u:
                     obj.User = reader.ReadTLObject<User>();
                     return true;
             }
@@ -15346,7 +15346,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x90949F1Fu)]
+    [TLTypeHash(0x06E640F9u)]
     partial class UpdateBasicGroupConverter : TLObjectConverter<UpdateBasicGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateBasicGroupConverter();
@@ -15357,7 +15357,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateBasicGroup)tlobj;
             switch (hash)
             {
-                case 0x6A31BAB4u:
+                case 0xB7F4EA59u:
                     obj.BasicGroup = reader.ReadTLObject<BasicGroup>();
                     return true;
             }
@@ -15365,7 +15365,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x79AE32D1u)]
+    [TLTypeHash(0x7FC22AFFu)]
     partial class UpdateSupergroupConverter : TLObjectConverter<UpdateSupergroup>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateSupergroupConverter();
@@ -15376,7 +15376,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateSupergroup)tlobj;
             switch (hash)
             {
-                case 0xAFB66DD2u:
+                case 0xDC163DB7u:
                     obj.Supergroup = reader.ReadTLObject<Supergroup>();
                     return true;
             }
@@ -15384,7 +15384,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x725C146Du)]
+    [TLTypeHash(0xDEC7B97Au)]
     partial class UpdateSecretChatConverter : TLObjectConverter<UpdateSecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateSecretChatConverter();
@@ -15395,7 +15395,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateSecretChat)tlobj;
             switch (hash)
             {
-                case 0xE8FE62F1u:
+                case 0x07B5389Fu:
                     obj.SecretChat = reader.ReadTLObject<SecretChat>();
                     return true;
             }
@@ -15403,7 +15403,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9C4E6F61u)]
+    [TLTypeHash(0xCABDE3FEu)]
     partial class UpdateUserFullInfoConverter : TLObjectConverter<UpdateUserFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUserFullInfoConverter();
@@ -15414,10 +15414,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateUserFullInfo)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x98A829F4u:
+                case 0x4E8EA171u:
                     obj.UserFullInfo = reader.ReadTLObject<UserFullInfo>();
                     return true;
             }
@@ -15425,7 +15425,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x73B9D513u)]
+    [TLTypeHash(0xB6F988B0u)]
     partial class UpdateBasicGroupFullInfoConverter : TLObjectConverter<UpdateBasicGroupFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateBasicGroupFullInfoConverter();
@@ -15436,10 +15436,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateBasicGroupFullInfo)tlobj;
             switch (hash)
             {
-                case 0x743FFA02u:
+                case 0x1B6DFDDBu:
                     obj.BasicGroupId = reader.ReadInt();
                     return true;
-                case 0x4CC429FEu:
+                case 0x771840E1u:
                     obj.BasicGroupFullInfo = reader.ReadTLObject<BasicGroupFullInfo>();
                     return true;
             }
@@ -15447,7 +15447,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA6429D48u)]
+    [TLTypeHash(0x37AF5702u)]
     partial class UpdateSupergroupFullInfoConverter : TLObjectConverter<UpdateSupergroupFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateSupergroupFullInfoConverter();
@@ -15458,10 +15458,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateSupergroupFullInfo)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0x96C2A0CDu:
+                case 0x66116BD0u:
                     obj.SupergroupFullInfo = reader.ReadTLObject<SupergroupFullInfo>();
                     return true;
             }
@@ -15469,7 +15469,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0B937235u)]
+    [TLTypeHash(0xE672E45Bu)]
     partial class UpdateServiceNotificationConverter : TLObjectConverter<UpdateServiceNotification>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateServiceNotificationConverter();
@@ -15480,10 +15480,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateServiceNotification)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadString();
                     return true;
-                case 0x61AF7533u:
+                case 0xFEC530A9u:
                     obj.Content = reader.ReadTLObject<MessageContent>();
                     return true;
             }
@@ -15491,7 +15491,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2CB4901Eu)]
+    [TLTypeHash(0xB6A1FDB7u)]
     partial class UpdateFileConverter : TLObjectConverter<UpdateFile>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateFileConverter();
@@ -15502,7 +15502,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateFile)tlobj;
             switch (hash)
             {
-                case 0x4CA5C5B3u:
+                case 0x8C9F3610u:
                     obj.File = reader.ReadTLObject<File>();
                     return true;
             }
@@ -15510,7 +15510,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x04FB5B3Au)]
+    [TLTypeHash(0x753F1058u)]
     partial class UpdateFileGenerationStartConverter : TLObjectConverter<UpdateFileGenerationStart>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateFileGenerationStartConverter();
@@ -15521,16 +15521,16 @@ namespace TDLib.JsonClient
             var obj = (UpdateFileGenerationStart)tlobj;
             switch (hash)
             {
-                case 0x8FDF7D26u:
+                case 0x553A6EC4u:
                     obj.GenerationId = reader.ReadInt64String();
                     return true;
-                case 0x1F649CDEu:
+                case 0x0121E039u:
                     obj.OriginalPath = reader.ReadString();
                     return true;
-                case 0x041D4C11u:
+                case 0xA8F5023Eu:
                     obj.DestinationPath = reader.ReadString();
                     return true;
-                case 0x77E9A038u:
+                case 0xBD912744u:
                     obj.Conversion = reader.ReadString();
                     return true;
             }
@@ -15538,7 +15538,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAFB71A8Eu)]
+    [TLTypeHash(0x2A54F832u)]
     partial class UpdateFileGenerationStopConverter : TLObjectConverter<UpdateFileGenerationStop>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateFileGenerationStopConverter();
@@ -15549,7 +15549,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateFileGenerationStop)tlobj;
             switch (hash)
             {
-                case 0x8FDF7D26u:
+                case 0x553A6EC4u:
                     obj.GenerationId = reader.ReadInt64String();
                     return true;
             }
@@ -15557,7 +15557,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCA30EE5Cu)]
+    [TLTypeHash(0xF6B0E499u)]
     partial class UpdateCallConverter : TLObjectConverter<UpdateCall>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateCallConverter();
@@ -15568,7 +15568,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateCall)tlobj;
             switch (hash)
             {
-                case 0xAA21BBF1u:
+                case 0xCC8E2F3Eu:
                     obj.Call = reader.ReadTLObject<Call>();
                     return true;
             }
@@ -15576,7 +15576,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0FF70965u)]
+    [TLTypeHash(0x9DC6758Cu)]
     partial class UpdateNewCallSignalingDataConverter : TLObjectConverter<UpdateNewCallSignalingData>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewCallSignalingDataConverter();
@@ -15587,10 +15587,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewCallSignalingData)tlobj;
             switch (hash)
             {
-                case 0x8B391367u:
+                case 0x50A89B2Cu:
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -15598,7 +15598,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA1AC66C0u)]
+    [TLTypeHash(0x39099004u)]
     partial class UpdateUserPrivacySettingRulesConverter : TLObjectConverter<UpdateUserPrivacySettingRules>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUserPrivacySettingRulesConverter();
@@ -15609,10 +15609,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateUserPrivacySettingRules)tlobj;
             switch (hash)
             {
-                case 0xD9982C17u:
+                case 0x9F74B898u:
                     obj.Setting = reader.ReadTLObject<UserPrivacySetting>();
                     return true;
-                case 0x9AD9EC1Bu:
+                case 0x899A993Cu:
                     obj.Rules = reader.ReadTLObject<UserPrivacySettingRules>();
                     return true;
             }
@@ -15620,7 +15620,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x995F0CC9u)]
+    [TLTypeHash(0xBBCA7BABu)]
     partial class UpdateUnreadMessageCountConverter : TLObjectConverter<UpdateUnreadMessageCount>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUnreadMessageCountConverter();
@@ -15631,13 +15631,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateUnreadMessageCount)tlobj;
             switch (hash)
             {
-                case 0xB8484D43u:
+                case 0xE2546559u:
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0x69D09AB3u:
+                case 0xFC4DDD75u:
                     obj.UnreadCount = reader.ReadInt();
                     return true;
-                case 0x01E99B18u:
+                case 0x6869237Bu:
                     obj.UnreadUnmutedCount = reader.ReadInt();
                     return true;
             }
@@ -15645,7 +15645,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x48648B7Du)]
+    [TLTypeHash(0xF7FF9C15u)]
     partial class UpdateUnreadChatCountConverter : TLObjectConverter<UpdateUnreadChatCount>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUnreadChatCountConverter();
@@ -15656,22 +15656,22 @@ namespace TDLib.JsonClient
             var obj = (UpdateUnreadChatCount)tlobj;
             switch (hash)
             {
-                case 0xB8484D43u:
+                case 0xE2546559u:
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0x65E7DFBDu:
+                case 0x46ABD250u:
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0x69D09AB3u:
+                case 0xFC4DDD75u:
                     obj.UnreadCount = reader.ReadInt();
                     return true;
-                case 0x01E99B18u:
+                case 0x6869237Bu:
                     obj.UnreadUnmutedCount = reader.ReadInt();
                     return true;
-                case 0x6B9D5F60u:
+                case 0xA17091D4u:
                     obj.MarkedAsUnreadCount = reader.ReadInt();
                     return true;
-                case 0x710568C6u:
+                case 0xF542C46Du:
                     obj.MarkedAsUnreadUnmutedCount = reader.ReadInt();
                     return true;
             }
@@ -15679,7 +15679,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4641F928u)]
+    [TLTypeHash(0xB7760B98u)]
     partial class UpdateOptionConverter : TLObjectConverter<UpdateOption>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateOptionConverter();
@@ -15690,10 +15690,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateOption)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadTLObject<OptionValue>();
                     return true;
             }
@@ -15701,7 +15701,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8729EE2Eu)]
+    [TLTypeHash(0x565AEB09u)]
     partial class UpdateStickerSetConverter : TLObjectConverter<UpdateStickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateStickerSetConverter();
@@ -15712,7 +15712,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateStickerSet)tlobj;
             switch (hash)
             {
-                case 0x7BA9D381u:
+                case 0x85E0E638u:
                     obj.StickerSet = reader.ReadTLObject<StickerSet>();
                     return true;
             }
@@ -15720,7 +15720,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x71B47DB5u)]
+    [TLTypeHash(0x5B6FAD44u)]
     partial class UpdateInstalledStickerSetsConverter : TLObjectConverter<UpdateInstalledStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateInstalledStickerSetsConverter();
@@ -15731,10 +15731,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateInstalledStickerSets)tlobj;
             switch (hash)
             {
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x49CADE82u:
+                case 0x66ED467Du:
                     obj.StickerSetIds = reader.ReadInt64Array();
                     return true;
             }
@@ -15742,7 +15742,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD081D739u)]
+    [TLTypeHash(0x7F878AAFu)]
     partial class UpdateTrendingStickerSetsConverter : TLObjectConverter<UpdateTrendingStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateTrendingStickerSetsConverter();
@@ -15753,7 +15753,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateTrendingStickerSets)tlobj;
             switch (hash)
             {
-                case 0x4053E500u:
+                case 0x33899773u:
                     obj.StickerSets = reader.ReadTLObject<StickerSets>();
                     return true;
             }
@@ -15761,7 +15761,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4F532674u)]
+    [TLTypeHash(0x7CD363BDu)]
     partial class UpdateRecentStickersConverter : TLObjectConverter<UpdateRecentStickers>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateRecentStickersConverter();
@@ -15772,10 +15772,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateRecentStickers)tlobj;
             switch (hash)
             {
-                case 0xC253C53Fu:
+                case 0xFD0E148Cu:
                     obj.IsAttached = reader.ReadBool();
                     return true;
-                case 0xBB5D3E5Fu:
+                case 0x132E647Cu:
                     obj.StickerIds = reader.ReadInt32Array();
                     return true;
             }
@@ -15783,7 +15783,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x701B5390u)]
+    [TLTypeHash(0x4B248F37u)]
     partial class UpdateFavoriteStickersConverter : TLObjectConverter<UpdateFavoriteStickers>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateFavoriteStickersConverter();
@@ -15794,7 +15794,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateFavoriteStickers)tlobj;
             switch (hash)
             {
-                case 0xBB5D3E5Fu:
+                case 0x132E647Cu:
                     obj.StickerIds = reader.ReadInt32Array();
                     return true;
             }
@@ -15802,7 +15802,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x866CCD9Fu)]
+    [TLTypeHash(0x091BE628u)]
     partial class UpdateSavedAnimationsConverter : TLObjectConverter<UpdateSavedAnimations>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateSavedAnimationsConverter();
@@ -15813,7 +15813,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateSavedAnimations)tlobj;
             switch (hash)
             {
-                case 0x358D69EFu:
+                case 0xAC8BCB54u:
                     obj.AnimationIds = reader.ReadInt32Array();
                     return true;
             }
@@ -15821,7 +15821,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4892AA69u)]
+    [TLTypeHash(0x00FFC511u)]
     partial class UpdateSelectedBackgroundConverter : TLObjectConverter<UpdateSelectedBackground>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateSelectedBackgroundConverter();
@@ -15832,10 +15832,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateSelectedBackground)tlobj;
             switch (hash)
             {
-                case 0xAB17DAC1u:
+                case 0xF74F9192u:
                     obj.ForDarkTheme = reader.ReadBool();
                     return true;
-                case 0x13FE30D5u:
+                case 0xBC68B450u:
                     obj.Background = reader.ReadTLObject<Background>();
                     return true;
             }
@@ -15843,7 +15843,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE855ECB9u)]
+    [TLTypeHash(0xD35AC843u)]
     partial class UpdateLanguagePackStringsConverter : TLObjectConverter<UpdateLanguagePackStrings>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateLanguagePackStringsConverter();
@@ -15854,13 +15854,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateLanguagePackStrings)tlobj;
             switch (hash)
             {
-                case 0xA6EC4F7Eu:
+                case 0xE6317C0Du:
                     obj.LocalizationTarget = reader.ReadString();
                     return true;
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
-                case 0xF206309Eu:
+                case 0xB49A6AF5u:
                     obj.Strings = reader.ReadObjectArray<LanguagePackString>();
                     return true;
             }
@@ -15868,7 +15868,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB569541Cu)]
+    [TLTypeHash(0x538084B6u)]
     partial class UpdateConnectionStateConverter : TLObjectConverter<UpdateConnectionState>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateConnectionStateConverter();
@@ -15879,7 +15879,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateConnectionState)tlobj;
             switch (hash)
             {
-                case 0x66DB68DFu:
+                case 0xA393D2FBu:
                     obj.State = reader.ReadTLObject<ConnectionState>();
                     return true;
             }
@@ -15887,7 +15887,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8A27A46Bu)]
+    [TLTypeHash(0x364AF8AFu)]
     partial class UpdateTermsOfServiceConverter : TLObjectConverter<UpdateTermsOfService>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateTermsOfServiceConverter();
@@ -15898,10 +15898,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateTermsOfService)tlobj;
             switch (hash)
             {
-                case 0x13AF78C5u:
+                case 0xA5DEBC29u:
                     obj.TermsOfServiceId = reader.ReadString();
                     return true;
-                case 0x05B15276u:
+                case 0x937BFB98u:
                     obj.TermsOfService = reader.ReadTLObject<TermsOfService>();
                     return true;
             }
@@ -15909,7 +15909,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8D9A36F1u)]
+    [TLTypeHash(0x6A548B07u)]
     partial class UpdateUsersNearbyConverter : TLObjectConverter<UpdateUsersNearby>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateUsersNearbyConverter();
@@ -15920,7 +15920,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateUsersNearby)tlobj;
             switch (hash)
             {
-                case 0x4C7B5693u:
+                case 0x77F455C1u:
                     obj.UsersNearby = reader.ReadObjectArray<ChatNearby>();
                     return true;
             }
@@ -15928,7 +15928,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC8C297C0u)]
+    [TLTypeHash(0x8A795939u)]
     partial class UpdateDiceEmojisConverter : TLObjectConverter<UpdateDiceEmojis>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateDiceEmojisConverter();
@@ -15939,7 +15939,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateDiceEmojis)tlobj;
             switch (hash)
             {
-                case 0x1EEF3683u:
+                case 0xD36FD57Du:
                     obj.Emojis = reader.ReadStringArray();
                     return true;
             }
@@ -15947,7 +15947,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB4595572u)]
+    [TLTypeHash(0x1E149771u)]
     partial class UpdateAnimationSearchParametersConverter : TLObjectConverter<UpdateAnimationSearchParameters>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateAnimationSearchParametersConverter();
@@ -15958,10 +15958,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateAnimationSearchParameters)tlobj;
             switch (hash)
             {
-                case 0xE886E1C0u:
+                case 0x92C4739Cu:
                     obj.Provider = reader.ReadString();
                     return true;
-                case 0x1EEF3683u:
+                case 0xD36FD57Du:
                     obj.Emojis = reader.ReadStringArray();
                     return true;
             }
@@ -15969,7 +15969,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDAFB20AAu)]
+    [TLTypeHash(0xCBC2A8BDu)]
     partial class UpdateSuggestedActionsConverter : TLObjectConverter<UpdateSuggestedActions>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateSuggestedActionsConverter();
@@ -15980,10 +15980,10 @@ namespace TDLib.JsonClient
             var obj = (UpdateSuggestedActions)tlobj;
             switch (hash)
             {
-                case 0x7B557AEEu:
+                case 0x352B27F3u:
                     obj.AddedActions = reader.ReadObjectArray<SuggestedAction>();
                     return true;
-                case 0x62D3F9BDu:
+                case 0x569A8810u:
                     obj.RemovedActions = reader.ReadObjectArray<SuggestedAction>();
                     return true;
             }
@@ -15991,7 +15991,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6E677F80u)]
+    [TLTypeHash(0x8F878B1Cu)]
     partial class UpdateNewInlineQueryConverter : TLObjectConverter<UpdateNewInlineQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewInlineQueryConverter();
@@ -16002,19 +16002,19 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewInlineQuery)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x81A400F4u:
+                case 0xBE136DCBu:
                     obj.UserLocation = reader.ReadTLObject<Location>();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadString();
                     return true;
             }
@@ -16022,7 +16022,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6F1211A0u)]
+    [TLTypeHash(0xB7CBB64Fu)]
     partial class UpdateNewChosenInlineResultConverter : TLObjectConverter<UpdateNewChosenInlineResult>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewChosenInlineResultConverter();
@@ -16033,19 +16033,19 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewChosenInlineResult)tlobj;
             switch (hash)
             {
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x81A400F4u:
+                case 0xBE136DCBu:
                     obj.UserLocation = reader.ReadTLObject<Location>();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0xA60E38F1u:
+                case 0x07A7B643u:
                     obj.ResultId = reader.ReadString();
                     return true;
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
             }
@@ -16053,7 +16053,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE2FCC861u)]
+    [TLTypeHash(0xFFE22CE7u)]
     partial class UpdateNewCallbackQueryConverter : TLObjectConverter<UpdateNewCallbackQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewCallbackQueryConverter();
@@ -16064,22 +16064,22 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewCallbackQuery)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xE4082D32u:
+                case 0x761266EEu:
                     obj.ChatInstance = reader.ReadInt64String();
                     return true;
-                case 0xF4E36970u:
+                case 0x422C6A15u:
                     obj.Payload = reader.ReadTLObject<CallbackQueryPayload>();
                     return true;
             }
@@ -16087,7 +16087,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2F645F7Cu)]
+    [TLTypeHash(0xA4ACB470u)]
     partial class UpdateNewInlineCallbackQueryConverter : TLObjectConverter<UpdateNewInlineCallbackQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewInlineCallbackQueryConverter();
@@ -16098,19 +16098,19 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewInlineCallbackQuery)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0xE4082D32u:
+                case 0x761266EEu:
                     obj.ChatInstance = reader.ReadInt64String();
                     return true;
-                case 0xF4E36970u:
+                case 0x422C6A15u:
                     obj.Payload = reader.ReadTLObject<CallbackQueryPayload>();
                     return true;
             }
@@ -16118,7 +16118,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFC082D97u)]
+    [TLTypeHash(0xDD4FAD71u)]
     partial class UpdateNewShippingQueryConverter : TLObjectConverter<UpdateNewShippingQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewShippingQueryConverter();
@@ -16129,16 +16129,16 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewShippingQuery)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xF2C30B29u:
+                case 0xB0F55CC6u:
                     obj.InvoicePayload = reader.ReadString();
                     return true;
-                case 0xF780AD0Au:
+                case 0xEB066945u:
                     obj.ShippingAddress = reader.ReadTLObject<Address>();
                     return true;
             }
@@ -16146,7 +16146,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5A55FFF1u)]
+    [TLTypeHash(0x3029D331u)]
     partial class UpdateNewPreCheckoutQueryConverter : TLObjectConverter<UpdateNewPreCheckoutQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewPreCheckoutQueryConverter();
@@ -16157,25 +16157,25 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewPreCheckoutQuery)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xBDC5D1BFu:
+                case 0x6956883Fu:
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0xC58746ACu:
+                case 0x46B55354u:
                     obj.TotalAmount = reader.ReadLong();
                     return true;
-                case 0xF2C30B29u:
+                case 0xB0F55CC6u:
                     obj.InvoicePayload = reader.ReadBase64String();
                     return true;
-                case 0x93477416u:
+                case 0xE1314C58u:
                     obj.ShippingOptionId = reader.ReadString();
                     return true;
-                case 0xE97ED45Eu:
+                case 0x86780B40u:
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
             }
@@ -16183,7 +16183,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x886864FEu)]
+    [TLTypeHash(0x73963648u)]
     partial class UpdateNewCustomEventConverter : TLObjectConverter<UpdateNewCustomEvent>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewCustomEventConverter();
@@ -16194,7 +16194,7 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewCustomEvent)tlobj;
             switch (hash)
             {
-                case 0x3F86A9C4u:
+                case 0x3BAE0AA7u:
                     obj.Event = reader.ReadString();
                     return true;
             }
@@ -16202,7 +16202,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD65E2D92u)]
+    [TLTypeHash(0x6C858904u)]
     partial class UpdateNewCustomQueryConverter : TLObjectConverter<UpdateNewCustomQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdateNewCustomQueryConverter();
@@ -16213,13 +16213,13 @@ namespace TDLib.JsonClient
             var obj = (UpdateNewCustomQuery)tlobj;
             switch (hash)
             {
-                case 0x59170D66u:
+                case 0xBF396750u:
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadString();
                     return true;
-                case 0x1472F5B1u:
+                case 0x81417592u:
                     obj.Timeout = reader.ReadInt();
                     return true;
             }
@@ -16227,7 +16227,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA8961E8Au)]
+    [TLTypeHash(0xBE8231E2u)]
     partial class UpdatePollConverter : TLObjectConverter<UpdatePoll>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdatePollConverter();
@@ -16238,7 +16238,7 @@ namespace TDLib.JsonClient
             var obj = (UpdatePoll)tlobj;
             switch (hash)
             {
-                case 0xC8874B27u:
+                case 0x84BCFA45u:
                     obj.Poll = reader.ReadTLObject<Poll>();
                     return true;
             }
@@ -16246,7 +16246,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0755CCABu)]
+    [TLTypeHash(0x922CC906u)]
     partial class UpdatePollAnswerConverter : TLObjectConverter<UpdatePollAnswer>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdatePollAnswerConverter();
@@ -16257,13 +16257,13 @@ namespace TDLib.JsonClient
             var obj = (UpdatePollAnswer)tlobj;
             switch (hash)
             {
-                case 0xA6181332u:
+                case 0x3C947C0Fu:
                     obj.PollId = reader.ReadInt64String();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xCEAC1B92u:
+                case 0xC6A477DFu:
                     obj.OptionIds = reader.ReadInt32Array();
                     return true;
             }
@@ -16271,7 +16271,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFCCDD9D9u)]
+    [TLTypeHash(0x45481330u)]
     partial class UpdatesConverter : TLObjectConverter<Updates>
     {
         internal static BaseConverter CreateConverterInstance() => new UpdatesConverter();
@@ -16282,7 +16282,7 @@ namespace TDLib.JsonClient
             var obj = (Updates)tlobj;
             switch (hash)
             {
-                case 0xFCCDD9D9u:
+                case 0x45481330u:
                     obj.Updates_ = reader.ReadObjectArray<Update>();
                     return true;
             }
@@ -16290,14 +16290,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA90D22E8u)]
+    [TLTypeHash(0x3E8BB50Fu)]
     partial class LogStreamDefaultConverter : TLObjectConverter<LogStreamDefault>
     {
         internal static BaseConverter CreateConverterInstance() => new LogStreamDefaultConverter();
         internal static TLObject CreateObjectInstance() => new LogStreamDefault();
     }
 
-    [TLTypeHash(0xEF606F4Fu)]
+    [TLTypeHash(0xDF6026E9u)]
     partial class LogStreamFileConverter : TLObjectConverter<LogStreamFile>
     {
         internal static BaseConverter CreateConverterInstance() => new LogStreamFileConverter();
@@ -16308,13 +16308,13 @@ namespace TDLib.JsonClient
             var obj = (LogStreamFile)tlobj;
             switch (hash)
             {
-                case 0x442C26D3u:
+                case 0x0B548B0Fu:
                     obj.Path = reader.ReadString();
                     return true;
-                case 0xB340D244u:
+                case 0x6197EA1Cu:
                     obj.MaxFileSize = reader.ReadLong();
                     return true;
-                case 0x10B2FAC3u:
+                case 0xDB91AB07u:
                     obj.RedirectStderr = reader.ReadBool();
                     return true;
             }
@@ -16322,14 +16322,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8D8B92C3u)]
+    [TLTypeHash(0xACF5886Cu)]
     partial class LogStreamEmptyConverter : TLObjectConverter<LogStreamEmpty>
     {
         internal static BaseConverter CreateConverterInstance() => new LogStreamEmptyConverter();
         internal static TLObject CreateObjectInstance() => new LogStreamEmpty();
     }
 
-    [TLTypeHash(0xF63EA159u)]
+    [TLTypeHash(0xC23F1014u)]
     partial class LogVerbosityLevelConverter : TLObjectConverter<LogVerbosityLevel>
     {
         internal static BaseConverter CreateConverterInstance() => new LogVerbosityLevelConverter();
@@ -16340,7 +16340,7 @@ namespace TDLib.JsonClient
             var obj = (LogVerbosityLevel)tlobj;
             switch (hash)
             {
-                case 0x446C53C8u:
+                case 0x3BA23781u:
                     obj.VerbosityLevel = reader.ReadInt();
                     return true;
             }
@@ -16348,7 +16348,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDC96D361u)]
+    [TLTypeHash(0xED000B39u)]
     partial class LogTagsConverter : TLObjectConverter<LogTags>
     {
         internal static BaseConverter CreateConverterInstance() => new LogTagsConverter();
@@ -16359,7 +16359,7 @@ namespace TDLib.JsonClient
             var obj = (LogTags)tlobj;
             switch (hash)
             {
-                case 0xBDFB226Cu:
+                case 0x6FBC9426u:
                     obj.Tags = reader.ReadStringArray();
                     return true;
             }
@@ -16367,7 +16367,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8E415D55u)]
+    [TLTypeHash(0x54005D38u)]
     partial class TestIntConverter : TLObjectConverter<TestInt>
     {
         internal static BaseConverter CreateConverterInstance() => new TestIntConverter();
@@ -16378,7 +16378,7 @@ namespace TDLib.JsonClient
             var obj = (TestInt)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadInt();
                     return true;
             }
@@ -16386,7 +16386,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA01C4313u)]
+    [TLTypeHash(0x18F4FD08u)]
     partial class TestStringConverter : TLObjectConverter<TestString>
     {
         internal static BaseConverter CreateConverterInstance() => new TestStringConverter();
@@ -16397,7 +16397,7 @@ namespace TDLib.JsonClient
             var obj = (TestString)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadString();
                     return true;
             }
@@ -16405,7 +16405,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x40DA687Bu)]
+    [TLTypeHash(0x2804361Eu)]
     partial class TestBytesConverter : TLObjectConverter<TestBytes>
     {
         internal static BaseConverter CreateConverterInstance() => new TestBytesConverter();
@@ -16416,7 +16416,7 @@ namespace TDLib.JsonClient
             var obj = (TestBytes)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadBase64String();
                     return true;
             }
@@ -16424,7 +16424,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6D0BA7EEu)]
+    [TLTypeHash(0xE70D18DCu)]
     partial class TestVectorIntConverter : TLObjectConverter<TestVectorInt>
     {
         internal static BaseConverter CreateConverterInstance() => new TestVectorIntConverter();
@@ -16435,7 +16435,7 @@ namespace TDLib.JsonClient
             var obj = (TestVectorInt)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadInt32Array();
                     return true;
             }
@@ -16443,7 +16443,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3BAF49BAu)]
+    [TLTypeHash(0xC4AAB035u)]
     partial class TestVectorIntObjectConverter : TLObjectConverter<TestVectorIntObject>
     {
         internal static BaseConverter CreateConverterInstance() => new TestVectorIntObjectConverter();
@@ -16454,7 +16454,7 @@ namespace TDLib.JsonClient
             var obj = (TestVectorIntObject)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadObjectArray<TestInt>();
                     return true;
             }
@@ -16462,7 +16462,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBCF0A437u)]
+    [TLTypeHash(0x45A0423Au)]
     partial class TestVectorStringConverter : TLObjectConverter<TestVectorString>
     {
         internal static BaseConverter CreateConverterInstance() => new TestVectorStringConverter();
@@ -16473,7 +16473,7 @@ namespace TDLib.JsonClient
             var obj = (TestVectorString)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadStringArray();
                     return true;
             }
@@ -16481,7 +16481,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE42A9794u)]
+    [TLTypeHash(0x13E9D716u)]
     partial class TestVectorStringObjectConverter : TLObjectConverter<TestVectorStringObject>
     {
         internal static BaseConverter CreateConverterInstance() => new TestVectorStringObjectConverter();
@@ -16492,7 +16492,7 @@ namespace TDLib.JsonClient
             var obj = (TestVectorStringObject)tlobj;
             switch (hash)
             {
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadObjectArray<TestString>();
                     return true;
             }
@@ -16500,14 +16500,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x00594858u)]
+    [TLTypeHash(0x83EE8595u)]
     partial class GetAuthorizationStateConverter : TLObjectConverter<GetAuthorizationState>
     {
         internal static BaseConverter CreateConverterInstance() => new GetAuthorizationStateConverter();
         internal static TLObject CreateObjectInstance() => new GetAuthorizationState();
     }
 
-    [TLTypeHash(0x7E8A0405u)]
+    [TLTypeHash(0xDA337A85u)]
     partial class SetTdlibParametersConverter : TLObjectConverter<SetTdlibParameters>
     {
         internal static BaseConverter CreateConverterInstance() => new SetTdlibParametersConverter();
@@ -16518,7 +16518,7 @@ namespace TDLib.JsonClient
             var obj = (SetTdlibParameters)tlobj;
             switch (hash)
             {
-                case 0xE7DBB660u:
+                case 0x069348FEu:
                     obj.Parameters = reader.ReadTLObject<TdlibParameters>();
                     return true;
             }
@@ -16526,7 +16526,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB6AF5A74u)]
+    [TLTypeHash(0xB89ED3E7u)]
     partial class CheckDatabaseEncryptionKeyConverter : TLObjectConverter<CheckDatabaseEncryptionKey>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckDatabaseEncryptionKeyConverter();
@@ -16537,7 +16537,7 @@ namespace TDLib.JsonClient
             var obj = (CheckDatabaseEncryptionKey)tlobj;
             switch (hash)
             {
-                case 0x29D01160u:
+                case 0x2186F990u:
                     obj.EncryptionKey = reader.ReadBase64String();
                     return true;
             }
@@ -16545,7 +16545,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7484C2AAu)]
+    [TLTypeHash(0x16C806F8u)]
     partial class SetAuthenticationPhoneNumberConverter : TLObjectConverter<SetAuthenticationPhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new SetAuthenticationPhoneNumberConverter();
@@ -16556,10 +16556,10 @@ namespace TDLib.JsonClient
             var obj = (SetAuthenticationPhoneNumber)tlobj;
             switch (hash)
             {
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0xF4F8CF00u:
+                case 0xE545A0C5u:
                     obj.Settings = reader.ReadTLObject<PhoneNumberAuthenticationSettings>();
                     return true;
             }
@@ -16567,14 +16567,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4EC11854u)]
+    [TLTypeHash(0x14738956u)]
     partial class ResendAuthenticationCodeConverter : TLObjectConverter<ResendAuthenticationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new ResendAuthenticationCodeConverter();
         internal static TLObject CreateObjectInstance() => new ResendAuthenticationCode();
     }
 
-    [TLTypeHash(0x20CDD6B1u)]
+    [TLTypeHash(0x8A80F3D7u)]
     partial class CheckAuthenticationCodeConverter : TLObjectConverter<CheckAuthenticationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckAuthenticationCodeConverter();
@@ -16585,7 +16585,7 @@ namespace TDLib.JsonClient
             var obj = (CheckAuthenticationCode)tlobj;
             switch (hash)
             {
-                case 0xA6676B57u:
+                case 0x77153098u:
                     obj.Code = reader.ReadString();
                     return true;
             }
@@ -16593,7 +16593,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8C161054u)]
+    [TLTypeHash(0xEB80EDBAu)]
     partial class RequestQrCodeAuthenticationConverter : TLObjectConverter<RequestQrCodeAuthentication>
     {
         internal static BaseConverter CreateConverterInstance() => new RequestQrCodeAuthenticationConverter();
@@ -16604,7 +16604,7 @@ namespace TDLib.JsonClient
             var obj = (RequestQrCodeAuthentication)tlobj;
             switch (hash)
             {
-                case 0x47D2C97Fu:
+                case 0xDFDBB6FEu:
                     obj.OtherUserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -16612,7 +16612,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x06625384u)]
+    [TLTypeHash(0xBCEA22EEu)]
     partial class RegisterUserConverter : TLObjectConverter<RegisterUser>
     {
         internal static BaseConverter CreateConverterInstance() => new RegisterUserConverter();
@@ -16623,10 +16623,10 @@ namespace TDLib.JsonClient
             var obj = (RegisterUser)tlobj;
             switch (hash)
             {
-                case 0x9042082Fu:
+                case 0xA9D1C132u:
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x2E1C9126u:
+                case 0xC808BA5Au:
                     obj.LastName = reader.ReadString();
                     return true;
             }
@@ -16634,7 +16634,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1519D948u)]
+    [TLTypeHash(0xAA66D659u)]
     partial class CheckAuthenticationPasswordConverter : TLObjectConverter<CheckAuthenticationPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckAuthenticationPasswordConverter();
@@ -16645,7 +16645,7 @@ namespace TDLib.JsonClient
             var obj = (CheckAuthenticationPassword)tlobj;
             switch (hash)
             {
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -16653,14 +16653,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD0E9C1CEu)]
+    [TLTypeHash(0x227BCF4Au)]
     partial class RequestAuthenticationPasswordRecoveryConverter : TLObjectConverter<RequestAuthenticationPasswordRecovery>
     {
         internal static BaseConverter CreateConverterInstance() => new RequestAuthenticationPasswordRecoveryConverter();
         internal static TLObject CreateObjectInstance() => new RequestAuthenticationPasswordRecovery();
     }
 
-    [TLTypeHash(0xC2768DA9u)]
+    [TLTypeHash(0x98C02661u)]
     partial class RecoverAuthenticationPasswordConverter : TLObjectConverter<RecoverAuthenticationPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new RecoverAuthenticationPasswordConverter();
@@ -16671,7 +16671,7 @@ namespace TDLib.JsonClient
             var obj = (RecoverAuthenticationPassword)tlobj;
             switch (hash)
             {
-                case 0xEAB88C4Cu:
+                case 0x2C8D0584u:
                     obj.RecoveryCode = reader.ReadString();
                     return true;
             }
@@ -16679,7 +16679,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA2FF6A23u)]
+    [TLTypeHash(0xDDD1E2DAu)]
     partial class CheckAuthenticationBotTokenConverter : TLObjectConverter<CheckAuthenticationBotToken>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckAuthenticationBotTokenConverter();
@@ -16690,7 +16690,7 @@ namespace TDLib.JsonClient
             var obj = (CheckAuthenticationBotToken)tlobj;
             switch (hash)
             {
-                case 0x717F937Cu:
+                case 0x5F37A13Bu:
                     obj.Token = reader.ReadString();
                     return true;
             }
@@ -16698,28 +16698,28 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF5F50345u)]
+    [TLTypeHash(0x0D81B3CFu)]
     partial class LogOutConverter : TLObjectConverter<LogOut>
     {
         internal static BaseConverter CreateConverterInstance() => new LogOutConverter();
         internal static TLObject CreateObjectInstance() => new LogOut();
     }
 
-    [TLTypeHash(0x6554DA40u)]
+    [TLTypeHash(0x130181C4u)]
     partial class CloseConverter : TLObjectConverter<Close>
     {
         internal static BaseConverter CreateConverterInstance() => new CloseConverter();
         internal static TLObject CreateObjectInstance() => new Close();
     }
 
-    [TLTypeHash(0xFD090B7Fu)]
+    [TLTypeHash(0x7C4A867Bu)]
     partial class DestroyConverter : TLObjectConverter<Destroy>
     {
         internal static BaseConverter CreateConverterInstance() => new DestroyConverter();
         internal static TLObject CreateObjectInstance() => new Destroy();
     }
 
-    [TLTypeHash(0x937D6C95u)]
+    [TLTypeHash(0xE023BB68u)]
     partial class ConfirmQrCodeAuthenticationConverter : TLObjectConverter<ConfirmQrCodeAuthentication>
     {
         internal static BaseConverter CreateConverterInstance() => new ConfirmQrCodeAuthenticationConverter();
@@ -16730,7 +16730,7 @@ namespace TDLib.JsonClient
             var obj = (ConfirmQrCodeAuthentication)tlobj;
             switch (hash)
             {
-                case 0x8EBB0A1Du:
+                case 0x36AC99F1u:
                     obj.Link = reader.ReadString();
                     return true;
             }
@@ -16738,14 +16738,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x230D705Cu)]
+    [TLTypeHash(0xEFFF475Du)]
     partial class GetCurrentStateConverter : TLObjectConverter<GetCurrentState>
     {
         internal static BaseConverter CreateConverterInstance() => new GetCurrentStateConverter();
         internal static TLObject CreateObjectInstance() => new GetCurrentState();
     }
 
-    [TLTypeHash(0xF36BB823u)]
+    [TLTypeHash(0x7D12D61Bu)]
     partial class SetDatabaseEncryptionKeyConverter : TLObjectConverter<SetDatabaseEncryptionKey>
     {
         internal static BaseConverter CreateConverterInstance() => new SetDatabaseEncryptionKeyConverter();
@@ -16756,7 +16756,7 @@ namespace TDLib.JsonClient
             var obj = (SetDatabaseEncryptionKey)tlobj;
             switch (hash)
             {
-                case 0xF142792Cu:
+                case 0x16054282u:
                     obj.NewEncryptionKey = reader.ReadBase64String();
                     return true;
             }
@@ -16764,14 +16764,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x34D15CBCu)]
+    [TLTypeHash(0xBB517E49u)]
     partial class GetPasswordStateConverter : TLObjectConverter<GetPasswordState>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPasswordStateConverter();
         internal static TLObject CreateObjectInstance() => new GetPasswordState();
     }
 
-    [TLTypeHash(0x2504E339u)]
+    [TLTypeHash(0x3F502319u)]
     partial class SetPasswordConverter : TLObjectConverter<SetPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new SetPasswordConverter();
@@ -16782,19 +16782,19 @@ namespace TDLib.JsonClient
             var obj = (SetPassword)tlobj;
             switch (hash)
             {
-                case 0x7C2488DAu:
+                case 0x5EDA82F8u:
                     obj.OldPassword = reader.ReadString();
                     return true;
-                case 0xA3B9E2E5u:
+                case 0x72ABCAF9u:
                     obj.NewPassword = reader.ReadString();
                     return true;
-                case 0x0B1D0939u:
+                case 0xC02BB78Eu:
                     obj.NewHint = reader.ReadString();
                     return true;
-                case 0xFB61525Eu:
+                case 0x701CEB14u:
                     obj.SetRecoveryEmailAddress = reader.ReadBool();
                     return true;
-                case 0x12E10C95u:
+                case 0x1AF004B1u:
                     obj.NewRecoveryEmailAddress = reader.ReadString();
                     return true;
             }
@@ -16802,7 +16802,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD7CDBE72u)]
+    [TLTypeHash(0x2C16D5C0u)]
     partial class GetRecoveryEmailAddressConverter : TLObjectConverter<GetRecoveryEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new GetRecoveryEmailAddressConverter();
@@ -16813,7 +16813,7 @@ namespace TDLib.JsonClient
             var obj = (GetRecoveryEmailAddress)tlobj;
             switch (hash)
             {
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -16821,7 +16821,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x41D44B34u)]
+    [TLTypeHash(0x2D38F21Fu)]
     partial class SetRecoveryEmailAddressConverter : TLObjectConverter<SetRecoveryEmailAddress>
     {
         internal static BaseConverter CreateConverterInstance() => new SetRecoveryEmailAddressConverter();
@@ -16832,10 +16832,10 @@ namespace TDLib.JsonClient
             var obj = (SetRecoveryEmailAddress)tlobj;
             switch (hash)
             {
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
-                case 0x12E10C95u:
+                case 0x1AF004B1u:
                     obj.NewRecoveryEmailAddress = reader.ReadString();
                     return true;
             }
@@ -16843,7 +16843,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7C8A605Cu)]
+    [TLTypeHash(0x1EFA2E60u)]
     partial class CheckRecoveryEmailAddressCodeConverter : TLObjectConverter<CheckRecoveryEmailAddressCode>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckRecoveryEmailAddressCodeConverter();
@@ -16854,7 +16854,7 @@ namespace TDLib.JsonClient
             var obj = (CheckRecoveryEmailAddressCode)tlobj;
             switch (hash)
             {
-                case 0xA6676B57u:
+                case 0x77153098u:
                     obj.Code = reader.ReadString();
                     return true;
             }
@@ -16862,21 +16862,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF8E3F203u)]
+    [TLTypeHash(0x1B2A3DC0u)]
     partial class ResendRecoveryEmailAddressCodeConverter : TLObjectConverter<ResendRecoveryEmailAddressCode>
     {
         internal static BaseConverter CreateConverterInstance() => new ResendRecoveryEmailAddressCodeConverter();
         internal static TLObject CreateObjectInstance() => new ResendRecoveryEmailAddressCode();
     }
 
-    [TLTypeHash(0x98459652u)]
+    [TLTypeHash(0x0F4E9624u)]
     partial class RequestPasswordRecoveryConverter : TLObjectConverter<RequestPasswordRecovery>
     {
         internal static BaseConverter CreateConverterInstance() => new RequestPasswordRecoveryConverter();
         internal static TLObject CreateObjectInstance() => new RequestPasswordRecovery();
     }
 
-    [TLTypeHash(0x26A559DBu)]
+    [TLTypeHash(0xCE128B4Au)]
     partial class RecoverPasswordConverter : TLObjectConverter<RecoverPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new RecoverPasswordConverter();
@@ -16887,7 +16887,7 @@ namespace TDLib.JsonClient
             var obj = (RecoverPassword)tlobj;
             switch (hash)
             {
-                case 0xEAB88C4Cu:
+                case 0x2C8D0584u:
                     obj.RecoveryCode = reader.ReadString();
                     return true;
             }
@@ -16895,7 +16895,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x29879A20u)]
+    [TLTypeHash(0xA9389664u)]
     partial class CreateTemporaryPasswordConverter : TLObjectConverter<CreateTemporaryPassword>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateTemporaryPasswordConverter();
@@ -16906,10 +16906,10 @@ namespace TDLib.JsonClient
             var obj = (CreateTemporaryPassword)tlobj;
             switch (hash)
             {
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
-                case 0x51527ED0u:
+                case 0xF5F46844u:
                     obj.ValidFor = reader.ReadInt();
                     return true;
             }
@@ -16917,21 +16917,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x70C618A5u)]
+    [TLTypeHash(0xE7E326B4u)]
     partial class GetTemporaryPasswordStateConverter : TLObjectConverter<GetTemporaryPasswordState>
     {
         internal static BaseConverter CreateConverterInstance() => new GetTemporaryPasswordStateConverter();
         internal static TLObject CreateObjectInstance() => new GetTemporaryPasswordState();
     }
 
-    [TLTypeHash(0xB858AE9Bu)]
+    [TLTypeHash(0xCA3F3F62u)]
     partial class GetMeConverter : TLObjectConverter<GetMe>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMeConverter();
         internal static TLObject CreateObjectInstance() => new GetMe();
     }
 
-    [TLTypeHash(0x61830443u)]
+    [TLTypeHash(0x8BF3D398u)]
     partial class GetUserConverter : TLObjectConverter<GetUser>
     {
         internal static BaseConverter CreateConverterInstance() => new GetUserConverter();
@@ -16942,7 +16942,7 @@ namespace TDLib.JsonClient
             var obj = (GetUser)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -16950,7 +16950,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA2D92532u)]
+    [TLTypeHash(0x6EF5A33Fu)]
     partial class GetUserFullInfoConverter : TLObjectConverter<GetUserFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetUserFullInfoConverter();
@@ -16961,7 +16961,7 @@ namespace TDLib.JsonClient
             var obj = (GetUserFullInfo)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -16969,7 +16969,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFE838B79u)]
+    [TLTypeHash(0x8B1B9CFAu)]
     partial class GetBasicGroupConverter : TLObjectConverter<GetBasicGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new GetBasicGroupConverter();
@@ -16980,7 +16980,7 @@ namespace TDLib.JsonClient
             var obj = (GetBasicGroup)tlobj;
             switch (hash)
             {
-                case 0x743FFA02u:
+                case 0x1B6DFDDBu:
                     obj.BasicGroupId = reader.ReadInt();
                     return true;
             }
@@ -16988,7 +16988,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD1DB45FFu)]
+    [TLTypeHash(0xB46F9886u)]
     partial class GetBasicGroupFullInfoConverter : TLObjectConverter<GetBasicGroupFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetBasicGroupFullInfoConverter();
@@ -16999,7 +16999,7 @@ namespace TDLib.JsonClient
             var obj = (GetBasicGroupFullInfo)tlobj;
             switch (hash)
             {
-                case 0x743FFA02u:
+                case 0x1B6DFDDBu:
                     obj.BasicGroupId = reader.ReadInt();
                     return true;
             }
@@ -17007,7 +17007,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x17B926B7u)]
+    [TLTypeHash(0xF23FF6FCu)]
     partial class GetSupergroupConverter : TLObjectConverter<GetSupergroup>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSupergroupConverter();
@@ -17018,7 +17018,7 @@ namespace TDLib.JsonClient
             var obj = (GetSupergroup)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
             }
@@ -17026,7 +17026,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x04200DA4u)]
+    [TLTypeHash(0x35394734u)]
     partial class GetSupergroupFullInfoConverter : TLObjectConverter<GetSupergroupFullInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSupergroupFullInfoConverter();
@@ -17037,7 +17037,7 @@ namespace TDLib.JsonClient
             var obj = (GetSupergroupFullInfo)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
             }
@@ -17045,7 +17045,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1C4B000Bu)]
+    [TLTypeHash(0x533A6579u)]
     partial class GetSecretChatConverter : TLObjectConverter<GetSecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSecretChatConverter();
@@ -17056,7 +17056,7 @@ namespace TDLib.JsonClient
             var obj = (GetSecretChat)tlobj;
             switch (hash)
             {
-                case 0xB35E5819u:
+                case 0x3C9AC102u:
                     obj.SecretChatId = reader.ReadInt();
                     return true;
             }
@@ -17064,7 +17064,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8654A204u)]
+    [TLTypeHash(0x63FDF77Bu)]
     partial class GetChatConverter : TLObjectConverter<GetChat>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatConverter();
@@ -17075,7 +17075,7 @@ namespace TDLib.JsonClient
             var obj = (GetChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -17083,7 +17083,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x06A6C293u)]
+    [TLTypeHash(0x0A33FA63u)]
     partial class GetMessageConverter : TLObjectConverter<GetMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageConverter();
@@ -17094,10 +17094,10 @@ namespace TDLib.JsonClient
             var obj = (GetMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -17105,7 +17105,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x61E9454Cu)]
+    [TLTypeHash(0x9C5A7145u)]
     partial class GetMessageLocallyConverter : TLObjectConverter<GetMessageLocally>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageLocallyConverter();
@@ -17116,10 +17116,10 @@ namespace TDLib.JsonClient
             var obj = (GetMessageLocally)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -17127,7 +17127,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x66799F45u)]
+    [TLTypeHash(0x7556455Du)]
     partial class GetRepliedMessageConverter : TLObjectConverter<GetRepliedMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new GetRepliedMessageConverter();
@@ -17138,10 +17138,10 @@ namespace TDLib.JsonClient
             var obj = (GetRepliedMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -17149,7 +17149,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x47722831u)]
+    [TLTypeHash(0xCD1F4304u)]
     partial class GetChatPinnedMessageConverter : TLObjectConverter<GetChatPinnedMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatPinnedMessageConverter();
@@ -17160,7 +17160,7 @@ namespace TDLib.JsonClient
             var obj = (GetChatPinnedMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -17168,7 +17168,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB14B5D89u)]
+    [TLTypeHash(0xCFBFCC13u)]
     partial class GetMessagesConverter : TLObjectConverter<GetMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessagesConverter();
@@ -17179,10 +17179,10 @@ namespace TDLib.JsonClient
             var obj = (GetMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
             }
@@ -17190,7 +17190,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x910DCC7Cu)]
+    [TLTypeHash(0x5561AE24u)]
     partial class GetMessageThreadConverter : TLObjectConverter<GetMessageThread>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageThreadConverter();
@@ -17201,10 +17201,10 @@ namespace TDLib.JsonClient
             var obj = (GetMessageThread)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -17212,7 +17212,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA77BD54Eu)]
+    [TLTypeHash(0x8AFF33C1u)]
     partial class GetFileConverter : TLObjectConverter<GetFile>
     {
         internal static BaseConverter CreateConverterInstance() => new GetFileConverter();
@@ -17223,7 +17223,7 @@ namespace TDLib.JsonClient
             var obj = (GetFile)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
             }
@@ -17231,7 +17231,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x80F6CBA9u)]
+    [TLTypeHash(0xD3734ACDu)]
     partial class GetRemoteFileConverter : TLObjectConverter<GetRemoteFile>
     {
         internal static BaseConverter CreateConverterInstance() => new GetRemoteFileConverter();
@@ -17242,10 +17242,10 @@ namespace TDLib.JsonClient
             var obj = (GetRemoteFile)tlobj;
             switch (hash)
             {
-                case 0x32C8942Au:
+                case 0xD740CE0Bu:
                     obj.RemoteFileId = reader.ReadString();
                     return true;
-                case 0xCE2728D6u:
+                case 0x05223F47u:
                     obj.FileType = reader.ReadTLObject<FileType>();
                     return true;
             }
@@ -17253,7 +17253,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF7A93715u)]
+    [TLTypeHash(0xDCBA9A48u)]
     partial class GetChatsConverter : TLObjectConverter<GetChats>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatsConverter();
@@ -17264,16 +17264,16 @@ namespace TDLib.JsonClient
             var obj = (GetChats)tlobj;
             switch (hash)
             {
-                case 0xB8484D43u:
+                case 0xE2546559u:
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0xA359972Cu:
+                case 0xC25A660Au:
                     obj.OffsetOrder = reader.ReadInt64String();
                     return true;
-                case 0x2DD4FEE9u:
+                case 0x943AA85Du:
                     obj.OffsetChatId = reader.ReadLong();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17281,7 +17281,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4ADEF4CFu)]
+    [TLTypeHash(0xDD7789C1u)]
     partial class SearchPublicChatConverter : TLObjectConverter<SearchPublicChat>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchPublicChatConverter();
@@ -17292,7 +17292,7 @@ namespace TDLib.JsonClient
             var obj = (SearchPublicChat)tlobj;
             switch (hash)
             {
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
             }
@@ -17300,7 +17300,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAD6130BCu)]
+    [TLTypeHash(0xF7B04AA4u)]
     partial class SearchPublicChatsConverter : TLObjectConverter<SearchPublicChats>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchPublicChatsConverter();
@@ -17311,7 +17311,7 @@ namespace TDLib.JsonClient
             var obj = (SearchPublicChats)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
             }
@@ -17319,7 +17319,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7727C5D0u)]
+    [TLTypeHash(0xEA965279u)]
     partial class SearchChatsConverter : TLObjectConverter<SearchChats>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchChatsConverter();
@@ -17330,10 +17330,10 @@ namespace TDLib.JsonClient
             var obj = (SearchChats)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17341,7 +17341,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5C8C0CB5u)]
+    [TLTypeHash(0x0C1B11F6u)]
     partial class SearchChatsOnServerConverter : TLObjectConverter<SearchChatsOnServer>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchChatsOnServerConverter();
@@ -17352,10 +17352,10 @@ namespace TDLib.JsonClient
             var obj = (SearchChatsOnServer)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17363,7 +17363,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0DD4F51Au)]
+    [TLTypeHash(0x2D1FF5CBu)]
     partial class SearchChatsNearbyConverter : TLObjectConverter<SearchChatsNearby>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchChatsNearbyConverter();
@@ -17374,7 +17374,7 @@ namespace TDLib.JsonClient
             var obj = (SearchChatsNearby)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
             }
@@ -17382,7 +17382,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD6F0C0E2u)]
+    [TLTypeHash(0x05D2635Du)]
     partial class GetTopChatsConverter : TLObjectConverter<GetTopChats>
     {
         internal static BaseConverter CreateConverterInstance() => new GetTopChatsConverter();
@@ -17393,10 +17393,10 @@ namespace TDLib.JsonClient
             var obj = (GetTopChats)tlobj;
             switch (hash)
             {
-                case 0xFC12CEE2u:
+                case 0x064C19C1u:
                     obj.Category = reader.ReadTLObject<TopChatCategory>();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17404,7 +17404,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB02F87C4u)]
+    [TLTypeHash(0xF632167Bu)]
     partial class RemoveTopChatConverter : TLObjectConverter<RemoveTopChat>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveTopChatConverter();
@@ -17415,10 +17415,10 @@ namespace TDLib.JsonClient
             var obj = (RemoveTopChat)tlobj;
             switch (hash)
             {
-                case 0xFC12CEE2u:
+                case 0x064C19C1u:
                     obj.Category = reader.ReadTLObject<TopChatCategory>();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -17426,7 +17426,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3841DF1Au)]
+    [TLTypeHash(0x8E40E6AEu)]
     partial class AddRecentlyFoundChatConverter : TLObjectConverter<AddRecentlyFoundChat>
     {
         internal static BaseConverter CreateConverterInstance() => new AddRecentlyFoundChatConverter();
@@ -17437,7 +17437,7 @@ namespace TDLib.JsonClient
             var obj = (AddRecentlyFoundChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -17445,7 +17445,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x45858FF7u)]
+    [TLTypeHash(0x4B0279A9u)]
     partial class RemoveRecentlyFoundChatConverter : TLObjectConverter<RemoveRecentlyFoundChat>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveRecentlyFoundChatConverter();
@@ -17456,7 +17456,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveRecentlyFoundChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -17464,14 +17464,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x495B4FF7u)]
+    [TLTypeHash(0x785E2CE1u)]
     partial class ClearRecentlyFoundChatsConverter : TLObjectConverter<ClearRecentlyFoundChats>
     {
         internal static BaseConverter CreateConverterInstance() => new ClearRecentlyFoundChatsConverter();
         internal static TLObject CreateObjectInstance() => new ClearRecentlyFoundChats();
     }
 
-    [TLTypeHash(0xA9922380u)]
+    [TLTypeHash(0x91778F3Au)]
     partial class CheckChatUsernameConverter : TLObjectConverter<CheckChatUsername>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChatUsernameConverter();
@@ -17482,10 +17482,10 @@ namespace TDLib.JsonClient
             var obj = (CheckChatUsername)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
             }
@@ -17493,7 +17493,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF24609F0u)]
+    [TLTypeHash(0x6A3DA39Eu)]
     partial class GetCreatedPublicChatsConverter : TLObjectConverter<GetCreatedPublicChats>
     {
         internal static BaseConverter CreateConverterInstance() => new GetCreatedPublicChatsConverter();
@@ -17504,7 +17504,7 @@ namespace TDLib.JsonClient
             var obj = (GetCreatedPublicChats)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PublicChatType>();
                     return true;
             }
@@ -17512,7 +17512,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD109F18Eu)]
+    [TLTypeHash(0x74BB4F04u)]
     partial class CheckCreatedPublicChatsLimitConverter : TLObjectConverter<CheckCreatedPublicChatsLimit>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckCreatedPublicChatsLimitConverter();
@@ -17523,7 +17523,7 @@ namespace TDLib.JsonClient
             var obj = (CheckCreatedPublicChatsLimit)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PublicChatType>();
                     return true;
             }
@@ -17531,21 +17531,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC96A1590u)]
+    [TLTypeHash(0x1DCE00B9u)]
     partial class GetSuitableDiscussionChatsConverter : TLObjectConverter<GetSuitableDiscussionChats>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSuitableDiscussionChatsConverter();
         internal static TLObject CreateObjectInstance() => new GetSuitableDiscussionChats();
     }
 
-    [TLTypeHash(0x6076CED4u)]
+    [TLTypeHash(0xE4862D85u)]
     partial class GetInactiveSupergroupChatsConverter : TLObjectConverter<GetInactiveSupergroupChats>
     {
         internal static BaseConverter CreateConverterInstance() => new GetInactiveSupergroupChatsConverter();
         internal static TLObject CreateObjectInstance() => new GetInactiveSupergroupChats();
     }
 
-    [TLTypeHash(0x189D6AB9u)]
+    [TLTypeHash(0xFF71ECA2u)]
     partial class GetGroupsInCommonConverter : TLObjectConverter<GetGroupsInCommon>
     {
         internal static BaseConverter CreateConverterInstance() => new GetGroupsInCommonConverter();
@@ -17556,13 +17556,13 @@ namespace TDLib.JsonClient
             var obj = (GetGroupsInCommon)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x2DD4FEE9u:
+                case 0x943AA85Du:
                     obj.OffsetChatId = reader.ReadLong();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17570,7 +17570,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5CBA8B58u)]
+    [TLTypeHash(0x97C828A6u)]
     partial class GetChatHistoryConverter : TLObjectConverter<GetChatHistory>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatHistoryConverter();
@@ -17581,19 +17581,19 @@ namespace TDLib.JsonClient
             var obj = (GetChatHistory)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCB003A8Du:
+                case 0x78DED52Eu:
                     obj.FromMessageId = reader.ReadLong();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0x055CA735u:
+                case 0x195F8866u:
                     obj.OnlyLocal = reader.ReadBool();
                     return true;
             }
@@ -17601,7 +17601,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFECEAC10u)]
+    [TLTypeHash(0xA86285ABu)]
     partial class GetMessageThreadHistoryConverter : TLObjectConverter<GetMessageThreadHistory>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageThreadHistoryConverter();
@@ -17612,19 +17612,19 @@ namespace TDLib.JsonClient
             var obj = (GetMessageThreadHistory)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xCB003A8Du:
+                case 0x78DED52Eu:
                     obj.FromMessageId = reader.ReadLong();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17632,7 +17632,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEDDB8504u)]
+    [TLTypeHash(0xD4E076EAu)]
     partial class DeleteChatHistoryConverter : TLObjectConverter<DeleteChatHistory>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteChatHistoryConverter();
@@ -17643,13 +17643,13 @@ namespace TDLib.JsonClient
             var obj = (DeleteChatHistory)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB85CBD05u:
+                case 0xBD6A7F6Bu:
                     obj.RemoveFromChatList = reader.ReadBool();
                     return true;
-                case 0x758DAFEFu:
+                case 0x10F4A1B2u:
                     obj.Revoke = reader.ReadBool();
                     return true;
             }
@@ -17657,7 +17657,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF2A890ECu)]
+    [TLTypeHash(0x27D7A54Cu)]
     partial class SearchChatMessagesConverter : TLObjectConverter<SearchChatMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchChatMessagesConverter();
@@ -17668,28 +17668,28 @@ namespace TDLib.JsonClient
             var obj = (SearchChatMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xCB003A8Du:
+                case 0x78DED52Eu:
                     obj.FromMessageId = reader.ReadLong();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
             }
@@ -17697,7 +17697,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8BC70638u)]
+    [TLTypeHash(0xDBED7227u)]
     partial class SearchMessagesConverter : TLObjectConverter<SearchMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchMessagesConverter();
@@ -17708,31 +17708,31 @@ namespace TDLib.JsonClient
             var obj = (SearchMessages)tlobj;
             switch (hash)
             {
-                case 0xB8484D43u:
+                case 0xE2546559u:
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x705C43C7u:
+                case 0x01505591u:
                     obj.OffsetDate = reader.ReadInt();
                     return true;
-                case 0x2DD4FEE9u:
+                case 0x943AA85Du:
                     obj.OffsetChatId = reader.ReadLong();
                     return true;
-                case 0x0C36C71Du:
+                case 0x8FB4F7F1u:
                     obj.OffsetMessageId = reader.ReadLong();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
                     return true;
-                case 0xA638DF81u:
+                case 0x3385BD63u:
                     obj.MinDate = reader.ReadInt();
                     return true;
-                case 0x41608558u:
+                case 0xD5E51282u:
                     obj.MaxDate = reader.ReadInt();
                     return true;
             }
@@ -17740,7 +17740,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE00C4CB4u)]
+    [TLTypeHash(0x73742668u)]
     partial class SearchSecretMessagesConverter : TLObjectConverter<SearchSecretMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchSecretMessagesConverter();
@@ -17751,19 +17751,19 @@ namespace TDLib.JsonClient
             var obj = (SearchSecretMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
                     return true;
             }
@@ -17771,7 +17771,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAA7E8685u)]
+    [TLTypeHash(0xBE7CF010u)]
     partial class SearchCallMessagesConverter : TLObjectConverter<SearchCallMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchCallMessagesConverter();
@@ -17782,13 +17782,13 @@ namespace TDLib.JsonClient
             var obj = (SearchCallMessages)tlobj;
             switch (hash)
             {
-                case 0xCB003A8Du:
+                case 0x78DED52Eu:
                     obj.FromMessageId = reader.ReadLong();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xD67E99A2u:
+                case 0xE6706CE4u:
                     obj.OnlyMissed = reader.ReadBool();
                     return true;
             }
@@ -17796,7 +17796,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6E65BE7Au)]
+    [TLTypeHash(0x8D0A7504u)]
     partial class SearchChatRecentLocationMessagesConverter : TLObjectConverter<SearchChatRecentLocationMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchChatRecentLocationMessagesConverter();
@@ -17807,10 +17807,10 @@ namespace TDLib.JsonClient
             var obj = (SearchChatRecentLocationMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17818,14 +17818,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEA2F8FDCu)]
+    [TLTypeHash(0x4C6B3CBFu)]
     partial class GetActiveLiveLocationMessagesConverter : TLObjectConverter<GetActiveLiveLocationMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new GetActiveLiveLocationMessagesConverter();
         internal static TLObject CreateObjectInstance() => new GetActiveLiveLocationMessages();
     }
 
-    [TLTypeHash(0x80D5B160u)]
+    [TLTypeHash(0xFF37C604u)]
     partial class GetChatMessageByDateConverter : TLObjectConverter<GetChatMessageByDate>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatMessageByDateConverter();
@@ -17836,10 +17836,10 @@ namespace TDLib.JsonClient
             var obj = (GetChatMessageByDate)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x6942EACEu:
+                case 0xAA9E377Au:
                     obj.Date = reader.ReadInt();
                     return true;
             }
@@ -17847,7 +17847,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB8013EBAu)]
+    [TLTypeHash(0xDDE5B601u)]
     partial class GetChatMessageCountConverter : TLObjectConverter<GetChatMessageCount>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatMessageCountConverter();
@@ -17858,13 +17858,13 @@ namespace TDLib.JsonClient
             var obj = (GetChatMessageCount)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
                     return true;
-                case 0x5A06EBB5u:
+                case 0x52612484u:
                     obj.ReturnLocal = reader.ReadBool();
                     return true;
             }
@@ -17872,7 +17872,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8E6849C1u)]
+    [TLTypeHash(0xF76D771Bu)]
     partial class GetChatScheduledMessagesConverter : TLObjectConverter<GetChatScheduledMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatScheduledMessagesConverter();
@@ -17883,7 +17883,7 @@ namespace TDLib.JsonClient
             var obj = (GetChatScheduledMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -17891,7 +17891,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4B8B41B0u)]
+    [TLTypeHash(0x55D3F547u)]
     partial class GetMessagePublicForwardsConverter : TLObjectConverter<GetMessagePublicForwards>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessagePublicForwardsConverter();
@@ -17902,16 +17902,16 @@ namespace TDLib.JsonClient
             var obj = (GetMessagePublicForwards)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17919,7 +17919,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDA4D708Bu)]
+    [TLTypeHash(0xD7903847u)]
     partial class RemoveNotificationConverter : TLObjectConverter<RemoveNotification>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveNotificationConverter();
@@ -17930,10 +17930,10 @@ namespace TDLib.JsonClient
             var obj = (RemoveNotification)tlobj;
             switch (hash)
             {
-                case 0x8031826Bu:
+                case 0xAB44E1E2u:
                     obj.NotificationGroupId = reader.ReadInt();
                     return true;
-                case 0xE285B30Au:
+                case 0xEF1A9D84u:
                     obj.NotificationId = reader.ReadInt();
                     return true;
             }
@@ -17941,7 +17941,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3A46B175u)]
+    [TLTypeHash(0x4027D4FEu)]
     partial class RemoveNotificationGroupConverter : TLObjectConverter<RemoveNotificationGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveNotificationGroupConverter();
@@ -17952,10 +17952,10 @@ namespace TDLib.JsonClient
             var obj = (RemoveNotificationGroup)tlobj;
             switch (hash)
             {
-                case 0x8031826Bu:
+                case 0xAB44E1E2u:
                     obj.NotificationGroupId = reader.ReadInt();
                     return true;
-                case 0x73CC340Cu:
+                case 0x72E80D0Du:
                     obj.MaxNotificationId = reader.ReadInt();
                     return true;
             }
@@ -17963,7 +17963,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4873E51Bu)]
+    [TLTypeHash(0x13E0140Au)]
     partial class GetMessageLinkConverter : TLObjectConverter<GetMessageLink>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageLinkConverter();
@@ -17974,16 +17974,16 @@ namespace TDLib.JsonClient
             var obj = (GetMessageLink)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x8F261B50u:
+                case 0xB92EBCE9u:
                     obj.ForAlbum = reader.ReadBool();
                     return true;
-                case 0xD4FBAC3Au:
+                case 0xA8413541u:
                     obj.ForComment = reader.ReadBool();
                     return true;
             }
@@ -17991,7 +17991,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDEFC9D1Fu)]
+    [TLTypeHash(0x39FB1632u)]
     partial class GetMessageEmbeddingCodeConverter : TLObjectConverter<GetMessageEmbeddingCode>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageEmbeddingCodeConverter();
@@ -18002,13 +18002,13 @@ namespace TDLib.JsonClient
             var obj = (GetMessageEmbeddingCode)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x8F261B50u:
+                case 0xB92EBCE9u:
                     obj.ForAlbum = reader.ReadBool();
                     return true;
             }
@@ -18016,7 +18016,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7A00ED76u)]
+    [TLTypeHash(0xC5E9C793u)]
     partial class GetMessageLinkInfoConverter : TLObjectConverter<GetMessageLinkInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageLinkInfoConverter();
@@ -18027,7 +18027,7 @@ namespace TDLib.JsonClient
             var obj = (GetMessageLinkInfo)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
             }
@@ -18035,7 +18035,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD021D8EDu)]
+    [TLTypeHash(0x1FE568C0u)]
     partial class SendMessageConverter : TLObjectConverter<SendMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new SendMessageConverter();
@@ -18046,22 +18046,22 @@ namespace TDLib.JsonClient
             var obj = (SendMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x2A4A6D16u:
+                case 0x5518525Du:
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0x8CF56D94u:
+                case 0xD035FA87u:
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18069,7 +18069,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x285C812Eu)]
+    [TLTypeHash(0x8DAD6AA5u)]
     partial class SendMessageAlbumConverter : TLObjectConverter<SendMessageAlbum>
     {
         internal static BaseConverter CreateConverterInstance() => new SendMessageAlbumConverter();
@@ -18080,19 +18080,19 @@ namespace TDLib.JsonClient
             var obj = (SendMessageAlbum)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x2A4A6D16u:
+                case 0x5518525Du:
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0x8CF56D94u:
+                case 0xD035FA87u:
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0x9857AD88u:
+                case 0x62C14328u:
                     obj.InputMessageContents = reader.ReadObjectArray<InputMessageContent>();
                     return true;
             }
@@ -18100,7 +18100,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF41BD770u)]
+    [TLTypeHash(0x3671AA99u)]
     partial class SendBotStartMessageConverter : TLObjectConverter<SendBotStartMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new SendBotStartMessageConverter();
@@ -18111,13 +18111,13 @@ namespace TDLib.JsonClient
             var obj = (SendBotStartMessage)tlobj;
             switch (hash)
             {
-                case 0x05547AC3u:
+                case 0x5898BEB0u:
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xAA12B814u:
+                case 0x2A979110u:
                     obj.Parameter = reader.ReadString();
                     return true;
             }
@@ -18125,7 +18125,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFD066218u)]
+    [TLTypeHash(0x1AABAA61u)]
     partial class SendInlineQueryResultMessageConverter : TLObjectConverter<SendInlineQueryResultMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new SendInlineQueryResultMessageConverter();
@@ -18136,25 +18136,25 @@ namespace TDLib.JsonClient
             var obj = (SendInlineQueryResultMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x2A4A6D16u:
+                case 0x5518525Du:
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0x8CF56D94u:
+                case 0xD035FA87u:
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0xA80C61F4u:
+                case 0xEF946F99u:
                     obj.QueryId = reader.ReadInt64String();
                     return true;
-                case 0xA60E38F1u:
+                case 0x07A7B643u:
                     obj.ResultId = reader.ReadString();
                     return true;
-                case 0x9CB396CAu:
+                case 0x55CDD226u:
                     obj.HideViaBot = reader.ReadBool();
                     return true;
             }
@@ -18162,7 +18162,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE63CF808u)]
+    [TLTypeHash(0xC21B67C1u)]
     partial class ForwardMessagesConverter : TLObjectConverter<ForwardMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new ForwardMessagesConverter();
@@ -18173,22 +18173,22 @@ namespace TDLib.JsonClient
             var obj = (ForwardMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x48E8721Bu:
+                case 0x9CC4928Au:
                     obj.FromChatId = reader.ReadLong();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
-                case 0x8CF56D94u:
+                case 0xD035FA87u:
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0xC1A79199u:
+                case 0x297D0311u:
                     obj.SendCopy = reader.ReadBool();
                     return true;
-                case 0xD0362263u:
+                case 0xB6022E3Fu:
                     obj.RemoveCaption = reader.ReadBool();
                     return true;
             }
@@ -18196,7 +18196,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDBA617B8u)]
+    [TLTypeHash(0x32C649DEu)]
     partial class ResendMessagesConverter : TLObjectConverter<ResendMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new ResendMessagesConverter();
@@ -18207,10 +18207,10 @@ namespace TDLib.JsonClient
             var obj = (ResendMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
             }
@@ -18218,7 +18218,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD2B96081u)]
+    [TLTypeHash(0x7D91B6EAu)]
     partial class SendChatSetTtlMessageConverter : TLObjectConverter<SendChatSetTtlMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new SendChatSetTtlMessageConverter();
@@ -18229,10 +18229,10 @@ namespace TDLib.JsonClient
             var obj = (SendChatSetTtlMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadInt();
                     return true;
             }
@@ -18240,7 +18240,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4F70EA4Bu)]
+    [TLTypeHash(0xD1A683D7u)]
     partial class SendChatScreenshotTakenNotificationConverter : TLObjectConverter<SendChatScreenshotTakenNotification>
     {
         internal static BaseConverter CreateConverterInstance() => new SendChatScreenshotTakenNotificationConverter();
@@ -18251,7 +18251,7 @@ namespace TDLib.JsonClient
             var obj = (SendChatScreenshotTakenNotification)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -18259,7 +18259,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x60E9486Cu)]
+    [TLTypeHash(0x9388FC64u)]
     partial class AddLocalMessageConverter : TLObjectConverter<AddLocalMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new AddLocalMessageConverter();
@@ -18270,19 +18270,19 @@ namespace TDLib.JsonClient
             var obj = (AddLocalMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x835F2CE8u:
+                case 0x2A98155Eu:
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x2A4A6D16u:
+                case 0x5518525Du:
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0x53B8E768u:
+                case 0x5771A509u:
                     obj.DisableNotification = reader.ReadBool();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18290,7 +18290,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD97E2E9Bu)]
+    [TLTypeHash(0xF5CD49EBu)]
     partial class DeleteMessagesConverter : TLObjectConverter<DeleteMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteMessagesConverter();
@@ -18301,13 +18301,13 @@ namespace TDLib.JsonClient
             var obj = (DeleteMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
-                case 0x758DAFEFu:
+                case 0x10F4A1B2u:
                     obj.Revoke = reader.ReadBool();
                     return true;
             }
@@ -18315,7 +18315,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x984C12E1u)]
+    [TLTypeHash(0x29328AD9u)]
     partial class DeleteChatMessagesFromUserConverter : TLObjectConverter<DeleteChatMessagesFromUser>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteChatMessagesFromUserConverter();
@@ -18326,10 +18326,10 @@ namespace TDLib.JsonClient
             var obj = (DeleteChatMessagesFromUser)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -18337,7 +18337,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD261E330u)]
+    [TLTypeHash(0x8FCD3754u)]
     partial class EditMessageTextConverter : TLObjectConverter<EditMessageText>
     {
         internal static BaseConverter CreateConverterInstance() => new EditMessageTextConverter();
@@ -18348,16 +18348,16 @@ namespace TDLib.JsonClient
             var obj = (EditMessageText)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18365,7 +18365,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEE4BA93Cu)]
+    [TLTypeHash(0x20FCC810u)]
     partial class EditMessageLiveLocationConverter : TLObjectConverter<EditMessageLiveLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new EditMessageLiveLocationConverter();
@@ -18376,16 +18376,16 @@ namespace TDLib.JsonClient
             var obj = (EditMessageLiveLocation)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
             }
@@ -18393,7 +18393,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAA61424Bu)]
+    [TLTypeHash(0x039E2562u)]
     partial class EditMessageMediaConverter : TLObjectConverter<EditMessageMedia>
     {
         internal static BaseConverter CreateConverterInstance() => new EditMessageMediaConverter();
@@ -18404,16 +18404,16 @@ namespace TDLib.JsonClient
             var obj = (EditMessageMedia)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18421,7 +18421,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCAD1E030u)]
+    [TLTypeHash(0xE7D721C7u)]
     partial class EditMessageCaptionConverter : TLObjectConverter<EditMessageCaption>
     {
         internal static BaseConverter CreateConverterInstance() => new EditMessageCaptionConverter();
@@ -18432,16 +18432,16 @@ namespace TDLib.JsonClient
             var obj = (EditMessageCaption)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -18449,7 +18449,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9638E7FEu)]
+    [TLTypeHash(0xE2988FE3u)]
     partial class EditMessageReplyMarkupConverter : TLObjectConverter<EditMessageReplyMarkup>
     {
         internal static BaseConverter CreateConverterInstance() => new EditMessageReplyMarkupConverter();
@@ -18460,13 +18460,13 @@ namespace TDLib.JsonClient
             var obj = (EditMessageReplyMarkup)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -18474,7 +18474,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE598ABC6u)]
+    [TLTypeHash(0xEF831B25u)]
     partial class EditInlineMessageTextConverter : TLObjectConverter<EditInlineMessageText>
     {
         internal static BaseConverter CreateConverterInstance() => new EditInlineMessageTextConverter();
@@ -18485,13 +18485,13 @@ namespace TDLib.JsonClient
             var obj = (EditInlineMessageText)tlobj;
             switch (hash)
             {
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18499,7 +18499,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2AFD7905u)]
+    [TLTypeHash(0xE47B16A7u)]
     partial class EditInlineMessageLiveLocationConverter : TLObjectConverter<EditInlineMessageLiveLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new EditInlineMessageLiveLocationConverter();
@@ -18510,13 +18510,13 @@ namespace TDLib.JsonClient
             var obj = (EditInlineMessageLiveLocation)tlobj;
             switch (hash)
             {
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
             }
@@ -18524,7 +18524,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7F99339Eu)]
+    [TLTypeHash(0x24FC2AE4u)]
     partial class EditInlineMessageMediaConverter : TLObjectConverter<EditInlineMessageMedia>
     {
         internal static BaseConverter CreateConverterInstance() => new EditInlineMessageMediaConverter();
@@ -18535,13 +18535,13 @@ namespace TDLib.JsonClient
             var obj = (EditInlineMessageMedia)tlobj;
             switch (hash)
             {
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x8D57DCCAu:
+                case 0x13348709u:
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18549,7 +18549,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2F1BD611u)]
+    [TLTypeHash(0x1AB124F9u)]
     partial class EditInlineMessageCaptionConverter : TLObjectConverter<EditInlineMessageCaption>
     {
         internal static BaseConverter CreateConverterInstance() => new EditInlineMessageCaptionConverter();
@@ -18560,13 +18560,13 @@ namespace TDLib.JsonClient
             var obj = (EditInlineMessageCaption)tlobj;
             switch (hash)
             {
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x7C631CCDu:
+                case 0xF67C4965u:
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -18574,7 +18574,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB44B5AE9u)]
+    [TLTypeHash(0x040C801Au)]
     partial class EditInlineMessageReplyMarkupConverter : TLObjectConverter<EditInlineMessageReplyMarkup>
     {
         internal static BaseConverter CreateConverterInstance() => new EditInlineMessageReplyMarkupConverter();
@@ -18585,10 +18585,10 @@ namespace TDLib.JsonClient
             var obj = (EditInlineMessageReplyMarkup)tlobj;
             switch (hash)
             {
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -18596,7 +18596,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8F968E60u)]
+    [TLTypeHash(0x45B3D679u)]
     partial class EditMessageSchedulingStateConverter : TLObjectConverter<EditMessageSchedulingState>
     {
         internal static BaseConverter CreateConverterInstance() => new EditMessageSchedulingStateConverter();
@@ -18607,13 +18607,13 @@ namespace TDLib.JsonClient
             var obj = (EditMessageSchedulingState)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3F5B0908u:
+                case 0x692DBE97u:
                     obj.SchedulingState = reader.ReadTLObject<MessageSchedulingState>();
                     return true;
             }
@@ -18621,7 +18621,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x19235931u)]
+    [TLTypeHash(0xE6486B2Eu)]
     partial class GetTextEntitiesConverter : TLObjectConverter<GetTextEntities>
     {
         internal static BaseConverter CreateConverterInstance() => new GetTextEntitiesConverter();
@@ -18632,7 +18632,7 @@ namespace TDLib.JsonClient
             var obj = (GetTextEntities)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
             }
@@ -18640,7 +18640,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9D7CEBD9u)]
+    [TLTypeHash(0x8BED6250u)]
     partial class ParseTextEntitiesConverter : TLObjectConverter<ParseTextEntities>
     {
         internal static BaseConverter CreateConverterInstance() => new ParseTextEntitiesConverter();
@@ -18651,10 +18651,10 @@ namespace TDLib.JsonClient
             var obj = (ParseTextEntities)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x3FE1999Bu:
+                case 0x39DA7A16u:
                     obj.ParseMode = reader.ReadTLObject<TextParseMode>();
                     return true;
             }
@@ -18662,7 +18662,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC0272C28u)]
+    [TLTypeHash(0xA1593EFFu)]
     partial class ParseMarkdownConverter : TLObjectConverter<ParseMarkdown>
     {
         internal static BaseConverter CreateConverterInstance() => new ParseMarkdownConverter();
@@ -18673,7 +18673,7 @@ namespace TDLib.JsonClient
             var obj = (ParseMarkdown)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -18681,7 +18681,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDCE8A5A7u)]
+    [TLTypeHash(0xCC44BA8Fu)]
     partial class GetMarkdownTextConverter : TLObjectConverter<GetMarkdownText>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMarkdownTextConverter();
@@ -18692,7 +18692,7 @@ namespace TDLib.JsonClient
             var obj = (GetMarkdownText)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -18700,7 +18700,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x71769B82u)]
+    [TLTypeHash(0x11913948u)]
     partial class GetFileMimeTypeConverter : TLObjectConverter<GetFileMimeType>
     {
         internal static BaseConverter CreateConverterInstance() => new GetFileMimeTypeConverter();
@@ -18711,7 +18711,7 @@ namespace TDLib.JsonClient
             var obj = (GetFileMimeType)tlobj;
             switch (hash)
             {
-                case 0xD96A5151u:
+                case 0xD7DF1668u:
                     obj.FileName = reader.ReadString();
                     return true;
             }
@@ -18719,7 +18719,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0C3C8D74u)]
+    [TLTypeHash(0x94A581CFu)]
     partial class GetFileExtensionConverter : TLObjectConverter<GetFileExtension>
     {
         internal static BaseConverter CreateConverterInstance() => new GetFileExtensionConverter();
@@ -18730,7 +18730,7 @@ namespace TDLib.JsonClient
             var obj = (GetFileExtension)tlobj;
             switch (hash)
             {
-                case 0x07F8FAA0u:
+                case 0x2100AA2Eu:
                     obj.MimeType = reader.ReadString();
                     return true;
             }
@@ -18738,7 +18738,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC090FCBFu)]
+    [TLTypeHash(0x1A7F25FDu)]
     partial class CleanFileNameConverter : TLObjectConverter<CleanFileName>
     {
         internal static BaseConverter CreateConverterInstance() => new CleanFileNameConverter();
@@ -18749,7 +18749,7 @@ namespace TDLib.JsonClient
             var obj = (CleanFileName)tlobj;
             switch (hash)
             {
-                case 0xD96A5151u:
+                case 0xD7DF1668u:
                     obj.FileName = reader.ReadString();
                     return true;
             }
@@ -18757,7 +18757,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB0CC06A7u)]
+    [TLTypeHash(0x81C0D804u)]
     partial class GetLanguagePackStringConverter : TLObjectConverter<GetLanguagePackString>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLanguagePackStringConverter();
@@ -18768,16 +18768,16 @@ namespace TDLib.JsonClient
             var obj = (GetLanguagePackString)tlobj;
             switch (hash)
             {
-                case 0x04A8FB25u:
+                case 0xC394DA75u:
                     obj.LanguagePackDatabasePath = reader.ReadString();
                     return true;
-                case 0xA6EC4F7Eu:
+                case 0xE6317C0Du:
                     obj.LocalizationTarget = reader.ReadString();
                     return true;
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
-                case 0x40A4756Du:
+                case 0x8A90ABA9u:
                     obj.Key = reader.ReadString();
                     return true;
             }
@@ -18785,7 +18785,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8AF3431Bu)]
+    [TLTypeHash(0xC5C99191u)]
     partial class GetJsonValueConverter : TLObjectConverter<GetJsonValue>
     {
         internal static BaseConverter CreateConverterInstance() => new GetJsonValueConverter();
@@ -18796,7 +18796,7 @@ namespace TDLib.JsonClient
             var obj = (GetJsonValue)tlobj;
             switch (hash)
             {
-                case 0x6B318546u:
+                case 0x6B072545u:
                     obj.Json = reader.ReadString();
                     return true;
             }
@@ -18804,7 +18804,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC0249BB3u)]
+    [TLTypeHash(0x38DA5B07u)]
     partial class GetJsonStringConverter : TLObjectConverter<GetJsonString>
     {
         internal static BaseConverter CreateConverterInstance() => new GetJsonStringConverter();
@@ -18815,7 +18815,7 @@ namespace TDLib.JsonClient
             var obj = (GetJsonString)tlobj;
             switch (hash)
             {
-                case 0x1D2EC4D1u:
+                case 0x18AE937Bu:
                     obj.JsonValue = reader.ReadTLObject<JsonValue>();
                     return true;
             }
@@ -18823,7 +18823,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA91D241Au)]
+    [TLTypeHash(0x6B6FD949u)]
     partial class SetPollAnswerConverter : TLObjectConverter<SetPollAnswer>
     {
         internal static BaseConverter CreateConverterInstance() => new SetPollAnswerConverter();
@@ -18834,13 +18834,13 @@ namespace TDLib.JsonClient
             var obj = (SetPollAnswer)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xCEAC1B92u:
+                case 0xC6A477DFu:
                     obj.OptionIds = reader.ReadInt32Array();
                     return true;
             }
@@ -18848,7 +18848,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x86185778u)]
+    [TLTypeHash(0xCC93F531u)]
     partial class GetPollVotersConverter : TLObjectConverter<GetPollVoters>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPollVotersConverter();
@@ -18859,19 +18859,19 @@ namespace TDLib.JsonClient
             var obj = (GetPollVoters)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x4ABE554Du:
+                case 0xA7C41D6Fu:
                     obj.OptionId = reader.ReadInt();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -18879,7 +18879,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x23EC2AD9u)]
+    [TLTypeHash(0x5A606A05u)]
     partial class StopPollConverter : TLObjectConverter<StopPoll>
     {
         internal static BaseConverter CreateConverterInstance() => new StopPollConverter();
@@ -18890,13 +18890,13 @@ namespace TDLib.JsonClient
             var obj = (StopPoll)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3E524C18u:
+                case 0x2F7AF593u:
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -18904,7 +18904,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEE831088u)]
+    [TLTypeHash(0xBD98CCCFu)]
     partial class HideSuggestedActionConverter : TLObjectConverter<HideSuggestedAction>
     {
         internal static BaseConverter CreateConverterInstance() => new HideSuggestedActionConverter();
@@ -18915,7 +18915,7 @@ namespace TDLib.JsonClient
             var obj = (HideSuggestedAction)tlobj;
             switch (hash)
             {
-                case 0xA88F2A92u:
+                case 0x47CC8C92u:
                     obj.Action = reader.ReadTLObject<SuggestedAction>();
                     return true;
             }
@@ -18923,7 +18923,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5FD6A592u)]
+    [TLTypeHash(0xAD3A0D5Bu)]
     partial class GetLoginUrlInfoConverter : TLObjectConverter<GetLoginUrlInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLoginUrlInfoConverter();
@@ -18934,13 +18934,13 @@ namespace TDLib.JsonClient
             var obj = (GetLoginUrlInfo)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x4DD238A4u:
+                case 0xA123E519u:
                     obj.ButtonId = reader.ReadInt();
                     return true;
             }
@@ -18948,7 +18948,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x14EAFA0Eu)]
+    [TLTypeHash(0xE275F4A6u)]
     partial class GetLoginUrlConverter : TLObjectConverter<GetLoginUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLoginUrlConverter();
@@ -18959,16 +18959,16 @@ namespace TDLib.JsonClient
             var obj = (GetLoginUrl)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x4DD238A4u:
+                case 0xA123E519u:
                     obj.ButtonId = reader.ReadInt();
                     return true;
-                case 0x06295B41u:
+                case 0x2CEE2E0Fu:
                     obj.AllowWriteAccess = reader.ReadBool();
                     return true;
             }
@@ -18976,7 +18976,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4C1B2A79u)]
+    [TLTypeHash(0xEF459BE6u)]
     partial class GetInlineQueryResultsConverter : TLObjectConverter<GetInlineQueryResults>
     {
         internal static BaseConverter CreateConverterInstance() => new GetInlineQueryResultsConverter();
@@ -18987,19 +18987,19 @@ namespace TDLib.JsonClient
             var obj = (GetInlineQueryResults)tlobj;
             switch (hash)
             {
-                case 0x05547AC3u:
+                case 0x5898BEB0u:
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x81A400F4u:
+                case 0xBE136DCBu:
                     obj.UserLocation = reader.ReadTLObject<Location>();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadString();
                     return true;
             }
@@ -19007,7 +19007,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x210E0305u)]
+    [TLTypeHash(0xD077D780u)]
     partial class AnswerInlineQueryConverter : TLObjectConverter<AnswerInlineQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new AnswerInlineQueryConverter();
@@ -19018,25 +19018,25 @@ namespace TDLib.JsonClient
             var obj = (AnswerInlineQuery)tlobj;
             switch (hash)
             {
-                case 0x69760C1Du:
+                case 0x975AF2A3u:
                     obj.InlineQueryId = reader.ReadInt64String();
                     return true;
-                case 0xF5BCD3ECu:
+                case 0x64231B80u:
                     obj.IsPersonal = reader.ReadBool();
                     return true;
-                case 0xAD67C0E0u:
+                case 0x9FA3E414u:
                     obj.Results = reader.ReadObjectArray<InputInlineQueryResult>();
                     return true;
-                case 0xD019661Cu:
+                case 0xD8D56692u:
                     obj.CacheTime = reader.ReadInt();
                     return true;
-                case 0x37DD9D00u:
+                case 0x00DFCF6Cu:
                     obj.NextOffset = reader.ReadString();
                     return true;
-                case 0x81169FF1u:
+                case 0xD2D173A6u:
                     obj.SwitchPmText = reader.ReadString();
                     return true;
-                case 0x3FBC3F46u:
+                case 0xC96402E0u:
                     obj.SwitchPmParameter = reader.ReadString();
                     return true;
             }
@@ -19044,7 +19044,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x289F2231u)]
+    [TLTypeHash(0x2B5C9524u)]
     partial class GetCallbackQueryAnswerConverter : TLObjectConverter<GetCallbackQueryAnswer>
     {
         internal static BaseConverter CreateConverterInstance() => new GetCallbackQueryAnswerConverter();
@@ -19055,13 +19055,13 @@ namespace TDLib.JsonClient
             var obj = (GetCallbackQueryAnswer)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xF4E36970u:
+                case 0x422C6A15u:
                     obj.Payload = reader.ReadTLObject<CallbackQueryPayload>();
                     return true;
             }
@@ -19069,7 +19069,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x78CC1F87u)]
+    [TLTypeHash(0x40CBABDEu)]
     partial class AnswerCallbackQueryConverter : TLObjectConverter<AnswerCallbackQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new AnswerCallbackQueryConverter();
@@ -19080,19 +19080,19 @@ namespace TDLib.JsonClient
             var obj = (AnswerCallbackQuery)tlobj;
             switch (hash)
             {
-                case 0x85DAE752u:
+                case 0xC56E6DB9u:
                     obj.CallbackQueryId = reader.ReadInt64String();
                     return true;
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x018A7292u:
+                case 0x154C221Du:
                     obj.ShowAlert = reader.ReadBool();
                     return true;
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0xD019661Cu:
+                case 0xD8D56692u:
                     obj.CacheTime = reader.ReadInt();
                     return true;
             }
@@ -19100,7 +19100,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6638FA71u)]
+    [TLTypeHash(0x62662A48u)]
     partial class AnswerShippingQueryConverter : TLObjectConverter<AnswerShippingQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new AnswerShippingQueryConverter();
@@ -19111,13 +19111,13 @@ namespace TDLib.JsonClient
             var obj = (AnswerShippingQuery)tlobj;
             switch (hash)
             {
-                case 0xA677CB4Eu:
+                case 0x737B2136u:
                     obj.ShippingQueryId = reader.ReadInt64String();
                     return true;
-                case 0xC455563Au:
+                case 0x367DFC43u:
                     obj.ShippingOptions = reader.ReadObjectArray<ShippingOption>();
                     return true;
-                case 0x6E73AFBFu:
+                case 0x2BF96153u:
                     obj.ErrorMessage = reader.ReadString();
                     return true;
             }
@@ -19125,7 +19125,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x577D487Au)]
+    [TLTypeHash(0x2DE39B71u)]
     partial class AnswerPreCheckoutQueryConverter : TLObjectConverter<AnswerPreCheckoutQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new AnswerPreCheckoutQueryConverter();
@@ -19136,10 +19136,10 @@ namespace TDLib.JsonClient
             var obj = (AnswerPreCheckoutQuery)tlobj;
             switch (hash)
             {
-                case 0x0118B008u:
+                case 0x54CC3134u:
                     obj.PreCheckoutQueryId = reader.ReadInt64String();
                     return true;
-                case 0x6E73AFBFu:
+                case 0x2BF96153u:
                     obj.ErrorMessage = reader.ReadString();
                     return true;
             }
@@ -19147,7 +19147,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA15DAF20u)]
+    [TLTypeHash(0xD7B0189Cu)]
     partial class SetGameScoreConverter : TLObjectConverter<SetGameScore>
     {
         internal static BaseConverter CreateConverterInstance() => new SetGameScoreConverter();
@@ -19158,22 +19158,22 @@ namespace TDLib.JsonClient
             var obj = (SetGameScore)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x2C2F276Cu:
+                case 0x0C438BC5u:
                     obj.EditMessage = reader.ReadBool();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x1690F8C8u:
+                case 0x32993751u:
                     obj.Score = reader.ReadInt();
                     return true;
-                case 0x938B06CFu:
+                case 0x97688328u:
                     obj.Force = reader.ReadBool();
                     return true;
             }
@@ -19181,7 +19181,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEE2A3727u)]
+    [TLTypeHash(0x0668A199u)]
     partial class SetInlineGameScoreConverter : TLObjectConverter<SetInlineGameScore>
     {
         internal static BaseConverter CreateConverterInstance() => new SetInlineGameScoreConverter();
@@ -19192,19 +19192,19 @@ namespace TDLib.JsonClient
             var obj = (SetInlineGameScore)tlobj;
             switch (hash)
             {
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x2C2F276Cu:
+                case 0x0C438BC5u:
                     obj.EditMessage = reader.ReadBool();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x1690F8C8u:
+                case 0x32993751u:
                     obj.Score = reader.ReadInt();
                     return true;
-                case 0x938B06CFu:
+                case 0x97688328u:
                     obj.Force = reader.ReadBool();
                     return true;
             }
@@ -19212,7 +19212,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7A5B0ADDu)]
+    [TLTypeHash(0x9B2B7490u)]
     partial class GetGameHighScoresConverter : TLObjectConverter<GetGameHighScores>
     {
         internal static BaseConverter CreateConverterInstance() => new GetGameHighScoresConverter();
@@ -19223,13 +19223,13 @@ namespace TDLib.JsonClient
             var obj = (GetGameHighScores)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -19237,7 +19237,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA5C62BA4u)]
+    [TLTypeHash(0x4D7FF34Bu)]
     partial class GetInlineGameHighScoresConverter : TLObjectConverter<GetInlineGameHighScores>
     {
         internal static BaseConverter CreateConverterInstance() => new GetInlineGameHighScoresConverter();
@@ -19248,10 +19248,10 @@ namespace TDLib.JsonClient
             var obj = (GetInlineGameHighScores)tlobj;
             switch (hash)
             {
-                case 0x16AC3B4Eu:
+                case 0xF86D5A67u:
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -19259,7 +19259,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x608B4CB1u)]
+    [TLTypeHash(0xF1C7958Fu)]
     partial class DeleteChatReplyMarkupConverter : TLObjectConverter<DeleteChatReplyMarkup>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteChatReplyMarkupConverter();
@@ -19270,10 +19270,10 @@ namespace TDLib.JsonClient
             var obj = (DeleteChatReplyMarkup)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -19281,7 +19281,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x951B7941u)]
+    [TLTypeHash(0x12F53FBDu)]
     partial class SendChatActionConverter : TLObjectConverter<SendChatAction>
     {
         internal static BaseConverter CreateConverterInstance() => new SendChatActionConverter();
@@ -19292,13 +19292,13 @@ namespace TDLib.JsonClient
             var obj = (SendChatAction)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0xA88F2A92u:
+                case 0x47CC8C92u:
                     obj.Action = reader.ReadTLObject<ChatAction>();
                     return true;
             }
@@ -19306,7 +19306,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA5F92AA3u)]
+    [TLTypeHash(0x1A516818u)]
     partial class OpenChatConverter : TLObjectConverter<OpenChat>
     {
         internal static BaseConverter CreateConverterInstance() => new OpenChatConverter();
@@ -19317,7 +19317,7 @@ namespace TDLib.JsonClient
             var obj = (OpenChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -19325,7 +19325,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x80B8CE6Au)]
+    [TLTypeHash(0x41D225EDu)]
     partial class CloseChatConverter : TLObjectConverter<CloseChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CloseChatConverter();
@@ -19336,7 +19336,7 @@ namespace TDLib.JsonClient
             var obj = (CloseChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -19344,7 +19344,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x10826C85u)]
+    [TLTypeHash(0x7F618847u)]
     partial class ViewMessagesConverter : TLObjectConverter<ViewMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new ViewMessagesConverter();
@@ -19355,16 +19355,16 @@ namespace TDLib.JsonClient
             var obj = (ViewMessages)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
-                case 0xCB52D7A9u:
+                case 0xB3EBCA29u:
                     obj.ForceRead = reader.ReadBool();
                     return true;
             }
@@ -19372,7 +19372,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF2D11F6Bu)]
+    [TLTypeHash(0x1DFD12A7u)]
     partial class OpenMessageContentConverter : TLObjectConverter<OpenMessageContent>
     {
         internal static BaseConverter CreateConverterInstance() => new OpenMessageContentConverter();
@@ -19383,10 +19383,10 @@ namespace TDLib.JsonClient
             var obj = (OpenMessageContent)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -19394,7 +19394,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x869F79CFu)]
+    [TLTypeHash(0xD1FC66ECu)]
     partial class ReadAllChatMentionsConverter : TLObjectConverter<ReadAllChatMentions>
     {
         internal static BaseConverter CreateConverterInstance() => new ReadAllChatMentionsConverter();
@@ -19405,7 +19405,7 @@ namespace TDLib.JsonClient
             var obj = (ReadAllChatMentions)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -19413,7 +19413,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x39E1821Bu)]
+    [TLTypeHash(0x0337A62Au)]
     partial class CreatePrivateChatConverter : TLObjectConverter<CreatePrivateChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CreatePrivateChatConverter();
@@ -19424,10 +19424,10 @@ namespace TDLib.JsonClient
             var obj = (CreatePrivateChat)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x938B06CFu:
+                case 0x97688328u:
                     obj.Force = reader.ReadBool();
                     return true;
             }
@@ -19435,7 +19435,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA2FF36ECu)]
+    [TLTypeHash(0x501FFEC6u)]
     partial class CreateBasicGroupChatConverter : TLObjectConverter<CreateBasicGroupChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateBasicGroupChatConverter();
@@ -19446,10 +19446,10 @@ namespace TDLib.JsonClient
             var obj = (CreateBasicGroupChat)tlobj;
             switch (hash)
             {
-                case 0x743FFA02u:
+                case 0x1B6DFDDBu:
                     obj.BasicGroupId = reader.ReadInt();
                     return true;
-                case 0x938B06CFu:
+                case 0x97688328u:
                     obj.Force = reader.ReadBool();
                     return true;
             }
@@ -19457,7 +19457,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x61C8C755u)]
+    [TLTypeHash(0xE805C7D2u)]
     partial class CreateSupergroupChatConverter : TLObjectConverter<CreateSupergroupChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateSupergroupChatConverter();
@@ -19468,10 +19468,10 @@ namespace TDLib.JsonClient
             var obj = (CreateSupergroupChat)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0x938B06CFu:
+                case 0x97688328u:
                     obj.Force = reader.ReadBool();
                     return true;
             }
@@ -19479,7 +19479,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD8905270u)]
+    [TLTypeHash(0x5EF8BEE7u)]
     partial class CreateSecretChatConverter : TLObjectConverter<CreateSecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateSecretChatConverter();
@@ -19490,7 +19490,7 @@ namespace TDLib.JsonClient
             var obj = (CreateSecretChat)tlobj;
             switch (hash)
             {
-                case 0xB35E5819u:
+                case 0x3C9AC102u:
                     obj.SecretChatId = reader.ReadInt();
                     return true;
             }
@@ -19498,7 +19498,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x08155AA5u)]
+    [TLTypeHash(0x6C444D32u)]
     partial class CreateNewBasicGroupChatConverter : TLObjectConverter<CreateNewBasicGroupChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateNewBasicGroupChatConverter();
@@ -19509,10 +19509,10 @@ namespace TDLib.JsonClient
             var obj = (CreateNewBasicGroupChat)tlobj;
             switch (hash)
             {
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -19520,7 +19520,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCB22AB1Cu)]
+    [TLTypeHash(0xD45E7426u)]
     partial class CreateNewSupergroupChatConverter : TLObjectConverter<CreateNewSupergroupChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateNewSupergroupChatConverter();
@@ -19531,16 +19531,16 @@ namespace TDLib.JsonClient
             var obj = (CreateNewSupergroupChat)tlobj;
             switch (hash)
             {
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x4C39504Du:
+                case 0xB4C5088Fu:
                     obj.IsChannel = reader.ReadBool();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<ChatLocation>();
                     return true;
             }
@@ -19548,7 +19548,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2FE28ADBu)]
+    [TLTypeHash(0xBB15D7C9u)]
     partial class CreateNewSecretChatConverter : TLObjectConverter<CreateNewSecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateNewSecretChatConverter();
@@ -19559,7 +19559,7 @@ namespace TDLib.JsonClient
             var obj = (CreateNewSecretChat)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -19567,7 +19567,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x20A62C38u)]
+    [TLTypeHash(0xA2D705C0u)]
     partial class UpgradeBasicGroupChatToSupergroupChatConverter : TLObjectConverter<UpgradeBasicGroupChatToSupergroupChat>
     {
         internal static BaseConverter CreateConverterInstance() => new UpgradeBasicGroupChatToSupergroupChatConverter();
@@ -19578,7 +19578,7 @@ namespace TDLib.JsonClient
             var obj = (UpgradeBasicGroupChatToSupergroupChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -19586,7 +19586,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9DE89F77u)]
+    [TLTypeHash(0x3D5B890Au)]
     partial class GetChatListsToAddChatConverter : TLObjectConverter<GetChatListsToAddChat>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatListsToAddChatConverter();
@@ -19597,7 +19597,7 @@ namespace TDLib.JsonClient
             var obj = (GetChatListsToAddChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -19605,7 +19605,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD0D4B1D2u)]
+    [TLTypeHash(0xC8DB1ED1u)]
     partial class AddChatToListConverter : TLObjectConverter<AddChatToList>
     {
         internal static BaseConverter CreateConverterInstance() => new AddChatToListConverter();
@@ -19616,10 +19616,10 @@ namespace TDLib.JsonClient
             var obj = (AddChatToList)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB8484D43u:
+                case 0xE2546559u:
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
             }
@@ -19627,7 +19627,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x41DC9E3Bu)]
+    [TLTypeHash(0xDD049067u)]
     partial class GetChatFilterConverter : TLObjectConverter<GetChatFilter>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatFilterConverter();
@@ -19638,7 +19638,7 @@ namespace TDLib.JsonClient
             var obj = (GetChatFilter)tlobj;
             switch (hash)
             {
-                case 0x0F740B0Fu:
+                case 0xF578A025u:
                     obj.ChatFilterId = reader.ReadInt();
                     return true;
             }
@@ -19646,7 +19646,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8507CC40u)]
+    [TLTypeHash(0xD0C64BF9u)]
     partial class CreateChatFilterConverter : TLObjectConverter<CreateChatFilter>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateChatFilterConverter();
@@ -19657,7 +19657,7 @@ namespace TDLib.JsonClient
             var obj = (CreateChatFilter)tlobj;
             switch (hash)
             {
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<ChatFilter>();
                     return true;
             }
@@ -19665,7 +19665,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x79D7D490u)]
+    [TLTypeHash(0xB3756F29u)]
     partial class EditChatFilterConverter : TLObjectConverter<EditChatFilter>
     {
         internal static BaseConverter CreateConverterInstance() => new EditChatFilterConverter();
@@ -19676,10 +19676,10 @@ namespace TDLib.JsonClient
             var obj = (EditChatFilter)tlobj;
             switch (hash)
             {
-                case 0x0F740B0Fu:
+                case 0xF578A025u:
                     obj.ChatFilterId = reader.ReadInt();
                     return true;
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<ChatFilter>();
                     return true;
             }
@@ -19687,7 +19687,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3B949098u)]
+    [TLTypeHash(0x9CB3B60Fu)]
     partial class DeleteChatFilterConverter : TLObjectConverter<DeleteChatFilter>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteChatFilterConverter();
@@ -19698,7 +19698,7 @@ namespace TDLib.JsonClient
             var obj = (DeleteChatFilter)tlobj;
             switch (hash)
             {
-                case 0x0F740B0Fu:
+                case 0xF578A025u:
                     obj.ChatFilterId = reader.ReadInt();
                     return true;
             }
@@ -19706,7 +19706,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x328959C5u)]
+    [TLTypeHash(0xBF7FCC18u)]
     partial class ReorderChatFiltersConverter : TLObjectConverter<ReorderChatFilters>
     {
         internal static BaseConverter CreateConverterInstance() => new ReorderChatFiltersConverter();
@@ -19717,7 +19717,7 @@ namespace TDLib.JsonClient
             var obj = (ReorderChatFilters)tlobj;
             switch (hash)
             {
-                case 0x6EA9BC87u:
+                case 0x50FF63ECu:
                     obj.ChatFilterIds = reader.ReadInt32Array();
                     return true;
             }
@@ -19725,14 +19725,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBB4E5279u)]
+    [TLTypeHash(0xE14064CDu)]
     partial class GetRecommendedChatFiltersConverter : TLObjectConverter<GetRecommendedChatFilters>
     {
         internal static BaseConverter CreateConverterInstance() => new GetRecommendedChatFiltersConverter();
         internal static TLObject CreateObjectInstance() => new GetRecommendedChatFilters();
     }
 
-    [TLTypeHash(0xA59B6605u)]
+    [TLTypeHash(0xD9076315u)]
     partial class GetChatFilterDefaultIconNameConverter : TLObjectConverter<GetChatFilterDefaultIconName>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatFilterDefaultIconNameConverter();
@@ -19743,7 +19743,7 @@ namespace TDLib.JsonClient
             var obj = (GetChatFilterDefaultIconName)tlobj;
             switch (hash)
             {
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<ChatFilter>();
                     return true;
             }
@@ -19751,7 +19751,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x38F2D95Fu)]
+    [TLTypeHash(0x8396A6CBu)]
     partial class SetChatTitleConverter : TLObjectConverter<SetChatTitle>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatTitleConverter();
@@ -19762,10 +19762,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatTitle)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
             }
@@ -19773,7 +19773,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6E1C546Au)]
+    [TLTypeHash(0xBC175AB8u)]
     partial class SetChatPhotoConverter : TLObjectConverter<SetChatPhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatPhotoConverter();
@@ -19784,10 +19784,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatPhoto)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<InputChatPhoto>();
                     return true;
             }
@@ -19795,7 +19795,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x987F1BA7u)]
+    [TLTypeHash(0x98340964u)]
     partial class SetChatPermissionsConverter : TLObjectConverter<SetChatPermissions>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatPermissionsConverter();
@@ -19806,10 +19806,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatPermissions)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB4CFCFFFu:
+                case 0x2DEDCC6Fu:
                     obj.Permissions = reader.ReadTLObject<ChatPermissions>();
                     return true;
             }
@@ -19817,7 +19817,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x916A104Fu)]
+    [TLTypeHash(0xBC82A4F0u)]
     partial class SetChatDraftMessageConverter : TLObjectConverter<SetChatDraftMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatDraftMessageConverter();
@@ -19828,13 +19828,13 @@ namespace TDLib.JsonClient
             var obj = (SetChatDraftMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xDB316A50u:
+                case 0x8829462Fu:
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x019DCCF8u:
+                case 0x4E74485Cu:
                     obj.DraftMessage = reader.ReadTLObject<DraftMessage>();
                     return true;
             }
@@ -19842,7 +19842,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8DECDD3Cu)]
+    [TLTypeHash(0xB92ABA87u)]
     partial class SetChatNotificationSettingsConverter : TLObjectConverter<SetChatNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatNotificationSettingsConverter();
@@ -19853,10 +19853,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatNotificationSettings)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCECE9247u:
+                case 0xB0559860u:
                     obj.NotificationSettings = reader.ReadTLObject<ChatNotificationSettings>();
                     return true;
             }
@@ -19864,7 +19864,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBCA5E126u)]
+    [TLTypeHash(0x0CBBAD3Fu)]
     partial class ToggleChatIsMarkedAsUnreadConverter : TLObjectConverter<ToggleChatIsMarkedAsUnread>
     {
         internal static BaseConverter CreateConverterInstance() => new ToggleChatIsMarkedAsUnreadConverter();
@@ -19875,10 +19875,10 @@ namespace TDLib.JsonClient
             var obj = (ToggleChatIsMarkedAsUnread)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x45AD5D11u:
+                case 0x890E79B0u:
                     obj.IsMarkedAsUnread = reader.ReadBool();
                     return true;
             }
@@ -19886,7 +19886,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC57100C7u)]
+    [TLTypeHash(0x5AEBFFB3u)]
     partial class ToggleChatIsBlockedConverter : TLObjectConverter<ToggleChatIsBlocked>
     {
         internal static BaseConverter CreateConverterInstance() => new ToggleChatIsBlockedConverter();
@@ -19897,10 +19897,10 @@ namespace TDLib.JsonClient
             var obj = (ToggleChatIsBlocked)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x22AAB78Du:
+                case 0xCC696D48u:
                     obj.IsBlocked = reader.ReadBool();
                     return true;
             }
@@ -19908,7 +19908,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3CAA8E39u)]
+    [TLTypeHash(0x5BBF6693u)]
     partial class ToggleChatDefaultDisableNotificationConverter : TLObjectConverter<ToggleChatDefaultDisableNotification>
     {
         internal static BaseConverter CreateConverterInstance() => new ToggleChatDefaultDisableNotificationConverter();
@@ -19919,10 +19919,10 @@ namespace TDLib.JsonClient
             var obj = (ToggleChatDefaultDisableNotification)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x6E87F504u:
+                case 0x420254ABu:
                     obj.DefaultDisableNotification = reader.ReadBool();
                     return true;
             }
@@ -19930,7 +19930,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9621FB97u)]
+    [TLTypeHash(0x6E04ECBEu)]
     partial class SetChatClientDataConverter : TLObjectConverter<SetChatClientData>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatClientDataConverter();
@@ -19941,10 +19941,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatClientData)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x26552C56u:
+                case 0x7C6F3001u:
                     obj.ClientData = reader.ReadString();
                     return true;
             }
@@ -19952,7 +19952,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1B74D86Eu)]
+    [TLTypeHash(0xD83D852Du)]
     partial class SetChatDescriptionConverter : TLObjectConverter<SetChatDescription>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatDescriptionConverter();
@@ -19963,10 +19963,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatDescription)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x37C40C36u:
+                case 0x6DE44026u:
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -19974,7 +19974,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2E2FC18Cu)]
+    [TLTypeHash(0x7FDE5D13u)]
     partial class SetChatDiscussionGroupConverter : TLObjectConverter<SetChatDiscussionGroup>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatDiscussionGroupConverter();
@@ -19985,10 +19985,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatDiscussionGroup)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xBF42E073u:
+                case 0x92C45798u:
                     obj.DiscussionChatId = reader.ReadLong();
                     return true;
             }
@@ -19996,7 +19996,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF166C5F0u)]
+    [TLTypeHash(0x4E8B9F7Au)]
     partial class SetChatLocationConverter : TLObjectConverter<SetChatLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatLocationConverter();
@@ -20007,10 +20007,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatLocation)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<ChatLocation>();
                     return true;
             }
@@ -20018,7 +20018,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x24514730u)]
+    [TLTypeHash(0x4EFE29A9u)]
     partial class SetChatSlowModeDelayConverter : TLObjectConverter<SetChatSlowModeDelay>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatSlowModeDelayConverter();
@@ -20029,10 +20029,10 @@ namespace TDLib.JsonClient
             var obj = (SetChatSlowModeDelay)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x2D2C660Bu:
+                case 0x574122D6u:
                     obj.SlowModeDelay = reader.ReadInt();
                     return true;
             }
@@ -20040,7 +20040,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC2F7EB9Du)]
+    [TLTypeHash(0x79254258u)]
     partial class PinChatMessageConverter : TLObjectConverter<PinChatMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new PinChatMessageConverter();
@@ -20051,13 +20051,13 @@ namespace TDLib.JsonClient
             var obj = (PinChatMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x53B8E768u:
+                case 0x5771A509u:
                     obj.DisableNotification = reader.ReadBool();
                     return true;
             }
@@ -20065,7 +20065,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x98651507u)]
+    [TLTypeHash(0x4E574353u)]
     partial class UnpinChatMessageConverter : TLObjectConverter<UnpinChatMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new UnpinChatMessageConverter();
@@ -20076,7 +20076,7 @@ namespace TDLib.JsonClient
             var obj = (UnpinChatMessage)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -20084,7 +20084,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD0B84DFDu)]
+    [TLTypeHash(0xB4E54A20u)]
     partial class JoinChatConverter : TLObjectConverter<JoinChat>
     {
         internal static BaseConverter CreateConverterInstance() => new JoinChatConverter();
@@ -20095,7 +20095,7 @@ namespace TDLib.JsonClient
             var obj = (JoinChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -20103,7 +20103,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x92A2B666u)]
+    [TLTypeHash(0x81D61BF9u)]
     partial class LeaveChatConverter : TLObjectConverter<LeaveChat>
     {
         internal static BaseConverter CreateConverterInstance() => new LeaveChatConverter();
@@ -20114,7 +20114,7 @@ namespace TDLib.JsonClient
             var obj = (LeaveChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -20122,7 +20122,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x821F21FDu)]
+    [TLTypeHash(0x4792627Bu)]
     partial class AddChatMemberConverter : TLObjectConverter<AddChatMember>
     {
         internal static BaseConverter CreateConverterInstance() => new AddChatMemberConverter();
@@ -20133,13 +20133,13 @@ namespace TDLib.JsonClient
             var obj = (AddChatMember)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xF660C6FEu:
+                case 0xD7870B08u:
                     obj.ForwardLimit = reader.ReadInt();
                     return true;
             }
@@ -20147,7 +20147,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7C71C82Fu)]
+    [TLTypeHash(0xDC9EF5DDu)]
     partial class AddChatMembersConverter : TLObjectConverter<AddChatMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new AddChatMembersConverter();
@@ -20158,10 +20158,10 @@ namespace TDLib.JsonClient
             var obj = (AddChatMembers)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -20169,7 +20169,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xAAC46922u)]
+    [TLTypeHash(0x03D21908u)]
     partial class SetChatMemberStatusConverter : TLObjectConverter<SetChatMemberStatus>
     {
         internal static BaseConverter CreateConverterInstance() => new SetChatMemberStatusConverter();
@@ -20180,13 +20180,13 @@ namespace TDLib.JsonClient
             var obj = (SetChatMemberStatus)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x82D603CEu:
+                case 0x7B00651Cu:
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
             }
@@ -20194,14 +20194,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1932558Fu)]
+    [TLTypeHash(0x7FAC239Du)]
     partial class CanTransferOwnershipConverter : TLObjectConverter<CanTransferOwnership>
     {
         internal static BaseConverter CreateConverterInstance() => new CanTransferOwnershipConverter();
         internal static TLObject CreateObjectInstance() => new CanTransferOwnership();
     }
 
-    [TLTypeHash(0x407EE72Eu)]
+    [TLTypeHash(0x277B5AF8u)]
     partial class TransferChatOwnershipConverter : TLObjectConverter<TransferChatOwnership>
     {
         internal static BaseConverter CreateConverterInstance() => new TransferChatOwnershipConverter();
@@ -20212,13 +20212,13 @@ namespace TDLib.JsonClient
             var obj = (TransferChatOwnership)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -20226,7 +20226,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4C12D9FAu)]
+    [TLTypeHash(0xD2243502u)]
     partial class GetChatMemberConverter : TLObjectConverter<GetChatMember>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatMemberConverter();
@@ -20237,10 +20237,10 @@ namespace TDLib.JsonClient
             var obj = (GetChatMember)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -20248,7 +20248,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB1616AA9u)]
+    [TLTypeHash(0x299374A4u)]
     partial class SearchChatMembersConverter : TLObjectConverter<SearchChatMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchChatMembersConverter();
@@ -20259,16 +20259,16 @@ namespace TDLib.JsonClient
             var obj = (SearchChatMembers)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<ChatMembersFilter>();
                     return true;
             }
@@ -20276,7 +20276,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1FB564AEu)]
+    [TLTypeHash(0x1BF0C117u)]
     partial class GetChatAdministratorsConverter : TLObjectConverter<GetChatAdministrators>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatAdministratorsConverter();
@@ -20287,7 +20287,7 @@ namespace TDLib.JsonClient
             var obj = (GetChatAdministrators)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -20295,7 +20295,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x29E6334Au)]
+    [TLTypeHash(0x7B1CA8B5u)]
     partial class ClearAllDraftMessagesConverter : TLObjectConverter<ClearAllDraftMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new ClearAllDraftMessagesConverter();
@@ -20306,7 +20306,7 @@ namespace TDLib.JsonClient
             var obj = (ClearAllDraftMessages)tlobj;
             switch (hash)
             {
-                case 0x3971EF23u:
+                case 0xDA115257u:
                     obj.ExcludeSecretChats = reader.ReadBool();
                     return true;
             }
@@ -20314,7 +20314,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC6D17173u)]
+    [TLTypeHash(0x6F883E24u)]
     partial class GetChatNotificationSettingsExceptionsConverter : TLObjectConverter<GetChatNotificationSettingsExceptions>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatNotificationSettingsExceptionsConverter();
@@ -20325,10 +20325,10 @@ namespace TDLib.JsonClient
             var obj = (GetChatNotificationSettingsExceptions)tlobj;
             switch (hash)
             {
-                case 0x31D5C826u:
+                case 0x00AF55D3u:
                     obj.Scope = reader.ReadTLObject<NotificationSettingsScope>();
                     return true;
-                case 0x09FB03BEu:
+                case 0x3415B33Fu:
                     obj.CompareSound = reader.ReadBool();
                     return true;
             }
@@ -20336,7 +20336,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x224850BCu)]
+    [TLTypeHash(0x4F7BE840u)]
     partial class GetScopeNotificationSettingsConverter : TLObjectConverter<GetScopeNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new GetScopeNotificationSettingsConverter();
@@ -20347,7 +20347,7 @@ namespace TDLib.JsonClient
             var obj = (GetScopeNotificationSettings)tlobj;
             switch (hash)
             {
-                case 0x31D5C826u:
+                case 0x00AF55D3u:
                     obj.Scope = reader.ReadTLObject<NotificationSettingsScope>();
                     return true;
             }
@@ -20355,7 +20355,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA42578A4u)]
+    [TLTypeHash(0x52F3CDE4u)]
     partial class SetScopeNotificationSettingsConverter : TLObjectConverter<SetScopeNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new SetScopeNotificationSettingsConverter();
@@ -20366,10 +20366,10 @@ namespace TDLib.JsonClient
             var obj = (SetScopeNotificationSettings)tlobj;
             switch (hash)
             {
-                case 0x31D5C826u:
+                case 0x00AF55D3u:
                     obj.Scope = reader.ReadTLObject<NotificationSettingsScope>();
                     return true;
-                case 0xCECE9247u:
+                case 0xB0559860u:
                     obj.NotificationSettings = reader.ReadTLObject<ScopeNotificationSettings>();
                     return true;
             }
@@ -20377,14 +20377,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8AAEC419u)]
+    [TLTypeHash(0x5FBF4EECu)]
     partial class ResetAllNotificationSettingsConverter : TLObjectConverter<ResetAllNotificationSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new ResetAllNotificationSettingsConverter();
         internal static TLObject CreateObjectInstance() => new ResetAllNotificationSettings();
     }
 
-    [TLTypeHash(0xAD1DDEB0u)]
+    [TLTypeHash(0x3E541D72u)]
     partial class ToggleChatIsPinnedConverter : TLObjectConverter<ToggleChatIsPinned>
     {
         internal static BaseConverter CreateConverterInstance() => new ToggleChatIsPinnedConverter();
@@ -20395,13 +20395,13 @@ namespace TDLib.JsonClient
             var obj = (ToggleChatIsPinned)tlobj;
             switch (hash)
             {
-                case 0xB8484D43u:
+                case 0xE2546559u:
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x51B35594u:
+                case 0xB56E6838u:
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -20409,7 +20409,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC2EE67C5u)]
+    [TLTypeHash(0x17C9C8A6u)]
     partial class SetPinnedChatsConverter : TLObjectConverter<SetPinnedChats>
     {
         internal static BaseConverter CreateConverterInstance() => new SetPinnedChatsConverter();
@@ -20420,10 +20420,10 @@ namespace TDLib.JsonClient
             var obj = (SetPinnedChats)tlobj;
             switch (hash)
             {
-                case 0xB8484D43u:
+                case 0xE2546559u:
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0xD49AC59Au:
+                case 0x5010813Du:
                     obj.ChatIds = reader.ReadInt53Array();
                     return true;
             }
@@ -20431,7 +20431,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x48A40B08u)]
+    [TLTypeHash(0x4BD0F589u)]
     partial class DownloadFileConverter : TLObjectConverter<DownloadFile>
     {
         internal static BaseConverter CreateConverterInstance() => new DownloadFileConverter();
@@ -20442,19 +20442,19 @@ namespace TDLib.JsonClient
             var obj = (DownloadFile)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
-                case 0x3889E214u:
+                case 0x62A6DC27u:
                     obj.Priority = reader.ReadInt();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xA05F8713u:
+                case 0x2A3939EEu:
                     obj.Synchronous = reader.ReadBool();
                     return true;
             }
@@ -20462,7 +20462,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x66D00F48u)]
+    [TLTypeHash(0x7204DC94u)]
     partial class GetFileDownloadedPrefixSizeConverter : TLObjectConverter<GetFileDownloadedPrefixSize>
     {
         internal static BaseConverter CreateConverterInstance() => new GetFileDownloadedPrefixSizeConverter();
@@ -20473,10 +20473,10 @@ namespace TDLib.JsonClient
             var obj = (GetFileDownloadedPrefixSize)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
             }
@@ -20484,7 +20484,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x07EB9029u)]
+    [TLTypeHash(0x6096787Bu)]
     partial class CancelDownloadFileConverter : TLObjectConverter<CancelDownloadFile>
     {
         internal static BaseConverter CreateConverterInstance() => new CancelDownloadFileConverter();
@@ -20495,10 +20495,10 @@ namespace TDLib.JsonClient
             var obj = (CancelDownloadFile)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
-                case 0xE823B597u:
+                case 0x87FB3D2Bu:
                     obj.OnlyIfPending = reader.ReadBool();
                     return true;
             }
@@ -20506,7 +20506,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF09CF62Au)]
+    [TLTypeHash(0x5B0027C7u)]
     partial class UploadFileConverter : TLObjectConverter<UploadFile>
     {
         internal static BaseConverter CreateConverterInstance() => new UploadFileConverter();
@@ -20517,13 +20517,13 @@ namespace TDLib.JsonClient
             var obj = (UploadFile)tlobj;
             switch (hash)
             {
-                case 0x4CA5C5B3u:
+                case 0x8C9F3610u:
                     obj.File = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xCE2728D6u:
+                case 0x05223F47u:
                     obj.FileType = reader.ReadTLObject<FileType>();
                     return true;
-                case 0x3889E214u:
+                case 0x62A6DC27u:
                     obj.Priority = reader.ReadInt();
                     return true;
             }
@@ -20531,7 +20531,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x650558FDu)]
+    [TLTypeHash(0xEE60D394u)]
     partial class CancelUploadFileConverter : TLObjectConverter<CancelUploadFile>
     {
         internal static BaseConverter CreateConverterInstance() => new CancelUploadFileConverter();
@@ -20542,7 +20542,7 @@ namespace TDLib.JsonClient
             var obj = (CancelUploadFile)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
             }
@@ -20550,7 +20550,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0D1D00F6u)]
+    [TLTypeHash(0x30ABC0CAu)]
     partial class WriteGeneratedFilePartConverter : TLObjectConverter<WriteGeneratedFilePart>
     {
         internal static BaseConverter CreateConverterInstance() => new WriteGeneratedFilePartConverter();
@@ -20561,13 +20561,13 @@ namespace TDLib.JsonClient
             var obj = (WriteGeneratedFilePart)tlobj;
             switch (hash)
             {
-                case 0x8FDF7D26u:
+                case 0x553A6EC4u:
                     obj.GenerationId = reader.ReadInt64String();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -20575,7 +20575,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA97201C2u)]
+    [TLTypeHash(0x1BAFABD4u)]
     partial class SetFileGenerationProgressConverter : TLObjectConverter<SetFileGenerationProgress>
     {
         internal static BaseConverter CreateConverterInstance() => new SetFileGenerationProgressConverter();
@@ -20586,13 +20586,13 @@ namespace TDLib.JsonClient
             var obj = (SetFileGenerationProgress)tlobj;
             switch (hash)
             {
-                case 0x8FDF7D26u:
+                case 0x553A6EC4u:
                     obj.GenerationId = reader.ReadInt64String();
                     return true;
-                case 0x3112E3BEu:
+                case 0x9CDAEA6Bu:
                     obj.ExpectedSize = reader.ReadInt();
                     return true;
-                case 0xE424F719u:
+                case 0x99F88C35u:
                     obj.LocalPrefixSize = reader.ReadInt();
                     return true;
             }
@@ -20600,7 +20600,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3824D7E7u)]
+    [TLTypeHash(0xC5A606BEu)]
     partial class FinishFileGenerationConverter : TLObjectConverter<FinishFileGeneration>
     {
         internal static BaseConverter CreateConverterInstance() => new FinishFileGenerationConverter();
@@ -20611,10 +20611,10 @@ namespace TDLib.JsonClient
             var obj = (FinishFileGeneration)tlobj;
             switch (hash)
             {
-                case 0x8FDF7D26u:
+                case 0x553A6EC4u:
                     obj.GenerationId = reader.ReadInt64String();
                     return true;
-                case 0x75F5FE4Bu:
+                case 0x5DDDBC71u:
                     obj.Error = reader.ReadTLObject<Error>();
                     return true;
             }
@@ -20622,7 +20622,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x88CE4BAEu)]
+    [TLTypeHash(0xBACCA93Cu)]
     partial class ReadFilePartConverter : TLObjectConverter<ReadFilePart>
     {
         internal static BaseConverter CreateConverterInstance() => new ReadFilePartConverter();
@@ -20633,13 +20633,13 @@ namespace TDLib.JsonClient
             var obj = (ReadFilePart)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x1D26CDC5u:
+                case 0x85D94462u:
                     obj.Count = reader.ReadInt();
                     return true;
             }
@@ -20647,7 +20647,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD2767B08u)]
+    [TLTypeHash(0xBF302FF9u)]
     partial class DeleteFileConverter : TLObjectConverter<DeleteFile>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteFileConverter();
@@ -20658,7 +20658,7 @@ namespace TDLib.JsonClient
             var obj = (DeleteFile)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
             }
@@ -20666,7 +20666,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5F191AF9u)]
+    [TLTypeHash(0x2040796Fu)]
     partial class GenerateChatInviteLinkConverter : TLObjectConverter<GenerateChatInviteLink>
     {
         internal static BaseConverter CreateConverterInstance() => new GenerateChatInviteLinkConverter();
@@ -20677,7 +20677,7 @@ namespace TDLib.JsonClient
             var obj = (GenerateChatInviteLink)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -20685,7 +20685,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB8A1052Eu)]
+    [TLTypeHash(0x89C0B107u)]
     partial class CheckChatInviteLinkConverter : TLObjectConverter<CheckChatInviteLink>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChatInviteLinkConverter();
@@ -20696,7 +20696,7 @@ namespace TDLib.JsonClient
             var obj = (CheckChatInviteLink)tlobj;
             switch (hash)
             {
-                case 0x56350A39u:
+                case 0x2E98587Bu:
                     obj.InviteLink = reader.ReadString();
                     return true;
             }
@@ -20704,7 +20704,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x916C7A3Eu)]
+    [TLTypeHash(0x3ED3F705u)]
     partial class JoinChatByInviteLinkConverter : TLObjectConverter<JoinChatByInviteLink>
     {
         internal static BaseConverter CreateConverterInstance() => new JoinChatByInviteLinkConverter();
@@ -20715,7 +20715,7 @@ namespace TDLib.JsonClient
             var obj = (JoinChatByInviteLink)tlobj;
             switch (hash)
             {
-                case 0x56350A39u:
+                case 0x2E98587Bu:
                     obj.InviteLink = reader.ReadString();
                     return true;
             }
@@ -20723,7 +20723,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x53056B3Au)]
+    [TLTypeHash(0x3E5C3D2Eu)]
     partial class CreateCallConverter : TLObjectConverter<CreateCall>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateCallConverter();
@@ -20734,13 +20734,13 @@ namespace TDLib.JsonClient
             var obj = (CreateCall)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x2E66C39Du:
+                case 0xC8C0BC4Cu:
                     obj.Protocol = reader.ReadTLObject<CallProtocol>();
                     return true;
-                case 0xE57A104Eu:
+                case 0x303B395Cu:
                     obj.IsVideo = reader.ReadBool();
                     return true;
             }
@@ -20748,7 +20748,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x52332BECu)]
+    [TLTypeHash(0x75236A91u)]
     partial class AcceptCallConverter : TLObjectConverter<AcceptCall>
     {
         internal static BaseConverter CreateConverterInstance() => new AcceptCallConverter();
@@ -20759,10 +20759,10 @@ namespace TDLib.JsonClient
             var obj = (AcceptCall)tlobj;
             switch (hash)
             {
-                case 0x8B391367u:
+                case 0x50A89B2Cu:
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0x2E66C39Du:
+                case 0xC8C0BC4Cu:
                     obj.Protocol = reader.ReadTLObject<CallProtocol>();
                     return true;
             }
@@ -20770,7 +20770,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6506DC2Fu)]
+    [TLTypeHash(0x6DBC8B7Bu)]
     partial class SendCallSignalingDataConverter : TLObjectConverter<SendCallSignalingData>
     {
         internal static BaseConverter CreateConverterInstance() => new SendCallSignalingDataConverter();
@@ -20781,10 +20781,10 @@ namespace TDLib.JsonClient
             var obj = (SendCallSignalingData)tlobj;
             switch (hash)
             {
-                case 0x8B391367u:
+                case 0x50A89B2Cu:
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadBase64String();
                     return true;
             }
@@ -20792,7 +20792,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4730DA0Eu)]
+    [TLTypeHash(0x7B5346AEu)]
     partial class DiscardCallConverter : TLObjectConverter<DiscardCall>
     {
         internal static BaseConverter CreateConverterInstance() => new DiscardCallConverter();
@@ -20803,19 +20803,19 @@ namespace TDLib.JsonClient
             var obj = (DiscardCall)tlobj;
             switch (hash)
             {
-                case 0x8B391367u:
+                case 0x50A89B2Cu:
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0xBDDFEF41u:
+                case 0xBA66E8FBu:
                     obj.IsDisconnected = reader.ReadBool();
                     return true;
-                case 0xD7567B90u:
+                case 0x865F80C0u:
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0xE57A104Eu:
+                case 0x303B395Cu:
                     obj.IsVideo = reader.ReadBool();
                     return true;
-                case 0x9EC95538u:
+                case 0x0DD03F01u:
                     obj.ConnectionId = reader.ReadInt64String();
                     return true;
             }
@@ -20823,7 +20823,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCEB8C6FCu)]
+    [TLTypeHash(0xEE27E42Eu)]
     partial class SendCallRatingConverter : TLObjectConverter<SendCallRating>
     {
         internal static BaseConverter CreateConverterInstance() => new SendCallRatingConverter();
@@ -20834,16 +20834,16 @@ namespace TDLib.JsonClient
             var obj = (SendCallRating)tlobj;
             switch (hash)
             {
-                case 0x8B391367u:
+                case 0x50A89B2Cu:
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0x470D4D95u:
+                case 0xD8892622u:
                     obj.Rating = reader.ReadInt();
                     return true;
-                case 0xEBF9BDA4u:
+                case 0x9474526Cu:
                     obj.Comment = reader.ReadString();
                     return true;
-                case 0xEBB8772Du:
+                case 0x8E666245u:
                     obj.Problems = reader.ReadObjectArray<CallProblem>();
                     return true;
             }
@@ -20851,7 +20851,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEA59B346u)]
+    [TLTypeHash(0xDACBF887u)]
     partial class SendCallDebugInformationConverter : TLObjectConverter<SendCallDebugInformation>
     {
         internal static BaseConverter CreateConverterInstance() => new SendCallDebugInformationConverter();
@@ -20862,10 +20862,10 @@ namespace TDLib.JsonClient
             var obj = (SendCallDebugInformation)tlobj;
             switch (hash)
             {
-                case 0x8B391367u:
+                case 0x50A89B2Cu:
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0x82B6C91Cu:
+                case 0x71FF48A3u:
                     obj.DebugInformation = reader.ReadString();
                     return true;
             }
@@ -20873,7 +20873,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x687B0F08u)]
+    [TLTypeHash(0x5584945Au)]
     partial class BlockChatFromRepliesConverter : TLObjectConverter<BlockChatFromReplies>
     {
         internal static BaseConverter CreateConverterInstance() => new BlockChatFromRepliesConverter();
@@ -20884,16 +20884,16 @@ namespace TDLib.JsonClient
             var obj = (BlockChatFromReplies)tlobj;
             switch (hash)
             {
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xBE20F37Au:
+                case 0x154CE429u:
                     obj.DeleteMessage = reader.ReadBool();
                     return true;
-                case 0xA918641Fu:
+                case 0x65B5AB39u:
                     obj.DeleteAllMessages = reader.ReadBool();
                     return true;
-                case 0xF5825C1Cu:
+                case 0x30F612C6u:
                     obj.ReportSpam = reader.ReadBool();
                     return true;
             }
@@ -20901,7 +20901,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCC679B1Fu)]
+    [TLTypeHash(0x52AA23B1u)]
     partial class GetBlockedChatsConverter : TLObjectConverter<GetBlockedChats>
     {
         internal static BaseConverter CreateConverterInstance() => new GetBlockedChatsConverter();
@@ -20912,10 +20912,10 @@ namespace TDLib.JsonClient
             var obj = (GetBlockedChats)tlobj;
             switch (hash)
             {
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -20923,7 +20923,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x612C16B9u)]
+    [TLTypeHash(0x9632790Bu)]
     partial class AddContactConverter : TLObjectConverter<AddContact>
     {
         internal static BaseConverter CreateConverterInstance() => new AddContactConverter();
@@ -20934,10 +20934,10 @@ namespace TDLib.JsonClient
             var obj = (AddContact)tlobj;
             switch (hash)
             {
-                case 0x3F4DEB3Au:
+                case 0x4C62E638u:
                     obj.Contact = reader.ReadTLObject<Contact>();
                     return true;
-                case 0xBEE9BD8Fu:
+                case 0xDEA390E8u:
                     obj.SharePhoneNumber = reader.ReadBool();
                     return true;
             }
@@ -20945,7 +20945,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9CC7D754u)]
+    [TLTypeHash(0xAD6E3FB4u)]
     partial class ImportContactsConverter : TLObjectConverter<ImportContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new ImportContactsConverter();
@@ -20956,7 +20956,7 @@ namespace TDLib.JsonClient
             var obj = (ImportContacts)tlobj;
             switch (hash)
             {
-                case 0x6B8BD8CAu:
+                case 0x33401573u:
                     obj.Contacts = reader.ReadObjectArray<Contact>();
                     return true;
             }
@@ -20964,14 +20964,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x393E3254u)]
+    [TLTypeHash(0x27FDC7F6u)]
     partial class GetContactsConverter : TLObjectConverter<GetContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new GetContactsConverter();
         internal static TLObject CreateObjectInstance() => new GetContacts();
     }
 
-    [TLTypeHash(0x03B269E5u)]
+    [TLTypeHash(0x33AF79C2u)]
     partial class SearchContactsConverter : TLObjectConverter<SearchContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchContactsConverter();
@@ -20982,10 +20982,10 @@ namespace TDLib.JsonClient
             var obj = (SearchContacts)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -20993,7 +20993,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDBDC9842u)]
+    [TLTypeHash(0xFE00F102u)]
     partial class RemoveContactsConverter : TLObjectConverter<RemoveContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveContactsConverter();
@@ -21004,7 +21004,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveContacts)tlobj;
             switch (hash)
             {
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -21012,14 +21012,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3A31C1EAu)]
+    [TLTypeHash(0x9D42DAA6u)]
     partial class GetImportedContactCountConverter : TLObjectConverter<GetImportedContactCount>
     {
         internal static BaseConverter CreateConverterInstance() => new GetImportedContactCountConverter();
         internal static TLObject CreateObjectInstance() => new GetImportedContactCount();
     }
 
-    [TLTypeHash(0x15227D9Du)]
+    [TLTypeHash(0x30610893u)]
     partial class ChangeImportedContactsConverter : TLObjectConverter<ChangeImportedContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new ChangeImportedContactsConverter();
@@ -21030,7 +21030,7 @@ namespace TDLib.JsonClient
             var obj = (ChangeImportedContacts)tlobj;
             switch (hash)
             {
-                case 0x6B8BD8CAu:
+                case 0x33401573u:
                     obj.Contacts = reader.ReadObjectArray<Contact>();
                     return true;
             }
@@ -21038,14 +21038,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8605C5A0u)]
+    [TLTypeHash(0xD9102F1Bu)]
     partial class ClearImportedContactsConverter : TLObjectConverter<ClearImportedContacts>
     {
         internal static BaseConverter CreateConverterInstance() => new ClearImportedContactsConverter();
         internal static TLObject CreateObjectInstance() => new ClearImportedContacts();
     }
 
-    [TLTypeHash(0x3FAFCCD1u)]
+    [TLTypeHash(0xE96CC48Du)]
     partial class SharePhoneNumberConverter : TLObjectConverter<SharePhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new SharePhoneNumberConverter();
@@ -21056,7 +21056,7 @@ namespace TDLib.JsonClient
             var obj = (SharePhoneNumber)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -21064,7 +21064,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x58DB5DC3u)]
+    [TLTypeHash(0xAAC09973u)]
     partial class GetUserProfilePhotosConverter : TLObjectConverter<GetUserProfilePhotos>
     {
         internal static BaseConverter CreateConverterInstance() => new GetUserProfilePhotosConverter();
@@ -21075,13 +21075,13 @@ namespace TDLib.JsonClient
             var obj = (GetUserProfilePhotos)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21089,7 +21089,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x877B3D35u)]
+    [TLTypeHash(0xCC307E93u)]
     partial class GetStickersConverter : TLObjectConverter<GetStickers>
     {
         internal static BaseConverter CreateConverterInstance() => new GetStickersConverter();
@@ -21100,10 +21100,10 @@ namespace TDLib.JsonClient
             var obj = (GetStickers)tlobj;
             switch (hash)
             {
-                case 0xD446748Eu:
+                case 0xB64BF632u:
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21111,7 +21111,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBDF76684u)]
+    [TLTypeHash(0xD862C0A7u)]
     partial class SearchStickersConverter : TLObjectConverter<SearchStickers>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchStickersConverter();
@@ -21122,10 +21122,10 @@ namespace TDLib.JsonClient
             var obj = (SearchStickers)tlobj;
             switch (hash)
             {
-                case 0xD446748Eu:
+                case 0xB64BF632u:
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21133,7 +21133,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4BDD5E5Bu)]
+    [TLTypeHash(0xCFC42EC3u)]
     partial class GetInstalledStickerSetsConverter : TLObjectConverter<GetInstalledStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new GetInstalledStickerSetsConverter();
@@ -21144,7 +21144,7 @@ namespace TDLib.JsonClient
             var obj = (GetInstalledStickerSets)tlobj;
             switch (hash)
             {
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
             }
@@ -21152,7 +21152,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x674A33A9u)]
+    [TLTypeHash(0x352D76BFu)]
     partial class GetArchivedStickerSetsConverter : TLObjectConverter<GetArchivedStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new GetArchivedStickerSetsConverter();
@@ -21163,13 +21163,13 @@ namespace TDLib.JsonClient
             var obj = (GetArchivedStickerSets)tlobj;
             switch (hash)
             {
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x8AFE58A9u:
+                case 0x73004ABAu:
                     obj.OffsetStickerSetId = reader.ReadInt64String();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21177,7 +21177,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7E50D263u)]
+    [TLTypeHash(0xB03F8926u)]
     partial class GetTrendingStickerSetsConverter : TLObjectConverter<GetTrendingStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new GetTrendingStickerSetsConverter();
@@ -21188,10 +21188,10 @@ namespace TDLib.JsonClient
             var obj = (GetTrendingStickerSets)tlobj;
             switch (hash)
             {
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21199,7 +21199,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB0FCA8D8u)]
+    [TLTypeHash(0x1BCF3528u)]
     partial class GetAttachedStickerSetsConverter : TLObjectConverter<GetAttachedStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new GetAttachedStickerSetsConverter();
@@ -21210,7 +21210,7 @@ namespace TDLib.JsonClient
             var obj = (GetAttachedStickerSets)tlobj;
             switch (hash)
             {
-                case 0x0DDD2B3Fu:
+                case 0x93CB796Cu:
                     obj.FileId = reader.ReadInt();
                     return true;
             }
@@ -21218,7 +21218,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE93EFA48u)]
+    [TLTypeHash(0xDBA7370Au)]
     partial class GetStickerSetConverter : TLObjectConverter<GetStickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new GetStickerSetConverter();
@@ -21229,7 +21229,7 @@ namespace TDLib.JsonClient
             var obj = (GetStickerSet)tlobj;
             switch (hash)
             {
-                case 0x6112D204u:
+                case 0x10FB0D18u:
                     obj.SetId = reader.ReadInt64String();
                     return true;
             }
@@ -21237,7 +21237,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x89BDC121u)]
+    [TLTypeHash(0x4C544E24u)]
     partial class SearchStickerSetConverter : TLObjectConverter<SearchStickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchStickerSetConverter();
@@ -21248,7 +21248,7 @@ namespace TDLib.JsonClient
             var obj = (SearchStickerSet)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
             }
@@ -21256,7 +21256,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x73B07EBEu)]
+    [TLTypeHash(0x99DB3335u)]
     partial class SearchInstalledStickerSetsConverter : TLObjectConverter<SearchInstalledStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchInstalledStickerSetsConverter();
@@ -21267,13 +21267,13 @@ namespace TDLib.JsonClient
             var obj = (SearchInstalledStickerSets)tlobj;
             switch (hash)
             {
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21281,7 +21281,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE2EA44B4u)]
+    [TLTypeHash(0x27417F94u)]
     partial class SearchStickerSetsConverter : TLObjectConverter<SearchStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchStickerSetsConverter();
@@ -21292,7 +21292,7 @@ namespace TDLib.JsonClient
             var obj = (SearchStickerSets)tlobj;
             switch (hash)
             {
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
             }
@@ -21300,7 +21300,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBA345C54u)]
+    [TLTypeHash(0xB0526BEFu)]
     partial class ChangeStickerSetConverter : TLObjectConverter<ChangeStickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new ChangeStickerSetConverter();
@@ -21311,13 +21311,13 @@ namespace TDLib.JsonClient
             var obj = (ChangeStickerSet)tlobj;
             switch (hash)
             {
-                case 0x6112D204u:
+                case 0x10FB0D18u:
                     obj.SetId = reader.ReadInt64String();
                     return true;
-                case 0x73CB7275u:
+                case 0x5F596777u:
                     obj.IsInstalled = reader.ReadBool();
                     return true;
-                case 0xDCE704EFu:
+                case 0xF4181FFAu:
                     obj.IsArchived = reader.ReadBool();
                     return true;
             }
@@ -21325,7 +21325,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x97CF645Au)]
+    [TLTypeHash(0xE53ACC56u)]
     partial class ViewTrendingStickerSetsConverter : TLObjectConverter<ViewTrendingStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new ViewTrendingStickerSetsConverter();
@@ -21336,7 +21336,7 @@ namespace TDLib.JsonClient
             var obj = (ViewTrendingStickerSets)tlobj;
             switch (hash)
             {
-                case 0x49CADE82u:
+                case 0x66ED467Du:
                     obj.StickerSetIds = reader.ReadInt64Array();
                     return true;
             }
@@ -21344,7 +21344,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6E85D760u)]
+    [TLTypeHash(0xAB64EEBBu)]
     partial class ReorderInstalledStickerSetsConverter : TLObjectConverter<ReorderInstalledStickerSets>
     {
         internal static BaseConverter CreateConverterInstance() => new ReorderInstalledStickerSetsConverter();
@@ -21355,10 +21355,10 @@ namespace TDLib.JsonClient
             var obj = (ReorderInstalledStickerSets)tlobj;
             switch (hash)
             {
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x49CADE82u:
+                case 0x66ED467Du:
                     obj.StickerSetIds = reader.ReadInt64Array();
                     return true;
             }
@@ -21366,7 +21366,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x91FFB27Bu)]
+    [TLTypeHash(0xD8EE606Au)]
     partial class GetRecentStickersConverter : TLObjectConverter<GetRecentStickers>
     {
         internal static BaseConverter CreateConverterInstance() => new GetRecentStickersConverter();
@@ -21377,7 +21377,7 @@ namespace TDLib.JsonClient
             var obj = (GetRecentStickers)tlobj;
             switch (hash)
             {
-                case 0xC253C53Fu:
+                case 0xFD0E148Cu:
                     obj.IsAttached = reader.ReadBool();
                     return true;
             }
@@ -21385,7 +21385,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1D912B01u)]
+    [TLTypeHash(0x60F94E9Du)]
     partial class AddRecentStickerConverter : TLObjectConverter<AddRecentSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new AddRecentStickerConverter();
@@ -21396,10 +21396,10 @@ namespace TDLib.JsonClient
             var obj = (AddRecentSticker)tlobj;
             switch (hash)
             {
-                case 0xC253C53Fu:
+                case 0xFD0E148Cu:
                     obj.IsAttached = reader.ReadBool();
                     return true;
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -21407,7 +21407,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6257C2C9u)]
+    [TLTypeHash(0x69330FC8u)]
     partial class RemoveRecentStickerConverter : TLObjectConverter<RemoveRecentSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveRecentStickerConverter();
@@ -21418,10 +21418,10 @@ namespace TDLib.JsonClient
             var obj = (RemoveRecentSticker)tlobj;
             switch (hash)
             {
-                case 0xC253C53Fu:
+                case 0xFD0E148Cu:
                     obj.IsAttached = reader.ReadBool();
                     return true;
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -21429,7 +21429,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC70F5F6Au)]
+    [TLTypeHash(0xDA16FDC5u)]
     partial class ClearRecentStickersConverter : TLObjectConverter<ClearRecentStickers>
     {
         internal static BaseConverter CreateConverterInstance() => new ClearRecentStickersConverter();
@@ -21440,7 +21440,7 @@ namespace TDLib.JsonClient
             var obj = (ClearRecentStickers)tlobj;
             switch (hash)
             {
-                case 0xC253C53Fu:
+                case 0xFD0E148Cu:
                     obj.IsAttached = reader.ReadBool();
                     return true;
             }
@@ -21448,14 +21448,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC250ECC9u)]
+    [TLTypeHash(0x1C542968u)]
     partial class GetFavoriteStickersConverter : TLObjectConverter<GetFavoriteStickers>
     {
         internal static BaseConverter CreateConverterInstance() => new GetFavoriteStickersConverter();
         internal static TLObject CreateObjectInstance() => new GetFavoriteStickers();
     }
 
-    [TLTypeHash(0xE42F9A1Bu)]
+    [TLTypeHash(0x58DF335Cu)]
     partial class AddFavoriteStickerConverter : TLObjectConverter<AddFavoriteSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new AddFavoriteStickerConverter();
@@ -21466,7 +21466,7 @@ namespace TDLib.JsonClient
             var obj = (AddFavoriteSticker)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -21474,7 +21474,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE66D694Eu)]
+    [TLTypeHash(0x9EC8E281u)]
     partial class RemoveFavoriteStickerConverter : TLObjectConverter<RemoveFavoriteSticker>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveFavoriteStickerConverter();
@@ -21485,7 +21485,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveFavoriteSticker)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -21493,7 +21493,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD1ED0FFDu)]
+    [TLTypeHash(0x70F70E27u)]
     partial class GetStickerEmojisConverter : TLObjectConverter<GetStickerEmojis>
     {
         internal static BaseConverter CreateConverterInstance() => new GetStickerEmojisConverter();
@@ -21504,7 +21504,7 @@ namespace TDLib.JsonClient
             var obj = (GetStickerEmojis)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -21512,7 +21512,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7CEBB275u)]
+    [TLTypeHash(0x6ACEFF3Eu)]
     partial class SearchEmojisConverter : TLObjectConverter<SearchEmojis>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchEmojisConverter();
@@ -21523,13 +21523,13 @@ namespace TDLib.JsonClient
             var obj = (SearchEmojis)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x195D0DB0u:
+                case 0xE3600047u:
                     obj.ExactMatch = reader.ReadBool();
                     return true;
-                case 0xBEEC900Cu:
+                case 0xE4E6D893u:
                     obj.InputLanguageCodes = reader.ReadStringArray();
                     return true;
             }
@@ -21537,7 +21537,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBBA9B2CDu)]
+    [TLTypeHash(0x4F2F2604u)]
     partial class GetEmojiSuggestionsUrlConverter : TLObjectConverter<GetEmojiSuggestionsUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new GetEmojiSuggestionsUrlConverter();
@@ -21548,7 +21548,7 @@ namespace TDLib.JsonClient
             var obj = (GetEmojiSuggestionsUrl)tlobj;
             switch (hash)
             {
-                case 0x5D862C00u:
+                case 0x451CDAD4u:
                     obj.LanguageCode = reader.ReadString();
                     return true;
             }
@@ -21556,14 +21556,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD8A15D2Fu)]
+    [TLTypeHash(0x11089C5Cu)]
     partial class GetSavedAnimationsConverter : TLObjectConverter<GetSavedAnimations>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSavedAnimationsConverter();
         internal static TLObject CreateObjectInstance() => new GetSavedAnimations();
     }
 
-    [TLTypeHash(0x566AE580u)]
+    [TLTypeHash(0x4BC3C958u)]
     partial class AddSavedAnimationConverter : TLObjectConverter<AddSavedAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new AddSavedAnimationConverter();
@@ -21574,7 +21574,7 @@ namespace TDLib.JsonClient
             var obj = (AddSavedAnimation)tlobj;
             switch (hash)
             {
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -21582,7 +21582,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1F415D62u)]
+    [TLTypeHash(0x50CBA662u)]
     partial class RemoveSavedAnimationConverter : TLObjectConverter<RemoveSavedAnimation>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveSavedAnimationConverter();
@@ -21593,7 +21593,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveSavedAnimation)tlobj;
             switch (hash)
             {
-                case 0xAEE681FEu:
+                case 0x8D5284DCu:
                     obj.Animation = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -21601,14 +21601,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1C9B0B93u)]
+    [TLTypeHash(0x410E0FF2u)]
     partial class GetRecentInlineBotsConverter : TLObjectConverter<GetRecentInlineBots>
     {
         internal static BaseConverter CreateConverterInstance() => new GetRecentInlineBotsConverter();
         internal static TLObject CreateObjectInstance() => new GetRecentInlineBots();
     }
 
-    [TLTypeHash(0xFD870A9Au)]
+    [TLTypeHash(0x210E475Eu)]
     partial class SearchHashtagsConverter : TLObjectConverter<SearchHashtags>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchHashtagsConverter();
@@ -21619,10 +21619,10 @@ namespace TDLib.JsonClient
             var obj = (SearchHashtags)tlobj;
             switch (hash)
             {
-                case 0x17304F56u:
+                case 0x93B1868Eu:
                     obj.Prefix = reader.ReadString();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21630,7 +21630,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6CCA1678u)]
+    [TLTypeHash(0xBC6B9954u)]
     partial class RemoveRecentHashtagConverter : TLObjectConverter<RemoveRecentHashtag>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveRecentHashtagConverter();
@@ -21641,7 +21641,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveRecentHashtag)tlobj;
             switch (hash)
             {
-                case 0x597FFB77u:
+                case 0x5AB52A61u:
                     obj.Hashtag = reader.ReadString();
                     return true;
             }
@@ -21649,7 +21649,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEC2145FCu)]
+    [TLTypeHash(0xCD15F62Bu)]
     partial class GetWebPagePreviewConverter : TLObjectConverter<GetWebPagePreview>
     {
         internal static BaseConverter CreateConverterInstance() => new GetWebPagePreviewConverter();
@@ -21660,7 +21660,7 @@ namespace TDLib.JsonClient
             var obj = (GetWebPagePreview)tlobj;
             switch (hash)
             {
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -21668,7 +21668,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x71E2CF7Bu)]
+    [TLTypeHash(0x218B182Eu)]
     partial class GetWebPageInstantViewConverter : TLObjectConverter<GetWebPageInstantView>
     {
         internal static BaseConverter CreateConverterInstance() => new GetWebPageInstantViewConverter();
@@ -21679,10 +21679,10 @@ namespace TDLib.JsonClient
             var obj = (GetWebPageInstantView)tlobj;
             switch (hash)
             {
-                case 0xB9E12B82u:
+                case 0xF47645AEu:
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x63534831u:
+                case 0xCBC35FEEu:
                     obj.ForceFull = reader.ReadBool();
                     return true;
             }
@@ -21690,7 +21690,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC639B962u)]
+    [TLTypeHash(0xEFBE0D60u)]
     partial class SetProfilePhotoConverter : TLObjectConverter<SetProfilePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new SetProfilePhotoConverter();
@@ -21701,7 +21701,7 @@ namespace TDLib.JsonClient
             var obj = (SetProfilePhoto)tlobj;
             switch (hash)
             {
-                case 0xC8E8DBE9u:
+                case 0x14B78418u:
                     obj.Photo = reader.ReadTLObject<InputChatPhoto>();
                     return true;
             }
@@ -21709,7 +21709,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x25BFA9ACu)]
+    [TLTypeHash(0x5E89D2A9u)]
     partial class DeleteProfilePhotoConverter : TLObjectConverter<DeleteProfilePhoto>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteProfilePhotoConverter();
@@ -21720,7 +21720,7 @@ namespace TDLib.JsonClient
             var obj = (DeleteProfilePhoto)tlobj;
             switch (hash)
             {
-                case 0x2918EB62u:
+                case 0x87F42D3Du:
                     obj.ProfilePhotoId = reader.ReadInt64String();
                     return true;
             }
@@ -21728,7 +21728,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x43772F6Du)]
+    [TLTypeHash(0xCBD2C30Au)]
     partial class SetNameConverter : TLObjectConverter<SetName>
     {
         internal static BaseConverter CreateConverterInstance() => new SetNameConverter();
@@ -21739,10 +21739,10 @@ namespace TDLib.JsonClient
             var obj = (SetName)tlobj;
             switch (hash)
             {
-                case 0x9042082Fu:
+                case 0xA9D1C132u:
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x2E1C9126u:
+                case 0xC808BA5Au:
                     obj.LastName = reader.ReadString();
                     return true;
             }
@@ -21750,7 +21750,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8BF70C14u)]
+    [TLTypeHash(0x93D7E4B3u)]
     partial class SetBioConverter : TLObjectConverter<SetBio>
     {
         internal static BaseConverter CreateConverterInstance() => new SetBioConverter();
@@ -21761,7 +21761,7 @@ namespace TDLib.JsonClient
             var obj = (SetBio)tlobj;
             switch (hash)
             {
-                case 0x38D55B35u:
+                case 0xDD206A7Bu:
                     obj.Bio = reader.ReadString();
                     return true;
             }
@@ -21769,7 +21769,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x914EBFADu)]
+    [TLTypeHash(0xF2CC63BBu)]
     partial class SetUsernameConverter : TLObjectConverter<SetUsername>
     {
         internal static BaseConverter CreateConverterInstance() => new SetUsernameConverter();
@@ -21780,7 +21780,7 @@ namespace TDLib.JsonClient
             var obj = (SetUsername)tlobj;
             switch (hash)
             {
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
             }
@@ -21788,7 +21788,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE11B1F19u)]
+    [TLTypeHash(0x540CEC07u)]
     partial class SetLocationConverter : TLObjectConverter<SetLocation>
     {
         internal static BaseConverter CreateConverterInstance() => new SetLocationConverter();
@@ -21799,7 +21799,7 @@ namespace TDLib.JsonClient
             var obj = (SetLocation)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
             }
@@ -21807,7 +21807,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0FC7B87Du)]
+    [TLTypeHash(0xD975D19Cu)]
     partial class ChangePhoneNumberConverter : TLObjectConverter<ChangePhoneNumber>
     {
         internal static BaseConverter CreateConverterInstance() => new ChangePhoneNumberConverter();
@@ -21818,10 +21818,10 @@ namespace TDLib.JsonClient
             var obj = (ChangePhoneNumber)tlobj;
             switch (hash)
             {
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0xF4F8CF00u:
+                case 0xE545A0C5u:
                     obj.Settings = reader.ReadTLObject<PhoneNumberAuthenticationSettings>();
                     return true;
             }
@@ -21829,14 +21829,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x159C7B4Du)]
+    [TLTypeHash(0x7457F172u)]
     partial class ResendChangePhoneNumberCodeConverter : TLObjectConverter<ResendChangePhoneNumberCode>
     {
         internal static BaseConverter CreateConverterInstance() => new ResendChangePhoneNumberCodeConverter();
         internal static TLObject CreateObjectInstance() => new ResendChangePhoneNumberCode();
     }
 
-    [TLTypeHash(0x3E49206Eu)]
+    [TLTypeHash(0x65C4B281u)]
     partial class CheckChangePhoneNumberCodeConverter : TLObjectConverter<CheckChangePhoneNumberCode>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckChangePhoneNumberCodeConverter();
@@ -21847,7 +21847,7 @@ namespace TDLib.JsonClient
             var obj = (CheckChangePhoneNumberCode)tlobj;
             switch (hash)
             {
-                case 0xA6676B57u:
+                case 0x77153098u:
                     obj.Code = reader.ReadString();
                     return true;
             }
@@ -21855,7 +21855,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x48528ACFu)]
+    [TLTypeHash(0x90AC76E0u)]
     partial class SetCommandsConverter : TLObjectConverter<SetCommands>
     {
         internal static BaseConverter CreateConverterInstance() => new SetCommandsConverter();
@@ -21866,7 +21866,7 @@ namespace TDLib.JsonClient
             var obj = (SetCommands)tlobj;
             switch (hash)
             {
-                case 0x1168EFDEu:
+                case 0x9A3E132Cu:
                     obj.Commands = reader.ReadObjectArray<BotCommand>();
                     return true;
             }
@@ -21874,14 +21874,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x86CBDD65u)]
+    [TLTypeHash(0xDD6D969Fu)]
     partial class GetActiveSessionsConverter : TLObjectConverter<GetActiveSessions>
     {
         internal static BaseConverter CreateConverterInstance() => new GetActiveSessionsConverter();
         internal static TLObject CreateObjectInstance() => new GetActiveSessions();
     }
 
-    [TLTypeHash(0x5FBB7F3Eu)]
+    [TLTypeHash(0xEA2609B2u)]
     partial class TerminateSessionConverter : TLObjectConverter<TerminateSession>
     {
         internal static BaseConverter CreateConverterInstance() => new TerminateSessionConverter();
@@ -21892,7 +21892,7 @@ namespace TDLib.JsonClient
             var obj = (TerminateSession)tlobj;
             switch (hash)
             {
-                case 0x77EE91CAu:
+                case 0x613FECDFu:
                     obj.SessionId = reader.ReadInt64String();
                     return true;
             }
@@ -21900,21 +21900,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFDE788D1u)]
+    [TLTypeHash(0xA57BCA19u)]
     partial class TerminateAllOtherSessionsConverter : TLObjectConverter<TerminateAllOtherSessions>
     {
         internal static BaseConverter CreateConverterInstance() => new TerminateAllOtherSessionsConverter();
         internal static TLObject CreateObjectInstance() => new TerminateAllOtherSessions();
     }
 
-    [TLTypeHash(0xB5F1C2BEu)]
+    [TLTypeHash(0x8AF649D3u)]
     partial class GetConnectedWebsitesConverter : TLObjectConverter<GetConnectedWebsites>
     {
         internal static BaseConverter CreateConverterInstance() => new GetConnectedWebsitesConverter();
         internal static TLObject CreateObjectInstance() => new GetConnectedWebsites();
     }
 
-    [TLTypeHash(0xF599B02Du)]
+    [TLTypeHash(0x4F63437Bu)]
     partial class DisconnectWebsiteConverter : TLObjectConverter<DisconnectWebsite>
     {
         internal static BaseConverter CreateConverterInstance() => new DisconnectWebsiteConverter();
@@ -21925,7 +21925,7 @@ namespace TDLib.JsonClient
             var obj = (DisconnectWebsite)tlobj;
             switch (hash)
             {
-                case 0x0FD9A0B7u:
+                case 0x18F45C82u:
                     obj.WebsiteId = reader.ReadInt64String();
                     return true;
             }
@@ -21933,14 +21933,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2EED328Cu)]
+    [TLTypeHash(0x716213B0u)]
     partial class DisconnectAllWebsitesConverter : TLObjectConverter<DisconnectAllWebsites>
     {
         internal static BaseConverter CreateConverterInstance() => new DisconnectAllWebsitesConverter();
         internal static TLObject CreateObjectInstance() => new DisconnectAllWebsites();
     }
 
-    [TLTypeHash(0xDFFBFB04u)]
+    [TLTypeHash(0x3087CAD5u)]
     partial class SetSupergroupUsernameConverter : TLObjectConverter<SetSupergroupUsername>
     {
         internal static BaseConverter CreateConverterInstance() => new SetSupergroupUsernameConverter();
@@ -21951,10 +21951,10 @@ namespace TDLib.JsonClient
             var obj = (SetSupergroupUsername)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0xC874DABCu:
+                case 0xF85E0677u:
                     obj.Username = reader.ReadString();
                     return true;
             }
@@ -21962,7 +21962,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA57E80BDu)]
+    [TLTypeHash(0xFB6D6468u)]
     partial class SetSupergroupStickerSetConverter : TLObjectConverter<SetSupergroupStickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new SetSupergroupStickerSetConverter();
@@ -21973,10 +21973,10 @@ namespace TDLib.JsonClient
             var obj = (SetSupergroupStickerSet)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0xC81D90F8u:
+                case 0xE417C78Fu:
                     obj.StickerSetId = reader.ReadInt64String();
                     return true;
             }
@@ -21984,7 +21984,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x458BEC28u)]
+    [TLTypeHash(0x8163708Fu)]
     partial class ToggleSupergroupSignMessagesConverter : TLObjectConverter<ToggleSupergroupSignMessages>
     {
         internal static BaseConverter CreateConverterInstance() => new ToggleSupergroupSignMessagesConverter();
@@ -21995,10 +21995,10 @@ namespace TDLib.JsonClient
             var obj = (ToggleSupergroupSignMessages)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0x4E322A51u:
+                case 0x18BBF871u:
                     obj.SignMessages = reader.ReadBool();
                     return true;
             }
@@ -22006,7 +22006,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x689D5D30u)]
+    [TLTypeHash(0x752BEE27u)]
     partial class ToggleSupergroupIsAllHistoryAvailableConverter : TLObjectConverter<ToggleSupergroupIsAllHistoryAvailable>
     {
         internal static BaseConverter CreateConverterInstance() => new ToggleSupergroupIsAllHistoryAvailableConverter();
@@ -22017,10 +22017,10 @@ namespace TDLib.JsonClient
             var obj = (ToggleSupergroupIsAllHistoryAvailable)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0xCED8BA39u:
+                case 0xF4846EB9u:
                     obj.IsAllHistoryAvailable = reader.ReadBool();
                     return true;
             }
@@ -22028,7 +22028,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA761E378u)]
+    [TLTypeHash(0x37EA024Du)]
     partial class ReportSupergroupSpamConverter : TLObjectConverter<ReportSupergroupSpam>
     {
         internal static BaseConverter CreateConverterInstance() => new ReportSupergroupSpamConverter();
@@ -22039,13 +22039,13 @@ namespace TDLib.JsonClient
             var obj = (ReportSupergroupSpam)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
             }
@@ -22053,7 +22053,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD30A21B8u)]
+    [TLTypeHash(0xE516B0B1u)]
     partial class GetSupergroupMembersConverter : TLObjectConverter<GetSupergroupMembers>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSupergroupMembersConverter();
@@ -22064,16 +22064,16 @@ namespace TDLib.JsonClient
             var obj = (GetSupergroupMembers)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0x10835EEFu:
+                case 0x7FC45F1Du:
                     obj.Filter = reader.ReadTLObject<SupergroupMembersFilter>();
                     return true;
-                case 0xE9D6EBDAu:
+                case 0x590ACAD0u:
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -22081,7 +22081,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6DF12814u)]
+    [TLTypeHash(0xB388D094u)]
     partial class DeleteSupergroupConverter : TLObjectConverter<DeleteSupergroup>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteSupergroupConverter();
@@ -22092,7 +22092,7 @@ namespace TDLib.JsonClient
             var obj = (DeleteSupergroup)tlobj;
             switch (hash)
             {
-                case 0x94EF2CB7u:
+                case 0x386CD096u:
                     obj.SupergroupId = reader.ReadInt();
                     return true;
             }
@@ -22100,7 +22100,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE5EB8E4Fu)]
+    [TLTypeHash(0xA8A891F8u)]
     partial class CloseSecretChatConverter : TLObjectConverter<CloseSecretChat>
     {
         internal static BaseConverter CreateConverterInstance() => new CloseSecretChatConverter();
@@ -22111,7 +22111,7 @@ namespace TDLib.JsonClient
             var obj = (CloseSecretChat)tlobj;
             switch (hash)
             {
-                case 0xB35E5819u:
+                case 0x3C9AC102u:
                     obj.SecretChatId = reader.ReadInt();
                     return true;
             }
@@ -22119,7 +22119,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1944772Eu)]
+    [TLTypeHash(0x7ECFEF03u)]
     partial class GetChatEventLogConverter : TLObjectConverter<GetChatEventLog>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatEventLogConverter();
@@ -22130,22 +22130,22 @@ namespace TDLib.JsonClient
             var obj = (GetChatEventLog)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x61B0E0A8u:
+                case 0x24BDB5EBu:
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x22F1063Eu:
+                case 0x37180811u:
                     obj.FromEventId = reader.ReadInt64String();
                     return true;
-                case 0x86EC5068u:
+                case 0x7F96E860u:
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0x8D86E3C8u:
+                case 0x7877678Du:
                     obj.Filters = reader.ReadTLObject<ChatEventLogFilters>();
                     return true;
-                case 0xAB68903Fu:
+                case 0x9BCCC613u:
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -22153,7 +22153,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB4996A70u)]
+    [TLTypeHash(0x69923B6Cu)]
     partial class GetPaymentFormConverter : TLObjectConverter<GetPaymentForm>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPaymentFormConverter();
@@ -22164,10 +22164,10 @@ namespace TDLib.JsonClient
             var obj = (GetPaymentForm)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -22175,7 +22175,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x804C9FF3u)]
+    [TLTypeHash(0xBDFD28AAu)]
     partial class ValidateOrderInfoConverter : TLObjectConverter<ValidateOrderInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new ValidateOrderInfoConverter();
@@ -22186,16 +22186,16 @@ namespace TDLib.JsonClient
             var obj = (ValidateOrderInfo)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xE97ED45Eu:
+                case 0x86780B40u:
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0xD8BB3C4Eu:
+                case 0x45047CD1u:
                     obj.AllowSave = reader.ReadBool();
                     return true;
             }
@@ -22203,7 +22203,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x603FC508u)]
+    [TLTypeHash(0x7264676Bu)]
     partial class SendPaymentFormConverter : TLObjectConverter<SendPaymentForm>
     {
         internal static BaseConverter CreateConverterInstance() => new SendPaymentFormConverter();
@@ -22214,19 +22214,19 @@ namespace TDLib.JsonClient
             var obj = (SendPaymentForm)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xC5280CD3u:
+                case 0xABF168B3u:
                     obj.OrderInfoId = reader.ReadString();
                     return true;
-                case 0x93477416u:
+                case 0xE1314C58u:
                     obj.ShippingOptionId = reader.ReadString();
                     return true;
-                case 0x6A52DB2Cu:
+                case 0xFA05280Eu:
                     obj.Credentials = reader.ReadTLObject<InputCredentials>();
                     return true;
             }
@@ -22234,7 +22234,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x971C7ED3u)]
+    [TLTypeHash(0x0950C775u)]
     partial class GetPaymentReceiptConverter : TLObjectConverter<GetPaymentReceipt>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPaymentReceiptConverter();
@@ -22245,10 +22245,10 @@ namespace TDLib.JsonClient
             var obj = (GetPaymentReceipt)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
             }
@@ -22256,35 +22256,35 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2BBDE871u)]
+    [TLTypeHash(0xEE243CA1u)]
     partial class GetSavedOrderInfoConverter : TLObjectConverter<GetSavedOrderInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSavedOrderInfoConverter();
         internal static TLObject CreateObjectInstance() => new GetSavedOrderInfo();
     }
 
-    [TLTypeHash(0x5D830DA7u)]
+    [TLTypeHash(0x86299066u)]
     partial class DeleteSavedOrderInfoConverter : TLObjectConverter<DeleteSavedOrderInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteSavedOrderInfoConverter();
         internal static TLObject CreateObjectInstance() => new DeleteSavedOrderInfo();
     }
 
-    [TLTypeHash(0x78456C09u)]
+    [TLTypeHash(0x93836C35u)]
     partial class DeleteSavedCredentialsConverter : TLObjectConverter<DeleteSavedCredentials>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteSavedCredentialsConverter();
         internal static TLObject CreateObjectInstance() => new DeleteSavedCredentials();
     }
 
-    [TLTypeHash(0x9E44D6E9u)]
+    [TLTypeHash(0x9A5758F6u)]
     partial class GetSupportUserConverter : TLObjectConverter<GetSupportUser>
     {
         internal static BaseConverter CreateConverterInstance() => new GetSupportUserConverter();
         internal static TLObject CreateObjectInstance() => new GetSupportUser();
     }
 
-    [TLTypeHash(0x820B771Au)]
+    [TLTypeHash(0x91F94798u)]
     partial class GetBackgroundsConverter : TLObjectConverter<GetBackgrounds>
     {
         internal static BaseConverter CreateConverterInstance() => new GetBackgroundsConverter();
@@ -22295,7 +22295,7 @@ namespace TDLib.JsonClient
             var obj = (GetBackgrounds)tlobj;
             switch (hash)
             {
-                case 0xAB17DAC1u:
+                case 0xF74F9192u:
                     obj.ForDarkTheme = reader.ReadBool();
                     return true;
             }
@@ -22303,7 +22303,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x55CB7230u)]
+    [TLTypeHash(0x75345B72u)]
     partial class GetBackgroundUrlConverter : TLObjectConverter<GetBackgroundUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new GetBackgroundUrlConverter();
@@ -22314,10 +22314,10 @@ namespace TDLib.JsonClient
             var obj = (GetBackgroundUrl)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<BackgroundType>();
                     return true;
             }
@@ -22325,7 +22325,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCB7240D9u)]
+    [TLTypeHash(0x05B20635u)]
     partial class SearchBackgroundConverter : TLObjectConverter<SearchBackground>
     {
         internal static BaseConverter CreateConverterInstance() => new SearchBackgroundConverter();
@@ -22336,7 +22336,7 @@ namespace TDLib.JsonClient
             var obj = (SearchBackground)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
             }
@@ -22344,7 +22344,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6BAE8767u)]
+    [TLTypeHash(0xE6FFB357u)]
     partial class SetBackgroundConverter : TLObjectConverter<SetBackground>
     {
         internal static BaseConverter CreateConverterInstance() => new SetBackgroundConverter();
@@ -22355,13 +22355,13 @@ namespace TDLib.JsonClient
             var obj = (SetBackground)tlobj;
             switch (hash)
             {
-                case 0x13FE30D5u:
+                case 0xBC68B450u:
                     obj.Background = reader.ReadTLObject<InputBackground>();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<BackgroundType>();
                     return true;
-                case 0xAB17DAC1u:
+                case 0xF74F9192u:
                     obj.ForDarkTheme = reader.ReadBool();
                     return true;
             }
@@ -22369,7 +22369,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3452A47Fu)]
+    [TLTypeHash(0x2D2B17C6u)]
     partial class RemoveBackgroundConverter : TLObjectConverter<RemoveBackground>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveBackgroundConverter();
@@ -22380,7 +22380,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveBackground)tlobj;
             switch (hash)
             {
-                case 0x2B530087u:
+                case 0xC93D69EAu:
                     obj.BackgroundId = reader.ReadInt64String();
                     return true;
             }
@@ -22388,14 +22388,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x906CEB3Cu)]
+    [TLTypeHash(0xFA98AB6Fu)]
     partial class ResetBackgroundsConverter : TLObjectConverter<ResetBackgrounds>
     {
         internal static BaseConverter CreateConverterInstance() => new ResetBackgroundsConverter();
         internal static TLObject CreateObjectInstance() => new ResetBackgrounds();
     }
 
-    [TLTypeHash(0x4036AD5Du)]
+    [TLTypeHash(0x7840A569u)]
     partial class GetLocalizationTargetInfoConverter : TLObjectConverter<GetLocalizationTargetInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLocalizationTargetInfoConverter();
@@ -22406,7 +22406,7 @@ namespace TDLib.JsonClient
             var obj = (GetLocalizationTargetInfo)tlobj;
             switch (hash)
             {
-                case 0x055CA735u:
+                case 0x195F8866u:
                     obj.OnlyLocal = reader.ReadBool();
                     return true;
             }
@@ -22414,7 +22414,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5D40B626u)]
+    [TLTypeHash(0xF38E8F31u)]
     partial class GetLanguagePackInfoConverter : TLObjectConverter<GetLanguagePackInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLanguagePackInfoConverter();
@@ -22425,7 +22425,7 @@ namespace TDLib.JsonClient
             var obj = (GetLanguagePackInfo)tlobj;
             switch (hash)
             {
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
             }
@@ -22433,7 +22433,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4684E9E3u)]
+    [TLTypeHash(0x1CE2CBCAu)]
     partial class GetLanguagePackStringsConverter : TLObjectConverter<GetLanguagePackStrings>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLanguagePackStringsConverter();
@@ -22444,10 +22444,10 @@ namespace TDLib.JsonClient
             var obj = (GetLanguagePackStrings)tlobj;
             switch (hash)
             {
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
-                case 0xEE1B8F6Cu:
+                case 0xB48E44ECu:
                     obj.Keys = reader.ReadStringArray();
                     return true;
             }
@@ -22455,7 +22455,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA3A4B597u)]
+    [TLTypeHash(0xA2068190u)]
     partial class SynchronizeLanguagePackConverter : TLObjectConverter<SynchronizeLanguagePack>
     {
         internal static BaseConverter CreateConverterInstance() => new SynchronizeLanguagePackConverter();
@@ -22466,7 +22466,7 @@ namespace TDLib.JsonClient
             var obj = (SynchronizeLanguagePack)tlobj;
             switch (hash)
             {
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
             }
@@ -22474,7 +22474,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9220EF2Bu)]
+    [TLTypeHash(0x60CFE3CEu)]
     partial class AddCustomServerLanguagePackConverter : TLObjectConverter<AddCustomServerLanguagePack>
     {
         internal static BaseConverter CreateConverterInstance() => new AddCustomServerLanguagePackConverter();
@@ -22485,7 +22485,7 @@ namespace TDLib.JsonClient
             var obj = (AddCustomServerLanguagePack)tlobj;
             switch (hash)
             {
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
             }
@@ -22493,7 +22493,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x38184C4Bu)]
+    [TLTypeHash(0x66135D01u)]
     partial class SetCustomLanguagePackConverter : TLObjectConverter<SetCustomLanguagePack>
     {
         internal static BaseConverter CreateConverterInstance() => new SetCustomLanguagePackConverter();
@@ -22504,10 +22504,10 @@ namespace TDLib.JsonClient
             var obj = (SetCustomLanguagePack)tlobj;
             switch (hash)
             {
-                case 0x06A2A198u:
+                case 0xCB893157u:
                     obj.Info = reader.ReadTLObject<LanguagePackInfo>();
                     return true;
-                case 0xF206309Eu:
+                case 0xB49A6AF5u:
                     obj.Strings = reader.ReadObjectArray<LanguagePackString>();
                     return true;
             }
@@ -22515,7 +22515,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2CD0B0BFu)]
+    [TLTypeHash(0x9FB4EF51u)]
     partial class EditCustomLanguagePackInfoConverter : TLObjectConverter<EditCustomLanguagePackInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new EditCustomLanguagePackInfoConverter();
@@ -22526,7 +22526,7 @@ namespace TDLib.JsonClient
             var obj = (EditCustomLanguagePackInfo)tlobj;
             switch (hash)
             {
-                case 0x06A2A198u:
+                case 0xCB893157u:
                     obj.Info = reader.ReadTLObject<LanguagePackInfo>();
                     return true;
             }
@@ -22534,7 +22534,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x40A0AF9Du)]
+    [TLTypeHash(0x9C3B20A3u)]
     partial class SetCustomLanguagePackStringConverter : TLObjectConverter<SetCustomLanguagePackString>
     {
         internal static BaseConverter CreateConverterInstance() => new SetCustomLanguagePackStringConverter();
@@ -22545,10 +22545,10 @@ namespace TDLib.JsonClient
             var obj = (SetCustomLanguagePackString)tlobj;
             switch (hash)
             {
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
-                case 0x97A960ECu:
+                case 0x66248A83u:
                     obj.NewString = reader.ReadTLObject<LanguagePackString>();
                     return true;
             }
@@ -22556,7 +22556,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF9AE1773u)]
+    [TLTypeHash(0xCB13C1F1u)]
     partial class DeleteLanguagePackConverter : TLObjectConverter<DeleteLanguagePack>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteLanguagePackConverter();
@@ -22567,7 +22567,7 @@ namespace TDLib.JsonClient
             var obj = (DeleteLanguagePack)tlobj;
             switch (hash)
             {
-                case 0x8C609C1Fu:
+                case 0xBDD46543u:
                     obj.LanguagePackId = reader.ReadString();
                     return true;
             }
@@ -22575,7 +22575,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFFF32977u)]
+    [TLTypeHash(0x52B99BDCu)]
     partial class RegisterDeviceConverter : TLObjectConverter<RegisterDevice>
     {
         internal static BaseConverter CreateConverterInstance() => new RegisterDeviceConverter();
@@ -22586,10 +22586,10 @@ namespace TDLib.JsonClient
             var obj = (RegisterDevice)tlobj;
             switch (hash)
             {
-                case 0x823B50F2u:
+                case 0x99B2415Cu:
                     obj.DeviceToken = reader.ReadTLObject<DeviceToken>();
                     return true;
-                case 0x47D2C97Fu:
+                case 0xDFDBB6FEu:
                     obj.OtherUserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -22597,7 +22597,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x58D4D0FCu)]
+    [TLTypeHash(0xBC104C5Du)]
     partial class ProcessPushNotificationConverter : TLObjectConverter<ProcessPushNotification>
     {
         internal static BaseConverter CreateConverterInstance() => new ProcessPushNotificationConverter();
@@ -22608,7 +22608,7 @@ namespace TDLib.JsonClient
             var obj = (ProcessPushNotification)tlobj;
             switch (hash)
             {
-                case 0xF4E36970u:
+                case 0x422C6A15u:
                     obj.Payload = reader.ReadString();
                     return true;
             }
@@ -22616,7 +22616,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x080D125Au)]
+    [TLTypeHash(0x29CCE2AEu)]
     partial class GetPushReceiverIdConverter : TLObjectConverter<GetPushReceiverId>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPushReceiverIdConverter();
@@ -22627,7 +22627,7 @@ namespace TDLib.JsonClient
             var obj = (GetPushReceiverId)tlobj;
             switch (hash)
             {
-                case 0xF4E36970u:
+                case 0x422C6A15u:
                     obj.Payload = reader.ReadString();
                     return true;
             }
@@ -22635,7 +22635,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x315AAD47u)]
+    [TLTypeHash(0x669220B4u)]
     partial class GetRecentlyVisitedTMeUrlsConverter : TLObjectConverter<GetRecentlyVisitedTMeUrls>
     {
         internal static BaseConverter CreateConverterInstance() => new GetRecentlyVisitedTMeUrlsConverter();
@@ -22646,7 +22646,7 @@ namespace TDLib.JsonClient
             var obj = (GetRecentlyVisitedTMeUrls)tlobj;
             switch (hash)
             {
-                case 0x6F7623FFu:
+                case 0xED646567u:
                     obj.Referrer = reader.ReadString();
                     return true;
             }
@@ -22654,7 +22654,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD0D81CBDu)]
+    [TLTypeHash(0x0C1FE1DBu)]
     partial class SetUserPrivacySettingRulesConverter : TLObjectConverter<SetUserPrivacySettingRules>
     {
         internal static BaseConverter CreateConverterInstance() => new SetUserPrivacySettingRulesConverter();
@@ -22665,10 +22665,10 @@ namespace TDLib.JsonClient
             var obj = (SetUserPrivacySettingRules)tlobj;
             switch (hash)
             {
-                case 0xD9982C17u:
+                case 0x9F74B898u:
                     obj.Setting = reader.ReadTLObject<UserPrivacySetting>();
                     return true;
-                case 0x9AD9EC1Bu:
+                case 0x899A993Cu:
                     obj.Rules = reader.ReadTLObject<UserPrivacySettingRules>();
                     return true;
             }
@@ -22676,7 +22676,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB752A193u)]
+    [TLTypeHash(0x8CD92C7Du)]
     partial class GetUserPrivacySettingRulesConverter : TLObjectConverter<GetUserPrivacySettingRules>
     {
         internal static BaseConverter CreateConverterInstance() => new GetUserPrivacySettingRulesConverter();
@@ -22687,7 +22687,7 @@ namespace TDLib.JsonClient
             var obj = (GetUserPrivacySettingRules)tlobj;
             switch (hash)
             {
-                case 0xD9982C17u:
+                case 0x9F74B898u:
                     obj.Setting = reader.ReadTLObject<UserPrivacySetting>();
                     return true;
             }
@@ -22695,7 +22695,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF2194CC2u)]
+    [TLTypeHash(0xB2CF0601u)]
     partial class GetOptionConverter : TLObjectConverter<GetOption>
     {
         internal static BaseConverter CreateConverterInstance() => new GetOptionConverter();
@@ -22706,7 +22706,7 @@ namespace TDLib.JsonClient
             var obj = (GetOption)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
             }
@@ -22714,7 +22714,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x59DD1D2Eu)]
+    [TLTypeHash(0x43E3157Cu)]
     partial class SetOptionConverter : TLObjectConverter<SetOption>
     {
         internal static BaseConverter CreateConverterInstance() => new SetOptionConverter();
@@ -22725,10 +22725,10 @@ namespace TDLib.JsonClient
             var obj = (SetOption)tlobj;
             switch (hash)
             {
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0xE1E00363u:
+                case 0x1D775834u:
                     obj.Value = reader.ReadTLObject<OptionValue>();
                     return true;
             }
@@ -22736,7 +22736,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFC034E56u)]
+    [TLTypeHash(0x3C1E5372u)]
     partial class SetAccountTtlConverter : TLObjectConverter<SetAccountTtl>
     {
         internal static BaseConverter CreateConverterInstance() => new SetAccountTtlConverter();
@@ -22747,7 +22747,7 @@ namespace TDLib.JsonClient
             var obj = (SetAccountTtl)tlobj;
             switch (hash)
             {
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadTLObject<AccountTtl>();
                     return true;
             }
@@ -22755,14 +22755,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3C5CB281u)]
+    [TLTypeHash(0x48A09F3Eu)]
     partial class GetAccountTtlConverter : TLObjectConverter<GetAccountTtl>
     {
         internal static BaseConverter CreateConverterInstance() => new GetAccountTtlConverter();
         internal static TLObject CreateObjectInstance() => new GetAccountTtl();
     }
 
-    [TLTypeHash(0x34A29874u)]
+    [TLTypeHash(0x066CAAD9u)]
     partial class DeleteAccountConverter : TLObjectConverter<DeleteAccount>
     {
         internal static BaseConverter CreateConverterInstance() => new DeleteAccountConverter();
@@ -22773,7 +22773,7 @@ namespace TDLib.JsonClient
             var obj = (DeleteAccount)tlobj;
             switch (hash)
             {
-                case 0x84C78BAAu:
+                case 0x3BB8880Cu:
                     obj.Reason = reader.ReadString();
                     return true;
             }
@@ -22781,7 +22781,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x826A7F6Au)]
+    [TLTypeHash(0xBEB3D46Fu)]
     partial class RemoveChatActionBarConverter : TLObjectConverter<RemoveChatActionBar>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveChatActionBarConverter();
@@ -22792,7 +22792,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveChatActionBar)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -22800,7 +22800,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x69F09C69u)]
+    [TLTypeHash(0x783F3CE9u)]
     partial class ReportChatConverter : TLObjectConverter<ReportChat>
     {
         internal static BaseConverter CreateConverterInstance() => new ReportChatConverter();
@@ -22811,13 +22811,13 @@ namespace TDLib.JsonClient
             var obj = (ReportChat)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x84C78BAAu:
+                case 0x3BB8880Cu:
                     obj.Reason = reader.ReadTLObject<ChatReportReason>();
                     return true;
-                case 0xB76C39DCu:
+                case 0x59EF2D74u:
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
             }
@@ -22825,7 +22825,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBC824570u)]
+    [TLTypeHash(0x968E499Du)]
     partial class GetChatStatisticsUrlConverter : TLObjectConverter<GetChatStatisticsUrl>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatStatisticsUrlConverter();
@@ -22836,13 +22836,13 @@ namespace TDLib.JsonClient
             var obj = (GetChatStatisticsUrl)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xE7DBB660u:
+                case 0x069348FEu:
                     obj.Parameters = reader.ReadString();
                     return true;
-                case 0x944CC807u:
+                case 0x8E8F93DAu:
                     obj.IsDark = reader.ReadBool();
                     return true;
             }
@@ -22850,7 +22850,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6A0217F9u)]
+    [TLTypeHash(0x8F800F2Du)]
     partial class GetChatStatisticsConverter : TLObjectConverter<GetChatStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new GetChatStatisticsConverter();
@@ -22861,10 +22861,10 @@ namespace TDLib.JsonClient
             var obj = (GetChatStatistics)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x944CC807u:
+                case 0x8E8F93DAu:
                     obj.IsDark = reader.ReadBool();
                     return true;
             }
@@ -22872,7 +22872,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1D67FEAAu)]
+    [TLTypeHash(0x3BB47555u)]
     partial class GetMessageStatisticsConverter : TLObjectConverter<GetMessageStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMessageStatisticsConverter();
@@ -22883,13 +22883,13 @@ namespace TDLib.JsonClient
             var obj = (GetMessageStatistics)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3DABA1B5u:
+                case 0x537A1329u:
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x944CC807u:
+                case 0x8E8F93DAu:
                     obj.IsDark = reader.ReadBool();
                     return true;
             }
@@ -22897,7 +22897,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x551CF5D2u)]
+    [TLTypeHash(0x18AE099Du)]
     partial class GetStatisticsGraphConverter : TLObjectConverter<GetStatisticsGraph>
     {
         internal static BaseConverter CreateConverterInstance() => new GetStatisticsGraphConverter();
@@ -22908,13 +22908,13 @@ namespace TDLib.JsonClient
             var obj = (GetStatisticsGraph)tlobj;
             switch (hash)
             {
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x717F937Cu:
+                case 0x5F37A13Bu:
                     obj.Token = reader.ReadString();
                     return true;
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadLong();
                     return true;
             }
@@ -22922,7 +22922,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBD004199u)]
+    [TLTypeHash(0xB9166C6Cu)]
     partial class GetStorageStatisticsConverter : TLObjectConverter<GetStorageStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new GetStorageStatisticsConverter();
@@ -22933,7 +22933,7 @@ namespace TDLib.JsonClient
             var obj = (GetStorageStatistics)tlobj;
             switch (hash)
             {
-                case 0xD057488Cu:
+                case 0x7EEB05FBu:
                     obj.ChatLimit = reader.ReadInt();
                     return true;
             }
@@ -22941,21 +22941,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x6684CD0Cu)]
+    [TLTypeHash(0x1B4C22FAu)]
     partial class GetStorageStatisticsFastConverter : TLObjectConverter<GetStorageStatisticsFast>
     {
         internal static BaseConverter CreateConverterInstance() => new GetStorageStatisticsFastConverter();
         internal static TLObject CreateObjectInstance() => new GetStorageStatisticsFast();
     }
 
-    [TLTypeHash(0x19F9708Au)]
+    [TLTypeHash(0xE9933C37u)]
     partial class GetDatabaseStatisticsConverter : TLObjectConverter<GetDatabaseStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new GetDatabaseStatisticsConverter();
         internal static TLObject CreateObjectInstance() => new GetDatabaseStatistics();
     }
 
-    [TLTypeHash(0x1AE7E92Au)]
+    [TLTypeHash(0xA9239890u)]
     partial class OptimizeStorageConverter : TLObjectConverter<OptimizeStorage>
     {
         internal static BaseConverter CreateConverterInstance() => new OptimizeStorageConverter();
@@ -22966,31 +22966,31 @@ namespace TDLib.JsonClient
             var obj = (OptimizeStorage)tlobj;
             switch (hash)
             {
-                case 0x55AC4F76u:
+                case 0xF7C0246Au:
                     obj.Size = reader.ReadLong();
                     return true;
-                case 0x756FE8CEu:
+                case 0xA3EE881Fu:
                     obj.Ttl = reader.ReadInt();
                     return true;
-                case 0x1D26CDC5u:
+                case 0x85D94462u:
                     obj.Count = reader.ReadInt();
                     return true;
-                case 0xABE4484Cu:
+                case 0x6403E4D3u:
                     obj.ImmunityDelay = reader.ReadInt();
                     return true;
-                case 0xC509D5C3u:
+                case 0xF3B33907u:
                     obj.FileTypes = reader.ReadObjectArray<FileType>();
                     return true;
-                case 0xD49AC59Au:
+                case 0x5010813Du:
                     obj.ChatIds = reader.ReadInt53Array();
                     return true;
-                case 0x38E33D49u:
+                case 0xF170C821u:
                     obj.ExcludeChatIds = reader.ReadInt53Array();
                     return true;
-                case 0xD078DC63u:
+                case 0x6873694Fu:
                     obj.ReturnDeletedFileStatistics = reader.ReadBool();
                     return true;
-                case 0xD057488Cu:
+                case 0x7EEB05FBu:
                     obj.ChatLimit = reader.ReadInt();
                     return true;
             }
@@ -22998,7 +22998,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEE4F0924u)]
+    [TLTypeHash(0x13513A83u)]
     partial class SetNetworkTypeConverter : TLObjectConverter<SetNetworkType>
     {
         internal static BaseConverter CreateConverterInstance() => new SetNetworkTypeConverter();
@@ -23009,7 +23009,7 @@ namespace TDLib.JsonClient
             var obj = (SetNetworkType)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<NetworkType>();
                     return true;
             }
@@ -23017,7 +23017,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x86DF8A69u)]
+    [TLTypeHash(0xD6A8138Au)]
     partial class GetNetworkStatisticsConverter : TLObjectConverter<GetNetworkStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new GetNetworkStatisticsConverter();
@@ -23028,7 +23028,7 @@ namespace TDLib.JsonClient
             var obj = (GetNetworkStatistics)tlobj;
             switch (hash)
             {
-                case 0xD1E8638Du:
+                case 0x79F31347u:
                     obj.OnlyCurrent = reader.ReadBool();
                     return true;
             }
@@ -23036,7 +23036,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7AFCD5B0u)]
+    [TLTypeHash(0xABCA521Fu)]
     partial class AddNetworkStatisticsConverter : TLObjectConverter<AddNetworkStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new AddNetworkStatisticsConverter();
@@ -23047,7 +23047,7 @@ namespace TDLib.JsonClient
             var obj = (AddNetworkStatistics)tlobj;
             switch (hash)
             {
-                case 0xA6368BDDu:
+                case 0x2B219D70u:
                     obj.Entry = reader.ReadTLObject<NetworkStatisticsEntry>();
                     return true;
             }
@@ -23055,21 +23055,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF4BED6DFu)]
+    [TLTypeHash(0xF403A452u)]
     partial class ResetNetworkStatisticsConverter : TLObjectConverter<ResetNetworkStatistics>
     {
         internal static BaseConverter CreateConverterInstance() => new ResetNetworkStatisticsConverter();
         internal static TLObject CreateObjectInstance() => new ResetNetworkStatistics();
     }
 
-    [TLTypeHash(0x1A9A5D09u)]
+    [TLTypeHash(0x371E15F9u)]
     partial class GetAutoDownloadSettingsPresetsConverter : TLObjectConverter<GetAutoDownloadSettingsPresets>
     {
         internal static BaseConverter CreateConverterInstance() => new GetAutoDownloadSettingsPresetsConverter();
         internal static TLObject CreateObjectInstance() => new GetAutoDownloadSettingsPresets();
     }
 
-    [TLTypeHash(0xB016A13Bu)]
+    [TLTypeHash(0x6F89346Du)]
     partial class SetAutoDownloadSettingsConverter : TLObjectConverter<SetAutoDownloadSettings>
     {
         internal static BaseConverter CreateConverterInstance() => new SetAutoDownloadSettingsConverter();
@@ -23080,10 +23080,10 @@ namespace TDLib.JsonClient
             var obj = (SetAutoDownloadSettings)tlobj;
             switch (hash)
             {
-                case 0xF4F8CF00u:
+                case 0xE545A0C5u:
                     obj.Settings = reader.ReadTLObject<AutoDownloadSettings>();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<NetworkType>();
                     return true;
             }
@@ -23091,7 +23091,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x213E2782u)]
+    [TLTypeHash(0xCAB14B08u)]
     partial class GetBankCardInfoConverter : TLObjectConverter<GetBankCardInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetBankCardInfoConverter();
@@ -23102,7 +23102,7 @@ namespace TDLib.JsonClient
             var obj = (GetBankCardInfo)tlobj;
             switch (hash)
             {
-                case 0xA14702F0u:
+                case 0xC624FA5Fu:
                     obj.BankCardNumber = reader.ReadString();
                     return true;
             }
@@ -23110,7 +23110,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x42D1B575u)]
+    [TLTypeHash(0x1D5341AAu)]
     partial class GetPassportElementConverter : TLObjectConverter<GetPassportElement>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPassportElementConverter();
@@ -23121,10 +23121,10 @@ namespace TDLib.JsonClient
             var obj = (GetPassportElement)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -23132,7 +23132,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x789BA688u)]
+    [TLTypeHash(0xA506CD13u)]
     partial class GetAllPassportElementsConverter : TLObjectConverter<GetAllPassportElements>
     {
         internal static BaseConverter CreateConverterInstance() => new GetAllPassportElementsConverter();
@@ -23143,7 +23143,7 @@ namespace TDLib.JsonClient
             var obj = (GetAllPassportElements)tlobj;
             switch (hash)
             {
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -23151,7 +23151,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x89E59F69u)]
+    [TLTypeHash(0x3858CAB4u)]
     partial class SetPassportElementConverter : TLObjectConverter<SetPassportElement>
     {
         internal static BaseConverter CreateConverterInstance() => new SetPassportElementConverter();
@@ -23162,10 +23162,10 @@ namespace TDLib.JsonClient
             var obj = (SetPassportElement)tlobj;
             switch (hash)
             {
-                case 0x6FC4E1AEu:
+                case 0x41405E39u:
                     obj.Element = reader.ReadTLObject<InputPassportElement>();
                     return true;
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -23173,7 +23173,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB7D58DD3u)]
+    [TLTypeHash(0x183B1B15u)]
     partial class DeletePassportElementConverter : TLObjectConverter<DeletePassportElement>
     {
         internal static BaseConverter CreateConverterInstance() => new DeletePassportElementConverter();
@@ -23184,7 +23184,7 @@ namespace TDLib.JsonClient
             var obj = (DeletePassportElement)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
             }
@@ -23192,7 +23192,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7BE2EC86u)]
+    [TLTypeHash(0x3DC26457u)]
     partial class SetPassportElementErrorsConverter : TLObjectConverter<SetPassportElementErrors>
     {
         internal static BaseConverter CreateConverterInstance() => new SetPassportElementErrorsConverter();
@@ -23203,10 +23203,10 @@ namespace TDLib.JsonClient
             var obj = (SetPassportElementErrors)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xE832B7D1u:
+                case 0x3C51531Du:
                     obj.Errors = reader.ReadObjectArray<InputPassportElementError>();
                     return true;
             }
@@ -23214,7 +23214,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xFB59C669u)]
+    [TLTypeHash(0xB736CD49u)]
     partial class GetPreferredCountryLanguageConverter : TLObjectConverter<GetPreferredCountryLanguage>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPreferredCountryLanguageConverter();
@@ -23225,7 +23225,7 @@ namespace TDLib.JsonClient
             var obj = (GetPreferredCountryLanguage)tlobj;
             switch (hash)
             {
-                case 0x105AB80Eu:
+                case 0xF026BB7Cu:
                     obj.CountryCode = reader.ReadString();
                     return true;
             }
@@ -23233,7 +23233,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB6D01AADu)]
+    [TLTypeHash(0x3C40A557u)]
     partial class SendPhoneNumberVerificationCodeConverter : TLObjectConverter<SendPhoneNumberVerificationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new SendPhoneNumberVerificationCodeConverter();
@@ -23244,10 +23244,10 @@ namespace TDLib.JsonClient
             var obj = (SendPhoneNumberVerificationCode)tlobj;
             switch (hash)
             {
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0xF4F8CF00u:
+                case 0xE545A0C5u:
                     obj.Settings = reader.ReadTLObject<PhoneNumberAuthenticationSettings>();
                     return true;
             }
@@ -23255,14 +23255,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA546A4C6u)]
+    [TLTypeHash(0xEDB56BA7u)]
     partial class ResendPhoneNumberVerificationCodeConverter : TLObjectConverter<ResendPhoneNumberVerificationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new ResendPhoneNumberVerificationCodeConverter();
         internal static TLObject CreateObjectInstance() => new ResendPhoneNumberVerificationCode();
     }
 
-    [TLTypeHash(0xA4177085u)]
+    [TLTypeHash(0xD3F1A584u)]
     partial class CheckPhoneNumberVerificationCodeConverter : TLObjectConverter<CheckPhoneNumberVerificationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckPhoneNumberVerificationCodeConverter();
@@ -23273,7 +23273,7 @@ namespace TDLib.JsonClient
             var obj = (CheckPhoneNumberVerificationCode)tlobj;
             switch (hash)
             {
-                case 0xA6676B57u:
+                case 0x77153098u:
                     obj.Code = reader.ReadString();
                     return true;
             }
@@ -23281,7 +23281,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3287C364u)]
+    [TLTypeHash(0xABE1FB8Au)]
     partial class SendEmailAddressVerificationCodeConverter : TLObjectConverter<SendEmailAddressVerificationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new SendEmailAddressVerificationCodeConverter();
@@ -23292,7 +23292,7 @@ namespace TDLib.JsonClient
             var obj = (SendEmailAddressVerificationCode)tlobj;
             switch (hash)
             {
-                case 0xE70A50C4u:
+                case 0xB08E074Eu:
                     obj.EmailAddress = reader.ReadString();
                     return true;
             }
@@ -23300,14 +23300,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCADB6D83u)]
+    [TLTypeHash(0x168DFC58u)]
     partial class ResendEmailAddressVerificationCodeConverter : TLObjectConverter<ResendEmailAddressVerificationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new ResendEmailAddressVerificationCodeConverter();
         internal static TLObject CreateObjectInstance() => new ResendEmailAddressVerificationCode();
     }
 
-    [TLTypeHash(0x98F1D21Fu)]
+    [TLTypeHash(0xB4D4C9E4u)]
     partial class CheckEmailAddressVerificationCodeConverter : TLObjectConverter<CheckEmailAddressVerificationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckEmailAddressVerificationCodeConverter();
@@ -23318,7 +23318,7 @@ namespace TDLib.JsonClient
             var obj = (CheckEmailAddressVerificationCode)tlobj;
             switch (hash)
             {
-                case 0xA6676B57u:
+                case 0x77153098u:
                     obj.Code = reader.ReadString();
                     return true;
             }
@@ -23326,7 +23326,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5A4D524Fu)]
+    [TLTypeHash(0xBEE171F7u)]
     partial class GetPassportAuthorizationFormConverter : TLObjectConverter<GetPassportAuthorizationForm>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPassportAuthorizationFormConverter();
@@ -23337,16 +23337,16 @@ namespace TDLib.JsonClient
             var obj = (GetPassportAuthorizationForm)tlobj;
             switch (hash)
             {
-                case 0x05547AC3u:
+                case 0x5898BEB0u:
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x31D5C826u:
+                case 0x00AF55D3u:
                     obj.Scope = reader.ReadString();
                     return true;
-                case 0xEDDC8A97u:
+                case 0x66F9D463u:
                     obj.PublicKey = reader.ReadString();
                     return true;
-                case 0x80C1EA0Bu:
+                case 0xB22492FDu:
                     obj.Nonce = reader.ReadString();
                     return true;
             }
@@ -23354,7 +23354,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4D9C4ECAu)]
+    [TLTypeHash(0xB55956E7u)]
     partial class GetPassportAuthorizationFormAvailableElementsConverter : TLObjectConverter<GetPassportAuthorizationFormAvailableElements>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPassportAuthorizationFormAvailableElementsConverter();
@@ -23365,10 +23365,10 @@ namespace TDLib.JsonClient
             var obj = (GetPassportAuthorizationFormAvailableElements)tlobj;
             switch (hash)
             {
-                case 0x24F262C8u:
+                case 0x05E647A8u:
                     obj.AutorizationFormId = reader.ReadInt();
                     return true;
-                case 0x7C3E8628u:
+                case 0x35C246D5u:
                     obj.Password = reader.ReadString();
                     return true;
             }
@@ -23376,7 +23376,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8609C3D5u)]
+    [TLTypeHash(0x6E7B5DC6u)]
     partial class SendPassportAuthorizationFormConverter : TLObjectConverter<SendPassportAuthorizationForm>
     {
         internal static BaseConverter CreateConverterInstance() => new SendPassportAuthorizationFormConverter();
@@ -23387,10 +23387,10 @@ namespace TDLib.JsonClient
             var obj = (SendPassportAuthorizationForm)tlobj;
             switch (hash)
             {
-                case 0x24F262C8u:
+                case 0x05E647A8u:
                     obj.AutorizationFormId = reader.ReadInt();
                     return true;
-                case 0x51F538B3u:
+                case 0x59308930u:
                     obj.Types = reader.ReadObjectArray<PassportElementType>();
                     return true;
             }
@@ -23398,7 +23398,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x77C8C956u)]
+    [TLTypeHash(0x4D8CAFF0u)]
     partial class SendPhoneNumberConfirmationCodeConverter : TLObjectConverter<SendPhoneNumberConfirmationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new SendPhoneNumberConfirmationCodeConverter();
@@ -23409,13 +23409,13 @@ namespace TDLib.JsonClient
             var obj = (SendPhoneNumberConfirmationCode)tlobj;
             switch (hash)
             {
-                case 0x21613D4Du:
+                case 0xD1B862B8u:
                     obj.Hash = reader.ReadString();
                     return true;
-                case 0x9521F01Fu:
+                case 0x6B01BC5Bu:
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0xF4F8CF00u:
+                case 0xE545A0C5u:
                     obj.Settings = reader.ReadTLObject<PhoneNumberAuthenticationSettings>();
                     return true;
             }
@@ -23423,14 +23423,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x645E773Du)]
+    [TLTypeHash(0x9C796100u)]
     partial class ResendPhoneNumberConfirmationCodeConverter : TLObjectConverter<ResendPhoneNumberConfirmationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new ResendPhoneNumberConfirmationCodeConverter();
         internal static TLObject CreateObjectInstance() => new ResendPhoneNumberConfirmationCode();
     }
 
-    [TLTypeHash(0x650FA37Eu)]
+    [TLTypeHash(0xA23DAF23u)]
     partial class CheckPhoneNumberConfirmationCodeConverter : TLObjectConverter<CheckPhoneNumberConfirmationCode>
     {
         internal static BaseConverter CreateConverterInstance() => new CheckPhoneNumberConfirmationCodeConverter();
@@ -23441,7 +23441,7 @@ namespace TDLib.JsonClient
             var obj = (CheckPhoneNumberConfirmationCode)tlobj;
             switch (hash)
             {
-                case 0xA6676B57u:
+                case 0x77153098u:
                     obj.Code = reader.ReadString();
                     return true;
             }
@@ -23449,7 +23449,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8390998Au)]
+    [TLTypeHash(0x92DB7F19u)]
     partial class SetBotUpdatesStatusConverter : TLObjectConverter<SetBotUpdatesStatus>
     {
         internal static BaseConverter CreateConverterInstance() => new SetBotUpdatesStatusConverter();
@@ -23460,10 +23460,10 @@ namespace TDLib.JsonClient
             var obj = (SetBotUpdatesStatus)tlobj;
             switch (hash)
             {
-                case 0x948535EFu:
+                case 0x79EF04C6u:
                     obj.PendingUpdateCount = reader.ReadInt();
                     return true;
-                case 0x6E73AFBFu:
+                case 0x2BF96153u:
                     obj.ErrorMessage = reader.ReadString();
                     return true;
             }
@@ -23471,7 +23471,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x64F7E386u)]
+    [TLTypeHash(0x4C099E24u)]
     partial class UploadStickerFileConverter : TLObjectConverter<UploadStickerFile>
     {
         internal static BaseConverter CreateConverterInstance() => new UploadStickerFileConverter();
@@ -23482,10 +23482,10 @@ namespace TDLib.JsonClient
             var obj = (UploadStickerFile)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xDCCCD4A5u:
+                case 0xFC0EB958u:
                     obj.PngSticker = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -23493,7 +23493,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDA977098u)]
+    [TLTypeHash(0x338885BAu)]
     partial class CreateNewStickerSetConverter : TLObjectConverter<CreateNewStickerSet>
     {
         internal static BaseConverter CreateConverterInstance() => new CreateNewStickerSetConverter();
@@ -23504,19 +23504,19 @@ namespace TDLib.JsonClient
             var obj = (CreateNewStickerSet)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x9E0656DCu:
+                case 0x2B36786Bu:
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0xBCDC2AC8u:
+                case 0x71547314u:
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0xD5CED7ABu:
+                case 0xD88DAC16u:
                     obj.Stickers = reader.ReadObjectArray<InputSticker>();
                     return true;
             }
@@ -23524,7 +23524,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x1763220Eu)]
+    [TLTypeHash(0xA7045155u)]
     partial class AddStickerToSetConverter : TLObjectConverter<AddStickerToSet>
     {
         internal static BaseConverter CreateConverterInstance() => new AddStickerToSetConverter();
@@ -23535,13 +23535,13 @@ namespace TDLib.JsonClient
             var obj = (AddStickerToSet)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputSticker>();
                     return true;
             }
@@ -23549,7 +23549,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xBD11DA53u)]
+    [TLTypeHash(0x5423ACF2u)]
     partial class SetStickerSetThumbnailConverter : TLObjectConverter<SetStickerSetThumbnail>
     {
         internal static BaseConverter CreateConverterInstance() => new SetStickerSetThumbnailConverter();
@@ -23560,13 +23560,13 @@ namespace TDLib.JsonClient
             var obj = (SetStickerSetThumbnail)tlobj;
             switch (hash)
             {
-                case 0x5F1741E9u:
+                case 0xA76ED395u:
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x911200E7u:
+                case 0x5E237E06u:
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x6D3EE2F3u:
+                case 0xC35726E6u:
                     obj.Thumbnail = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -23574,7 +23574,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x0E14A18Bu)]
+    [TLTypeHash(0x67470E8Eu)]
     partial class SetStickerPositionInSetConverter : TLObjectConverter<SetStickerPositionInSet>
     {
         internal static BaseConverter CreateConverterInstance() => new SetStickerPositionInSetConverter();
@@ -23585,10 +23585,10 @@ namespace TDLib.JsonClient
             var obj = (SetStickerPositionInSet)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x5A1ACEA4u:
+                case 0x462CE4F5u:
                     obj.Position = reader.ReadInt();
                     return true;
             }
@@ -23596,7 +23596,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x856BE108u)]
+    [TLTypeHash(0x1DFD89DAu)]
     partial class RemoveStickerFromSetConverter : TLObjectConverter<RemoveStickerFromSet>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveStickerFromSetConverter();
@@ -23607,7 +23607,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveStickerFromSet)tlobj;
             switch (hash)
             {
-                case 0x57E22FC6u:
+                case 0x8FEDBCFDu:
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
             }
@@ -23615,7 +23615,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xA46D8185u)]
+    [TLTypeHash(0x714DE988u)]
     partial class GetMapThumbnailFileConverter : TLObjectConverter<GetMapThumbnailFile>
     {
         internal static BaseConverter CreateConverterInstance() => new GetMapThumbnailFileConverter();
@@ -23626,22 +23626,22 @@ namespace TDLib.JsonClient
             var obj = (GetMapThumbnailFile)tlobj;
             switch (hash)
             {
-                case 0xB8217A08u:
+                case 0x5E9E89CBu:
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x472820DAu:
+                case 0xB72B7974u:
                     obj.Zoom = reader.ReadInt();
                     return true;
-                case 0xBB6EE548u:
+                case 0x8C1A452Fu:
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xE6A89F2Cu:
+                case 0xF54DE50Fu:
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x346E5311u:
+                case 0xEC462584u:
                     obj.Scale = reader.ReadInt();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -23649,7 +23649,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xC20D65EFu)]
+    [TLTypeHash(0x93FB20FBu)]
     partial class AcceptTermsOfServiceConverter : TLObjectConverter<AcceptTermsOfService>
     {
         internal static BaseConverter CreateConverterInstance() => new AcceptTermsOfServiceConverter();
@@ -23660,7 +23660,7 @@ namespace TDLib.JsonClient
             var obj = (AcceptTermsOfService)tlobj;
             switch (hash)
             {
-                case 0x13AF78C5u:
+                case 0xA5DEBC29u:
                     obj.TermsOfServiceId = reader.ReadString();
                     return true;
             }
@@ -23668,7 +23668,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x2212DE27u)]
+    [TLTypeHash(0x025BE18Cu)]
     partial class SendCustomRequestConverter : TLObjectConverter<SendCustomRequest>
     {
         internal static BaseConverter CreateConverterInstance() => new SendCustomRequestConverter();
@@ -23679,10 +23679,10 @@ namespace TDLib.JsonClient
             var obj = (SendCustomRequest)tlobj;
             switch (hash)
             {
-                case 0x24B8DE54u:
+                case 0x5E593A60u:
                     obj.Method = reader.ReadString();
                     return true;
-                case 0xE7DBB660u:
+                case 0x069348FEu:
                     obj.Parameters = reader.ReadString();
                     return true;
             }
@@ -23690,7 +23690,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x99375117u)]
+    [TLTypeHash(0x3375D598u)]
     partial class AnswerCustomQueryConverter : TLObjectConverter<AnswerCustomQuery>
     {
         internal static BaseConverter CreateConverterInstance() => new AnswerCustomQueryConverter();
@@ -23701,10 +23701,10 @@ namespace TDLib.JsonClient
             var obj = (AnswerCustomQuery)tlobj;
             switch (hash)
             {
-                case 0x31E952B5u:
+                case 0x0A4688FDu:
                     obj.CustomQueryId = reader.ReadInt64String();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadString();
                     return true;
             }
@@ -23712,7 +23712,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x8C2B7B1Du)]
+    [TLTypeHash(0x7DBCFB4Bu)]
     partial class SetAlarmConverter : TLObjectConverter<SetAlarm>
     {
         internal static BaseConverter CreateConverterInstance() => new SetAlarmConverter();
@@ -23723,7 +23723,7 @@ namespace TDLib.JsonClient
             var obj = (SetAlarm)tlobj;
             switch (hash)
             {
-                case 0x9AABDF2Du:
+                case 0x2FD609E6u:
                     obj.Seconds = reader.ReadDouble();
                     return true;
             }
@@ -23731,21 +23731,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF1F703CBu)]
+    [TLTypeHash(0xC0A021D0u)]
     partial class GetCountriesConverter : TLObjectConverter<GetCountries>
     {
         internal static BaseConverter CreateConverterInstance() => new GetCountriesConverter();
         internal static TLObject CreateObjectInstance() => new GetCountries();
     }
 
-    [TLTypeHash(0x9F5861D6u)]
+    [TLTypeHash(0x4044011Eu)]
     partial class GetCountryCodeConverter : TLObjectConverter<GetCountryCode>
     {
         internal static BaseConverter CreateConverterInstance() => new GetCountryCodeConverter();
         internal static TLObject CreateObjectInstance() => new GetCountryCode();
     }
 
-    [TLTypeHash(0x7EB2598Bu)]
+    [TLTypeHash(0xE9C88353u)]
     partial class GetPhoneNumberInfoConverter : TLObjectConverter<GetPhoneNumberInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetPhoneNumberInfoConverter();
@@ -23756,7 +23756,7 @@ namespace TDLib.JsonClient
             var obj = (GetPhoneNumberInfo)tlobj;
             switch (hash)
             {
-                case 0xE87DADF7u:
+                case 0xF71F56FCu:
                     obj.PhoneNumberPrefix = reader.ReadString();
                     return true;
             }
@@ -23764,14 +23764,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xB94A380Fu)]
+    [TLTypeHash(0x7B7D279Fu)]
     partial class GetInviteTextConverter : TLObjectConverter<GetInviteText>
     {
         internal static BaseConverter CreateConverterInstance() => new GetInviteTextConverter();
         internal static TLObject CreateObjectInstance() => new GetInviteText();
     }
 
-    [TLTypeHash(0x93BF77BBu)]
+    [TLTypeHash(0x5FABB3CBu)]
     partial class GetDeepLinkInfoConverter : TLObjectConverter<GetDeepLinkInfo>
     {
         internal static BaseConverter CreateConverterInstance() => new GetDeepLinkInfoConverter();
@@ -23782,7 +23782,7 @@ namespace TDLib.JsonClient
             var obj = (GetDeepLinkInfo)tlobj;
             switch (hash)
             {
-                case 0x8EBB0A1Du:
+                case 0x36AC99F1u:
                     obj.Link = reader.ReadString();
                     return true;
             }
@@ -23790,14 +23790,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x3D9ABD43u)]
+    [TLTypeHash(0x0B957B20u)]
     partial class GetApplicationConfigConverter : TLObjectConverter<GetApplicationConfig>
     {
         internal static BaseConverter CreateConverterInstance() => new GetApplicationConfigConverter();
         internal static TLObject CreateObjectInstance() => new GetApplicationConfig();
     }
 
-    [TLTypeHash(0xAEC41E3Au)]
+    [TLTypeHash(0xA1B786F6u)]
     partial class SaveApplicationLogEventConverter : TLObjectConverter<SaveApplicationLogEvent>
     {
         internal static BaseConverter CreateConverterInstance() => new SaveApplicationLogEventConverter();
@@ -23808,13 +23808,13 @@ namespace TDLib.JsonClient
             var obj = (SaveApplicationLogEvent)tlobj;
             switch (hash)
             {
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadString();
                     return true;
-                case 0x061C6837u:
+                case 0x1A9A7125u:
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xAED87DD1u:
+                case 0xADF3F363u:
                     obj.Data = reader.ReadTLObject<JsonValue>();
                     return true;
             }
@@ -23822,7 +23822,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xDA093133u)]
+    [TLTypeHash(0xE16E4B51u)]
     partial class AddProxyConverter : TLObjectConverter<AddProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new AddProxyConverter();
@@ -23833,16 +23833,16 @@ namespace TDLib.JsonClient
             var obj = (AddProxy)tlobj;
             switch (hash)
             {
-                case 0x3C62153Au:
+                case 0x5A6DD5F6u:
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x991EB78Cu:
+                case 0x43915DCCu:
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x375B100Au:
+                case 0xF3A0C832u:
                     obj.Enable = reader.ReadBool();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
             }
@@ -23850,7 +23850,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD7033A6Cu)]
+    [TLTypeHash(0x5E502942u)]
     partial class EditProxyConverter : TLObjectConverter<EditProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new EditProxyConverter();
@@ -23861,19 +23861,19 @@ namespace TDLib.JsonClient
             var obj = (EditProxy)tlobj;
             switch (hash)
             {
-                case 0xF21AC04Fu:
+                case 0x0DB26A4Eu:
                     obj.ProxyId = reader.ReadInt();
                     return true;
-                case 0x3C62153Au:
+                case 0x5A6DD5F6u:
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x991EB78Cu:
+                case 0x43915DCCu:
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x375B100Au:
+                case 0xF3A0C832u:
                     obj.Enable = reader.ReadBool();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
             }
@@ -23881,7 +23881,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x95DCA0D0u)]
+    [TLTypeHash(0x3C4224ABu)]
     partial class EnableProxyConverter : TLObjectConverter<EnableProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new EnableProxyConverter();
@@ -23892,7 +23892,7 @@ namespace TDLib.JsonClient
             var obj = (EnableProxy)tlobj;
             switch (hash)
             {
-                case 0xF21AC04Fu:
+                case 0x0DB26A4Eu:
                     obj.ProxyId = reader.ReadInt();
                     return true;
             }
@@ -23900,14 +23900,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x5E2B47C5u)]
+    [TLTypeHash(0xDF0E9CC0u)]
     partial class DisableProxyConverter : TLObjectConverter<DisableProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new DisableProxyConverter();
         internal static TLObject CreateObjectInstance() => new DisableProxy();
     }
 
-    [TLTypeHash(0x7237C5ACu)]
+    [TLTypeHash(0xFDF02B51u)]
     partial class RemoveProxyConverter : TLObjectConverter<RemoveProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new RemoveProxyConverter();
@@ -23918,7 +23918,7 @@ namespace TDLib.JsonClient
             var obj = (RemoveProxy)tlobj;
             switch (hash)
             {
-                case 0xF21AC04Fu:
+                case 0x0DB26A4Eu:
                     obj.ProxyId = reader.ReadInt();
                     return true;
             }
@@ -23926,14 +23926,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x48FBF06Du)]
+    [TLTypeHash(0xA8094EA7u)]
     partial class GetProxiesConverter : TLObjectConverter<GetProxies>
     {
         internal static BaseConverter CreateConverterInstance() => new GetProxiesConverter();
         internal static TLObject CreateObjectInstance() => new GetProxies();
     }
 
-    [TLTypeHash(0xBA3D6DD8u)]
+    [TLTypeHash(0xBC8E5326u)]
     partial class GetProxyLinkConverter : TLObjectConverter<GetProxyLink>
     {
         internal static BaseConverter CreateConverterInstance() => new GetProxyLinkConverter();
@@ -23944,7 +23944,7 @@ namespace TDLib.JsonClient
             var obj = (GetProxyLink)tlobj;
             switch (hash)
             {
-                case 0xF21AC04Fu:
+                case 0x0DB26A4Eu:
                     obj.ProxyId = reader.ReadInt();
                     return true;
             }
@@ -23952,7 +23952,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4BB60D35u)]
+    [TLTypeHash(0x63E77516u)]
     partial class PingProxyConverter : TLObjectConverter<PingProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new PingProxyConverter();
@@ -23963,7 +23963,7 @@ namespace TDLib.JsonClient
             var obj = (PingProxy)tlobj;
             switch (hash)
             {
-                case 0xF21AC04Fu:
+                case 0x0DB26A4Eu:
                     obj.ProxyId = reader.ReadInt();
                     return true;
             }
@@ -23971,7 +23971,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x324FF52Au)]
+    [TLTypeHash(0xCFDBA015u)]
     partial class SetLogStreamConverter : TLObjectConverter<SetLogStream>
     {
         internal static BaseConverter CreateConverterInstance() => new SetLogStreamConverter();
@@ -23982,7 +23982,7 @@ namespace TDLib.JsonClient
             var obj = (SetLogStream)tlobj;
             switch (hash)
             {
-                case 0xFF69780Fu:
+                case 0xE513EDBEu:
                     obj.LogStream = reader.ReadTLObject<LogStream>();
                     return true;
             }
@@ -23990,14 +23990,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xEEA17DF9u)]
+    [TLTypeHash(0xC0C57696u)]
     partial class GetLogStreamConverter : TLObjectConverter<GetLogStream>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLogStreamConverter();
         internal static TLObject CreateObjectInstance() => new GetLogStream();
     }
 
-    [TLTypeHash(0x763F7024u)]
+    [TLTypeHash(0xDD0B0AE4u)]
     partial class SetLogVerbosityLevelConverter : TLObjectConverter<SetLogVerbosityLevel>
     {
         internal static BaseConverter CreateConverterInstance() => new SetLogVerbosityLevelConverter();
@@ -24008,7 +24008,7 @@ namespace TDLib.JsonClient
             var obj = (SetLogVerbosityLevel)tlobj;
             switch (hash)
             {
-                case 0x488C13CCu:
+                case 0xC82CC572u:
                     obj.NewVerbosityLevel = reader.ReadInt();
                     return true;
             }
@@ -24016,21 +24016,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD13B4E13u)]
+    [TLTypeHash(0x73204A98u)]
     partial class GetLogVerbosityLevelConverter : TLObjectConverter<GetLogVerbosityLevel>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLogVerbosityLevelConverter();
         internal static TLObject CreateObjectInstance() => new GetLogVerbosityLevel();
     }
 
-    [TLTypeHash(0x42920522u)]
+    [TLTypeHash(0x518EC125u)]
     partial class GetLogTagsConverter : TLObjectConverter<GetLogTags>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLogTagsConverter();
         internal static TLObject CreateObjectInstance() => new GetLogTags();
     }
 
-    [TLTypeHash(0x4554CD42u)]
+    [TLTypeHash(0x0DFC1607u)]
     partial class SetLogTagVerbosityLevelConverter : TLObjectConverter<SetLogTagVerbosityLevel>
     {
         internal static BaseConverter CreateConverterInstance() => new SetLogTagVerbosityLevelConverter();
@@ -24041,10 +24041,10 @@ namespace TDLib.JsonClient
             var obj = (SetLogTagVerbosityLevel)tlobj;
             switch (hash)
             {
-                case 0x8E0B4BDFu:
+                case 0x0389B783u:
                     obj.Tag = reader.ReadString();
                     return true;
-                case 0x488C13CCu:
+                case 0xC82CC572u:
                     obj.NewVerbosityLevel = reader.ReadInt();
                     return true;
             }
@@ -24052,7 +24052,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xD34D3804u)]
+    [TLTypeHash(0x0CD231D8u)]
     partial class GetLogTagVerbosityLevelConverter : TLObjectConverter<GetLogTagVerbosityLevel>
     {
         internal static BaseConverter CreateConverterInstance() => new GetLogTagVerbosityLevelConverter();
@@ -24063,7 +24063,7 @@ namespace TDLib.JsonClient
             var obj = (GetLogTagVerbosityLevel)tlobj;
             switch (hash)
             {
-                case 0x8E0B4BDFu:
+                case 0x0389B783u:
                     obj.Tag = reader.ReadString();
                     return true;
             }
@@ -24071,7 +24071,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x64B8C6CAu)]
+    [TLTypeHash(0x2E5621F0u)]
     partial class AddLogMessageConverter : TLObjectConverter<AddLogMessage>
     {
         internal static BaseConverter CreateConverterInstance() => new AddLogMessageConverter();
@@ -24082,10 +24082,10 @@ namespace TDLib.JsonClient
             var obj = (AddLogMessage)tlobj;
             switch (hash)
             {
-                case 0x446C53C8u:
+                case 0x3BA23781u:
                     obj.VerbosityLevel = reader.ReadInt();
                     return true;
-                case 0x2F5319E1u:
+                case 0x3B8BA7C7u:
                     obj.Text = reader.ReadString();
                     return true;
             }
@@ -24093,14 +24093,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x7EA9A872u)]
+    [TLTypeHash(0xFAF0C912u)]
     partial class TestCallEmptyConverter : TLObjectConverter<TestCallEmpty>
     {
         internal static BaseConverter CreateConverterInstance() => new TestCallEmptyConverter();
         internal static TLObject CreateObjectInstance() => new TestCallEmpty();
     }
 
-    [TLTypeHash(0x252EE580u)]
+    [TLTypeHash(0xF19CF2BCu)]
     partial class TestCallStringConverter : TLObjectConverter<TestCallString>
     {
         internal static BaseConverter CreateConverterInstance() => new TestCallStringConverter();
@@ -24111,7 +24111,7 @@ namespace TDLib.JsonClient
             var obj = (TestCallString)tlobj;
             switch (hash)
             {
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadString();
                     return true;
             }
@@ -24119,7 +24119,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x9DC2C32Cu)]
+    [TLTypeHash(0x23AEB718u)]
     partial class TestCallBytesConverter : TLObjectConverter<TestCallBytes>
     {
         internal static BaseConverter CreateConverterInstance() => new TestCallBytesConverter();
@@ -24130,7 +24130,7 @@ namespace TDLib.JsonClient
             var obj = (TestCallBytes)tlobj;
             switch (hash)
             {
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadBase64String();
                     return true;
             }
@@ -24138,7 +24138,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x40FF1C5Eu)]
+    [TLTypeHash(0xE1ABBB5Cu)]
     partial class TestCallVectorIntConverter : TLObjectConverter<TestCallVectorInt>
     {
         internal static BaseConverter CreateConverterInstance() => new TestCallVectorIntConverter();
@@ -24149,7 +24149,7 @@ namespace TDLib.JsonClient
             var obj = (TestCallVectorInt)tlobj;
             switch (hash)
             {
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadInt32Array();
                     return true;
             }
@@ -24157,7 +24157,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x4BCC934Au)]
+    [TLTypeHash(0x81107BC0u)]
     partial class TestCallVectorIntObjectConverter : TLObjectConverter<TestCallVectorIntObject>
     {
         internal static BaseConverter CreateConverterInstance() => new TestCallVectorIntObjectConverter();
@@ -24168,7 +24168,7 @@ namespace TDLib.JsonClient
             var obj = (TestCallVectorIntObject)tlobj;
             switch (hash)
             {
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadObjectArray<TestInt>();
                     return true;
             }
@@ -24176,7 +24176,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x80BB2EF6u)]
+    [TLTypeHash(0x1E0AB04Bu)]
     partial class TestCallVectorStringConverter : TLObjectConverter<TestCallVectorString>
     {
         internal static BaseConverter CreateConverterInstance() => new TestCallVectorStringConverter();
@@ -24187,7 +24187,7 @@ namespace TDLib.JsonClient
             var obj = (TestCallVectorString)tlobj;
             switch (hash)
             {
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadStringArray();
                     return true;
             }
@@ -24195,7 +24195,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xCA58B85Cu)]
+    [TLTypeHash(0xA35C327Fu)]
     partial class TestCallVectorStringObjectConverter : TLObjectConverter<TestCallVectorStringObject>
     {
         internal static BaseConverter CreateConverterInstance() => new TestCallVectorStringObjectConverter();
@@ -24206,7 +24206,7 @@ namespace TDLib.JsonClient
             var obj = (TestCallVectorStringObject)tlobj;
             switch (hash)
             {
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadObjectArray<TestString>();
                     return true;
             }
@@ -24214,7 +24214,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xF4908052u)]
+    [TLTypeHash(0x57C0648Bu)]
     partial class TestSquareIntConverter : TLObjectConverter<TestSquareInt>
     {
         internal static BaseConverter CreateConverterInstance() => new TestSquareIntConverter();
@@ -24225,7 +24225,7 @@ namespace TDLib.JsonClient
             var obj = (TestSquareInt)tlobj;
             switch (hash)
             {
-                case 0xA93C5F93u:
+                case 0x8CDC1683u:
                     obj.X = reader.ReadInt();
                     return true;
             }
@@ -24233,14 +24233,14 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0x159BCD0Eu)]
+    [TLTypeHash(0xC1D35E8Du)]
     partial class TestNetworkConverter : TLObjectConverter<TestNetwork>
     {
         internal static BaseConverter CreateConverterInstance() => new TestNetworkConverter();
         internal static TLObject CreateObjectInstance() => new TestNetwork();
     }
 
-    [TLTypeHash(0x1D7A5CB9u)]
+    [TLTypeHash(0xEAEFBC6Eu)]
     partial class TestProxyConverter : TLObjectConverter<TestProxy>
     {
         internal static BaseConverter CreateConverterInstance() => new TestProxyConverter();
@@ -24251,19 +24251,19 @@ namespace TDLib.JsonClient
             var obj = (TestProxy)tlobj;
             switch (hash)
             {
-                case 0x3C62153Au:
+                case 0x5A6DD5F6u:
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x991EB78Cu:
+                case 0x43915DCCu:
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x865F7960u:
+                case 0x8CDE5729u:
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
-                case 0xC47F0862u:
+                case 0x1A03625Fu:
                     obj.DcId = reader.ReadInt();
                     return true;
-                case 0x1472F5B1u:
+                case 0x81417592u:
                     obj.Timeout = reader.ReadDouble();
                     return true;
             }
@@ -24271,21 +24271,21 @@ namespace TDLib.JsonClient
         }
     }
 
-    [TLTypeHash(0xE3DFAA78u)]
+    [TLTypeHash(0x38BC48A9u)]
     partial class TestGetDifferenceConverter : TLObjectConverter<TestGetDifference>
     {
         internal static BaseConverter CreateConverterInstance() => new TestGetDifferenceConverter();
         internal static TLObject CreateObjectInstance() => new TestGetDifference();
     }
 
-    [TLTypeHash(0x2D337FA6u)]
+    [TLTypeHash(0xB0753A7Du)]
     partial class TestUseUpdateConverter : TLObjectConverter<TestUseUpdate>
     {
         internal static BaseConverter CreateConverterInstance() => new TestUseUpdateConverter();
         internal static TLObject CreateObjectInstance() => new TestUseUpdate();
     }
 
-    [TLTypeHash(0xCF91CE40u)]
+    [TLTypeHash(0x3E2B9A11u)]
     partial class TestReturnErrorConverter : TLObjectConverter<TestReturnError>
     {
         internal static BaseConverter CreateConverterInstance() => new TestReturnErrorConverter();
@@ -24296,7 +24296,7 @@ namespace TDLib.JsonClient
             var obj = (TestReturnError)tlobj;
             switch (hash)
             {
-                case 0x75F5FE4Bu:
+                case 0x5DDDBC71u:
                     obj.Error = reader.ReadTLObject<Error>();
                     return true;
             }

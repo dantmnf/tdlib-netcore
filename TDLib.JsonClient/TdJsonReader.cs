@@ -480,17 +480,17 @@ namespace TDLib.JsonClient
             return span.Slice(0, length).ToArray();
         }
 
-        internal uint ReadStringAsHash3()
+        internal uint ReadStringAsHash()
         {
-            var s = new Crc32CStream();
+            var s = new Crc32Stream();
             ReadStringToStream(ref s);
             return s.Hash;
         }
 
-        internal uint ReadStringAsHash()
+        internal uint ReadStringAsHash2()
         {
             var str = ReadRawString();
-            return Crc32C.Update(0, str);
+            return Crc32.Update(0, str);
         }
 
         /// <summary>
