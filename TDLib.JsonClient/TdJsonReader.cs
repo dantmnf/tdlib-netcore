@@ -42,7 +42,7 @@ namespace TDLib.JsonClient
         {
             while (cstr[position] != 0)
             {
-                
+
                 switch (cstr[position])
                 {
                     case 0x09:
@@ -430,38 +430,6 @@ namespace TDLib.JsonClient
             if (instr) throw new TdJsonReaderException(position, "incomplete input");
         }
 
-        private ReadOnlySpan<byte> ReadRawString()
-        {
-            if (cstr[position] != (byte)'"')
-                throw new TdJsonReaderException(position, "invalid value type");
-            position++;
-            var instr = true;
-            var beginliteral = position;
-            ReadOnlySpan<byte> result = default;
-            while (cstr[position] != 0 && instr)
-            {
-                switch (cstr[position])
-                {
-                    case (byte)'\\':
-                        throw new TdJsonReaderException(position, "unexpected escape sequence");
-                    case (byte)'"':
-                        if (position - beginliteral > 0)
-                        {
-                            //var bytes = Span.Slice(beginliteral, Position - beginliteral).ToArray();
-                            result = Slice(beginliteral, position);
-                        }
-                        beginliteral = position;
-                        instr = false;
-                        position++;
-                        break;
-                    default:
-                        position++;
-                        break;
-                }
-            }
-            if (instr) throw new TdJsonReaderException(position, "incomplete input");
-            return result;
-        }
         public string ReadString()
         {
             var buffer = stackalloc byte[512];
@@ -485,12 +453,6 @@ namespace TDLib.JsonClient
             var s = new Crc32Stream();
             ReadStringToStream(ref s);
             return s.Hash;
-        }
-
-        internal uint ReadStringAsHash2()
-        {
-            var str = ReadRawString();
-            return Crc32.Update(0, str);
         }
 
         /// <summary>

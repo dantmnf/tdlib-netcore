@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Text;
 
 namespace TDLib.JsonClient
@@ -21,7 +19,7 @@ namespace TDLib.JsonClient
 
         public unsafe bool SetLogFilePath(string path)
         {
-            if(path == null)
+            if (path == null)
             {
                 return Native.td_set_log_file_path(IntPtr.Zero) != 0;
             }

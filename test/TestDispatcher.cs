@@ -1,11 +1,7 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TDLib;
-using TDLib.Api;
 using ConsoleApp1.Bot;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text.RegularExpressions;
+using TDLib.Api;
 
 namespace TDLib.Test
 {
@@ -19,7 +15,7 @@ namespace TDLib.Test
             var disp = new MessageCommandDispatcher(user);
             var matched = false;
             disp.Add("testcmd", m => { matched = true; });
-            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/testcmd@otherbot", Entities = new [] { new TextEntity { Offset = 0, Length = 17, Type = new TextEntityTypeBotCommand() } } } } } });
+            disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/testcmd@otherbot", Entities = new[] { new TextEntity { Offset = 0, Length = 17, Type = new TextEntityTypeBotCommand() } } } } } });
             Assert.IsFalse(matched);
             disp.Dispatch(new UpdateNewMessage { Message = new Message { Content = new MessageText { Text = new FormattedText { Text = "/nullcmd@testbot", Entities = new[] { new TextEntity { Offset = 0, Length = 16, Type = new TextEntityTypeBotCommand() } } } } } });
             Assert.IsFalse(matched);

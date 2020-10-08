@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace TDLib.JsonClient
 {
@@ -50,11 +47,13 @@ namespace TDLib.JsonClient
         private int lengthValue;
         public int Length => lengthValue;
 
-        private readonly int RemainingCapacity => gcbuffer switch {
-            null => fixedbuffer switch { 
+        private readonly int RemainingCapacity => gcbuffer switch
+        {
+            null => fixedbuffer switch
+            {
                 null => 0,
                 _ => fixedbufferlength - lengthValue,
-            }, 
+            },
             _ => gcbuffer.Length - lengthValue,
         };
 

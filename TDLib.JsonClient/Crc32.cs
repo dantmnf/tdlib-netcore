@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Diagnostics;
 
 namespace TDLib.JsonClient
 {
@@ -75,7 +71,7 @@ namespace TDLib.JsonClient
             uint crcLocal = uint.MaxValue ^ crc;
             var length = input.Length;
             var offset = 0;
-            
+
             while (length >= 16)
             {
                 var a = table[(3 * 256) + input[offset + 12]]

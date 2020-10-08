@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Text.Json;
 using TDLib.Api;
 
@@ -54,7 +51,7 @@ namespace TDLib.JsonClient
             if (_typehash_map.TryGetValue(typehash, out var ctors))
             {
                 return (ctors.obj(), ctors.mar());
-                
+
             }
             throw new ArgumentException($"unknown typehash {typehash}");
         }

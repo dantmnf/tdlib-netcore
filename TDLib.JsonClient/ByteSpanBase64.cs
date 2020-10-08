@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TDLib.JsonClient
 {
@@ -8,7 +6,7 @@ namespace TDLib.JsonClient
     {
 
         // FIXME: broken
-        
+
 
         private const string table = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>@@@?456789:;<=@@@@@@@\0\u0001\u0002\u0003\u0004\u0005\u0006\a\b\t\n\v\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019@@@@@@\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123@@@@";
 
@@ -64,11 +62,11 @@ namespace TDLib.JsonClient
                     {
                         var index3 = IndexOf(input[offset]);
                         output[2] = (byte)((index2 << 6) | index3);
-                        return (offset+1, 3);
+                        return (offset + 1, 3);
                     }
-                    return (offset+1, 2);
+                    return (offset + 1, 2);
                 }
-                return (offset+1, 1);
+                return (offset + 1, 1);
             }
         }
 

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-
 namespace TDLib.Api
 {
     public interface IMessageContentWithCaption

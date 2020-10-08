@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Runtime.CompilerServices;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
@@ -308,7 +306,7 @@ namespace TDLib.JsonClient
 
     public unsafe class TdJsonSlimStreamWriter<T> : TdJsonWriter where T : ISlimStreamWriter
     {
-        
+
         private T stream;
 
         public TdJsonSlimStreamWriter(T x)

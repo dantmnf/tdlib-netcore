@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.IO;
-using System.Text;
 
 namespace TDLib.JsonClient
 {
@@ -15,7 +13,7 @@ namespace TDLib.JsonClient
 
         internal static ReadOnlySpan<byte> Slice(int pos, int len)
         {
-            if(_poolarr!= null)
+            if (_poolarr != null)
             {
                 return _poolarr.AsSpan().Slice(pos, len);
             }
@@ -25,7 +23,7 @@ namespace TDLib.JsonClient
         static StringPool()
         {
             var stream = typeof(StringPool).Assembly.GetManifestResourceStream("TDLib.JsonClient.Generated.pool.dat");
-            if(stream == null)
+            if (stream == null)
             {
                 throw new TypeLoadException("embedded resource pool.dat not found");
             }
@@ -42,14 +40,14 @@ namespace TDLib.JsonClient
                 _poolarr = new byte[stream.Length];
                 stream.Read(_poolarr);
             }
-            
+
             var pool = Slice(0, _poollen);
             if (Crc32.Update(0, pool) != _poolcrc)
             {
                 throw new TypeLoadException("pool crc mismatch");
             }
         }
-        
+
 
 
     }

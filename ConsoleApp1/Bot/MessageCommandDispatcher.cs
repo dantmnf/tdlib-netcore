@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
 using TDLib.Api;
 
 namespace ConsoleApp1.Bot
@@ -63,7 +61,7 @@ namespace ConsoleApp1.Bot
             }
             else
             {
-                var botincmd = fullcommand.Substring(atpos+1);
+                var botincmd = fullcommand.Substring(atpos + 1);
                 if (!string.IsNullOrEmpty(botusername))
                 {
                     return botincmd == botusername ? fullcommand.Substring(1, atpos - 1) : null;

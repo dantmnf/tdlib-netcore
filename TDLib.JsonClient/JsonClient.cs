@@ -1,7 +1,5 @@
 using System;
-using System.IO;
 using System.Threading;
-using TDLib;
 using TDLib.Api;
 using static TDLib.JsonClient.Native;
 

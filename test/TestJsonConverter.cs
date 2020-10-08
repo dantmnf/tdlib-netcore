@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Text;
 using TDLib.Api;
 using TDLib.JsonClient;
 
@@ -18,7 +17,7 @@ namespace TDLib.Test
             ReadOnlySpan<byte> bytes = Encoding.UTF8.GetBytes(json);
             //var obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
             TLObject obj;
-            fixed(byte* ptr = bytes)
+            fixed (byte* ptr = bytes)
                 obj = TDLib.JsonClient.JsonClient.CStringToTLObject(ptr).TLObject;
             Assert.IsTrue(obj is ReplyMarkupInlineKeyboard);
             var kb = (ReplyMarkupInlineKeyboard)obj;
@@ -31,7 +30,7 @@ namespace TDLib.Test
             //obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
 
             bytes = TDLib.JsonClient.JsonClient.TLObjectToBytes(new TLObjectWithExtra() { TLObject = obj }, null, 0);
-            fixed(byte* ptr = bytes)
+            fixed (byte* ptr = bytes)
                 obj = TDLib.JsonClient.JsonClient.CStringToTLObject(ptr).TLObject;
 
             Assert.IsTrue(obj is ReplyMarkupInlineKeyboard);

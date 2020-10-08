@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using TDLib;
 using TDLib.Api;
 using TDLib.CxxClient.CxxInterop;
 using static TDLib.CxxClient.Native;

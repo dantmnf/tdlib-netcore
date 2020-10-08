@@ -1,15 +1,11 @@
 using System;
-using System.Threading.Tasks;
 using System.IO;
-using TDLib.Api;
-using System.Linq;
-using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using TDLib;
+using TDLib.Api;
 using TDLib.ClientExtensions;
 using TDLib.CxxClient;
-using TDLib.JsonClient;
-using System.Threading;
-using System.Dynamic;
 
 namespace ConsoleApp1
 {
@@ -24,7 +20,7 @@ namespace ConsoleApp1
 
         private static async void AuthHandler(object sender, Update u)
         {
-            var client = (Client) sender;
+            var client = (Client)sender;
             if (u is UpdateAuthorizationState uas)
             {
                 try
@@ -95,7 +91,7 @@ namespace ConsoleApp1
                         waitAuthReady.SetResult(true);
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     waitAuthReady.SetException(e);
                 }
@@ -110,7 +106,8 @@ namespace ConsoleApp1
             var ct = cts.Token;
             var canceltasksrc = new TaskCompletionSource<bool>();
             ct.Register(canceltasksrc.SetCanceled);
-            Console.CancelKeyPress += (sender, e) => {
+            Console.CancelKeyPress += (sender, e) =>
+            {
                 Console.WriteLine("stopping...");
                 cts.Cancel();
                 e.Cancel = true;

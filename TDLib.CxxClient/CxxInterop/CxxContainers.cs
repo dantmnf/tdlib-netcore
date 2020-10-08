@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text;
 using TDLib.Api;
 using static TDLib.CxxClient.Native;
 
@@ -74,7 +73,7 @@ namespace TDLib.CxxClient.CxxInterop
                 td_bridge_string_setdata(ptr, x, value.Length);
         }
 
-        public static implicit operator byte[] (CxxBytes x) => x.ToArray();
+        public static implicit operator byte[](CxxBytes x) => x.ToArray();
         public static implicit operator ReadOnlySpan<byte>(CxxBytes x) => x.AsSpan();
         public static implicit operator IntPtr(CxxBytes x) => x.ptr;
 
@@ -155,7 +154,7 @@ namespace TDLib.CxxClient.CxxInterop
                 td_bridge_vector_int32_assign(ptr, x, value.Length);
         }
 
-        public static implicit operator int[] (CxxVectorInt32 x) => x.ToArray();
+        public static implicit operator int[](CxxVectorInt32 x) => x.ToArray();
         public static implicit operator ReadOnlySpan<int>(CxxVectorInt32 x) => x.AsSpan();
         public static implicit operator IntPtr(CxxVectorInt32 x) => x.ptr;
 
@@ -253,7 +252,7 @@ namespace TDLib.CxxClient.CxxInterop
         {
             var len = td_bridge_vector_object_size(ptr);
             var result = new T[len];
-            for(long i = 0; i<len; i++)
+            for (long i = 0; i < len; i++)
             {
                 result[i] = new CxxTLObject<T>(td_bridge_vector_object_at(ptr, i)).Fetch();
             }

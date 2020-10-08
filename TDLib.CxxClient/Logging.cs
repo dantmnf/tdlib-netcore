@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Text;
-using TDLib;
 using static TDLib.CxxClient.Native;
 
 namespace TDLib.CxxClient

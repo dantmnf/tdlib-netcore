@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Text;
 using TDLib.CxxClient.CxxInterop;
 #pragma warning disable IDE1006 // Naming Styles
 

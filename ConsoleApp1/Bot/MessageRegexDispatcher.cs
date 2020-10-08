@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Linq;
-using System.Threading.Tasks;
 using TDLib.Api;
-using System.Reflection;
 
 namespace ConsoleApp1.Bot
 {
@@ -38,10 +34,10 @@ namespace ConsoleApp1.Bot
             var message = unm.Message;
             var ft = message.Content.TryGetTextOrCaption();
             if (ft == null) return;
-            foreach(var ((regex, opt), handler) in registered)
+            foreach (var ((regex, opt), handler) in registered)
             {
                 var match = Regex.Matches(ft.Text, regex, opt);
-                if(match.Count != 0)
+                if (match.Count != 0)
                 {
                     handler(message, match);
                 }

@@ -1,13 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Collections.Concurrent;
-using System.Text;
-using TDLib.Api;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Linq;
+using TDLib.Api;
 
 namespace TDLib
 {
@@ -27,7 +24,7 @@ namespace TDLib
 
         public event EventHandler<Update> Update;
         private int loopRunning;
-        public bool EventLoopRunning => loopRunning!=0;
+        public bool EventLoopRunning => loopRunning != 0;
 
 
 
@@ -43,7 +40,8 @@ namespace TDLib
         /// Responses to TDLib requests will have the same id as the corresponding request.
         /// Updates from TDLib will have id == 0, incoming requests are thus disallowed to have id == 0.
         /// </param>
-        public void Send(Function func, long id = 0) {
+        public void Send(Function func, long id = 0)
+        {
             if (dirty == DirtyFlag.EventLoop)
             {
                 throw new InvalidOperationException("Cannot use Client.Send if using event loop.");
@@ -104,7 +102,7 @@ namespace TDLib
         /// </summary>
         public void RunEventLoop()
         {
-            if(dirty == DirtyFlag.ManualSend)
+            if (dirty == DirtyFlag.ManualSend)
             {
                 throw new InvalidOperationException("Cannot run event loop after Client.Send.");
             }
