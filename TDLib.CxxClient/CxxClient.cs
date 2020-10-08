@@ -11,7 +11,7 @@ using static TDLib.CxxClient.Native;
 
 namespace TDLib.CxxClient
 {
-    public sealed class CxxClient : Client, IDisposable
+    public sealed class CxxClient : Client
     {
         public static ITdClientLogging Logging { get; private set; } = new CxxClientLogging();
         private IntPtr ptr;
