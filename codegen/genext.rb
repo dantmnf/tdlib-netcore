@@ -43,9 +43,10 @@ def emit_function(io, type)
     "#{type} #{argname} = #{DefaultValue[type]}"
   end
 
-
+  restype = type.tl_class == :Ok ? 'void' : check_csharp_keyword(type.tl_class)
+  asyncrestype = restype == 'void' ? 'Task' : "Task<#{restype}>"
   arglist2 = ["this Client client"] + arglist
-  io.puts "public static async Task<#{check_csharp_keyword type.tl_class}> #{check_csharp_keyword type.name}(#{arglist2.join(", ")})"
+  io.puts "public static async #{asyncrestype} #{check_csharp_keyword type.name}(#{arglist2.join(", ")})"
 
   io.puts "{"
   io.push
@@ -67,7 +68,11 @@ def emit_function(io, type)
   end
   emit_factory.call
 
-  io.puts "return await client.InvokeAsync(obj);"
+  if restype == 'void'
+    io.puts "_ = await client.InvokeAsync<Ok>(obj);"
+  else
+    io.puts "return await client.InvokeAsync(obj);"
+  end
 
   io.pop
   io.puts "}"
@@ -77,11 +82,15 @@ def emit_function(io, type)
     emit_doc.call
     io.puts "/// <remarks>This extension method is synchronous.</remarks>"
     arglist3 = ["this Client client"] + arglist
-    io.puts "public static #{check_csharp_keyword type.tl_class} #{check_csharp_keyword type.name}Sync(#{arglist3.join(", ")})"
+    io.puts "public static #{restype} #{check_csharp_keyword type.name}Sync(#{arglist3.join(", ")})"
     io.puts "{"
     io.push
     emit_factory.call
-    io.puts "return client.Execute(obj);"
+    if restype == 'void'
+      io.puts "_ = client.Execute<Ok>(obj);"
+    else
+      io.puts "return client.Execute(obj);"
+    end
     io.pop
     io.puts "}"
     io.puts ""

@@ -1,6 +1,5 @@
 require 'zlib'
 require_relative 'common'
-require_relative 'crc32c'
 
 def hashfn(x)
   Zlib.crc32(x)
