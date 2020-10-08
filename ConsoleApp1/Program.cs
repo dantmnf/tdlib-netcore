@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using TDLib;
 using TDLib.Api;
 using TDLib.ClientExtensions;
-using TDLib.CxxClient;
+using TDLib.NativeClient;
 
 namespace ConsoleApp1
 {
@@ -100,7 +100,7 @@ namespace ConsoleApp1
 
         public static async Task Main()
         {
-            //CxxClient.Logging.VerbosityLevel = 1;
+            //NativeClient.Logging.VerbosityLevel = 1;
             var eval = new ScriptEvaluator();
             var cts = new CancellationTokenSource();
             var ct = cts.Token;
@@ -113,7 +113,7 @@ namespace ConsoleApp1
                 e.Cancel = true;
             };
 
-            using (var client = new CxxClient())
+            using (var client = new NativeClient())
             {
                 waitAuthReady = new TaskCompletionSource<bool>();
                 client.Update += AuthHandler;

@@ -82,8 +82,8 @@ namespace bench
             //var mean = tss.Average(x=>x.TotalSeconds);
             //var stddev = Math.Sqrt(tss.Average(x => Math.Pow(x.TotalSeconds - mean, 2)));
             //Console.WriteLine($"Min = {tss.Min().TotalSeconds}, Max = {tss.Max().TotalSeconds}, Mean = {mean}, stddev = {stddev}");
-            //CxxClient.Logging.VerbosityLevel = 1;
-            //using (var client = new CxxClient())
+            //NativeClient.Logging.VerbosityLevel = 1;
+            //using (var client = new NativeClient())
             //{
             //    cxxts = BenchSynchronous(client, func);
             //    //BenchAsynchronous(client, func).GetAwaiter().GetResult();

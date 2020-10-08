@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib", "TDLib\TDLib.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.Test", "test\TDLib.Test.csproj", "{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.CxxClient", "TDLib.CxxClient\TDLib.CxxClient.csproj", "{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.NativeClient", "TDLib.NativeClient\TDLib.NativeClient.csproj", "{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.JsonClient", "TDLib.JsonClient\TDLib.JsonClient.csproj", "{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}"
 EndProject

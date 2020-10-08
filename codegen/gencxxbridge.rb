@@ -117,11 +117,11 @@ def emit(out=STDOUT)
   io.puts "using System.Security;"
   io.puts "using System.Runtime.InteropServices;"
   io.puts "using TDLib.Api;"
-  io.puts "using TDLib.CxxClient.CxxInterop;"
+  io.puts "using TDLib.NativeClient.CxxInterop;"
   io.puts ""
   io.puts "#pragma warning disable IDE1006 // Naming Styles"
   io.puts ""
-  io.puts "namespace TDLib.CxxClient"
+  io.puts "namespace TDLib.NativeClient"
   io.puts "{"
   io.push
 

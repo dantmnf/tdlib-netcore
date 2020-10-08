@@ -1,7 +1,7 @@
 using System;
 using TDLib.Api;
 
-namespace TDLib.CxxClient
+namespace TDLib.NativeClient
 {
     internal abstract class BaseCxxBridge
     {

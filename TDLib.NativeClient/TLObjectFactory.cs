@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TDLib.Api;
-using static TDLib.CxxClient.Native;
+using static TDLib.NativeClient.Native;
 
-namespace TDLib.CxxClient
+namespace TDLib.NativeClient
 {
     internal static partial class TLObjectFactory
     {

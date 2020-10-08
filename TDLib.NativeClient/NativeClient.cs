@@ -1,18 +1,18 @@
 using System;
 using System.Threading;
 using TDLib.Api;
-using TDLib.CxxClient.CxxInterop;
-using static TDLib.CxxClient.Native;
+using TDLib.NativeClient.CxxInterop;
+using static TDLib.NativeClient.Native;
 
 
-namespace TDLib.CxxClient
+namespace TDLib.NativeClient
 {
-    public sealed class CxxClient : Client
+    public sealed class NativeClient : Client
     {
         public static ITdClientLogging Logging { get; private set; } = new CxxClientLogging();
         private IntPtr ptr;
 
-        public CxxClient()
+        public NativeClient()
         {
             ptr = td_bridge_client_create();
         }
@@ -43,7 +43,7 @@ namespace TDLib.CxxClient
         {
             //var objptr = td_bridge_client_receive(ptr, timeout, out var id);
             //return (id, FetchAndFreeObject(objptr));
-            if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(CxxClient));
+            if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(NativeClient));
             TLObject obj = null;
             long id = 0;
             td_bridge_client_receive(ptr, timeout, (ptr, id_) =>
@@ -59,7 +59,7 @@ namespace TDLib.CxxClient
 
         protected override void DoSend(Function func, long id)
         {
-            if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(CxxClient));
+            if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(NativeClient));
             td_bridge_client_send(ptr, id, TLObjectFactory.CreateCxxObject(func));
         }
 

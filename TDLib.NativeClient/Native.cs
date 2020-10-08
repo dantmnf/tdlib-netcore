@@ -2,10 +2,10 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
-using TDLib.CxxClient.CxxInterop;
+using TDLib.NativeClient.CxxInterop;
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace TDLib.CxxClient
+namespace TDLib.NativeClient
 {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FatalErrorCallback(IntPtr message);

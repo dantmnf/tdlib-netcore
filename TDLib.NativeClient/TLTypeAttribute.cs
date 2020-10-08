@@ -1,6 +1,6 @@
 using System;
 
-namespace TDLib.CxxClient
+namespace TDLib.NativeClient
 {
     class TLTypeIDAttribute : Attribute
     {

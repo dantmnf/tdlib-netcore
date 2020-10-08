@@ -1,7 +1,7 @@
 using System;
-using static TDLib.CxxClient.Native;
+using static TDLib.NativeClient.Native;
 
-namespace TDLib.CxxClient.CxxInterop
+namespace TDLib.NativeClient.CxxInterop
 {
     static class CxxAbi
     {

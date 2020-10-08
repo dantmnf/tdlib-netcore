@@ -2,7 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace TDLib.CxxClient.CxxInterop
+namespace TDLib.NativeClient.CxxInterop
 {
     /// <summary>
     /// bool*

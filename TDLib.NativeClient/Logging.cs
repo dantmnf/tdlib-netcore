@@ -1,8 +1,8 @@
 using System;
 using System.Text;
-using static TDLib.CxxClient.Native;
+using static TDLib.NativeClient.Native;
 
-namespace TDLib.CxxClient
+namespace TDLib.NativeClient
 {
     internal class CxxClientLogging : ITdClientLogging
     {

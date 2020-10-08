@@ -4,9 +4,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using TDLib.Api;
-using static TDLib.CxxClient.Native;
+using static TDLib.NativeClient.Native;
 
-namespace TDLib.CxxClient.CxxInterop
+namespace TDLib.NativeClient.CxxInterop
 {
 
 
