@@ -1,19 +1,20 @@
 using System;
+using System.Buffers;
 using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace TDLib.JsonClient
 {
-    public interface ISlimStreamWriter
+    internal interface ISlimWriter
     {
         void Write(ReadOnlySpan<byte> span);
         void WriteByte(byte x);
     }
 
-    public class SlimStreamWrapper : ISlimStreamWriter
+    internal struct SlimStreamWriter : ISlimWriter
     {
         readonly Stream stream;
-        public SlimStreamWrapper(Stream s)
+        public SlimStreamWriter(Stream s)
         {
             stream = s;
         }
@@ -28,7 +29,7 @@ namespace TDLib.JsonClient
         }
     }
 
-    public struct NullSlimStream : ISlimStreamWriter
+    internal struct NullSlimWriter : ISlimWriter
     {
         public void Write(ReadOnlySpan<byte> span)
         {
@@ -39,107 +40,26 @@ namespace TDLib.JsonClient
         }
     }
 
-    public unsafe struct SlimMemoryStream : ISlimStreamWriter
+    internal struct BufferSlimWriter : ISlimWriter
     {
-        private byte* fixedbuffer;
-        private int fixedbufferlength;
-        internal byte[] gcbuffer;
-        private int lengthValue;
-        public int Length => lengthValue;
+        private IBufferWriter<byte> writer;
 
-        private readonly int RemainingCapacity => gcbuffer switch
+        public BufferSlimWriter(IBufferWriter<byte> writer)
         {
-            null => fixedbuffer switch
-            {
-                null => 0,
-                _ => fixedbufferlength - lengthValue,
-            },
-            _ => gcbuffer.Length - lengthValue,
-        };
-
-        public SlimMemoryStream(int capacity)
-        {
-            gcbuffer = new byte[capacity];
-            fixedbuffer = null;
-            fixedbufferlength = 0;
-            lengthValue = 0;
+            this.writer = writer;
         }
-
-        public SlimMemoryStream(byte* initialFixedBuffer, int length)
-        {
-            fixedbuffer = initialFixedBuffer;
-            fixedbufferlength = length;
-            gcbuffer = initialFixedBuffer == null ? new byte[256] : null;
-            lengthValue = 0;
-        }
-
-        private void ExpandBuffer(int minLength)
-        {
-            int newcap;
-            ReadOnlySpan<byte> srcSpan;
-            if (fixedbuffer != null)
-            {
-                // called in EnsureRemainingCpacity, need to allocate GC buffer
-                srcSpan = new Span<byte>(fixedbuffer, fixedbufferlength);
-                newcap = fixedbufferlength + minLength;
-            }
-            else
-            {
-                srcSpan = gcbuffer.AsSpan().Slice(0, lengthValue);
-                newcap = gcbuffer.Length + minLength;
-            }
-            newcap = (newcap + 255) & (~255);
-            var newbuf = new byte[newcap];
-            //Buffer.BlockCopy(buffer, 0, newbuf, 0, buffer.Length);
-            srcSpan.CopyTo(newbuf);
-            gcbuffer = newbuf;
-            if (fixedbuffer != null)
-            {
-                fixedbuffer = null;
-                fixedbufferlength = 0;
-            }
-        }
-
-        public void PromoteToGCHeap()
-        {
-            if (fixedbuffer != null)
-            {
-                gcbuffer = new Span<byte>(fixedbuffer, fixedbufferlength).ToArray();
-                fixedbuffer = null;
-                fixedbufferlength = 0;
-            }
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void EnsureRemainingCpacity(int length)
-        {
-            if (RemainingCapacity >= length) return;
-            ExpandBuffer(length);
-        }
-
         public void Write(ReadOnlySpan<byte> span)
         {
-            EnsureRemainingCpacity(span.Length);
-            var buffer = fixedbuffer != null ? new Span<byte>(fixedbuffer, fixedbufferlength) : gcbuffer;
-            span.CopyTo(buffer.Slice(lengthValue));
-            lengthValue += span.Length;
+            var dest = writer.GetSpan(span.Length);
+            span.CopyTo(dest);
+            writer.Advance(span.Length);
         }
 
         public void WriteByte(byte x)
         {
-            EnsureRemainingCpacity(1);
-            var buffer = fixedbuffer != null ? new Span<byte>(fixedbuffer, fixedbufferlength) : gcbuffer;
-            buffer[lengthValue] = x;
-            lengthValue += 1;
+            var dest = writer.GetSpan(1);
+            dest[0] = x;
+            writer.Advance(1);
         }
-
-        public Span<byte> GetSpan()
-        {
-            var buffer = fixedbuffer != null ? new Span<byte>(fixedbuffer, fixedbufferlength) : gcbuffer;
-            return buffer.Slice(0, lengthValue);
-        }
-
-        public ReadOnlySpan<byte> GetReadOnlySpan() => GetSpan();
-
     }
 }

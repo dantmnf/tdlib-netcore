@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Threading;
 using TDLib.Api;
 using static TDLib.JsonClient.Native;
@@ -23,19 +24,19 @@ namespace TDLib.JsonClient
             return obj;
         }
 
-        internal static ReadOnlySpan<byte> TLObjectToBytes(TLObjectWithExtra obj, byte* fixedbuffer, int fixedbufferlen)
+        internal static ReadOnlySpan<byte> TLObjectToBytes(TLObjectWithExtra obj)
         {
-            var writer = new TdJsonSlimStreamWriter<SlimMemoryStream>(new SlimMemoryStream(fixedbuffer, fixedbufferlen));
+            var buffer = new ArrayPoolBufferWriter<byte>(512);
+            var writer = new TdJsonBufferWriter(buffer);
             writer.WriteValue(obj);
-            ref var stream = ref writer.GetStreamRef();
-            stream.WriteByte(0);
-            return stream.GetReadOnlySpan();
+            byte zero = 0;
+            buffer.Write(new ReadOnlySpan<byte>(&zero, 1));
+            return buffer.WrittenSpan;
         }
 
         public override TLObject Execute(Function func)
         {
-            var bufferspan = stackalloc byte[512];
-            var requestbytes = TLObjectToBytes(new TLObjectWithExtra { TLObject = func }, bufferspan, 512);
+            var requestbytes = TLObjectToBytes(new TLObjectWithExtra { TLObject = func });
             byte* result;
             fixed (byte* str = requestbytes)
                 result = td_json_client_execute(unmanaged_client, str);
@@ -55,7 +56,7 @@ namespace TDLib.JsonClient
         protected override void DoSend(Function func, long id = 99)
         {
             var buffer = stackalloc byte[512];
-            var requestbytes = TLObjectToBytes(new TLObjectWithExtra { TLObject = func, Extra = id }, buffer, 512);
+            var requestbytes = TLObjectToBytes(new TLObjectWithExtra { TLObject = func, Extra = id });
             fixed (byte* str = requestbytes)
                 td_json_client_send(unmanaged_client, str);
         }

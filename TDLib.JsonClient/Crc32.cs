@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Runtime.InteropServices;
 using System.Security;
 
@@ -106,11 +107,11 @@ namespace TDLib.JsonClient
         }
     }
 
-    internal unsafe struct Crc32Stream : ISlimStreamWriter
+    internal unsafe struct Crc32SlimWriter : ISlimWriter
     {
         public uint Hash;
 
-        public static Crc32Stream Create() => new Crc32Stream();
+        public static Crc32SlimWriter Create() => new Crc32SlimWriter();
         public void WriteByte(byte value)
         {
             Hash = Crc32.Update(Hash, new ReadOnlySpan<byte>(&value, 1));

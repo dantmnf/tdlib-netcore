@@ -29,7 +29,7 @@ namespace TDLib.Test
             //json = JsonConvert.SerializeObject(kb, Formatting.None, setting);
             //obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
 
-            bytes = TDLib.JsonClient.JsonClient.TLObjectToBytes(new TLObjectWithExtra() { TLObject = obj }, null, 0);
+            bytes = TDLib.JsonClient.JsonClient.TLObjectToBytes(new TLObjectWithExtra() { TLObject = obj });
             fixed (byte* ptr = bytes)
                 obj = TDLib.JsonClient.JsonClient.CStringToTLObject(ptr).TLObject;
 

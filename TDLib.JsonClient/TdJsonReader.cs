@@ -1,4 +1,6 @@
 using System;
+using System.Buffers;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -300,7 +302,7 @@ namespace TDLib.JsonClient
             return result;
         }
 
-        private unsafe void StreamWriteUTF8Codepoint<T>(ref T ms, uint codepoint) where T : ISlimStreamWriter
+        private unsafe void StreamWriteUTF8Codepoint<T>(ref T ms, uint codepoint) where T : ISlimWriter
         {
             if (codepoint <= 0x7F)
             {
@@ -338,7 +340,7 @@ namespace TDLib.JsonClient
             }
         }
 
-        private void ReadStringToStream<T>(ref T ms) where T : ISlimStreamWriter // generics with type constraint is needed to pass struct reference without boxing
+        private void ReadStringToStream<T>(ref T ms) where T : ISlimWriter // generics with type constraint is needed to pass struct reference without boxing
         {
             if (cstr[position] != (byte)'"')
                 throw new TdJsonReaderException(position, "invalid value type");
@@ -430,27 +432,36 @@ namespace TDLib.JsonClient
             if (instr) throw new TdJsonReaderException(position, "incomplete input");
         }
 
+        private ArrayPoolBufferWriter<byte> ReadStringAsBuffer()
+        {
+            var bufwriter = new ArrayPoolBufferWriter<byte>(512);
+            var slimwriter = new BufferSlimWriter(bufwriter);
+            ReadStringToStream(ref slimwriter);
+            return bufwriter;
+        }
+
         public string ReadString()
         {
-            var buffer = stackalloc byte[512];
-            var ms = new SlimMemoryStream(buffer, 512);
-            ReadStringToStream(ref ms);
-            return Encoding.UTF8.GetString(ms.GetReadOnlySpan());
+            using var buffer = ReadStringAsBuffer();
+            return Encoding.UTF8.GetString(buffer.WrittenSpan);
         }
 
         public byte[] ReadBase64String()
         {
-            var buffer = stackalloc byte[512];
-            var ms = new SlimMemoryStream(buffer, 512);
-            ReadStringToStream(ref ms);
-            var span = ms.GetSpan();
-            System.Buffers.Text.Base64.DecodeFromUtf8InPlace(span, out var length);
+            var start = position;
+            using var buffer = ReadStringAsBuffer();
+            var span = buffer.GetSpan();
+            var result = Base64.DecodeFromUtf8InPlace(span, out var length);
+            if (result != OperationStatus.Done)
+            {
+                throw new TdJsonReaderException(start, "invalid base64 string");
+            }
             return span.Slice(0, length).ToArray();
         }
 
         internal uint ReadStringAsHash()
         {
-            var s = new Crc32Stream();
+            var s = new Crc32SlimWriter();
             ReadStringToStream(ref s);
             return s.Hash;
         }

@@ -1,14 +1,17 @@
 using System;
+using System.Buffers;
+using System.IO;
+using System.Text.Json;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
 {
-    public unsafe abstract partial class TdJsonWriter
+    internal abstract unsafe partial class TdJsonWriter
     {
         // partial const int _extrapos;
         // partial const int _extralen;
         public abstract void WriteSpan(ReadOnlySpan<byte> span);
-        protected abstract void StreamWriteByte(byte value);
+        protected abstract void WriteOutputByte(byte value);
 
         private void WriteASCIIStringBody(string str)
         {
@@ -59,16 +62,16 @@ namespace TDLib.JsonClient
                 WriteSpan(new ReadOnlySpan<byte>(&qqqq, 2));
                 return;
             }
-            StreamWriteByte((byte)'"');
+            WriteOutputByte((byte)'"');
 
             for (int i = 0; i < value.Length; i++)
             {
                 var chr = value[i];
                 if (chr >= 0x20 && chr <= 0x7E)
                 {
-                    if (chr == '"') StreamWriteByte(0x5C);
-                    StreamWriteByte((byte)chr);
-                    if (chr == 0x5C) StreamWriteByte(0x5C);
+                    if (chr == '"') WriteOutputByte(0x5C);
+                    WriteOutputByte((byte)chr);
+                    if (chr == 0x5C) WriteOutputByte(0x5C);
                 }
                 else if (chr == '\b')
                 {
@@ -107,7 +110,7 @@ namespace TDLib.JsonClient
 
                 }
             }
-            StreamWriteByte((byte)'"');
+            WriteOutputByte((byte)'"');
 
         }
 
@@ -205,14 +208,14 @@ namespace TDLib.JsonClient
 
         public void WriteInt64String(long value)
         {
-            StreamWriteByte((byte)'"');
+            WriteOutputByte((byte)'"');
             WriteValue(value);
-            StreamWriteByte((byte)'"');
+            WriteOutputByte((byte)'"');
         }
 
         public void WriteEndObject()
         {
-            StreamWriteByte((byte)'}');
+            WriteOutputByte((byte)'}');
         }
 
         public void WriteBytesValue(byte[] value)
@@ -228,106 +231,102 @@ namespace TDLib.JsonClient
 
         public void WriteArray(int[] value)
         {
-            StreamWriteByte((byte)'[');
+            WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) StreamWriteByte((byte)',');
+                if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
-            StreamWriteByte((byte)']');
+            WriteOutputByte((byte)']');
         }
 
         public void WriteArray(long[] value)
         {
-            StreamWriteByte((byte)'[');
+            WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) StreamWriteByte((byte)',');
+                if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
-            StreamWriteByte((byte)']');
+            WriteOutputByte((byte)']');
         }
 
         public void WriteArray(string[] value)
         {
-            StreamWriteByte((byte)'[');
+            WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) StreamWriteByte((byte)',');
+                if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
-            StreamWriteByte((byte)']');
+            WriteOutputByte((byte)']');
         }
 
         public void WriteArray(byte[][] value)
         {
-            StreamWriteByte((byte)'[');
+            WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteBytesValue(value[i]);
-                if (i != value.Length - 1) StreamWriteByte((byte)',');
+                if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
-            StreamWriteByte((byte)']');
+            WriteOutputByte((byte)']');
         }
 
         public void WriteArray(TLObject[] value)
         {
-            StreamWriteByte((byte)'[');
+            WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteValue(value[i]);
-                if (i != value.Length - 1) StreamWriteByte((byte)',');
+                if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
-            StreamWriteByte((byte)']');
+            WriteOutputByte((byte)']');
         }
 
         public void WriteArray(TLObject[][] value)
         {
-            StreamWriteByte((byte)'[');
+            WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteArray(value[i]);
-                if (i != value.Length - 1) StreamWriteByte((byte)',');
+                if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
-            StreamWriteByte((byte)']');
+            WriteOutputByte((byte)']');
         }
 
         internal void WriteInt64Array(long[] value)
         {
-            StreamWriteByte((byte)'[');
+            WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
                 WriteInt64String(value[i]);
-                if (i != value.Length - 1) StreamWriteByte((byte)',');
+                if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
-            StreamWriteByte((byte)']');
+            WriteOutputByte((byte)']');
         }
     }
 
-    public unsafe class TdJsonSlimStreamWriter<T> : TdJsonWriter where T : ISlimStreamWriter
+    internal class TdJsonBufferWriter : TdJsonWriter
     {
+        private IBufferWriter<byte> writer;
 
-        private T stream;
-
-        public TdJsonSlimStreamWriter(T x)
+        public TdJsonBufferWriter(IBufferWriter<byte> writer)
         {
-            stream = x;
+            this.writer = writer;
+        }
+        public override void WriteSpan(ReadOnlySpan<byte> span)
+        {
+            var dest = writer.GetSpan(span.Length);
+            span.CopyTo(dest);
+            writer.Advance(span.Length);
         }
 
-        public ref T GetStreamRef()
+        protected override void WriteOutputByte(byte value)
         {
-            return ref stream;
+            var dest = writer.GetSpan(1);
+            dest[0] = value;
+            writer.Advance(1);
         }
-
-        public override void WriteSpan(ReadOnlySpan<byte> value)
-        {
-            stream.Write(value);
-        }
-
-        protected override void StreamWriteByte(byte value)
-        {
-            stream.WriteByte(value);
-        }
-
     }
 }
