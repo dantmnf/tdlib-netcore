@@ -24,20 +24,20 @@ namespace TDLib.JsonClient
             return obj;
         }
 
-        internal static ReadOnlySpan<byte> TLObjectToBytes(TLObjectWithExtra obj)
+        internal static void TLObjectToBytes(TLObjectWithExtra obj, IBufferWriter<byte> buffer)
         {
-            var buffer = new ArrayPoolBufferWriter<byte>(512);
             var writer = new TdJsonBufferWriter(buffer);
             writer.WriteValue(obj);
             byte zero = 0;
             buffer.Write(new ReadOnlySpan<byte>(&zero, 1));
-            return buffer.WrittenSpan;
         }
 
         public override TLObject Execute(Function func)
         {
-            var requestbytes = TLObjectToBytes(new TLObjectWithExtra { TLObject = func });
-            byte* result;
+            using var buffer = new ArrayPoolBufferWriter<byte>(512);
+            TLObjectToBytes(new TLObjectWithExtra { TLObject = func }, buffer);
+            var requestbytes = buffer.WrittenSpan;
+            byte * result;
             fixed (byte* str = requestbytes)
                 result = td_json_client_execute(unmanaged_client, str);
             if (result == null) return null;
@@ -55,8 +55,9 @@ namespace TDLib.JsonClient
 
         protected override void DoSend(Function func, long id = 99)
         {
-            var buffer = stackalloc byte[512];
-            var requestbytes = TLObjectToBytes(new TLObjectWithExtra { TLObject = func, Extra = id });
+            using var buffer = new ArrayPoolBufferWriter<byte>(512);
+            TLObjectToBytes(new TLObjectWithExtra { TLObject = func }, buffer);
+            var requestbytes = buffer.WrittenSpan;
             fixed (byte* str = requestbytes)
                 td_json_client_send(unmanaged_client, str);
         }

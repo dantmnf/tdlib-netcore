@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Buffers;
 using System.Text;
 using TDLib.Api;
 using TDLib.JsonClient;
@@ -28,8 +29,9 @@ namespace TDLib.Test
 
             //json = JsonConvert.SerializeObject(kb, Formatting.None, setting);
             //obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
-
-            bytes = TDLib.JsonClient.JsonClient.TLObjectToBytes(new TLObjectWithExtra() { TLObject = obj });
+            var buffer = new ArrayBufferWriter<byte>(512);
+            TDLib.JsonClient.JsonClient.TLObjectToBytes(new TLObjectWithExtra() { TLObject = obj }, buffer);
+            bytes = buffer.WrittenSpan;
             fixed (byte* ptr = bytes)
                 obj = TDLib.JsonClient.JsonClient.CStringToTLObject(ptr).TLObject;
 
