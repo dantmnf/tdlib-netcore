@@ -1,65 +1,87 @@
 using System;
 using System.Buffers;
+using System.Buffers.Text;
 using System.IO;
 using System.Text.Json;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
 {
-    internal abstract unsafe partial class TdJsonWriter
+    internal partial class TdJsonWriter
     {
         // partial const int _extrapos;
         // partial const int _extralen;
-        public abstract void WriteSpan(ReadOnlySpan<byte> span);
-        protected abstract void WriteOutputByte(byte value);
+        private static readonly byte[] TrueValue = { (byte)'t', (byte)'r', (byte)'u', (byte)'e' };
+        private static readonly byte[] FalseValue = { (byte)'f', (byte)'a', (byte)'l', (byte)'s', (byte)'e' };
+        private static readonly byte[] NullValue = { (byte)'n', (byte)'u', (byte)'l', (byte)'l' };
+        private static readonly byte[] EmptyString = { (byte)'"', (byte)'"' };
+        private static readonly byte[] EmptyArray = { (byte)'[', (byte)']' };
+        private static readonly byte[] BackSlash_b = { (byte)'\\', (byte)'b' };
+        private static readonly byte[] BackSlash_f = { (byte)'\\', (byte)'f' };
+        private static readonly byte[] BackSlash_n = { (byte)'\\', (byte)'n' };
+        private static readonly byte[] BackSlash_r = { (byte)'\\', (byte)'r' };
+        private static readonly byte[] BackSlash_t = { (byte)'\\', (byte)'t' };
+        private static readonly byte[] BackSlash_u = { (byte)'\\', (byte)'u' };
+        private static readonly byte[] BackSlash_BackSlash = { (byte)'\\', (byte)'\\' };
+        private static readonly byte[] BackSlash_DoubleQuote = { (byte)'\\', (byte)'"' };
+        private static readonly byte[] HexMap = { (byte)'0', (byte)'1', (byte)'2', (byte)'3', (byte)'4', (byte)'5', (byte)'6', (byte)'7',
+                                                  (byte)'8', (byte)'9', (byte)'A', (byte)'B', (byte)'C', (byte)'D', (byte)'E', (byte)'F'};
 
-        private void WriteASCIIStringBody(string str)
+
+        private IBufferWriter<byte> writer;
+
+        public TdJsonWriter(IBufferWriter<byte> writer)
         {
-            var len = str.Length;
-            var pbytes = stackalloc byte[len];
-            var bytes = new Span<byte>(pbytes, len);
-            for (var i = 0; i < len; i++)
-            {
-                bytes[i] = unchecked((byte)str[i]);
-            }
-            WriteSpan(bytes);
+            this.writer = writer;
         }
+        public void WriteSpan(ReadOnlySpan<byte> span)
+        {
+            var dest = writer.GetSpan(span.Length);
+            span.CopyTo(dest);
+            writer.Advance(span.Length);
+        }
+
+        protected void WriteOutputByte(byte value)
+        {
+            var dest = writer.GetSpan(1);
+            dest[0] = value;
+            writer.Advance(1);
+        }
+
 
         public void WriteValue(long value)
         {
-            var str = value.ToString();
-            WriteASCIIStringBody(str);
+            var span = writer.GetSpan(32);
+            Utf8Formatter.TryFormat(value, span, out var written);
+            writer.Advance(written);
         }
 
         public void WriteValue(ulong value)
         {
-            var str = value.ToString();
-            WriteASCIIStringBody(str);
+            var span = writer.GetSpan(32);
+            Utf8Formatter.TryFormat(value, span, out var written);
+            writer.Advance(written);
         }
 
         public void WriteValue(double value)
         {
-            var str = value.ToString();
-            WriteASCIIStringBody(str);
-        }
-
-        //[MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private byte Hex1(int value)
-        {
-            value &= 0xF;
-            if (value <= 9)
+            if (double.IsInfinity(value) || double.IsNaN(value))
             {
-                return (byte)(0x30 + value);
+                WriteNull();
             }
-            return (byte)(0x37 + value);
+            else
+            {
+                var span = writer.GetSpan(32);
+                Utf8Formatter.TryFormat(value, span, out var written);
+                writer.Advance(written);
+            }
         }
 
         public void WriteValue(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
-                var qqqq = 0x22222222u;
-                WriteSpan(new ReadOnlySpan<byte>(&qqqq, 2));
+                WriteSpan(EmptyString);
                 return;
             }
             WriteOutputByte((byte)'"');
@@ -67,47 +89,50 @@ namespace TDLib.JsonClient
             for (int i = 0; i < value.Length; i++)
             {
                 var chr = value[i];
-                if (chr >= 0x20 && chr <= 0x7E)
-                {
-                    if (chr == '"') WriteOutputByte(0x5C);
-                    WriteOutputByte((byte)chr);
-                    if (chr == 0x5C) WriteOutputByte(0x5C);
-                }
-                else if (chr == '\b')
-                {
-                    var xxbs = 0x0000625Cu;
-                    WriteSpan(new ReadOnlySpan<byte>(&xxbs, 2));
-                }
-                else if (chr == '\f')
-                {
-                    var xxfs = 0x0000665Cu;
-                    WriteSpan(new ReadOnlySpan<byte>(&xxfs, 2));
-                }
-                else if (chr == '\n')
-                {
-                    var xxns = 0x00006E5Cu;
-                    WriteSpan(new ReadOnlySpan<byte>(&xxns, 2));
-                }
-                else if (chr == '\r')
-                {
-                    var xxrs = 0x0000725Cu;
-                    WriteSpan(new ReadOnlySpan<byte>(&xxrs, 2));
-                }
-                else if (chr == '\t')
-                {
-                    var xxts = 0x0000745Cu;
-                    WriteSpan(new ReadOnlySpan<byte>(&xxts, 2));
-                }
-                else // \uXXXX
-                {
-                    var seq = 0x000000000000755Cul;
-                    var x = (int)chr;
-                    seq |= (ulong)Hex1(x) << 40;
-                    seq |= (ulong)Hex1(x >> 4) << 32;
-                    seq |= (ulong)Hex1(x >> 8) << 24;
-                    seq |= (ulong)Hex1(x >> 12) << 16;
-                    WriteSpan(new ReadOnlySpan<byte>(&seq, 6));
 
+                switch (chr)
+                {
+                    case '\b':
+                        WriteSpan(BackSlash_b);
+                        break;
+                    case '\f':
+                        WriteSpan(BackSlash_f);
+                        break;
+                    case '\n':
+                        WriteSpan(BackSlash_n);
+                        break;
+                    case '\r':
+                        WriteSpan(BackSlash_r);
+                        break;
+                    case '\t':
+                        WriteSpan(BackSlash_t);
+                        break;
+                    case '\"':
+                        WriteSpan(BackSlash_DoubleQuote);
+                        break;
+                    case '\\':
+                        WriteSpan(BackSlash_BackSlash);
+                        break;
+                    default:
+                    {
+                        if (chr >= 0x20 && chr <= 0x7E)
+                        {
+                            WriteOutputByte((byte)chr);
+                        }
+                        else
+                        {
+                            var x = (int) chr;
+                            var span = writer.GetSpan(6);
+                            BackSlash_u.CopyTo(span);
+                            span[2] = HexMap[(x >> 12) & 0xF];
+                            span[3] = HexMap[(x >> 8) & 0xF];
+                            span[4] = HexMap[(x >> 4) & 0xF];
+                            span[5] = HexMap[x & 0xF];
+                            writer.Advance(6);
+                        }
+
+                        break;
+                    }
                 }
             }
             WriteOutputByte((byte)'"');
@@ -118,20 +143,17 @@ namespace TDLib.JsonClient
         {
             if (value == true)
             {
-                var eurt = 0x65757274u;
-                WriteSpan(new ReadOnlySpan<byte>(&eurt, 4));
+                WriteSpan(TrueValue);
             }
             else
             {
-                var xxxeslaf = 0x00000065736C6166ul;
-                WriteSpan(new ReadOnlySpan<byte>(&xxxeslaf, 5));
+                WriteSpan(FalseValue);
             }
         }
 
         public void WriteNull()
         {
-            var llun = 0x6C6C756Eu;
-            WriteSpan(new ReadOnlySpan<byte>(&llun, 4));
+            WriteSpan(NullValue);
         }
 
         public void WriteValue(TLObject obj)
@@ -155,7 +177,7 @@ namespace TDLib.JsonClient
             WriteEndObject();
         }
 
-        public void WriteValue(object value)
+        public void WriteBoxedValue(object value)
         {
             if (value == null)
             {
@@ -218,19 +240,36 @@ namespace TDLib.JsonClient
             WriteOutputByte((byte)'}');
         }
 
+        private bool TryWriteEmptyArray(Array x)
+        {
+            if (x.Length != 0) return false;
+            WriteSpan(EmptyArray);
+            return true;
+
+        }
+
         public void WriteBytesValue(byte[] value)
         {
             if (value == null || value.Length == 0)
             {
-                var qqqq = 0x22222222u;
-                WriteSpan(new ReadOnlySpan<byte>(&qqqq, 2));
+                WriteSpan(EmptyString);
                 return;
             }
-            WriteValue(Convert.ToBase64String(value, Base64FormattingOptions.None));
+
+            var encodedLength = Base64.GetMaxEncodedToUtf8Length(value.Length);
+            var dest = writer.GetSpan(encodedLength);
+            var status = Base64.EncodeToUtf8(value, dest, out var consumed, out var written, true);
+            if (status != OperationStatus.Done)
+            {
+                writer.Advance(0);
+                throw new InvalidDataException();
+            }
+            writer.Advance(written);
         }
 
         public void WriteArray(int[] value)
         {
+            if (TryWriteEmptyArray(value)) return;
             WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
@@ -242,6 +281,7 @@ namespace TDLib.JsonClient
 
         public void WriteArray(long[] value)
         {
+            if (TryWriteEmptyArray(value)) return;
             WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
@@ -253,6 +293,7 @@ namespace TDLib.JsonClient
 
         public void WriteArray(string[] value)
         {
+            if (TryWriteEmptyArray(value)) return;
             WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
@@ -264,6 +305,7 @@ namespace TDLib.JsonClient
 
         public void WriteArray(byte[][] value)
         {
+            if (TryWriteEmptyArray(value)) return;
             WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
@@ -275,6 +317,7 @@ namespace TDLib.JsonClient
 
         public void WriteArray(TLObject[] value)
         {
+            if (TryWriteEmptyArray(value)) return;
             WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
@@ -286,6 +329,7 @@ namespace TDLib.JsonClient
 
         public void WriteArray(TLObject[][] value)
         {
+            if (TryWriteEmptyArray(value)) return;
             WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
@@ -297,6 +341,7 @@ namespace TDLib.JsonClient
 
         internal void WriteInt64Array(long[] value)
         {
+            if (TryWriteEmptyArray(value)) return;
             WriteOutputByte((byte)'[');
             for (int i = 0; i < value.Length; i++)
             {
@@ -304,29 +349,6 @@ namespace TDLib.JsonClient
                 if (i != value.Length - 1) WriteOutputByte((byte)',');
             }
             WriteOutputByte((byte)']');
-        }
-    }
-
-    internal class TdJsonBufferWriter : TdJsonWriter
-    {
-        private IBufferWriter<byte> writer;
-
-        public TdJsonBufferWriter(IBufferWriter<byte> writer)
-        {
-            this.writer = writer;
-        }
-        public override void WriteSpan(ReadOnlySpan<byte> span)
-        {
-            var dest = writer.GetSpan(span.Length);
-            span.CopyTo(dest);
-            writer.Advance(span.Length);
-        }
-
-        protected override void WriteOutputByte(byte value)
-        {
-            var dest = writer.GetSpan(1);
-            dest[0] = value;
-            writer.Advance(1);
         }
     }
 }

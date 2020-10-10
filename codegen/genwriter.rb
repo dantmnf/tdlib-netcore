@@ -1,6 +1,7 @@
 require_relative 'common'
 require 'zlib'
 require 'stringio'
+require_relative 'crc32c'
 
 class StringPool
   PoolItemInfo = Struct.new(:offset, :length)
@@ -132,7 +133,7 @@ def emit(codeout, pooloutfile)
     emit_type(io, pool, type)
   end
 
-  crc = Zlib::crc32(pool.pool)
+  crc = CRC32c.checksum(pool.pool)
 
   io.puts "partial class StringPool"
   io.puts "{"

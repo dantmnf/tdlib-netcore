@@ -36,6 +36,7 @@ namespace TDLib.JsonClient
             position = 0;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private ReadOnlySpan<byte> Slice(int begin, int end)
         {
             return new ReadOnlySpan<byte>(cstr + begin, end - begin);
@@ -340,7 +341,7 @@ namespace TDLib.JsonClient
             }
         }
 
-        private void ReadStringToStream<T>(ref T ms) where T : ISlimWriter // generics with type constraint is needed to pass struct reference without boxing
+        private void ReadStringToSlimWriter<T>(ref T ms) where T : ISlimWriter // generics with type constraint is needed to pass struct reference without boxing
         {
             if (cstr[position] != (byte)'"')
                 throw new TdJsonReaderException(position, "invalid value type");
@@ -436,7 +437,7 @@ namespace TDLib.JsonClient
         {
             var bufwriter = new ArrayPoolBufferWriter<byte>(512);
             var slimwriter = new BufferSlimWriter(bufwriter);
-            ReadStringToStream(ref slimwriter);
+            ReadStringToSlimWriter(ref slimwriter);
             return bufwriter;
         }
 
@@ -461,8 +462,8 @@ namespace TDLib.JsonClient
 
         internal uint ReadStringAsHash()
         {
-            var s = new Crc32SlimWriter();
-            ReadStringToStream(ref s);
+            var s = new Crc32CSlimWriter();
+            ReadStringToSlimWriter(ref s);
             return s.Hash;
         }
 

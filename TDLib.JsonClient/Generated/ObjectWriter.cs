@@ -17855,7 +17855,7 @@ namespace TDLib.JsonClient
 
     partial class StringPool
     {
-        private const uint _poolcrc = 0xE953D5D4u;
+        private const uint _poolcrc = 0x3DE7AD5Eu;
     }
 
 }

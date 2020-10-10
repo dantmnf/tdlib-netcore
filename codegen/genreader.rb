@@ -1,8 +1,9 @@
 require 'zlib'
 require_relative 'common'
+require_relative 'crc32c'
 
 def hashfn(x)
-  Zlib.crc32(x)
+  CRC32c.checksum(x)
 end
 
 def hashof(name)

@@ -158,11 +158,11 @@ namespace TDLib.JsonClient
             if (sizeHint > FreeCapacity)
             {
                 int currentLength = _buffer.Length;
-                int growBy = Math.Max(sizeHint, currentLength);
+                int growBy = sizeHint > currentLength ? sizeHint : currentLength;
 
                 if (currentLength == 0)
                 {
-                    growBy = Math.Max(growBy, DefaultInitialBufferSize);
+                    growBy = growBy > DefaultInitialBufferSize ? growBy : DefaultInitialBufferSize;
                 }
 
                 int newSize = currentLength + growBy;

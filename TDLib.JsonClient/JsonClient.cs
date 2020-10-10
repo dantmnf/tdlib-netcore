@@ -26,7 +26,7 @@ namespace TDLib.JsonClient
 
         internal static void TLObjectToBytes(TLObjectWithExtra obj, IBufferWriter<byte> buffer)
         {
-            var writer = new TdJsonBufferWriter(buffer);
+            var writer = new TdJsonWriter(buffer);
             writer.WriteValue(obj);
             byte zero = 0;
             buffer.Write(new ReadOnlySpan<byte>(&zero, 1));

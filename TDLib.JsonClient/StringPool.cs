@@ -42,7 +42,7 @@ namespace TDLib.JsonClient
             }
 
             var pool = Slice(0, _poollen);
-            if (Crc32.Update(0, pool) != _poolcrc)
+            if (Crc32C.Update(0, pool) != _poolcrc)
             {
                 throw new TypeLoadException("pool crc mismatch");
             }

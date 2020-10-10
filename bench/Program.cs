@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using TDLib.Api;
 using TDLib.JsonClient;
@@ -9,6 +11,15 @@ namespace bench
 {
     class Program
     {
+
+        static void TimeIt(Action x)
+        {
+            var sw = Stopwatch.StartNew();
+            x();
+            sw.Stop();
+            Console.WriteLine("Time elapsed: {0}", sw.Elapsed);
+
+        }
 
         static async Task<TimeSpan> BenchAsynchronous(TDLib.Client client, Function func)
         {
@@ -65,7 +76,6 @@ namespace bench
             //        Debug.WriteLine(reader.BytesConsumed);
             //    }
             //}
-
 
             var func = new GetTextEntities("/ban_shanye@lgjjbot #山野 @shanye https://github.com/ShanYe/ shanye@shanye.com 少发点山野对大家都好");
             //var func = new TestSquareInt(2);

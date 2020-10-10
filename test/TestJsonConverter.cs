@@ -14,7 +14,7 @@ namespace TDLib.Test
         public unsafe void Run()
         {
 
-            var json = @"{""@type"":""replyMarkupInlineKeyboard"",""rows"":[[{""@type"":""inlineKeyboardButton"",""text"":""111"",""type"":{""@type"":""inlineKeyboardButtonTypeUrl"",""url"":""example.com""}}],[{""@type"":""inlineKeyboardButton"",""text"":""333"",""type"":{""@type"":""inlineKeyboardButtonTypeUrl"",""url"":""example.com""}},{""@type"":""inlineKeyboardButton"",""text"":""444"",""type"":{""@type"":""inlineKeyboardButtonTypeUrl"",""url"":""example.com""}}]]}\0";
+            var json = @"{""@type"":""replyMarkupInlineKeyboard"",""rows"":[[{""@type"":""inlineKeyboardButton"",""text"":""\b\f\n\r\t\\\""\ud83d\udc34"",""type"":{""@type"":""inlineKeyboardButtonTypeUrl"",""url"":""example.com""}}],[{""@type"":""inlineKeyboardButton"",""text"":""333"",""type"":{""@type"":""inlineKeyboardButtonTypeUrl"",""url"":""example.com""}},{""@type"":""inlineKeyboardButton"",""text"":""444"",""type"":{""@type"":""inlineKeyboardButtonTypeUrl"",""url"":""example.com""}}]]}\0";
             ReadOnlySpan<byte> bytes = Encoding.UTF8.GetBytes(json);
             //var obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
             TLObject obj;
@@ -22,7 +22,7 @@ namespace TDLib.Test
                 obj = TDLib.JsonClient.JsonClient.CStringToTLObject(ptr).TLObject;
             Assert.IsTrue(obj is ReplyMarkupInlineKeyboard);
             var kb = (ReplyMarkupInlineKeyboard)obj;
-            Assert.AreEqual("111", kb.Rows[0][0].Text);
+            Assert.AreEqual("\b\f\n\r\t\\\"\ud83d\udc34", kb.Rows[0][0].Text);
             Assert.IsInstanceOfType(kb.Rows[0][0].Type, typeof(InlineKeyboardButtonTypeUrl));
             Assert.AreEqual("333", kb.Rows[1][0].Text);
             Assert.AreEqual("444", kb.Rows[1][1].Text);
@@ -37,7 +37,7 @@ namespace TDLib.Test
 
             Assert.IsTrue(obj is ReplyMarkupInlineKeyboard);
             kb = (ReplyMarkupInlineKeyboard)obj;
-            Assert.AreEqual("111", kb.Rows[0][0].Text);
+            Assert.AreEqual("\b\f\n\r\t\\\"\ud83d\udc34", kb.Rows[0][0].Text);
             Assert.IsInstanceOfType(kb.Rows[0][0].Type, typeof(InlineKeyboardButtonTypeUrl));
             Assert.AreEqual("333", kb.Rows[1][0].Text);
             Assert.AreEqual("444", kb.Rows[1][1].Text);
