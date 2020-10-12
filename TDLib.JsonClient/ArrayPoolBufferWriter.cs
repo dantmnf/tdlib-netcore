@@ -1,6 +1,7 @@
 using System;
 using System.Buffers;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace TDLib.JsonClient
 {
@@ -46,7 +47,11 @@ namespace TDLib.JsonClient
         /// <summary>
         /// Returns the data written to the underlying buffer so far, as a <see cref="Span{T}"/>.
         /// </summary>
-        public Span<T> WrittenSpan => _buffer.AsSpan(0, _index);
+        public Span<T> WrittenSpan
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => _buffer.AsSpan(0, _index);
+        }
 
         /// <summary>
         /// Returns the amount of data written to the underlying buffer so far.
@@ -77,6 +82,16 @@ namespace TDLib.JsonClient
         }
 
         /// <summary>
+        /// Resets written length without touching the underlying buffer.
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+        {
+            Debug.Assert(_buffer.Length >= _index);
+            _index = 0;
+        }
+
+        /// <summary>
         /// Notifies <see cref="IBufferWriter{T}"/> that <paramref name="count"/> amount of data was written to the output <see cref="Span{T}"/>/<see cref="Memory{T}"/>
         /// </summary>
         /// <exception cref="ArgumentException">
@@ -88,6 +103,7 @@ namespace TDLib.JsonClient
         /// <remarks>
         /// You must request a new buffer after calling Advance to continue writing more data and cannot write to a previously acquired buffer.
         /// </remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Advance(int count)
         {
             if (count < 0)
@@ -138,6 +154,7 @@ namespace TDLib.JsonClient
         /// <remarks>
         /// You must request a new buffer after calling Advance to continue writing more data and cannot write to a previously acquired buffer.
         /// </remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Span<T> GetSpan(int sizeHint = 0)
         {
             CheckAndResizeBuffer(sizeHint);
@@ -145,6 +162,7 @@ namespace TDLib.JsonClient
             return _buffer.AsSpan(_index);
         }
 
+        [MethodImpl(MultiTargetHelper.MethodImplOptions_AggressiveOptimization)]
         private void CheckAndResizeBuffer(int sizeHint)
         {
             if (sizeHint < 0)

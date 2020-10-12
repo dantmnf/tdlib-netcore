@@ -18,7 +18,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Error();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Error)tlobj;
                 switch (hash)
                 {
@@ -47,7 +46,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TdlibParameters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TdlibParameters)tlobj;
                 switch (hash)
                 {
@@ -108,7 +106,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthenticationCodeTypeTelegramMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthenticationCodeTypeTelegramMessage)tlobj;
                 switch (hash)
                 {
@@ -127,7 +124,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthenticationCodeTypeSms();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthenticationCodeTypeSms)tlobj;
                 switch (hash)
                 {
@@ -146,7 +142,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthenticationCodeTypeCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthenticationCodeTypeCall)tlobj;
                 switch (hash)
                 {
@@ -165,7 +160,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthenticationCodeTypeFlashCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthenticationCodeTypeFlashCall)tlobj;
                 switch (hash)
                 {
@@ -184,7 +178,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthenticationCodeInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthenticationCodeInfo)tlobj;
                 switch (hash)
                 {
@@ -212,7 +205,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EmailAddressAuthenticationCodeInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EmailAddressAuthenticationCodeInfo)tlobj;
                 switch (hash)
                 {
@@ -234,7 +226,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TextEntity();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TextEntity)tlobj;
                 switch (hash)
                 {
@@ -259,7 +250,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TextEntities();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TextEntities)tlobj;
                 switch (hash)
                 {
@@ -278,7 +268,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new FormattedText();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (FormattedText)tlobj;
                 switch (hash)
                 {
@@ -300,7 +289,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TermsOfService();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TermsOfService)tlobj;
                 switch (hash)
                 {
@@ -332,7 +320,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthorizationStateWaitEncryptionKey();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthorizationStateWaitEncryptionKey)tlobj;
                 switch (hash)
                 {
@@ -358,7 +345,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthorizationStateWaitCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthorizationStateWaitCode)tlobj;
                 switch (hash)
                 {
@@ -377,7 +363,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthorizationStateWaitOtherDeviceConfirmation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthorizationStateWaitOtherDeviceConfirmation)tlobj;
                 switch (hash)
                 {
@@ -396,7 +381,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthorizationStateWaitRegistration();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthorizationStateWaitRegistration)tlobj;
                 switch (hash)
                 {
@@ -415,7 +399,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AuthorizationStateWaitPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AuthorizationStateWaitPassword)tlobj;
                 switch (hash)
                 {
@@ -468,7 +451,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PasswordState();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PasswordState)tlobj;
                 switch (hash)
                 {
@@ -499,7 +481,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RecoveryEmailAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RecoveryEmailAddress)tlobj;
                 switch (hash)
                 {
@@ -518,7 +499,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TemporaryPasswordState();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TemporaryPasswordState)tlobj;
                 switch (hash)
                 {
@@ -540,7 +520,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LocalFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LocalFile)tlobj;
                 switch (hash)
                 {
@@ -580,7 +559,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoteFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoteFile)tlobj;
                 switch (hash)
                 {
@@ -611,7 +589,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new File();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (File)tlobj;
                 switch (hash)
                 {
@@ -642,7 +619,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputFileId();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputFileId)tlobj;
                 switch (hash)
                 {
@@ -661,7 +637,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputFileRemote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputFileRemote)tlobj;
                 switch (hash)
                 {
@@ -680,7 +655,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputFileLocal();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputFileLocal)tlobj;
                 switch (hash)
                 {
@@ -699,7 +673,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputFileGenerated();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputFileGenerated)tlobj;
                 switch (hash)
                 {
@@ -724,7 +697,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PhotoSize();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PhotoSize)tlobj;
                 switch (hash)
                 {
@@ -755,7 +727,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Minithumbnail();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Minithumbnail)tlobj;
                 switch (hash)
                 {
@@ -822,7 +793,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Thumbnail();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Thumbnail)tlobj;
                 switch (hash)
                 {
@@ -878,7 +848,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MaskPosition();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MaskPosition)tlobj;
                 switch (hash)
                 {
@@ -906,7 +875,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PollOption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PollOption)tlobj;
                 switch (hash)
                 {
@@ -937,7 +905,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PollTypeRegular();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PollTypeRegular)tlobj;
                 switch (hash)
                 {
@@ -956,7 +923,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PollTypeQuiz();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PollTypeQuiz)tlobj;
                 switch (hash)
                 {
@@ -978,7 +944,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Animation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Animation)tlobj;
                 switch (hash)
                 {
@@ -1021,7 +986,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Audio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Audio)tlobj;
                 switch (hash)
                 {
@@ -1061,7 +1025,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Document();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Document)tlobj;
                 switch (hash)
                 {
@@ -1092,7 +1055,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Photo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Photo)tlobj;
                 switch (hash)
                 {
@@ -1117,7 +1079,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Sticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Sticker)tlobj;
                 switch (hash)
                 {
@@ -1160,7 +1121,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Video();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Video)tlobj;
                 switch (hash)
                 {
@@ -1206,7 +1166,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new VideoNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (VideoNote)tlobj;
                 switch (hash)
                 {
@@ -1237,7 +1196,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new VoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (VoiceNote)tlobj;
                 switch (hash)
                 {
@@ -1265,7 +1223,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Contact();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Contact)tlobj;
                 switch (hash)
                 {
@@ -1296,7 +1253,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Location();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Location)tlobj;
                 switch (hash)
                 {
@@ -1318,7 +1274,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Venue();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Venue)tlobj;
                 switch (hash)
                 {
@@ -1352,7 +1307,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Game();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Game)tlobj;
                 switch (hash)
                 {
@@ -1389,7 +1343,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Poll();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Poll)tlobj;
                 switch (hash)
                 {
@@ -1435,7 +1388,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ProfilePhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ProfilePhoto)tlobj;
                 switch (hash)
                 {
@@ -1463,7 +1415,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatPhotoInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatPhotoInfo)tlobj;
                 switch (hash)
                 {
@@ -1502,7 +1453,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserTypeBot();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserTypeBot)tlobj;
                 switch (hash)
                 {
@@ -1540,7 +1490,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BotCommand();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BotCommand)tlobj;
                 switch (hash)
                 {
@@ -1562,7 +1511,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BotInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BotInfo)tlobj;
                 switch (hash)
                 {
@@ -1584,7 +1532,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatLocation)tlobj;
                 switch (hash)
                 {
@@ -1606,7 +1553,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AnimatedChatPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AnimatedChatPhoto)tlobj;
                 switch (hash)
                 {
@@ -1631,7 +1577,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatPhoto)tlobj;
                 switch (hash)
                 {
@@ -1662,7 +1607,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatPhotos();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatPhotos)tlobj;
                 switch (hash)
                 {
@@ -1684,7 +1628,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputChatPhotoPrevious();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputChatPhotoPrevious)tlobj;
                 switch (hash)
                 {
@@ -1703,7 +1646,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputChatPhotoStatic();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputChatPhotoStatic)tlobj;
                 switch (hash)
                 {
@@ -1722,7 +1664,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputChatPhotoAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputChatPhotoAnimation)tlobj;
                 switch (hash)
                 {
@@ -1744,7 +1685,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new User();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (User)tlobj;
                 switch (hash)
                 {
@@ -1808,7 +1748,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserFullInfo)tlobj;
                 switch (hash)
                 {
@@ -1851,7 +1790,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Users();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Users)tlobj;
                 switch (hash)
                 {
@@ -1873,7 +1811,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatAdministrator();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatAdministrator)tlobj;
                 switch (hash)
                 {
@@ -1898,7 +1835,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatAdministrators();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatAdministrators)tlobj;
                 switch (hash)
                 {
@@ -1917,7 +1853,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatPermissions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatPermissions)tlobj;
                 switch (hash)
                 {
@@ -1957,7 +1892,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatMemberStatusCreator();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatMemberStatusCreator)tlobj;
                 switch (hash)
                 {
@@ -1982,7 +1916,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatMemberStatusAdministrator();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatMemberStatusAdministrator)tlobj;
                 switch (hash)
                 {
@@ -2038,7 +1971,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatMemberStatusRestricted();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatMemberStatusRestricted)tlobj;
                 switch (hash)
                 {
@@ -2070,7 +2002,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatMemberStatusBanned();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatMemberStatusBanned)tlobj;
                 switch (hash)
                 {
@@ -2089,7 +2020,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatMember();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatMember)tlobj;
                 switch (hash)
                 {
@@ -2120,7 +2050,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatMembers)tlobj;
                 switch (hash)
                 {
@@ -2191,7 +2120,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SupergroupMembersFilterContacts();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SupergroupMembersFilterContacts)tlobj;
                 switch (hash)
                 {
@@ -2217,7 +2145,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SupergroupMembersFilterSearch();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SupergroupMembersFilterSearch)tlobj;
                 switch (hash)
                 {
@@ -2236,7 +2163,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SupergroupMembersFilterRestricted();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SupergroupMembersFilterRestricted)tlobj;
                 switch (hash)
                 {
@@ -2255,7 +2181,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SupergroupMembersFilterBanned();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SupergroupMembersFilterBanned)tlobj;
                 switch (hash)
                 {
@@ -2281,7 +2206,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BasicGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BasicGroup)tlobj;
                 switch (hash)
                 {
@@ -2312,7 +2236,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BasicGroupFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BasicGroupFullInfo)tlobj;
                 switch (hash)
                 {
@@ -2343,7 +2266,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Supergroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Supergroup)tlobj;
                 switch (hash)
                 {
@@ -2398,7 +2320,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SupergroupFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SupergroupFullInfo)tlobj;
                 switch (hash)
                 {
@@ -2495,7 +2416,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SecretChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SecretChat)tlobj;
                 switch (hash)
                 {
@@ -2532,7 +2452,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageForwardOriginUser();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageForwardOriginUser)tlobj;
                 switch (hash)
                 {
@@ -2551,7 +2470,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageForwardOriginChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageForwardOriginChat)tlobj;
                 switch (hash)
                 {
@@ -2570,7 +2488,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageForwardOriginHiddenUser();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageForwardOriginHiddenUser)tlobj;
                 switch (hash)
                 {
@@ -2589,7 +2506,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageForwardOriginChannel();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageForwardOriginChannel)tlobj;
                 switch (hash)
                 {
@@ -2614,7 +2530,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageForwardInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageForwardInfo)tlobj;
                 switch (hash)
                 {
@@ -2645,7 +2560,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageReplyInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageReplyInfo)tlobj;
                 switch (hash)
                 {
@@ -2676,7 +2590,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageInteractionInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageInteractionInfo)tlobj;
                 switch (hash)
                 {
@@ -2708,7 +2621,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageSendingStateFailed();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageSendingStateFailed)tlobj;
                 switch (hash)
                 {
@@ -2736,7 +2648,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Message();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Message)tlobj;
                 switch (hash)
                 {
@@ -2842,7 +2753,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Messages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Messages)tlobj;
                 switch (hash)
                 {
@@ -2864,7 +2774,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new FoundMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (FoundMessages)tlobj;
                 switch (hash)
                 {
@@ -2910,7 +2819,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatNotificationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatNotificationSettings)tlobj;
                 switch (hash)
                 {
@@ -2956,7 +2864,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ScopeNotificationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ScopeNotificationSettings)tlobj;
                 switch (hash)
                 {
@@ -2987,7 +2894,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DraftMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DraftMessage)tlobj;
                 switch (hash)
                 {
@@ -3012,7 +2918,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatTypePrivate();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatTypePrivate)tlobj;
                 switch (hash)
                 {
@@ -3031,7 +2936,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatTypeBasicGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatTypeBasicGroup)tlobj;
                 switch (hash)
                 {
@@ -3050,7 +2954,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatTypeSupergroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatTypeSupergroup)tlobj;
                 switch (hash)
                 {
@@ -3072,7 +2975,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatTypeSecret();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatTypeSecret)tlobj;
                 switch (hash)
                 {
@@ -3094,7 +2996,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatFilter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatFilter)tlobj;
                 switch (hash)
                 {
@@ -3149,7 +3050,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatFilterInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatFilterInfo)tlobj;
                 switch (hash)
                 {
@@ -3174,7 +3074,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RecommendedChatFilter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RecommendedChatFilter)tlobj;
                 switch (hash)
                 {
@@ -3196,7 +3095,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RecommendedChatFilters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RecommendedChatFilters)tlobj;
                 switch (hash)
                 {
@@ -3229,7 +3127,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatListFilter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatListFilter)tlobj;
                 switch (hash)
                 {
@@ -3248,7 +3145,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatLists();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatLists)tlobj;
                 switch (hash)
                 {
@@ -3274,7 +3170,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatSourcePublicServiceAnnouncement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatSourcePublicServiceAnnouncement)tlobj;
                 switch (hash)
                 {
@@ -3296,7 +3191,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatPosition();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatPosition)tlobj;
                 switch (hash)
                 {
@@ -3324,7 +3218,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Chat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Chat)tlobj;
                 switch (hash)
                 {
@@ -3412,7 +3305,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Chats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Chats)tlobj;
                 switch (hash)
                 {
@@ -3434,7 +3326,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatNearby();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatNearby)tlobj;
                 switch (hash)
                 {
@@ -3456,7 +3347,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatsNearby();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatsNearby)tlobj;
                 switch (hash)
                 {
@@ -3478,7 +3368,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatInviteLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatInviteLink)tlobj;
                 switch (hash)
                 {
@@ -3497,7 +3386,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatInviteLinkInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatInviteLinkInfo)tlobj;
                 switch (hash)
                 {
@@ -3551,7 +3439,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatActionBarReportSpam();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatActionBarReportSpam)tlobj;
                 switch (hash)
                 {
@@ -3577,7 +3464,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatActionBarReportAddBlock();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatActionBarReportAddBlock)tlobj;
                 switch (hash)
                 {
@@ -3634,7 +3520,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new KeyboardButtonTypeRequestPoll();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (KeyboardButtonTypeRequestPoll)tlobj;
                 switch (hash)
                 {
@@ -3656,7 +3541,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new KeyboardButton();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (KeyboardButton)tlobj;
                 switch (hash)
                 {
@@ -3678,7 +3562,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineKeyboardButtonTypeUrl)tlobj;
                 switch (hash)
                 {
@@ -3697,7 +3580,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeLoginUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineKeyboardButtonTypeLoginUrl)tlobj;
                 switch (hash)
                 {
@@ -3722,7 +3604,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeCallback();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineKeyboardButtonTypeCallback)tlobj;
                 switch (hash)
                 {
@@ -3741,7 +3622,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeCallbackWithPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineKeyboardButtonTypeCallbackWithPassword)tlobj;
                 switch (hash)
                 {
@@ -3767,7 +3647,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeSwitchInline();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineKeyboardButtonTypeSwitchInline)tlobj;
                 switch (hash)
                 {
@@ -3796,7 +3675,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineKeyboardButton();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineKeyboardButton)tlobj;
                 switch (hash)
                 {
@@ -3818,7 +3696,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReplyMarkupRemoveKeyboard();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReplyMarkupRemoveKeyboard)tlobj;
                 switch (hash)
                 {
@@ -3837,7 +3714,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReplyMarkupForceReply();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReplyMarkupForceReply)tlobj;
                 switch (hash)
                 {
@@ -3856,7 +3732,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReplyMarkupShowKeyboard();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReplyMarkupShowKeyboard)tlobj;
                 switch (hash)
                 {
@@ -3884,7 +3759,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReplyMarkupInlineKeyboard();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReplyMarkupInlineKeyboard)tlobj;
                 switch (hash)
                 {
@@ -3903,7 +3777,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LoginUrlInfoOpen();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LoginUrlInfoOpen)tlobj;
                 switch (hash)
                 {
@@ -3925,7 +3798,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LoginUrlInfoRequestConfirmation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LoginUrlInfoRequestConfirmation)tlobj;
                 switch (hash)
                 {
@@ -3953,7 +3825,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageThreadInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageThreadInfo)tlobj;
                 switch (hash)
                 {
@@ -3981,7 +3852,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextPlain();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextPlain)tlobj;
                 switch (hash)
                 {
@@ -4000,7 +3870,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextBold();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextBold)tlobj;
                 switch (hash)
                 {
@@ -4019,7 +3888,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextItalic();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextItalic)tlobj;
                 switch (hash)
                 {
@@ -4038,7 +3906,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextUnderline();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextUnderline)tlobj;
                 switch (hash)
                 {
@@ -4057,7 +3924,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextStrikethrough();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextStrikethrough)tlobj;
                 switch (hash)
                 {
@@ -4076,7 +3942,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextFixed();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextFixed)tlobj;
                 switch (hash)
                 {
@@ -4095,7 +3960,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextUrl)tlobj;
                 switch (hash)
                 {
@@ -4120,7 +3984,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextEmailAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextEmailAddress)tlobj;
                 switch (hash)
                 {
@@ -4142,7 +4005,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextSubscript();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextSubscript)tlobj;
                 switch (hash)
                 {
@@ -4161,7 +4023,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextSuperscript();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextSuperscript)tlobj;
                 switch (hash)
                 {
@@ -4180,7 +4041,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextMarked();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextMarked)tlobj;
                 switch (hash)
                 {
@@ -4199,7 +4059,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextPhoneNumber();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextPhoneNumber)tlobj;
                 switch (hash)
                 {
@@ -4221,7 +4080,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextIcon();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextIcon)tlobj;
                 switch (hash)
                 {
@@ -4246,7 +4104,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextReference();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextReference)tlobj;
                 switch (hash)
                 {
@@ -4271,7 +4128,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextAnchor();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextAnchor)tlobj;
                 switch (hash)
                 {
@@ -4290,7 +4146,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTextAnchorLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTextAnchorLink)tlobj;
                 switch (hash)
                 {
@@ -4315,7 +4170,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RichTexts();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RichTexts)tlobj;
                 switch (hash)
                 {
@@ -4334,7 +4188,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockCaption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockCaption)tlobj;
                 switch (hash)
                 {
@@ -4356,7 +4209,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockListItem();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockListItem)tlobj;
                 switch (hash)
                 {
@@ -4420,7 +4272,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockTableCell();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockTableCell)tlobj;
                 switch (hash)
                 {
@@ -4454,7 +4305,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockRelatedArticle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockRelatedArticle)tlobj;
                 switch (hash)
                 {
@@ -4488,7 +4338,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockTitle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockTitle)tlobj;
                 switch (hash)
                 {
@@ -4507,7 +4356,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockSubtitle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockSubtitle)tlobj;
                 switch (hash)
                 {
@@ -4526,7 +4374,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockAuthorDate();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockAuthorDate)tlobj;
                 switch (hash)
                 {
@@ -4548,7 +4395,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockHeader();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockHeader)tlobj;
                 switch (hash)
                 {
@@ -4567,7 +4413,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockSubheader();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockSubheader)tlobj;
                 switch (hash)
                 {
@@ -4586,7 +4431,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockKicker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockKicker)tlobj;
                 switch (hash)
                 {
@@ -4605,7 +4449,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockParagraph();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockParagraph)tlobj;
                 switch (hash)
                 {
@@ -4624,7 +4467,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockPreformatted();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockPreformatted)tlobj;
                 switch (hash)
                 {
@@ -4646,7 +4488,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockFooter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockFooter)tlobj;
                 switch (hash)
                 {
@@ -4672,7 +4513,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockAnchor();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockAnchor)tlobj;
                 switch (hash)
                 {
@@ -4691,7 +4531,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockList();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockList)tlobj;
                 switch (hash)
                 {
@@ -4710,7 +4549,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockBlockQuote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockBlockQuote)tlobj;
                 switch (hash)
                 {
@@ -4732,7 +4570,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockPullQuote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockPullQuote)tlobj;
                 switch (hash)
                 {
@@ -4754,7 +4591,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockAnimation)tlobj;
                 switch (hash)
                 {
@@ -4779,7 +4615,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockAudio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockAudio)tlobj;
                 switch (hash)
                 {
@@ -4801,7 +4636,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockPhoto)tlobj;
                 switch (hash)
                 {
@@ -4826,7 +4660,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockVideo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockVideo)tlobj;
                 switch (hash)
                 {
@@ -4854,7 +4687,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockVoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockVoiceNote)tlobj;
                 switch (hash)
                 {
@@ -4876,7 +4708,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockCover();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockCover)tlobj;
                 switch (hash)
                 {
@@ -4895,7 +4726,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockEmbedded();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockEmbedded)tlobj;
                 switch (hash)
                 {
@@ -4935,7 +4765,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockEmbeddedPost();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockEmbeddedPost)tlobj;
                 switch (hash)
                 {
@@ -4969,7 +4798,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockCollage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockCollage)tlobj;
                 switch (hash)
                 {
@@ -4991,7 +4819,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockSlideshow();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockSlideshow)tlobj;
                 switch (hash)
                 {
@@ -5013,7 +4840,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockChatLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockChatLink)tlobj;
                 switch (hash)
                 {
@@ -5038,7 +4864,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockTable();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockTable)tlobj;
                 switch (hash)
                 {
@@ -5066,7 +4891,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockDetails();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockDetails)tlobj;
                 switch (hash)
                 {
@@ -5091,7 +4915,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockRelatedArticles();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockRelatedArticles)tlobj;
                 switch (hash)
                 {
@@ -5113,7 +4936,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PageBlockMap();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PageBlockMap)tlobj;
                 switch (hash)
                 {
@@ -5144,7 +4966,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new WebPageInstantView();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (WebPageInstantView)tlobj;
                 switch (hash)
                 {
@@ -5175,7 +4996,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new WebPage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (WebPage)tlobj;
                 switch (hash)
                 {
@@ -5254,7 +5074,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CountryInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CountryInfo)tlobj;
                 switch (hash)
                 {
@@ -5285,7 +5104,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Countries();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Countries)tlobj;
                 switch (hash)
                 {
@@ -5304,7 +5122,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PhoneNumberInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PhoneNumberInfo)tlobj;
                 switch (hash)
                 {
@@ -5329,7 +5146,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BankCardActionOpenUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BankCardActionOpenUrl)tlobj;
                 switch (hash)
                 {
@@ -5351,7 +5167,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BankCardInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BankCardInfo)tlobj;
                 switch (hash)
                 {
@@ -5373,7 +5188,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Address();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Address)tlobj;
                 switch (hash)
                 {
@@ -5407,7 +5221,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LabeledPricePart();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LabeledPricePart)tlobj;
                 switch (hash)
                 {
@@ -5429,7 +5242,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Invoice();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Invoice)tlobj;
                 switch (hash)
                 {
@@ -5475,7 +5287,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new OrderInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (OrderInfo)tlobj;
                 switch (hash)
                 {
@@ -5503,7 +5314,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ShippingOption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ShippingOption)tlobj;
                 switch (hash)
                 {
@@ -5528,7 +5338,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SavedCredentials();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SavedCredentials)tlobj;
                 switch (hash)
                 {
@@ -5550,7 +5359,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputCredentialsSaved();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputCredentialsSaved)tlobj;
                 switch (hash)
                 {
@@ -5569,7 +5377,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputCredentialsNew();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputCredentialsNew)tlobj;
                 switch (hash)
                 {
@@ -5591,7 +5398,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputCredentialsAndroidPay();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputCredentialsAndroidPay)tlobj;
                 switch (hash)
                 {
@@ -5610,7 +5416,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputCredentialsApplePay();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputCredentialsApplePay)tlobj;
                 switch (hash)
                 {
@@ -5629,7 +5434,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PaymentsProviderStripe();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PaymentsProviderStripe)tlobj;
                 switch (hash)
                 {
@@ -5657,7 +5461,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PaymentForm();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PaymentForm)tlobj;
                 switch (hash)
                 {
@@ -5694,7 +5497,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ValidatedOrderInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ValidatedOrderInfo)tlobj;
                 switch (hash)
                 {
@@ -5716,7 +5518,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PaymentResult();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PaymentResult)tlobj;
                 switch (hash)
                 {
@@ -5738,7 +5539,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PaymentReceipt();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PaymentReceipt)tlobj;
                 switch (hash)
                 {
@@ -5772,7 +5572,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DatedFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DatedFile)tlobj;
                 switch (hash)
                 {
@@ -5885,7 +5684,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Date();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Date)tlobj;
                 switch (hash)
                 {
@@ -5910,7 +5708,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PersonalDetails();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PersonalDetails)tlobj;
                 switch (hash)
                 {
@@ -5956,7 +5753,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new IdentityDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (IdentityDocument)tlobj;
                 switch (hash)
                 {
@@ -5990,7 +5786,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputIdentityDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputIdentityDocument)tlobj;
                 switch (hash)
                 {
@@ -6024,7 +5819,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PersonalDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PersonalDocument)tlobj;
                 switch (hash)
                 {
@@ -6046,7 +5840,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPersonalDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPersonalDocument)tlobj;
                 switch (hash)
                 {
@@ -6068,7 +5861,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementPersonalDetails();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementPersonalDetails)tlobj;
                 switch (hash)
                 {
@@ -6087,7 +5879,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementPassport();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementPassport)tlobj;
                 switch (hash)
                 {
@@ -6106,7 +5897,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementDriverLicense();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementDriverLicense)tlobj;
                 switch (hash)
                 {
@@ -6125,7 +5915,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementIdentityCard();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementIdentityCard)tlobj;
                 switch (hash)
                 {
@@ -6144,7 +5933,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementInternalPassport();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementInternalPassport)tlobj;
                 switch (hash)
                 {
@@ -6163,7 +5951,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementAddress)tlobj;
                 switch (hash)
                 {
@@ -6182,7 +5969,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementUtilityBill();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementUtilityBill)tlobj;
                 switch (hash)
                 {
@@ -6201,7 +5987,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementBankStatement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementBankStatement)tlobj;
                 switch (hash)
                 {
@@ -6220,7 +6005,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementRentalAgreement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementRentalAgreement)tlobj;
                 switch (hash)
                 {
@@ -6239,7 +6023,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementPassportRegistration();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementPassportRegistration)tlobj;
                 switch (hash)
                 {
@@ -6258,7 +6041,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementTemporaryRegistration();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementTemporaryRegistration)tlobj;
                 switch (hash)
                 {
@@ -6277,7 +6059,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementPhoneNumber();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementPhoneNumber)tlobj;
                 switch (hash)
                 {
@@ -6296,7 +6077,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementEmailAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementEmailAddress)tlobj;
                 switch (hash)
                 {
@@ -6315,7 +6095,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementPersonalDetails();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementPersonalDetails)tlobj;
                 switch (hash)
                 {
@@ -6334,7 +6113,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementPassport();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementPassport)tlobj;
                 switch (hash)
                 {
@@ -6353,7 +6131,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementDriverLicense();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementDriverLicense)tlobj;
                 switch (hash)
                 {
@@ -6372,7 +6149,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementIdentityCard();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementIdentityCard)tlobj;
                 switch (hash)
                 {
@@ -6391,7 +6167,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementInternalPassport();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementInternalPassport)tlobj;
                 switch (hash)
                 {
@@ -6410,7 +6185,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementAddress)tlobj;
                 switch (hash)
                 {
@@ -6429,7 +6203,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementUtilityBill();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementUtilityBill)tlobj;
                 switch (hash)
                 {
@@ -6448,7 +6221,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementBankStatement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementBankStatement)tlobj;
                 switch (hash)
                 {
@@ -6467,7 +6239,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementRentalAgreement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementRentalAgreement)tlobj;
                 switch (hash)
                 {
@@ -6486,7 +6257,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementPassportRegistration();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementPassportRegistration)tlobj;
                 switch (hash)
                 {
@@ -6505,7 +6275,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementTemporaryRegistration();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementTemporaryRegistration)tlobj;
                 switch (hash)
                 {
@@ -6524,7 +6293,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementPhoneNumber();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementPhoneNumber)tlobj;
                 switch (hash)
                 {
@@ -6543,7 +6311,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementEmailAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementEmailAddress)tlobj;
                 switch (hash)
                 {
@@ -6562,7 +6329,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElements();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElements)tlobj;
                 switch (hash)
                 {
@@ -6588,7 +6354,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceDataField();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementErrorSourceDataField)tlobj;
                 switch (hash)
                 {
@@ -6628,7 +6393,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceTranslationFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementErrorSourceTranslationFile)tlobj;
                 switch (hash)
                 {
@@ -6654,7 +6418,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementErrorSourceFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementErrorSourceFile)tlobj;
                 switch (hash)
                 {
@@ -6680,7 +6443,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementError();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementError)tlobj;
                 switch (hash)
                 {
@@ -6705,7 +6467,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportSuitableElement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportSuitableElement)tlobj;
                 switch (hash)
                 {
@@ -6733,7 +6494,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportRequiredElement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportRequiredElement)tlobj;
                 switch (hash)
                 {
@@ -6752,7 +6512,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportAuthorizationForm();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportAuthorizationForm)tlobj;
                 switch (hash)
                 {
@@ -6777,7 +6536,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PassportElementsWithErrors();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PassportElementsWithErrors)tlobj;
                 switch (hash)
                 {
@@ -6799,7 +6557,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EncryptedCredentials();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EncryptedCredentials)tlobj;
                 switch (hash)
                 {
@@ -6824,7 +6581,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EncryptedPassportElement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EncryptedPassportElement)tlobj;
                 switch (hash)
                 {
@@ -6867,7 +6623,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceUnspecified();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceUnspecified)tlobj;
                 switch (hash)
                 {
@@ -6886,7 +6641,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceDataField();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceDataField)tlobj;
                 switch (hash)
                 {
@@ -6908,7 +6662,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceFrontSide();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceFrontSide)tlobj;
                 switch (hash)
                 {
@@ -6927,7 +6680,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceReverseSide();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceReverseSide)tlobj;
                 switch (hash)
                 {
@@ -6946,7 +6698,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceSelfie();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceSelfie)tlobj;
                 switch (hash)
                 {
@@ -6965,7 +6716,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceTranslationFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceTranslationFile)tlobj;
                 switch (hash)
                 {
@@ -6984,7 +6734,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceTranslationFiles();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceTranslationFiles)tlobj;
                 switch (hash)
                 {
@@ -7003,7 +6752,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceFile)tlobj;
                 switch (hash)
                 {
@@ -7022,7 +6770,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementErrorSourceFiles();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementErrorSourceFiles)tlobj;
                 switch (hash)
                 {
@@ -7041,7 +6788,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputPassportElementError();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputPassportElementError)tlobj;
                 switch (hash)
                 {
@@ -7066,7 +6812,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageText();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageText)tlobj;
                 switch (hash)
                 {
@@ -7088,7 +6833,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageAnimation)tlobj;
                 switch (hash)
                 {
@@ -7113,7 +6857,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageAudio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageAudio)tlobj;
                 switch (hash)
                 {
@@ -7135,7 +6878,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageDocument)tlobj;
                 switch (hash)
                 {
@@ -7157,7 +6899,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessagePhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessagePhoto)tlobj;
                 switch (hash)
                 {
@@ -7189,7 +6930,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageSticker)tlobj;
                 switch (hash)
                 {
@@ -7208,7 +6948,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageVideo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageVideo)tlobj;
                 switch (hash)
                 {
@@ -7240,7 +6979,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageVideoNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageVideoNote)tlobj;
                 switch (hash)
                 {
@@ -7265,7 +7003,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageVoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageVoiceNote)tlobj;
                 switch (hash)
                 {
@@ -7290,7 +7027,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageLocation)tlobj;
                 switch (hash)
                 {
@@ -7315,7 +7051,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageVenue();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageVenue)tlobj;
                 switch (hash)
                 {
@@ -7334,7 +7069,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageContact();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageContact)tlobj;
                 switch (hash)
                 {
@@ -7353,7 +7087,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageDice();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageDice)tlobj;
                 switch (hash)
                 {
@@ -7384,7 +7117,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageGame();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageGame)tlobj;
                 switch (hash)
                 {
@@ -7403,7 +7135,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessagePoll();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessagePoll)tlobj;
                 switch (hash)
                 {
@@ -7422,7 +7153,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageInvoice();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageInvoice)tlobj;
                 switch (hash)
                 {
@@ -7465,7 +7195,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageCall)tlobj;
                 switch (hash)
                 {
@@ -7490,7 +7219,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageBasicGroupChatCreate();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageBasicGroupChatCreate)tlobj;
                 switch (hash)
                 {
@@ -7512,7 +7240,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageSupergroupChatCreate();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageSupergroupChatCreate)tlobj;
                 switch (hash)
                 {
@@ -7531,7 +7258,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageChatChangeTitle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageChatChangeTitle)tlobj;
                 switch (hash)
                 {
@@ -7550,7 +7276,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageChatChangePhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageChatChangePhoto)tlobj;
                 switch (hash)
                 {
@@ -7576,7 +7301,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageChatAddMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageChatAddMembers)tlobj;
                 switch (hash)
                 {
@@ -7602,7 +7326,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageChatDeleteMember();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageChatDeleteMember)tlobj;
                 switch (hash)
                 {
@@ -7621,7 +7344,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageChatUpgradeTo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageChatUpgradeTo)tlobj;
                 switch (hash)
                 {
@@ -7640,7 +7362,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageChatUpgradeFrom();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageChatUpgradeFrom)tlobj;
                 switch (hash)
                 {
@@ -7662,7 +7383,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessagePinMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessagePinMessage)tlobj;
                 switch (hash)
                 {
@@ -7688,7 +7408,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageChatSetTtl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageChatSetTtl)tlobj;
                 switch (hash)
                 {
@@ -7707,7 +7426,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageCustomServiceAction();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageCustomServiceAction)tlobj;
                 switch (hash)
                 {
@@ -7726,7 +7444,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageGameScore();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageGameScore)tlobj;
                 switch (hash)
                 {
@@ -7751,7 +7468,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessagePaymentSuccessful();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessagePaymentSuccessful)tlobj;
                 switch (hash)
                 {
@@ -7776,7 +7492,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessagePaymentSuccessfulBot();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessagePaymentSuccessfulBot)tlobj;
                 switch (hash)
                 {
@@ -7823,7 +7538,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageWebsiteConnected();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageWebsiteConnected)tlobj;
                 switch (hash)
                 {
@@ -7842,7 +7556,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessagePassportDataSent();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessagePassportDataSent)tlobj;
                 switch (hash)
                 {
@@ -7861,7 +7574,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessagePassportDataReceived();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessagePassportDataReceived)tlobj;
                 switch (hash)
                 {
@@ -7988,7 +7700,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TextEntityTypePreCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TextEntityTypePreCode)tlobj;
                 switch (hash)
                 {
@@ -8007,7 +7718,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TextEntityTypeTextUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TextEntityTypeTextUrl)tlobj;
                 switch (hash)
                 {
@@ -8026,7 +7736,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TextEntityTypeMentionName();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TextEntityTypeMentionName)tlobj;
                 switch (hash)
                 {
@@ -8045,7 +7754,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputThumbnail();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputThumbnail)tlobj;
                 switch (hash)
                 {
@@ -8070,7 +7778,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageSchedulingStateSendAtDate();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageSchedulingStateSendAtDate)tlobj;
                 switch (hash)
                 {
@@ -8096,7 +7803,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageSendOptions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageSendOptions)tlobj;
                 switch (hash)
                 {
@@ -8121,7 +7827,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageCopyOptions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageCopyOptions)tlobj;
                 switch (hash)
                 {
@@ -8146,7 +7851,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageText();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageText)tlobj;
                 switch (hash)
                 {
@@ -8171,7 +7875,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageAnimation)tlobj;
                 switch (hash)
                 {
@@ -8208,7 +7911,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageAudio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageAudio)tlobj;
                 switch (hash)
                 {
@@ -8242,7 +7944,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageDocument)tlobj;
                 switch (hash)
                 {
@@ -8270,7 +7971,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessagePhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessagePhoto)tlobj;
                 switch (hash)
                 {
@@ -8307,7 +8007,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageSticker)tlobj;
                 switch (hash)
                 {
@@ -8335,7 +8034,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageVideo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageVideo)tlobj;
                 switch (hash)
                 {
@@ -8378,7 +8076,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageVideoNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageVideoNote)tlobj;
                 switch (hash)
                 {
@@ -8406,7 +8103,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageVoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageVoiceNote)tlobj;
                 switch (hash)
                 {
@@ -8434,7 +8130,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageLocation)tlobj;
                 switch (hash)
                 {
@@ -8456,7 +8151,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageVenue();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageVenue)tlobj;
                 switch (hash)
                 {
@@ -8475,7 +8169,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageContact();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageContact)tlobj;
                 switch (hash)
                 {
@@ -8494,7 +8187,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageDice();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageDice)tlobj;
                 switch (hash)
                 {
@@ -8516,7 +8208,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageGame();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageGame)tlobj;
                 switch (hash)
                 {
@@ -8538,7 +8229,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageInvoice();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageInvoice)tlobj;
                 switch (hash)
                 {
@@ -8587,7 +8277,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessagePoll();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessagePoll)tlobj;
                 switch (hash)
                 {
@@ -8624,7 +8313,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputMessageForwarded();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputMessageForwarded)tlobj;
                 switch (hash)
                 {
@@ -8785,7 +8473,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatActionUploadingVideo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatActionUploadingVideo)tlobj;
                 switch (hash)
                 {
@@ -8811,7 +8498,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatActionUploadingVoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatActionUploadingVoiceNote)tlobj;
                 switch (hash)
                 {
@@ -8830,7 +8516,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatActionUploadingPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatActionUploadingPhoto)tlobj;
                 switch (hash)
                 {
@@ -8849,7 +8534,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatActionUploadingDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatActionUploadingDocument)tlobj;
                 switch (hash)
                 {
@@ -8896,7 +8580,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatActionUploadingVideoNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatActionUploadingVideoNote)tlobj;
                 switch (hash)
                 {
@@ -8929,7 +8612,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserStatusOnline();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserStatusOnline)tlobj;
                 switch (hash)
                 {
@@ -8948,7 +8630,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserStatusOffline();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserStatusOffline)tlobj;
                 switch (hash)
                 {
@@ -8988,7 +8669,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Stickers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Stickers)tlobj;
                 switch (hash)
                 {
@@ -9007,7 +8687,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Emojis();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Emojis)tlobj;
                 switch (hash)
                 {
@@ -9026,7 +8705,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StickerSet)tlobj;
                 switch (hash)
                 {
@@ -9078,7 +8756,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StickerSetInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StickerSetInfo)tlobj;
                 switch (hash)
                 {
@@ -9130,7 +8807,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StickerSets)tlobj;
                 switch (hash)
                 {
@@ -9187,7 +8863,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallProtocol();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallProtocol)tlobj;
                 switch (hash)
                 {
@@ -9218,7 +8893,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallServerTypeTelegramReflector();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallServerTypeTelegramReflector)tlobj;
                 switch (hash)
                 {
@@ -9237,7 +8911,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallServerTypeWebrtc();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallServerTypeWebrtc)tlobj;
                 switch (hash)
                 {
@@ -9265,7 +8938,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallServer();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallServer)tlobj;
                 switch (hash)
                 {
@@ -9296,7 +8968,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallId();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallId)tlobj;
                 switch (hash)
                 {
@@ -9315,7 +8986,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallStatePending();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallStatePending)tlobj;
                 switch (hash)
                 {
@@ -9344,7 +9014,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallStateReady();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallStateReady)tlobj;
                 switch (hash)
                 {
@@ -9385,7 +9054,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallStateDiscarded();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallStateDiscarded)tlobj;
                 switch (hash)
                 {
@@ -9410,7 +9078,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallStateError();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallStateError)tlobj;
                 switch (hash)
                 {
@@ -9492,7 +9159,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Call();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Call)tlobj;
                 switch (hash)
                 {
@@ -9523,7 +9189,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PhoneNumberAuthenticationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PhoneNumberAuthenticationSettings)tlobj;
                 switch (hash)
                 {
@@ -9548,7 +9213,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Animations();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Animations)tlobj;
                 switch (hash)
                 {
@@ -9567,7 +9231,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ImportedContacts();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ImportedContacts)tlobj;
                 switch (hash)
                 {
@@ -9589,7 +9252,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new HttpUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (HttpUrl)tlobj;
                 switch (hash)
                 {
@@ -9608,7 +9270,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultAnimation)tlobj;
                 switch (hash)
                 {
@@ -9657,7 +9318,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultArticle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultArticle)tlobj;
                 switch (hash)
                 {
@@ -9703,7 +9363,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultAudio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultAudio)tlobj;
                 switch (hash)
                 {
@@ -9740,7 +9399,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultContact();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultContact)tlobj;
                 switch (hash)
                 {
@@ -9777,7 +9435,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultDocument)tlobj;
                 switch (hash)
                 {
@@ -9823,7 +9480,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultGame();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultGame)tlobj;
                 switch (hash)
                 {
@@ -9848,7 +9504,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultLocation)tlobj;
                 switch (hash)
                 {
@@ -9891,7 +9546,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultPhoto)tlobj;
                 switch (hash)
                 {
@@ -9934,7 +9588,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultSticker)tlobj;
                 switch (hash)
                 {
@@ -9971,7 +9624,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultVenue();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultVenue)tlobj;
                 switch (hash)
                 {
@@ -10008,7 +9660,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultVideo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultVideo)tlobj;
                 switch (hash)
                 {
@@ -10057,7 +9708,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputInlineQueryResultVoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputInlineQueryResultVoiceNote)tlobj;
                 switch (hash)
                 {
@@ -10091,7 +9741,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultArticle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultArticle)tlobj;
                 switch (hash)
                 {
@@ -10125,7 +9774,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultContact();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultContact)tlobj;
                 switch (hash)
                 {
@@ -10150,7 +9798,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultLocation)tlobj;
                 switch (hash)
                 {
@@ -10178,7 +9825,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultVenue();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultVenue)tlobj;
                 switch (hash)
                 {
@@ -10203,7 +9849,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultGame();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultGame)tlobj;
                 switch (hash)
                 {
@@ -10225,7 +9870,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultAnimation)tlobj;
                 switch (hash)
                 {
@@ -10250,7 +9894,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultAudio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultAudio)tlobj;
                 switch (hash)
                 {
@@ -10272,7 +9915,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultDocument)tlobj;
                 switch (hash)
                 {
@@ -10300,7 +9942,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultPhoto)tlobj;
                 switch (hash)
                 {
@@ -10328,7 +9969,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultSticker)tlobj;
                 switch (hash)
                 {
@@ -10350,7 +9990,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultVideo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultVideo)tlobj;
                 switch (hash)
                 {
@@ -10378,7 +10017,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResultVoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResultVoiceNote)tlobj;
                 switch (hash)
                 {
@@ -10403,7 +10041,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InlineQueryResults();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InlineQueryResults)tlobj;
                 switch (hash)
                 {
@@ -10434,7 +10071,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallbackQueryPayloadData();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallbackQueryPayloadData)tlobj;
                 switch (hash)
                 {
@@ -10453,7 +10089,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallbackQueryPayloadDataWithPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallbackQueryPayloadDataWithPassword)tlobj;
                 switch (hash)
                 {
@@ -10475,7 +10110,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallbackQueryPayloadGame();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallbackQueryPayloadGame)tlobj;
                 switch (hash)
                 {
@@ -10494,7 +10128,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CallbackQueryAnswer();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CallbackQueryAnswer)tlobj;
                 switch (hash)
                 {
@@ -10519,7 +10152,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CustomRequestResult();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CustomRequestResult)tlobj;
                 switch (hash)
                 {
@@ -10538,7 +10170,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GameHighScore();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GameHighScore)tlobj;
                 switch (hash)
                 {
@@ -10563,7 +10194,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GameHighScores();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GameHighScores)tlobj;
                 switch (hash)
                 {
@@ -10582,7 +10212,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventMessageEdited();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventMessageEdited)tlobj;
                 switch (hash)
                 {
@@ -10604,7 +10233,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventMessageDeleted();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventMessageDeleted)tlobj;
                 switch (hash)
                 {
@@ -10623,7 +10251,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventPollStopped();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventPollStopped)tlobj;
                 switch (hash)
                 {
@@ -10642,7 +10269,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventMessagePinned();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventMessagePinned)tlobj;
                 switch (hash)
                 {
@@ -10682,7 +10308,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventMemberInvited();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventMemberInvited)tlobj;
                 switch (hash)
                 {
@@ -10704,7 +10329,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventMemberPromoted();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventMemberPromoted)tlobj;
                 switch (hash)
                 {
@@ -10729,7 +10353,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventMemberRestricted();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventMemberRestricted)tlobj;
                 switch (hash)
                 {
@@ -10754,7 +10377,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventTitleChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventTitleChanged)tlobj;
                 switch (hash)
                 {
@@ -10776,7 +10398,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventPermissionsChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventPermissionsChanged)tlobj;
                 switch (hash)
                 {
@@ -10798,7 +10419,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventDescriptionChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventDescriptionChanged)tlobj;
                 switch (hash)
                 {
@@ -10820,7 +10440,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventUsernameChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventUsernameChanged)tlobj;
                 switch (hash)
                 {
@@ -10842,7 +10461,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventPhotoChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventPhotoChanged)tlobj;
                 switch (hash)
                 {
@@ -10864,7 +10482,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventInvitesToggled();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventInvitesToggled)tlobj;
                 switch (hash)
                 {
@@ -10883,7 +10500,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventLinkedChatChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventLinkedChatChanged)tlobj;
                 switch (hash)
                 {
@@ -10905,7 +10521,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventSlowModeDelayChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventSlowModeDelayChanged)tlobj;
                 switch (hash)
                 {
@@ -10927,7 +10542,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventSignMessagesToggled();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventSignMessagesToggled)tlobj;
                 switch (hash)
                 {
@@ -10946,7 +10560,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventStickerSetChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventStickerSetChanged)tlobj;
                 switch (hash)
                 {
@@ -10968,7 +10581,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventLocationChanged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventLocationChanged)tlobj;
                 switch (hash)
                 {
@@ -10990,7 +10602,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventIsAllHistoryAvailableToggled();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventIsAllHistoryAvailableToggled)tlobj;
                 switch (hash)
                 {
@@ -11009,7 +10620,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEvent();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEvent)tlobj;
                 switch (hash)
                 {
@@ -11037,7 +10647,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEvents();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEvents)tlobj;
                 switch (hash)
                 {
@@ -11056,7 +10665,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatEventLogFilters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatEventLogFilters)tlobj;
                 switch (hash)
                 {
@@ -11102,7 +10710,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LanguagePackStringValueOrdinary();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LanguagePackStringValueOrdinary)tlobj;
                 switch (hash)
                 {
@@ -11121,7 +10728,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LanguagePackStringValuePluralized();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LanguagePackStringValuePluralized)tlobj;
                 switch (hash)
                 {
@@ -11162,7 +10768,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LanguagePackString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LanguagePackString)tlobj;
                 switch (hash)
                 {
@@ -11184,7 +10789,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LanguagePackStrings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LanguagePackStrings)tlobj;
                 switch (hash)
                 {
@@ -11203,7 +10807,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LanguagePackInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LanguagePackInfo)tlobj;
                 switch (hash)
                 {
@@ -11258,7 +10861,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LocalizationTargetInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LocalizationTargetInfo)tlobj;
                 switch (hash)
                 {
@@ -11277,7 +10879,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenFirebaseCloudMessaging();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenFirebaseCloudMessaging)tlobj;
                 switch (hash)
                 {
@@ -11299,7 +10900,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenApplePush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenApplePush)tlobj;
                 switch (hash)
                 {
@@ -11321,7 +10921,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenApplePushVoIP();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenApplePushVoIP)tlobj;
                 switch (hash)
                 {
@@ -11346,7 +10945,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenWindowsPush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenWindowsPush)tlobj;
                 switch (hash)
                 {
@@ -11365,7 +10963,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenMicrosoftPush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenMicrosoftPush)tlobj;
                 switch (hash)
                 {
@@ -11384,7 +10981,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenMicrosoftPushVoIP();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenMicrosoftPushVoIP)tlobj;
                 switch (hash)
                 {
@@ -11403,7 +10999,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenWebPush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenWebPush)tlobj;
                 switch (hash)
                 {
@@ -11428,7 +11023,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenSimplePush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenSimplePush)tlobj;
                 switch (hash)
                 {
@@ -11447,7 +11041,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenUbuntuPush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenUbuntuPush)tlobj;
                 switch (hash)
                 {
@@ -11466,7 +11059,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenBlackBerryPush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenBlackBerryPush)tlobj;
                 switch (hash)
                 {
@@ -11485,7 +11077,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeviceTokenTizenPush();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeviceTokenTizenPush)tlobj;
                 switch (hash)
                 {
@@ -11504,7 +11095,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushReceiverId();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushReceiverId)tlobj;
                 switch (hash)
                 {
@@ -11523,7 +11113,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BackgroundFillSolid();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BackgroundFillSolid)tlobj;
                 switch (hash)
                 {
@@ -11542,7 +11131,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BackgroundFillGradient();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BackgroundFillGradient)tlobj;
                 switch (hash)
                 {
@@ -11567,7 +11155,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BackgroundTypeWallpaper();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BackgroundTypeWallpaper)tlobj;
                 switch (hash)
                 {
@@ -11589,7 +11176,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BackgroundTypePattern();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BackgroundTypePattern)tlobj;
                 switch (hash)
                 {
@@ -11614,7 +11200,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BackgroundTypeFill();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BackgroundTypeFill)tlobj;
                 switch (hash)
                 {
@@ -11633,7 +11218,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Background();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Background)tlobj;
                 switch (hash)
                 {
@@ -11667,7 +11251,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Backgrounds();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Backgrounds)tlobj;
                 switch (hash)
                 {
@@ -11686,7 +11269,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputBackgroundLocal();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputBackgroundLocal)tlobj;
                 switch (hash)
                 {
@@ -11705,7 +11287,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputBackgroundRemote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputBackgroundRemote)tlobj;
                 switch (hash)
                 {
@@ -11724,7 +11305,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Hashtags();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Hashtags)tlobj;
                 switch (hash)
                 {
@@ -11757,7 +11337,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CanTransferOwnershipResultPasswordTooFresh();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CanTransferOwnershipResultPasswordTooFresh)tlobj;
                 switch (hash)
                 {
@@ -11776,7 +11355,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CanTransferOwnershipResultSessionTooFresh();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CanTransferOwnershipResultSessionTooFresh)tlobj;
                 switch (hash)
                 {
@@ -11830,7 +11408,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentHidden();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentHidden)tlobj;
                 switch (hash)
                 {
@@ -11849,7 +11426,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentAnimation)tlobj;
                 switch (hash)
                 {
@@ -11874,7 +11450,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentAudio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentAudio)tlobj;
                 switch (hash)
                 {
@@ -11896,7 +11471,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentContact();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentContact)tlobj;
                 switch (hash)
                 {
@@ -11925,7 +11499,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentDocument();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentDocument)tlobj;
                 switch (hash)
                 {
@@ -11947,7 +11520,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentGame();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentGame)tlobj;
                 switch (hash)
                 {
@@ -11969,7 +11541,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentGameScore();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentGameScore)tlobj;
                 switch (hash)
                 {
@@ -11994,7 +11565,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentInvoice();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentInvoice)tlobj;
                 switch (hash)
                 {
@@ -12016,7 +11586,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentLocation)tlobj;
                 switch (hash)
                 {
@@ -12038,7 +11607,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentPhoto)tlobj;
                 switch (hash)
                 {
@@ -12066,7 +11634,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentPoll();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentPoll)tlobj;
                 switch (hash)
                 {
@@ -12098,7 +11665,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentSticker)tlobj;
                 switch (hash)
                 {
@@ -12123,7 +11689,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentText();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentText)tlobj;
                 switch (hash)
                 {
@@ -12145,7 +11710,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentVideo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentVideo)tlobj;
                 switch (hash)
                 {
@@ -12173,7 +11737,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentVideoNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentVideoNote)tlobj;
                 switch (hash)
                 {
@@ -12195,7 +11758,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentVoiceNote();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentVoiceNote)tlobj;
                 switch (hash)
                 {
@@ -12224,7 +11786,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentChatAddMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentChatAddMembers)tlobj;
                 switch (hash)
                 {
@@ -12256,7 +11817,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentChatChangeTitle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentChatChangeTitle)tlobj;
                 switch (hash)
                 {
@@ -12275,7 +11835,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentChatDeleteMember();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentChatDeleteMember)tlobj;
                 switch (hash)
                 {
@@ -12307,7 +11866,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentMessageForwards();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentMessageForwards)tlobj;
                 switch (hash)
                 {
@@ -12326,7 +11884,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PushMessageContentMediaAlbum();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PushMessageContentMediaAlbum)tlobj;
                 switch (hash)
                 {
@@ -12351,7 +11908,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new NotificationTypeNewMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (NotificationTypeNewMessage)tlobj;
                 switch (hash)
                 {
@@ -12377,7 +11933,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new NotificationTypeNewCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (NotificationTypeNewCall)tlobj;
                 switch (hash)
                 {
@@ -12396,7 +11951,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new NotificationTypeNewPushMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (NotificationTypeNewPushMessage)tlobj;
                 switch (hash)
                 {
@@ -12458,7 +12012,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Notification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Notification)tlobj;
                 switch (hash)
                 {
@@ -12486,7 +12039,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new NotificationGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (NotificationGroup)tlobj;
                 switch (hash)
                 {
@@ -12517,7 +12069,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new OptionValueBoolean();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (OptionValueBoolean)tlobj;
                 switch (hash)
                 {
@@ -12543,7 +12094,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new OptionValueInteger();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (OptionValueInteger)tlobj;
                 switch (hash)
                 {
@@ -12562,7 +12112,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new OptionValueString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (OptionValueString)tlobj;
                 switch (hash)
                 {
@@ -12581,7 +12130,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JsonObjectMember();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JsonObjectMember)tlobj;
                 switch (hash)
                 {
@@ -12610,7 +12158,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JsonValueBoolean();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JsonValueBoolean)tlobj;
                 switch (hash)
                 {
@@ -12629,7 +12176,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JsonValueNumber();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JsonValueNumber)tlobj;
                 switch (hash)
                 {
@@ -12648,7 +12194,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JsonValueString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JsonValueString)tlobj;
                 switch (hash)
                 {
@@ -12667,7 +12212,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JsonValueArray();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JsonValueArray)tlobj;
                 switch (hash)
                 {
@@ -12686,7 +12230,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JsonValueObject();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JsonValueObject)tlobj;
                 switch (hash)
                 {
@@ -12719,7 +12262,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleAllowUsers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserPrivacySettingRuleAllowUsers)tlobj;
                 switch (hash)
                 {
@@ -12738,7 +12280,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleAllowChatMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserPrivacySettingRuleAllowChatMembers)tlobj;
                 switch (hash)
                 {
@@ -12771,7 +12312,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleRestrictUsers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserPrivacySettingRuleRestrictUsers)tlobj;
                 switch (hash)
                 {
@@ -12790,7 +12330,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserPrivacySettingRuleRestrictChatMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserPrivacySettingRuleRestrictChatMembers)tlobj;
                 switch (hash)
                 {
@@ -12809,7 +12348,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UserPrivacySettingRules();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UserPrivacySettingRules)tlobj;
                 switch (hash)
                 {
@@ -12884,7 +12422,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AccountTtl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AccountTtl)tlobj;
                 switch (hash)
                 {
@@ -12903,7 +12440,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Session();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Session)tlobj;
                 switch (hash)
                 {
@@ -12964,7 +12500,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Sessions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Sessions)tlobj;
                 switch (hash)
                 {
@@ -12983,7 +12518,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ConnectedWebsite();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ConnectedWebsite)tlobj;
                 switch (hash)
                 {
@@ -13026,7 +12560,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ConnectedWebsites();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ConnectedWebsites)tlobj;
                 switch (hash)
                 {
@@ -13087,7 +12620,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatReportReasonCustom();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatReportReasonCustom)tlobj;
                 switch (hash)
                 {
@@ -13106,7 +12638,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageLink)tlobj;
                 switch (hash)
                 {
@@ -13128,7 +12659,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageLinkInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageLinkInfo)tlobj;
                 switch (hash)
                 {
@@ -13159,7 +12689,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new FilePart();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (FilePart)tlobj;
                 switch (hash)
                 {
@@ -13290,7 +12819,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StorageStatisticsByFileType();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StorageStatisticsByFileType)tlobj;
                 switch (hash)
                 {
@@ -13315,7 +12843,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StorageStatisticsByChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StorageStatisticsByChat)tlobj;
                 switch (hash)
                 {
@@ -13343,7 +12870,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StorageStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StorageStatistics)tlobj;
                 switch (hash)
                 {
@@ -13368,7 +12894,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StorageStatisticsFast();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StorageStatisticsFast)tlobj;
                 switch (hash)
                 {
@@ -13399,7 +12924,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DatabaseStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DatabaseStatistics)tlobj;
                 switch (hash)
                 {
@@ -13453,7 +12977,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new NetworkStatisticsEntryFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (NetworkStatisticsEntryFile)tlobj;
                 switch (hash)
                 {
@@ -13481,7 +13004,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new NetworkStatisticsEntryCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (NetworkStatisticsEntryCall)tlobj;
                 switch (hash)
                 {
@@ -13509,7 +13031,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new NetworkStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (NetworkStatistics)tlobj;
                 switch (hash)
                 {
@@ -13531,7 +13052,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AutoDownloadSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AutoDownloadSettings)tlobj;
                 switch (hash)
                 {
@@ -13571,7 +13091,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AutoDownloadSettingsPresets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AutoDownloadSettingsPresets)tlobj;
                 switch (hash)
                 {
@@ -13680,7 +13199,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TMeUrlTypeUser();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TMeUrlTypeUser)tlobj;
                 switch (hash)
                 {
@@ -13699,7 +13217,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TMeUrlTypeSupergroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TMeUrlTypeSupergroup)tlobj;
                 switch (hash)
                 {
@@ -13718,7 +13235,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TMeUrlTypeChatInvite();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TMeUrlTypeChatInvite)tlobj;
                 switch (hash)
                 {
@@ -13737,7 +13253,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TMeUrlTypeStickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TMeUrlTypeStickerSet)tlobj;
                 switch (hash)
                 {
@@ -13756,7 +13271,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TMeUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TMeUrl)tlobj;
                 switch (hash)
                 {
@@ -13778,7 +13292,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TMeUrls();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TMeUrls)tlobj;
                 switch (hash)
                 {
@@ -13811,7 +13324,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Count();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Count)tlobj;
                 switch (hash)
                 {
@@ -13830,7 +13342,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Text();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Text)tlobj;
                 switch (hash)
                 {
@@ -13849,7 +13360,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Seconds();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Seconds)tlobj;
                 switch (hash)
                 {
@@ -13868,7 +13378,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeepLinkInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeepLinkInfo)tlobj;
                 switch (hash)
                 {
@@ -13890,7 +13399,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TextParseModeMarkdown();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TextParseModeMarkdown)tlobj;
                 switch (hash)
                 {
@@ -13916,7 +13424,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ProxyTypeSocks5();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ProxyTypeSocks5)tlobj;
                 switch (hash)
                 {
@@ -13938,7 +13445,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ProxyTypeHttp();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ProxyTypeHttp)tlobj;
                 switch (hash)
                 {
@@ -13963,7 +13469,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ProxyTypeMtproto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ProxyTypeMtproto)tlobj;
                 switch (hash)
                 {
@@ -13982,7 +13487,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Proxy();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Proxy)tlobj;
                 switch (hash)
                 {
@@ -14016,7 +13520,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Proxies();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Proxies)tlobj;
                 switch (hash)
                 {
@@ -14035,7 +13538,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputStickerStatic();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputStickerStatic)tlobj;
                 switch (hash)
                 {
@@ -14060,7 +13562,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new InputStickerAnimated();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (InputStickerAnimated)tlobj;
                 switch (hash)
                 {
@@ -14082,7 +13583,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DateRange();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DateRange)tlobj;
                 switch (hash)
                 {
@@ -14104,7 +13604,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StatisticsValue();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StatisticsValue)tlobj;
                 switch (hash)
                 {
@@ -14129,7 +13628,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StatisticsGraphData();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StatisticsGraphData)tlobj;
                 switch (hash)
                 {
@@ -14151,7 +13649,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StatisticsGraphAsync();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StatisticsGraphAsync)tlobj;
                 switch (hash)
                 {
@@ -14170,7 +13667,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StatisticsGraphError();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StatisticsGraphError)tlobj;
                 switch (hash)
                 {
@@ -14189,7 +13685,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatStatisticsMessageInteractionInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatStatisticsMessageInteractionInfo)tlobj;
                 switch (hash)
                 {
@@ -14214,7 +13709,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatStatisticsMessageSenderInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatStatisticsMessageSenderInfo)tlobj;
                 switch (hash)
                 {
@@ -14239,7 +13733,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatStatisticsAdministratorActionsInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatStatisticsAdministratorActionsInfo)tlobj;
                 switch (hash)
                 {
@@ -14267,7 +13760,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatStatisticsInviterInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatStatisticsInviterInfo)tlobj;
                 switch (hash)
                 {
@@ -14289,7 +13781,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatStatisticsSupergroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatStatisticsSupergroup)tlobj;
                 switch (hash)
                 {
@@ -14353,7 +13844,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChatStatisticsChannel();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChatStatisticsChannel)tlobj;
                 switch (hash)
                 {
@@ -14414,7 +13904,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new MessageStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (MessageStatistics)tlobj;
                 switch (hash)
                 {
@@ -14433,7 +13922,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateAuthorizationState();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateAuthorizationState)tlobj;
                 switch (hash)
                 {
@@ -14452,7 +13940,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewMessage)tlobj;
                 switch (hash)
                 {
@@ -14471,7 +13958,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageSendAcknowledged();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageSendAcknowledged)tlobj;
                 switch (hash)
                 {
@@ -14493,7 +13979,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageSendSucceeded();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageSendSucceeded)tlobj;
                 switch (hash)
                 {
@@ -14515,7 +14000,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageSendFailed();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageSendFailed)tlobj;
                 switch (hash)
                 {
@@ -14543,7 +14027,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageContent();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageContent)tlobj;
                 switch (hash)
                 {
@@ -14568,7 +14051,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageEdited();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageEdited)tlobj;
                 switch (hash)
                 {
@@ -14596,7 +14078,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageInteractionInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageInteractionInfo)tlobj;
                 switch (hash)
                 {
@@ -14621,7 +14102,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageContentOpened();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageContentOpened)tlobj;
                 switch (hash)
                 {
@@ -14643,7 +14123,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageMentionRead();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageMentionRead)tlobj;
                 switch (hash)
                 {
@@ -14668,7 +14147,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateMessageLiveLocationViewed();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateMessageLiveLocationViewed)tlobj;
                 switch (hash)
                 {
@@ -14690,7 +14168,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewChat)tlobj;
                 switch (hash)
                 {
@@ -14709,7 +14186,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatTitle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatTitle)tlobj;
                 switch (hash)
                 {
@@ -14731,7 +14207,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatPhoto)tlobj;
                 switch (hash)
                 {
@@ -14753,7 +14228,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatPermissions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatPermissions)tlobj;
                 switch (hash)
                 {
@@ -14775,7 +14249,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatLastMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatLastMessage)tlobj;
                 switch (hash)
                 {
@@ -14800,7 +14273,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatPosition();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatPosition)tlobj;
                 switch (hash)
                 {
@@ -14822,7 +14294,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatIsMarkedAsUnread();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatIsMarkedAsUnread)tlobj;
                 switch (hash)
                 {
@@ -14844,7 +14315,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatIsBlocked();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatIsBlocked)tlobj;
                 switch (hash)
                 {
@@ -14866,7 +14336,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatHasScheduledMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatHasScheduledMessages)tlobj;
                 switch (hash)
                 {
@@ -14888,7 +14357,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatDefaultDisableNotification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatDefaultDisableNotification)tlobj;
                 switch (hash)
                 {
@@ -14910,7 +14378,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatReadInbox();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatReadInbox)tlobj;
                 switch (hash)
                 {
@@ -14935,7 +14402,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatReadOutbox();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatReadOutbox)tlobj;
                 switch (hash)
                 {
@@ -14957,7 +14423,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatUnreadMentionCount();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatUnreadMentionCount)tlobj;
                 switch (hash)
                 {
@@ -14979,7 +14444,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatNotificationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatNotificationSettings)tlobj;
                 switch (hash)
                 {
@@ -15001,7 +14465,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateScopeNotificationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateScopeNotificationSettings)tlobj;
                 switch (hash)
                 {
@@ -15023,7 +14486,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatActionBar();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatActionBar)tlobj;
                 switch (hash)
                 {
@@ -15045,7 +14507,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatPinnedMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatPinnedMessage)tlobj;
                 switch (hash)
                 {
@@ -15067,7 +14528,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatReplyMarkup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatReplyMarkup)tlobj;
                 switch (hash)
                 {
@@ -15089,7 +14549,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatDraftMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatDraftMessage)tlobj;
                 switch (hash)
                 {
@@ -15114,7 +14573,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatFilters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatFilters)tlobj;
                 switch (hash)
                 {
@@ -15133,7 +14591,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateChatOnlineMemberCount();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateChatOnlineMemberCount)tlobj;
                 switch (hash)
                 {
@@ -15155,7 +14612,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNotification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNotification)tlobj;
                 switch (hash)
                 {
@@ -15177,7 +14633,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNotificationGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNotificationGroup)tlobj;
                 switch (hash)
                 {
@@ -15217,7 +14672,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateActiveNotifications();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateActiveNotifications)tlobj;
                 switch (hash)
                 {
@@ -15236,7 +14690,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateHavePendingNotifications();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateHavePendingNotifications)tlobj;
                 switch (hash)
                 {
@@ -15258,7 +14711,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateDeleteMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateDeleteMessages)tlobj;
                 switch (hash)
                 {
@@ -15286,7 +14738,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUserChatAction();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUserChatAction)tlobj;
                 switch (hash)
                 {
@@ -15314,7 +14765,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUserStatus();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUserStatus)tlobj;
                 switch (hash)
                 {
@@ -15336,7 +14786,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUser();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUser)tlobj;
                 switch (hash)
                 {
@@ -15355,7 +14804,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateBasicGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateBasicGroup)tlobj;
                 switch (hash)
                 {
@@ -15374,7 +14822,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateSupergroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateSupergroup)tlobj;
                 switch (hash)
                 {
@@ -15393,7 +14840,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateSecretChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateSecretChat)tlobj;
                 switch (hash)
                 {
@@ -15412,7 +14858,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUserFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUserFullInfo)tlobj;
                 switch (hash)
                 {
@@ -15434,7 +14879,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateBasicGroupFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateBasicGroupFullInfo)tlobj;
                 switch (hash)
                 {
@@ -15456,7 +14900,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateSupergroupFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateSupergroupFullInfo)tlobj;
                 switch (hash)
                 {
@@ -15478,7 +14921,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateServiceNotification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateServiceNotification)tlobj;
                 switch (hash)
                 {
@@ -15500,7 +14942,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateFile)tlobj;
                 switch (hash)
                 {
@@ -15519,7 +14960,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateFileGenerationStart();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateFileGenerationStart)tlobj;
                 switch (hash)
                 {
@@ -15547,7 +14987,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateFileGenerationStop();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateFileGenerationStop)tlobj;
                 switch (hash)
                 {
@@ -15566,7 +15005,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateCall)tlobj;
                 switch (hash)
                 {
@@ -15585,7 +15023,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewCallSignalingData();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewCallSignalingData)tlobj;
                 switch (hash)
                 {
@@ -15607,7 +15044,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUserPrivacySettingRules();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUserPrivacySettingRules)tlobj;
                 switch (hash)
                 {
@@ -15629,7 +15065,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUnreadMessageCount();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUnreadMessageCount)tlobj;
                 switch (hash)
                 {
@@ -15654,7 +15089,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUnreadChatCount();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUnreadChatCount)tlobj;
                 switch (hash)
                 {
@@ -15688,7 +15122,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateOption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateOption)tlobj;
                 switch (hash)
                 {
@@ -15710,7 +15143,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateStickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateStickerSet)tlobj;
                 switch (hash)
                 {
@@ -15729,7 +15161,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateInstalledStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateInstalledStickerSets)tlobj;
                 switch (hash)
                 {
@@ -15751,7 +15182,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateTrendingStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateTrendingStickerSets)tlobj;
                 switch (hash)
                 {
@@ -15770,7 +15200,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateRecentStickers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateRecentStickers)tlobj;
                 switch (hash)
                 {
@@ -15792,7 +15221,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateFavoriteStickers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateFavoriteStickers)tlobj;
                 switch (hash)
                 {
@@ -15811,7 +15239,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateSavedAnimations();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateSavedAnimations)tlobj;
                 switch (hash)
                 {
@@ -15830,7 +15257,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateSelectedBackground();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateSelectedBackground)tlobj;
                 switch (hash)
                 {
@@ -15852,7 +15278,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateLanguagePackStrings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateLanguagePackStrings)tlobj;
                 switch (hash)
                 {
@@ -15877,7 +15302,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateConnectionState();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateConnectionState)tlobj;
                 switch (hash)
                 {
@@ -15896,7 +15320,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateTermsOfService();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateTermsOfService)tlobj;
                 switch (hash)
                 {
@@ -15918,7 +15341,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateUsersNearby();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateUsersNearby)tlobj;
                 switch (hash)
                 {
@@ -15937,7 +15359,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateDiceEmojis();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateDiceEmojis)tlobj;
                 switch (hash)
                 {
@@ -15956,7 +15377,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateAnimationSearchParameters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateAnimationSearchParameters)tlobj;
                 switch (hash)
                 {
@@ -15978,7 +15398,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateSuggestedActions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateSuggestedActions)tlobj;
                 switch (hash)
                 {
@@ -16000,7 +15419,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewInlineQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewInlineQuery)tlobj;
                 switch (hash)
                 {
@@ -16031,7 +15449,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewChosenInlineResult();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewChosenInlineResult)tlobj;
                 switch (hash)
                 {
@@ -16062,7 +15479,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewCallbackQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewCallbackQuery)tlobj;
                 switch (hash)
                 {
@@ -16096,7 +15512,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewInlineCallbackQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewInlineCallbackQuery)tlobj;
                 switch (hash)
                 {
@@ -16127,7 +15542,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewShippingQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewShippingQuery)tlobj;
                 switch (hash)
                 {
@@ -16155,7 +15569,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewPreCheckoutQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewPreCheckoutQuery)tlobj;
                 switch (hash)
                 {
@@ -16192,7 +15605,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewCustomEvent();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewCustomEvent)tlobj;
                 switch (hash)
                 {
@@ -16211,7 +15623,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdateNewCustomQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdateNewCustomQuery)tlobj;
                 switch (hash)
                 {
@@ -16236,7 +15647,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdatePoll();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdatePoll)tlobj;
                 switch (hash)
                 {
@@ -16255,7 +15665,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpdatePollAnswer();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpdatePollAnswer)tlobj;
                 switch (hash)
                 {
@@ -16280,7 +15689,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new Updates();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (Updates)tlobj;
                 switch (hash)
                 {
@@ -16306,7 +15714,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LogStreamFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LogStreamFile)tlobj;
                 switch (hash)
                 {
@@ -16338,7 +15745,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LogVerbosityLevel();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LogVerbosityLevel)tlobj;
                 switch (hash)
                 {
@@ -16357,7 +15763,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LogTags();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LogTags)tlobj;
                 switch (hash)
                 {
@@ -16376,7 +15781,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestInt();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestInt)tlobj;
                 switch (hash)
                 {
@@ -16395,7 +15799,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestString)tlobj;
                 switch (hash)
                 {
@@ -16414,7 +15817,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestBytes();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestBytes)tlobj;
                 switch (hash)
                 {
@@ -16433,7 +15835,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestVectorInt();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestVectorInt)tlobj;
                 switch (hash)
                 {
@@ -16452,7 +15853,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestVectorIntObject();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestVectorIntObject)tlobj;
                 switch (hash)
                 {
@@ -16471,7 +15871,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestVectorString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestVectorString)tlobj;
                 switch (hash)
                 {
@@ -16490,7 +15889,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestVectorStringObject();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestVectorStringObject)tlobj;
                 switch (hash)
                 {
@@ -16516,7 +15914,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetTdlibParameters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetTdlibParameters)tlobj;
                 switch (hash)
                 {
@@ -16535,7 +15932,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckDatabaseEncryptionKey();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckDatabaseEncryptionKey)tlobj;
                 switch (hash)
                 {
@@ -16554,7 +15950,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetAuthenticationPhoneNumber();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetAuthenticationPhoneNumber)tlobj;
                 switch (hash)
                 {
@@ -16583,7 +15978,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckAuthenticationCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckAuthenticationCode)tlobj;
                 switch (hash)
                 {
@@ -16602,7 +15996,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RequestQrCodeAuthentication();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RequestQrCodeAuthentication)tlobj;
                 switch (hash)
                 {
@@ -16621,7 +16014,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RegisterUser();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RegisterUser)tlobj;
                 switch (hash)
                 {
@@ -16643,7 +16035,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckAuthenticationPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckAuthenticationPassword)tlobj;
                 switch (hash)
                 {
@@ -16669,7 +16060,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RecoverAuthenticationPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RecoverAuthenticationPassword)tlobj;
                 switch (hash)
                 {
@@ -16688,7 +16078,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckAuthenticationBotToken();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckAuthenticationBotToken)tlobj;
                 switch (hash)
                 {
@@ -16728,7 +16117,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ConfirmQrCodeAuthentication();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ConfirmQrCodeAuthentication)tlobj;
                 switch (hash)
                 {
@@ -16754,7 +16142,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetDatabaseEncryptionKey();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetDatabaseEncryptionKey)tlobj;
                 switch (hash)
                 {
@@ -16780,7 +16167,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetPassword)tlobj;
                 switch (hash)
                 {
@@ -16811,7 +16197,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetRecoveryEmailAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetRecoveryEmailAddress)tlobj;
                 switch (hash)
                 {
@@ -16830,7 +16215,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetRecoveryEmailAddress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetRecoveryEmailAddress)tlobj;
                 switch (hash)
                 {
@@ -16852,7 +16236,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckRecoveryEmailAddressCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckRecoveryEmailAddressCode)tlobj;
                 switch (hash)
                 {
@@ -16885,7 +16268,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RecoverPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RecoverPassword)tlobj;
                 switch (hash)
                 {
@@ -16904,7 +16286,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateTemporaryPassword();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateTemporaryPassword)tlobj;
                 switch (hash)
                 {
@@ -16940,7 +16321,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetUser();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetUser)tlobj;
                 switch (hash)
                 {
@@ -16959,7 +16339,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetUserFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetUserFullInfo)tlobj;
                 switch (hash)
                 {
@@ -16978,7 +16357,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetBasicGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetBasicGroup)tlobj;
                 switch (hash)
                 {
@@ -16997,7 +16375,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetBasicGroupFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetBasicGroupFullInfo)tlobj;
                 switch (hash)
                 {
@@ -17016,7 +16393,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetSupergroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetSupergroup)tlobj;
                 switch (hash)
                 {
@@ -17035,7 +16411,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetSupergroupFullInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetSupergroupFullInfo)tlobj;
                 switch (hash)
                 {
@@ -17054,7 +16429,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetSecretChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetSecretChat)tlobj;
                 switch (hash)
                 {
@@ -17073,7 +16447,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChat)tlobj;
                 switch (hash)
                 {
@@ -17092,7 +16465,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessage)tlobj;
                 switch (hash)
                 {
@@ -17114,7 +16486,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessageLocally();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessageLocally)tlobj;
                 switch (hash)
                 {
@@ -17136,7 +16507,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetRepliedMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetRepliedMessage)tlobj;
                 switch (hash)
                 {
@@ -17158,7 +16528,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatPinnedMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatPinnedMessage)tlobj;
                 switch (hash)
                 {
@@ -17177,7 +16546,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessages)tlobj;
                 switch (hash)
                 {
@@ -17199,7 +16567,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessageThread();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessageThread)tlobj;
                 switch (hash)
                 {
@@ -17221,7 +16588,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetFile)tlobj;
                 switch (hash)
                 {
@@ -17240,7 +16606,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetRemoteFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetRemoteFile)tlobj;
                 switch (hash)
                 {
@@ -17262,7 +16627,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChats)tlobj;
                 switch (hash)
                 {
@@ -17290,7 +16654,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchPublicChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchPublicChat)tlobj;
                 switch (hash)
                 {
@@ -17309,7 +16672,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchPublicChats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchPublicChats)tlobj;
                 switch (hash)
                 {
@@ -17328,7 +16690,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchChats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchChats)tlobj;
                 switch (hash)
                 {
@@ -17350,7 +16711,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchChatsOnServer();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchChatsOnServer)tlobj;
                 switch (hash)
                 {
@@ -17372,7 +16732,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchChatsNearby();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchChatsNearby)tlobj;
                 switch (hash)
                 {
@@ -17391,7 +16750,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetTopChats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetTopChats)tlobj;
                 switch (hash)
                 {
@@ -17413,7 +16771,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveTopChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveTopChat)tlobj;
                 switch (hash)
                 {
@@ -17435,7 +16792,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddRecentlyFoundChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddRecentlyFoundChat)tlobj;
                 switch (hash)
                 {
@@ -17454,7 +16810,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveRecentlyFoundChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveRecentlyFoundChat)tlobj;
                 switch (hash)
                 {
@@ -17480,7 +16835,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckChatUsername();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckChatUsername)tlobj;
                 switch (hash)
                 {
@@ -17502,7 +16856,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetCreatedPublicChats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetCreatedPublicChats)tlobj;
                 switch (hash)
                 {
@@ -17521,7 +16874,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckCreatedPublicChatsLimit();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckCreatedPublicChatsLimit)tlobj;
                 switch (hash)
                 {
@@ -17554,7 +16906,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetGroupsInCommon();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetGroupsInCommon)tlobj;
                 switch (hash)
                 {
@@ -17579,7 +16930,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatHistory();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatHistory)tlobj;
                 switch (hash)
                 {
@@ -17610,7 +16960,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessageThreadHistory();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessageThreadHistory)tlobj;
                 switch (hash)
                 {
@@ -17641,7 +16990,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteChatHistory();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteChatHistory)tlobj;
                 switch (hash)
                 {
@@ -17666,7 +17014,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchChatMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchChatMessages)tlobj;
                 switch (hash)
                 {
@@ -17706,7 +17053,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchMessages)tlobj;
                 switch (hash)
                 {
@@ -17749,7 +17095,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchSecretMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchSecretMessages)tlobj;
                 switch (hash)
                 {
@@ -17780,7 +17125,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchCallMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchCallMessages)tlobj;
                 switch (hash)
                 {
@@ -17805,7 +17149,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchChatRecentLocationMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchChatRecentLocationMessages)tlobj;
                 switch (hash)
                 {
@@ -17834,7 +17177,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatMessageByDate();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatMessageByDate)tlobj;
                 switch (hash)
                 {
@@ -17856,7 +17198,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatMessageCount();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatMessageCount)tlobj;
                 switch (hash)
                 {
@@ -17881,7 +17222,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatScheduledMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatScheduledMessages)tlobj;
                 switch (hash)
                 {
@@ -17900,7 +17240,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessagePublicForwards();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessagePublicForwards)tlobj;
                 switch (hash)
                 {
@@ -17928,7 +17267,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveNotification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveNotification)tlobj;
                 switch (hash)
                 {
@@ -17950,7 +17288,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveNotificationGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveNotificationGroup)tlobj;
                 switch (hash)
                 {
@@ -17972,7 +17309,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessageLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessageLink)tlobj;
                 switch (hash)
                 {
@@ -18000,7 +17336,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessageEmbeddingCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessageEmbeddingCode)tlobj;
                 switch (hash)
                 {
@@ -18025,7 +17360,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessageLinkInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessageLinkInfo)tlobj;
                 switch (hash)
                 {
@@ -18044,7 +17378,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendMessage)tlobj;
                 switch (hash)
                 {
@@ -18078,7 +17411,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendMessageAlbum();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendMessageAlbum)tlobj;
                 switch (hash)
                 {
@@ -18109,7 +17441,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendBotStartMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendBotStartMessage)tlobj;
                 switch (hash)
                 {
@@ -18134,7 +17465,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendInlineQueryResultMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendInlineQueryResultMessage)tlobj;
                 switch (hash)
                 {
@@ -18171,7 +17501,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ForwardMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ForwardMessages)tlobj;
                 switch (hash)
                 {
@@ -18205,7 +17534,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ResendMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ResendMessages)tlobj;
                 switch (hash)
                 {
@@ -18227,7 +17555,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendChatSetTtlMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendChatSetTtlMessage)tlobj;
                 switch (hash)
                 {
@@ -18249,7 +17576,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendChatScreenshotTakenNotification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendChatScreenshotTakenNotification)tlobj;
                 switch (hash)
                 {
@@ -18268,7 +17594,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddLocalMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddLocalMessage)tlobj;
                 switch (hash)
                 {
@@ -18299,7 +17624,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteMessages)tlobj;
                 switch (hash)
                 {
@@ -18324,7 +17648,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteChatMessagesFromUser();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteChatMessagesFromUser)tlobj;
                 switch (hash)
                 {
@@ -18346,7 +17669,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditMessageText();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditMessageText)tlobj;
                 switch (hash)
                 {
@@ -18374,7 +17696,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditMessageLiveLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditMessageLiveLocation)tlobj;
                 switch (hash)
                 {
@@ -18402,7 +17723,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditMessageMedia();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditMessageMedia)tlobj;
                 switch (hash)
                 {
@@ -18430,7 +17750,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditMessageCaption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditMessageCaption)tlobj;
                 switch (hash)
                 {
@@ -18458,7 +17777,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditMessageReplyMarkup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditMessageReplyMarkup)tlobj;
                 switch (hash)
                 {
@@ -18483,7 +17801,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditInlineMessageText();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditInlineMessageText)tlobj;
                 switch (hash)
                 {
@@ -18508,7 +17825,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditInlineMessageLiveLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditInlineMessageLiveLocation)tlobj;
                 switch (hash)
                 {
@@ -18533,7 +17849,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditInlineMessageMedia();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditInlineMessageMedia)tlobj;
                 switch (hash)
                 {
@@ -18558,7 +17873,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditInlineMessageCaption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditInlineMessageCaption)tlobj;
                 switch (hash)
                 {
@@ -18583,7 +17897,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditInlineMessageReplyMarkup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditInlineMessageReplyMarkup)tlobj;
                 switch (hash)
                 {
@@ -18605,7 +17918,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditMessageSchedulingState();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditMessageSchedulingState)tlobj;
                 switch (hash)
                 {
@@ -18630,7 +17942,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetTextEntities();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetTextEntities)tlobj;
                 switch (hash)
                 {
@@ -18649,7 +17960,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ParseTextEntities();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ParseTextEntities)tlobj;
                 switch (hash)
                 {
@@ -18671,7 +17981,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ParseMarkdown();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ParseMarkdown)tlobj;
                 switch (hash)
                 {
@@ -18690,7 +17999,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMarkdownText();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMarkdownText)tlobj;
                 switch (hash)
                 {
@@ -18709,7 +18017,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetFileMimeType();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetFileMimeType)tlobj;
                 switch (hash)
                 {
@@ -18728,7 +18035,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetFileExtension();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetFileExtension)tlobj;
                 switch (hash)
                 {
@@ -18747,7 +18053,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CleanFileName();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CleanFileName)tlobj;
                 switch (hash)
                 {
@@ -18766,7 +18071,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetLanguagePackString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetLanguagePackString)tlobj;
                 switch (hash)
                 {
@@ -18794,7 +18098,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetJsonValue();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetJsonValue)tlobj;
                 switch (hash)
                 {
@@ -18813,7 +18116,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetJsonString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetJsonString)tlobj;
                 switch (hash)
                 {
@@ -18832,7 +18134,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetPollAnswer();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetPollAnswer)tlobj;
                 switch (hash)
                 {
@@ -18857,7 +18158,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPollVoters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPollVoters)tlobj;
                 switch (hash)
                 {
@@ -18888,7 +18188,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new StopPoll();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (StopPoll)tlobj;
                 switch (hash)
                 {
@@ -18913,7 +18212,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new HideSuggestedAction();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (HideSuggestedAction)tlobj;
                 switch (hash)
                 {
@@ -18932,7 +18230,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetLoginUrlInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetLoginUrlInfo)tlobj;
                 switch (hash)
                 {
@@ -18957,7 +18254,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetLoginUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetLoginUrl)tlobj;
                 switch (hash)
                 {
@@ -18985,7 +18281,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetInlineQueryResults();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetInlineQueryResults)tlobj;
                 switch (hash)
                 {
@@ -19016,7 +18311,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AnswerInlineQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AnswerInlineQuery)tlobj;
                 switch (hash)
                 {
@@ -19053,7 +18347,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetCallbackQueryAnswer();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetCallbackQueryAnswer)tlobj;
                 switch (hash)
                 {
@@ -19078,7 +18371,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AnswerCallbackQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AnswerCallbackQuery)tlobj;
                 switch (hash)
                 {
@@ -19109,7 +18401,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AnswerShippingQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AnswerShippingQuery)tlobj;
                 switch (hash)
                 {
@@ -19134,7 +18425,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AnswerPreCheckoutQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AnswerPreCheckoutQuery)tlobj;
                 switch (hash)
                 {
@@ -19156,7 +18446,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetGameScore();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetGameScore)tlobj;
                 switch (hash)
                 {
@@ -19190,7 +18479,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetInlineGameScore();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetInlineGameScore)tlobj;
                 switch (hash)
                 {
@@ -19221,7 +18509,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetGameHighScores();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetGameHighScores)tlobj;
                 switch (hash)
                 {
@@ -19246,7 +18533,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetInlineGameHighScores();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetInlineGameHighScores)tlobj;
                 switch (hash)
                 {
@@ -19268,7 +18554,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteChatReplyMarkup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteChatReplyMarkup)tlobj;
                 switch (hash)
                 {
@@ -19290,7 +18575,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendChatAction();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendChatAction)tlobj;
                 switch (hash)
                 {
@@ -19315,7 +18599,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new OpenChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (OpenChat)tlobj;
                 switch (hash)
                 {
@@ -19334,7 +18617,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CloseChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CloseChat)tlobj;
                 switch (hash)
                 {
@@ -19353,7 +18635,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ViewMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ViewMessages)tlobj;
                 switch (hash)
                 {
@@ -19381,7 +18662,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new OpenMessageContent();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (OpenMessageContent)tlobj;
                 switch (hash)
                 {
@@ -19403,7 +18683,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReadAllChatMentions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReadAllChatMentions)tlobj;
                 switch (hash)
                 {
@@ -19422,7 +18701,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreatePrivateChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreatePrivateChat)tlobj;
                 switch (hash)
                 {
@@ -19444,7 +18722,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateBasicGroupChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateBasicGroupChat)tlobj;
                 switch (hash)
                 {
@@ -19466,7 +18743,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateSupergroupChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateSupergroupChat)tlobj;
                 switch (hash)
                 {
@@ -19488,7 +18764,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateSecretChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateSecretChat)tlobj;
                 switch (hash)
                 {
@@ -19507,7 +18782,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateNewBasicGroupChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateNewBasicGroupChat)tlobj;
                 switch (hash)
                 {
@@ -19529,7 +18803,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateNewSupergroupChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateNewSupergroupChat)tlobj;
                 switch (hash)
                 {
@@ -19557,7 +18830,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateNewSecretChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateNewSecretChat)tlobj;
                 switch (hash)
                 {
@@ -19576,7 +18848,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UpgradeBasicGroupChatToSupergroupChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UpgradeBasicGroupChatToSupergroupChat)tlobj;
                 switch (hash)
                 {
@@ -19595,7 +18866,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatListsToAddChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatListsToAddChat)tlobj;
                 switch (hash)
                 {
@@ -19614,7 +18884,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddChatToList();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddChatToList)tlobj;
                 switch (hash)
                 {
@@ -19636,7 +18905,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatFilter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatFilter)tlobj;
                 switch (hash)
                 {
@@ -19655,7 +18923,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateChatFilter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateChatFilter)tlobj;
                 switch (hash)
                 {
@@ -19674,7 +18941,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditChatFilter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditChatFilter)tlobj;
                 switch (hash)
                 {
@@ -19696,7 +18962,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteChatFilter();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteChatFilter)tlobj;
                 switch (hash)
                 {
@@ -19715,7 +18980,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReorderChatFilters();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReorderChatFilters)tlobj;
                 switch (hash)
                 {
@@ -19741,7 +19005,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatFilterDefaultIconName();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatFilterDefaultIconName)tlobj;
                 switch (hash)
                 {
@@ -19760,7 +19023,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatTitle();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatTitle)tlobj;
                 switch (hash)
                 {
@@ -19782,7 +19044,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatPhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatPhoto)tlobj;
                 switch (hash)
                 {
@@ -19804,7 +19065,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatPermissions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatPermissions)tlobj;
                 switch (hash)
                 {
@@ -19826,7 +19086,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatDraftMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatDraftMessage)tlobj;
                 switch (hash)
                 {
@@ -19851,7 +19110,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatNotificationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatNotificationSettings)tlobj;
                 switch (hash)
                 {
@@ -19873,7 +19131,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ToggleChatIsMarkedAsUnread();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ToggleChatIsMarkedAsUnread)tlobj;
                 switch (hash)
                 {
@@ -19895,7 +19152,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ToggleChatIsBlocked();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ToggleChatIsBlocked)tlobj;
                 switch (hash)
                 {
@@ -19917,7 +19173,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ToggleChatDefaultDisableNotification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ToggleChatDefaultDisableNotification)tlobj;
                 switch (hash)
                 {
@@ -19939,7 +19194,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatClientData();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatClientData)tlobj;
                 switch (hash)
                 {
@@ -19961,7 +19215,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatDescription();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatDescription)tlobj;
                 switch (hash)
                 {
@@ -19983,7 +19236,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatDiscussionGroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatDiscussionGroup)tlobj;
                 switch (hash)
                 {
@@ -20005,7 +19257,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatLocation)tlobj;
                 switch (hash)
                 {
@@ -20027,7 +19278,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatSlowModeDelay();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatSlowModeDelay)tlobj;
                 switch (hash)
                 {
@@ -20049,7 +19299,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PinChatMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PinChatMessage)tlobj;
                 switch (hash)
                 {
@@ -20074,7 +19323,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UnpinChatMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UnpinChatMessage)tlobj;
                 switch (hash)
                 {
@@ -20093,7 +19341,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JoinChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JoinChat)tlobj;
                 switch (hash)
                 {
@@ -20112,7 +19359,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new LeaveChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (LeaveChat)tlobj;
                 switch (hash)
                 {
@@ -20131,7 +19377,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddChatMember();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddChatMember)tlobj;
                 switch (hash)
                 {
@@ -20156,7 +19401,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddChatMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddChatMembers)tlobj;
                 switch (hash)
                 {
@@ -20178,7 +19422,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetChatMemberStatus();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetChatMemberStatus)tlobj;
                 switch (hash)
                 {
@@ -20210,7 +19453,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TransferChatOwnership();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TransferChatOwnership)tlobj;
                 switch (hash)
                 {
@@ -20235,7 +19477,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatMember();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatMember)tlobj;
                 switch (hash)
                 {
@@ -20257,7 +19498,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchChatMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchChatMembers)tlobj;
                 switch (hash)
                 {
@@ -20285,7 +19525,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatAdministrators();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatAdministrators)tlobj;
                 switch (hash)
                 {
@@ -20304,7 +19543,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ClearAllDraftMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ClearAllDraftMessages)tlobj;
                 switch (hash)
                 {
@@ -20323,7 +19561,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatNotificationSettingsExceptions();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatNotificationSettingsExceptions)tlobj;
                 switch (hash)
                 {
@@ -20345,7 +19582,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetScopeNotificationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetScopeNotificationSettings)tlobj;
                 switch (hash)
                 {
@@ -20364,7 +19600,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetScopeNotificationSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetScopeNotificationSettings)tlobj;
                 switch (hash)
                 {
@@ -20393,7 +19628,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ToggleChatIsPinned();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ToggleChatIsPinned)tlobj;
                 switch (hash)
                 {
@@ -20418,7 +19652,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetPinnedChats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetPinnedChats)tlobj;
                 switch (hash)
                 {
@@ -20440,7 +19673,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DownloadFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DownloadFile)tlobj;
                 switch (hash)
                 {
@@ -20471,7 +19703,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetFileDownloadedPrefixSize();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetFileDownloadedPrefixSize)tlobj;
                 switch (hash)
                 {
@@ -20493,7 +19724,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CancelDownloadFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CancelDownloadFile)tlobj;
                 switch (hash)
                 {
@@ -20515,7 +19745,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UploadFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UploadFile)tlobj;
                 switch (hash)
                 {
@@ -20540,7 +19769,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CancelUploadFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CancelUploadFile)tlobj;
                 switch (hash)
                 {
@@ -20559,7 +19787,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new WriteGeneratedFilePart();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (WriteGeneratedFilePart)tlobj;
                 switch (hash)
                 {
@@ -20584,7 +19811,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetFileGenerationProgress();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetFileGenerationProgress)tlobj;
                 switch (hash)
                 {
@@ -20609,7 +19835,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new FinishFileGeneration();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (FinishFileGeneration)tlobj;
                 switch (hash)
                 {
@@ -20631,7 +19856,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReadFilePart();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReadFilePart)tlobj;
                 switch (hash)
                 {
@@ -20656,7 +19880,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteFile)tlobj;
                 switch (hash)
                 {
@@ -20675,7 +19898,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GenerateChatInviteLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GenerateChatInviteLink)tlobj;
                 switch (hash)
                 {
@@ -20694,7 +19916,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckChatInviteLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckChatInviteLink)tlobj;
                 switch (hash)
                 {
@@ -20713,7 +19934,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new JoinChatByInviteLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (JoinChatByInviteLink)tlobj;
                 switch (hash)
                 {
@@ -20732,7 +19952,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateCall)tlobj;
                 switch (hash)
                 {
@@ -20757,7 +19976,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AcceptCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AcceptCall)tlobj;
                 switch (hash)
                 {
@@ -20779,7 +19997,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendCallSignalingData();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendCallSignalingData)tlobj;
                 switch (hash)
                 {
@@ -20801,7 +20018,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DiscardCall();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DiscardCall)tlobj;
                 switch (hash)
                 {
@@ -20832,7 +20048,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendCallRating();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendCallRating)tlobj;
                 switch (hash)
                 {
@@ -20860,7 +20075,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendCallDebugInformation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendCallDebugInformation)tlobj;
                 switch (hash)
                 {
@@ -20882,7 +20096,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new BlockChatFromReplies();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (BlockChatFromReplies)tlobj;
                 switch (hash)
                 {
@@ -20910,7 +20123,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetBlockedChats();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetBlockedChats)tlobj;
                 switch (hash)
                 {
@@ -20932,7 +20144,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddContact();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddContact)tlobj;
                 switch (hash)
                 {
@@ -20954,7 +20165,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ImportContacts();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ImportContacts)tlobj;
                 switch (hash)
                 {
@@ -20980,7 +20190,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchContacts();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchContacts)tlobj;
                 switch (hash)
                 {
@@ -21002,7 +20211,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveContacts();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveContacts)tlobj;
                 switch (hash)
                 {
@@ -21028,7 +20236,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChangeImportedContacts();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChangeImportedContacts)tlobj;
                 switch (hash)
                 {
@@ -21054,7 +20261,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SharePhoneNumber();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SharePhoneNumber)tlobj;
                 switch (hash)
                 {
@@ -21073,7 +20279,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetUserProfilePhotos();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetUserProfilePhotos)tlobj;
                 switch (hash)
                 {
@@ -21098,7 +20303,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetStickers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetStickers)tlobj;
                 switch (hash)
                 {
@@ -21120,7 +20324,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchStickers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchStickers)tlobj;
                 switch (hash)
                 {
@@ -21142,7 +20345,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetInstalledStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetInstalledStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21161,7 +20363,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetArchivedStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetArchivedStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21186,7 +20387,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetTrendingStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetTrendingStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21208,7 +20408,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetAttachedStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetAttachedStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21227,7 +20426,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetStickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetStickerSet)tlobj;
                 switch (hash)
                 {
@@ -21246,7 +20444,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchStickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchStickerSet)tlobj;
                 switch (hash)
                 {
@@ -21265,7 +20462,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchInstalledStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchInstalledStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21290,7 +20486,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21309,7 +20504,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChangeStickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChangeStickerSet)tlobj;
                 switch (hash)
                 {
@@ -21334,7 +20528,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ViewTrendingStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ViewTrendingStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21353,7 +20546,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReorderInstalledStickerSets();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReorderInstalledStickerSets)tlobj;
                 switch (hash)
                 {
@@ -21375,7 +20567,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetRecentStickers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetRecentStickers)tlobj;
                 switch (hash)
                 {
@@ -21394,7 +20585,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddRecentSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddRecentSticker)tlobj;
                 switch (hash)
                 {
@@ -21416,7 +20606,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveRecentSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveRecentSticker)tlobj;
                 switch (hash)
                 {
@@ -21438,7 +20627,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ClearRecentStickers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ClearRecentStickers)tlobj;
                 switch (hash)
                 {
@@ -21464,7 +20652,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddFavoriteSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddFavoriteSticker)tlobj;
                 switch (hash)
                 {
@@ -21483,7 +20670,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveFavoriteSticker();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveFavoriteSticker)tlobj;
                 switch (hash)
                 {
@@ -21502,7 +20688,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetStickerEmojis();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetStickerEmojis)tlobj;
                 switch (hash)
                 {
@@ -21521,7 +20706,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchEmojis();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchEmojis)tlobj;
                 switch (hash)
                 {
@@ -21546,7 +20730,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetEmojiSuggestionsUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetEmojiSuggestionsUrl)tlobj;
                 switch (hash)
                 {
@@ -21572,7 +20755,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddSavedAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddSavedAnimation)tlobj;
                 switch (hash)
                 {
@@ -21591,7 +20773,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveSavedAnimation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveSavedAnimation)tlobj;
                 switch (hash)
                 {
@@ -21617,7 +20798,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchHashtags();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchHashtags)tlobj;
                 switch (hash)
                 {
@@ -21639,7 +20819,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveRecentHashtag();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveRecentHashtag)tlobj;
                 switch (hash)
                 {
@@ -21658,7 +20837,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetWebPagePreview();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetWebPagePreview)tlobj;
                 switch (hash)
                 {
@@ -21677,7 +20855,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetWebPageInstantView();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetWebPageInstantView)tlobj;
                 switch (hash)
                 {
@@ -21699,7 +20876,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetProfilePhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetProfilePhoto)tlobj;
                 switch (hash)
                 {
@@ -21718,7 +20894,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteProfilePhoto();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteProfilePhoto)tlobj;
                 switch (hash)
                 {
@@ -21737,7 +20912,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetName();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetName)tlobj;
                 switch (hash)
                 {
@@ -21759,7 +20933,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetBio();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetBio)tlobj;
                 switch (hash)
                 {
@@ -21778,7 +20951,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetUsername();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetUsername)tlobj;
                 switch (hash)
                 {
@@ -21797,7 +20969,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetLocation();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetLocation)tlobj;
                 switch (hash)
                 {
@@ -21816,7 +20987,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ChangePhoneNumber();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ChangePhoneNumber)tlobj;
                 switch (hash)
                 {
@@ -21845,7 +21015,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckChangePhoneNumberCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckChangePhoneNumberCode)tlobj;
                 switch (hash)
                 {
@@ -21864,7 +21033,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetCommands();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetCommands)tlobj;
                 switch (hash)
                 {
@@ -21890,7 +21058,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TerminateSession();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TerminateSession)tlobj;
                 switch (hash)
                 {
@@ -21923,7 +21090,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DisconnectWebsite();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DisconnectWebsite)tlobj;
                 switch (hash)
                 {
@@ -21949,7 +21115,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetSupergroupUsername();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetSupergroupUsername)tlobj;
                 switch (hash)
                 {
@@ -21971,7 +21136,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetSupergroupStickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetSupergroupStickerSet)tlobj;
                 switch (hash)
                 {
@@ -21993,7 +21157,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ToggleSupergroupSignMessages();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ToggleSupergroupSignMessages)tlobj;
                 switch (hash)
                 {
@@ -22015,7 +21178,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ToggleSupergroupIsAllHistoryAvailable();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ToggleSupergroupIsAllHistoryAvailable)tlobj;
                 switch (hash)
                 {
@@ -22037,7 +21199,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReportSupergroupSpam();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReportSupergroupSpam)tlobj;
                 switch (hash)
                 {
@@ -22062,7 +21223,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetSupergroupMembers();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetSupergroupMembers)tlobj;
                 switch (hash)
                 {
@@ -22090,7 +21250,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteSupergroup();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteSupergroup)tlobj;
                 switch (hash)
                 {
@@ -22109,7 +21268,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CloseSecretChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CloseSecretChat)tlobj;
                 switch (hash)
                 {
@@ -22128,7 +21286,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatEventLog();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatEventLog)tlobj;
                 switch (hash)
                 {
@@ -22162,7 +21319,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPaymentForm();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPaymentForm)tlobj;
                 switch (hash)
                 {
@@ -22184,7 +21340,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ValidateOrderInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ValidateOrderInfo)tlobj;
                 switch (hash)
                 {
@@ -22212,7 +21367,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendPaymentForm();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendPaymentForm)tlobj;
                 switch (hash)
                 {
@@ -22243,7 +21397,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPaymentReceipt();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPaymentReceipt)tlobj;
                 switch (hash)
                 {
@@ -22293,7 +21446,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetBackgrounds();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetBackgrounds)tlobj;
                 switch (hash)
                 {
@@ -22312,7 +21464,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetBackgroundUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetBackgroundUrl)tlobj;
                 switch (hash)
                 {
@@ -22334,7 +21485,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SearchBackground();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SearchBackground)tlobj;
                 switch (hash)
                 {
@@ -22353,7 +21503,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetBackground();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetBackground)tlobj;
                 switch (hash)
                 {
@@ -22378,7 +21527,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveBackground();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveBackground)tlobj;
                 switch (hash)
                 {
@@ -22404,7 +21552,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetLocalizationTargetInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetLocalizationTargetInfo)tlobj;
                 switch (hash)
                 {
@@ -22423,7 +21570,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetLanguagePackInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetLanguagePackInfo)tlobj;
                 switch (hash)
                 {
@@ -22442,7 +21588,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetLanguagePackStrings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetLanguagePackStrings)tlobj;
                 switch (hash)
                 {
@@ -22464,7 +21609,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SynchronizeLanguagePack();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SynchronizeLanguagePack)tlobj;
                 switch (hash)
                 {
@@ -22483,7 +21627,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddCustomServerLanguagePack();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddCustomServerLanguagePack)tlobj;
                 switch (hash)
                 {
@@ -22502,7 +21645,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetCustomLanguagePack();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetCustomLanguagePack)tlobj;
                 switch (hash)
                 {
@@ -22524,7 +21666,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditCustomLanguagePackInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditCustomLanguagePackInfo)tlobj;
                 switch (hash)
                 {
@@ -22543,7 +21684,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetCustomLanguagePackString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetCustomLanguagePackString)tlobj;
                 switch (hash)
                 {
@@ -22565,7 +21705,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteLanguagePack();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteLanguagePack)tlobj;
                 switch (hash)
                 {
@@ -22584,7 +21723,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RegisterDevice();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RegisterDevice)tlobj;
                 switch (hash)
                 {
@@ -22606,7 +21744,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ProcessPushNotification();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ProcessPushNotification)tlobj;
                 switch (hash)
                 {
@@ -22625,7 +21762,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPushReceiverId();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPushReceiverId)tlobj;
                 switch (hash)
                 {
@@ -22644,7 +21780,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetRecentlyVisitedTMeUrls();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetRecentlyVisitedTMeUrls)tlobj;
                 switch (hash)
                 {
@@ -22663,7 +21798,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetUserPrivacySettingRules();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetUserPrivacySettingRules)tlobj;
                 switch (hash)
                 {
@@ -22685,7 +21819,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetUserPrivacySettingRules();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetUserPrivacySettingRules)tlobj;
                 switch (hash)
                 {
@@ -22704,7 +21837,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetOption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetOption)tlobj;
                 switch (hash)
                 {
@@ -22723,7 +21855,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetOption();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetOption)tlobj;
                 switch (hash)
                 {
@@ -22745,7 +21876,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetAccountTtl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetAccountTtl)tlobj;
                 switch (hash)
                 {
@@ -22771,7 +21901,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeleteAccount();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeleteAccount)tlobj;
                 switch (hash)
                 {
@@ -22790,7 +21919,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveChatActionBar();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveChatActionBar)tlobj;
                 switch (hash)
                 {
@@ -22809,7 +21937,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new ReportChat();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (ReportChat)tlobj;
                 switch (hash)
                 {
@@ -22834,7 +21961,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatStatisticsUrl();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatStatisticsUrl)tlobj;
                 switch (hash)
                 {
@@ -22859,7 +21985,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetChatStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetChatStatistics)tlobj;
                 switch (hash)
                 {
@@ -22881,7 +22006,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMessageStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMessageStatistics)tlobj;
                 switch (hash)
                 {
@@ -22906,7 +22030,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetStatisticsGraph();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetStatisticsGraph)tlobj;
                 switch (hash)
                 {
@@ -22931,7 +22054,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetStorageStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetStorageStatistics)tlobj;
                 switch (hash)
                 {
@@ -22964,7 +22086,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new OptimizeStorage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (OptimizeStorage)tlobj;
                 switch (hash)
                 {
@@ -23007,7 +22128,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetNetworkType();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetNetworkType)tlobj;
                 switch (hash)
                 {
@@ -23026,7 +22146,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetNetworkStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetNetworkStatistics)tlobj;
                 switch (hash)
                 {
@@ -23045,7 +22164,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddNetworkStatistics();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddNetworkStatistics)tlobj;
                 switch (hash)
                 {
@@ -23078,7 +22196,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetAutoDownloadSettings();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetAutoDownloadSettings)tlobj;
                 switch (hash)
                 {
@@ -23100,7 +22217,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetBankCardInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetBankCardInfo)tlobj;
                 switch (hash)
                 {
@@ -23119,7 +22235,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPassportElement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPassportElement)tlobj;
                 switch (hash)
                 {
@@ -23141,7 +22256,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetAllPassportElements();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetAllPassportElements)tlobj;
                 switch (hash)
                 {
@@ -23160,7 +22274,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetPassportElement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetPassportElement)tlobj;
                 switch (hash)
                 {
@@ -23182,7 +22295,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new DeletePassportElement();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (DeletePassportElement)tlobj;
                 switch (hash)
                 {
@@ -23201,7 +22313,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetPassportElementErrors();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetPassportElementErrors)tlobj;
                 switch (hash)
                 {
@@ -23223,7 +22334,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPreferredCountryLanguage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPreferredCountryLanguage)tlobj;
                 switch (hash)
                 {
@@ -23242,7 +22352,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendPhoneNumberVerificationCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendPhoneNumberVerificationCode)tlobj;
                 switch (hash)
                 {
@@ -23271,7 +22380,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckPhoneNumberVerificationCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckPhoneNumberVerificationCode)tlobj;
                 switch (hash)
                 {
@@ -23290,7 +22398,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendEmailAddressVerificationCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendEmailAddressVerificationCode)tlobj;
                 switch (hash)
                 {
@@ -23316,7 +22423,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckEmailAddressVerificationCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckEmailAddressVerificationCode)tlobj;
                 switch (hash)
                 {
@@ -23335,7 +22441,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPassportAuthorizationForm();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPassportAuthorizationForm)tlobj;
                 switch (hash)
                 {
@@ -23363,7 +22468,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPassportAuthorizationFormAvailableElements();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPassportAuthorizationFormAvailableElements)tlobj;
                 switch (hash)
                 {
@@ -23385,7 +22489,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendPassportAuthorizationForm();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendPassportAuthorizationForm)tlobj;
                 switch (hash)
                 {
@@ -23407,7 +22510,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendPhoneNumberConfirmationCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendPhoneNumberConfirmationCode)tlobj;
                 switch (hash)
                 {
@@ -23439,7 +22541,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CheckPhoneNumberConfirmationCode();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CheckPhoneNumberConfirmationCode)tlobj;
                 switch (hash)
                 {
@@ -23458,7 +22559,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetBotUpdatesStatus();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetBotUpdatesStatus)tlobj;
                 switch (hash)
                 {
@@ -23480,7 +22580,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new UploadStickerFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (UploadStickerFile)tlobj;
                 switch (hash)
                 {
@@ -23502,7 +22601,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new CreateNewStickerSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (CreateNewStickerSet)tlobj;
                 switch (hash)
                 {
@@ -23533,7 +22631,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddStickerToSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddStickerToSet)tlobj;
                 switch (hash)
                 {
@@ -23558,7 +22655,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetStickerSetThumbnail();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetStickerSetThumbnail)tlobj;
                 switch (hash)
                 {
@@ -23583,7 +22679,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetStickerPositionInSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetStickerPositionInSet)tlobj;
                 switch (hash)
                 {
@@ -23605,7 +22700,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveStickerFromSet();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveStickerFromSet)tlobj;
                 switch (hash)
                 {
@@ -23624,7 +22718,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetMapThumbnailFile();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetMapThumbnailFile)tlobj;
                 switch (hash)
                 {
@@ -23658,7 +22751,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AcceptTermsOfService();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AcceptTermsOfService)tlobj;
                 switch (hash)
                 {
@@ -23677,7 +22769,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SendCustomRequest();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SendCustomRequest)tlobj;
                 switch (hash)
                 {
@@ -23699,7 +22790,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AnswerCustomQuery();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AnswerCustomQuery)tlobj;
                 switch (hash)
                 {
@@ -23721,7 +22811,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetAlarm();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetAlarm)tlobj;
                 switch (hash)
                 {
@@ -23754,7 +22843,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetPhoneNumberInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetPhoneNumberInfo)tlobj;
                 switch (hash)
                 {
@@ -23780,7 +22868,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetDeepLinkInfo();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetDeepLinkInfo)tlobj;
                 switch (hash)
                 {
@@ -23806,7 +22893,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SaveApplicationLogEvent();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SaveApplicationLogEvent)tlobj;
                 switch (hash)
                 {
@@ -23831,7 +22917,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddProxy();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddProxy)tlobj;
                 switch (hash)
                 {
@@ -23859,7 +22944,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EditProxy();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EditProxy)tlobj;
                 switch (hash)
                 {
@@ -23890,7 +22974,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new EnableProxy();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (EnableProxy)tlobj;
                 switch (hash)
                 {
@@ -23916,7 +22999,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new RemoveProxy();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (RemoveProxy)tlobj;
                 switch (hash)
                 {
@@ -23942,7 +23024,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetProxyLink();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetProxyLink)tlobj;
                 switch (hash)
                 {
@@ -23961,7 +23042,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new PingProxy();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (PingProxy)tlobj;
                 switch (hash)
                 {
@@ -23980,7 +23060,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetLogStream();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetLogStream)tlobj;
                 switch (hash)
                 {
@@ -24006,7 +23085,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetLogVerbosityLevel();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetLogVerbosityLevel)tlobj;
                 switch (hash)
                 {
@@ -24039,7 +23117,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new SetLogTagVerbosityLevel();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (SetLogTagVerbosityLevel)tlobj;
                 switch (hash)
                 {
@@ -24061,7 +23138,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new GetLogTagVerbosityLevel();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (GetLogTagVerbosityLevel)tlobj;
                 switch (hash)
                 {
@@ -24080,7 +23156,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new AddLogMessage();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (AddLogMessage)tlobj;
                 switch (hash)
                 {
@@ -24109,7 +23184,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestCallString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestCallString)tlobj;
                 switch (hash)
                 {
@@ -24128,7 +23202,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestCallBytes();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestCallBytes)tlobj;
                 switch (hash)
                 {
@@ -24147,7 +23220,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestCallVectorInt();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestCallVectorInt)tlobj;
                 switch (hash)
                 {
@@ -24166,7 +23238,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestCallVectorIntObject();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestCallVectorIntObject)tlobj;
                 switch (hash)
                 {
@@ -24185,7 +23256,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestCallVectorString();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestCallVectorString)tlobj;
                 switch (hash)
                 {
@@ -24204,7 +23274,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestCallVectorStringObject();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestCallVectorStringObject)tlobj;
                 switch (hash)
                 {
@@ -24223,7 +23292,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestSquareInt();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestSquareInt)tlobj;
                 switch (hash)
                 {
@@ -24249,7 +23317,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestProxy();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestProxy)tlobj;
                 switch (hash)
                 {
@@ -24294,7 +23361,6 @@ namespace TDLib.JsonClient
             internal static TLObject CreateObjectInstance() => new TestReturnError();
             internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)
             {
-                if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;
                 var obj = (TestReturnError)tlobj;
                 switch (hash)
                 {

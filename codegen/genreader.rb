@@ -72,7 +72,7 @@ def emit_type(io, type)
     io.puts "internal override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, uint hash)"
     io.puts "{"
     io.block do
-      io.puts "if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;"
+      # io.puts "if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;"
       io.puts "var obj = (#{csname})tlobj;"
       io.puts "switch (hash)"
       io.puts "{"

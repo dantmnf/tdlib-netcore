@@ -8,11 +8,6 @@ namespace TDLib.JsonClient
     {
         private static readonly uint* table;
         private const uint poly = 0x82f63b78u;
-#if HAVE_AggressiveOptimization
-        private const short MethodImplOptions_AggressiveOptimization = 512;
-#else
-        private const short MethodImplOptions_AggressiveOptimization = 0;
-#endif
         enum ImplType { Naive, LittleEndianOptimized, Sse42, Sse42_64, ARM, ARM_64 }
         private static readonly ImplType impl;
 
@@ -64,7 +59,7 @@ namespace TDLib.JsonClient
             }
         }
 
-        [MethodImpl(MethodImplOptions_AggressiveOptimization | (short)MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(MultiTargetHelper.MethodImplOptions_AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
         static uint crc32c_sw(uint crci, void* buf, int len)
         {
             // Copyright (C) 2013 Mark Adler
@@ -100,7 +95,7 @@ namespace TDLib.JsonClient
         }
 
 
-        [MethodImpl(MethodImplOptions_AggressiveOptimization)]
+        [MethodImpl(MultiTargetHelper.MethodImplOptions_AggressiveOptimization)]
         internal static uint UpdateLittleEndianOptimized(uint crc, ReadOnlySpan<byte> inputSpan)
         {
             var len = inputSpan.Length;
@@ -110,7 +105,7 @@ namespace TDLib.JsonClient
             }
         }
 
-        [MethodImpl(MethodImplOptions_AggressiveOptimization)]
+        [MethodImpl(MultiTargetHelper.MethodImplOptions_AggressiveOptimization)]
         internal static uint UpdateNaive(uint crc, ReadOnlySpan<byte> inputSpan)
         {
             crc ^= uint.MaxValue;
@@ -127,7 +122,7 @@ namespace TDLib.JsonClient
             return crc ^ uint.MaxValue;
         }
 
-        [MethodImpl(MethodImplOptions_AggressiveOptimization)]
+        [MethodImpl(MultiTargetHelper.MethodImplOptions_AggressiveOptimization)]
         public static uint Update(uint crc, ReadOnlySpan<byte> input)
         {
             return impl switch
@@ -149,5 +144,8 @@ namespace TDLib.JsonClient
                 _ => 0,
             };
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint Calcuate(ReadOnlySpan<byte> input) => Update(0, input);
     }
 }

@@ -21,6 +21,7 @@ namespace TDLib.JsonClient
 
             TdJsonReader parser = new TdJsonReader(cstr);
             var obj = TLObjectFactory.ReadRootObject(ref parser);
+            parser.Dispose();
             return obj;
         }
 

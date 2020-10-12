@@ -68,13 +68,15 @@ namespace TDLib.JsonClient
         {
             if (!reader.BeginReadObject())
                 throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
-            var key = reader.ReadStringAsHash();
+            var keystr = reader.ReadStringUTF8();
+            var key = Crc32C.Calcuate(keystr);
             if (key != type_hash)
                 throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
             var token = reader.MoveToObjectMemberValue();
             if (token != TdJsonTokenType.String)
                 throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
-            var typehash = reader.ReadStringAsHash();
+            var typestr = reader.ReadStringUTF8();
+            var typehash = Crc32C.Calcuate(typestr);
 
             var (obj, converter) = CreateTLObjectAndConverter(typehash);
             if (obj == null)
@@ -89,7 +91,8 @@ namespace TDLib.JsonClient
 
             while (reader.MoveToNextObjectMember())
             {
-                var key = reader.ReadStringAsHash();
+                var keystr = reader.ReadStringUTF8();
+                var key = Crc32C.Calcuate(keystr);
                 reader.MoveToObjectMemberValue();
                 if (key == extra_hash)
                 {
@@ -109,7 +112,8 @@ namespace TDLib.JsonClient
             var (obj, converter) = ConsumeObjectProlog(ref reader);
             while (reader.MoveToNextObjectMember())
             {
-                var key = reader.ReadStringAsHash();
+                var keystr = reader.ReadStringUTF8();
+                var key = Crc32C.Calcuate(keystr);
                 reader.MoveToObjectMemberValue();
                 if (!converter.TdJsonReadItem(ref reader, obj, key))
                 {
