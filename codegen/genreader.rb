@@ -121,13 +121,19 @@ def emit(out=STDOUT)
   end
   io.puts "}"
 
-  TDLibTLTypeInfo::Types.each_value do |type|
-    emit_type(io, type)
-  end
+  io.puts "namespace ObjectConverter"
+  io.puts "{"
+    io.block do
+    TDLibTLTypeInfo::Types.each_value do |type|
+      emit_type(io, type)
+    end
 
-  TDLibTLTypeInfo::Functions.each_value do |type|
-    emit_type(io, type)
+    TDLibTLTypeInfo::Functions.each_value do |type|
+      emit_type(io, type)
+    end
   end
+  io.puts "}"
+  
   io.pop
   io.puts "}"
 end

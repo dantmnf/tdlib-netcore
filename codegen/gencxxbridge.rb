@@ -121,7 +121,7 @@ def emit(out=STDOUT)
   io.puts ""
   io.puts "#pragma warning disable IDE1006 // Naming Styles"
   io.puts ""
-  io.puts "namespace TDLib.NativeClient"
+  io.puts "namespace TDLib.NativeClient.ObjectBridge"
   io.puts "{"
   io.push
 

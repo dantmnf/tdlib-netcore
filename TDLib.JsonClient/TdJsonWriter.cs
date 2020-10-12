@@ -2,7 +2,6 @@ using System;
 using System.Buffers;
 using System.Buffers.Text;
 using System.IO;
-using System.Text.Json;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
@@ -168,7 +167,7 @@ namespace TDLib.JsonClient
                 throw new ArgumentNullException(nameof(value));
             }
             var converter = TLObjectFactory.GetConverterForTLObject(value.TLObject);
-            converter.TdJsonWriteItems(this, value.TLObject);
+            converter.TdJsonWriteUnclosedObject(this, value.TLObject);
             if (value.Extra.HasValue)
             {
                 WriteSpan(StringPool.Slice(_extrapos, _extralen)); // ,"@extra":

@@ -7,7 +7,7 @@ using TDLib.NativeClient.CxxInterop;
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace TDLib.NativeClient
+namespace TDLib.NativeClient.ObjectBridge
 {
     [TLTypeID(-1679978726)]
     internal unsafe class ErrorCxxBridge : ObjectBridge<Error>

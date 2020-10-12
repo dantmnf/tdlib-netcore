@@ -8,7 +8,7 @@
 
     <LangVersion>7.3</LangVersion>
 
-    <Platforms>x64</Platforms>
+    <Platforms>AnyCPU</Platforms>
 
     <AssemblyName>TDLib.Test</AssemblyName>
 
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp1\ConsoleApp1.csproj" />
+    <ProjectReference Include="..\TDLib.JsonClient\TDLib.JsonClient.csproj" />
     <ProjectReference Include="..\TDLib\TDLib.csproj" />
   </ItemGroup>
 

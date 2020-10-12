@@ -33,8 +33,8 @@ namespace TDLib.JsonClient
 
         public double GetDouble() => type switch
         {
-            LongOrDoubleValueType.Long => (double)value,
             LongOrDoubleValueType.Double => LongBitsToDouble(value),
+            LongOrDoubleValueType.Long => (double)value,
             _ => throw new InvalidOperationException($"{nameof(LongOrDouble)} has no valid value"),
         };
 

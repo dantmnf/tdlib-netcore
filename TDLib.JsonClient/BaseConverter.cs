@@ -6,12 +6,12 @@ namespace TDLib.JsonClient
     {
         internal virtual bool TdJsonReadItem(ref TdJsonReader reader, TLObject obj, uint hash) => false;
 
-        /// <summary>
+        /// <remarks>
         /// Doesn't write EndObject token '}'.
-        /// </summary>
+        /// </remarks>
         /// <param name="writer"></param>
         /// <param name="obj"></param>
-        internal abstract void TdJsonWriteItems(TdJsonWriter writer, TLObject obj);
+        internal abstract void TdJsonWriteUnclosedObject(TdJsonWriter writer, TLObject obj);
     }
 
     abstract partial class TLObjectConverter<T> : BaseConverter where T : TLObject { }

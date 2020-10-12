@@ -20,13 +20,29 @@ namespace TDLib
         private CancellationTokenSource loopcts;
         private ConcurrentDictionary<long, int> invokes;
         private Task loopTask;
-        private DirtyFlag dirty = DirtyFlag.Clean;
+        private volatile int dirty = (int)DirtyFlag.Clean;
 
         public event EventHandler<Update> Update;
         private int loopRunning;
         public bool EventLoopRunning => loopRunning != 0;
 
 
+        private void MarkDirty(DirtyFlag flag)
+        {
+            var dirty_snapshot = (DirtyFlag)dirty;
+            if (dirty_snapshot == DirtyFlag.Clean)
+            {
+                if (Interlocked.CompareExchange(ref dirty, (int)DirtyFlag.ManualSend, (int)DirtyFlag.Clean) == (int)DirtyFlag.Clean)
+                {
+                    return;
+                }
+                throw new InvalidOperationException($"Object state changed in another thread while attempting to set flag {flag}.");
+            }
+            if (dirty_snapshot != flag)
+            {
+                throw new InvalidOperationException($"Cannot use {flag} alongside with {dirty_snapshot}.");
+            }
+        }
 
         /// <summary>
         /// Sends request to TDLib. May be called from any thread.
@@ -42,11 +58,7 @@ namespace TDLib
         /// </param>
         public void Send(Function func, long id = 0)
         {
-            if (dirty == DirtyFlag.EventLoop)
-            {
-                throw new InvalidOperationException("Cannot use Client.Send if using event loop.");
-            }
-            dirty = DirtyFlag.ManualSend;
+            MarkDirty(DirtyFlag.ManualSend);
             DoSend(func, id);
         }
         internal protected abstract void DoSend(Function func, long id);
@@ -70,10 +82,7 @@ namespace TDLib
         /// <returns>An incoming update or request response. The object returned in the response may be null if the timeout expires.</returns>
         public (long id, TLObject obj) Receive(double timeout)
         {
-            if (dirty == DirtyFlag.EventLoop)
-            {
-                throw new InvalidOperationException("Cannot use Client.Receive if using event loop.");
-            }
+            MarkDirty(DirtyFlag.ManualSend);
             return DoReceive(timeout);
         }
         internal protected abstract (long id, TLObject obj) DoReceive(double timeout);
@@ -102,11 +111,7 @@ namespace TDLib
         /// </summary>
         public void RunEventLoop()
         {
-            if (dirty == DirtyFlag.ManualSend)
-            {
-                throw new InvalidOperationException("Cannot run event loop after Client.Send.");
-            }
-            dirty = DirtyFlag.EventLoop;
+            MarkDirty(DirtyFlag.EventLoop);
             if (Interlocked.CompareExchange(ref loopRunning, 1, 0) == 0)
             {
                 invokes = new ConcurrentDictionary<long, int>();

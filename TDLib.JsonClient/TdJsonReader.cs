@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Text.Json;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
@@ -25,6 +24,21 @@ namespace TDLib.JsonClient
 
     }
 
+    public enum TdJsonTokenType : byte
+    {
+        None,
+        StartObject,
+        EndObject,
+        StartArray,
+        EndArray,
+        PropertyName,
+        Comment,
+        String,
+        Number,
+        True,
+        False,
+        Null
+    }
     internal unsafe ref partial struct TdJsonReader
     {
         private readonly byte* cstr;
@@ -61,7 +75,7 @@ namespace TDLib.JsonClient
             throw new EndOfStreamException();
         }
 
-        public JsonTokenType GetCurrentTokenType()
+        public TdJsonTokenType GetCurrentTokenType()
         {
             switch (cstr[position])
             {
@@ -69,13 +83,13 @@ namespace TDLib.JsonClient
                     throw new EndOfStreamException();
 
                 case (byte)'{':
-                    return JsonTokenType.StartObject;
+                    return TdJsonTokenType.StartObject;
 
                 case (byte)'[':
-                    return JsonTokenType.StartArray;
+                    return TdJsonTokenType.StartArray;
 
                 case (byte)'"':
-                    return JsonTokenType.String;
+                    return TdJsonTokenType.String;
 
                 case (byte)'-':
                 case 0x30:
@@ -88,19 +102,19 @@ namespace TDLib.JsonClient
                 case 0x37:
                 case 0x38:
                 case 0x39:
-                    return JsonTokenType.Number;
+                    return TdJsonTokenType.Number;
 
                 case (byte)'t':
-                    return JsonTokenType.True;
+                    return TdJsonTokenType.True;
 
                 case (byte)'f':
-                    return JsonTokenType.False;
+                    return TdJsonTokenType.False;
 
                 case (byte)'n':
-                    return JsonTokenType.Null;
+                    return TdJsonTokenType.Null;
 
                 default:
-                    return JsonTokenType.None;
+                    return TdJsonTokenType.None;
             }
 
         }
@@ -341,7 +355,7 @@ namespace TDLib.JsonClient
             }
         }
 
-        private void ReadStringToSlimWriter<T>(ref T ms) where T : ISlimWriter // generics with type constraint is needed to pass struct reference without boxing
+        internal void ReadStringToSlimWriter<T>(ref T ms) where T : ISlimWriter // generics with type constraint is needed to pass struct reference without boxing
         {
             if (cstr[position] != (byte)'"')
                 throw new TdJsonReaderException(position, "invalid value type");
@@ -470,11 +484,11 @@ namespace TDLib.JsonClient
         /// <summary>
         /// Begin to consume an array.
         /// </summary>
-        /// <returns><see cref="JsonTokenType"/> of first array element, or <see cref="JsonTokenType.None"/> if array is empty.</returns>
-        public JsonTokenType BeginReadArray()
+        /// <returns><see cref="TdJsonTokenType"/> of first array element, or <see cref="TdJsonTokenType.None"/> if array is empty.</returns>
+        public TdJsonTokenType BeginReadArray()
         {
             AssertRemainingLength();
-            if (GetCurrentTokenType() != JsonTokenType.StartArray)
+            if (GetCurrentTokenType() != TdJsonTokenType.StartArray)
                 throw new TdJsonReaderException(position, "invalid value type");
             position++;
             ConsumeWhitespace();
@@ -482,7 +496,7 @@ namespace TDLib.JsonClient
             if (cstr[position] == (byte)']')
             {
                 position++;
-                return JsonTokenType.None;
+                return TdJsonTokenType.None;
             }
             return GetCurrentTokenType();
         }
@@ -490,8 +504,8 @@ namespace TDLib.JsonClient
         /// <summary>
         /// Consume array element separator or EndArray token ']'.
         /// </summary>
-        /// <returns><see cref="JsonTokenType"/> of next array element, or <see cref="JsonTokenType.None"/> if no more elements and the entire array is consumed.</returns>
-        public JsonTokenType MoveToNextArrayElement()
+        /// <returns><see cref="TdJsonTokenType"/> of next array element, or <see cref="TdJsonTokenType.None"/> if no more elements and the entire array is consumed.</returns>
+        public TdJsonTokenType MoveToNextArrayElement()
         {
             if (cstr[position] != 0)
             {
@@ -505,7 +519,7 @@ namespace TDLib.JsonClient
                         return GetCurrentTokenType();
                     case (byte)']':
                         position++;
-                        return JsonTokenType.None;
+                        return TdJsonTokenType.None;
                     default:
                         throw new TdJsonReaderException(position, "invalid token in array");
                 }
@@ -515,11 +529,11 @@ namespace TDLib.JsonClient
 
         public string[] ReadStringArray()
         {
-            if (BeginReadArray() != JsonTokenType.None)
+            if (BeginReadArray() != TdJsonTokenType.None)
             {
                 var objs = new List<string>();
                 objs.Add(ReadString());
-                while (MoveToNextArrayElement() != JsonTokenType.None)
+                while (MoveToNextArrayElement() != TdJsonTokenType.None)
                 {
                     objs.Add(ReadString());
                 }
@@ -530,11 +544,11 @@ namespace TDLib.JsonClient
 
         public byte[][] ReadBytesArray()
         {
-            if (BeginReadArray() != JsonTokenType.None)
+            if (BeginReadArray() != TdJsonTokenType.None)
             {
                 var objs = new List<byte[]>();
                 objs.Add(ReadBase64String());
-                while (MoveToNextArrayElement() != JsonTokenType.None)
+                while (MoveToNextArrayElement() != TdJsonTokenType.None)
                 {
                     objs.Add(ReadBase64String());
                 }
@@ -545,11 +559,11 @@ namespace TDLib.JsonClient
 
         public int[] ReadInt32Array()
         {
-            if (BeginReadArray() != JsonTokenType.None)
+            if (BeginReadArray() != TdJsonTokenType.None)
             {
                 var objs = new List<int>();
                 objs.Add(ReadInt());
-                while (MoveToNextArrayElement() != JsonTokenType.None)
+                while (MoveToNextArrayElement() != TdJsonTokenType.None)
                 {
                     objs.Add(ReadInt());
                 }
@@ -560,11 +574,11 @@ namespace TDLib.JsonClient
 
         public long[] ReadInt53Array()
         {
-            if (BeginReadArray() != JsonTokenType.None)
+            if (BeginReadArray() != TdJsonTokenType.None)
             {
                 var objs = new List<long>();
                 objs.Add(ReadLong());
-                while (MoveToNextArrayElement() != JsonTokenType.None)
+                while (MoveToNextArrayElement() != TdJsonTokenType.None)
                 {
                     objs.Add(ReadLong());
                 }
@@ -575,11 +589,11 @@ namespace TDLib.JsonClient
 
         public long[] ReadInt64Array()
         {
-            if (BeginReadArray() != JsonTokenType.None)
+            if (BeginReadArray() != TdJsonTokenType.None)
             {
                 var objs = new List<long>();
                 objs.Add(ReadInt64String());
-                while (MoveToNextArrayElement() != JsonTokenType.None)
+                while (MoveToNextArrayElement() != TdJsonTokenType.None)
                 {
                     objs.Add(ReadInt64String());
                 }
@@ -590,11 +604,11 @@ namespace TDLib.JsonClient
 
         public T[] ReadObjectArray<T>() where T : TLObject
         {
-            if (BeginReadArray() != JsonTokenType.None)
+            if (BeginReadArray() != TdJsonTokenType.None)
             {
                 var objs = new List<T>();
                 objs.Add(ReadTLObject<T>());
-                while (MoveToNextArrayElement() != JsonTokenType.None)
+                while (MoveToNextArrayElement() != TdJsonTokenType.None)
                 {
                     objs.Add(ReadTLObject<T>());
                 }
@@ -605,11 +619,11 @@ namespace TDLib.JsonClient
 
         public T[][] ReadNestedObjectArray<T>() where T : TLObject
         {
-            if (BeginReadArray() != JsonTokenType.None)
+            if (BeginReadArray() != TdJsonTokenType.None)
             {
                 var objs = new List<T[]>();
                 objs.Add(ReadObjectArray<T>());
-                while (MoveToNextArrayElement() != JsonTokenType.None)
+                while (MoveToNextArrayElement() != TdJsonTokenType.None)
                 {
                     objs.Add(ReadObjectArray<T>());
                 }
@@ -644,8 +658,8 @@ namespace TDLib.JsonClient
         /// <summary>
         /// Called after member key is consumed.
         /// </summary>
-        /// <returns><see cref="JsonTokenType"/> of object member value.</returns>
-        public JsonTokenType MoveToObjectMemberValue()
+        /// <returns><see cref="TdJsonTokenType"/> of object member value.</returns>
+        public TdJsonTokenType MoveToObjectMemberValue()
         {
             ConsumeWhitespace();
             AssertRemainingLength();
@@ -681,34 +695,6 @@ namespace TDLib.JsonClient
                 default:
                     throw new TdJsonReaderException(position, "invalid token in object");
             }
-        }
-        internal bool ReadNextObjectKey(out uint key, bool firstkey = false)
-        {
-            key = 0;
-            while (cstr[position] != 0)
-            {
-                ConsumeWhitespace();
-                switch (cstr[position])
-                {
-                    case (byte)',' when !firstkey:
-                        position++;
-                        continue;
-                    case (byte)'"':
-                        key = ReadStringAsHash();
-                        ConsumeWhitespace();
-                        if (cstr[position] != (byte)':')
-                            throw new TdJsonReaderException(position, "object missing key-value delimiter");
-                        position++;
-                        ConsumeWhitespace();
-                        return true;
-                    case (byte)'}':
-                        position++;
-                        return false;
-                    default:
-                        throw new TdJsonReaderException(position, "invalid token in object");
-                }
-            }
-            throw new TdJsonReaderException(position, "incomplete input");
         }
 
         internal T ReadTLObject<T>() where T : TLObject

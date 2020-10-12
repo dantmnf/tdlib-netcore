@@ -1,21 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+      <TargetFrameworks>netstandard2.1;netcoreapp3.0;net5.0</TargetFrameworks>
+      <LangVersion>8.0</LangVersion>
   </PropertyGroup>
-
+    <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+        <DefineConstants>HAVE_AggressiveOptimization;X86_INTRINSICS</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net5.0'">
+        <DefineConstants>HAVE_AggressiveOptimization;X86_INTRINSICS;ARM_INTRINSICS</DefineConstants>
+    </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Generated\pool.dat" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
-    <PackageReference Include="System.Memory" Version="4.5.4" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TDLib\TDLib.csproj" />
   </ItemGroup>
-
 </Project>

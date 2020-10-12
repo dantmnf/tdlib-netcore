@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
@@ -73,7 +72,7 @@ namespace TDLib.JsonClient
             if (key != type_hash)
                 throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
             var token = reader.MoveToObjectMemberValue();
-            if (token != JsonTokenType.String)
+            if (token != TdJsonTokenType.String)
                 throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
             var typehash = reader.ReadStringAsHash();
 
