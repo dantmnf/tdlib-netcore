@@ -76,7 +76,7 @@ namespace TDLib.JsonClient
             }
         }
 
-        public void WriteValue(string value)
+        public unsafe void WriteValue(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -84,53 +84,53 @@ namespace TDLib.JsonClient
                 return;
             }
             WriteOutputByte((byte)'"');
-
-            for (int i = 0; i < value.Length; i++)
+            var len = value.Length;
+            fixed (char* charbuf = value)
             {
-                var chr = value[i];
-
-                switch (chr)
+                for (int i = 0; i < len; i++)
                 {
-                    case '\b':
-                        WriteSpan(BackSlash_b);
-                        break;
-                    case '\f':
-                        WriteSpan(BackSlash_f);
-                        break;
-                    case '\n':
-                        WriteSpan(BackSlash_n);
-                        break;
-                    case '\r':
-                        WriteSpan(BackSlash_r);
-                        break;
-                    case '\t':
-                        WriteSpan(BackSlash_t);
-                        break;
-                    case '\"':
-                        WriteSpan(BackSlash_DoubleQuote);
-                        break;
-                    case '\\':
-                        WriteSpan(BackSlash_BackSlash);
-                        break;
-                    default:
-                    {
-                        if (chr >= 0x20 && chr <= 0x7E)
-                        {
-                            WriteOutputByte((byte)chr);
-                        }
-                        else
-                        {
-                            var x = (int) chr;
-                            var span = writer.GetSpan(6);
-                            BackSlash_u.CopyTo(span);
-                            span[2] = HexMap[(x >> 12) & 0xF];
-                            span[3] = HexMap[(x >> 8) & 0xF];
-                            span[4] = HexMap[(x >> 4) & 0xF];
-                            span[5] = HexMap[x & 0xF];
-                            writer.Advance(6);
-                        }
+                    var chr = charbuf[i];
 
-                        break;
+                    switch (chr)
+                    {
+                        case '\b':
+                            WriteSpan(BackSlash_b);
+                            break;
+                        case '\f':
+                            WriteSpan(BackSlash_f);
+                            break;
+                        case '\n':
+                            WriteSpan(BackSlash_n);
+                            break;
+                        case '\r':
+                            WriteSpan(BackSlash_r);
+                            break;
+                        case '\t':
+                            WriteSpan(BackSlash_t);
+                            break;
+                        case '\"':
+                            WriteSpan(BackSlash_DoubleQuote);
+                            break;
+                        case '\\':
+                            WriteSpan(BackSlash_BackSlash);
+                            break;
+                        default:
+                            if (chr >= 0x20 && chr <= 0x7E)
+                            {
+                                WriteOutputByte((byte)chr);
+                            }
+                            else
+                            {
+                                var x = (int)chr;
+                                var span = writer.GetSpan(6);
+                                BackSlash_u.CopyTo(span);
+                                span[2] = HexMap[(x >> 12) & 0xF];
+                                span[3] = HexMap[(x >> 8) & 0xF];
+                                span[4] = HexMap[(x >> 4) & 0xF];
+                                span[5] = HexMap[x & 0xF];
+                                writer.Advance(6);
+                            }
+                            break;
                     }
                 }
             }
@@ -247,23 +247,25 @@ namespace TDLib.JsonClient
 
         }
 
-        public void WriteBytesValue(byte[] value)
+        public void WriteBytesValue(ReadOnlySpan<byte> value)
         {
-            if (value == null || value.Length == 0)
+            if (value.Length == 0)
             {
                 WriteSpan(EmptyString);
                 return;
             }
 
             var encodedLength = Base64.GetMaxEncodedToUtf8Length(value.Length);
-            var dest = writer.GetSpan(encodedLength);
-            var status = Base64.EncodeToUtf8(value, dest, out var consumed, out var written, true);
+            var dest = writer.GetSpan(encodedLength + 2);
+            dest[0] = (byte)'"';
+            var status = Base64.EncodeToUtf8(value, dest.Slice(1), out var consumed, out var written, true);
             if (status != OperationStatus.Done)
             {
                 writer.Advance(0);
                 throw new InvalidDataException();
             }
-            writer.Advance(written);
+            dest[written + 1] = (byte)'"';
+            writer.Advance(written + 2);
         }
 
         public void WriteArray(int[] value)

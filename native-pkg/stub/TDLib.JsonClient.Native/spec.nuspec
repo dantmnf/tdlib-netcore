@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>TDLib.JsonClient.Native</id>
+    <version>$NativePackageVersion$</version>
+    <authors>TDLib.JsonClient.Native</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <releaseNotes>$PackageReleaseNotes$</releaseNotes>
+	<dependencies>
+      <dependency id="TDLib" version="[$PackageVersion$]" />
+      <dependency id="TDLib.NativeDependencies" version="[$PackageVersion$]" />
+	</dependencies>
+  </metadata>
+  <files>
+    <file src="dummy" target="package/dummy" />
+  </files>
+</package>

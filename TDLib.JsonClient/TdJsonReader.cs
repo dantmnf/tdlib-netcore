@@ -39,7 +39,7 @@ namespace TDLib.JsonClient
         False,
         Null
     }
-    internal unsafe ref struct TdJsonReader
+    internal unsafe struct TdJsonReader : IDisposable
     {
         private readonly byte* cstr;
         private int position;
@@ -51,7 +51,7 @@ namespace TDLib.JsonClient
         {
             cstr = json_cstr;
             position = 0;
-            strbuffer = new ArrayPoolBufferWriter<byte>(512);
+            strbuffer = new ArrayPoolBufferWriter<byte>(4096);
         }
 
         public void Dispose()
@@ -326,54 +326,49 @@ namespace TDLib.JsonClient
             return result;
         }
 
-        private unsafe int WriteUTF8Codepoint(Span<byte> bufSpan, uint codepoint)
+        private unsafe void WriteUTF8Codepoint<T>(ref T ms, uint codepoint) where T : ISlimWriter
         {
-            fixed (byte* buf = bufSpan)
+            if (codepoint <= 0x7F)
             {
-                if (codepoint <= 0x7F)
-                {
-                    buf[0] = (byte)codepoint;
-                    return 1;
-                }
+                ms.WriteByte((byte)codepoint);
+                return;
+            }
 
-                if (codepoint <= 0x7FF)
-                {
-                    buf[0] = (byte)((codepoint >> 6) | 0xC0);
-                    buf[1] = (byte)((codepoint & 0x3F) | 0x80);
-                    return 2;
-                }
-                else if (codepoint < 0xD800 || (codepoint > 0xDFFF && codepoint <= 0xFFFF))
-                {
-                    buf[0] = (byte)((codepoint >> 12) | 0xE0);
-                    buf[1] = (byte)((codepoint >> 6) & 0x3F | 0x80);
-                    buf[2] = (byte)((codepoint & 0x3F) | 0x80);
-                    return 3;
-                }
-                else if (codepoint <= 0x10FFFF)
-                {
-                    buf[0] = (byte)((codepoint >> 18) | 0xF0);
-                    buf[1] = (byte)((codepoint >> 12) & 0x3F | 0x80);
-                    buf[2] = (byte)((codepoint >> 6) & 0x3F | 0x80);
-                    buf[3] = (byte)((codepoint & 0x3F) | 0x80);
-                    return 4;
-                }
-                else
-                {
-                    throw new TdJsonReaderException(position, "Unicode codepoint out of range");
-                }
+            int x = 0;
+            var buf = new Span<byte>(&x, 4);
+
+            if (codepoint <= 0x7FF)
+            {
+                buf[0] = (byte)((codepoint >> 6) | 0xC0);
+                buf[1] = (byte)((codepoint & 0x3F) | 0x80);
+                ms.Write(buf.Slice(0, 2));
+            }
+            else if (codepoint < 0xD800 || (codepoint > 0xDFFF && codepoint <= 0xFFFF))
+            {
+                buf[0] = (byte)((codepoint >> 12) | 0xE0);
+                buf[1] = (byte)((codepoint >> 6) & 0x3F | 0x80);
+                buf[2] = (byte)((codepoint & 0x3F) | 0x80);
+                ms.Write(buf.Slice(0, 3));
+            }
+            else if (codepoint <= 0x10FFFF)
+            {
+                buf[0] = (byte)((codepoint >> 18) | 0xF0);
+                buf[1] = (byte)((codepoint >> 12) & 0x3F | 0x80);
+                buf[2] = (byte)((codepoint >> 6) & 0x3F | 0x80);
+                buf[3] = (byte)((codepoint & 0x3F) | 0x80);
+                ms.Write(buf.Slice(0, 4));
+            }
+            else
+            {
+                throw new TdJsonReaderException(position, "Unicode codepoint out of range");
             }
         }
 
-        /// <summary>
-        /// Read current string token as UTF-8 bytes.
-        /// </summary>
-        /// <returns>A <see cref="Span{byte}"/> contains UTF-8 encoded string. The span is valid until next <see cref="ReadStringUTF8"/> call.</returns>
-        public Span<byte> ReadStringUTF8()
+        internal void ReadStringToSlimWriter<T>(ref T ms) where T : ISlimWriter // generics with type constraint is needed to pass struct reference without boxing
         {
             if (cstr[position] != (byte)'"')
                 throw new TdJsonReaderException(position, "invalid value type");
             position++;
-            strbuffer.Reset();
             ushort prevu16 = 0;
             var instr = true;
             var beginliteral = position;
@@ -385,44 +380,36 @@ namespace TDLib.JsonClient
                         if (position - beginliteral > 0)
                         {
                             // write saved literal
-                            strbuffer.Write(Slice(beginliteral, position));
+                            ms.Write(Slice(beginliteral, position));
                         }
                         AssertRemainingLength(2);
-                        var dest = strbuffer.GetSpan(4);
-                        var destlen = 0;
                         position++;
                         switch (cstr[position])
                         {
                             case (byte)'"':
                             case (byte)'\\':
                             case (byte)'/':
-                                dest[0] = cstr[position];
-                                destlen = 1;
+                                ms.WriteByte(cstr[position]);
                                 position++;
                                 break;
                             case (byte)'b':
-                                dest[0] = (byte)'\b';
-                                destlen = 1;
+                                ms.WriteByte((byte)'\b');
                                 position++;
                                 break;
                             case (byte)'f':
-                                dest[0] = (byte)'\f';
-                                destlen = 1;
+                                ms.WriteByte((byte)'\f');
                                 position++;
                                 break;
                             case (byte)'n':
-                                dest[0] = (byte)'\n';
-                                destlen = 1;
+                                ms.WriteByte((byte)'\n');
                                 position++;
                                 break;
                             case (byte)'r':
-                                dest[0] = (byte)'\r';
-                                destlen = 1;
+                                ms.WriteByte((byte)'\r');
                                 position++;
                                 break;
                             case (byte)'t':
-                                dest[0] = (byte)'\t';
-                                destlen = 1;
+                                ms.WriteByte((byte)'\t');
                                 position++;
                                 break;
                             case (byte)'u':
@@ -439,24 +426,23 @@ namespace TDLib.JsonClient
                                         throw new TdJsonReaderException(position, "UTF-16 surrogate pair without leading one");
                                     }
                                     uint uni = unchecked(((uint)prevu16 << 10) + hex4 + (0x10000u - (0xD800u << 10) - 0xDC00u));
-                                    destlen = WriteUTF8Codepoint(dest, uni);
+                                    WriteUTF8Codepoint(ref ms, uni);
                                 }
                                 else
                                 {
-                                    destlen = WriteUTF8Codepoint(dest, hex4);
+                                    WriteUTF8Codepoint(ref ms, hex4);
                                 }
                                 break;
                             default:
                                 throw new TdJsonReaderException(position, "invalid escape sequence");
                         }
-                        strbuffer.Advance(destlen);
                         beginliteral = position;
                         break;
                     case (byte)'"':
                         if (position - beginliteral > 0)
                         {
                             //var bytes = Span.Slice(beginliteral, Position - beginliteral).ToArray();
-                            strbuffer.Write(Slice(beginliteral, position));
+                            ms.Write(Slice(beginliteral, position));
                         }
                         beginliteral = position;
                         instr = false;
@@ -468,6 +454,13 @@ namespace TDLib.JsonClient
                 }
             }
             if (instr) throw new TdJsonReaderException(position, "incomplete input");
+        }
+
+        public Span<byte> ReadStringUTF8()
+        {
+            strbuffer.Reset();
+            var slimwriter = new BufferSlimWriter(strbuffer);
+            ReadStringToSlimWriter(ref slimwriter);
             return strbuffer.WrittenSpan;
         }
 
@@ -491,8 +484,11 @@ namespace TDLib.JsonClient
 
         internal uint ReadStringAsHash()
         {
-            var u8str = ReadStringUTF8();
-            return Crc32C.Update(0, u8str);
+            var s = new Crc32CSlimWriter();
+            ReadStringToSlimWriter(ref s);
+            return s.Hash;
+            //var u8str = ReadStringUTF8();
+            //return Crc32C.Calcuate(u8str);
         }
 
         /// <summary>

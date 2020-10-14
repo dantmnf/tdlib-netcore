@@ -1,21 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-      <TargetFrameworks>netstandard2.1;netcoreapp3.0</TargetFrameworks>
-      <LangVersion>8.0</LangVersion>
-  </PropertyGroup>
+    <PropertyGroup>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <TargetFrameworks>netstandard2.1;netcoreapp3.0</TargetFrameworks>
+        <LangVersion>8.0</LangVersion>
+        <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
+        <Description></Description>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
         <DefineConstants>HAVE_AggressiveOptimization;X86_INTRINSICS</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="'$(TargetFramework)' == 'net5.0'">
         <DefineConstants>HAVE_AggressiveOptimization;X86_INTRINSICS;ARM_INTRINSICS</DefineConstants>
     </PropertyGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Generated\pool.dat" />
-  </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Generated\pool.dat" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TDLib\TDLib.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\TDLib\TDLib.csproj" />
+    </ItemGroup>
+    <Import Project="..\TDLib\ExactProjectReferenceVersion.targets"/>
+
 </Project>
