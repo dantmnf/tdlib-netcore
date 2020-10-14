@@ -2,21 +2,12 @@ using System;
 
 namespace TDLib.JsonClient
 {
-    //public class TLTypeAttribute : Attribute
-    //{
-    //    public TLTypeAttribute(string name)
-    //    {
-    //        TLType = name;
-    //    }
-    //    public string TLType { get; set; }
-    //}
-
-    public class TLTypeHashAttribute : Attribute
+    public class TLTypeAttribute : Attribute
     {
-        public TLTypeHashAttribute(uint hash)
+        public TLTypeAttribute(string name)
         {
-            Hash = hash;
+            TLType = name;
         }
-        public uint Hash { get; set; }
+        public string TLType { get; set; }
     }
 }

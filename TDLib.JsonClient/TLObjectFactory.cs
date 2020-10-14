@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using TDLib.Api;
+using TDLib.JsonClient.Utf8JsonExtension;
 
 namespace TDLib.JsonClient
 {
@@ -9,7 +11,7 @@ namespace TDLib.JsonClient
     {
         // partial const uint @type_hash;
         // partial const uint @extra_hash;
-        private static Dictionary<uint, (Func<BaseConverter> mar, Func<TLObject> obj)> _typehash_map = new Dictionary<uint, (Func<BaseConverter>, Func<TLObject>)>();
+        private static Dictionary<string, (Func<BaseConverter> mar, Func<TLObject> obj)> _typehash_map = new Dictionary<string, (Func<BaseConverter>, Func<TLObject>)>();
         private static Dictionary<Type, Func<BaseConverter>> _rtti_map = new Dictionary<Type, Func<BaseConverter>>();
 
         static TLObjectFactory()
@@ -17,16 +19,16 @@ namespace TDLib.JsonClient
             // TODO: avoid reflection?
             var asm = typeof(BaseConverter).Assembly;
             var types = asm.GetTypes()
-                .Select(t => (type: t, attrs: t.GetCustomAttributes(typeof(TLTypeHashAttribute), true)))
+                .Select(t => (type: t, attrs: t.GetCustomAttributes(typeof(TLTypeAttribute), true)))
                 .Where(x => x.attrs.Length != 0)
-                .Select(x => (attr: x.attrs.FirstOrDefault() as TLTypeHashAttribute, type: x.type));
+                .Select(x => (attr: x.attrs.FirstOrDefault() as TLTypeAttribute, type: x.type));
             var count = 0;
             foreach (var (attr, converter_type) in types)
             {
                 count++;
                 var converter_factory = (Func<BaseConverter>)Delegate.CreateDelegate(typeof(Func<BaseConverter>), converter_type, "CreateConverterInstance");
                 var object_factory = (Func<TLObject>)Delegate.CreateDelegate(typeof(Func<TLObject>), converter_type, "CreateObjectInstance");
-                _typehash_map.Add(attr.Hash, (converter_factory, object_factory));
+                _typehash_map.Add(attr.TLType, (converter_factory, object_factory));
                 var converter_generic_type = converter_type.BaseType;
                 while (converter_generic_type != null)
                 {
@@ -45,14 +47,13 @@ namespace TDLib.JsonClient
             }
         }
 
-        public static (TLObject, BaseConverter) CreateTLObjectAndConverter(uint typehash)
+        public static (TLObject, BaseConverter) CreateTLObjectAndConverter(string type)
         {
-            if (_typehash_map.TryGetValue(typehash, out var ctors))
+            if (_typehash_map.TryGetValue(type, out var ctors))
             {
                 return (ctors.obj(), ctors.mar());
-
             }
-            throw new ArgumentException($"unknown typehash {typehash}");
+            throw new ArgumentException($"unknown type {type}");
         }
 
         public static BaseConverter GetConverterForTLObject(TLObject obj)
@@ -61,63 +62,62 @@ namespace TDLib.JsonClient
             {
                 return ctor();
             }
-            throw new ArgumentException($"unknown type {obj.GetType().Name}");
+            throw new ArgumentException($"unknown type {obj.GetType()}");
         }
 
-        private static (TLObject, BaseConverter) ConsumeObjectProlog(ref TdJsonReader reader)
-        {
-            if (!reader.BeginReadObject())
-                throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
-            var keystr = reader.ReadStringUTF8();
-            var key = Crc32C.Calcuate(keystr);
-            if (key != type_hash)
-                throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
-            var token = reader.MoveToObjectMemberValue();
-            if (token != TdJsonTokenType.String)
-                throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
-            var typestr = reader.ReadStringUTF8();
-            var typehash = Crc32C.Calcuate(typestr);
 
-            var (obj, converter) = CreateTLObjectAndConverter(typehash);
+        private static (TLObject, BaseConverter) ConsumeObjectProlog(ref Utf8JsonReader reader)
+        {
+            reader.AssertNextToken(System.Text.Json.JsonTokenType.PropertyName);
+            var typestr = reader.GetString();
+            if (typestr != "@type")
+                throw new JsonException("object without @type");
+            var token = reader.ReadNextToken();
+            if (token != System.Text.Json.JsonTokenType.String)
+                throw new JsonException("object without @type");
+            var type = reader.GetString();
+
+            var (obj, converter) = CreateTLObjectAndConverter(type);
             if (obj == null)
-                throw new TdJsonReaderException(reader.BytesConsumed, string.Format("cannot create object with type hash 0x{0:x8}", typehash));
+                throw new JsonException(string.Format("cannot create object with type {0}", type));
             return (obj, converter);
         }
 
-        public static TLObjectWithExtra ReadRootObject(ref TdJsonReader reader)
+
+        public static TLObjectWithExtra ReadRootObject(ref Utf8JsonReader reader)
         {
+            reader.AssertNextToken(JsonTokenType.StartObject);
             var (obj, converter) = ConsumeObjectProlog(ref reader);
             var result = new TLObjectWithExtra() { TLObject = obj };
 
-            while (reader.MoveToNextObjectMember())
+            while (reader.ReadNextToken() != JsonTokenType.PropertyName)
             {
-                var keystr = reader.ReadStringUTF8();
-                var key = Crc32C.Calcuate(keystr);
-                reader.MoveToObjectMemberValue();
-                if (key == extra_hash)
+                var key = reader.GetString();
+                if (key == "@extra")
                 {
                     result.Extra = reader.ReadInt64String();
                     continue;
                 }
                 if (!converter.TdJsonReadItem(ref reader, obj, key))
                 {
-                    throw new TdJsonReaderException(reader.BytesConsumed, string.Format("unrecognized key 0x{0:x8} in type {1}", key, obj.GetType().Name));
+                    throw new JsonException(string.Format("unrecognized key 0x{0:x8} in type {1}", key, obj.GetType().Name));
                 }
             }
             return result;
         }
 
-        public static TLObject ReadObject(ref TdJsonReader reader)
+        public static TLObject ReadObject(ref Utf8JsonReader reader)
         {
+            var type = reader.ReadNextToken();
+            if (type == JsonTokenType.Null) return null;
+            if (type != JsonTokenType.StartObject) throw new JsonException();
             var (obj, converter) = ConsumeObjectProlog(ref reader);
-            while (reader.MoveToNextObjectMember())
+            while (reader.ReadNextToken() != JsonTokenType.PropertyName)
             {
-                var keystr = reader.ReadStringUTF8();
-                var key = Crc32C.Calcuate(keystr);
-                reader.MoveToObjectMemberValue();
+                var key = reader.GetString();
                 if (!converter.TdJsonReadItem(ref reader, obj, key))
                 {
-                    throw new TdJsonReaderException(reader.BytesConsumed, string.Format("unrecognized key 0x{0:x8} in type {1}", key, obj.GetType().Name));
+                    throw new JsonException(string.Format("unrecognized key 0x{0:x8} in type {1}", key, obj.GetType().Name));
                 }
             }
             return obj;

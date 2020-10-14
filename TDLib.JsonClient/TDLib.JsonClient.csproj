@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <TargetFrameworks>netstandard2.1;netcoreapp3.0</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
         <LangVersion>8.0</LangVersion>
         <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
         <Description></Description>

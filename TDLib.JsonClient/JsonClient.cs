@@ -1,5 +1,6 @@
 using System;
 using System.Buffers;
+using System.Text.Json;
 using System.Threading;
 using TDLib.Api;
 using static TDLib.JsonClient.Native;
@@ -19,9 +20,9 @@ namespace TDLib.JsonClient
         {
             if (cstr == null || *cstr == 0) return new TLObjectWithExtra();
 
-            TdJsonReader parser = new TdJsonReader(cstr);
+            var span = new ReadOnlySpan<byte>(cstr, (int)strlen(cstr));
+            var parser = new Utf8JsonReader(span);
             var obj = TLObjectFactory.ReadRootObject(ref parser);
-            parser.Dispose();
             return obj;
         }
 

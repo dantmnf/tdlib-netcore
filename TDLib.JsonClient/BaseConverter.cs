@@ -1,10 +1,11 @@
+using System.Text.Json;
 using TDLib.Api;
 
 namespace TDLib.JsonClient
 {
     abstract partial class BaseConverter
     {
-        internal virtual bool TdJsonReadItem(ref TdJsonReader reader, TLObject obj, uint hash) => false;
+        internal virtual bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject obj, string key) => false;
 
         /// <remarks>
         /// Doesn't write EndObject token '}'.
