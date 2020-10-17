@@ -28,8 +28,9 @@ namespace TDLib.JsonClient
 
         internal static void TLObjectToBytes(TLObjectWithExtra obj, IBufferWriter<byte> buffer)
         {
-            var writer = new Utf8JsonWriter(buffer, new JsonWriterOptions { Indented = false, SkipValidation = true });
+            var writer = new Utf8JsonWriter(buffer, new JsonWriterOptions { Indented = false });
             writer.WriteTLObjectValue(obj);
+            writer.Flush();
             var span = buffer.GetSpan(1);
             span[0] = 0;
             buffer.Advance(1);
