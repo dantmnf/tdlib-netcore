@@ -1,44 +1,20 @@
 require_relative 'common'
-require 'zlib'
-require 'stringio'
-require_relative 'crc32c'
 
-class StringPool
-  PoolItemInfo = Struct.new(:offset, :length)
-  def initialize(align = 0)
-    @buf = StringIO.new
-    @hash = {}
-    @align = align
-  end
-  def add(str)
-    return @hash[str] if @hash.key?(str)
-    offset = @buf.length
-    length = str.length
-    @buf.write(str)
-    if @align != 0 && @buf.length % @align != 0
-      @buf.write(' '*(-(@buf.length % -@align)))
-    end
-    info = PoolItemInfo.new(offset, length)
-    @hash[str] = info
-    info
-  end
-
-  def pool
-    @buf.string
-  end
-end
 
 def emit_type(io, pool, type)
   csname = check_csharp_keyword type.name
   io.puts "partial class #{csname}Converter"
   io.puts "{"
   io.block do
-    io.puts "internal override void TdJsonWriteUnclosedObject(TdJsonWriter writer, TLObject tlobj)"
+    io.puts "private static readonly JsonEncodedText JsonTypeName = JsonEncodedText.Encode(#{type.realname.to_s.inspect});"
+    type.props.each do |prop|
+      io.puts "private static readonly JsonEncodedText PropName_#{prop.name} = JsonEncodedText.Encode(#{prop.name.to_s.inspect});"
+    end
+    io.puts "internal override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)"
     io.puts "{"
     io.block do
-      str = %Q[{"@type":"#{type.realname}"]
-      poolitem = pool.add(str)
-      io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
+      io.puts "writer.WriteStartObject();"
+      io.puts "writer.WriteString(TdJsonWriter.TypePropertyName, JsonTypeName);"
       unless type.props.empty?
         io.puts "var obj = (#{csname})tlobj;"
       end
@@ -49,29 +25,33 @@ def emit_type(io, pool, type)
           propname = "#{propname}_"
         end
         csname = check_csharp_keyword propname
-        str = %Q{,"#{prop.name}":}
-        poolitem = pool.add(str)
 
         case 
         when prop.type == "byte[]"
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
-            io.puts "writer.WriteBytesValue(obj.#{csname});"
+            io.puts "writer.WritePropertyName(PropName_#{prop.name});"
+            io.puts "writer.WriteBase64StringValue(obj.#{csname});"
           end
           io.puts "}"
-        when prop.type.is_a?(String) # other primitive type
-          io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
-          io.puts "writer.WriteValue(obj.#{csname});"
+        when prop.type == 'int' || prop.type == 'long' || prop.type == 'double'
+          io.puts "writer.WritePropertyName(PropName_#{prop.name});"
+          io.puts "writer.WriteNumberValue(obj.#{csname});"
+        when prop.type == 'string'
+          io.puts "writer.WritePropertyName(PropName_#{prop.name});"
+          io.puts "writer.WriteStringValue(obj.#{csname});"
+        when prop.type == 'bool'
+          io.puts "writer.WritePropertyName(PropName_#{prop.name});"
+          io.puts "writer.WriteBooleanValue(obj.#{csname});"
         when prop.type == TDLibTLTypeInfo::Int64
-          io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
+          io.puts "writer.WritePropertyName(PropName_#{prop.name});"
           io.puts "writer.WriteInt64String(obj.#{csname});"
         when prop.type == TDLibTLTypeInfo::Vector[TDLibTLTypeInfo::Int64]
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
+            io.puts "writer.WritePropertyName(PropName_#{prop.name});"
             io.puts "writer.WriteInt64Array(obj.#{csname});"
           end
           io.puts "}"
@@ -79,7 +59,7 @@ def emit_type(io, pool, type)
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
+            io.puts "writer.WritePropertyName(PropName_#{prop.name});"
             io.puts "writer.WriteArray(obj.#{csname});"
           end
           io.puts "}"
@@ -87,8 +67,8 @@ def emit_type(io, pool, type)
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WriteSpan(StringPool.Slice(#{poolitem.offset}, #{poolitem.length})); // #{str}"
-            io.puts "writer.WriteValue(obj.#{csname});"
+            io.puts "writer.WritePropertyName(PropName_#{prop.name});"
+            io.puts "writer.WriteTLObjectValue(obj.#{csname});"
           end
           io.puts "}"
         end
@@ -103,25 +83,17 @@ def emit_type(io, pool, type)
   io.puts ""
 end
 
-def emit(codeout, pooloutfile)
+def emit(codeout)
   io = IndentedOutput.new(codeout)
   pool = StringPool.new(8)
   io.puts "// generated by codegen/genwriter.rb"
   io.puts "using System;"
+  io.puts "using System.Text.Json;"
   io.puts "using TDLib.Api;"
   io.puts ""
   io.puts "namespace TDLib.JsonClient"
   io.puts "{"
   io.block do
-    extraitem = pool.add(%Q{,"@extra":})
-    io.puts "partial class TdJsonWriter"
-    io.puts "{"
-    io.block do
-      io.puts "private const int _extrapos = #{extraitem.offset};"
-      io.puts "private const int _extralen = #{extraitem.length};"
-    end
-    io.puts "}"
-    io.puts ""
     io.puts "namespace ObjectConverter"
     io.puts "{"
     io.block do
@@ -136,18 +108,9 @@ def emit(codeout, pooloutfile)
     io.puts "}"
     io.puts ""
     
-    crc = CRC32c.checksum(pool.pool)
-    io.puts "partial class StringPool"
-    io.puts "{"
-    io.block do
-      io.puts "private const uint _poolcrc = #{'0x%08Xu' % crc};"
-    end
-    io.puts "}"
   end
   io.puts "}"
-    
-  IO.binwrite(pooloutfile, pool.pool)
 end
 
 TDLibTLTypeInfo.load ARGV[0]
-emit File.open(ARGV[1], 'wb'), ARGV[2]
+emit File.open(ARGV[1], 'wb')

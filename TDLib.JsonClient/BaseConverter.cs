@@ -12,7 +12,7 @@ namespace TDLib.JsonClient
         /// </remarks>
         /// <param name="writer"></param>
         /// <param name="obj"></param>
-        internal abstract void TdJsonWriteUnclosedObject(TdJsonWriter writer, TLObject obj);
+        internal abstract void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject obj);
     }
 
     abstract partial class TLObjectConverter<T> : BaseConverter where T : TLObject { }

@@ -29,4 +29,4 @@ COMMON=../td/td/generate/scheme/td_api.tl common.rb parser.rb
 	ruby genreader.rb ../td/td/generate/scheme/td_api.tl ../TDLib.JsonClient/Generated/ObjectReader.cs
 
 ../TDLib.JsonClient/Generated/ObjectWriter.cs: $(COMMON) genwriter.rb
-	ruby genwriter.rb ../td/td/generate/scheme/td_api.tl ../TDLib.JsonClient/Generated/ObjectWriter.cs ../TDLib.JsonClient/Generated/pool.dat
+	ruby genwriter.rb ../td/td/generate/scheme/td_api.tl ../TDLib.JsonClient/Generated/ObjectWriter.cs

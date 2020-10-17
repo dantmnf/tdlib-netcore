@@ -28,10 +28,11 @@ namespace TDLib.JsonClient
 
         internal static void TLObjectToBytes(TLObjectWithExtra obj, IBufferWriter<byte> buffer)
         {
-            var writer = new TdJsonWriter(buffer);
-            writer.WriteValue(obj);
-            byte zero = 0;
-            buffer.Write(new ReadOnlySpan<byte>(&zero, 1));
+            var writer = new Utf8JsonWriter(buffer, new JsonWriterOptions { Indented = false, SkipValidation = true });
+            writer.WriteTLObjectValue(obj);
+            var span = buffer.GetSpan(1);
+            span[0] = 0;
+            buffer.Advance(1);
         }
 
         public override TLObject Execute(Function func)
