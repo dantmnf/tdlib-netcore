@@ -6,7 +6,7 @@ using TDLib.Api;
 namespace TDLib.JsonClient.Utf8JsonExtension
 {
 
-    internal static class FrameworkJsonReader
+    internal static class Utf8JsonReaderExtensions
     {
 
         public static JsonTokenType ReadNextToken(this ref Utf8JsonReader fwreader)

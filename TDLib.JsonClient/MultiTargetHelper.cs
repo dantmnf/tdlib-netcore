@@ -10,7 +10,7 @@ namespace TDLib.JsonClient
 #if HAVE_AggressiveOptimization
         public const MethodImplOptions MethodImplOptions_AggressiveOptimization = MethodImplOptions.AggressiveOptimization;
 #else
-        public const MethodImplOptions MethodImplOptions_AggressiveOptimization = (MethodImplOptions)0;
+        public const MethodImplOptions MethodImplOptions_AggressiveOptimization = 0;
 #endif
     }
 }

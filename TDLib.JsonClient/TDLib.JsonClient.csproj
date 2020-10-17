@@ -2,24 +2,24 @@
 
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;netcoreapp3.0</TargetFrameworks>
         <LangVersion>8.0</LangVersion>
         <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
         <Description></Description>
     </PropertyGroup>
     <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
-        <DefineConstants>HAVE_AggressiveOptimization;X86_INTRINSICS</DefineConstants>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net5.0'">
-        <DefineConstants>HAVE_AggressiveOptimization;X86_INTRINSICS;ARM_INTRINSICS</DefineConstants>
+        <DefineConstants>HAVE_AggressiveOptimization</DefineConstants>
     </PropertyGroup>
     <ItemGroup>
         <EmbeddedResource Include="Generated\pool.dat" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+      <PackageReference Include="System.Text.Json" Version="4.7.2" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\TDLib\TDLib.csproj" />
     </ItemGroup>
-    <Import Project="..\TDLib\ExactProjectReferenceVersion.targets"/>
+    <Import Project="..\TDLib\ExactProjectReferenceVersion.targets" />
 
 </Project>
