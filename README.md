@@ -19,7 +19,7 @@ ruby build-native.rb -- [tdlib CMake options]
 
 This will build package in `pkgs` subdirectory by default.
 
-> 💡 **vcpkg users:** use -DVCPKG_APPLOCAL_DEPS=ON/OFF to control including OpenSSL and zlib libraries in package.
+> 💡 **vcpkg users:** use `-DVCPKG_APPLOCAL_DEPS=ON/OFF` to control including OpenSSL and zlib libraries in package.
 
 <details><summary>Build script options</summary>
 
