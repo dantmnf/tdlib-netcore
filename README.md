@@ -3,7 +3,7 @@
 Fast [TDLib](https://github.com/tdlib/td) binding for .NET Core:
   * Generated APIs with full documentation.
   * Generated `System.Text.Json`-based reader and writer for performance.
-  * Plus *experimental* SWIG-like binding that directly consumes TDLib C++ API for more performance.
+  * Plus *experimental* SWIG-like binding that directly consumes TDLib C++ API for more performance (~25% faster than JSON binding on calling getTextEntities in example below).
 
 
 ## Installation
