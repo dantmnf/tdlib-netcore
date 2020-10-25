@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <NoBuild>true</NoBuild>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <PackageId Condition="'$(PackageId)' == ''">TDLib.JsonClient.Native</PackageId>

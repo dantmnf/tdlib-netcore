@@ -13,7 +13,7 @@ opts = {
 }
 argv = ARGV.map(&:itself)
 OptionParser.new do |parser|
-  parser.banner = "usage #$0 [options] -- [tdlib CMake options]"
+  parser.banner = "usage: #$0 [options] -- [tdlib CMake options]"
   parser.on("-bDIR", "--build-root=DIR", "set build root to DIR, defaults to #{opts[:buildroot]}") do |dir|
     opts[:buildroot] = dir
   end
@@ -91,11 +91,14 @@ Dir.chdir(opts[:buildroot]) do
   end
   puts "building packages for RID #{opts[:rid]}"
   system2(*%w(cmake --build . --target tdjson), exception: true)
-  dll_suffix = trace.find{|x|x["cmd"]&.downcase == 'set' && x.dig("args", 0) == "CMAKE_SHARED_LIBRARY_SUFFIX"}&.dig("args", 1)
+  dll_suffix = cmake_variables["CMAKE_SHARED_LIBRARY_SUFFIX"]
   pattern = File.join(Dir.pwd, '*'+dll_suffix)
   if File.const_defined?(:ALT_SEPARATOR) && File.const_get(:ALT_SEPARATOR) == '\\'
     pattern.gsub!(File::SEPARATOR, '\\')
   end
+  system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'stub', 'TDLib.JsonClient.Native.csproj'),
+          '-c', 'Release', "-p:UseReleaseVersioning=#{opts[:release]}", '--no-restore', '--no-build',
+          '-nologo', '-o', opts[:outdir], exception: true)
   system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLib.JsonClient.Native.csproj'),
          '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",
          '--no-restore', '--no-build', '-nologo', '-o', opts[:outdir], exception: true)
