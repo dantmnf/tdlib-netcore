@@ -2,6 +2,7 @@
 require 'optparse'
 require 'fileutils'
 require 'json'
+require 'pp'
 
 scriptroot = File.realdirpath(File.dirname($0))
 opts = {
@@ -48,25 +49,36 @@ FileUtils.mkdir_p(opts[:buildroot])
 
 Dir.chdir(opts[:buildroot]) do
   system2("cmake", *argv, *%w(--trace --trace-format=json-v1 --trace-expand --trace-redirect=CMakeTrace.log -Wno-dev), opts[:sourceroot], exception: true)
+  # replay trace to get (part of) CMake variables
+  cmake_variables = {}
   trace = IO.readlines('CMakeTrace.log')
   trace.map!{|x| JSON.parse(x)}
-  trace.reverse!
+  trace.each do |x|
+    if x["cmd"]&.downcase == 'set'
+      name = x.dig("args", 0)
+      value = x["args"][1..-1]
+      if value.length >= 2 && value[-1] == 'PARENT_SCOPE'
+        value.pop
+      elsif value.length >= 4 && value[1..-1].include?('CACHE')
+        value[value.index('CACHE')..-1] = []
+      end
+      value = value[0] if value.length == 1
+      cmake_variables[name] = value
+    end
+  end
   unless opts[:rid]
-    system_name = trace.find{|x|x["cmd"]&.downcase == 'set' && x.dig("args", 0) == "CMAKE_SYSTEM_NAME"}&.dig("args", 1)
-    system_processor = trace.find{|x|x["cmd"]&.downcase == 'set' && x.dig("args", 0) == "CMAKE_SYSTEM_PROCESSOR"}&.dig("args", 1)
-    msvc = !!trace.find{|x|x["cmd"]&.downcase == 'set' && x.dig("args", 0) == "MSVC"}
-    if msvc
-      msvcarch = trace.find{|x|x["cmd"]&.downcase == 'set' && x.dig("args", 0) == "MSVC_CXX_ARCHITECTURE_ID"}&.dig("args", 1)
+    if cmake_variables["MSVC"]
+      msvcarch = cmake_variables["MSVC_CXX_ARCHITECTURE_ID"]
       opts[:rid] = "win-#{msvcarch.downcase}"
     else
-      rid_system = case system_name
+      rid_system = case cmake_variables["CMAKE_SYSTEM_NAME"]
       when 'Windows' then 'win'
       when 'Linux' then 'linux'
       when 'Darwin' then 'osx'
       else
         raise 'unknown CMAKE_SYSTEM_NAME, specify --rid'
       end
-      rid_platform = case system_processor
+      rid_platform = case cmake_variables["CMAKE_SYSTEM_PROCESSOR"]
       when /i[3-6]86/, 'x86' then 'x86'
       when 'amd64', 'x86_64', 'x64' then 'x64'
       when 'aarch64', 'arm64' then 'arm64'
@@ -86,5 +98,5 @@ Dir.chdir(opts[:buildroot]) do
   end
   system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLib.JsonClient.Native.csproj'),
          '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",
-         '-o', opts[:outdir], exception: true)
+         '--no-restore', '--no-build', '-nologo', '-o', opts[:outdir], exception: true)
 end

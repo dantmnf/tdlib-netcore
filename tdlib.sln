@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.ApiVersionTag", "TDLib.ApiVersionTag\TDLib.ApiVersionTag.csproj", "{AD76328C-4E8F-4574-A135-47463EEB179D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,7 +29,9 @@ Global
 		{DBEBA80B-E27C-4536-8D5E-62A6D8EAB54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBEBA80B-E27C-4536-8D5E-62A6D8EAB54B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A138B7C-B815-4AB1-AF6C-2C9FDEE7EBC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7F38874-CC93-4AFB-B44A-89E9BEBC1A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,6 +40,10 @@ Global
 		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4D72F39-6CFB-40B4-A13A-FE6939EAF3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD76328C-4E8F-4574-A135-47463EEB179D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD76328C-4E8F-4574-A135-47463EEB179D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD76328C-4E8F-4574-A135-47463EEB179D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD76328C-4E8F-4574-A135-47463EEB179D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
