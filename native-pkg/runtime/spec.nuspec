@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>$PackageId$</id>
+    <version>$NativePackageVersion$</version>
+    <authors>$PackageId$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$PackageDescription$</description>
+    <releaseNotes>$PackageReleaseNotes$</releaseNotes>
+    <repository type="git" url="https://github.com/tdlib/td.git" commit="$TdCommitHash$" />
+	<dependencies>
+      <dependency id="TDLib.ApiVersionTag" version="[$PackageVersion$]" />
+	</dependencies>
+  </metadata>
+  <files>
+    <file src="$IncludePattern$" target="runtimes/$RID$/native" />
+  </files>
+</package>

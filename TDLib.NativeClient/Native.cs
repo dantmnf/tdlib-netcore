@@ -78,6 +78,8 @@ namespace TDLib.NativeClient
         public static extern void td_bridge_vector_string_emplace_back(IntPtr ptr, byte* data, long len);
         [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
         public static extern void td_bridge_vector_string_clear(IntPtr ptr);
+        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        public static extern uint* td_bridge_offset_table(out uint length);
         public static unsafe int strlen(byte* str)
         {
             int result = 0;

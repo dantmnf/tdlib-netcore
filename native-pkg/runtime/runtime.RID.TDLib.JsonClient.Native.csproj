@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <RID Condition="'$(RID)' == ''">UNKNOWN</RID>
+    <BasePackageId Condition="'$(BasePackageId)' == ''">TDLib.JsonClient.Native</BasePackageId>
+    <PackageId>runtime.$(RID).$(BasePackageId)</PackageId>
+    <PackageVersion>$(NativePackageVersion)</PackageVersion>
+    <PackageDescription>$(BasePackageId) binary for runtime $(RID).</PackageDescription>
+    <PackageReleaseNotes>Built from https://github.com/tdlib/td/tree/$(TdCommitHash)</PackageReleaseNotes>
+    <IncludePattern Condition="'$(IncludePattern)' == ''">bin/native/**/*.dll</IncludePattern>
+    <NuspecProperties>$(NuspecProperties);PackageId=$(PackageId);PackageDescription=$(PackageDescription);IncludePattern=$(IncludePattern);RID=$(RID);TdCommitHash=$(TdCommitHash);PackageReleaseNotes=$(PackageReleaseNotes)</NuspecProperties>
+    <NuspecFile>spec.nuspec</NuspecFile>
+  </PropertyGroup>
+</Project>

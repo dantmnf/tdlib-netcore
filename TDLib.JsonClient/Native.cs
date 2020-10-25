@@ -1,4 +1,6 @@
 using System;
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace TDLib.JsonClient
@@ -45,36 +47,6 @@ namespace TDLib.JsonClient
             while (*end++ != 0) ;
             return (UIntPtr)(end - str - 1);
         }
-
-        //[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        //[return: MarshalAs(UnmanagedType.SysUInt)]
-        //public unsafe delegate UIntPtr strlen_t(byte* str);
-
-        //public static strlen_t strlen;
-        //unsafe static Native() {
-        //    strlen = strlen_managed;
-        //    switch (Environment.OSVersion.Platform)
-        //    {
-        //        case PlatformID.Win32NT:
-        //            {
-        //                if (NativeLibrary.TryLoad("api-ms-win-crt-string-l1-1-0.dll", out var lib))
-        //                    if (NativeLibrary.TryGetExport(lib, "strlen", out var func))
-        //                    {
-        //                        strlen = Marshal.GetDelegateForFunctionPointer<strlen_t>(func);
-        //                        Console.WriteLine("using crt strlen");
-        //                    }
-        //            }
-        //            break;
-        //        case PlatformID.Unix:
-        //            {
-        //                if (NativeLibrary.TryGetExport(IntPtr.Zero, "strlen", out var func)) // RTLD_DEFAULT
-        //                    strlen = Marshal.GetDelegateForFunctionPointer<strlen_t>(func);
-        //            }
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
 
     }
 }

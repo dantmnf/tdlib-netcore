@@ -54,13 +54,13 @@ def emit_type(io, type)
     # io.puts supsec
     io.puts dllimport
     io.puts "private static extern IntPtr td_bridge_newobj_#{type.realname}();"
-    type.props.each do |prop|
-      # io.puts supsec
-      io.puts dllimport
-      wraptype = pinvoketype(prop.type)
-      pitype = wraptype.include?('<') ? 'IntPtr' : wraptype
-      io.puts "private static extern #{pitype} td_bridge_obj_#{type.realname}_#{prop.name}(IntPtr obj);"
-    end
+    # type.props.each do |prop|
+    #   # io.puts supsec
+    #   io.puts dllimport
+    #   wraptype = pinvoketype(prop.type)
+    #   pitype = wraptype.include?('<') ? 'IntPtr' : wraptype
+    #   io.puts "private static extern #{pitype} td_bridge_obj_#{type.realname}_#{prop.name}(IntPtr obj);"
+    # end
 
     io.puts "public override IntPtr CreateCxxObject(TLObject obj)"
     io.puts "{"
@@ -74,11 +74,7 @@ def emit_type(io, type)
         end
         csname = check_csharp_keyword propname
         wraptype = pinvoketype(prop.type)
-        if wraptype.include?('<')
-          io.puts "new #{wraptype}(td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj)).Set(specobj.#{csname});"
-        else
-          io.puts "td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj).Set(specobj.#{csname});"
-        end
+        io.puts "new #{wraptype}(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.#{type.realname}_#{prop.name})).Set(specobj.#{csname});"
       end
       io.puts "return cxxobj;"
     end
@@ -96,11 +92,7 @@ def emit_type(io, type)
         end
         csname = check_csharp_keyword propname
         wraptype = pinvoketype(prop.type)
-        if wraptype.include?('<')
-          io.puts "obj.#{csname} = new #{wraptype}(td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj)).Fetch();"
-        else
-          io.puts "obj.#{csname} = td_bridge_obj_#{type.realname}_#{prop.name}(cxxobj).Fetch();"
-        end
+        io.puts "obj.#{csname} = new #{wraptype}(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.#{type.realname}_#{prop.name})).Fetch();"
       end
       io.puts "return obj;"
     end

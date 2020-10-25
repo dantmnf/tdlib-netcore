@@ -1,6 +1,5 @@
 require 'zlib'
 require_relative 'common'
-require_relative 'crc32c'
 
 def hashfn(x)
   CRC32c.checksum(x)
@@ -55,21 +54,15 @@ def readerof(type)
 end
 
 def emit_type(io, type)
-  hashes = type.props.map{|x|hashof(x.name)}
-  uniqhashes = hashes.uniq
-  if hashes.length != uniqhashes.length
-    raise "hash collision found in type #{type.name}"
-  end
   csname = check_csharp_keyword type.name
   io.puts %Q{[TLType(#{type.realname.to_s.inspect})]}
-
   io.puts "partial class #{csname}Converter : TLObjectConverter<#{csname}>"
   io.puts "{"
   io.push
-  io.puts "internal static BaseConverter CreateConverterInstance() => new #{csname}Converter();"
-  io.puts "internal static TLObject CreateObjectInstance() => new #{csname}();"
+  io.puts "public static BaseConverter CreateConverterInstance() => new #{csname}Converter();"
+  io.puts "public override TLObject CreateObjectInstance() => new #{csname}();"
   unless type.props.empty?
-    io.puts "internal override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, string key)"
+    io.puts "public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, string key)"
     io.puts "{"
     io.block do
       # io.puts "if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;"
@@ -111,30 +104,17 @@ def emit(out=STDOUT)
   io.puts "using TDLib.Api;"
   io.puts "using TDLib.JsonClient.Utf8JsonExtension;"
   io.puts ""
-  io.puts "namespace TDLib.JsonClient"
+  io.puts "namespace TDLib.JsonClient.ObjectConverter"
   io.puts "{"
   io.push
   
-  io.puts "partial class TLObjectFactory"
-  io.puts "{"
-  io.block do
-    io.puts "internal const uint @type_hash = 0x%08Xu;" % hashfn('@type')
-    io.puts "internal const uint @extra_hash = 0x%08Xu;" % hashfn('@extra')
+  TDLibTLTypeInfo::Types.each_value do |type|
+    emit_type(io, type)
   end
-  io.puts "}"
 
-  io.puts "namespace ObjectConverter"
-  io.puts "{"
-    io.block do
-    TDLibTLTypeInfo::Types.each_value do |type|
-      emit_type(io, type)
-    end
-
-    TDLibTLTypeInfo::Functions.each_value do |type|
-      emit_type(io, type)
-    end
+  TDLibTLTypeInfo::Functions.each_value do |type|
+    emit_type(io, type)
   end
-  io.puts "}"
   
   io.pop
   io.puts "}"

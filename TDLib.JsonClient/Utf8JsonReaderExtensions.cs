@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using TDLib.Api;
 
@@ -8,185 +9,181 @@ namespace TDLib.JsonClient.Utf8JsonExtension
 
     internal static class Utf8JsonReaderExtensions
     {
-
-        public static JsonTokenType ReadNextToken(this ref Utf8JsonReader fwreader)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static JsonTokenType ReadNextToken(this ref Utf8JsonReader reader)
         {
-            if (fwreader.Read())
+            if (reader.Read())
             {
-                return fwreader.TokenType;
+                return reader.TokenType;
             }
             throw new JsonException("ReadNextToken");
         }
 
-        public static void AssertNextToken(this ref Utf8JsonReader fwreader, JsonTokenType type)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void ReadAndConfirmNextToken(this ref Utf8JsonReader reader, JsonTokenType type)
         {
-            if (fwreader.ReadNextToken() != type) throw new JsonException("AssertNextToken");
+            if (reader.ReadNextToken() != type) throw new JsonException("ReadAndConfirmNextToken");
         }
 
-        public static bool ReadBool(this ref Utf8JsonReader fwreader)
+        public static bool ReadBool(this ref Utf8JsonReader reader)
         {
-            var type = fwreader.ReadNextToken();
+            var type = reader.ReadNextToken();
             if (type == JsonTokenType.True) return true;
             if (type == JsonTokenType.False) return false;
             throw new JsonException("ReadBool");
         }
 
 
-        public static long ReadInt64String(this ref Utf8JsonReader fwreader)
+        public static long ReadInt64String(this ref Utf8JsonReader reader)
         {
-            var str = fwreader.ReadString();
+            var str = reader.ReadString();
             return long.Parse(str);
         }
 
   
-        public static int ReadInt(this ref Utf8JsonReader fwreader)
+        public static int ReadInt(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.Number);
-            return fwreader.GetInt32();
+            reader.ReadAndConfirmNextToken(JsonTokenType.Number);
+            return reader.GetInt32();
         }
 
-        public static long ReadLong(this ref Utf8JsonReader fwreader)
+        public static long ReadLong(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.Number);
-            return fwreader.GetInt64();
+            reader.ReadAndConfirmNextToken(JsonTokenType.Number);
+            return reader.GetInt64();
         }
 
-        public static double ReadDouble(this ref Utf8JsonReader fwreader)
+        public static double ReadDouble(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.Number);
-            return fwreader.GetDouble();
+            reader.ReadAndConfirmNextToken(JsonTokenType.Number);
+            return reader.GetDouble();
         }
 
-        public static string ReadString(this ref Utf8JsonReader fwreader)
+        public static string ReadString(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.String);
-            return fwreader.GetString();
+            reader.ReadAndConfirmNextToken(JsonTokenType.String);
+            return reader.GetString();
         }
 
-        public static byte[] ReadBase64String(this ref Utf8JsonReader fwreader)
+        public static byte[] ReadBase64String(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.String);
-            return fwreader.GetBytesFromBase64();
+            reader.ReadAndConfirmNextToken(JsonTokenType.String);
+            return reader.GetBytesFromBase64();
         }
 
-        internal static uint ReadStringAsHash(this ref Utf8JsonReader fwreader)
+        public static string[] ReadStringArray(this ref Utf8JsonReader reader)
         {
-            return 0;
-        }
-
-        public static string[] ReadStringArray(this ref Utf8JsonReader fwreader)
-        {
-            fwreader.AssertNextToken(JsonTokenType.StartArray);
-            var type = fwreader.ReadNextToken();
+            reader.ReadAndConfirmNextToken(JsonTokenType.StartArray);
+            var type = reader.ReadNextToken();
             if (type != JsonTokenType.EndArray)
             {
                 var objs = new List<string>();
-                objs.Add(fwreader.GetString());
-                while (fwreader.ReadNextToken() != JsonTokenType.EndArray)
+                objs.Add(reader.GetString());
+                while (reader.ReadNextToken() != JsonTokenType.EndArray)
                 {
-                    objs.Add(fwreader.GetString());
+                    objs.Add(reader.GetString());
                 }
                 return objs.ToArray();
             }
             return Array.Empty<string>();
         }
 
-        public static byte[][] ReadBytesArray(this ref Utf8JsonReader fwreader)
+        public static byte[][] ReadBytesArray(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.StartArray);
-            var type = fwreader.ReadNextToken();
+            reader.ReadAndConfirmNextToken(JsonTokenType.StartArray);
+            var type = reader.ReadNextToken();
             if (type != JsonTokenType.EndArray)
             {
                 var objs = new List<byte[]>();
-                objs.Add(fwreader.GetBytesFromBase64());
-                while (fwreader.ReadNextToken() != JsonTokenType.EndArray)
+                objs.Add(reader.GetBytesFromBase64());
+                while (reader.ReadNextToken() != JsonTokenType.EndArray)
                 {
-                    objs.Add(fwreader.GetBytesFromBase64());
+                    objs.Add(reader.GetBytesFromBase64());
                 }
                 return objs.ToArray();
             }
             return Array.Empty<byte[]>();
         }
 
-        public static int[] ReadInt32Array(this ref Utf8JsonReader fwreader)
+        public static int[] ReadInt32Array(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.StartArray);
-            var type = fwreader.ReadNextToken();
+            reader.ReadAndConfirmNextToken(JsonTokenType.StartArray);
+            var type = reader.ReadNextToken();
             if (type != JsonTokenType.EndArray)
             {
                 var objs = new List<int>();
-                objs.Add(fwreader.GetInt32());
-                while (fwreader.ReadNextToken() != JsonTokenType.EndArray)
+                objs.Add(reader.GetInt32());
+                while (reader.ReadNextToken() != JsonTokenType.EndArray)
                 {
-                    objs.Add(fwreader.GetInt32());
+                    objs.Add(reader.GetInt32());
                 }
                 return objs.ToArray();
             }
             return Array.Empty<int>();
         }
 
-        public static long[] ReadInt53Array(this ref Utf8JsonReader fwreader)
+        public static long[] ReadInt53Array(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.StartArray);
-            var type = fwreader.ReadNextToken();
+            reader.ReadAndConfirmNextToken(JsonTokenType.StartArray);
+            var type = reader.ReadNextToken();
             if (type != JsonTokenType.EndArray)
             {
                 var objs = new List<long>();
-                objs.Add(fwreader.GetInt64());
-                while (fwreader.ReadNextToken() != JsonTokenType.EndArray)
+                objs.Add(reader.GetInt64());
+                while (reader.ReadNextToken() != JsonTokenType.EndArray)
                 {
-                    objs.Add(fwreader.GetInt64());
+                    objs.Add(reader.GetInt64());
                 }
                 return objs.ToArray();
             }
             return Array.Empty<long>();
         }
 
-        public static long[] ReadInt64Array(this ref Utf8JsonReader fwreader)
+        public static long[] ReadInt64Array(this ref Utf8JsonReader reader)
         {
-            fwreader.AssertNextToken(JsonTokenType.StartArray);
-            var type = fwreader.ReadNextToken();
+            reader.ReadAndConfirmNextToken(JsonTokenType.StartArray);
+            var type = reader.ReadNextToken();
             if (type != JsonTokenType.EndArray)
             {
                 var objs = new List<long>();
-                objs.Add(long.Parse(fwreader.GetString()));
-                while (fwreader.ReadNextToken() != JsonTokenType.EndArray)
+                objs.Add(long.Parse(reader.GetString()));
+                while (reader.ReadNextToken() != JsonTokenType.EndArray)
                 {
-                    objs.Add(long.Parse(fwreader.GetString()));
+                    objs.Add(long.Parse(reader.GetString()));
                 }
                 return objs.ToArray();
             }
             return Array.Empty<long>();
         }
 
-        public static T[] ReadObjectArray<T>(this ref Utf8JsonReader fwreader) where T : TLObject
+        public static T[] ReadObjectArray<T>(this ref Utf8JsonReader reader) where T : TLObject
         {
-            fwreader.AssertNextToken(JsonTokenType.StartArray);
-            var type = fwreader.ReadNextToken();
+            reader.ReadAndConfirmNextToken(JsonTokenType.StartArray);
+            var type = reader.ReadNextToken();
             if (type != JsonTokenType.EndArray)
             {
                 var objs = new List<T>();
-                objs.Add(fwreader.ReadTLObject<T>());
-                while (fwreader.ReadNextToken() != JsonTokenType.EndArray)
+                objs.Add(reader.ReadTLObject<T>());
+                while (reader.ReadNextToken() != JsonTokenType.EndArray)
                 {
-                    objs.Add(fwreader.ReadTLObject<T>());
+                    objs.Add(reader.ReadTLObject<T>());
                 }
                 return objs.ToArray();
             }
             return Array.Empty<T>();
         }
 
-        public static T[][] ReadNestedObjectArray<T>(this ref Utf8JsonReader fwreader) where T : TLObject
+        public static T[][] ReadNestedObjectArray<T>(this ref Utf8JsonReader reader) where T : TLObject
         {
-            fwreader.AssertNextToken(JsonTokenType.StartArray);
-            var type = fwreader.ReadNextToken();
+            reader.ReadAndConfirmNextToken(JsonTokenType.StartArray);
+            var type = reader.ReadNextToken();
             if (type != JsonTokenType.EndArray)
             {
                 var objs = new List<T[]>();
-                objs.Add(fwreader.ReadObjectArray<T>());
-                while (fwreader.ReadNextToken() != JsonTokenType.EndArray)
+                objs.Add(reader.ReadObjectArray<T>());
+                while (reader.ReadNextToken() != JsonTokenType.EndArray)
                 {
-                    objs.Add(fwreader.ReadObjectArray<T>());
+                    objs.Add(reader.ReadObjectArray<T>());
                 }
                 return objs.ToArray();
             }
@@ -194,9 +191,9 @@ namespace TDLib.JsonClient.Utf8JsonExtension
         }
        
 
-        internal static T ReadTLObject<T>(this ref Utf8JsonReader fwreader) where T : TLObject
+        internal static T ReadTLObject<T>(this ref Utf8JsonReader reader) where T : TLObject
         {
-            var result = TLObjectFactory.ReadObject(ref fwreader);
+            var result = TLObjectFactory.ReadObject(ref reader);
             return (T)result;
         }
 

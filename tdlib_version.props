@@ -2,8 +2,7 @@
 <Project>
     <PropertyGroup>
         <Version>1.6.9</Version>
-        <TdApiCommitHash>7c7804ff9e90dba3b19873a01fa194b010d54e8a</TdApiCommitHash>
-        <TdCommitHash>62d7423bc3f1925eb777e4f5e43de8c48ebf3191</TdCommitHash>
+        <TdApiCommitHash>13f7c8a1aab4690132da8803cab73f17dd989f0e</TdApiCommitHash>
+        <TdCommitHash>881aa63014a21c9019caaea20cf97c90f1fa7a62</TdCommitHash>
     </PropertyGroup>
 </Project>
-

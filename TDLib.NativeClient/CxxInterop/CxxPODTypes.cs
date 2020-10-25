@@ -12,6 +12,11 @@ namespace TDLib.NativeClient.CxxInterop
     {
         public IntPtr ptr;
 
+        public CxxBool(IntPtr x)
+        {
+            ptr = x;
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe bool Fetch()
         {
@@ -37,6 +42,11 @@ namespace TDLib.NativeClient.CxxInterop
     {
         public IntPtr ptr;
 
+        public CxxInt32(IntPtr x)
+        {
+            ptr = x;
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe int Fetch()
         {
@@ -59,6 +69,11 @@ namespace TDLib.NativeClient.CxxInterop
     {
         public IntPtr ptr;
 
+        public CxxInt64(IntPtr x)
+        {
+            ptr = x;
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe long Fetch()
         {
@@ -80,6 +95,11 @@ namespace TDLib.NativeClient.CxxInterop
     internal struct CxxFloat64
     {
         public IntPtr ptr;
+
+        public CxxFloat64(IntPtr x)
+        {
+            ptr = x;
+        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe double Fetch()

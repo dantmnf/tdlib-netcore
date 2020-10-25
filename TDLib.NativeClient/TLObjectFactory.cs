@@ -6,7 +6,7 @@ using static TDLib.NativeClient.Native;
 
 namespace TDLib.NativeClient
 {
-    internal static partial class TLObjectFactory
+    internal static class TLObjectFactory
     {
         private static Dictionary<int, Func<BaseCxxBridge>> _fetcher_map = new Dictionary<int, Func<BaseCxxBridge>>();
         private static Dictionary<Type, Func<BaseCxxBridge>> _creator_map = new Dictionary<Type, Func<BaseCxxBridge>>();
@@ -17,7 +17,6 @@ namespace TDLib.NativeClient
 
         static void LoadTypeInfo()
         {
-            // TODO: avoid reflection?
             var asm = typeof(TLTypeIDAttribute).Assembly;
             var types = asm.GetTypes()
                 .Select(t => (type: t, attrs: t.GetCustomAttributes(typeof(TLTypeIDAttribute), false)))

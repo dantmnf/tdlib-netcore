@@ -1,13 +1,29 @@
 <Project>
     <Import Project="tdlib_version.props" />
+	<PropertyGroup>
+		<UseReleaseVersioning Condition="'$(UseReleaseVersioning)' == ''">false</UseReleaseVersioning>
+	</PropertyGroup>
+	<Choose>
+	    <When Condition="$(UseReleaseVersioning)">
+			<PropertyGroup>
+				<PackageVersion>$(Version)</PackageVersion>
+				<NativePackageVersion>$(Version)</NativePackageVersion>
+			</PropertyGroup>
+		</When>
+		<Otherwise>
+			<PropertyGroup>
+				<PackageVersion>$(Version)-TdApi.$(TdApiCommitHash)</PackageVersion>
+				<NativePackageVersion>$(Version)-git.$(TdCommitHash)</NativePackageVersion>
+			</PropertyGroup>
+		</Otherwise>
+	</Choose>
     <PropertyGroup>
-        <PackageVersion>$(Version)-TdApi.$(TdApiCommitHash)</PackageVersion>
-		<NativePackageVersion>$(Version)-$(TdCommitHash)</NativePackageVersion>
         <PackageReleaseNotes>
 This package is build against td_api.tl at commit $(TdApiCommitHash). 
 See https://github.com/tdlib/td/blob/$(TdApiCommitHash)/td/generate/scheme/td_api.tl
         </PackageReleaseNotes>
-		<NuspecProperties>PackageVersion=$(PackageVersion);PackageReleaseNotes=$(PackageReleaseNotes);NativePackageVersion=$(NativePackageVersion);</NuspecProperties>
+        <NuspecProperties>PackageVersion=$(PackageVersion);PackageReleaseNotes=$(PackageReleaseNotes);NativePackageVersion=$(NativePackageVersion)</NuspecProperties>
+        <MSBuildWarningsAsMessages>NU5100;NU5128</MSBuildWarningsAsMessages>
     </PropertyGroup>
-</Project>
 
+</Project>

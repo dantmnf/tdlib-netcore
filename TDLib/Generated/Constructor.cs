@@ -1591,7 +1591,7 @@ namespace TDLib.Api
         /// The user is the owner of a chat and has all the administrator privileges
         /// </summary>
         /// <param name="customTitle">A custom title of the owner; 0-16 characters without emojis; applicable to supergroups only</param>
-        /// <param name="isAnonymous">True, if the creator isn't shown in the chat member list and sends messages anonymously</param>
+        /// <param name="isAnonymous">True, if the creator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only</param>
         /// <param name="isMember">True, if the user is a member of the chat</param>
         public ChatMemberStatusCreator(string customTitle = default, bool isAnonymous = default, bool isMember = default)
         {
@@ -1620,7 +1620,7 @@ namespace TDLib.Api
         /// <param name="canRestrictMembers">True, if the administrator can restrict, ban, or unban chat members</param>
         /// <param name="canPinMessages">True, if the administrator can pin messages; applicable to groups only</param>
         /// <param name="canPromoteMembers">True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by them</param>
-        /// <param name="isAnonymous">True, if the administrator isn't shown in the chat member list and sends messages anonymously</param>
+        /// <param name="isAnonymous">True, if the administrator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only</param>
         public ChatMemberStatusAdministrator(string customTitle = default, bool canBeEdited = default, bool canChangeInfo = default, bool canPostMessages = default, bool canEditMessages = default, bool canDeleteMessages = default, bool canInviteUsers = default, bool canRestrictMembers = default, bool canPinMessages = default, bool canPromoteMembers = default, bool isAnonymous = default)
         {
             this.CustomTitle = customTitle;
@@ -3236,12 +3236,14 @@ namespace TDLib.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which the message thread belongs</param>
         /// <param name="messageThreadId">Message thread identifier, unique within the chat</param>
+        /// <param name="replyInfo">Contains information about the message thread</param>
         /// <param name="messages">The messages from which the thread starts. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)</param>
         /// <param name="draftMessage">A draft of a message in the message thread; may be null</param>
-        public MessageThreadInfo(long chatId = default, long messageThreadId = default, Message[] messages = default, DraftMessage draftMessage = default)
+        public MessageThreadInfo(long chatId = default, long messageThreadId = default, MessageReplyInfo replyInfo = default, Message[] messages = default, DraftMessage draftMessage = default)
         {
             this.ChatId = chatId;
             this.MessageThreadId = messageThreadId;
+            this.ReplyInfo = replyInfo;
             this.Messages = messages;
             this.DraftMessage = draftMessage;
         }

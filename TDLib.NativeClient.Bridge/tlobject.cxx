@@ -874,6 +874,7 @@ EXPORT auto td_bridge_obj_loginUrlInfoRequestConfirmation_request_write_access(l
 EXPORT messageThreadInfo *td_bridge_newobj_messageThreadInfo() { return new messageThreadInfo(); }
 EXPORT auto td_bridge_obj_messageThreadInfo_chat_id(messageThreadInfo *obj) { return &obj->chat_id_; }
 EXPORT auto td_bridge_obj_messageThreadInfo_message_thread_id(messageThreadInfo *obj) { return &obj->message_thread_id_; }
+EXPORT auto td_bridge_obj_messageThreadInfo_reply_info(messageThreadInfo *obj) { return &obj->reply_info_; }
 EXPORT auto td_bridge_obj_messageThreadInfo_messages(messageThreadInfo *obj) { return &obj->messages_; }
 EXPORT auto td_bridge_obj_messageThreadInfo_draft_message(messageThreadInfo *obj) { return &obj->draft_message_; }
 

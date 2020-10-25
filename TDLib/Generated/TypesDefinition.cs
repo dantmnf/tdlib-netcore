@@ -2608,7 +2608,7 @@ namespace TDLib.Api
         public string CustomTitle { get; set; }
 
         /// <summary>
-        /// True, if the creator isn't shown in the chat member list and sends messages anonymously
+        /// True, if the creator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only
         /// </summary>
         public bool IsAnonymous { get; set; }
 
@@ -2679,7 +2679,7 @@ namespace TDLib.Api
         public bool CanPromoteMembers { get; set; }
 
         /// <summary>
-        /// True, if the administrator isn't shown in the chat member list and sends messages anonymously
+        /// True, if the administrator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only
         /// </summary>
         public bool IsAnonymous { get; set; }
 
@@ -4917,7 +4917,7 @@ namespace TDLib.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageThreadInfo chat_id:int53 message_thread_id:int53 messages:vector&lt;message&gt; draft_message:draftMessage = MessageThreadInfo;
+    /// messageThreadInfo chat_id:int53 message_thread_id:int53 reply_info:messageReplyInfo messages:vector&lt;message&gt; draft_message:draftMessage = MessageThreadInfo;
     /// </remarks>
     public partial class MessageThreadInfo : TLObject
     {
@@ -4930,6 +4930,11 @@ namespace TDLib.Api
         /// Message thread identifier, unique within the chat
         /// </summary>
         public long MessageThreadId { get; set; }
+
+        /// <summary>
+        /// Contains information about the message thread
+        /// </summary>
+        public MessageReplyInfo ReplyInfo { get; set; }
 
         /// <summary>
         /// The messages from which the thread starts. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)

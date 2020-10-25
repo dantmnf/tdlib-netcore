@@ -162,7 +162,6 @@ namespace TDLib.JsonClient
             return _buffer.AsSpan(_index);
         }
 
-        [MethodImpl(MultiTargetHelper.MethodImplOptions_AggressiveOptimization)]
         private void CheckAndResizeBuffer(int sizeHint)
         {
             if (sizeHint < 0)

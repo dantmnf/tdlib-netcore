@@ -5,6 +5,9 @@
         <LangVersion>8.0</LangVersion>
         <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
     </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\TDLib.ApiVersionTag\TDLib.ApiVersionTag.csproj"/>
+    </ItemGroup>
     <Import Project="ExactProjectReferenceVersion.targets" />
-    
 </Project>
