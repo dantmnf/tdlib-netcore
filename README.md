@@ -99,3 +99,16 @@ catch (TDLibError e)
 //  ... and cancel pending async calls
 await client.StopEventLoop();
 ```
+
+## Targeting Different TDLib Version
+
+The current targeting TDLib version/revision is included as submodule for reference.
+You can generate code for a different version:
+
+```bash
+cd codegen
+make  # using td submodule by default, override with TD_DIR=/path/to/tdlib
+      # and run build-native.rb with --source-root=/path/to/tdlib
+# or with MSVC NMake
+nmake # additionally with TD_DIR=C:\path\to\tdlib
+```
