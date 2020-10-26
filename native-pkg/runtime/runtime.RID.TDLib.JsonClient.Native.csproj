@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <NoBuild>true</NoBuild>
     <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
     <RID Condition="'$(RID)' == ''">UNKNOWN</RID>
     <BasePackageId Condition="'$(BasePackageId)' == ''">TDLib.JsonClient.Native</BasePackageId>
     <PackageId>runtime.$(RID).$(BasePackageId)</PackageId>

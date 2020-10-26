@@ -9,6 +9,8 @@ opts = {
   buildroot: File.join(scriptroot, 'build'),
   sourceroot: File.join(scriptroot, 'td'),
   outdir: File.join(scriptroot, 'pkgs'),
+  tdbridge: false,
+  tdjson: true,
   release: false
 }
 argv = ARGV.map(&:itself)
@@ -24,6 +26,14 @@ OptionParser.new do |parser|
 
   parser.on("-oDIR", "--output=DIR", "set output directory to DIR, defaults to #{opts[:outdir]}") do |dir|
     opts[:outdir] = dir
+  end
+
+  parser.on("--[no-]build-tdjson", "build tdjson and runtime.RID.TDLib.JsonClient.Native") do |build|
+    opts[:tdjson] = build
+  end
+
+  parser.on("--build-tdbridge", "build tdbridge and runtime.RID.TDLib.NativeClient.Native") do |build|
+    opts[:tdbridge] = build
   end
 
   parser.on("-r", "--use-release-versioning", "remove commit hash from package version") do |release|
@@ -45,61 +55,91 @@ def system2(*args, exception: false)
   system(*args, exception: exception)
 end
 
-FileUtils.mkdir_p(opts[:buildroot])
+FileUtils.mkdir_p(File.join(opts[:buildroot], 'tdjson'))
+FileUtils.mkdir_p(File.join(opts[:buildroot], 'tdbridge'))
 
 Dir.chdir(opts[:buildroot]) do
-  system2("cmake", *argv, *%w(--trace --trace-format=json-v1 --trace-expand --trace-redirect=CMakeTrace.log -Wno-dev), opts[:sourceroot], exception: true)
-  # replay trace to get (part of) CMake variables
+  dll_suffix = nil
+  tdjson_built = false
   cmake_variables = {}
-  trace = IO.readlines('CMakeTrace.log')
-  trace.map!{|x| JSON.parse(x)}
-  trace.each do |x|
-    if x["cmd"]&.downcase == 'set'
-      name = x.dig("args", 0)
-      value = x["args"][1..-1]
-      if value.length >= 2 && value[-1] == 'PARENT_SCOPE'
-        value.pop
-      elsif value.length >= 4 && value[1..-1].include?('CACHE')
-        value[value.index('CACHE')..-1] = []
+  # replay trace to get (part of) CMake variables
+  replay_cmake_trace = lambda do
+    trace = IO.readlines('CMakeTrace.log')
+    trace.map!{|x| JSON.parse(x)}
+    trace.each do |x|
+      if x["cmd"]&.downcase == 'set'
+        name = x.dig("args", 0)
+        value = x["args"][1..-1]
+        if value.length >= 2 && value[-1] == 'PARENT_SCOPE'
+          value.pop
+        elsif value.length >= 4 && value[1..-1].include?('CACHE')
+          value[value.index('CACHE')..-1] = []
+        end
+        value = value[0] if value.length == 1
+        cmake_variables[name] = value
       end
-      value = value[0] if value.length == 1
-      cmake_variables[name] = value
+    end
+    unless opts[:rid]
+      if cmake_variables["MSVC"]
+        msvcarch = cmake_variables["MSVC_CXX_ARCHITECTURE_ID"]
+        opts[:rid] = "win-#{msvcarch.downcase}"
+      else
+        rid_system = case cmake_variables["CMAKE_SYSTEM_NAME"]
+        when 'Windows' then 'win'
+        when 'Linux' then 'linux'
+        when 'Darwin' then 'osx'
+        else
+          raise 'unknown CMAKE_SYSTEM_NAME, specify --rid'
+        end
+        rid_platform = case cmake_variables["CMAKE_SYSTEM_PROCESSOR"]
+        when /i[3-6]86/, 'x86' then 'x86'
+        when 'amd64', 'x86_64', 'x64' then 'x64'
+        when 'aarch64', 'arm64' then 'arm64'
+        when 'armv7', 'arm' then 'arm'
+        else
+          raise 'unknown CMAKE_SYSTEM_PROCESSOR, specify --rid'
+        end
+        opts[:rid] = "#{rid_system}-#{rid_platform}"
+      end
+    end
+    puts "building packages for RID #{opts[:rid]}"
+  end
+
+  get_pattern = lambda do
+    pattern = File.join(Dir.pwd, '*'+cmake_variables["CMAKE_SHARED_LIBRARY_SUFFIX"])
+    if File.const_defined?(:ALT_SEPARATOR) && File.const_get(:ALT_SEPARATOR) == '\\'
+      pattern.gsub!(File::SEPARATOR, '\\')
+    end
+    pattern
+  end
+
+  if opts[:tdbridge]
+    Dir.chdir('tdbridge') do
+      system2("cmake", *argv, *%w(--trace --trace-format=json-v1 --trace-expand --trace-redirect=CMakeTrace.log -Wno-dev), "-DUSE_TD_SOURCE_TREE:PATH=#{opts[:sourceroot]}", "-DTD_BUILD_BINARY_DIR:PATH=../tdjson", File.join(scriptroot, 'TDLib.NativeClient.Bridge'), exception: true)
+      replay_cmake_trace.call
+      system2('cmake', '--build', '.', '--target', 'tdbridge', exception: true)
+      pattern = get_pattern.call
+      system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLib.JsonClient.Native.csproj'),
+      '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",
+      '-p:BasePackageId=TDLib.NativeClient.Native', '-nologo', '-o', opts[:outdir], exception: true)
+      if opts[:tdjson]
+        system2('cmake', '--build', '.', '--target', 'tdjson', exception: true)
+        tdjson_built = true
+      end
     end
   end
-  unless opts[:rid]
-    if cmake_variables["MSVC"]
-      msvcarch = cmake_variables["MSVC_CXX_ARCHITECTURE_ID"]
-      opts[:rid] = "win-#{msvcarch.downcase}"
-    else
-      rid_system = case cmake_variables["CMAKE_SYSTEM_NAME"]
-      when 'Windows' then 'win'
-      when 'Linux' then 'linux'
-      when 'Darwin' then 'osx'
-      else
-        raise 'unknown CMAKE_SYSTEM_NAME, specify --rid'
+  if opts[:tdjson]
+    Dir.chdir('tdjson') do
+      unless tdjson_built
+        system2("cmake", *argv, *%w(--trace --trace-format=json-v1 --trace-expand --trace-redirect=CMakeTrace.log -Wno-dev), opts[:sourceroot], exception: true)
+        replay_cmake_trace.call
+        system2('cmake', '--build', '.', '--target', 'tdjson', exception: true)
       end
-      rid_platform = case cmake_variables["CMAKE_SYSTEM_PROCESSOR"]
-      when /i[3-6]86/, 'x86' then 'x86'
-      when 'amd64', 'x86_64', 'x64' then 'x64'
-      when 'aarch64', 'arm64' then 'arm64'
-      when 'armv7', 'arm' then 'arm'
-      else
-        raise 'unknown CMAKE_SYSTEM_PROCESSOR, specify --rid'
-      end
-      opts[:rid] = "#{rid_system}-#{rid_platform}"
+      pattern = get_pattern.call
+      system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLib.JsonClient.Native.csproj'),
+      '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",
+      '-nologo', '-o', opts[:outdir], exception: true)
     end
   end
-  puts "building packages for RID #{opts[:rid]}"
-  system2(*%w(cmake --build . --target tdjson), exception: true)
-  dll_suffix = cmake_variables["CMAKE_SHARED_LIBRARY_SUFFIX"]
-  pattern = File.join(Dir.pwd, '*'+dll_suffix)
-  if File.const_defined?(:ALT_SEPARATOR) && File.const_get(:ALT_SEPARATOR) == '\\'
-    pattern.gsub!(File::SEPARATOR, '\\')
-  end
-  system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'stub', 'TDLib.JsonClient.Native.csproj'),
-          '-c', 'Release', "-p:UseReleaseVersioning=#{opts[:release]}", '--no-restore', '--no-build',
-          '-nologo', '-o', opts[:outdir], exception: true)
-  system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLib.JsonClient.Native.csproj'),
-         '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",
-         '--no-restore', '--no-build', '-nologo', '-o', opts[:outdir], exception: true)
+
 end

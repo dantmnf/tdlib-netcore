@@ -3,6 +3,7 @@
     <NoBuild>true</NoBuild>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
     <PackageId Condition="'$(PackageId)' == ''">TDLib.JsonClient.Native</PackageId>
     <NuspecProperties>$(NuspecProperties);PackageId=$(PackageId)</NuspecProperties>
     <NuspecFile>spec.nuspec</NuspecFile>

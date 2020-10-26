@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.1)
 project(TDLib.Native CXX)
 
-find_package(Td REQUIRED)
+if(DEFINED USE_TD_SOURCE_TREE)
+	add_subdirectory(${USE_TD_SOURCE_TREE} ${TD_BUILD_BINARY_DIR})
+else()
+	find_package(Td REQUIRED)
+endif()
 
 if(WIN32)
 	add_executable(checkdllhell checkdllhell.cxx)
