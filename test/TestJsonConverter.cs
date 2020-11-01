@@ -30,7 +30,7 @@ namespace TDLib.Test
             //json = JsonConvert.SerializeObject(kb, Formatting.None, setting);
             //obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
             var buffer = new ArrayBufferWriter<byte>(512);
-            TDLib.JsonClient.JsonClient.DumpObject(new TLObjectWithExtra() { TLObject = obj }, buffer);
+            TDLib.JsonClient.JsonClient.DumpObject(new TLObjectWithExtra(obj), buffer);
             bytes = buffer.WrittenSpan;
             fixed (byte* ptr = bytes)
                 obj = TDLib.JsonClient.JsonClient.FetchObject(ptr).TLObject;

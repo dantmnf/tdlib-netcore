@@ -20,7 +20,7 @@ namespace TDLib.JsonClient
         {
             if (cstr == null || *cstr == 0) return new TLObjectWithExtra();
 
-            var span = new ReadOnlySpan<byte>(cstr, (int)strlen(cstr));
+            var span = new ReadOnlySpan<byte>(cstr, CString.strlen(cstr));
             var parser = new Utf8JsonReader(span);
             var obj = TLObjectFactory.ReadRootObject(ref parser);
             return obj;
@@ -39,7 +39,7 @@ namespace TDLib.JsonClient
         public override TLObject Execute(Function func)
         {
             using var buffer = new ArrayPoolBufferWriter<byte>(512);
-            DumpObject(new TLObjectWithExtra { TLObject = func }, buffer);
+            DumpObject(new TLObjectWithExtra(func), buffer);
             var requestbytes = buffer.WrittenSpan;
             byte * result;
             fixed (byte* str = requestbytes)
@@ -60,7 +60,7 @@ namespace TDLib.JsonClient
         protected override void DoSend(Function func, long id)
         {
             using var buffer = new ArrayPoolBufferWriter<byte>(512);
-            DumpObject(new TLObjectWithExtra { TLObject = func }, buffer);
+            DumpObject(new TLObjectWithExtra(func), buffer);
             var requestbytes = buffer.WrittenSpan;
             fixed (byte* str = requestbytes)
                 td_json_client_send(unmanaged_client, str);

@@ -86,7 +86,7 @@ namespace TDLib.JsonClient
         {
             reader.ReadAndConfirmNextToken(JsonTokenType.StartObject);
             var (obj, converter) = ConsumeObjectProlog(ref reader);
-            var result = new TLObjectWithExtra { TLObject = obj };
+            var result = new TLObjectWithExtra(obj);
 
             while (reader.ReadNextToken() != JsonTokenType.PropertyName)
             {

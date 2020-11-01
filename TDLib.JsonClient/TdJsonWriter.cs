@@ -7,14 +7,14 @@ using TDLib.Api;
 
 namespace TDLib.JsonClient
 {
-    static partial class TdJsonWriter
+    static class TdJsonWriter
     {
         internal static readonly JsonEncodedText TypePropertyName = JsonEncodedText.Encode("@type");
         internal static readonly JsonEncodedText ExtraPropertyName = JsonEncodedText.Encode("@extra");
 
         public static void WriteTLObjectValue(this Utf8JsonWriter writer, TLObject obj)
         {
-            writer.WriteTLObjectValue(new TLObjectWithExtra() { TLObject = obj });
+            writer.WriteTLObjectValue(new TLObjectWithExtra(obj));
         }
 
         internal static void WriteTLObjectValue(this Utf8JsonWriter writer, TLObjectWithExtra value)
