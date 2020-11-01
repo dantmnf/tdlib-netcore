@@ -2,10 +2,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Buffers;
 using System.Text;
-using TDLib.Api;
-using TDLib.JsonClient;
+using TDLibCore.Api;
+using TDLibCore.JsonClient;
 
-namespace TDLib.Test
+namespace TDLibCore.Test
 {
     [TestClass]
     public class TestJsonConverter
@@ -19,7 +19,7 @@ namespace TDLib.Test
             //var obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
             TLObject obj;
             fixed (byte* ptr = bytes)
-                obj = TDLib.JsonClient.JsonClient.FetchObject(ptr).TLObject;
+                obj = TDLibCore.JsonClient.JsonClient.FetchObject(ptr).TLObject;
             Assert.IsTrue(obj is ReplyMarkupInlineKeyboard);
             var kb = (ReplyMarkupInlineKeyboard)obj;
             Assert.AreEqual("\b\f\n\r\t\\\"\ud83d\udc34", kb.Rows[0][0].Text);
@@ -30,10 +30,10 @@ namespace TDLib.Test
             //json = JsonConvert.SerializeObject(kb, Formatting.None, setting);
             //obj = JsonConvert.DeserializeObject<TLObject>(json, converter);
             var buffer = new ArrayBufferWriter<byte>(512);
-            TDLib.JsonClient.JsonClient.DumpObject(new TLObjectWithExtra(obj), buffer);
+            TDLibCore.JsonClient.JsonClient.DumpObject(new TLObjectWithExtra(obj), buffer);
             bytes = buffer.WrittenSpan;
             fixed (byte* ptr = bytes)
-                obj = TDLib.JsonClient.JsonClient.FetchObject(ptr).TLObject;
+                obj = TDLibCore.JsonClient.JsonClient.FetchObject(ptr).TLObject;
 
             Assert.IsTrue(obj is ReplyMarkupInlineKeyboard);
             kb = (ReplyMarkupInlineKeyboard)obj;

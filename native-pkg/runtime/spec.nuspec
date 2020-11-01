@@ -9,7 +9,7 @@
     <releaseNotes>$PackageReleaseNotes$</releaseNotes>
     <repository type="git" url="https://github.com/tdlib/td.git" commit="$TdCommitHash$" />
 	<dependencies>
-      <dependency id="TDLib.ApiVersionTag" version="[$PackageVersion$]" />
+      <dependency id="TDLibCore.ApiVersionTag" version="[$PackageVersion$]" />
 	</dependencies>
   </metadata>
   <files>

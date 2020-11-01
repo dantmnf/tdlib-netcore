@@ -3,12 +3,12 @@
   <metadata>
     <id>$PackageId$</id>
     <version>$NativePackageVersion$</version>
-    <authors>TDLib.JsonClient.Native</authors>
+    <authors>TDLibCore.JsonClient.Native</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Package Description</description>
     <releaseNotes>$PackageReleaseNotes$</releaseNotes>
 	<dependencies>
-      <dependency id="TDLib.ApiVersionTag" version="[$PackageVersion$]" />
+      <dependency id="TDLibCore.ApiVersionTag" version="[$PackageVersion$]" />
 	</dependencies>
   </metadata>
   <files>

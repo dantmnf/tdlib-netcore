@@ -41,9 +41,9 @@ FileUtils.mkdir_p(opts[:buildroot])
 Dir.chdir(opts[:buildroot]) do
   system2('dotnet', 'pack', File.join(scriptroot, 'tdlib.sln'), '-c', 'Release', '-p:Platform=Any CPU',
           "-p:UseReleaseVersioning=#{opts[:release]}", '-nologo', '-o', opts[:outdir], exception: true)
-  system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'stub', 'TDLib.JsonClient.Native.csproj'),
+  system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'stub', 'TDLibCore.JsonClient.Native.csproj'),
           '-c', 'Release', "-p:UseReleaseVersioning=#{opts[:release]}", '-nologo', '-o', opts[:outdir], exception: true)
-  system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'stub', 'TDLib.JsonClient.Native.csproj'),
-          '-c', 'Release', "-p:UseReleaseVersioning=#{opts[:release]}", '-p:PackageId=TDLib.NativeClient.Native',
+  system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'stub', 'TDLibCore.JsonClient.Native.csproj'),
+          '-c', 'Release', "-p:UseReleaseVersioning=#{opts[:release]}", '-p:PackageId=TDLibCore.NativeClient.Native',
           '-nologo', '-o', opts[:outdir], exception: true)
 end

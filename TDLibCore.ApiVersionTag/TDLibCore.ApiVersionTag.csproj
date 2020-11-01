@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <PackageId>TDLibCore.ApiVersionTag</PackageId>
+    <PackageDescription>This package is used to enforce binding and native package have same API version.</PackageDescription>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="dummy" Pack="true" PackagePath="package"/>
+  </ItemGroup>
+</Project>

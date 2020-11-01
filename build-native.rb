@@ -28,11 +28,11 @@ OptionParser.new do |parser|
     opts[:outdir] = dir
   end
 
-  parser.on("--[no-]build-tdjson", "build tdjson and runtime.RID.TDLib.JsonClient.Native") do |build|
+  parser.on("--[no-]build-tdjson", "build tdjson and runtime.RID.TDLibCore.JsonClient.Native") do |build|
     opts[:tdjson] = build
   end
 
-  parser.on("--build-tdbridge", "build tdbridge and runtime.RID.TDLib.NativeClient.Native") do |build|
+  parser.on("--build-tdbridge", "build tdbridge and runtime.RID.TDLibCore.NativeClient.Native") do |build|
     opts[:tdbridge] = build
   end
 
@@ -115,13 +115,13 @@ Dir.chdir(opts[:buildroot]) do
 
   if opts[:tdbridge]
     Dir.chdir('tdbridge') do
-      system2("cmake", *argv, *%w(--trace --trace-format=json-v1 --trace-expand --trace-redirect=CMakeTrace.log -Wno-dev), "-DUSE_TD_SOURCE_TREE:PATH=#{opts[:sourceroot]}", "-DTD_BUILD_BINARY_DIR:PATH=../tdjson", File.join(scriptroot, 'TDLib.NativeClient.Bridge'), exception: true)
+      system2("cmake", *argv, *%w(--trace --trace-format=json-v1 --trace-expand --trace-redirect=CMakeTrace.log -Wno-dev), "-DUSE_TD_SOURCE_TREE:PATH=#{opts[:sourceroot]}", "-DTD_BUILD_BINARY_DIR:PATH=../tdjson", File.join(scriptroot, 'TDLibCore.NativeClient.Bridge'), exception: true)
       replay_cmake_trace.call
       system2('cmake', '--build', '.', '--target', 'tdbridge', exception: true)
       pattern = get_pattern.call
-      system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLib.JsonClient.Native.csproj'),
+      system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLibCore.JsonClient.Native.csproj'),
       '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",
-      '-p:BasePackageId=TDLib.NativeClient.Native', '-nologo', '-o', opts[:outdir], exception: true)
+      '-p:BasePackageId=TDLibCore.NativeClient.Native', '-nologo', '-o', opts[:outdir], exception: true)
       if opts[:tdjson]
         system2('cmake', '--build', '.', '--target', 'tdjson', exception: true)
         tdjson_built = true
@@ -136,7 +136,7 @@ Dir.chdir(opts[:buildroot]) do
         system2('cmake', '--build', '.', '--target', 'tdjson', exception: true)
       end
       pattern = get_pattern.call
-      system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLib.JsonClient.Native.csproj'),
+      system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLibCore.JsonClient.Native.csproj'),
       '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",
       '-nologo', '-o', opts[:outdir], exception: true)
     end
