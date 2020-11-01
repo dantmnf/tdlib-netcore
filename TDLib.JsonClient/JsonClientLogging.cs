@@ -44,7 +44,7 @@ namespace TDLib.JsonClient
                 unsafe
                 {
                     var cstr = (byte*)cstrptr;
-                    var netstr = Encoding.UTF8.GetString(cstr, (int)Native.strlen(cstr));
+                    var netstr = Encoding.UTF8.GetString(cstr, CString.strlen(cstr));
                     callback(netstr);
                 }
             };

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -40,13 +41,6 @@ namespace TDLib.JsonClient
 
         [DllImport("tdjson", CallingConvention = CallingConvention.Cdecl)]
         public static extern void td_set_log_fatal_error_callback(td_log_fatal_error_callback_ptr callback);
-
-        public static unsafe UIntPtr strlen(byte* str)
-        {
-            var end = str;
-            while (*end++ != 0) ;
-            return (UIntPtr)(end - str - 1);
-        }
 
     }
 }
