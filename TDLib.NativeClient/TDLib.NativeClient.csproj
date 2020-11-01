@@ -1,14 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="System.Memory" Version="4.5.4" />
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\TDLib\TDLib.csproj" />
     </ItemGroup>
-    <Import Project="..\TDLib\ExactProjectReferenceVersion.targets"/>
+    <Import Project="..\TDLib\ExactProjectReferenceVersion.targets" />
 
 </Project>
