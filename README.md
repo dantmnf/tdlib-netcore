@@ -3,7 +3,7 @@
 Fast [TDLib](https://github.com/tdlib/td) binding for .NET Core:
   * Generated APIs with full documentation.
   * Generated `System.Text.Json`-based reader and writer for performance.
-  * Plus *experimental* SWIG-like binding that directly consumes TDLib C++ API for more performance (~25% faster than JSON binding on calling getTextEntities in example below).
+  * Plus *experimental* SWIG-like binding that directly consumes TDLib C++ API for more performance (~40% faster than JSON binding on calling getTextEntities in example below).
 
 
 ## Installation
@@ -112,3 +112,20 @@ make  # using td submodule by default, override with TD_DIR=/path/to/tdlib
 # or with MSVC NMake
 nmake # additionally with TD_DIR=C:\path\to\tdlib
 ```
+
+## Benchmarks
+
+    BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+    Intel Core i5-8300H CPU 2.30GHz (Coffee Lake), 1 CPU, 8 logical and 4 physical cores
+    .NET Core SDK=5.0.100-rc.1.20452.10
+      [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+      DefaultJob : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
+
+
+|                 Method |      Mean |     Error |    StdDev | Ratio | RatioSD |
+|----------------------- |----------:|----------:|----------:|------:|--------:|
+| td_json_client_execute |  6.579 us | 0.1211 us | 0.1737 us |  1.00 |    0.00 |
+|      JsonClientExecute |  8.303 us | 0.0464 us | 0.0619 us |  1.26 |    0.04 |
+|    NativeClientExecute |  5.814 us | 0.0454 us | 0.0651 us |  0.88 |    0.02 |
+|     JsonDotNetExecute* | 68.461 us | 0.5660 us | 0.5294 us | 10.37 |    0.36 |
+\*: using Newtonsoft.Json reflection-based converter.
