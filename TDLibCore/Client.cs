@@ -9,7 +9,7 @@ using TDLibCore.Api;
 namespace TDLibCore
 {
 
-    public abstract class Client : IDisposable
+    public sealed class Client : IDisposable, IAsyncDisposable
     {
         enum DirtyFlag { Clean, ManualSend, EventLoop }
         private class InvokeRecord
@@ -17,6 +17,7 @@ namespace TDLibCore
             public TaskCompletionSource<TLObject> tsc;
         }
 
+        private ITdClientBinding binding;
         private CancellationTokenSource loopcts;
         private ConcurrentDictionary<long, int> invokes;
         private Task loopTask;
@@ -25,14 +26,25 @@ namespace TDLibCore
         public event EventHandler<Update> Update;
         private int loopRunning;
         public bool EventLoopRunning => loopRunning != 0;
+        private int disposing = 0;
+        private int disposed = 0;
 
+        public Client(ITdClientBindingFactory factory)
+        {
+            binding = factory.CreateInstance();
+        }
+
+        private void CheckDisposed()
+        {
+            if (disposed != 0) throw new ObjectDisposedException(nameof(Client));
+        }
 
         private void MarkDirty(DirtyFlag flag)
         {
             var dirty_snapshot = (DirtyFlag)dirty;
             if (dirty_snapshot == DirtyFlag.Clean)
             {
-                if (Interlocked.CompareExchange(ref dirty, (int)DirtyFlag.ManualSend, (int)DirtyFlag.Clean) == (int)DirtyFlag.Clean)
+                if (Interlocked.CompareExchange(ref dirty, (int)flag, (int)DirtyFlag.Clean) == (int)DirtyFlag.Clean)
                 {
                     return;
                 }
@@ -58,10 +70,10 @@ namespace TDLibCore
         /// </param>
         public void Send(Function func, long id = 0)
         {
+            CheckDisposed();
             MarkDirty(DirtyFlag.ManualSend);
-            DoSend(func, id);
+            binding.Send(func, id);
         }
-        internal protected abstract void DoSend(Function func, long id);
 
         /// <summary>
         /// Synchronously executes TDLib requests. Only a few requests can be executed synchronously.
@@ -69,7 +81,10 @@ namespace TDLibCore
         /// </summary>
         /// <param name="func">Request to the TDLib.</param>
         /// <returns>The request response.</returns>
-        public abstract TLObject Execute(Function func);
+        public TLObject Execute(Function func) {
+            CheckDisposed();
+            return binding.Execute(func);
+        }
 
         /// <summary>
         /// Receives incoming updates and request responses from TDLib.
@@ -82,11 +97,10 @@ namespace TDLibCore
         /// <returns>An incoming update or request response. The object returned in the response may be null if the timeout expires.</returns>
         public (long id, TLObject obj) Receive(double timeout)
         {
+            CheckDisposed();
             MarkDirty(DirtyFlag.ManualSend);
-            return DoReceive(timeout);
+            return binding.Receive(timeout);
         }
-        internal protected abstract (long id, TLObject obj) DoReceive(double timeout);
-
 
         /// <summary>
         /// Execute function <paramref name="func"/> synchronously.
@@ -111,6 +125,7 @@ namespace TDLibCore
         /// </summary>
         public void RunEventLoop()
         {
+            CheckDisposed();
             MarkDirty(DirtyFlag.EventLoop);
             if (Interlocked.CompareExchange(ref loopRunning, 1, 0) == 0)
             {
@@ -128,6 +143,7 @@ namespace TDLibCore
         /// </returns>
         public Task StopEventLoop()
         {
+            CheckDisposed();
             if (loopRunning != 0)
             {
                 loopcts.Cancel();
@@ -143,7 +159,8 @@ namespace TDLibCore
         /// <returns>A Task that will resolve to the return value of <paramref name="func"/>.</returns>
         public Task<TLObject> InvokeAsync(Function func)
         {
-            if (!EventLoopRunning) throw new InvalidOperationException("loop not running");
+            CheckDisposed();
+            if (!EventLoopRunning) RunEventLoop();
             var record = new InvokeRecord { tsc = new TaskCompletionSource<TLObject>(TaskCreationOptions.RunContinuationsAsynchronously) };
             var gch = GCHandle.Alloc(record, GCHandleType.Normal);
             var gchi = (long)GCHandle.ToIntPtr(gch);
@@ -151,7 +168,7 @@ namespace TDLibCore
             {
                 throw new IndexOutOfRangeException("duplicate GCHandle value");
             }
-            DoSend(func, gchi);
+            binding.Send(func, gchi);
 
             return record.tsc.Task;
         }
@@ -176,14 +193,18 @@ namespace TDLibCore
         }
 
 
-        private void HandleReceivedObject(TLObject obj, long extra)
+        private void HandleReceivedObject(TLObject obj, long extra, ref bool closed)
         {
             if (obj is Update u)
             {
                 var snapshot = Update;
                 snapshot?.Invoke(this, u);
+                if(u is UpdateAuthorizationState uas && uas.AuthorizationState is AuthorizationStateClosed)
+                {
+                    closed = true;
+                }
             }
-            if (extra != 0)
+            else if (extra != 0)
             {
                 if (!invokes.TryRemove(extra, out _))
                 {
@@ -217,19 +238,18 @@ namespace TDLibCore
                 {
                     _ = InvokeAsync(new TestCallEmpty());  // to make Receive return;
                 });
-                while (!ct.IsCancellationRequested)
+                var closed = false;
+                while (!closed && !ct.IsCancellationRequested)
                 {
-                    var (seq, obj) = DoReceive(10.0);
+                    var (seq, obj) = binding.Receive(10.0);
                     if (obj == null) continue;
-                    HandleReceivedObject(obj, seq);
+                    HandleReceivedObject(obj, seq, ref closed);
                 }
                 CancelPendingInvocations(ct);
-                Interlocked.CompareExchange(ref loopRunning, 0, 1);
+                Interlocked.Exchange(ref loopRunning, 0);
             });
             return task;
         }
-
-        protected abstract void DisposeNativeClient();
 
         ~Client()
         {
@@ -238,9 +258,28 @@ namespace TDLibCore
 
         public void Dispose()
         {
-            StopEventLoop().Wait();
-            DisposeNativeClient();
+            if (Interlocked.Exchange(ref disposing, 1) != 0) return;
+            Close().Wait();
+            binding.Dispose();
             GC.SuppressFinalize(this);
+            Interlocked.Exchange(ref disposed, 1);
+        }
+
+        private int closeinvoked = 0;
+        public async Task Close()
+        {
+            if (Interlocked.Exchange(ref closeinvoked, 1) == 1) return;
+            await InvokeAsync((Function)new Close());
+            await loopTask;
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            if (Interlocked.Exchange(ref disposing, 1) != 0) return;
+            await Close();
+            binding.Dispose();
+            GC.SuppressFinalize(this);
+            Interlocked.Exchange(ref disposed, 1);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TDLibCore.Api;
+using TDLibCore.NativeClient.CxxInterop;
 using static TDLibCore.NativeClient.Native;
 
 namespace TDLibCore.NativeClient
@@ -62,6 +63,7 @@ namespace TDLibCore.NativeClient
 
         public static TLObject FetchCxxObject(IntPtr objptr)
         {
+            if (objptr == IntPtr.Zero) return null;
             var id = td_bridge_object_get_id(objptr);
             if (_fetcher_map.TryGetValue(id, out var ctor))
             {
@@ -72,6 +74,14 @@ namespace TDLibCore.NativeClient
                 }
             }
             throw new ArgumentException($"cannot fetch object from pointer 0x{objptr:x}, id = {id}");
+        }
+
+        public static TLObject FetchAndFreeCxxObject(IntPtr objptr)
+        {
+            if (objptr == IntPtr.Zero) return null;
+            var obj = FetchCxxObject(objptr);
+            CxxAbi.FreeCxxTLObject(objptr);
+            return obj;
         }
     }
 }

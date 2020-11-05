@@ -7,71 +7,80 @@ using static TDLibCore.JsonClient.Native;
 
 namespace TDLibCore.JsonClient
 {
-    public sealed unsafe class JsonClient : Client
+    public static unsafe class JsonClient
     {
         public static ITdClientLogging Logging { get; } = new JsonClientLogging();
-        private IntPtr unmanaged_client;
-        public JsonClient()
+
+        private class JsonClientBindingFactory : ITdClientBindingFactory
         {
-            unmanaged_client = td_json_client_create();
+            public ITdClientLogging GlobalLogging => Logging;
+            public ITdClientBinding CreateInstance() => new Binding();
         }
 
-        internal static TLObjectWithExtra FetchObject(byte* cstr)
-        {
-            if (cstr == null || *cstr == 0) return new TLObjectWithExtra();
+        public static ITdClientBindingFactory BindingFactory { get; } = new JsonClientBindingFactory();
 
-            var span = new ReadOnlySpan<byte>(cstr, CString.strlen(cstr));
-            var parser = new Utf8JsonReader(span);
-            var obj = TLObjectFactory.ReadRootObject(ref parser);
-            return obj;
+        public static Client Create()
+        {
+            return new Client(BindingFactory);
         }
 
-        internal static void DumpObject(TLObjectWithExtra obj, IBufferWriter<byte> buffer)
+        public class Binding : ITdClientBinding
         {
-            using var writer = new Utf8JsonWriter(buffer, new JsonWriterOptions { Indented = false });
-            writer.WriteTLObjectValue(obj);
-            writer.Flush();
-            var span = buffer.GetSpan(1);
-            span[0] = 0;
-            buffer.Advance(1);
-        }
+            ITdClientLogging ITdClientBinding.GlobalLogging => Logging;
 
-        public override TLObject Execute(Function func)
-        {
-            using var buffer = new ArrayPoolBufferWriter<byte>(512);
-            DumpObject(new TLObjectWithExtra(func), buffer);
-            var requestbytes = buffer.WrittenSpan;
-            byte * result;
-            fixed (byte* str = requestbytes)
-                result = td_json_client_execute(unmanaged_client, str);
-            if (result == null) return null;
-            var obj = FetchObject(result);
-            return obj.TLObject;
-        }
-
-        protected override (long id, TLObject obj) DoReceive(double timeout)
-        {
-            var result = (byte*)td_json_client_receive(unmanaged_client, timeout);
-            if (result == null) return (0, null);
-            var obj = FetchObject(result);
-            return (obj.Extra.GetValueOrDefault(), obj.TLObject);
-        }
-
-        protected override void DoSend(Function func, long id)
-        {
-            using var buffer = new ArrayPoolBufferWriter<byte>(512);
-            DumpObject(new TLObjectWithExtra(func), buffer);
-            var requestbytes = buffer.WrittenSpan;
-            fixed (byte* str = requestbytes)
-                td_json_client_send(unmanaged_client, str);
-        }
-
-        private int disposed = 0;
-        protected override void DisposeNativeClient()
-        {
-            if (Interlocked.Exchange(ref disposed, 1) == 0)
+            private readonly IntPtr client;
+            public IntPtr Handle => client;
+            internal Binding()
             {
-                td_json_client_destroy(unmanaged_client);
+                client = td_json_client_create();
+            }
+
+            private static unsafe TLObjectWithExtra FetchObject(byte* cstr)
+            {
+                if (cstr == null || *cstr == 0) return new TLObjectWithExtra();
+
+                var span = new ReadOnlySpan<byte>(cstr, CString.strlen(cstr));
+                var obj = TLObjectFactory.ReadRootObject(span);
+                return obj;
+            }
+
+            TLObject ITdClientBinding.Execute(Function func)
+            {
+                using var buffer = new ArrayPoolBufferWriter<byte>(512);
+                TLObjectFactory.DumpObject(buffer, func);
+                var requestbytes = buffer.WrittenSpan;
+                byte* result;
+                fixed (byte* str = requestbytes)
+                    result = td_json_client_execute(client, str);
+                if (result == null) return null;
+                var obj = FetchObject(result);
+                return obj.TLObject;
+            }
+
+            (long id, TLObject obj) ITdClientBinding.Receive(double timeout)
+            {
+                var result = (byte*)td_json_client_receive(client, timeout);
+                if (result == null) return (0, null);
+                var obj = FetchObject(result);
+                return (obj.Extra.GetValueOrDefault(), obj.TLObject);
+            }
+
+            void ITdClientBinding.Send(Function func, long id)
+            {
+                using var buffer = new ArrayPoolBufferWriter<byte>(512);
+                TLObjectFactory.DumpObject(buffer, new TLObjectWithExtra(func, id));
+                var requestbytes = buffer.WrittenSpan;
+                fixed (byte* str = requestbytes)
+                    td_json_client_send(client, str);
+            }
+
+            private int disposed = 0;
+            void IDisposable.Dispose()
+            {
+                if (Interlocked.Exchange(ref disposed, 1) == 0)
+                {
+                    td_json_client_destroy(client);
+                }
             }
         }
 

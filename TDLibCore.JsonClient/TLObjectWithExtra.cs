@@ -2,7 +2,7 @@ using TDLibCore.Api;
 
 namespace TDLibCore.JsonClient
 {
-    struct TLObjectWithExtra
+    public struct TLObjectWithExtra
     {
         public TLObject TLObject;
         public long? Extra;
@@ -10,7 +10,7 @@ namespace TDLibCore.JsonClient
         public TLObjectWithExtra(TLObject obj)
         {
             TLObject = obj;
-            Extra = default;
+            Extra = null;
         }
 
         public TLObjectWithExtra(TLObject obj, long extra)

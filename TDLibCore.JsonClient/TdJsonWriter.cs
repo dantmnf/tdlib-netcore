@@ -14,21 +14,27 @@ namespace TDLibCore.JsonClient
 
         public static void WriteTLObjectValue(this Utf8JsonWriter writer, TLObject obj)
         {
-            writer.WriteTLObjectValue(new TLObjectWithExtra(obj));
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+            var converter = TLObjectFactory.GetConverterForTLObject(obj);
+            converter.TdJsonWriteUnclosedObject(writer, obj);
+            writer.WriteEndObject();
         }
 
-        internal static void WriteTLObjectValue(this Utf8JsonWriter writer, TLObjectWithExtra value)
+        public static void WriteTLObjectValue(this Utf8JsonWriter writer, TLObjectWithExtra obj)
         {
-            if (value.TLObject == null)
+            if (obj.TLObject == null)
             {
-                throw new ArgumentNullException(nameof(value));
+                throw new ArgumentNullException(nameof(obj));
             }
-            var converter = TLObjectFactory.GetConverterForTLObject(value.TLObject);
-            converter.TdJsonWriteUnclosedObject(writer, value.TLObject);
-            if (value.Extra.HasValue)
+            var converter = TLObjectFactory.GetConverterForTLObject(obj.TLObject);
+            converter.TdJsonWriteUnclosedObject(writer, obj.TLObject);
+            if (obj.Extra.HasValue)
             {
                 writer.WritePropertyName(ExtraPropertyName);
-                writer.WriteInt64String(value.Extra.Value);
+                writer.WriteInt64String(obj.Extra.Value);
             }
             writer.WriteEndObject();
         }
