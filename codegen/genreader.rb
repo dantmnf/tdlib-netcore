@@ -1,7 +1,12 @@
 require 'zlib'
 require_relative 'common'
+require_relative 'crc32c'
 
 def hashfn(x)
+  CRC32c.checksum(x)
+end
+
+def fnv1a(x)
   hash = 2166136261
   x.each_byte do |octet|
     hash ^= octet
@@ -68,32 +73,45 @@ def emit_type(io, type)
   io.puts "public static BaseConverter CreateConverterInstance() => new #{csname}Converter();"
   io.puts "public override TLObject CreateObjectInstance() => new #{csname}();"
   unless type.props.empty?
-    io.puts "public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, uint keyhash)"
+    io.puts "public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)"
     io.puts "{"
     io.block do
       # io.puts "if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;"
       io.puts "var obj = (#{csname})tlobj;"
-      # io.puts "var keyhash = reader.GetStringHash();"
-      io.puts "switch (keyhash)"
-      io.puts "{"
-      io.block do
-        type.props.each do |prop|
-          proptype = check_csharp_keyword prop.type.to_s
-          propname = prop.capname
-          csname = propname
-          if csname == type.name
-            csname = "#{csname}_"
-          end
-          csname = check_csharp_keyword csname
-          io.puts "case #{hashof(prop.name)} when reader.ValueTextEquals(propName_#{prop.name}):"
-          io.block do
-            io.puts "obj.#{csname} = " + readerof(prop.type) + ";"
-            io.puts "return true;"
+      propcount = type.props.length
+      setters = type.props.map do |prop|
+        propname = prop.capname
+        if propname == type.name
+          propname = "#{propname}_"
+        end
+        propname = check_csharp_keyword propname
+        "obj.#{propname} = " + readerof(prop.type) + ";"
+      end
+      if propcount > 3
+        io.puts "var keyhash = BaseConverter.GetHashCodeForPropertyName(name);"
+        io.puts "switch (keyhash)"
+        io.puts "{"
+        io.block do
+          type.props.zip(setters).each do |(prop, setter)|
+            io.puts "case #{hashof(prop.name)} when name.SequenceEqual(propName_#{prop.name}):"
+            io.block do
+              io.puts setter
+              io.puts "return true;"
+            end
           end
         end
-
+        io.puts "}"
+      else
+        type.props.zip(setters).each do |(prop, setter)|
+          io.puts "if (name.SequenceEqual(propName_#{prop.name}))"
+          io.puts "{"
+          io.block do
+            io.puts setter
+            io.puts "return true;"
+          end
+          io.puts "}"
+        end
       end
-      io.puts "}"
       io.puts "return false;"
     end
     io.puts "}"

@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json;
 using TDLibCore.Api;
 
@@ -5,7 +6,7 @@ namespace TDLibCore.JsonClient
 {
     abstract partial class BaseConverter
     {
-        public virtual bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject obj, uint keyhash) => false;
+        public virtual bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject obj, ReadOnlySpan<byte> name) => false;
 
         /// <remarks>
         /// Doesn't write EndObject token '}'.
@@ -15,6 +16,8 @@ namespace TDLibCore.JsonClient
         public abstract void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject obj);
 
         public abstract TLObject CreateObjectInstance();
+
+        internal protected static uint GetHashCodeForPropertyName(ReadOnlySpan<byte> name) => Crc32C.Update(0, name);
     }
 
     abstract partial class TLObjectConverter<T> : BaseConverter where T : TLObject { }
