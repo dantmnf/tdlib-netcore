@@ -1,6 +1,8 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.Json;
 using TDLibCore.Api;
 
@@ -271,6 +273,31 @@ namespace TDLibCore.JsonClient.Utf8JsonExtension
             reader.Read();
             var result = TLObjectFactory.GetTLObject(ref reader);
             return (T)result;
+        }
+
+        internal static unsafe uint GetStringHash(this ref Utf8JsonReader reader)
+        {
+            var span = reader.ValueSpan;
+            var len = span.Length;
+            var hash = 2166136261u;
+            fixed (byte* buf = span)
+            {
+                for(int i = 0; i < len; i++)
+                {
+                    var octet = buf[i];
+                    if (/* unlikely */ octet == (byte)'\\') goto escaped;
+                    hash ^= octet;
+                    hash *= 16777619;
+                }
+            }
+            return hash;
+        escaped:
+            var str = reader.GetString();
+            var u8str = ArrayPool<byte>.Shared.Rent(len);
+            var u8len = Encoding.UTF8.GetBytes(str, 0, str.Length, u8str, 0);
+            hash = TLObjectFactory.FNV1a(u8str.AsSpan(0, u8len));
+            ArrayPool<byte>.Shared.Return(u8str);
+            return hash;
         }
     }
 }

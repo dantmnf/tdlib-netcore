@@ -2,6 +2,7 @@ using System;
 using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using TDLibCore.Api;
 using TDLibCore.JsonClient.Utf8JsonExtension;
@@ -10,7 +11,7 @@ namespace TDLibCore.JsonClient
 {
     public static class TLObjectFactory
     {
-        private static Dictionary<string, BaseConverter> _typehash_map = new Dictionary<string, BaseConverter>();
+        private static Dictionary<uint, BaseConverter> _typehash_map = new Dictionary<uint, BaseConverter>();
         private static Dictionary<Type, BaseConverter> _rtti_map = new Dictionary<Type, BaseConverter>();
 
         static TLObjectFactory()
@@ -36,7 +37,7 @@ namespace TDLibCore.JsonClient
                     throw new TypeLoadException($"converter type {converter_type.FullName} does not inherit from Converter<T>");
                 var object_type = converter_generic_type.GenericTypeArguments.FirstOrDefault();
                 var converter = converter_factory();
-                _typehash_map.Add(attr.TLType, converter);
+                _typehash_map.Add(FNV1a(Encoding.UTF8.GetBytes(attr.TLType)), converter);
                 _rtti_map.Add(object_type, converter);
             }
             if (count != _typehash_map.Count)
@@ -45,13 +46,13 @@ namespace TDLibCore.JsonClient
             }
         }
 
-        private static BaseConverter GetConverterForType(string type)
+        private static BaseConverter GetConverterForType(uint typehash)
         {
-            if (_typehash_map.TryGetValue(type, out var conv))
+            if (_typehash_map.TryGetValue(typehash, out var conv))
             {
                 return conv;
             }
-            throw new ArgumentException($"unknown type {type}");
+            throw new ArgumentException($"unknown type {typehash}");
         }
 
         internal static BaseConverter GetConverterForTLObject(TLObject obj)
@@ -64,16 +65,28 @@ namespace TDLibCore.JsonClient
         }
 
 
+        internal static uint FNV1a(ReadOnlySpan<byte> input)
+        {
+            var hash = 2166136261u;
+            for (int i = 0; i < input.Length; i++)
+            {
+                var octet = input[i];
+                hash ^= octet;
+                hash *= 16777619;
+            }
+            return hash;
+        }
+
+
         private static (TLObject, BaseConverter) ConsumeObjectProlog(ref Utf8JsonReader reader)
         {
             reader.ReadAndConfirmNextToken(JsonTokenType.PropertyName);
-            var typestr = reader.GetString();
-            if (typestr != "@type")
+            if (!reader.ValueTextEquals(new ReadOnlySpan<byte>(new byte[] { 64, 116, 121, 112, 101 })))  // @type
                 throw new JsonException("object without @type");
             var token = reader.ReadNextToken();
             if (token != JsonTokenType.String)
                 throw new JsonException("object without @type");
-            var type = reader.GetString();
+            var type = reader.GetStringHash();
 
             var converter = GetConverterForType(type);
             var obj = converter.CreateObjectInstance();
@@ -82,7 +95,8 @@ namespace TDLibCore.JsonClient
             return (obj, converter);
         }
 
-
+        private static ReadOnlySpan<byte> @extra_bytes => new byte[] { 64, 101, 120, 116, 114, 97 };
+        private static readonly uint @extra_hash = FNV1a(@extra_bytes);
         public static TLObjectWithExtra ReadRootObject(ReadOnlySpan<byte> json)
         {
             var reader = new Utf8JsonReader(json);
@@ -90,19 +104,31 @@ namespace TDLibCore.JsonClient
             var (obj, converter) = ConsumeObjectProlog(ref reader);
             var result = new TLObjectWithExtra(obj);
 
-            while (reader.ReadNextToken() != JsonTokenType.EndObject)
+            while (true)
             {
-                var key = reader.GetString();
-                if (key == "@extra")
+                switch (reader.ReadNextToken())
                 {
-                    result.Extra = reader.ReadInt64String();
-                    continue;
-                }
-                if (!converter.TdJsonReadItem(ref reader, obj, key))
-                {
-                    throw new JsonException($"unrecognized key {key} in type {obj.GetType().Name}");
+                    case JsonTokenType.PropertyName:
+                        var hash = reader.GetStringHash();
+                        if(hash == @extra_hash && reader.ValueTextEquals(new ReadOnlySpan<byte>(new byte[] { 64, 101, 120, 116, 114, 97 }))) // "@extra"
+                        {
+                            result.Extra = reader.ReadInt64String();
+                            continue;
+                        }
+                        var keyspan = reader.ValueSpan;
+                        if (!converter.TdJsonReadItem(ref reader, obj, hash))
+                        {
+                            var keystr = Encoding.UTF8.GetString(keyspan.ToArray());
+                            throw new JsonException($"unrecognized key {keystr} in type {obj.GetType().Name}");
+                        }
+                        continue;
+                    case JsonTokenType.EndObject:
+                        goto break_loop;
+                    default:
+                        throw new JsonException();
                 }
             }
+            break_loop:
             return result;
         }
 
@@ -112,15 +138,26 @@ namespace TDLibCore.JsonClient
             if (type == JsonTokenType.Null) return null;
             if (type != JsonTokenType.StartObject) throw new JsonException();
             var (obj, converter) = ConsumeObjectProlog(ref reader);
-            while (reader.ReadNextToken() != JsonTokenType.EndObject)
+            while (true)
             {
-                var key = reader.GetString();
-
-                if (!converter.TdJsonReadItem(ref reader, obj, key))
+                switch (reader.ReadNextToken())
                 {
-                    throw new JsonException(string.Format("unrecognized key {0} in type {1}", key, obj.GetType().Name));
+                    case JsonTokenType.PropertyName:
+                        var hash = reader.GetStringHash();
+                        var keyspan = reader.ValueSpan;
+                        if (!converter.TdJsonReadItem(ref reader, obj, hash))
+                        {
+                            var keystr = Encoding.UTF8.GetString(keyspan.ToArray());
+                            throw new JsonException($"unrecognized key {keystr} in type {obj.GetType().Name}");
+                        }
+                        continue;
+                    case JsonTokenType.EndObject:
+                        goto break_loop;
+                    default:
+                        throw new JsonException();
                 }
             }
+        break_loop:
             return obj;
         }
 

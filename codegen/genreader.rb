@@ -2,7 +2,13 @@ require 'zlib'
 require_relative 'common'
 
 def hashfn(x)
-  CRC32c.checksum(x)
+  hash = 2166136261
+  x.each_byte do |octet|
+    hash ^= octet
+    hash *= 16777619
+    hash &= 0xFFFFFFFF
+  end
+  hash
 end
 
 def hashof(name)
@@ -62,12 +68,13 @@ def emit_type(io, type)
   io.puts "public static BaseConverter CreateConverterInstance() => new #{csname}Converter();"
   io.puts "public override TLObject CreateObjectInstance() => new #{csname}();"
   unless type.props.empty?
-    io.puts "public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, string key)"
+    io.puts "public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, uint keyhash)"
     io.puts "{"
     io.block do
       # io.puts "if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;"
       io.puts "var obj = (#{csname})tlobj;"
-      io.puts "switch (key)"
+      # io.puts "var keyhash = reader.GetStringHash();"
+      io.puts "switch (keyhash)"
       io.puts "{"
       io.block do
         type.props.each do |prop|
@@ -78,7 +85,7 @@ def emit_type(io, type)
             csname = "#{csname}_"
           end
           csname = check_csharp_keyword csname
-          io.puts "case #{prop.name.to_s.inspect}:"
+          io.puts "case #{hashof(prop.name)} when reader.ValueTextEquals(propName_#{prop.name}):"
           io.block do
             io.puts "obj.#{csname} = " + readerof(prop.type) + ";"
             io.puts "return true;"

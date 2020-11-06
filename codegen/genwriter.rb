@@ -6,9 +6,10 @@ def emit_type(io, type)
   io.puts "partial class #{csname}Converter"
   io.puts "{"
   io.block do
-    io.puts "private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(#{type.realname.to_s.inspect});"
+    io.puts "private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { #{type.realname.to_s.bytes.join(', ')} }));"
     type.props.each do |prop|
-      io.puts "private static readonly JsonEncodedText propName_#{prop.name} = JsonEncodedText.Encode(#{prop.name.to_s.inspect});"
+      io.puts "private static ReadOnlySpan<byte> propName_#{prop.name} => new byte[] { #{prop.name.to_s.bytes.join(', ')} };"
+      io.puts "private static readonly JsonEncodedText encodedPropName_#{prop.name} = JsonEncodedText.Encode(propName_#{prop.name});"
     end
     io.puts "public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)"
     io.puts "{"
@@ -31,23 +32,23 @@ def emit_type(io, type)
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WriteBase64String(propName_#{prop.name}, obj.#{csname});"
+            io.puts "writer.WriteBase64String(encodedPropName_#{prop.name}, obj.#{csname});"
           end
           io.puts "}"
         when prop.type == 'int' || prop.type == 'long' || prop.type == 'double'
-          io.puts "writer.WriteNumber(propName_#{prop.name}, obj.#{csname});"
+          io.puts "writer.WriteNumber(encodedPropName_#{prop.name}, obj.#{csname});"
         when prop.type == 'string'
-          io.puts "writer.WriteString(propName_#{prop.name}, obj.#{csname});"
+          io.puts "writer.WriteString(encodedPropName_#{prop.name}, obj.#{csname});"
         when prop.type == 'bool'
-          io.puts "writer.WriteBoolean(propName_#{prop.name}, obj.#{csname});"
+          io.puts "writer.WriteBoolean(encodedPropName_#{prop.name}, obj.#{csname});"
         when prop.type == TDLibTLTypeInfo::Int64
-          io.puts "writer.WritePropertyName(propName_#{prop.name});"
+          io.puts "writer.WritePropertyName(encodedPropName_#{prop.name});"
           io.puts "writer.WriteInt64String(obj.#{csname});"
         when prop.type == TDLibTLTypeInfo::Vector[TDLibTLTypeInfo::Int64]
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WritePropertyName(propName_#{prop.name});"
+            io.puts "writer.WritePropertyName(encodedPropName_#{prop.name});"
             io.puts "writer.WriteInt64Array(obj.#{csname});"
           end
           io.puts "}"
@@ -55,7 +56,7 @@ def emit_type(io, type)
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WritePropertyName(propName_#{prop.name});"
+            io.puts "writer.WritePropertyName(encodedPropName_#{prop.name});"
             io.puts "writer.WriteArray(obj.#{csname});"
           end
           io.puts "}"
@@ -63,7 +64,7 @@ def emit_type(io, type)
           io.puts "if (obj.#{csname} != null)"
           io.puts "{"
           io.block do
-            io.puts "writer.WritePropertyName(propName_#{prop.name});"
+            io.puts "writer.WritePropertyName(encodedPropName_#{prop.name});"
             io.puts "writer.WriteTLObjectValue(obj.#{csname});"
           end
           io.puts "}"
