@@ -43,16 +43,15 @@ namespace TDLibCore.JsonClient
                 goto end_decision;
             }
 #endif
+            table = (uint*)Marshal.AllocHGlobal(16 * 256 * 4);
+            InitializeTable(table);
             if (BitConverter.IsLittleEndian)
             {
                 implptr = &UpdateLittleEndianOptimized;
                 goto end_decision;
             }
             implptr = &UpdateNaive;
-            end_decision:
-            
-            table = (uint*)Marshal.AllocHGlobal(16 * 256 * 4);
-            InitializeTable(table);
+        end_decision:;
         }
 
 
@@ -70,22 +69,15 @@ namespace TDLibCore.JsonClient
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static uint crc32c_sw(uint crci, void* buf, int len)
+        static uint UpdateLittleEndianOptimized(uint crci, ReadOnlySpan<byte> input)
         {
             // Copyright (C) 2013 Mark Adler
-            byte* next = (byte*)buf;
             ulong crc;
 
             crc = crci ^ 0xffffffff;
-            while (len != 0 && ((ulong)next & 7) != 0)
+            while (input.Length >= sizeof(ulong))
             {
-                crc = table[(0 * 256) + ((crc ^ *next++) & 0xff)] ^ (crc >> 8);
-                len--;
-            }
-            while (len >= 8)
-            {
-                crc ^= *(ulong*)next;
+                crc ^= Unsafe.ReadUnaligned<ulong>(ref MemoryMarshal.GetReference(input));
                 crc = table[(7 * 256) + (crc & 0xff)] ^
                       table[(6 * 256) + ((crc >> 8) & 0xff)] ^
                       table[(5 * 256) + ((crc >> 16) & 0xff)] ^
@@ -94,39 +86,21 @@ namespace TDLibCore.JsonClient
                       table[(2 * 256) + ((crc >> 40) & 0xff)] ^
                       table[(1 * 256) + ((crc >> 48) & 0xff)] ^
                       table[(0 * 256) + (crc >> 56)];
-                next += 8;
-                len -= 8;
+                input = input.Slice(sizeof(ulong));
             }
-            while (len != 0)
+            for (int i = 0; i < input.Length; i++)
             {
-                crc = table[(0 * 256) + ((crc ^ *next++) & 0xff)] ^ (crc >> 8);
-                len--;
+                crc = table[(0 * 256) + ((crc ^ input[i]) & 0xff)] ^ (crc >> 8);
             }
             return (uint)crc ^ 0xffffffff;
         }
 
-
-        internal static uint UpdateLittleEndianOptimized(uint crc, ReadOnlySpan<byte> inputSpan)
-        {
-            var len = inputSpan.Length;
-            fixed (byte* input = inputSpan)
-            {
-                return crc32c_sw(crc, input, inputSpan.Length);
-            }
-        }
-
-        internal static uint UpdateNaive(uint crc, ReadOnlySpan<byte> inputSpan)
+        static uint UpdateNaive(uint crc, ReadOnlySpan<byte> input)
         {
             crc ^= uint.MaxValue;
-            var len = inputSpan.Length;
-            fixed (byte* input = inputSpan)
+            for (int i = 0; i < input.Length; i++)
             {
-                var next = input;
-                while (len != 0)
-                {
-                    crc = table[(0 * 256) + ((crc ^ *next++) & 0xff)] ^ (crc >> 8);
-                    len--;
-                }
+                crc = table[(0 * 256) + ((crc ^ input[i]) & 0xff)] ^ (crc >> 8);
             }
             return crc ^ uint.MaxValue;
         }
