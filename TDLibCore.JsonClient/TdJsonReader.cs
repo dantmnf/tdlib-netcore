@@ -323,7 +323,7 @@ namespace TDLibCore.JsonClient
             var len = 0;
             while (input.Length >= sizeof(ulong))
             {
-                var qword = MemoryMarshal.Cast<byte, ulong>(input)[0];
+                var qword = Unsafe.ReadUnaligned<ulong>(ref MemoryMarshal.GetReference(input));
                 var result = BitHack.HasLess(qword, 32);
                 result |= BitHack.HasValue(qword, (byte)'"');
                 result |= BitHack.HasValue(qword, (byte)'\\');
@@ -336,7 +336,7 @@ namespace TDLibCore.JsonClient
             }
             if (input.Length >= 4)
             {
-                var dword = MemoryMarshal.Cast<byte, uint>(input)[0];
+                var dword = Unsafe.ReadUnaligned<uint>(ref MemoryMarshal.GetReference(input));
                 var result = BitHack.HasLess(dword, 32);
                 result |= BitHack.HasValue(dword, (byte)'"');
                 result |= BitHack.HasValue(dword, (byte)'\\');
