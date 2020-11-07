@@ -45,49 +45,49 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x1D421803u when name.SequenceEqual(propName_use_test_dc):
+                case 0xD512510Fu when name.SequenceEqual(propName_use_test_dc):
                     obj.UseTestDc = reader.ReadBool();
                     return true;
-                case 0x48D7F0E8u when name.SequenceEqual(propName_database_directory):
+                case 0xDFC32C4Eu when name.SequenceEqual(propName_database_directory):
                     obj.DatabaseDirectory = reader.ReadString();
                     return true;
-                case 0xFB48CE80u when name.SequenceEqual(propName_files_directory):
+                case 0x569A4CE8u when name.SequenceEqual(propName_files_directory):
                     obj.FilesDirectory = reader.ReadString();
                     return true;
-                case 0x13D44325u when name.SequenceEqual(propName_use_file_database):
+                case 0xB6ABC885u when name.SequenceEqual(propName_use_file_database):
                     obj.UseFileDatabase = reader.ReadBool();
                     return true;
-                case 0x5B4622A4u when name.SequenceEqual(propName_use_chat_info_database):
+                case 0x20D73C63u when name.SequenceEqual(propName_use_chat_info_database):
                     obj.UseChatInfoDatabase = reader.ReadBool();
                     return true;
-                case 0xA0BFE868u when name.SequenceEqual(propName_use_message_database):
+                case 0x917E24B1u when name.SequenceEqual(propName_use_message_database):
                     obj.UseMessageDatabase = reader.ReadBool();
                     return true;
-                case 0xFD76A729u when name.SequenceEqual(propName_use_secret_chats):
+                case 0x6ABD135Eu when name.SequenceEqual(propName_use_secret_chats):
                     obj.UseSecretChats = reader.ReadBool();
                     return true;
-                case 0x45A1DC75u when name.SequenceEqual(propName_api_id):
+                case 0x94A3BBA6u when name.SequenceEqual(propName_api_id):
                     obj.ApiId = reader.ReadInt();
                     return true;
-                case 0xD1FDE798u when name.SequenceEqual(propName_api_hash):
+                case 0xB1015925u when name.SequenceEqual(propName_api_hash):
                     obj.ApiHash = reader.ReadString();
                     return true;
-                case 0x67AFF225u when name.SequenceEqual(propName_system_language_code):
+                case 0xF424D94Au when name.SequenceEqual(propName_system_language_code):
                     obj.SystemLanguageCode = reader.ReadString();
                     return true;
-                case 0xB398D2B1u when name.SequenceEqual(propName_device_model):
+                case 0x5DF57F47u when name.SequenceEqual(propName_device_model):
                     obj.DeviceModel = reader.ReadString();
                     return true;
-                case 0xC8C94F83u when name.SequenceEqual(propName_system_version):
+                case 0x5D13E231u when name.SequenceEqual(propName_system_version):
                     obj.SystemVersion = reader.ReadString();
                     return true;
-                case 0xE6576A12u when name.SequenceEqual(propName_application_version):
+                case 0x4ACD0E08u when name.SequenceEqual(propName_application_version):
                     obj.ApplicationVersion = reader.ReadString();
                     return true;
-                case 0x06FD1CCCu when name.SequenceEqual(propName_enable_storage_optimizer):
+                case 0x21FF518Du when name.SequenceEqual(propName_enable_storage_optimizer):
                     obj.EnableStorageOptimizer = reader.ReadBool();
                     return true;
-                case 0xD6CECD95u when name.SequenceEqual(propName_ignore_file_names):
+                case 0xB20C4562u when name.SequenceEqual(propName_ignore_file_names):
                     obj.IgnoreFileNames = reader.ReadBool();
                     return true;
             }
@@ -174,16 +174,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x56E140E1u when name.SequenceEqual(propName_phone_number):
+                case 0x9521F01Fu when name.SequenceEqual(propName_phone_number):
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<AuthenticationCodeType>();
                     return true;
-                case 0xF484993Du when name.SequenceEqual(propName_next_type):
+                case 0x03F538A6u when name.SequenceEqual(propName_next_type):
                     obj.NextType = reader.ReadTLObject<AuthenticationCodeType>();
                     return true;
-                case 0x97F68388u when name.SequenceEqual(propName_timeout):
+                case 0x1472F5B1u when name.SequenceEqual(propName_timeout):
                     obj.Timeout = reader.ReadInt();
                     return true;
             }
@@ -454,19 +454,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xBE117515u when name.SequenceEqual(propName_has_password):
+                case 0x71EF5D24u when name.SequenceEqual(propName_has_password):
                     obj.HasPassword = reader.ReadBool();
                     return true;
-                case 0xD45958B8u when name.SequenceEqual(propName_password_hint):
+                case 0x3F48AEDBu when name.SequenceEqual(propName_password_hint):
                     obj.PasswordHint = reader.ReadString();
                     return true;
-                case 0xA232F84Fu when name.SequenceEqual(propName_has_recovery_email_address):
+                case 0xA532DD19u when name.SequenceEqual(propName_has_recovery_email_address):
                     obj.HasRecoveryEmailAddress = reader.ReadBool();
                     return true;
-                case 0x6C6D23BBu when name.SequenceEqual(propName_has_passport_data):
+                case 0xD593B7EDu when name.SequenceEqual(propName_has_passport_data):
                     obj.HasPassportData = reader.ReadBool();
                     return true;
-                case 0x4F531997u when name.SequenceEqual(propName_recovery_email_address_code_info):
+                case 0xBB00D238u when name.SequenceEqual(propName_recovery_email_address_code_info):
                     obj.RecoveryEmailAddressCodeInfo = reader.ReadTLObject<EmailAddressAuthenticationCodeInfo>();
                     return true;
             }
@@ -524,28 +524,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x84874D36u when name.SequenceEqual(propName_path):
+                case 0x442C26D3u when name.SequenceEqual(propName_path):
                     obj.Path = reader.ReadString();
                     return true;
-                case 0xC20C933Du when name.SequenceEqual(propName_can_be_downloaded):
+                case 0x704B3383u when name.SequenceEqual(propName_can_be_downloaded):
                     obj.CanBeDownloaded = reader.ReadBool();
                     return true;
-                case 0x2F078491u when name.SequenceEqual(propName_can_be_deleted):
+                case 0x9D449158u when name.SequenceEqual(propName_can_be_deleted):
                     obj.CanBeDeleted = reader.ReadBool();
                     return true;
-                case 0x931F32D1u when name.SequenceEqual(propName_is_downloading_active):
+                case 0x16341FAAu when name.SequenceEqual(propName_is_downloading_active):
                     obj.IsDownloadingActive = reader.ReadBool();
                     return true;
-                case 0xFDCBDFE8u when name.SequenceEqual(propName_is_downloading_completed):
+                case 0xA0D69D65u when name.SequenceEqual(propName_is_downloading_completed):
                     obj.IsDownloadingCompleted = reader.ReadBool();
                     return true;
-                case 0xF1C35715u when name.SequenceEqual(propName_download_offset):
+                case 0x4767EC9Du when name.SequenceEqual(propName_download_offset):
                     obj.DownloadOffset = reader.ReadInt();
                     return true;
-                case 0xA18876E3u when name.SequenceEqual(propName_downloaded_prefix_size):
+                case 0xEE59BD3Fu when name.SequenceEqual(propName_downloaded_prefix_size):
                     obj.DownloadedPrefixSize = reader.ReadInt();
                     return true;
-                case 0x65AF5054u when name.SequenceEqual(propName_downloaded_size):
+                case 0x371CD61Du when name.SequenceEqual(propName_downloaded_size):
                     obj.DownloadedSize = reader.ReadInt();
                     return true;
             }
@@ -564,19 +564,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x1C0299B6u when name.SequenceEqual(propName_unique_id):
+                case 0x0EE10221u when name.SequenceEqual(propName_unique_id):
                     obj.UniqueId = reader.ReadString();
                     return true;
-                case 0x88CAB4E8u when name.SequenceEqual(propName_is_uploading_active):
+                case 0x9878661Bu when name.SequenceEqual(propName_is_uploading_active):
                     obj.IsUploadingActive = reader.ReadBool();
                     return true;
-                case 0x4B3B0283u when name.SequenceEqual(propName_is_uploading_completed):
+                case 0x2281A36Cu when name.SequenceEqual(propName_is_uploading_completed):
                     obj.IsUploadingCompleted = reader.ReadBool();
                     return true;
-                case 0x71C22F17u when name.SequenceEqual(propName_uploaded_size):
+                case 0xA7AB7AAFu when name.SequenceEqual(propName_uploaded_size):
                     obj.UploadedSize = reader.ReadInt();
                     return true;
             }
@@ -595,19 +595,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x23A0D95Cu when name.SequenceEqual(propName_size):
+                case 0x55AC4F76u when name.SequenceEqual(propName_size):
                     obj.Size = reader.ReadInt();
                     return true;
-                case 0x99E28EFBu when name.SequenceEqual(propName_expected_size):
+                case 0x3112E3BEu when name.SequenceEqual(propName_expected_size):
                     obj.ExpectedSize = reader.ReadInt();
                     return true;
-                case 0x9C436708u when name.SequenceEqual(propName_local):
+                case 0xACDAD6D0u when name.SequenceEqual(propName_local):
                     obj.Local = reader.ReadTLObject<LocalFile>();
                     return true;
-                case 0xC78D7953u when name.SequenceEqual(propName_remote):
+                case 0xD0330F71u when name.SequenceEqual(propName_remote):
                     obj.Remote = reader.ReadTLObject<RemoteFile>();
                     return true;
             }
@@ -704,19 +704,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadString();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<File>();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x4A3394C1u when name.SequenceEqual(propName_progressive_sizes):
+                case 0x0BF80E26u when name.SequenceEqual(propName_progressive_sizes):
                     obj.ProgressiveSizes = reader.ReadInt32Array();
                     return true;
             }
@@ -804,16 +804,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xB99D8552u when name.SequenceEqual(propName_format):
+                case 0xDE18A8ABu when name.SequenceEqual(propName_format):
                     obj.Format = reader.ReadTLObject<ThumbnailFormat>();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xAAEA5743u when name.SequenceEqual(propName_file):
+                case 0x4CA5C5B3u when name.SequenceEqual(propName_file):
                     obj.File = reader.ReadTLObject<File>();
                     return true;
             }
@@ -860,16 +860,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x18AE6C91u when name.SequenceEqual(propName_point):
+                case 0x0C1AFBB7u when name.SequenceEqual(propName_point):
                     obj.Point = reader.ReadTLObject<MaskPoint>();
                     return true;
-                case 0xC262F35Cu when name.SequenceEqual(propName_x_shift):
+                case 0x83AC203Cu when name.SequenceEqual(propName_x_shift):
                     obj.XShift = reader.ReadDouble();
                     return true;
-                case 0xCA80C31Bu when name.SequenceEqual(propName_y_shift):
+                case 0xEBAF0CF4u when name.SequenceEqual(propName_y_shift):
                     obj.YShift = reader.ReadDouble();
                     return true;
-                case 0x82971C71u when name.SequenceEqual(propName_scale):
+                case 0x346E5311u when name.SequenceEqual(propName_scale):
                     obj.Scale = reader.ReadDouble();
                     return true;
             }
@@ -888,19 +888,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xBDE64E3Eu when name.SequenceEqual(propName_text):
+                case 0x2F5319E1u when name.SequenceEqual(propName_text):
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x36C582CDu when name.SequenceEqual(propName_voter_count):
+                case 0xC8655F17u when name.SequenceEqual(propName_voter_count):
                     obj.VoterCount = reader.ReadInt();
                     return true;
-                case 0x2CC0B6CEu when name.SequenceEqual(propName_vote_percentage):
+                case 0xFBE3806Cu when name.SequenceEqual(propName_vote_percentage):
                     obj.VotePercentage = reader.ReadInt();
                     return true;
-                case 0x1B0D44A0u when name.SequenceEqual(propName_is_chosen):
+                case 0x58D93677u when name.SequenceEqual(propName_is_chosen):
                     obj.IsChosen = reader.ReadBool();
                     return true;
-                case 0xF75F0A80u when name.SequenceEqual(propName_is_being_chosen):
+                case 0x13CBCB3Fu when name.SequenceEqual(propName_is_being_chosen):
                     obj.IsBeingChosen = reader.ReadBool();
                     return true;
             }
@@ -958,31 +958,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xE826B50Fu when name.SequenceEqual(propName_file_name):
+                case 0xD96A5151u when name.SequenceEqual(propName_file_name):
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0xC057CA56u when name.SequenceEqual(propName_mime_type):
+                case 0x07F8FAA0u when name.SequenceEqual(propName_mime_type):
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0x95C4C2C0u when name.SequenceEqual(propName_has_stickers):
+                case 0xD81F0CA7u when name.SequenceEqual(propName_has_stickers):
                     obj.HasStickers = reader.ReadBool();
                     return true;
-                case 0xFCC1AF42u when name.SequenceEqual(propName_minithumbnail):
+                case 0x4E571713u when name.SequenceEqual(propName_minithumbnail):
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xE145EE5Du when name.SequenceEqual(propName_animation):
+                case 0xAEE681FEu when name.SequenceEqual(propName_animation):
                     obj.Animation_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1001,28 +1001,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x1499AAB5u when name.SequenceEqual(propName_performer):
+                case 0x60B2C14Au when name.SequenceEqual(propName_performer):
                     obj.Performer = reader.ReadString();
                     return true;
-                case 0xE826B50Fu when name.SequenceEqual(propName_file_name):
+                case 0xD96A5151u when name.SequenceEqual(propName_file_name):
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0xC057CA56u when name.SequenceEqual(propName_mime_type):
+                case 0x07F8FAA0u when name.SequenceEqual(propName_mime_type):
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0xD782074Eu when name.SequenceEqual(propName_album_cover_minithumbnail):
+                case 0x14EFC64Du when name.SequenceEqual(propName_album_cover_minithumbnail):
                     obj.AlbumCoverMinithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0xF101F0C3u when name.SequenceEqual(propName_album_cover_thumbnail):
+                case 0x2E7E1D62u when name.SequenceEqual(propName_album_cover_thumbnail):
                     obj.AlbumCoverThumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xE0613999u when name.SequenceEqual(propName_audio):
+                case 0xEB1AA922u when name.SequenceEqual(propName_audio):
                     obj.Audio_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1041,19 +1041,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE826B50Fu when name.SequenceEqual(propName_file_name):
+                case 0xD96A5151u when name.SequenceEqual(propName_file_name):
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0xC057CA56u when name.SequenceEqual(propName_mime_type):
+                case 0x07F8FAA0u when name.SequenceEqual(propName_mime_type):
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0xFCC1AF42u when name.SequenceEqual(propName_minithumbnail):
+                case 0x4E571713u when name.SequenceEqual(propName_minithumbnail):
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0x96234BD4u when name.SequenceEqual(propName_document):
+                case 0x9989342Du when name.SequenceEqual(propName_document):
                     obj.Document_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1099,31 +1099,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2E040D59u when name.SequenceEqual(propName_set_id):
+                case 0x6112D204u when name.SequenceEqual(propName_set_id):
                     obj.SetId = reader.ReadInt64String();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x4A90EF3Du when name.SequenceEqual(propName_emoji):
+                case 0xD446748Eu when name.SequenceEqual(propName_emoji):
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0x06B935A3u when name.SequenceEqual(propName_is_animated):
+                case 0x71849EE0u when name.SequenceEqual(propName_is_animated):
                     obj.IsAnimated = reader.ReadBool();
                     return true;
-                case 0x9DFD86EEu when name.SequenceEqual(propName_is_mask):
+                case 0xACEF992Eu when name.SequenceEqual(propName_is_mask):
                     obj.IsMask = reader.ReadBool();
                     return true;
-                case 0x01977B7Du when name.SequenceEqual(propName_mask_position):
+                case 0xB8863CFAu when name.SequenceEqual(propName_mask_position):
                     obj.MaskPosition = reader.ReadTLObject<MaskPosition>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xC742341Cu when name.SequenceEqual(propName_sticker):
+                case 0x57E22FC6u when name.SequenceEqual(propName_sticker):
                     obj.Sticker_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1142,34 +1142,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xE826B50Fu when name.SequenceEqual(propName_file_name):
+                case 0xD96A5151u when name.SequenceEqual(propName_file_name):
                     obj.FileName = reader.ReadString();
                     return true;
-                case 0xC057CA56u when name.SequenceEqual(propName_mime_type):
+                case 0x07F8FAA0u when name.SequenceEqual(propName_mime_type):
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0x95C4C2C0u when name.SequenceEqual(propName_has_stickers):
+                case 0xD81F0CA7u when name.SequenceEqual(propName_has_stickers):
                     obj.HasStickers = reader.ReadBool();
                     return true;
-                case 0x8D374FBEu when name.SequenceEqual(propName_supports_streaming):
+                case 0x37035326u when name.SequenceEqual(propName_supports_streaming):
                     obj.SupportsStreaming = reader.ReadBool();
                     return true;
-                case 0xFCC1AF42u when name.SequenceEqual(propName_minithumbnail):
+                case 0x4E571713u when name.SequenceEqual(propName_minithumbnail):
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xCEF90B6Cu when name.SequenceEqual(propName_video):
+                case 0x7BD287F9u when name.SequenceEqual(propName_video):
                     obj.Video_ = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1188,19 +1188,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x83D03615u when name.SequenceEqual(propName_length):
+                case 0xFC1B4BCBu when name.SequenceEqual(propName_length):
                     obj.Length = reader.ReadInt();
                     return true;
-                case 0xFCC1AF42u when name.SequenceEqual(propName_minithumbnail):
+                case 0x4E571713u when name.SequenceEqual(propName_minithumbnail):
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xCEF90B6Cu when name.SequenceEqual(propName_video):
+                case 0x7BD287F9u when name.SequenceEqual(propName_video):
                     obj.Video = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1219,16 +1219,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x1AA9F5D2u when name.SequenceEqual(propName_waveform):
+                case 0x88741F30u when name.SequenceEqual(propName_waveform):
                     obj.Waveform = reader.ReadBase64String();
                     return true;
-                case 0xC057CA56u when name.SequenceEqual(propName_mime_type):
+                case 0x07F8FAA0u when name.SequenceEqual(propName_mime_type):
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0x7F9BC9F9u when name.SequenceEqual(propName_voice):
+                case 0xBE74E420u when name.SequenceEqual(propName_voice):
                     obj.Voice = reader.ReadTLObject<File>();
                     return true;
             }
@@ -1247,19 +1247,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x56E140E1u when name.SequenceEqual(propName_phone_number):
+                case 0x9521F01Fu when name.SequenceEqual(propName_phone_number):
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0xFBBF2AC1u when name.SequenceEqual(propName_first_name):
+                case 0x9042082Fu when name.SequenceEqual(propName_first_name):
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x68F1D8F9u when name.SequenceEqual(propName_last_name):
+                case 0x2E1C9126u when name.SequenceEqual(propName_last_name):
                     obj.LastName = reader.ReadString();
                     return true;
-                case 0x819A8C0Bu when name.SequenceEqual(propName_vcard):
+                case 0xD54F6205u when name.SequenceEqual(propName_vcard):
                     obj.Vcard = reader.ReadString();
                     return true;
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
             }
@@ -1300,22 +1300,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x2C6A2953u when name.SequenceEqual(propName_address):
+                case 0xBF2096A4u when name.SequenceEqual(propName_address):
                     obj.Address = reader.ReadString();
                     return true;
-                case 0xB7C0BBBCu when name.SequenceEqual(propName_provider):
+                case 0xE886E1C0u when name.SequenceEqual(propName_provider):
                     obj.Provider = reader.ReadString();
                     return true;
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadString();
                     return true;
             }
@@ -1334,25 +1334,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x095C7C9Du when name.SequenceEqual(propName_short_name):
+                case 0xC79DD8B5u when name.SequenceEqual(propName_short_name):
                     obj.ShortName = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xBDE64E3Eu when name.SequenceEqual(propName_text):
+                case 0x2F5319E1u when name.SequenceEqual(propName_text):
                     obj.Text = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0xE145EE5Du when name.SequenceEqual(propName_animation):
+                case 0xAEE681FEu when name.SequenceEqual(propName_animation):
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
             }
@@ -1371,34 +1371,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x06D5A845u when name.SequenceEqual(propName_question):
+                case 0x8244FF76u when name.SequenceEqual(propName_question):
                     obj.Question = reader.ReadString();
                     return true;
-                case 0xEF286CA5u when name.SequenceEqual(propName_options):
+                case 0x8CF56D94u when name.SequenceEqual(propName_options):
                     obj.Options = reader.ReadObjectArray<PollOption>();
                     return true;
-                case 0x47229F94u when name.SequenceEqual(propName_total_voter_count):
+                case 0x560E8039u when name.SequenceEqual(propName_total_voter_count):
                     obj.TotalVoterCount = reader.ReadInt();
                     return true;
-                case 0x1D0AC33Au when name.SequenceEqual(propName_recent_voter_user_ids):
+                case 0x64442176u when name.SequenceEqual(propName_recent_voter_user_ids):
                     obj.RecentVoterUserIds = reader.ReadInt32Array();
                     return true;
-                case 0xC3C3A943u when name.SequenceEqual(propName_is_anonymous):
+                case 0x41D798A8u when name.SequenceEqual(propName_is_anonymous):
                     obj.IsAnonymous = reader.ReadBool();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<PollType>();
                     return true;
-                case 0xC3CA66E3u when name.SequenceEqual(propName_open_period):
+                case 0x273BF121u when name.SequenceEqual(propName_open_period):
                     obj.OpenPeriod = reader.ReadInt();
                     return true;
-                case 0x634EE2D0u when name.SequenceEqual(propName_close_date):
+                case 0x2B88515Cu when name.SequenceEqual(propName_close_date):
                     obj.CloseDate = reader.ReadInt();
                     return true;
-                case 0xE31C4FCAu when name.SequenceEqual(propName_is_closed):
+                case 0xD37EA0FFu when name.SequenceEqual(propName_is_closed):
                     obj.IsClosed = reader.ReadBool();
                     return true;
             }
@@ -1417,16 +1417,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0xA2C4F48Cu when name.SequenceEqual(propName_small):
+                case 0x7EDDF949u when name.SequenceEqual(propName_small):
                     obj.Small = reader.ReadTLObject<File>();
                     return true;
-                case 0x53CACDB9u when name.SequenceEqual(propName_big):
+                case 0xB20C03FAu when name.SequenceEqual(propName_big):
                     obj.Big = reader.ReadTLObject<File>();
                     return true;
-                case 0x0CC5D182u when name.SequenceEqual(propName_has_animation):
+                case 0xE3A89FF5u when name.SequenceEqual(propName_has_animation):
                     obj.HasAnimation = reader.ReadBool();
                     return true;
             }
@@ -1486,19 +1486,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA7FCF58Fu when name.SequenceEqual(propName_can_join_groups):
+                case 0xDE5BB844u when name.SequenceEqual(propName_can_join_groups):
                     obj.CanJoinGroups = reader.ReadBool();
                     return true;
-                case 0x9D4EA007u when name.SequenceEqual(propName_can_read_all_group_messages):
+                case 0x1C46AD8Fu when name.SequenceEqual(propName_can_read_all_group_messages):
                     obj.CanReadAllGroupMessages = reader.ReadBool();
                     return true;
-                case 0xE8A622FBu when name.SequenceEqual(propName_is_inline):
+                case 0x26F0B722u when name.SequenceEqual(propName_is_inline):
                     obj.IsInline = reader.ReadBool();
                     return true;
-                case 0xB55854CDu when name.SequenceEqual(propName_inline_query_placeholder):
+                case 0x926BBEC6u when name.SequenceEqual(propName_inline_query_placeholder):
                     obj.InlineQueryPlaceholder = reader.ReadString();
                     return true;
-                case 0x42E4CD1Du when name.SequenceEqual(propName_need_location):
+                case 0xD32DE252u when name.SequenceEqual(propName_need_location):
                     obj.NeedLocation = reader.ReadBool();
                     return true;
             }
@@ -1617,19 +1617,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x88F85E9Au when name.SequenceEqual(propName_added_date):
+                case 0x9F49AC3Du when name.SequenceEqual(propName_added_date):
                     obj.AddedDate = reader.ReadInt();
                     return true;
-                case 0xFCC1AF42u when name.SequenceEqual(propName_minithumbnail):
+                case 0x4E571713u when name.SequenceEqual(propName_minithumbnail):
                     obj.Minithumbnail = reader.ReadTLObject<Minithumbnail>();
                     return true;
-                case 0x4535E4FDu when name.SequenceEqual(propName_sizes):
+                case 0x67D9EB02u when name.SequenceEqual(propName_sizes):
                     obj.Sizes = reader.ReadObjectArray<PhotoSize>();
                     return true;
-                case 0xE145EE5Du when name.SequenceEqual(propName_animation):
+                case 0xAEE681FEu when name.SequenceEqual(propName_animation):
                     obj.Animation = reader.ReadTLObject<AnimatedChatPhoto>();
                     return true;
             }
@@ -1726,52 +1726,52 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0xFBBF2AC1u when name.SequenceEqual(propName_first_name):
+                case 0x9042082Fu when name.SequenceEqual(propName_first_name):
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x68F1D8F9u when name.SequenceEqual(propName_last_name):
+                case 0x2E1C9126u when name.SequenceEqual(propName_last_name):
                     obj.LastName = reader.ReadString();
                     return true;
-                case 0x4EAF15B9u when name.SequenceEqual(propName_username):
+                case 0xC874DABCu when name.SequenceEqual(propName_username):
                     obj.Username = reader.ReadString();
                     return true;
-                case 0x56E140E1u when name.SequenceEqual(propName_phone_number):
+                case 0x9521F01Fu when name.SequenceEqual(propName_phone_number):
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0xBA4B77EFu when name.SequenceEqual(propName_status):
+                case 0x82D603CEu when name.SequenceEqual(propName_status):
                     obj.Status = reader.ReadTLObject<UserStatus>();
                     return true;
-                case 0x129966BDu when name.SequenceEqual(propName_profile_photo):
+                case 0xA91951D9u when name.SequenceEqual(propName_profile_photo):
                     obj.ProfilePhoto = reader.ReadTLObject<ProfilePhoto>();
                     return true;
-                case 0x19140C0Eu when name.SequenceEqual(propName_is_contact):
+                case 0xB8CFCC51u when name.SequenceEqual(propName_is_contact):
                     obj.IsContact = reader.ReadBool();
                     return true;
-                case 0x0FB498D1u when name.SequenceEqual(propName_is_mutual_contact):
+                case 0xE17CD0B0u when name.SequenceEqual(propName_is_mutual_contact):
                     obj.IsMutualContact = reader.ReadBool();
                     return true;
-                case 0x03EB79CEu when name.SequenceEqual(propName_is_verified):
+                case 0xE71C8AF1u when name.SequenceEqual(propName_is_verified):
                     obj.IsVerified = reader.ReadBool();
                     return true;
-                case 0xAC1238CDu when name.SequenceEqual(propName_is_support):
+                case 0x3B952568u when name.SequenceEqual(propName_is_support):
                     obj.IsSupport = reader.ReadBool();
                     return true;
-                case 0x32B3FDB2u when name.SequenceEqual(propName_restriction_reason):
+                case 0x8D8A128Eu when name.SequenceEqual(propName_restriction_reason):
                     obj.RestrictionReason = reader.ReadString();
                     return true;
-                case 0x4B6E48FEu when name.SequenceEqual(propName_is_scam):
+                case 0x06C42D0Du when name.SequenceEqual(propName_is_scam):
                     obj.IsScam = reader.ReadBool();
                     return true;
-                case 0x8D068A46u when name.SequenceEqual(propName_have_access):
+                case 0x7B58577Du when name.SequenceEqual(propName_have_access):
                     obj.HaveAccess = reader.ReadBool();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<UserType>();
                     return true;
-                case 0x5BD83709u when name.SequenceEqual(propName_language_code):
+                case 0x5D862C00u when name.SequenceEqual(propName_language_code):
                     obj.LanguageCode = reader.ReadString();
                     return true;
             }
@@ -1790,31 +1790,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
-                case 0x453993D5u when name.SequenceEqual(propName_can_be_called):
+                case 0xA926A5BBu when name.SequenceEqual(propName_can_be_called):
                     obj.CanBeCalled = reader.ReadBool();
                     return true;
-                case 0x6EC14627u when name.SequenceEqual(propName_supports_video_calls):
+                case 0x1D3490F6u when name.SequenceEqual(propName_supports_video_calls):
                     obj.SupportsVideoCalls = reader.ReadBool();
                     return true;
-                case 0xEF4D52D9u when name.SequenceEqual(propName_has_private_calls):
+                case 0x26CB6B43u when name.SequenceEqual(propName_has_private_calls):
                     obj.HasPrivateCalls = reader.ReadBool();
                     return true;
-                case 0xBCBC138Bu when name.SequenceEqual(propName_need_phone_number_privacy_exception):
+                case 0x5B1C851Bu when name.SequenceEqual(propName_need_phone_number_privacy_exception):
                     obj.NeedPhoneNumberPrivacyException = reader.ReadBool();
                     return true;
-                case 0x5BCADA51u when name.SequenceEqual(propName_bio):
+                case 0x38D55B35u when name.SequenceEqual(propName_bio):
                     obj.Bio = reader.ReadString();
                     return true;
-                case 0x22B8C29Eu when name.SequenceEqual(propName_share_text):
+                case 0xA7BEE66Du when name.SequenceEqual(propName_share_text):
                     obj.ShareText = reader.ReadString();
                     return true;
-                case 0xD5F6C73Au when name.SequenceEqual(propName_group_in_common_count):
+                case 0x915BE050u when name.SequenceEqual(propName_group_in_common_count):
                     obj.GroupInCommonCount = reader.ReadInt();
                     return true;
-                case 0xE2DD4347u when name.SequenceEqual(propName_bot_info):
+                case 0x7FDA81AAu when name.SequenceEqual(propName_bot_info):
                     obj.BotInfo = reader.ReadTLObject<BotInfo>();
                     return true;
             }
@@ -1899,28 +1899,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xB7BE5D01u when name.SequenceEqual(propName_can_send_messages):
+                case 0xADB68E1Cu when name.SequenceEqual(propName_can_send_messages):
                     obj.CanSendMessages = reader.ReadBool();
                     return true;
-                case 0xE2ACE32Cu when name.SequenceEqual(propName_can_send_media_messages):
+                case 0xBE898A12u when name.SequenceEqual(propName_can_send_media_messages):
                     obj.CanSendMediaMessages = reader.ReadBool();
                     return true;
-                case 0x8B037C6Du when name.SequenceEqual(propName_can_send_polls):
+                case 0x046D9C15u when name.SequenceEqual(propName_can_send_polls):
                     obj.CanSendPolls = reader.ReadBool();
                     return true;
-                case 0xFED5FC86u when name.SequenceEqual(propName_can_send_other_messages):
+                case 0x4165F921u when name.SequenceEqual(propName_can_send_other_messages):
                     obj.CanSendOtherMessages = reader.ReadBool();
                     return true;
-                case 0x15B69AC2u when name.SequenceEqual(propName_can_add_web_page_previews):
+                case 0x5CADEFA9u when name.SequenceEqual(propName_can_add_web_page_previews):
                     obj.CanAddWebPagePreviews = reader.ReadBool();
                     return true;
-                case 0xA44B744Bu when name.SequenceEqual(propName_can_change_info):
+                case 0x79A92554u when name.SequenceEqual(propName_can_change_info):
                     obj.CanChangeInfo = reader.ReadBool();
                     return true;
-                case 0x1F8E9260u when name.SequenceEqual(propName_can_invite_users):
+                case 0x5FEE4B04u when name.SequenceEqual(propName_can_invite_users):
                     obj.CanInviteUsers = reader.ReadBool();
                     return true;
-                case 0xBC8D107Au when name.SequenceEqual(propName_can_pin_messages):
+                case 0x604D8D12u when name.SequenceEqual(propName_can_pin_messages):
                     obj.CanPinMessages = reader.ReadBool();
                     return true;
             }
@@ -1966,37 +1966,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x9D153F53u when name.SequenceEqual(propName_custom_title):
+                case 0x843E045Eu when name.SequenceEqual(propName_custom_title):
                     obj.CustomTitle = reader.ReadString();
                     return true;
-                case 0x3FBC03E1u when name.SequenceEqual(propName_can_be_edited):
+                case 0xF69F3B17u when name.SequenceEqual(propName_can_be_edited):
                     obj.CanBeEdited = reader.ReadBool();
                     return true;
-                case 0xA44B744Bu when name.SequenceEqual(propName_can_change_info):
+                case 0x79A92554u when name.SequenceEqual(propName_can_change_info):
                     obj.CanChangeInfo = reader.ReadBool();
                     return true;
-                case 0x52E506CDu when name.SequenceEqual(propName_can_post_messages):
+                case 0xAD34723Cu when name.SequenceEqual(propName_can_post_messages):
                     obj.CanPostMessages = reader.ReadBool();
                     return true;
-                case 0x2E4C851Fu when name.SequenceEqual(propName_can_edit_messages):
+                case 0x5AE85C79u when name.SequenceEqual(propName_can_edit_messages):
                     obj.CanEditMessages = reader.ReadBool();
                     return true;
-                case 0x9997063Eu when name.SequenceEqual(propName_can_delete_messages):
+                case 0xD1B603D2u when name.SequenceEqual(propName_can_delete_messages):
                     obj.CanDeleteMessages = reader.ReadBool();
                     return true;
-                case 0x1F8E9260u when name.SequenceEqual(propName_can_invite_users):
+                case 0x5FEE4B04u when name.SequenceEqual(propName_can_invite_users):
                     obj.CanInviteUsers = reader.ReadBool();
                     return true;
-                case 0x14117806u when name.SequenceEqual(propName_can_restrict_members):
+                case 0x055CEF60u when name.SequenceEqual(propName_can_restrict_members):
                     obj.CanRestrictMembers = reader.ReadBool();
                     return true;
-                case 0xBC8D107Au when name.SequenceEqual(propName_can_pin_messages):
+                case 0x604D8D12u when name.SequenceEqual(propName_can_pin_messages):
                     obj.CanPinMessages = reader.ReadBool();
                     return true;
-                case 0x5324AB92u when name.SequenceEqual(propName_can_promote_members):
+                case 0x857F7E60u when name.SequenceEqual(propName_can_promote_members):
                     obj.CanPromoteMembers = reader.ReadBool();
                     return true;
-                case 0xC3C3A943u when name.SequenceEqual(propName_is_anonymous):
+                case 0x41D798A8u when name.SequenceEqual(propName_is_anonymous):
                     obj.IsAnonymous = reader.ReadBool();
                     return true;
             }
@@ -2073,19 +2073,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x79BE1C40u when name.SequenceEqual(propName_inviter_user_id):
+                case 0xCC956F6Bu when name.SequenceEqual(propName_inviter_user_id):
                     obj.InviterUserId = reader.ReadInt();
                     return true;
-                case 0xB3E3ADA0u when name.SequenceEqual(propName_joined_chat_date):
+                case 0xD8798A74u when name.SequenceEqual(propName_joined_chat_date):
                     obj.JoinedChatDate = reader.ReadInt();
                     return true;
-                case 0xBA4B77EFu when name.SequenceEqual(propName_status):
+                case 0x82D603CEu when name.SequenceEqual(propName_status):
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0xE2DD4347u when name.SequenceEqual(propName_bot_info):
+                case 0x7FDA81AAu when name.SequenceEqual(propName_bot_info):
                     obj.BotInfo = reader.ReadTLObject<BotInfo>();
                     return true;
             }
@@ -2257,19 +2257,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x512E01CBu when name.SequenceEqual(propName_member_count):
+                case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0xBA4B77EFu when name.SequenceEqual(propName_status):
+                case 0x82D603CEu when name.SequenceEqual(propName_status):
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0x25478A38u when name.SequenceEqual(propName_is_active):
+                case 0xE6349552u when name.SequenceEqual(propName_is_active):
                     obj.IsActive = reader.ReadBool();
                     return true;
-                case 0x96925432u when name.SequenceEqual(propName_upgraded_to_supergroup_id):
+                case 0xF1E7131Au when name.SequenceEqual(propName_upgraded_to_supergroup_id):
                     obj.UpgradedToSupergroupId = reader.ReadInt();
                     return true;
             }
@@ -2288,19 +2288,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x290CA1C1u when name.SequenceEqual(propName_creator_user_id):
+                case 0x94699334u when name.SequenceEqual(propName_creator_user_id):
                     obj.CreatorUserId = reader.ReadInt();
                     return true;
-                case 0x37E24810u when name.SequenceEqual(propName_members):
+                case 0xBC6D8848u when name.SequenceEqual(propName_members):
                     obj.Members = reader.ReadObjectArray<ChatMember>();
                     return true;
-                case 0x21730C41u when name.SequenceEqual(propName_invite_link):
+                case 0x56350A39u when name.SequenceEqual(propName_invite_link):
                     obj.InviteLink = reader.ReadString();
                     return true;
             }
@@ -2319,43 +2319,43 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x4EAF15B9u when name.SequenceEqual(propName_username):
+                case 0xC874DABCu when name.SequenceEqual(propName_username):
                     obj.Username = reader.ReadString();
                     return true;
-                case 0xD472DC59u when name.SequenceEqual(propName_date):
+                case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xBA4B77EFu when name.SequenceEqual(propName_status):
+                case 0x82D603CEu when name.SequenceEqual(propName_status):
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
                     return true;
-                case 0x512E01CBu when name.SequenceEqual(propName_member_count):
+                case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0xA17D3580u when name.SequenceEqual(propName_has_linked_chat):
+                case 0x5EAC8035u when name.SequenceEqual(propName_has_linked_chat):
                     obj.HasLinkedChat = reader.ReadBool();
                     return true;
-                case 0xD2B61F03u when name.SequenceEqual(propName_has_location):
+                case 0xB5F0A104u when name.SequenceEqual(propName_has_location):
                     obj.HasLocation = reader.ReadBool();
                     return true;
-                case 0x93371AF1u when name.SequenceEqual(propName_sign_messages):
+                case 0x4E322A51u when name.SequenceEqual(propName_sign_messages):
                     obj.SignMessages = reader.ReadBool();
                     return true;
-                case 0x4E93817Du when name.SequenceEqual(propName_is_slow_mode_enabled):
+                case 0x32493F6Au when name.SequenceEqual(propName_is_slow_mode_enabled):
                     obj.IsSlowModeEnabled = reader.ReadBool();
                     return true;
-                case 0x19519D69u when name.SequenceEqual(propName_is_channel):
+                case 0x4C39504Du when name.SequenceEqual(propName_is_channel):
                     obj.IsChannel = reader.ReadBool();
                     return true;
-                case 0x03EB79CEu when name.SequenceEqual(propName_is_verified):
+                case 0xE71C8AF1u when name.SequenceEqual(propName_is_verified):
                     obj.IsVerified = reader.ReadBool();
                     return true;
-                case 0x32B3FDB2u when name.SequenceEqual(propName_restriction_reason):
+                case 0x8D8A128Eu when name.SequenceEqual(propName_restriction_reason):
                     obj.RestrictionReason = reader.ReadString();
                     return true;
-                case 0x4B6E48FEu when name.SequenceEqual(propName_is_scam):
+                case 0x06C42D0Du when name.SequenceEqual(propName_is_scam):
                     obj.IsScam = reader.ReadBool();
                     return true;
             }
@@ -2374,64 +2374,64 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x512E01CBu when name.SequenceEqual(propName_member_count):
+                case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0x9FE8A536u when name.SequenceEqual(propName_administrator_count):
+                case 0xFEB76490u when name.SequenceEqual(propName_administrator_count):
                     obj.AdministratorCount = reader.ReadInt();
                     return true;
-                case 0x0AC994F0u when name.SequenceEqual(propName_restricted_count):
+                case 0x368890CFu when name.SequenceEqual(propName_restricted_count):
                     obj.RestrictedCount = reader.ReadInt();
                     return true;
-                case 0x6B2E8499u when name.SequenceEqual(propName_banned_count):
+                case 0xC83063EEu when name.SequenceEqual(propName_banned_count):
                     obj.BannedCount = reader.ReadInt();
                     return true;
-                case 0xA2BFC8F9u when name.SequenceEqual(propName_linked_chat_id):
+                case 0xCA5981CAu when name.SequenceEqual(propName_linked_chat_id):
                     obj.LinkedChatId = reader.ReadLong();
                     return true;
-                case 0x5ECC4806u when name.SequenceEqual(propName_slow_mode_delay):
+                case 0x2D2C660Bu when name.SequenceEqual(propName_slow_mode_delay):
                     obj.SlowModeDelay = reader.ReadInt();
                     return true;
-                case 0xC257FC91u when name.SequenceEqual(propName_slow_mode_delay_expires_in):
+                case 0x8EA41172u when name.SequenceEqual(propName_slow_mode_delay_expires_in):
                     obj.SlowModeDelayExpiresIn = reader.ReadDouble();
                     return true;
-                case 0x285814EAu when name.SequenceEqual(propName_can_get_members):
+                case 0x0E2F47A4u when name.SequenceEqual(propName_can_get_members):
                     obj.CanGetMembers = reader.ReadBool();
                     return true;
-                case 0x4CE2966Bu when name.SequenceEqual(propName_can_set_username):
+                case 0xBA5B776Au when name.SequenceEqual(propName_can_set_username):
                     obj.CanSetUsername = reader.ReadBool();
                     return true;
-                case 0xBCB6F699u when name.SequenceEqual(propName_can_set_sticker_set):
+                case 0xAC223EE6u when name.SequenceEqual(propName_can_set_sticker_set):
                     obj.CanSetStickerSet = reader.ReadBool();
                     return true;
-                case 0xE3F48D8Cu when name.SequenceEqual(propName_can_set_location):
+                case 0xCA0ED7DEu when name.SequenceEqual(propName_can_set_location):
                     obj.CanSetLocation = reader.ReadBool();
                     return true;
-                case 0x665A173Cu when name.SequenceEqual(propName_can_get_statistics):
+                case 0x81815F75u when name.SequenceEqual(propName_can_get_statistics):
                     obj.CanGetStatistics = reader.ReadBool();
                     return true;
-                case 0xA7C1E9CAu when name.SequenceEqual(propName_is_all_history_available):
+                case 0xCED8BA39u when name.SequenceEqual(propName_is_all_history_available):
                     obj.IsAllHistoryAvailable = reader.ReadBool();
                     return true;
-                case 0xB4C77DCDu when name.SequenceEqual(propName_sticker_set_id):
+                case 0xC81D90F8u when name.SequenceEqual(propName_sticker_set_id):
                     obj.StickerSetId = reader.ReadInt64String();
                     return true;
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<ChatLocation>();
                     return true;
-                case 0x21730C41u when name.SequenceEqual(propName_invite_link):
+                case 0x56350A39u when name.SequenceEqual(propName_invite_link):
                     obj.InviteLink = reader.ReadString();
                     return true;
-                case 0x1AB014ADu when name.SequenceEqual(propName_upgraded_from_basic_group_id):
+                case 0x7498EB7Cu when name.SequenceEqual(propName_upgraded_from_basic_group_id):
                     obj.UpgradedFromBasicGroupId = reader.ReadInt();
                     return true;
-                case 0x39B2D119u when name.SequenceEqual(propName_upgraded_from_max_message_id):
+                case 0x78CE8860u when name.SequenceEqual(propName_upgraded_from_max_message_id):
                     obj.UpgradedFromMaxMessageId = reader.ReadLong();
                     return true;
             }
@@ -2471,25 +2471,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x783132F6u when name.SequenceEqual(propName_state):
+                case 0x66DB68DFu when name.SequenceEqual(propName_state):
                     obj.State = reader.ReadTLObject<SecretChatState>();
                     return true;
-                case 0x33C97872u when name.SequenceEqual(propName_is_outbound):
+                case 0x44C469E5u when name.SequenceEqual(propName_is_outbound):
                     obj.IsOutbound = reader.ReadBool();
                     return true;
-                case 0xBD2B425Bu when name.SequenceEqual(propName_ttl):
+                case 0x756FE8CEu when name.SequenceEqual(propName_ttl):
                     obj.Ttl = reader.ReadInt();
                     return true;
-                case 0x53959175u when name.SequenceEqual(propName_key_hash):
+                case 0xF0F68430u when name.SequenceEqual(propName_key_hash):
                     obj.KeyHash = reader.ReadBase64String();
                     return true;
-                case 0x07A640F6u when name.SequenceEqual(propName_layer):
+                case 0x6BEBAF92u when name.SequenceEqual(propName_layer):
                     obj.Layer = reader.ReadInt();
                     return true;
             }
@@ -2586,19 +2586,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xD97F9A4Fu when name.SequenceEqual(propName_origin):
+                case 0x2FAB7B36u when name.SequenceEqual(propName_origin):
                     obj.Origin = reader.ReadTLObject<MessageForwardOrigin>();
                     return true;
-                case 0xD472DC59u when name.SequenceEqual(propName_date):
+                case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xCEE9E6BBu when name.SequenceEqual(propName_public_service_announcement_type):
+                case 0xC85A243Du when name.SequenceEqual(propName_public_service_announcement_type):
                     obj.PublicServiceAnnouncementType = reader.ReadString();
                     return true;
-                case 0xCBEE0078u when name.SequenceEqual(propName_from_chat_id):
+                case 0x48E8721Bu when name.SequenceEqual(propName_from_chat_id):
                     obj.FromChatId = reader.ReadLong();
                     return true;
-                case 0x00CB8E7Bu when name.SequenceEqual(propName_from_message_id):
+                case 0xCB003A8Du when name.SequenceEqual(propName_from_message_id):
                     obj.FromMessageId = reader.ReadLong();
                     return true;
             }
@@ -2617,19 +2617,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xAD594167u when name.SequenceEqual(propName_reply_count):
+                case 0x68003481u when name.SequenceEqual(propName_reply_count):
                     obj.ReplyCount = reader.ReadInt();
                     return true;
-                case 0xD5465999u when name.SequenceEqual(propName_recent_replier_user_ids):
+                case 0x6BB81C41u when name.SequenceEqual(propName_recent_replier_user_ids):
                     obj.RecentReplierUserIds = reader.ReadInt32Array();
                     return true;
-                case 0xD1B518C3u when name.SequenceEqual(propName_last_read_inbox_message_id):
+                case 0xE4D52BA2u when name.SequenceEqual(propName_last_read_inbox_message_id):
                     obj.LastReadInboxMessageId = reader.ReadLong();
                     return true;
-                case 0x3E6F9B32u when name.SequenceEqual(propName_last_read_outbox_message_id):
+                case 0x3E7162A6u when name.SequenceEqual(propName_last_read_outbox_message_id):
                     obj.LastReadOutboxMessageId = reader.ReadLong();
                     return true;
-                case 0xD36E97DFu when name.SequenceEqual(propName_last_message_id):
+                case 0x7D672757u when name.SequenceEqual(propName_last_message_id):
                     obj.LastMessageId = reader.ReadLong();
                     return true;
             }
@@ -2682,16 +2682,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x14FC1187u when name.SequenceEqual(propName_error_code):
+                case 0x3519A170u when name.SequenceEqual(propName_error_code):
                     obj.ErrorCode = reader.ReadInt();
                     return true;
-                case 0x3A4689D1u when name.SequenceEqual(propName_error_message):
+                case 0x6E73AFBFu when name.SequenceEqual(propName_error_message):
                     obj.ErrorMessage = reader.ReadString();
                     return true;
-                case 0x94A054D4u when name.SequenceEqual(propName_can_retry):
+                case 0xC3B5BB27u when name.SequenceEqual(propName_can_retry):
                     obj.CanRetry = reader.ReadBool();
                     return true;
-                case 0x538711E8u when name.SequenceEqual(propName_retry_after):
+                case 0xB2D78B4Eu when name.SequenceEqual(propName_retry_after):
                     obj.RetryAfter = reader.ReadDouble();
                     return true;
             }
@@ -2710,94 +2710,94 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadLong();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x215B6CBDu when name.SequenceEqual(propName_sender_chat_id):
+                case 0xDA540536u when name.SequenceEqual(propName_sender_chat_id):
                     obj.SenderChatId = reader.ReadLong();
                     return true;
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x527283A7u when name.SequenceEqual(propName_sending_state):
+                case 0x9F6F8B67u when name.SequenceEqual(propName_sending_state):
                     obj.SendingState = reader.ReadTLObject<MessageSendingState>();
                     return true;
-                case 0xB990D635u when name.SequenceEqual(propName_scheduling_state):
+                case 0x3F5B0908u when name.SequenceEqual(propName_scheduling_state):
                     obj.SchedulingState = reader.ReadTLObject<MessageSchedulingState>();
                     return true;
-                case 0x5457F918u when name.SequenceEqual(propName_is_outgoing):
+                case 0x59EDAC58u when name.SequenceEqual(propName_is_outgoing):
                     obj.IsOutgoing = reader.ReadBool();
                     return true;
-                case 0x3FBC03E1u when name.SequenceEqual(propName_can_be_edited):
+                case 0xF69F3B17u when name.SequenceEqual(propName_can_be_edited):
                     obj.CanBeEdited = reader.ReadBool();
                     return true;
-                case 0xDCA38120u when name.SequenceEqual(propName_can_be_forwarded):
+                case 0x915C2FEBu when name.SequenceEqual(propName_can_be_forwarded):
                     obj.CanBeForwarded = reader.ReadBool();
                     return true;
-                case 0x89543873u when name.SequenceEqual(propName_can_be_deleted_only_for_self):
+                case 0x2718B38Au when name.SequenceEqual(propName_can_be_deleted_only_for_self):
                     obj.CanBeDeletedOnlyForSelf = reader.ReadBool();
                     return true;
-                case 0x0FBEB0A2u when name.SequenceEqual(propName_can_be_deleted_for_all_users):
+                case 0x03CEE1B1u when name.SequenceEqual(propName_can_be_deleted_for_all_users):
                     obj.CanBeDeletedForAllUsers = reader.ReadBool();
                     return true;
-                case 0x665A173Cu when name.SequenceEqual(propName_can_get_statistics):
+                case 0x81815F75u when name.SequenceEqual(propName_can_get_statistics):
                     obj.CanGetStatistics = reader.ReadBool();
                     return true;
-                case 0x6E190C3Bu when name.SequenceEqual(propName_can_get_message_thread):
+                case 0x0CFB794Fu when name.SequenceEqual(propName_can_get_message_thread):
                     obj.CanGetMessageThread = reader.ReadBool();
                     return true;
-                case 0x790C2264u when name.SequenceEqual(propName_is_channel_post):
+                case 0x1A140C1Du when name.SequenceEqual(propName_is_channel_post):
                     obj.IsChannelPost = reader.ReadBool();
                     return true;
-                case 0xFB07B6DFu when name.SequenceEqual(propName_contains_unread_mention):
+                case 0x46AF72DBu when name.SequenceEqual(propName_contains_unread_mention):
                     obj.ContainsUnreadMention = reader.ReadBool();
                     return true;
-                case 0xD472DC59u when name.SequenceEqual(propName_date):
+                case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0x9165AFAEu when name.SequenceEqual(propName_edit_date):
+                case 0xF050FEFFu when name.SequenceEqual(propName_edit_date):
                     obj.EditDate = reader.ReadInt();
                     return true;
-                case 0xBD6DAFCBu when name.SequenceEqual(propName_forward_info):
+                case 0x178C4C19u when name.SequenceEqual(propName_forward_info):
                     obj.ForwardInfo = reader.ReadTLObject<MessageForwardInfo>();
                     return true;
-                case 0x492E3C60u when name.SequenceEqual(propName_interaction_info):
+                case 0xEA550364u when name.SequenceEqual(propName_interaction_info):
                     obj.InteractionInfo = reader.ReadTLObject<MessageInteractionInfo>();
                     return true;
-                case 0xAC6A25CEu when name.SequenceEqual(propName_reply_in_chat_id):
+                case 0x8FC1346Eu when name.SequenceEqual(propName_reply_in_chat_id):
                     obj.ReplyInChatId = reader.ReadLong();
                     return true;
-                case 0x7E9ECDF7u when name.SequenceEqual(propName_reply_to_message_id):
+                case 0x2A4A6D16u when name.SequenceEqual(propName_reply_to_message_id):
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0xBD2B425Bu when name.SequenceEqual(propName_ttl):
+                case 0x756FE8CEu when name.SequenceEqual(propName_ttl):
                     obj.Ttl = reader.ReadInt();
                     return true;
-                case 0x3E6919CEu when name.SequenceEqual(propName_ttl_expires_in):
+                case 0x43F1D644u when name.SequenceEqual(propName_ttl_expires_in):
                     obj.TtlExpiresIn = reader.ReadDouble();
                     return true;
-                case 0xF0AC6D53u when name.SequenceEqual(propName_via_bot_user_id):
+                case 0xDBDFE365u when name.SequenceEqual(propName_via_bot_user_id):
                     obj.ViaBotUserId = reader.ReadInt();
                     return true;
-                case 0xBC98AC7Fu when name.SequenceEqual(propName_author_signature):
+                case 0xD067E72Du when name.SequenceEqual(propName_author_signature):
                     obj.AuthorSignature = reader.ReadString();
                     return true;
-                case 0x3FB04A39u when name.SequenceEqual(propName_media_album_id):
+                case 0x39201B29u when name.SequenceEqual(propName_media_album_id):
                     obj.MediaAlbumId = reader.ReadInt64String();
                     return true;
-                case 0x32B3FDB2u when name.SequenceEqual(propName_restriction_reason):
+                case 0x8D8A128Eu when name.SequenceEqual(propName_restriction_reason):
                     obj.RestrictionReason = reader.ReadString();
                     return true;
-                case 0x90BEC3C2u when name.SequenceEqual(propName_content):
+                case 0x61AF7533u when name.SequenceEqual(propName_content):
                     obj.Content = reader.ReadTLObject<MessageContent>();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -2886,34 +2886,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE8772166u when name.SequenceEqual(propName_use_default_mute_for):
+                case 0xB113FB26u when name.SequenceEqual(propName_use_default_mute_for):
                     obj.UseDefaultMuteFor = reader.ReadBool();
                     return true;
-                case 0xA70507B4u when name.SequenceEqual(propName_mute_for):
+                case 0x0792872Eu when name.SequenceEqual(propName_mute_for):
                     obj.MuteFor = reader.ReadInt();
                     return true;
-                case 0xC656547Eu when name.SequenceEqual(propName_use_default_sound):
+                case 0x0903BC84u when name.SequenceEqual(propName_use_default_sound):
                     obj.UseDefaultSound = reader.ReadBool();
                     return true;
-                case 0x0E0D9594u when name.SequenceEqual(propName_sound):
+                case 0x825A6B79u when name.SequenceEqual(propName_sound):
                     obj.Sound = reader.ReadString();
                     return true;
-                case 0xA1C19BA9u when name.SequenceEqual(propName_use_default_show_preview):
+                case 0xB59FA08Du when name.SequenceEqual(propName_use_default_show_preview):
                     obj.UseDefaultShowPreview = reader.ReadBool();
                     return true;
-                case 0x33467D33u when name.SequenceEqual(propName_show_preview):
+                case 0xCF02A85Cu when name.SequenceEqual(propName_show_preview):
                     obj.ShowPreview = reader.ReadBool();
                     return true;
-                case 0xE6B6CB07u when name.SequenceEqual(propName_use_default_disable_pinned_message_notifications):
+                case 0x28A71131u when name.SequenceEqual(propName_use_default_disable_pinned_message_notifications):
                     obj.UseDefaultDisablePinnedMessageNotifications = reader.ReadBool();
                     return true;
-                case 0x1309A3A1u when name.SequenceEqual(propName_disable_pinned_message_notifications):
+                case 0x4F34D149u when name.SequenceEqual(propName_disable_pinned_message_notifications):
                     obj.DisablePinnedMessageNotifications = reader.ReadBool();
                     return true;
-                case 0xAB2F2823u when name.SequenceEqual(propName_use_default_disable_mention_notifications):
+                case 0x139F9784u when name.SequenceEqual(propName_use_default_disable_mention_notifications):
                     obj.UseDefaultDisableMentionNotifications = reader.ReadBool();
                     return true;
-                case 0x75C24BCDu when name.SequenceEqual(propName_disable_mention_notifications):
+                case 0xD6B807BFu when name.SequenceEqual(propName_disable_mention_notifications):
                     obj.DisableMentionNotifications = reader.ReadBool();
                     return true;
             }
@@ -2932,19 +2932,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA70507B4u when name.SequenceEqual(propName_mute_for):
+                case 0x0792872Eu when name.SequenceEqual(propName_mute_for):
                     obj.MuteFor = reader.ReadInt();
                     return true;
-                case 0x0E0D9594u when name.SequenceEqual(propName_sound):
+                case 0x825A6B79u when name.SequenceEqual(propName_sound):
                     obj.Sound = reader.ReadString();
                     return true;
-                case 0x33467D33u when name.SequenceEqual(propName_show_preview):
+                case 0xCF02A85Cu when name.SequenceEqual(propName_show_preview):
                     obj.ShowPreview = reader.ReadBool();
                     return true;
-                case 0x1309A3A1u when name.SequenceEqual(propName_disable_pinned_message_notifications):
+                case 0x4F34D149u when name.SequenceEqual(propName_disable_pinned_message_notifications):
                     obj.DisablePinnedMessageNotifications = reader.ReadBool();
                     return true;
-                case 0x75C24BCDu when name.SequenceEqual(propName_disable_mention_notifications):
+                case 0xD6B807BFu when name.SequenceEqual(propName_disable_mention_notifications):
                     obj.DisableMentionNotifications = reader.ReadBool();
                     return true;
             }
@@ -3068,43 +3068,43 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x0A27A37Eu when name.SequenceEqual(propName_icon_name):
+                case 0x9A8535D5u when name.SequenceEqual(propName_icon_name):
                     obj.IconName = reader.ReadString();
                     return true;
-                case 0x679CFB1Fu when name.SequenceEqual(propName_pinned_chat_ids):
+                case 0xA1B430FDu when name.SequenceEqual(propName_pinned_chat_ids):
                     obj.PinnedChatIds = reader.ReadInt53Array();
                     return true;
-                case 0x1DB7882Du when name.SequenceEqual(propName_included_chat_ids):
+                case 0xCA4B1EC0u when name.SequenceEqual(propName_included_chat_ids):
                     obj.IncludedChatIds = reader.ReadInt53Array();
                     return true;
-                case 0xF594A297u when name.SequenceEqual(propName_excluded_chat_ids):
+                case 0x751CFF0Eu when name.SequenceEqual(propName_excluded_chat_ids):
                     obj.ExcludedChatIds = reader.ReadInt53Array();
                     return true;
-                case 0xD2828A75u when name.SequenceEqual(propName_exclude_muted):
+                case 0xF747C37Bu when name.SequenceEqual(propName_exclude_muted):
                     obj.ExcludeMuted = reader.ReadBool();
                     return true;
-                case 0x4339BF6Au when name.SequenceEqual(propName_exclude_read):
+                case 0x8EA450A1u when name.SequenceEqual(propName_exclude_read):
                     obj.ExcludeRead = reader.ReadBool();
                     return true;
-                case 0x3DED06B4u when name.SequenceEqual(propName_exclude_archived):
+                case 0xC8564642u when name.SequenceEqual(propName_exclude_archived):
                     obj.ExcludeArchived = reader.ReadBool();
                     return true;
-                case 0x86CEE4E5u when name.SequenceEqual(propName_include_contacts):
+                case 0xF85F3D14u when name.SequenceEqual(propName_include_contacts):
                     obj.IncludeContacts = reader.ReadBool();
                     return true;
-                case 0x068EB669u when name.SequenceEqual(propName_include_non_contacts):
+                case 0x739DC9D7u when name.SequenceEqual(propName_include_non_contacts):
                     obj.IncludeNonContacts = reader.ReadBool();
                     return true;
-                case 0xA51E6C92u when name.SequenceEqual(propName_include_bots):
+                case 0xDDA2B7B7u when name.SequenceEqual(propName_include_bots):
                     obj.IncludeBots = reader.ReadBool();
                     return true;
-                case 0xAD9AE5A8u when name.SequenceEqual(propName_include_groups):
+                case 0xE8A8A4D6u when name.SequenceEqual(propName_include_groups):
                     obj.IncludeGroups = reader.ReadBool();
                     return true;
-                case 0x54D13F70u when name.SequenceEqual(propName_include_channels):
+                case 0xA5B6C337u when name.SequenceEqual(propName_include_channels):
                     obj.IncludeChannels = reader.ReadBool();
                     return true;
             }
@@ -3266,16 +3266,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x0CFB5881u when name.SequenceEqual(propName_list):
+                case 0x3F0F3AC4u when name.SequenceEqual(propName_list):
                     obj.List = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0x732C1097u when name.SequenceEqual(propName_order):
+                case 0xDBF25249u when name.SequenceEqual(propName_order):
                     obj.Order = reader.ReadInt64String();
                     return true;
-                case 0xC372E838u when name.SequenceEqual(propName_is_pinned):
+                case 0x51B35594u when name.SequenceEqual(propName_is_pinned):
                     obj.IsPinned = reader.ReadBool();
                     return true;
-                case 0x1BCF29D8u when name.SequenceEqual(propName_source):
+                case 0xA3A22F95u when name.SequenceEqual(propName_source):
                     obj.Source = reader.ReadTLObject<ChatSource>();
                     return true;
             }
@@ -3294,76 +3294,76 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadLong();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<ChatType>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<ChatPhotoInfo>();
                     return true;
-                case 0x7A3F08E3u when name.SequenceEqual(propName_permissions):
+                case 0xB4CFCFFFu when name.SequenceEqual(propName_permissions):
                     obj.Permissions = reader.ReadTLObject<ChatPermissions>();
                     return true;
-                case 0x5DFAC179u when name.SequenceEqual(propName_last_message):
+                case 0x0A7D5DA3u when name.SequenceEqual(propName_last_message):
                     obj.LastMessage = reader.ReadTLObject<Message>();
                     return true;
-                case 0x5ED8887Bu when name.SequenceEqual(propName_positions):
+                case 0x553ECCDFu when name.SequenceEqual(propName_positions):
                     obj.Positions = reader.ReadObjectArray<ChatPosition>();
                     return true;
-                case 0x91C52657u when name.SequenceEqual(propName_is_marked_as_unread):
+                case 0x45AD5D11u when name.SequenceEqual(propName_is_marked_as_unread):
                     obj.IsMarkedAsUnread = reader.ReadBool();
                     return true;
-                case 0x07B5CBFAu when name.SequenceEqual(propName_is_blocked):
+                case 0x22AAB78Du when name.SequenceEqual(propName_is_blocked):
                     obj.IsBlocked = reader.ReadBool();
                     return true;
-                case 0x27893424u when name.SequenceEqual(propName_has_scheduled_messages):
+                case 0x8EB66818u when name.SequenceEqual(propName_has_scheduled_messages):
                     obj.HasScheduledMessages = reader.ReadBool();
                     return true;
-                case 0x89543873u when name.SequenceEqual(propName_can_be_deleted_only_for_self):
+                case 0x2718B38Au when name.SequenceEqual(propName_can_be_deleted_only_for_self):
                     obj.CanBeDeletedOnlyForSelf = reader.ReadBool();
                     return true;
-                case 0x0FBEB0A2u when name.SequenceEqual(propName_can_be_deleted_for_all_users):
+                case 0x03CEE1B1u when name.SequenceEqual(propName_can_be_deleted_for_all_users):
                     obj.CanBeDeletedForAllUsers = reader.ReadBool();
                     return true;
-                case 0x60152207u when name.SequenceEqual(propName_can_be_reported):
+                case 0xBDED4E58u when name.SequenceEqual(propName_can_be_reported):
                     obj.CanBeReported = reader.ReadBool();
                     return true;
-                case 0x628B4D95u when name.SequenceEqual(propName_default_disable_notification):
+                case 0x6E87F504u when name.SequenceEqual(propName_default_disable_notification):
                     obj.DefaultDisableNotification = reader.ReadBool();
                     return true;
-                case 0x5ED9F1BEu when name.SequenceEqual(propName_unread_count):
+                case 0x69D09AB3u when name.SequenceEqual(propName_unread_count):
                     obj.UnreadCount = reader.ReadInt();
                     return true;
-                case 0xD1B518C3u when name.SequenceEqual(propName_last_read_inbox_message_id):
+                case 0xE4D52BA2u when name.SequenceEqual(propName_last_read_inbox_message_id):
                     obj.LastReadInboxMessageId = reader.ReadLong();
                     return true;
-                case 0x3E6F9B32u when name.SequenceEqual(propName_last_read_outbox_message_id):
+                case 0x3E7162A6u when name.SequenceEqual(propName_last_read_outbox_message_id):
                     obj.LastReadOutboxMessageId = reader.ReadLong();
                     return true;
-                case 0x610DAAAFu when name.SequenceEqual(propName_unread_mention_count):
+                case 0x82BAA2D0u when name.SequenceEqual(propName_unread_mention_count):
                     obj.UnreadMentionCount = reader.ReadInt();
                     return true;
-                case 0x27FB0906u when name.SequenceEqual(propName_notification_settings):
+                case 0xCECE9247u when name.SequenceEqual(propName_notification_settings):
                     obj.NotificationSettings = reader.ReadTLObject<ChatNotificationSettings>();
                     return true;
-                case 0x753C5495u when name.SequenceEqual(propName_action_bar):
+                case 0x29C31F48u when name.SequenceEqual(propName_action_bar):
                     obj.ActionBar = reader.ReadTLObject<ChatActionBar>();
                     return true;
-                case 0x2E3B60D5u when name.SequenceEqual(propName_pinned_message_id):
+                case 0x01C543B1u when name.SequenceEqual(propName_pinned_message_id):
                     obj.PinnedMessageId = reader.ReadLong();
                     return true;
-                case 0xD8F5BB18u when name.SequenceEqual(propName_reply_markup_message_id):
+                case 0x84A073DBu when name.SequenceEqual(propName_reply_markup_message_id):
                     obj.ReplyMarkupMessageId = reader.ReadLong();
                     return true;
-                case 0xAEEC9220u when name.SequenceEqual(propName_draft_message):
+                case 0x019DCCF8u when name.SequenceEqual(propName_draft_message):
                     obj.DraftMessage = reader.ReadTLObject<DraftMessage>();
                     return true;
-                case 0xB6EC3A9Bu when name.SequenceEqual(propName_client_data):
+                case 0x26552C56u when name.SequenceEqual(propName_client_data):
                     obj.ClientData = reader.ReadString();
                     return true;
             }
@@ -3465,28 +3465,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xF6DE892Fu when name.SequenceEqual(propName_accessible_for):
+                case 0xB6B8835Cu when name.SequenceEqual(propName_accessible_for):
                     obj.AccessibleFor = reader.ReadInt();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<ChatType>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<ChatPhotoInfo>();
                     return true;
-                case 0x512E01CBu when name.SequenceEqual(propName_member_count):
+                case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadInt();
                     return true;
-                case 0x36F5F4E2u when name.SequenceEqual(propName_member_user_ids):
+                case 0xAD820684u when name.SequenceEqual(propName_member_user_ids):
                     obj.MemberUserIds = reader.ReadInt32Array();
                     return true;
-                case 0xA0F3B367u when name.SequenceEqual(propName_is_public):
+                case 0x3EEE47F1u when name.SequenceEqual(propName_is_public):
                     obj.IsPublic = reader.ReadBool();
                     return true;
             }
@@ -3814,16 +3814,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2A37B398u when name.SequenceEqual(propName_rows):
+                case 0xAF9B094Du when name.SequenceEqual(propName_rows):
                     obj.Rows = reader.ReadNestedObjectArray<KeyboardButton>();
                     return true;
-                case 0x5C6CCA1Fu when name.SequenceEqual(propName_resize_keyboard):
+                case 0x4FB2ACA5u when name.SequenceEqual(propName_resize_keyboard):
                     obj.ResizeKeyboard = reader.ReadBool();
                     return true;
-                case 0xF3FB98A9u when name.SequenceEqual(propName_one_time):
+                case 0x1D596335u when name.SequenceEqual(propName_one_time):
                     obj.OneTime = reader.ReadBool();
                     return true;
-                case 0x61C3FF3Eu when name.SequenceEqual(propName_is_personal):
+                case 0xF5BCD3ECu when name.SequenceEqual(propName_is_personal):
                     obj.IsPersonal = reader.ReadBool();
                     return true;
             }
@@ -3881,16 +3881,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0xE79397F1u when name.SequenceEqual(propName_domain):
+                case 0x4393D449u when name.SequenceEqual(propName_domain):
                     obj.Domain = reader.ReadString();
                     return true;
-                case 0x0BC9D8A8u when name.SequenceEqual(propName_bot_user_id):
+                case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x16AE92CDu when name.SequenceEqual(propName_request_write_access):
+                case 0x738BEF92u when name.SequenceEqual(propName_request_write_access):
                     obj.RequestWriteAccess = reader.ReadBool();
                     return true;
             }
@@ -3909,19 +3909,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0xBCE78E14u when name.SequenceEqual(propName_reply_info):
+                case 0xAFBE332Cu when name.SequenceEqual(propName_reply_info):
                     obj.ReplyInfo = reader.ReadTLObject<MessageReplyInfo>();
                     return true;
-                case 0xC00385B5u when name.SequenceEqual(propName_messages):
+                case 0xE3FEB717u when name.SequenceEqual(propName_messages):
                     obj.Messages = reader.ReadObjectArray<Message>();
                     return true;
-                case 0xAEEC9220u when name.SequenceEqual(propName_draft_message):
+                case 0x019DCCF8u when name.SequenceEqual(propName_draft_message):
                     obj.DraftMessage = reader.ReadTLObject<DraftMessage>();
                     return true;
             }
@@ -4365,22 +4365,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xBDE64E3Eu when name.SequenceEqual(propName_text):
+                case 0x2F5319E1u when name.SequenceEqual(propName_text):
                     obj.Text = reader.ReadTLObject<RichText>();
                     return true;
-                case 0x4B0AF6AFu when name.SequenceEqual(propName_is_header):
+                case 0x7A1E5FF7u when name.SequenceEqual(propName_is_header):
                     obj.IsHeader = reader.ReadBool();
                     return true;
-                case 0xE145F275u when name.SequenceEqual(propName_colspan):
+                case 0xDF75BCE5u when name.SequenceEqual(propName_colspan):
                     obj.Colspan = reader.ReadInt();
                     return true;
-                case 0x63DF422Fu when name.SequenceEqual(propName_rowspan):
+                case 0x295BB03Du when name.SequenceEqual(propName_rowspan):
                     obj.Rowspan = reader.ReadInt();
                     return true;
-                case 0x602C63DEu when name.SequenceEqual(propName_align):
+                case 0x2C01C869u when name.SequenceEqual(propName_align):
                     obj.Align = reader.ReadTLObject<PageBlockHorizontalAlignment>();
                     return true;
-                case 0x5A9DCFE2u when name.SequenceEqual(propName_valign):
+                case 0x1CDC283Au when name.SequenceEqual(propName_valign):
                     obj.Valign = reader.ReadTLObject<PageBlockVerticalAlignment>();
                     return true;
             }
@@ -4399,22 +4399,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x4F7ABA56u when name.SequenceEqual(propName_author):
+                case 0x4F96B068u when name.SequenceEqual(propName_author):
                     obj.Author = reader.ReadString();
                     return true;
-                case 0x29D8F469u when name.SequenceEqual(propName_publish_date):
+                case 0xBD69DA2Du when name.SequenceEqual(propName_publish_date):
                     obj.PublishDate = reader.ReadInt();
                     return true;
             }
@@ -4757,16 +4757,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xCEF90B6Cu when name.SequenceEqual(propName_video):
+                case 0x7BD287F9u when name.SequenceEqual(propName_video):
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
-                case 0xD65A0D9Fu when name.SequenceEqual(propName_need_autoplay):
+                case 0x98F0D7D4u when name.SequenceEqual(propName_need_autoplay):
                     obj.NeedAutoplay = reader.ReadBool();
                     return true;
-                case 0x20526695u when name.SequenceEqual(propName_is_looped):
+                case 0x972C34CAu when name.SequenceEqual(propName_is_looped):
                     obj.IsLooped = reader.ReadBool();
                     return true;
             }
@@ -4824,28 +4824,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0xD775A7D0u when name.SequenceEqual(propName_html):
+                case 0x66D882B7u when name.SequenceEqual(propName_html):
                     obj.Html = reader.ReadString();
                     return true;
-                case 0x96A21CF7u when name.SequenceEqual(propName_poster_photo):
+                case 0x5D1A2516u when name.SequenceEqual(propName_poster_photo):
                     obj.PosterPhoto = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
-                case 0x329523C4u when name.SequenceEqual(propName_is_full_width):
+                case 0x887E9EECu when name.SequenceEqual(propName_is_full_width):
                     obj.IsFullWidth = reader.ReadBool();
                     return true;
-                case 0x5792018Au when name.SequenceEqual(propName_allow_scrolling):
+                case 0xF4E9E37Fu when name.SequenceEqual(propName_allow_scrolling):
                     obj.AllowScrolling = reader.ReadBool();
                     return true;
             }
@@ -4864,22 +4864,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x4F7ABA56u when name.SequenceEqual(propName_author):
+                case 0x4F96B068u when name.SequenceEqual(propName_author):
                     obj.Author = reader.ReadString();
                     return true;
-                case 0x58762365u when name.SequenceEqual(propName_author_photo):
+                case 0x176CBA95u when name.SequenceEqual(propName_author_photo):
                     obj.AuthorPhoto = reader.ReadTLObject<Photo>();
                     return true;
-                case 0xD472DC59u when name.SequenceEqual(propName_date):
+                case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0x070646B5u when name.SequenceEqual(propName_page_blocks):
+                case 0xAC68927Bu when name.SequenceEqual(propName_page_blocks):
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -4969,16 +4969,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<RichText>();
                     return true;
-                case 0xD94ACBB2u when name.SequenceEqual(propName_cells):
+                case 0x4A380896u when name.SequenceEqual(propName_cells):
                     obj.Cells = reader.ReadNestedObjectArray<PageBlockTableCell>();
                     return true;
-                case 0x195A315Du when name.SequenceEqual(propName_is_bordered):
+                case 0x01907563u when name.SequenceEqual(propName_is_bordered):
                     obj.IsBordered = reader.ReadBool();
                     return true;
-                case 0x3A13C949u when name.SequenceEqual(propName_is_striped):
+                case 0x0F1731C7u when name.SequenceEqual(propName_is_striped):
                     obj.IsStriped = reader.ReadBool();
                     return true;
             }
@@ -5046,19 +5046,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0xDF92E232u when name.SequenceEqual(propName_zoom):
+                case 0x472820DAu when name.SequenceEqual(propName_zoom):
                     obj.Zoom = reader.ReadInt();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<PageBlockCaption>();
                     return true;
             }
@@ -5077,19 +5077,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x070646B5u when name.SequenceEqual(propName_page_blocks):
+                case 0xAC68927Bu when name.SequenceEqual(propName_page_blocks):
                     obj.PageBlocks = reader.ReadObjectArray<PageBlock>();
                     return true;
-                case 0x65E00794u when name.SequenceEqual(propName_view_count):
+                case 0x43352C62u when name.SequenceEqual(propName_view_count):
                     obj.ViewCount = reader.ReadInt();
                     return true;
-                case 0x4671AE97u when name.SequenceEqual(propName_version):
+                case 0xF60C5F97u when name.SequenceEqual(propName_version):
                     obj.Version = reader.ReadInt();
                     return true;
-                case 0x8E30FD54u when name.SequenceEqual(propName_is_rtl):
+                case 0xD138C461u when name.SequenceEqual(propName_is_rtl):
                     obj.IsRtl = reader.ReadBool();
                     return true;
-                case 0xD9852327u when name.SequenceEqual(propName_is_full):
+                case 0xDA8335F6u when name.SequenceEqual(propName_is_full):
                     obj.IsFull = reader.ReadBool();
                     return true;
             }
@@ -5108,67 +5108,67 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x9688A92Fu when name.SequenceEqual(propName_display_url):
+                case 0xBC0D5990u when name.SequenceEqual(propName_display_url):
                     obj.DisplayUrl = reader.ReadString();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadString();
                     return true;
-                case 0x0AC9CF08u when name.SequenceEqual(propName_site_name):
+                case 0x54E6D100u when name.SequenceEqual(propName_site_name):
                     obj.SiteName = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x61F994F4u when name.SequenceEqual(propName_embed_url):
+                case 0x6EBB27C8u when name.SequenceEqual(propName_embed_url):
                     obj.EmbedUrl = reader.ReadString();
                     return true;
-                case 0xCF9F4FFBu when name.SequenceEqual(propName_embed_type):
+                case 0xAC1116E8u when name.SequenceEqual(propName_embed_type):
                     obj.EmbedType = reader.ReadString();
                     return true;
-                case 0x32AE2FF5u when name.SequenceEqual(propName_embed_width):
+                case 0xB36BC890u when name.SequenceEqual(propName_embed_width):
                     obj.EmbedWidth = reader.ReadInt();
                     return true;
-                case 0xBD69BC0Cu when name.SequenceEqual(propName_embed_height):
+                case 0xBFAA2365u when name.SequenceEqual(propName_embed_height):
                     obj.EmbedHeight = reader.ReadInt();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x4F7ABA56u when name.SequenceEqual(propName_author):
+                case 0x4F96B068u when name.SequenceEqual(propName_author):
                     obj.Author = reader.ReadString();
                     return true;
-                case 0xE145EE5Du when name.SequenceEqual(propName_animation):
+                case 0xAEE681FEu when name.SequenceEqual(propName_animation):
                     obj.Animation = reader.ReadTLObject<Animation>();
                     return true;
-                case 0xE0613999u when name.SequenceEqual(propName_audio):
+                case 0xEB1AA922u when name.SequenceEqual(propName_audio):
                     obj.Audio = reader.ReadTLObject<Audio>();
                     return true;
-                case 0x96234BD4u when name.SequenceEqual(propName_document):
+                case 0x9989342Du when name.SequenceEqual(propName_document):
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0xC742341Cu when name.SequenceEqual(propName_sticker):
+                case 0x57E22FC6u when name.SequenceEqual(propName_sticker):
                     obj.Sticker = reader.ReadTLObject<Sticker>();
                     return true;
-                case 0xCEF90B6Cu when name.SequenceEqual(propName_video):
+                case 0x7BD287F9u when name.SequenceEqual(propName_video):
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0x5D4EB201u when name.SequenceEqual(propName_video_note):
+                case 0x0F7C4824u when name.SequenceEqual(propName_video_note):
                     obj.VideoNote = reader.ReadTLObject<VideoNote>();
                     return true;
-                case 0xE9FF84FEu when name.SequenceEqual(propName_voice_note):
+                case 0xD8548F7Bu when name.SequenceEqual(propName_voice_note):
                     obj.VoiceNote = reader.ReadTLObject<VoiceNote>();
                     return true;
-                case 0x2D1FF8F9u when name.SequenceEqual(propName_instant_view_version):
+                case 0x9CC6D1CAu when name.SequenceEqual(propName_instant_view_version):
                     obj.InstantViewVersion = reader.ReadInt();
                     return true;
             }
@@ -5187,19 +5187,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x76AB1D07u when name.SequenceEqual(propName_country_code):
+                case 0x105AB80Eu when name.SequenceEqual(propName_country_code):
                     obj.CountryCode = reader.ReadString();
                     return true;
-                case 0x8D39BDE6u when name.SequenceEqual(propName_name):
+                case 0x911200E7u when name.SequenceEqual(propName_name):
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x5341D447u when name.SequenceEqual(propName_english_name):
+                case 0x0D4DD4D2u when name.SequenceEqual(propName_english_name):
                     obj.EnglishName = reader.ReadString();
                     return true;
-                case 0xA9DCF376u when name.SequenceEqual(propName_is_hidden):
+                case 0xA4467922u when name.SequenceEqual(propName_is_hidden):
                     obj.IsHidden = reader.ReadBool();
                     return true;
-                case 0x74AD6C0Au when name.SequenceEqual(propName_calling_codes):
+                case 0xE74DF1BDu when name.SequenceEqual(propName_calling_codes):
                     obj.CallingCodes = reader.ReadStringArray();
                     return true;
             }
@@ -5306,22 +5306,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x76AB1D07u when name.SequenceEqual(propName_country_code):
+                case 0x105AB80Eu when name.SequenceEqual(propName_country_code):
                     obj.CountryCode = reader.ReadString();
                     return true;
-                case 0x783132F6u when name.SequenceEqual(propName_state):
+                case 0x66DB68DFu when name.SequenceEqual(propName_state):
                     obj.State = reader.ReadString();
                     return true;
-                case 0x0DC48142u when name.SequenceEqual(propName_city):
+                case 0x150E647Eu when name.SequenceEqual(propName_city):
                     obj.City = reader.ReadString();
                     return true;
-                case 0x053AF158u when name.SequenceEqual(propName_street_line1):
+                case 0x7FE3AD14u when name.SequenceEqual(propName_street_line1):
                     obj.StreetLine1 = reader.ReadString();
                     return true;
-                case 0x083AF611u when name.SequenceEqual(propName_street_line2):
+                case 0x6CB35EE0u when name.SequenceEqual(propName_street_line2):
                     obj.StreetLine2 = reader.ReadString();
                     return true;
-                case 0x2A4A9A2Eu when name.SequenceEqual(propName_postal_code):
+                case 0x8973B954u when name.SequenceEqual(propName_postal_code):
                     obj.PostalCode = reader.ReadString();
                     return true;
             }
@@ -5362,34 +5362,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xDDF28636u when name.SequenceEqual(propName_currency):
+                case 0xBDC5D1BFu when name.SequenceEqual(propName_currency):
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0xB9AC16E3u when name.SequenceEqual(propName_price_parts):
+                case 0x93CD226Bu when name.SequenceEqual(propName_price_parts):
                     obj.PriceParts = reader.ReadObjectArray<LabeledPricePart>();
                     return true;
-                case 0x98094DE6u when name.SequenceEqual(propName_is_test):
+                case 0xBE19BE1Cu when name.SequenceEqual(propName_is_test):
                     obj.IsTest = reader.ReadBool();
                     return true;
-                case 0x44733A95u when name.SequenceEqual(propName_need_name):
+                case 0xCB219FF3u when name.SequenceEqual(propName_need_name):
                     obj.NeedName = reader.ReadBool();
                     return true;
-                case 0x801052FAu when name.SequenceEqual(propName_need_phone_number):
+                case 0x76C5F093u when name.SequenceEqual(propName_need_phone_number):
                     obj.NeedPhoneNumber = reader.ReadBool();
                     return true;
-                case 0xAED95C75u when name.SequenceEqual(propName_need_email_address):
+                case 0x285C406Cu when name.SequenceEqual(propName_need_email_address):
                     obj.NeedEmailAddress = reader.ReadBool();
                     return true;
-                case 0xEAB3563Fu when name.SequenceEqual(propName_need_shipping_address):
+                case 0xEDF3D3EDu when name.SequenceEqual(propName_need_shipping_address):
                     obj.NeedShippingAddress = reader.ReadBool();
                     return true;
-                case 0xDDCD0B74u when name.SequenceEqual(propName_send_phone_number_to_provider):
+                case 0xDD76C257u when name.SequenceEqual(propName_send_phone_number_to_provider):
                     obj.SendPhoneNumberToProvider = reader.ReadBool();
                     return true;
-                case 0x9369A173u when name.SequenceEqual(propName_send_email_address_to_provider):
+                case 0x94E5862Eu when name.SequenceEqual(propName_send_email_address_to_provider):
                     obj.SendEmailAddressToProvider = reader.ReadBool();
                     return true;
-                case 0xA44CE8A1u when name.SequenceEqual(propName_is_flexible):
+                case 0xF5D46D64u when name.SequenceEqual(propName_is_flexible):
                     obj.IsFlexible = reader.ReadBool();
                     return true;
             }
@@ -5408,16 +5408,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x8D39BDE6u when name.SequenceEqual(propName_name):
+                case 0x911200E7u when name.SequenceEqual(propName_name):
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x56E140E1u when name.SequenceEqual(propName_phone_number):
+                case 0x9521F01Fu when name.SequenceEqual(propName_phone_number):
                     obj.PhoneNumber = reader.ReadString();
                     return true;
-                case 0x01297EF8u when name.SequenceEqual(propName_email_address):
+                case 0xE70A50C4u when name.SequenceEqual(propName_email_address):
                     obj.EmailAddress = reader.ReadString();
                     return true;
-                case 0x84FB8F74u when name.SequenceEqual(propName_shipping_address):
+                case 0xF780AD0Au when name.SequenceEqual(propName_shipping_address):
                     obj.ShippingAddress = reader.ReadTLObject<Address>();
                     return true;
             }
@@ -5558,16 +5558,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x4EB2A084u when name.SequenceEqual(propName_publishable_key):
+                case 0xCA46D3ABu when name.SequenceEqual(propName_publishable_key):
                     obj.PublishableKey = reader.ReadString();
                     return true;
-                case 0x9D20D204u when name.SequenceEqual(propName_need_country):
+                case 0xABBECC17u when name.SequenceEqual(propName_need_country):
                     obj.NeedCountry = reader.ReadBool();
                     return true;
-                case 0x7EF51623u when name.SequenceEqual(propName_need_postal_code):
+                case 0x5DDB2FB4u when name.SequenceEqual(propName_need_postal_code):
                     obj.NeedPostalCode = reader.ReadBool();
                     return true;
-                case 0x99517F34u when name.SequenceEqual(propName_need_cardholder_name):
+                case 0xED0AD5D7u when name.SequenceEqual(propName_need_cardholder_name):
                     obj.NeedCardholderName = reader.ReadBool();
                     return true;
             }
@@ -5586,25 +5586,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5A906110u when name.SequenceEqual(propName_invoice):
+                case 0xA3756FE9u when name.SequenceEqual(propName_invoice):
                     obj.Invoice = reader.ReadTLObject<Invoice>();
                     return true;
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x9FE8BEEAu when name.SequenceEqual(propName_payments_provider):
+                case 0xF3222933u when name.SequenceEqual(propName_payments_provider):
                     obj.PaymentsProvider = reader.ReadTLObject<PaymentsProviderStripe>();
                     return true;
-                case 0x490412B8u when name.SequenceEqual(propName_saved_order_info):
+                case 0x44DEDA1Fu when name.SequenceEqual(propName_saved_order_info):
                     obj.SavedOrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0xE5C2A505u when name.SequenceEqual(propName_saved_credentials):
+                case 0xD9EFE59Du when name.SequenceEqual(propName_saved_credentials):
                     obj.SavedCredentials = reader.ReadTLObject<SavedCredentials>();
                     return true;
-                case 0xCEDB8A0Au when name.SequenceEqual(propName_can_save_credentials):
+                case 0xEFB82DFCu when name.SequenceEqual(propName_can_save_credentials):
                     obj.CanSaveCredentials = reader.ReadBool();
                     return true;
-                case 0xEA250D2Bu when name.SequenceEqual(propName_need_password):
+                case 0x17321E72u when name.SequenceEqual(propName_need_password):
                     obj.NeedPassword = reader.ReadBool();
                     return true;
             }
@@ -5667,22 +5667,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xD472DC59u when name.SequenceEqual(propName_date):
+                case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0x7DEAE1DCu when name.SequenceEqual(propName_payments_provider_user_id):
+                case 0xDC608EF8u when name.SequenceEqual(propName_payments_provider_user_id):
                     obj.PaymentsProviderUserId = reader.ReadInt();
                     return true;
-                case 0x5A906110u when name.SequenceEqual(propName_invoice):
+                case 0xA3756FE9u when name.SequenceEqual(propName_invoice):
                     obj.Invoice = reader.ReadTLObject<Invoice>();
                     return true;
-                case 0xF60D2304u when name.SequenceEqual(propName_order_info):
+                case 0xE97ED45Eu when name.SequenceEqual(propName_order_info):
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0xCC166DBDu when name.SequenceEqual(propName_shipping_option):
+                case 0x9748A727u when name.SequenceEqual(propName_shipping_option):
                     obj.ShippingOption = reader.ReadTLObject<ShippingOption>();
                     return true;
-                case 0x141E0EFCu when name.SequenceEqual(propName_credentials_title):
+                case 0x042155FBu when name.SequenceEqual(propName_credentials_title):
                     obj.CredentialsTitle = reader.ReadString();
                     return true;
             }
@@ -5841,34 +5841,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xFBBF2AC1u when name.SequenceEqual(propName_first_name):
+                case 0x9042082Fu when name.SequenceEqual(propName_first_name):
                     obj.FirstName = reader.ReadString();
                     return true;
-                case 0x85DEE4E6u when name.SequenceEqual(propName_middle_name):
+                case 0x040E0867u when name.SequenceEqual(propName_middle_name):
                     obj.MiddleName = reader.ReadString();
                     return true;
-                case 0x68F1D8F9u when name.SequenceEqual(propName_last_name):
+                case 0x2E1C9126u when name.SequenceEqual(propName_last_name):
                     obj.LastName = reader.ReadString();
                     return true;
-                case 0x7CED0C97u when name.SequenceEqual(propName_native_first_name):
+                case 0xABA12F30u when name.SequenceEqual(propName_native_first_name):
                     obj.NativeFirstName = reader.ReadString();
                     return true;
-                case 0x94B110A4u when name.SequenceEqual(propName_native_middle_name):
+                case 0x4A78100Bu when name.SequenceEqual(propName_native_middle_name):
                     obj.NativeMiddleName = reader.ReadString();
                     return true;
-                case 0xEF68AD53u when name.SequenceEqual(propName_native_last_name):
+                case 0x0F25138Du when name.SequenceEqual(propName_native_last_name):
                     obj.NativeLastName = reader.ReadString();
                     return true;
-                case 0xFC8BF32Au when name.SequenceEqual(propName_birthdate):
+                case 0x4BA56318u when name.SequenceEqual(propName_birthdate):
                     obj.Birthdate = reader.ReadTLObject<Date>();
                     return true;
-                case 0x5E9C9580u when name.SequenceEqual(propName_gender):
+                case 0x1554DEDCu when name.SequenceEqual(propName_gender):
                     obj.Gender = reader.ReadString();
                     return true;
-                case 0x76AB1D07u when name.SequenceEqual(propName_country_code):
+                case 0x105AB80Eu when name.SequenceEqual(propName_country_code):
                     obj.CountryCode = reader.ReadString();
                     return true;
-                case 0x52A65E52u when name.SequenceEqual(propName_residence_country_code):
+                case 0x37379358u when name.SequenceEqual(propName_residence_country_code):
                     obj.ResidenceCountryCode = reader.ReadString();
                     return true;
             }
@@ -5887,22 +5887,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x1BD670A0u when name.SequenceEqual(propName_number):
+                case 0xA6D3B327u when name.SequenceEqual(propName_number):
                     obj.Number = reader.ReadString();
                     return true;
-                case 0xFDE99647u when name.SequenceEqual(propName_expiry_date):
+                case 0x223204A5u when name.SequenceEqual(propName_expiry_date):
                     obj.ExpiryDate = reader.ReadTLObject<Date>();
                     return true;
-                case 0x9AEC601Eu when name.SequenceEqual(propName_front_side):
+                case 0xFACC551Cu when name.SequenceEqual(propName_front_side):
                     obj.FrontSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xD0E8C8DDu when name.SequenceEqual(propName_reverse_side):
+                case 0xB7B540A5u when name.SequenceEqual(propName_reverse_side):
                     obj.ReverseSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xB214048Du when name.SequenceEqual(propName_selfie):
+                case 0x80AFA9F9u when name.SequenceEqual(propName_selfie):
                     obj.Selfie = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xCBD2D62Cu when name.SequenceEqual(propName_translation):
+                case 0xACEF242Du when name.SequenceEqual(propName_translation):
                     obj.Translation = reader.ReadObjectArray<DatedFile>();
                     return true;
             }
@@ -5921,22 +5921,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x1BD670A0u when name.SequenceEqual(propName_number):
+                case 0xA6D3B327u when name.SequenceEqual(propName_number):
                     obj.Number = reader.ReadString();
                     return true;
-                case 0xFDE99647u when name.SequenceEqual(propName_expiry_date):
+                case 0x223204A5u when name.SequenceEqual(propName_expiry_date):
                     obj.ExpiryDate = reader.ReadTLObject<Date>();
                     return true;
-                case 0x9AEC601Eu when name.SequenceEqual(propName_front_side):
+                case 0xFACC551Cu when name.SequenceEqual(propName_front_side):
                     obj.FrontSide = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xD0E8C8DDu when name.SequenceEqual(propName_reverse_side):
+                case 0xB7B540A5u when name.SequenceEqual(propName_reverse_side):
                     obj.ReverseSide = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xB214048Du when name.SequenceEqual(propName_selfie):
+                case 0x80AFA9F9u when name.SequenceEqual(propName_selfie):
                     obj.Selfie = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xCBD2D62Cu when name.SequenceEqual(propName_translation):
+                case 0xACEF242Du when name.SequenceEqual(propName_translation):
                     obj.Translation = reader.ReadObjectArray<InputFile>();
                     return true;
             }
@@ -6578,16 +6578,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
-                case 0x825BA692u when name.SequenceEqual(propName_is_selfie_required):
+                case 0xBF623A90u when name.SequenceEqual(propName_is_selfie_required):
                     obj.IsSelfieRequired = reader.ReadBool();
                     return true;
-                case 0xB2C03983u when name.SequenceEqual(propName_is_translation_required):
+                case 0x4E7F837Eu when name.SequenceEqual(propName_is_translation_required):
                     obj.IsTranslationRequired = reader.ReadBool();
                     return true;
-                case 0x599F99EBu when name.SequenceEqual(propName_is_native_name_required):
+                case 0x5C8320B3u when name.SequenceEqual(propName_is_native_name_required):
                     obj.IsNativeNameRequired = reader.ReadBool();
                     return true;
             }
@@ -6699,31 +6699,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<PassportElementType>();
                     return true;
-                case 0xD872E2A5u when name.SequenceEqual(propName_data):
+                case 0xAED87DD1u when name.SequenceEqual(propName_data):
                     obj.Data = reader.ReadBase64String();
                     return true;
-                case 0x9AEC601Eu when name.SequenceEqual(propName_front_side):
+                case 0xFACC551Cu when name.SequenceEqual(propName_front_side):
                     obj.FrontSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xD0E8C8DDu when name.SequenceEqual(propName_reverse_side):
+                case 0xB7B540A5u when name.SequenceEqual(propName_reverse_side):
                     obj.ReverseSide = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xB214048Du when name.SequenceEqual(propName_selfie):
+                case 0x80AFA9F9u when name.SequenceEqual(propName_selfie):
                     obj.Selfie = reader.ReadTLObject<DatedFile>();
                     return true;
-                case 0xCBD2D62Cu when name.SequenceEqual(propName_translation):
+                case 0xACEF242Du when name.SequenceEqual(propName_translation):
                     obj.Translation = reader.ReadObjectArray<DatedFile>();
                     return true;
-                case 0x3EE74090u when name.SequenceEqual(propName_files):
+                case 0x91BCD050u when name.SequenceEqual(propName_files):
                     obj.Files = reader.ReadObjectArray<DatedFile>();
                     return true;
-                case 0x425ED3CAu when name.SequenceEqual(propName_value):
+                case 0xE1E00363u when name.SequenceEqual(propName_value):
                     obj.Value = reader.ReadString();
                     return true;
-                case 0xCEC577D1u when name.SequenceEqual(propName_hash):
+                case 0x21613D4Du when name.SequenceEqual(propName_hash):
                     obj.Hash = reader.ReadString();
                     return true;
             }
@@ -7220,19 +7220,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x2ABE28EDu when name.SequenceEqual(propName_initial_state_sticker):
+                case 0x1CCBD02Au when name.SequenceEqual(propName_initial_state_sticker):
                     obj.InitialStateSticker = reader.ReadTLObject<Sticker>();
                     return true;
-                case 0xE1722FE9u when name.SequenceEqual(propName_final_state_sticker):
+                case 0x20A84525u when name.SequenceEqual(propName_final_state_sticker):
                     obj.FinalStateSticker = reader.ReadTLObject<Sticker>();
                     return true;
-                case 0x4A90EF3Du when name.SequenceEqual(propName_emoji):
+                case 0xD446748Eu when name.SequenceEqual(propName_emoji):
                     obj.Emoji = reader.ReadString();
                     return true;
-                case 0x425ED3CAu when name.SequenceEqual(propName_value):
+                case 0xE1E00363u when name.SequenceEqual(propName_value):
                     obj.Value = reader.ReadInt();
                     return true;
-                case 0x22894231u when name.SequenceEqual(propName_success_animation_frame_number):
+                case 0x7320656Du when name.SequenceEqual(propName_success_animation_frame_number):
                     obj.SuccessAnimationFrameNumber = reader.ReadInt();
                     return true;
             }
@@ -7285,31 +7285,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0xDDF28636u when name.SequenceEqual(propName_currency):
+                case 0xBDC5D1BFu when name.SequenceEqual(propName_currency):
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0x6AC2139Au when name.SequenceEqual(propName_total_amount):
+                case 0xC58746ACu when name.SequenceEqual(propName_total_amount):
                     obj.TotalAmount = reader.ReadLong();
                     return true;
-                case 0x9E1A41AFu when name.SequenceEqual(propName_start_parameter):
+                case 0x6754DA83u when name.SequenceEqual(propName_start_parameter):
                     obj.StartParameter = reader.ReadString();
                     return true;
-                case 0x98094DE6u when name.SequenceEqual(propName_is_test):
+                case 0xBE19BE1Cu when name.SequenceEqual(propName_is_test):
                     obj.IsTest = reader.ReadBool();
                     return true;
-                case 0xEAB3563Fu when name.SequenceEqual(propName_need_shipping_address):
+                case 0xEDF3D3EDu when name.SequenceEqual(propName_need_shipping_address):
                     obj.NeedShippingAddress = reader.ReadBool();
                     return true;
-                case 0x539B9A89u when name.SequenceEqual(propName_receipt_message_id):
+                case 0xBDE16C7Fu when name.SequenceEqual(propName_receipt_message_id):
                     obj.ReceiptMessageId = reader.ReadLong();
                     return true;
             }
@@ -7627,28 +7627,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x33FA1E1Cu when name.SequenceEqual(propName_invoice_message_id):
+                case 0x90186B6Du when name.SequenceEqual(propName_invoice_message_id):
                     obj.InvoiceMessageId = reader.ReadLong();
                     return true;
-                case 0xDDF28636u when name.SequenceEqual(propName_currency):
+                case 0xBDC5D1BFu when name.SequenceEqual(propName_currency):
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0x6AC2139Au when name.SequenceEqual(propName_total_amount):
+                case 0xC58746ACu when name.SequenceEqual(propName_total_amount):
                     obj.TotalAmount = reader.ReadLong();
                     return true;
-                case 0x0EEA8A7Du when name.SequenceEqual(propName_invoice_payload):
+                case 0xF2C30B29u when name.SequenceEqual(propName_invoice_payload):
                     obj.InvoicePayload = reader.ReadBase64String();
                     return true;
-                case 0x20399A5Bu when name.SequenceEqual(propName_shipping_option_id):
+                case 0x93477416u when name.SequenceEqual(propName_shipping_option_id):
                     obj.ShippingOptionId = reader.ReadString();
                     return true;
-                case 0xF60D2304u when name.SequenceEqual(propName_order_info):
+                case 0xE97ED45Eu when name.SequenceEqual(propName_order_info):
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0xBA6AD16Cu when name.SequenceEqual(propName_telegram_payment_charge_id):
+                case 0xB03801F4u when name.SequenceEqual(propName_telegram_payment_charge_id):
                     obj.TelegramPaymentChargeId = reader.ReadString();
                     return true;
-                case 0x68840ED6u when name.SequenceEqual(propName_provider_payment_charge_id):
+                case 0x78E88554u when name.SequenceEqual(propName_provider_payment_charge_id):
                     obj.ProviderPaymentChargeId = reader.ReadString();
                     return true;
             }
@@ -8018,25 +8018,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE145EE5Du when name.SequenceEqual(propName_animation):
+                case 0xAEE681FEu when name.SequenceEqual(propName_animation):
                     obj.Animation = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x1764539Du when name.SequenceEqual(propName_added_sticker_file_ids):
+                case 0x7797097Cu when name.SequenceEqual(propName_added_sticker_file_ids):
                     obj.AddedStickerFileIds = reader.ReadInt32Array();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8055,22 +8055,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE0613999u when name.SequenceEqual(propName_audio):
+                case 0xEB1AA922u when name.SequenceEqual(propName_audio):
                     obj.Audio = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xF101F0C3u when name.SequenceEqual(propName_album_cover_thumbnail):
+                case 0x2E7E1D62u when name.SequenceEqual(propName_album_cover_thumbnail):
                     obj.AlbumCoverThumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x1499AAB5u when name.SequenceEqual(propName_performer):
+                case 0x60B2C14Au when name.SequenceEqual(propName_performer):
                     obj.Performer = reader.ReadString();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8089,16 +8089,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x96234BD4u when name.SequenceEqual(propName_document):
+                case 0x9989342Du when name.SequenceEqual(propName_document):
                     obj.Document = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x8BCF25FEu when name.SequenceEqual(propName_disable_content_type_detection):
+                case 0x9E64D60Bu when name.SequenceEqual(propName_disable_content_type_detection):
                     obj.DisableContentTypeDetection = reader.ReadBool();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8117,25 +8117,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x1764539Du when name.SequenceEqual(propName_added_sticker_file_ids):
+                case 0x7797097Cu when name.SequenceEqual(propName_added_sticker_file_ids):
                     obj.AddedStickerFileIds = reader.ReadInt32Array();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xBD2B425Bu when name.SequenceEqual(propName_ttl):
+                case 0x756FE8CEu when name.SequenceEqual(propName_ttl):
                     obj.Ttl = reader.ReadInt();
                     return true;
             }
@@ -8154,16 +8154,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xC742341Cu when name.SequenceEqual(propName_sticker):
+                case 0x57E22FC6u when name.SequenceEqual(propName_sticker):
                     obj.Sticker = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
             }
@@ -8182,31 +8182,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xCEF90B6Cu when name.SequenceEqual(propName_video):
+                case 0x7BD287F9u when name.SequenceEqual(propName_video):
                     obj.Video = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x1764539Du when name.SequenceEqual(propName_added_sticker_file_ids):
+                case 0x7797097Cu when name.SequenceEqual(propName_added_sticker_file_ids):
                     obj.AddedStickerFileIds = reader.ReadInt32Array();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x8D374FBEu when name.SequenceEqual(propName_supports_streaming):
+                case 0x37035326u when name.SequenceEqual(propName_supports_streaming):
                     obj.SupportsStreaming = reader.ReadBool();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
-                case 0xBD2B425Bu when name.SequenceEqual(propName_ttl):
+                case 0x756FE8CEu when name.SequenceEqual(propName_ttl):
                     obj.Ttl = reader.ReadInt();
                     return true;
             }
@@ -8225,16 +8225,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5D4EB201u when name.SequenceEqual(propName_video_note):
+                case 0x0F7C4824u when name.SequenceEqual(propName_video_note):
                     obj.VideoNote = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<InputThumbnail>();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x83D03615u when name.SequenceEqual(propName_length):
+                case 0xFC1B4BCBu when name.SequenceEqual(propName_length):
                     obj.Length = reader.ReadInt();
                     return true;
             }
@@ -8253,16 +8253,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE9FF84FEu when name.SequenceEqual(propName_voice_note):
+                case 0xD8548F7Bu when name.SequenceEqual(propName_voice_note):
                     obj.VoiceNote = reader.ReadTLObject<InputFile>();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x1AA9F5D2u when name.SequenceEqual(propName_waveform):
+                case 0x88741F30u when name.SequenceEqual(propName_waveform):
                     obj.Waveform = reader.ReadBase64String();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -8381,37 +8381,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5A906110u when name.SequenceEqual(propName_invoice):
+                case 0xA3756FE9u when name.SequenceEqual(propName_invoice):
                     obj.Invoice = reader.ReadTLObject<Invoice>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x599FCD0Du when name.SequenceEqual(propName_photo_url):
+                case 0x78C6AB2Eu when name.SequenceEqual(propName_photo_url):
                     obj.PhotoUrl = reader.ReadString();
                     return true;
-                case 0xA2E1E9ADu when name.SequenceEqual(propName_photo_size):
+                case 0xBA651280u when name.SequenceEqual(propName_photo_size):
                     obj.PhotoSize = reader.ReadInt();
                     return true;
-                case 0x7A7C2250u when name.SequenceEqual(propName_photo_width):
+                case 0x6E4EA488u when name.SequenceEqual(propName_photo_width):
                     obj.PhotoWidth = reader.ReadInt();
                     return true;
-                case 0x9EF07547u when name.SequenceEqual(propName_photo_height):
+                case 0x25F099A9u when name.SequenceEqual(propName_photo_height):
                     obj.PhotoHeight = reader.ReadInt();
                     return true;
-                case 0x330F77A5u when name.SequenceEqual(propName_payload):
+                case 0xF4E36970u when name.SequenceEqual(propName_payload):
                     obj.Payload = reader.ReadBase64String();
                     return true;
-                case 0xE570DD8Eu when name.SequenceEqual(propName_provider_token):
+                case 0x20947696u when name.SequenceEqual(propName_provider_token):
                     obj.ProviderToken = reader.ReadString();
                     return true;
-                case 0x7B967909u when name.SequenceEqual(propName_provider_data):
+                case 0x60E74481u when name.SequenceEqual(propName_provider_data):
                     obj.ProviderData = reader.ReadString();
                     return true;
-                case 0x9E1A41AFu when name.SequenceEqual(propName_start_parameter):
+                case 0x6754DA83u when name.SequenceEqual(propName_start_parameter):
                     obj.StartParameter = reader.ReadString();
                     return true;
             }
@@ -8430,25 +8430,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x06D5A845u when name.SequenceEqual(propName_question):
+                case 0x8244FF76u when name.SequenceEqual(propName_question):
                     obj.Question = reader.ReadString();
                     return true;
-                case 0xEF286CA5u when name.SequenceEqual(propName_options):
+                case 0x8CF56D94u when name.SequenceEqual(propName_options):
                     obj.Options = reader.ReadStringArray();
                     return true;
-                case 0xC3C3A943u when name.SequenceEqual(propName_is_anonymous):
+                case 0x41D798A8u when name.SequenceEqual(propName_is_anonymous):
                     obj.IsAnonymous = reader.ReadBool();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<PollType>();
                     return true;
-                case 0xC3CA66E3u when name.SequenceEqual(propName_open_period):
+                case 0x273BF121u when name.SequenceEqual(propName_open_period):
                     obj.OpenPeriod = reader.ReadInt();
                     return true;
-                case 0x634EE2D0u when name.SequenceEqual(propName_close_date):
+                case 0x2B88515Cu when name.SequenceEqual(propName_close_date):
                     obj.CloseDate = reader.ReadInt();
                     return true;
-                case 0xE31C4FCAu when name.SequenceEqual(propName_is_closed):
+                case 0xD37EA0FFu when name.SequenceEqual(propName_is_closed):
                     obj.IsClosed = reader.ReadBool();
                     return true;
             }
@@ -8467,16 +8467,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xCBEE0078u when name.SequenceEqual(propName_from_chat_id):
+                case 0x48E8721Bu when name.SequenceEqual(propName_from_chat_id):
                     obj.FromChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xE28557D1u when name.SequenceEqual(propName_in_game_share):
+                case 0x347BAC06u when name.SequenceEqual(propName_in_game_share):
                     obj.InGameShare = reader.ReadBool();
                     return true;
-                case 0xB8DACC19u when name.SequenceEqual(propName_copy_options):
+                case 0x1DA70DADu when name.SequenceEqual(propName_copy_options):
                     obj.CopyOptions = reader.ReadTLObject<MessageCopyOptions>();
                     return true;
             }
@@ -8851,40 +8851,40 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x8D39BDE6u when name.SequenceEqual(propName_name):
+                case 0x911200E7u when name.SequenceEqual(propName_name):
                     obj.Name = reader.ReadString();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xB7A3616Cu when name.SequenceEqual(propName_is_installed):
+                case 0x73CB7275u when name.SequenceEqual(propName_is_installed):
                     obj.IsInstalled = reader.ReadBool();
                     return true;
-                case 0xDCD57468u when name.SequenceEqual(propName_is_archived):
+                case 0xDCE704EFu when name.SequenceEqual(propName_is_archived):
                     obj.IsArchived = reader.ReadBool();
                     return true;
-                case 0x03A9AAFFu when name.SequenceEqual(propName_is_official):
+                case 0xC0A52AF1u when name.SequenceEqual(propName_is_official):
                     obj.IsOfficial = reader.ReadBool();
                     return true;
-                case 0x06B935A3u when name.SequenceEqual(propName_is_animated):
+                case 0x71849EE0u when name.SequenceEqual(propName_is_animated):
                     obj.IsAnimated = reader.ReadBool();
                     return true;
-                case 0x531AE927u when name.SequenceEqual(propName_is_masks):
+                case 0xBCDC2AC8u when name.SequenceEqual(propName_is_masks):
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x5663919Eu when name.SequenceEqual(propName_is_viewed):
+                case 0x411EF9CEu when name.SequenceEqual(propName_is_viewed):
                     obj.IsViewed = reader.ReadBool();
                     return true;
-                case 0x1C388ABDu when name.SequenceEqual(propName_stickers):
+                case 0xD5CED7ABu when name.SequenceEqual(propName_stickers):
                     obj.Stickers = reader.ReadObjectArray<Sticker>();
                     return true;
-                case 0xB028B7CAu when name.SequenceEqual(propName_emojis):
+                case 0x1EEF3683u when name.SequenceEqual(propName_emojis):
                     obj.Emojis = reader.ReadObjectArray<Emojis>();
                     return true;
             }
@@ -8903,40 +8903,40 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x8D39BDE6u when name.SequenceEqual(propName_name):
+                case 0x911200E7u when name.SequenceEqual(propName_name):
                     obj.Name = reader.ReadString();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
-                case 0xB7A3616Cu when name.SequenceEqual(propName_is_installed):
+                case 0x73CB7275u when name.SequenceEqual(propName_is_installed):
                     obj.IsInstalled = reader.ReadBool();
                     return true;
-                case 0xDCD57468u when name.SequenceEqual(propName_is_archived):
+                case 0xDCE704EFu when name.SequenceEqual(propName_is_archived):
                     obj.IsArchived = reader.ReadBool();
                     return true;
-                case 0x03A9AAFFu when name.SequenceEqual(propName_is_official):
+                case 0xC0A52AF1u when name.SequenceEqual(propName_is_official):
                     obj.IsOfficial = reader.ReadBool();
                     return true;
-                case 0x06B935A3u when name.SequenceEqual(propName_is_animated):
+                case 0x71849EE0u when name.SequenceEqual(propName_is_animated):
                     obj.IsAnimated = reader.ReadBool();
                     return true;
-                case 0x531AE927u when name.SequenceEqual(propName_is_masks):
+                case 0xBCDC2AC8u when name.SequenceEqual(propName_is_masks):
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x5663919Eu when name.SequenceEqual(propName_is_viewed):
+                case 0x411EF9CEu when name.SequenceEqual(propName_is_viewed):
                     obj.IsViewed = reader.ReadBool();
                     return true;
-                case 0x23A0D95Cu when name.SequenceEqual(propName_size):
+                case 0x55AC4F76u when name.SequenceEqual(propName_size):
                     obj.Size = reader.ReadInt();
                     return true;
-                case 0x03BECA89u when name.SequenceEqual(propName_covers):
+                case 0x1F46C600u when name.SequenceEqual(propName_covers):
                     obj.Covers = reader.ReadObjectArray<Sticker>();
                     return true;
             }
@@ -9012,19 +9012,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x3576AB49u when name.SequenceEqual(propName_udp_p2p):
+                case 0xDA227CFFu when name.SequenceEqual(propName_udp_p2p):
                     obj.UdpP2p = reader.ReadBool();
                     return true;
-                case 0x0535052Bu when name.SequenceEqual(propName_udp_reflector):
+                case 0xAFE3F489u when name.SequenceEqual(propName_udp_reflector):
                     obj.UdpReflector = reader.ReadBool();
                     return true;
-                case 0x535C0F4Du when name.SequenceEqual(propName_min_layer):
+                case 0x744CF43Fu when name.SequenceEqual(propName_min_layer):
                     obj.MinLayer = reader.ReadInt();
                     return true;
-                case 0xF1A5A85Fu when name.SequenceEqual(propName_max_layer):
+                case 0xDFCA9602u when name.SequenceEqual(propName_max_layer):
                     obj.MaxLayer = reader.ReadInt();
                     return true;
-                case 0x738BF174u when name.SequenceEqual(propName_library_versions):
+                case 0x80541B0Eu when name.SequenceEqual(propName_library_versions):
                     obj.LibraryVersions = reader.ReadStringArray();
                     return true;
             }
@@ -9060,16 +9060,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x4EAF15B9u when name.SequenceEqual(propName_username):
+                case 0xC874DABCu when name.SequenceEqual(propName_username):
                     obj.Username = reader.ReadString();
                     return true;
-                case 0x364B5F18u when name.SequenceEqual(propName_password):
+                case 0x7C3E8628u when name.SequenceEqual(propName_password):
                     obj.Password = reader.ReadString();
                     return true;
-                case 0x21635599u when name.SequenceEqual(propName_supports_turn):
+                case 0x23C7817Au when name.SequenceEqual(propName_supports_turn):
                     obj.SupportsTurn = reader.ReadBool();
                     return true;
-                case 0xD7BCB1F2u when name.SequenceEqual(propName_supports_stun):
+                case 0xE5EB628Bu when name.SequenceEqual(propName_supports_stun):
                     obj.SupportsStun = reader.ReadBool();
                     return true;
             }
@@ -9088,19 +9088,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x1438FBC7u when name.SequenceEqual(propName_ip_address):
+                case 0x210DBDE6u when name.SequenceEqual(propName_ip_address):
                     obj.IpAddress = reader.ReadString();
                     return true;
-                case 0xE42AD1F3u when name.SequenceEqual(propName_ipv6_address):
+                case 0xC7C0FC41u when name.SequenceEqual(propName_ipv6_address):
                     obj.Ipv6Address = reader.ReadString();
                     return true;
-                case 0x7BE412A6u when name.SequenceEqual(propName_port):
+                case 0x991EB78Cu when name.SequenceEqual(propName_port):
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<CallServerType>();
                     return true;
             }
@@ -9165,22 +9165,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xFB2805B5u when name.SequenceEqual(propName_protocol):
+                case 0x2E66C39Du when name.SequenceEqual(propName_protocol):
                     obj.Protocol = reader.ReadTLObject<CallProtocol>();
                     return true;
-                case 0x70250473u when name.SequenceEqual(propName_servers):
+                case 0x6B88F734u when name.SequenceEqual(propName_servers):
                     obj.Servers = reader.ReadObjectArray<CallServer>();
                     return true;
-                case 0x23FF66C7u when name.SequenceEqual(propName_config):
+                case 0xABBA1E78u when name.SequenceEqual(propName_config):
                     obj.Config = reader.ReadString();
                     return true;
-                case 0x7D5F7E90u when name.SequenceEqual(propName_encryption_key):
+                case 0x29D01160u when name.SequenceEqual(propName_encryption_key):
                     obj.EncryptionKey = reader.ReadBase64String();
                     return true;
-                case 0xB028B7CAu when name.SequenceEqual(propName_emojis):
+                case 0x1EEF3683u when name.SequenceEqual(propName_emojis):
                     obj.Emojis = reader.ReadStringArray();
                     return true;
-                case 0xF8F0711Fu when name.SequenceEqual(propName_allow_p2p):
+                case 0x278D68EAu when name.SequenceEqual(propName_allow_p2p):
                     obj.AllowP2p = reader.ReadBool();
                     return true;
             }
@@ -9313,19 +9313,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x5457F918u when name.SequenceEqual(propName_is_outgoing):
+                case 0x59EDAC58u when name.SequenceEqual(propName_is_outgoing):
                     obj.IsOutgoing = reader.ReadBool();
                     return true;
-                case 0x7815FC5Du when name.SequenceEqual(propName_is_video):
+                case 0xE57A104Eu when name.SequenceEqual(propName_is_video):
                     obj.IsVideo = reader.ReadBool();
                     return true;
-                case 0x783132F6u when name.SequenceEqual(propName_state):
+                case 0x66DB68DFu when name.SequenceEqual(propName_state):
                     obj.State = reader.ReadTLObject<CallState>();
                     return true;
             }
@@ -9427,37 +9427,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0xE9CC98BDu when name.SequenceEqual(propName_thumbnail_mime_type):
+                case 0x92C90CECu when name.SequenceEqual(propName_thumbnail_mime_type):
                     obj.ThumbnailMimeType = reader.ReadString();
                     return true;
-                case 0x0A47133Au when name.SequenceEqual(propName_video_url):
+                case 0xDBB01D77u when name.SequenceEqual(propName_video_url):
                     obj.VideoUrl = reader.ReadString();
                     return true;
-                case 0x458C71D2u when name.SequenceEqual(propName_video_mime_type):
+                case 0xFFEDB48Eu when name.SequenceEqual(propName_video_mime_type):
                     obj.VideoMimeType = reader.ReadString();
                     return true;
-                case 0x16F41F89u when name.SequenceEqual(propName_video_duration):
+                case 0x8D200CFBu when name.SequenceEqual(propName_video_duration):
                     obj.VideoDuration = reader.ReadInt();
                     return true;
-                case 0x0F0512A3u when name.SequenceEqual(propName_video_width):
+                case 0xB49EFE95u when name.SequenceEqual(propName_video_width):
                     obj.VideoWidth = reader.ReadInt();
                     return true;
-                case 0xCDCF525Eu when name.SequenceEqual(propName_video_height):
+                case 0x8A5CC24Fu when name.SequenceEqual(propName_video_height):
                     obj.VideoHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9476,34 +9476,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x4ED277C7u when name.SequenceEqual(propName_hide_url):
+                case 0x017A845Du when name.SequenceEqual(propName_hide_url):
                     obj.HideUrl = reader.ReadBool();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x05E291A4u when name.SequenceEqual(propName_thumbnail_width):
+                case 0xF9EF1377u when name.SequenceEqual(propName_thumbnail_width):
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x4F941153u when name.SequenceEqual(propName_thumbnail_height):
+                case 0x881A6B4Fu when name.SequenceEqual(propName_thumbnail_height):
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9522,25 +9522,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x1499AAB5u when name.SequenceEqual(propName_performer):
+                case 0x60B2C14Au when name.SequenceEqual(propName_performer):
                     obj.Performer = reader.ReadString();
                     return true;
-                case 0x1A7F30FBu when name.SequenceEqual(propName_audio_url):
+                case 0x5C78E0D9u when name.SequenceEqual(propName_audio_url):
                     obj.AudioUrl = reader.ReadString();
                     return true;
-                case 0xBEAD474Eu when name.SequenceEqual(propName_audio_duration):
+                case 0xCFF337A9u when name.SequenceEqual(propName_audio_duration):
                     obj.AudioDuration = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9559,25 +9559,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x4303B923u when name.SequenceEqual(propName_contact):
+                case 0x3F4DEB3Au when name.SequenceEqual(propName_contact):
                     obj.Contact = reader.ReadTLObject<Contact>();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x05E291A4u when name.SequenceEqual(propName_thumbnail_width):
+                case 0xF9EF1377u when name.SequenceEqual(propName_thumbnail_width):
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x4F941153u when name.SequenceEqual(propName_thumbnail_height):
+                case 0x881A6B4Fu when name.SequenceEqual(propName_thumbnail_height):
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9596,34 +9596,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x0DC10022u when name.SequenceEqual(propName_document_url):
+                case 0x2B35BE86u when name.SequenceEqual(propName_document_url):
                     obj.DocumentUrl = reader.ReadString();
                     return true;
-                case 0xC057CA56u when name.SequenceEqual(propName_mime_type):
+                case 0x07F8FAA0u when name.SequenceEqual(propName_mime_type):
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x05E291A4u when name.SequenceEqual(propName_thumbnail_width):
+                case 0xF9EF1377u when name.SequenceEqual(propName_thumbnail_width):
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x4F941153u when name.SequenceEqual(propName_thumbnail_height):
+                case 0x881A6B4Fu when name.SequenceEqual(propName_thumbnail_height):
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9669,31 +9669,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x27D29311u when name.SequenceEqual(propName_live_period):
+                case 0x6EA7C561u when name.SequenceEqual(propName_live_period):
                     obj.LivePeriod = reader.ReadInt();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x05E291A4u when name.SequenceEqual(propName_thumbnail_width):
+                case 0xF9EF1377u when name.SequenceEqual(propName_thumbnail_width):
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x4F941153u when name.SequenceEqual(propName_thumbnail_height):
+                case 0x881A6B4Fu when name.SequenceEqual(propName_thumbnail_height):
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9712,31 +9712,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x599FCD0Du when name.SequenceEqual(propName_photo_url):
+                case 0x78C6AB2Eu when name.SequenceEqual(propName_photo_url):
                     obj.PhotoUrl = reader.ReadString();
                     return true;
-                case 0x7A7C2250u when name.SequenceEqual(propName_photo_width):
+                case 0x6E4EA488u when name.SequenceEqual(propName_photo_width):
                     obj.PhotoWidth = reader.ReadInt();
                     return true;
-                case 0x9EF07547u when name.SequenceEqual(propName_photo_height):
+                case 0x25F099A9u when name.SequenceEqual(propName_photo_height):
                     obj.PhotoHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9755,25 +9755,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x40CA97CAu when name.SequenceEqual(propName_sticker_url):
+                case 0x753782F2u when name.SequenceEqual(propName_sticker_url):
                     obj.StickerUrl = reader.ReadString();
                     return true;
-                case 0xD557FB33u when name.SequenceEqual(propName_sticker_width):
+                case 0xDECE9373u when name.SequenceEqual(propName_sticker_width):
                     obj.StickerWidth = reader.ReadInt();
                     return true;
-                case 0xA63A74EEu when name.SequenceEqual(propName_sticker_height):
+                case 0x4FA7DDD0u when name.SequenceEqual(propName_sticker_height):
                     obj.StickerHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9792,25 +9792,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xB39AA8FCu when name.SequenceEqual(propName_venue):
+                case 0xD5AD609Du when name.SequenceEqual(propName_venue):
                     obj.Venue = reader.ReadTLObject<Venue>();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x05E291A4u when name.SequenceEqual(propName_thumbnail_width):
+                case 0xF9EF1377u when name.SequenceEqual(propName_thumbnail_width):
                     obj.ThumbnailWidth = reader.ReadInt();
                     return true;
-                case 0x4F941153u when name.SequenceEqual(propName_thumbnail_height):
+                case 0x881A6B4Fu when name.SequenceEqual(propName_thumbnail_height):
                     obj.ThumbnailHeight = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9829,37 +9829,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xA00D7179u when name.SequenceEqual(propName_thumbnail_url):
+                case 0x11134DA5u when name.SequenceEqual(propName_thumbnail_url):
                     obj.ThumbnailUrl = reader.ReadString();
                     return true;
-                case 0x0A47133Au when name.SequenceEqual(propName_video_url):
+                case 0xDBB01D77u when name.SequenceEqual(propName_video_url):
                     obj.VideoUrl = reader.ReadString();
                     return true;
-                case 0xC057CA56u when name.SequenceEqual(propName_mime_type):
+                case 0x07F8FAA0u when name.SequenceEqual(propName_mime_type):
                     obj.MimeType = reader.ReadString();
                     return true;
-                case 0x0F0512A3u when name.SequenceEqual(propName_video_width):
+                case 0xB49EFE95u when name.SequenceEqual(propName_video_width):
                     obj.VideoWidth = reader.ReadInt();
                     return true;
-                case 0xCDCF525Eu when name.SequenceEqual(propName_video_height):
+                case 0x8A5CC24Fu when name.SequenceEqual(propName_video_height):
                     obj.VideoHeight = reader.ReadInt();
                     return true;
-                case 0x16F41F89u when name.SequenceEqual(propName_video_duration):
+                case 0x8D200CFBu when name.SequenceEqual(propName_video_duration):
                     obj.VideoDuration = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9878,22 +9878,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x3DF33E04u when name.SequenceEqual(propName_voice_note_url):
+                case 0x2D312495u when name.SequenceEqual(propName_voice_note_url):
                     obj.VoiceNoteUrl = reader.ReadString();
                     return true;
-                case 0x4668A5E7u when name.SequenceEqual(propName_voice_note_duration):
+                case 0xA92A2F9Fu when name.SequenceEqual(propName_voice_note_duration):
                     obj.VoiceNoteDuration = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -9912,22 +9912,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x4ED277C7u when name.SequenceEqual(propName_hide_url):
+                case 0x017A845Du when name.SequenceEqual(propName_hide_url):
                     obj.HideUrl = reader.ReadBool();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
             }
@@ -9973,16 +9973,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0xF5B74BC7u when name.SequenceEqual(propName_thumbnail):
+                case 0x6D3EE2F3u when name.SequenceEqual(propName_thumbnail):
                     obj.Thumbnail = reader.ReadTLObject<Thumbnail>();
                     return true;
             }
@@ -10099,16 +10099,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x96234BD4u when name.SequenceEqual(propName_document):
+                case 0x9989342Du when name.SequenceEqual(propName_document):
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -10127,16 +10127,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -10177,16 +10177,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0xCEF90B6Cu when name.SequenceEqual(propName_video):
+                case 0x7BD287F9u when name.SequenceEqual(propName_video):
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
             }
@@ -10232,19 +10232,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x69BBE355u when name.SequenceEqual(propName_inline_query_id):
+                case 0x69760C1Du when name.SequenceEqual(propName_inline_query_id):
                     obj.InlineQueryId = reader.ReadInt64String();
                     return true;
-                case 0x697AA81Au when name.SequenceEqual(propName_next_offset):
+                case 0x37DD9D00u when name.SequenceEqual(propName_next_offset):
                     obj.NextOffset = reader.ReadString();
                     return true;
-                case 0x6C4F4AF5u when name.SequenceEqual(propName_results):
+                case 0xAD67C0E0u when name.SequenceEqual(propName_results):
                     obj.Results = reader.ReadObjectArray<InlineQueryResult>();
                     return true;
-                case 0xAD9E3C99u when name.SequenceEqual(propName_switch_pm_text):
+                case 0x81169FF1u when name.SequenceEqual(propName_switch_pm_text):
                     obj.SwitchPmText = reader.ReadString();
                     return true;
-                case 0x21833D65u when name.SequenceEqual(propName_switch_pm_parameter):
+                case 0x3FBC3F46u when name.SequenceEqual(propName_switch_pm_parameter):
                     obj.SwitchPmParameter = reader.ReadString();
                     return true;
             }
@@ -10826,16 +10826,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0xD472DC59u when name.SequenceEqual(propName_date):
+                case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xC4642EFFu when name.SequenceEqual(propName_action):
+                case 0xA88F2A92u when name.SequenceEqual(propName_action):
                     obj.Action = reader.ReadTLObject<ChatEventAction>();
                     return true;
             }
@@ -10871,34 +10871,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xB9009A12u when name.SequenceEqual(propName_message_edits):
+                case 0xE01A8B1Au when name.SequenceEqual(propName_message_edits):
                     obj.MessageEdits = reader.ReadBool();
                     return true;
-                case 0x5E1101E0u when name.SequenceEqual(propName_message_deletions):
+                case 0x0BFA3D96u when name.SequenceEqual(propName_message_deletions):
                     obj.MessageDeletions = reader.ReadBool();
                     return true;
-                case 0xE6353A99u when name.SequenceEqual(propName_message_pins):
+                case 0x90C00DBAu when name.SequenceEqual(propName_message_pins):
                     obj.MessagePins = reader.ReadBool();
                     return true;
-                case 0x6B7C67A5u when name.SequenceEqual(propName_member_joins):
+                case 0xAE9EE137u when name.SequenceEqual(propName_member_joins):
                     obj.MemberJoins = reader.ReadBool();
                     return true;
-                case 0x3CF61538u when name.SequenceEqual(propName_member_leaves):
+                case 0xE0B38474u when name.SequenceEqual(propName_member_leaves):
                     obj.MemberLeaves = reader.ReadBool();
                     return true;
-                case 0xC87201DAu when name.SequenceEqual(propName_member_invites):
+                case 0xBD93F423u when name.SequenceEqual(propName_member_invites):
                     obj.MemberInvites = reader.ReadBool();
                     return true;
-                case 0x9F2A5F12u when name.SequenceEqual(propName_member_promotions):
+                case 0x2634A57Fu when name.SequenceEqual(propName_member_promotions):
                     obj.MemberPromotions = reader.ReadBool();
                     return true;
-                case 0xE6AF4AD3u when name.SequenceEqual(propName_member_restrictions):
+                case 0xEB0AA9A6u when name.SequenceEqual(propName_member_restrictions):
                     obj.MemberRestrictions = reader.ReadBool();
                     return true;
-                case 0xE7813CABu when name.SequenceEqual(propName_info_changes):
+                case 0x89896192u when name.SequenceEqual(propName_info_changes):
                     obj.InfoChanges = reader.ReadBool();
                     return true;
-                case 0xCDE8066Du when name.SequenceEqual(propName_setting_changes):
+                case 0x36F8A90Du when name.SequenceEqual(propName_setting_changes):
                     obj.SettingChanges = reader.ReadBool();
                     return true;
             }
@@ -10934,22 +10934,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x64F6302Du when name.SequenceEqual(propName_zero_value):
+                case 0x10A147ACu when name.SequenceEqual(propName_zero_value):
                     obj.ZeroValue = reader.ReadString();
                     return true;
-                case 0x06FD77C1u when name.SequenceEqual(propName_one_value):
+                case 0x1FA70FA0u when name.SequenceEqual(propName_one_value):
                     obj.OneValue = reader.ReadString();
                     return true;
-                case 0x55EEB88Bu when name.SequenceEqual(propName_two_value):
+                case 0xDA2AB64Bu when name.SequenceEqual(propName_two_value):
                     obj.TwoValue = reader.ReadString();
                     return true;
-                case 0x25FABCBBu when name.SequenceEqual(propName_few_value):
+                case 0x86C80BFAu when name.SequenceEqual(propName_few_value):
                     obj.FewValue = reader.ReadString();
                     return true;
-                case 0xDC8D049Cu when name.SequenceEqual(propName_many_value):
+                case 0x364D35FEu when name.SequenceEqual(propName_many_value):
                     obj.ManyValue = reader.ReadString();
                     return true;
-                case 0xAAB337DFu when name.SequenceEqual(propName_other_value):
+                case 0xD2B2DAA2u when name.SequenceEqual(propName_other_value):
                     obj.OtherValue = reader.ReadString();
                     return true;
             }
@@ -11014,43 +11014,43 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadString();
                     return true;
-                case 0x341FF03Bu when name.SequenceEqual(propName_base_language_pack_id):
+                case 0x3243F551u when name.SequenceEqual(propName_base_language_pack_id):
                     obj.BaseLanguagePackId = reader.ReadString();
                     return true;
-                case 0x8D39BDE6u when name.SequenceEqual(propName_name):
+                case 0x911200E7u when name.SequenceEqual(propName_name):
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x20804CCCu when name.SequenceEqual(propName_native_name):
+                case 0xA3CBBBF1u when name.SequenceEqual(propName_native_name):
                     obj.NativeName = reader.ReadString();
                     return true;
-                case 0x7341CD05u when name.SequenceEqual(propName_plural_code):
+                case 0x515E233Bu when name.SequenceEqual(propName_plural_code):
                     obj.PluralCode = reader.ReadString();
                     return true;
-                case 0x03A9AAFFu when name.SequenceEqual(propName_is_official):
+                case 0xC0A52AF1u when name.SequenceEqual(propName_is_official):
                     obj.IsOfficial = reader.ReadBool();
                     return true;
-                case 0x8E30FD54u when name.SequenceEqual(propName_is_rtl):
+                case 0xD138C461u when name.SequenceEqual(propName_is_rtl):
                     obj.IsRtl = reader.ReadBool();
                     return true;
-                case 0xF93B82BCu when name.SequenceEqual(propName_is_beta):
+                case 0xCCFA0765u when name.SequenceEqual(propName_is_beta):
                     obj.IsBeta = reader.ReadBool();
                     return true;
-                case 0xB7A3616Cu when name.SequenceEqual(propName_is_installed):
+                case 0x73CB7275u when name.SequenceEqual(propName_is_installed):
                     obj.IsInstalled = reader.ReadBool();
                     return true;
-                case 0xC0B90337u when name.SequenceEqual(propName_total_string_count):
+                case 0xFED53DC1u when name.SequenceEqual(propName_total_string_count):
                     obj.TotalStringCount = reader.ReadInt();
                     return true;
-                case 0x46B1E69Du when name.SequenceEqual(propName_translated_string_count):
+                case 0x5256E83Bu when name.SequenceEqual(propName_translated_string_count):
                     obj.TranslatedStringCount = reader.ReadInt();
                     return true;
-                case 0x1602E504u when name.SequenceEqual(propName_local_string_count):
+                case 0xB0D7EA8Eu when name.SequenceEqual(propName_local_string_count):
                     obj.LocalStringCount = reader.ReadInt();
                     return true;
-                case 0x5159F5FAu when name.SequenceEqual(propName_translation_url):
+                case 0xB7D6EA95u when name.SequenceEqual(propName_translation_url):
                     obj.TranslationUrl = reader.ReadString();
                     return true;
             }
@@ -11430,22 +11430,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x0B620743u when name.SequenceEqual(propName_is_default):
+                case 0x9DC1368Eu when name.SequenceEqual(propName_is_default):
                     obj.IsDefault = reader.ReadBool();
                     return true;
-                case 0x96FEDCE2u when name.SequenceEqual(propName_is_dark):
+                case 0x944CC807u when name.SequenceEqual(propName_is_dark):
                     obj.IsDark = reader.ReadBool();
                     return true;
-                case 0x8D39BDE6u when name.SequenceEqual(propName_name):
+                case 0x911200E7u when name.SequenceEqual(propName_name):
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x96234BD4u when name.SequenceEqual(propName_document):
+                case 0x9989342Du when name.SequenceEqual(propName_document):
                     obj.Document = reader.ReadTLObject<Document>();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<BackgroundType>();
                     return true;
             }
@@ -11825,16 +11825,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x812716E3u when name.SequenceEqual(propName_photo):
+                case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<Photo>();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadString();
                     return true;
-                case 0x913C2656u when name.SequenceEqual(propName_is_secret):
+                case 0xD67DF3F8u when name.SequenceEqual(propName_is_secret):
                     obj.IsSecret = reader.ReadBool();
                     return true;
-                case 0xC372E838u when name.SequenceEqual(propName_is_pinned):
+                case 0x51B35594u when name.SequenceEqual(propName_is_pinned):
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -11936,16 +11936,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xCEF90B6Cu when name.SequenceEqual(propName_video):
+                case 0x7BD287F9u when name.SequenceEqual(propName_video):
                     obj.Video = reader.ReadTLObject<Video>();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadString();
                     return true;
-                case 0x913C2656u when name.SequenceEqual(propName_is_secret):
+                case 0xD67DF3F8u when name.SequenceEqual(propName_is_secret):
                     obj.IsSecret = reader.ReadBool();
                     return true;
-                case 0xC372E838u when name.SequenceEqual(propName_is_pinned):
+                case 0x51B35594u when name.SequenceEqual(propName_is_pinned):
                     obj.IsPinned = reader.ReadBool();
                     return true;
             }
@@ -12185,22 +12185,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x215B6CBDu when name.SequenceEqual(propName_sender_chat_id):
+                case 0xDA540536u when name.SequenceEqual(propName_sender_chat_id):
                     obj.SenderChatId = reader.ReadLong();
                     return true;
-                case 0xD8D42D5Au when name.SequenceEqual(propName_sender_name):
+                case 0xD88ED020u when name.SequenceEqual(propName_sender_name):
                     obj.SenderName = reader.ReadString();
                     return true;
-                case 0x5457F918u when name.SequenceEqual(propName_is_outgoing):
+                case 0x59EDAC58u when name.SequenceEqual(propName_is_outgoing):
                     obj.IsOutgoing = reader.ReadBool();
                     return true;
-                case 0x90BEC3C2u when name.SequenceEqual(propName_content):
+                case 0x61AF7533u when name.SequenceEqual(propName_content):
                     obj.Content = reader.ReadTLObject<PushMessageContent>();
                     return true;
             }
@@ -12247,16 +12247,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0xD472DC59u when name.SequenceEqual(propName_date):
+                case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
                     return true;
-                case 0xD03BF3DFu when name.SequenceEqual(propName_is_silent):
+                case 0xB1BAEF37u when name.SequenceEqual(propName_is_silent):
                     obj.IsSilent = reader.ReadBool();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<NotificationType>();
                     return true;
             }
@@ -12275,19 +12275,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<NotificationGroupType>();
                     return true;
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x92BEA9B5u when name.SequenceEqual(propName_total_count):
+                case 0x65E7DFBDu when name.SequenceEqual(propName_total_count):
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0xF352E36Fu when name.SequenceEqual(propName_notifications):
+                case 0x53C9D9F1u when name.SequenceEqual(propName_notifications):
                     obj.Notifications = reader.ReadObjectArray<Notification>();
                     return true;
             }
@@ -12664,49 +12664,49 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x9742C457u when name.SequenceEqual(propName_is_current):
+                case 0xF3EE1C3Au when name.SequenceEqual(propName_is_current):
                     obj.IsCurrent = reader.ReadBool();
                     return true;
-                case 0xE09929DFu when name.SequenceEqual(propName_is_password_pending):
+                case 0x74288B3Du when name.SequenceEqual(propName_is_password_pending):
                     obj.IsPasswordPending = reader.ReadBool();
                     return true;
-                case 0x45A1DC75u when name.SequenceEqual(propName_api_id):
+                case 0x94A3BBA6u when name.SequenceEqual(propName_api_id):
                     obj.ApiId = reader.ReadInt();
                     return true;
-                case 0xF64C864Du when name.SequenceEqual(propName_application_name):
+                case 0x6CC7A549u when name.SequenceEqual(propName_application_name):
                     obj.ApplicationName = reader.ReadString();
                     return true;
-                case 0xE6576A12u when name.SequenceEqual(propName_application_version):
+                case 0x4ACD0E08u when name.SequenceEqual(propName_application_version):
                     obj.ApplicationVersion = reader.ReadString();
                     return true;
-                case 0x7D21F64Eu when name.SequenceEqual(propName_is_official_application):
+                case 0xC0D081D8u when name.SequenceEqual(propName_is_official_application):
                     obj.IsOfficialApplication = reader.ReadBool();
                     return true;
-                case 0xB398D2B1u when name.SequenceEqual(propName_device_model):
+                case 0x5DF57F47u when name.SequenceEqual(propName_device_model):
                     obj.DeviceModel = reader.ReadString();
                     return true;
-                case 0x2A4A32B2u when name.SequenceEqual(propName_platform):
+                case 0x0095CC92u when name.SequenceEqual(propName_platform):
                     obj.Platform = reader.ReadString();
                     return true;
-                case 0xC8C94F83u when name.SequenceEqual(propName_system_version):
+                case 0x5D13E231u when name.SequenceEqual(propName_system_version):
                     obj.SystemVersion = reader.ReadString();
                     return true;
-                case 0xF498E26Au when name.SequenceEqual(propName_log_in_date):
+                case 0x4BFD38D8u when name.SequenceEqual(propName_log_in_date):
                     obj.LogInDate = reader.ReadInt();
                     return true;
-                case 0xA4E318ADu when name.SequenceEqual(propName_last_active_date):
+                case 0x8CCFFD90u when name.SequenceEqual(propName_last_active_date):
                     obj.LastActiveDate = reader.ReadInt();
                     return true;
-                case 0x4B388A5Cu when name.SequenceEqual(propName_ip):
+                case 0x8ED35D16u when name.SequenceEqual(propName_ip):
                     obj.Ip = reader.ReadString();
                     return true;
-                case 0xA59115D1u when name.SequenceEqual(propName_country):
+                case 0x450EAE1Du when name.SequenceEqual(propName_country):
                     obj.Country = reader.ReadString();
                     return true;
-                case 0x031AFE7Du when name.SequenceEqual(propName_region):
+                case 0x471E889Au when name.SequenceEqual(propName_region):
                     obj.Region = reader.ReadString();
                     return true;
             }
@@ -12742,31 +12742,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0xDA26DFB1u when name.SequenceEqual(propName_domain_name):
+                case 0x32598F1Fu when name.SequenceEqual(propName_domain_name):
                     obj.DomainName = reader.ReadString();
                     return true;
-                case 0x0BC9D8A8u when name.SequenceEqual(propName_bot_user_id):
+                case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0x07531D8Fu when name.SequenceEqual(propName_browser):
+                case 0x8011CC75u when name.SequenceEqual(propName_browser):
                     obj.Browser = reader.ReadString();
                     return true;
-                case 0x2A4A32B2u when name.SequenceEqual(propName_platform):
+                case 0x0095CC92u when name.SequenceEqual(propName_platform):
                     obj.Platform = reader.ReadString();
                     return true;
-                case 0xF498E26Au when name.SequenceEqual(propName_log_in_date):
+                case 0x4BFD38D8u when name.SequenceEqual(propName_log_in_date):
                     obj.LogInDate = reader.ReadInt();
                     return true;
-                case 0xA4E318ADu when name.SequenceEqual(propName_last_active_date):
+                case 0x8CCFFD90u when name.SequenceEqual(propName_last_active_date):
                     obj.LastActiveDate = reader.ReadInt();
                     return true;
-                case 0x4B388A5Cu when name.SequenceEqual(propName_ip):
+                case 0x8ED35D16u when name.SequenceEqual(propName_ip):
                     obj.Ip = reader.ReadString();
                     return true;
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadString();
                     return true;
             }
@@ -12883,19 +12883,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA0F3B367u when name.SequenceEqual(propName_is_public):
+                case 0x3EEE47F1u when name.SequenceEqual(propName_is_public):
                     obj.IsPublic = reader.ReadBool();
                     return true;
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x24F208E4u when name.SequenceEqual(propName_message):
+                case 0x98A214D0u when name.SequenceEqual(propName_message):
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
-                case 0x84014C14u when name.SequenceEqual(propName_for_album):
+                case 0x8F261B50u when name.SequenceEqual(propName_for_album):
                     obj.ForAlbum = reader.ReadBool();
                     return true;
-                case 0x981B4866u when name.SequenceEqual(propName_for_comment):
+                case 0xD4FBAC3Au when name.SequenceEqual(propName_for_comment):
                     obj.ForComment = reader.ReadBool();
                     return true;
             }
@@ -13070,16 +13070,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x23A0D95Cu when name.SequenceEqual(propName_size):
+                case 0x55AC4F76u when name.SequenceEqual(propName_size):
                     obj.Size = reader.ReadLong();
                     return true;
-                case 0x39B1DDF4u when name.SequenceEqual(propName_count):
+                case 0x1D26CDC5u when name.SequenceEqual(propName_count):
                     obj.Count = reader.ReadInt();
                     return true;
-                case 0x44017B50u when name.SequenceEqual(propName_by_file_type):
+                case 0x49FE5CD8u when name.SequenceEqual(propName_by_file_type):
                     obj.ByFileType = reader.ReadObjectArray<StorageStatisticsByFileType>();
                     return true;
             }
@@ -13125,19 +13125,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x064F4514u when name.SequenceEqual(propName_files_size):
+                case 0x4E20A8B9u when name.SequenceEqual(propName_files_size):
                     obj.FilesSize = reader.ReadLong();
                     return true;
-                case 0x2662CB4Bu when name.SequenceEqual(propName_file_count):
+                case 0x89DA20B5u when name.SequenceEqual(propName_file_count):
                     obj.FileCount = reader.ReadInt();
                     return true;
-                case 0x9387473Cu when name.SequenceEqual(propName_database_size):
+                case 0xCC6C6AA0u when name.SequenceEqual(propName_database_size):
                     obj.DatabaseSize = reader.ReadLong();
                     return true;
-                case 0x3ECFB135u when name.SequenceEqual(propName_language_pack_database_size):
+                case 0x15289280u when name.SequenceEqual(propName_language_pack_database_size):
                     obj.LanguagePackDatabaseSize = reader.ReadLong();
                     return true;
-                case 0x13B521F3u when name.SequenceEqual(propName_log_size):
+                case 0x293AE859u when name.SequenceEqual(propName_log_size):
                     obj.LogSize = reader.ReadLong();
                     return true;
             }
@@ -13208,16 +13208,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xFC33717Cu when name.SequenceEqual(propName_file_type):
+                case 0xCE2728D6u when name.SequenceEqual(propName_file_type):
                     obj.FileType = reader.ReadTLObject<FileType>();
                     return true;
-                case 0x4CB5D30Eu when name.SequenceEqual(propName_network_type):
+                case 0x391ED358u when name.SequenceEqual(propName_network_type):
                     obj.NetworkType = reader.ReadTLObject<NetworkType>();
                     return true;
-                case 0x48762A6Bu when name.SequenceEqual(propName_sent_bytes):
+                case 0x2180B558u when name.SequenceEqual(propName_sent_bytes):
                     obj.SentBytes = reader.ReadLong();
                     return true;
-                case 0x63388C02u when name.SequenceEqual(propName_received_bytes):
+                case 0x63CE1CBFu when name.SequenceEqual(propName_received_bytes):
                     obj.ReceivedBytes = reader.ReadLong();
                     return true;
             }
@@ -13236,16 +13236,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x4CB5D30Eu when name.SequenceEqual(propName_network_type):
+                case 0x391ED358u when name.SequenceEqual(propName_network_type):
                     obj.NetworkType = reader.ReadTLObject<NetworkType>();
                     return true;
-                case 0x48762A6Bu when name.SequenceEqual(propName_sent_bytes):
+                case 0x2180B558u when name.SequenceEqual(propName_sent_bytes):
                     obj.SentBytes = reader.ReadLong();
                     return true;
-                case 0x63388C02u when name.SequenceEqual(propName_received_bytes):
+                case 0x63CE1CBFu when name.SequenceEqual(propName_received_bytes):
                     obj.ReceivedBytes = reader.ReadLong();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadDouble();
                     return true;
             }
@@ -13286,28 +13286,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE1777A14u when name.SequenceEqual(propName_is_auto_download_enabled):
+                case 0xCCA82D1Eu when name.SequenceEqual(propName_is_auto_download_enabled):
                     obj.IsAutoDownloadEnabled = reader.ReadBool();
                     return true;
-                case 0xF0152393u when name.SequenceEqual(propName_max_photo_file_size):
+                case 0x8E160B0Cu when name.SequenceEqual(propName_max_photo_file_size):
                     obj.MaxPhotoFileSize = reader.ReadInt();
                     return true;
-                case 0x68913420u when name.SequenceEqual(propName_max_video_file_size):
+                case 0x7488D7E8u when name.SequenceEqual(propName_max_video_file_size):
                     obj.MaxVideoFileSize = reader.ReadInt();
                     return true;
-                case 0xCE0570C5u when name.SequenceEqual(propName_max_other_file_size):
+                case 0xCD0A3E23u when name.SequenceEqual(propName_max_other_file_size):
                     obj.MaxOtherFileSize = reader.ReadInt();
                     return true;
-                case 0xFCB99A0Au when name.SequenceEqual(propName_video_upload_bitrate):
+                case 0xE495A131u when name.SequenceEqual(propName_video_upload_bitrate):
                     obj.VideoUploadBitrate = reader.ReadInt();
                     return true;
-                case 0xA717A29Fu when name.SequenceEqual(propName_preload_large_videos):
+                case 0x4F56A214u when name.SequenceEqual(propName_preload_large_videos):
                     obj.PreloadLargeVideos = reader.ReadBool();
                     return true;
-                case 0x96E7EC43u when name.SequenceEqual(propName_preload_next_audio):
+                case 0x43473BD6u when name.SequenceEqual(propName_preload_next_audio):
                     obj.PreloadNextAudio = reader.ReadBool();
                     return true;
-                case 0xC3AE95EFu when name.SequenceEqual(propName_use_less_data_for_calls):
+                case 0xC909E024u when name.SequenceEqual(propName_use_less_data_for_calls):
                     obj.UseLessDataForCalls = reader.ReadBool();
                     return true;
             }
@@ -13721,22 +13721,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt();
                     return true;
-                case 0x40AC3DD2u when name.SequenceEqual(propName_server):
+                case 0x3C62153Au when name.SequenceEqual(propName_server):
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x7BE412A6u when name.SequenceEqual(propName_port):
+                case 0x991EB78Cu when name.SequenceEqual(propName_port):
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x6F907C60u when name.SequenceEqual(propName_last_used_date):
+                case 0x62C2419Du when name.SequenceEqual(propName_last_used_date):
                     obj.LastUsedDate = reader.ReadInt();
                     return true;
-                case 0x7C2FEF3Bu when name.SequenceEqual(propName_is_enabled):
+                case 0x1876036Fu when name.SequenceEqual(propName_is_enabled):
                     obj.IsEnabled = reader.ReadBool();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
             }
@@ -13980,16 +13980,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x0727C922u when name.SequenceEqual(propName_deleted_message_count):
+                case 0xC9319F78u when name.SequenceEqual(propName_deleted_message_count):
                     obj.DeletedMessageCount = reader.ReadInt();
                     return true;
-                case 0x2254A79Du when name.SequenceEqual(propName_banned_user_count):
+                case 0x107B9914u when name.SequenceEqual(propName_banned_user_count):
                     obj.BannedUserCount = reader.ReadInt();
                     return true;
-                case 0xAB7DD8DAu when name.SequenceEqual(propName_restricted_user_count):
+                case 0x04768A54u when name.SequenceEqual(propName_restricted_user_count):
                     obj.RestrictedUserCount = reader.ReadInt();
                     return true;
             }
@@ -14030,52 +14030,52 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x99C94704u when name.SequenceEqual(propName_period):
+                case 0xB8732A17u when name.SequenceEqual(propName_period):
                     obj.Period = reader.ReadTLObject<DateRange>();
                     return true;
-                case 0x512E01CBu when name.SequenceEqual(propName_member_count):
+                case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x2AC37CD8u when name.SequenceEqual(propName_message_count):
+                case 0x63688144u when name.SequenceEqual(propName_message_count):
                     obj.MessageCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0xAC43D49Fu when name.SequenceEqual(propName_viewer_count):
+                case 0x76D74E06u when name.SequenceEqual(propName_viewer_count):
                     obj.ViewerCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x81B54B58u when name.SequenceEqual(propName_sender_count):
+                case 0x0A28133Au when name.SequenceEqual(propName_sender_count):
                     obj.SenderCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x0D7F2A10u when name.SequenceEqual(propName_member_count_graph):
+                case 0x80E47EE2u when name.SequenceEqual(propName_member_count_graph):
                     obj.MemberCountGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xFDE7288Au when name.SequenceEqual(propName_join_graph):
+                case 0x6047942Bu when name.SequenceEqual(propName_join_graph):
                     obj.JoinGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x82920CDAu when name.SequenceEqual(propName_join_by_source_graph):
+                case 0x8D0A1489u when name.SequenceEqual(propName_join_by_source_graph):
                     obj.JoinBySourceGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x55F49CA0u when name.SequenceEqual(propName_language_graph):
+                case 0xB94FD7BEu when name.SequenceEqual(propName_language_graph):
                     obj.LanguageGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x24364C49u when name.SequenceEqual(propName_message_content_graph):
+                case 0xF8C9B4C5u when name.SequenceEqual(propName_message_content_graph):
                     obj.MessageContentGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x78E5A644u when name.SequenceEqual(propName_action_graph):
+                case 0x40F7EB2Du when name.SequenceEqual(propName_action_graph):
                     obj.ActionGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xF981C2AEu when name.SequenceEqual(propName_day_graph):
+                case 0xAC34B946u when name.SequenceEqual(propName_day_graph):
                     obj.DayGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x0CAD0D4Eu when name.SequenceEqual(propName_week_graph):
+                case 0xB834E043u when name.SequenceEqual(propName_week_graph):
                     obj.WeekGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xBE4DB2F1u when name.SequenceEqual(propName_top_senders):
+                case 0x33875E9Fu when name.SequenceEqual(propName_top_senders):
                     obj.TopSenders = reader.ReadObjectArray<ChatStatisticsMessageSenderInfo>();
                     return true;
-                case 0x3C797EBFu when name.SequenceEqual(propName_top_administrators):
+                case 0x66707457u when name.SequenceEqual(propName_top_administrators):
                     obj.TopAdministrators = reader.ReadObjectArray<ChatStatisticsAdministratorActionsInfo>();
                     return true;
-                case 0x962661D3u when name.SequenceEqual(propName_top_inviters):
+                case 0xC0C8A453u when name.SequenceEqual(propName_top_inviters):
                     obj.TopInviters = reader.ReadObjectArray<ChatStatisticsInviterInfo>();
                     return true;
             }
@@ -14094,49 +14094,49 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x99C94704u when name.SequenceEqual(propName_period):
+                case 0xB8732A17u when name.SequenceEqual(propName_period):
                     obj.Period = reader.ReadTLObject<DateRange>();
                     return true;
-                case 0x512E01CBu when name.SequenceEqual(propName_member_count):
+                case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x745A0870u when name.SequenceEqual(propName_mean_view_count):
+                case 0xA69DBEE3u when name.SequenceEqual(propName_mean_view_count):
                     obj.MeanViewCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x68DA9F48u when name.SequenceEqual(propName_mean_share_count):
+                case 0xA263C47Bu when name.SequenceEqual(propName_mean_share_count):
                     obj.MeanShareCount = reader.ReadTLObject<StatisticsValue>();
                     return true;
-                case 0x3618C1F6u when name.SequenceEqual(propName_enabled_notifications_percentage):
+                case 0x0F3FCB54u when name.SequenceEqual(propName_enabled_notifications_percentage):
                     obj.EnabledNotificationsPercentage = reader.ReadDouble();
                     return true;
-                case 0x0D7F2A10u when name.SequenceEqual(propName_member_count_graph):
+                case 0x80E47EE2u when name.SequenceEqual(propName_member_count_graph):
                     obj.MemberCountGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xFDE7288Au when name.SequenceEqual(propName_join_graph):
+                case 0x6047942Bu when name.SequenceEqual(propName_join_graph):
                     obj.JoinGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xCC7139D3u when name.SequenceEqual(propName_mute_graph):
+                case 0x6391DAB4u when name.SequenceEqual(propName_mute_graph):
                     obj.MuteGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x070E4A8Cu when name.SequenceEqual(propName_view_count_by_hour_graph):
+                case 0x0F64F99Au when name.SequenceEqual(propName_view_count_by_hour_graph):
                     obj.ViewCountByHourGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x9F87EC6Fu when name.SequenceEqual(propName_view_count_by_source_graph):
+                case 0xA404571Du when name.SequenceEqual(propName_view_count_by_source_graph):
                     obj.ViewCountBySourceGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x82920CDAu when name.SequenceEqual(propName_join_by_source_graph):
+                case 0x8D0A1489u when name.SequenceEqual(propName_join_by_source_graph):
                     obj.JoinBySourceGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0x55F49CA0u when name.SequenceEqual(propName_language_graph):
+                case 0xB94FD7BEu when name.SequenceEqual(propName_language_graph):
                     obj.LanguageGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xA8ED17F4u when name.SequenceEqual(propName_message_interaction_graph):
+                case 0xFD21D298u when name.SequenceEqual(propName_message_interaction_graph):
                     obj.MessageInteractionGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xA51FF426u when name.SequenceEqual(propName_instant_view_interaction_graph):
+                case 0x9601358Cu when name.SequenceEqual(propName_instant_view_interaction_graph):
                     obj.InstantViewInteractionGraph = reader.ReadTLObject<StatisticsGraph>();
                     return true;
-                case 0xE319660Au when name.SequenceEqual(propName_recent_message_interactions):
+                case 0xA322C5EBu when name.SequenceEqual(propName_recent_message_interactions):
                     obj.RecentMessageInteractions = reader.ReadObjectArray<ChatStatisticsMessageInteractionInfo>();
                     return true;
             }
@@ -14250,16 +14250,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x24F208E4u when name.SequenceEqual(propName_message):
+                case 0x98A214D0u when name.SequenceEqual(propName_message):
                     obj.Message = reader.ReadTLObject<Message>();
                     return true;
-                case 0xA485767Au when name.SequenceEqual(propName_old_message_id):
+                case 0xF20C0018u when name.SequenceEqual(propName_old_message_id):
                     obj.OldMessageId = reader.ReadLong();
                     return true;
-                case 0x14FC1187u when name.SequenceEqual(propName_error_code):
+                case 0x3519A170u when name.SequenceEqual(propName_error_code):
                     obj.ErrorCode = reader.ReadInt();
                     return true;
-                case 0x3A4689D1u when name.SequenceEqual(propName_error_message):
+                case 0x6E73AFBFu when name.SequenceEqual(propName_error_message):
                     obj.ErrorMessage = reader.ReadString();
                     return true;
             }
@@ -14305,16 +14305,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x9165AFAEu when name.SequenceEqual(propName_edit_date):
+                case 0xF050FEFFu when name.SequenceEqual(propName_edit_date):
                     obj.EditDate = reader.ReadInt();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
             }
@@ -14920,28 +14920,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x41A3C3BAu when name.SequenceEqual(propName_notification_group_id):
+                case 0x8031826Bu when name.SequenceEqual(propName_notification_group_id):
                     obj.NotificationGroupId = reader.ReadInt();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<NotificationGroupType>();
                     return true;
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x38BB96B3u when name.SequenceEqual(propName_notification_settings_chat_id):
+                case 0x59F4A661u when name.SequenceEqual(propName_notification_settings_chat_id):
                     obj.NotificationSettingsChatId = reader.ReadLong();
                     return true;
-                case 0xD03BF3DFu when name.SequenceEqual(propName_is_silent):
+                case 0xB1BAEF37u when name.SequenceEqual(propName_is_silent):
                     obj.IsSilent = reader.ReadBool();
                     return true;
-                case 0x92BEA9B5u when name.SequenceEqual(propName_total_count):
+                case 0x65E7DFBDu when name.SequenceEqual(propName_total_count):
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0x884EABE2u when name.SequenceEqual(propName_added_notifications):
+                case 0xC3103BFFu when name.SequenceEqual(propName_added_notifications):
                     obj.AddedNotifications = reader.ReadObjectArray<Notification>();
                     return true;
-                case 0xF018DF2Eu when name.SequenceEqual(propName_removed_notification_ids):
+                case 0xD8BF22ECu when name.SequenceEqual(propName_removed_notification_ids):
                     obj.RemovedNotificationIds = reader.ReadInt32Array();
                     return true;
             }
@@ -14999,16 +14999,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x02203345u when name.SequenceEqual(propName_message_ids):
+                case 0xB76C39DCu when name.SequenceEqual(propName_message_ids):
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
-                case 0x3653E954u when name.SequenceEqual(propName_is_permanent):
+                case 0x6F110A42u when name.SequenceEqual(propName_is_permanent):
                     obj.IsPermanent = reader.ReadBool();
                     return true;
-                case 0xFB824E9Cu when name.SequenceEqual(propName_from_cache):
+                case 0xD08CD8B9u when name.SequenceEqual(propName_from_cache):
                     obj.FromCache = reader.ReadBool();
                     return true;
             }
@@ -15027,16 +15027,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xC4642EFFu when name.SequenceEqual(propName_action):
+                case 0xA88F2A92u when name.SequenceEqual(propName_action):
                     obj.Action = reader.ReadTLObject<ChatAction>();
                     return true;
             }
@@ -15250,16 +15250,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xCD5A09A5u when name.SequenceEqual(propName_generation_id):
+                case 0x8FDF7D26u when name.SequenceEqual(propName_generation_id):
                     obj.GenerationId = reader.ReadInt64String();
                     return true;
-                case 0x4A385140u when name.SequenceEqual(propName_original_path):
+                case 0x1F649CDEu when name.SequenceEqual(propName_original_path):
                     obj.OriginalPath = reader.ReadString();
                     return true;
-                case 0x4C1327C7u when name.SequenceEqual(propName_destination_path):
+                case 0x041D4C11u when name.SequenceEqual(propName_destination_path):
                     obj.DestinationPath = reader.ReadString();
                     return true;
-                case 0x8CDFBD85u when name.SequenceEqual(propName_conversion):
+                case 0x77E9A038u when name.SequenceEqual(propName_conversion):
                     obj.Conversion = reader.ReadString();
                     return true;
             }
@@ -15383,22 +15383,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE24898C4u when name.SequenceEqual(propName_chat_list):
+                case 0xB8484D43u when name.SequenceEqual(propName_chat_list):
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0x92BEA9B5u when name.SequenceEqual(propName_total_count):
+                case 0x65E7DFBDu when name.SequenceEqual(propName_total_count):
                     obj.TotalCount = reader.ReadInt();
                     return true;
-                case 0x5ED9F1BEu when name.SequenceEqual(propName_unread_count):
+                case 0x69D09AB3u when name.SequenceEqual(propName_unread_count):
                     obj.UnreadCount = reader.ReadInt();
                     return true;
-                case 0xFABECDAFu when name.SequenceEqual(propName_unread_unmuted_count):
+                case 0x01E99B18u when name.SequenceEqual(propName_unread_unmuted_count):
                     obj.UnreadUnmutedCount = reader.ReadInt();
                     return true;
-                case 0xAE40155Cu when name.SequenceEqual(propName_marked_as_unread_count):
+                case 0x6B9D5F60u when name.SequenceEqual(propName_marked_as_unread_count):
                     obj.MarkedAsUnreadCount = reader.ReadInt();
                     return true;
-                case 0xD4EE259Du when name.SequenceEqual(propName_marked_as_unread_unmuted_count):
+                case 0x710568C6u when name.SequenceEqual(propName_marked_as_unread_unmuted_count):
                     obj.MarkedAsUnreadUnmutedCount = reader.ReadInt();
                     return true;
             }
@@ -15717,19 +15717,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xA9E70BA0u when name.SequenceEqual(propName_user_location):
+                case 0x81A400F4u when name.SequenceEqual(propName_user_location):
                     obj.UserLocation = reader.ReadTLObject<Location>();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadString();
                     return true;
             }
@@ -15748,19 +15748,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xA9E70BA0u when name.SequenceEqual(propName_user_location):
+                case 0x81A400F4u when name.SequenceEqual(propName_user_location):
                     obj.UserLocation = reader.ReadTLObject<Location>();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0xB0FA30F4u when name.SequenceEqual(propName_result_id):
+                case 0xA60E38F1u when name.SequenceEqual(propName_result_id):
                     obj.ResultId = reader.ReadString();
                     return true;
-                case 0xB60D9910u when name.SequenceEqual(propName_inline_message_id):
+                case 0x16AC3B4Eu when name.SequenceEqual(propName_inline_message_id):
                     obj.InlineMessageId = reader.ReadString();
                     return true;
             }
@@ -15779,22 +15779,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xFC89DB47u when name.SequenceEqual(propName_chat_instance):
+                case 0xE4082D32u when name.SequenceEqual(propName_chat_instance):
                     obj.ChatInstance = reader.ReadInt64String();
                     return true;
-                case 0x330F77A5u when name.SequenceEqual(propName_payload):
+                case 0xF4E36970u when name.SequenceEqual(propName_payload):
                     obj.Payload = reader.ReadTLObject<CallbackQueryPayload>();
                     return true;
             }
@@ -15813,19 +15813,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xB60D9910u when name.SequenceEqual(propName_inline_message_id):
+                case 0x16AC3B4Eu when name.SequenceEqual(propName_inline_message_id):
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0xFC89DB47u when name.SequenceEqual(propName_chat_instance):
+                case 0xE4082D32u when name.SequenceEqual(propName_chat_instance):
                     obj.ChatInstance = reader.ReadInt64String();
                     return true;
-                case 0x330F77A5u when name.SequenceEqual(propName_payload):
+                case 0xF4E36970u when name.SequenceEqual(propName_payload):
                     obj.Payload = reader.ReadTLObject<CallbackQueryPayload>();
                     return true;
             }
@@ -15844,16 +15844,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x0EEA8A7Du when name.SequenceEqual(propName_invoice_payload):
+                case 0xF2C30B29u when name.SequenceEqual(propName_invoice_payload):
                     obj.InvoicePayload = reader.ReadString();
                     return true;
-                case 0x84FB8F74u when name.SequenceEqual(propName_shipping_address):
+                case 0xF780AD0Au when name.SequenceEqual(propName_shipping_address):
                     obj.ShippingAddress = reader.ReadTLObject<Address>();
                     return true;
             }
@@ -15872,25 +15872,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x37386AE0u when name.SequenceEqual(propName_id):
+                case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadInt64String();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0xDDF28636u when name.SequenceEqual(propName_currency):
+                case 0xBDC5D1BFu when name.SequenceEqual(propName_currency):
                     obj.Currency = reader.ReadString();
                     return true;
-                case 0x6AC2139Au when name.SequenceEqual(propName_total_amount):
+                case 0xC58746ACu when name.SequenceEqual(propName_total_amount):
                     obj.TotalAmount = reader.ReadLong();
                     return true;
-                case 0x0EEA8A7Du when name.SequenceEqual(propName_invoice_payload):
+                case 0xF2C30B29u when name.SequenceEqual(propName_invoice_payload):
                     obj.InvoicePayload = reader.ReadBase64String();
                     return true;
-                case 0x20399A5Bu when name.SequenceEqual(propName_shipping_option_id):
+                case 0x93477416u when name.SequenceEqual(propName_shipping_option_id):
                     obj.ShippingOptionId = reader.ReadString();
                     return true;
-                case 0xF60D2304u when name.SequenceEqual(propName_order_info):
+                case 0xE97ED45Eu when name.SequenceEqual(propName_order_info):
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
             }
@@ -16461,19 +16461,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5810B10Au when name.SequenceEqual(propName_old_password):
+                case 0x7C2488DAu when name.SequenceEqual(propName_old_password):
                     obj.OldPassword = reader.ReadString();
                     return true;
-                case 0x09748147u when name.SequenceEqual(propName_new_password):
+                case 0xA3B9E2E5u when name.SequenceEqual(propName_new_password):
                     obj.NewPassword = reader.ReadString();
                     return true;
-                case 0xA47BA567u when name.SequenceEqual(propName_new_hint):
+                case 0x0B1D0939u when name.SequenceEqual(propName_new_hint):
                     obj.NewHint = reader.ReadString();
                     return true;
-                case 0x29D5E02Fu when name.SequenceEqual(propName_set_recovery_email_address):
+                case 0xFB61525Eu when name.SequenceEqual(propName_set_recovery_email_address):
                     obj.SetRecoveryEmailAddress = reader.ReadBool();
                     return true;
-                case 0xF139975Du when name.SequenceEqual(propName_new_recovery_email_address):
+                case 0x12E10C95u when name.SequenceEqual(propName_new_recovery_email_address):
                     obj.NewRecoveryEmailAddress = reader.ReadString();
                     return true;
             }
@@ -16917,16 +16917,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE24898C4u when name.SequenceEqual(propName_chat_list):
+                case 0xB8484D43u when name.SequenceEqual(propName_chat_list):
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0x85783281u when name.SequenceEqual(propName_offset_order):
+                case 0xA359972Cu when name.SequenceEqual(propName_offset_order):
                     obj.OffsetOrder = reader.ReadInt64String();
                     return true;
-                case 0x1C9D2887u when name.SequenceEqual(propName_offset_chat_id):
+                case 0x2DD4FEE9u when name.SequenceEqual(propName_offset_chat_id):
                     obj.OffsetChatId = reader.ReadLong();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17222,19 +17222,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x00CB8E7Bu when name.SequenceEqual(propName_from_message_id):
+                case 0xCB003A8Du when name.SequenceEqual(propName_from_message_id):
                     obj.FromMessageId = reader.ReadLong();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xC204D933u when name.SequenceEqual(propName_only_local):
+                case 0x055CA735u when name.SequenceEqual(propName_only_local):
                     obj.OnlyLocal = reader.ReadBool();
                     return true;
             }
@@ -17253,19 +17253,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x00CB8E7Bu when name.SequenceEqual(propName_from_message_id):
+                case 0xCB003A8Du when name.SequenceEqual(propName_from_message_id):
                     obj.FromMessageId = reader.ReadLong();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17311,28 +17311,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x00CB8E7Bu when name.SequenceEqual(propName_from_message_id):
+                case 0xCB003A8Du when name.SequenceEqual(propName_from_message_id):
                     obj.FromMessageId = reader.ReadLong();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xC7E16877u when name.SequenceEqual(propName_filter):
+                case 0x10835EEFu when name.SequenceEqual(propName_filter):
                     obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
             }
@@ -17351,31 +17351,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE24898C4u when name.SequenceEqual(propName_chat_list):
+                case 0xB8484D43u when name.SequenceEqual(propName_chat_list):
                     obj.ChatList = reader.ReadTLObject<ChatList>();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x9B895ACBu when name.SequenceEqual(propName_offset_date):
+                case 0x705C43C7u when name.SequenceEqual(propName_offset_date):
                     obj.OffsetDate = reader.ReadInt();
                     return true;
-                case 0x1C9D2887u when name.SequenceEqual(propName_offset_chat_id):
+                case 0x2DD4FEE9u when name.SequenceEqual(propName_offset_chat_id):
                     obj.OffsetChatId = reader.ReadLong();
                     return true;
-                case 0x87DB836Eu when name.SequenceEqual(propName_offset_message_id):
+                case 0x0C36C71Du when name.SequenceEqual(propName_offset_message_id):
                     obj.OffsetMessageId = reader.ReadLong();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xC7E16877u when name.SequenceEqual(propName_filter):
+                case 0x10835EEFu when name.SequenceEqual(propName_filter):
                     obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
                     return true;
-                case 0x945269CCu when name.SequenceEqual(propName_min_date):
+                case 0xA638DF81u when name.SequenceEqual(propName_min_date):
                     obj.MinDate = reader.ReadInt();
                     return true;
-                case 0xD6939896u when name.SequenceEqual(propName_max_date):
+                case 0x41608558u when name.SequenceEqual(propName_max_date):
                     obj.MaxDate = reader.ReadInt();
                     return true;
             }
@@ -17394,19 +17394,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadString();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xC7E16877u when name.SequenceEqual(propName_filter):
+                case 0x10835EEFu when name.SequenceEqual(propName_filter):
                     obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
                     return true;
             }
@@ -17547,16 +17547,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadString();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -17619,16 +17619,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x84014C14u when name.SequenceEqual(propName_for_album):
+                case 0x8F261B50u when name.SequenceEqual(propName_for_album):
                     obj.ForAlbum = reader.ReadBool();
                     return true;
-                case 0x981B4866u when name.SequenceEqual(propName_for_comment):
+                case 0xD4FBAC3Au when name.SequenceEqual(propName_for_comment):
                     obj.ForComment = reader.ReadBool();
                     return true;
             }
@@ -17691,22 +17691,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x7E9ECDF7u when name.SequenceEqual(propName_reply_to_message_id):
+                case 0x2A4A6D16u when name.SequenceEqual(propName_reply_to_message_id):
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0xEF286CA5u when name.SequenceEqual(propName_options):
+                case 0x8CF56D94u when name.SequenceEqual(propName_options):
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -17725,19 +17725,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x7E9ECDF7u when name.SequenceEqual(propName_reply_to_message_id):
+                case 0x2A4A6D16u when name.SequenceEqual(propName_reply_to_message_id):
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0xEF286CA5u when name.SequenceEqual(propName_options):
+                case 0x8CF56D94u when name.SequenceEqual(propName_options):
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0xB550DCAEu when name.SequenceEqual(propName_input_message_contents):
+                case 0x9857AD88u when name.SequenceEqual(propName_input_message_contents):
                     obj.InputMessageContents = reader.ReadObjectArray<InputMessageContent>();
                     return true;
             }
@@ -17783,25 +17783,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x7E9ECDF7u when name.SequenceEqual(propName_reply_to_message_id):
+                case 0x2A4A6D16u when name.SequenceEqual(propName_reply_to_message_id):
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0xEF286CA5u when name.SequenceEqual(propName_options):
+                case 0x8CF56D94u when name.SequenceEqual(propName_options):
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0xC0DF8479u when name.SequenceEqual(propName_query_id):
+                case 0xA80C61F4u when name.SequenceEqual(propName_query_id):
                     obj.QueryId = reader.ReadInt64String();
                     return true;
-                case 0xB0FA30F4u when name.SequenceEqual(propName_result_id):
+                case 0xA60E38F1u when name.SequenceEqual(propName_result_id):
                     obj.ResultId = reader.ReadString();
                     return true;
-                case 0xE58B44F0u when name.SequenceEqual(propName_hide_via_bot):
+                case 0x9CB396CAu when name.SequenceEqual(propName_hide_via_bot):
                     obj.HideViaBot = reader.ReadBool();
                     return true;
             }
@@ -17820,22 +17820,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCBEE0078u when name.SequenceEqual(propName_from_chat_id):
+                case 0x48E8721Bu when name.SequenceEqual(propName_from_chat_id):
                     obj.FromChatId = reader.ReadLong();
                     return true;
-                case 0x02203345u when name.SequenceEqual(propName_message_ids):
+                case 0xB76C39DCu when name.SequenceEqual(propName_message_ids):
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
-                case 0xEF286CA5u when name.SequenceEqual(propName_options):
+                case 0x8CF56D94u when name.SequenceEqual(propName_options):
                     obj.Options = reader.ReadTLObject<MessageSendOptions>();
                     return true;
-                case 0x9DC2C16Du when name.SequenceEqual(propName_send_copy):
+                case 0xC1A79199u when name.SequenceEqual(propName_send_copy):
                     obj.SendCopy = reader.ReadBool();
                     return true;
-                case 0xA965AE00u when name.SequenceEqual(propName_remove_caption):
+                case 0xD0362263u when name.SequenceEqual(propName_remove_caption):
                     obj.RemoveCaption = reader.ReadBool();
                     return true;
             }
@@ -17915,19 +17915,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x3FFD45EEu when name.SequenceEqual(propName_sender_user_id):
+                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
                     obj.SenderUserId = reader.ReadInt();
                     return true;
-                case 0x7E9ECDF7u when name.SequenceEqual(propName_reply_to_message_id):
+                case 0x2A4A6D16u when name.SequenceEqual(propName_reply_to_message_id):
                     obj.ReplyToMessageId = reader.ReadLong();
                     return true;
-                case 0xC4198C8Bu when name.SequenceEqual(propName_disable_notification):
+                case 0x53B8E768u when name.SequenceEqual(propName_disable_notification):
                     obj.DisableNotification = reader.ReadBool();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -17995,16 +17995,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18023,16 +18023,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
             }
@@ -18051,16 +18051,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xC29BD529u when name.SequenceEqual(propName_input_message_content):
+                case 0x8D57DCCAu when name.SequenceEqual(propName_input_message_content):
                     obj.InputMessageContent = reader.ReadTLObject<InputMessageContent>();
                     return true;
             }
@@ -18079,16 +18079,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x36A139ACu when name.SequenceEqual(propName_reply_markup):
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
                     obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
                     return true;
-                case 0xEF131C65u when name.SequenceEqual(propName_caption):
+                case 0x7C631CCDu when name.SequenceEqual(propName_caption):
                     obj.Caption = reader.ReadTLObject<FormattedText>();
                     return true;
             }
@@ -18415,16 +18415,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x8D3E23FBu when name.SequenceEqual(propName_language_pack_database_path):
+                case 0x04A8FB25u when name.SequenceEqual(propName_language_pack_database_path):
                     obj.LanguagePackDatabasePath = reader.ReadString();
                     return true;
-                case 0x732E8310u when name.SequenceEqual(propName_localization_target):
+                case 0xA6EC4F7Eu when name.SequenceEqual(propName_localization_target):
                     obj.LocalizationTarget = reader.ReadString();
                     return true;
-                case 0xF007307Bu when name.SequenceEqual(propName_language_pack_id):
+                case 0x8C609C1Fu when name.SequenceEqual(propName_language_pack_id):
                     obj.LanguagePackId = reader.ReadString();
                     return true;
-                case 0x6815C86Cu when name.SequenceEqual(propName_key):
+                case 0x40A4756Du when name.SequenceEqual(propName_key):
                     obj.Key = reader.ReadString();
                     return true;
             }
@@ -18504,19 +18504,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xC06844E4u when name.SequenceEqual(propName_option_id):
+                case 0x4ABE554Du when name.SequenceEqual(propName_option_id):
                     obj.OptionId = reader.ReadInt();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -18606,16 +18606,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xFAD92BE7u when name.SequenceEqual(propName_button_id):
+                case 0x4DD238A4u when name.SequenceEqual(propName_button_id):
                     obj.ButtonId = reader.ReadInt();
                     return true;
-                case 0xF5EDBE4Du when name.SequenceEqual(propName_allow_write_access):
+                case 0x06295B41u when name.SequenceEqual(propName_allow_write_access):
                     obj.AllowWriteAccess = reader.ReadBool();
                     return true;
             }
@@ -18634,19 +18634,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x0BC9D8A8u when name.SequenceEqual(propName_bot_user_id):
+                case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xA9E70BA0u when name.SequenceEqual(propName_user_location):
+                case 0x81A400F4u when name.SequenceEqual(propName_user_location):
                     obj.UserLocation = reader.ReadTLObject<Location>();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadString();
                     return true;
             }
@@ -18665,25 +18665,25 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x69BBE355u when name.SequenceEqual(propName_inline_query_id):
+                case 0x69760C1Du when name.SequenceEqual(propName_inline_query_id):
                     obj.InlineQueryId = reader.ReadInt64String();
                     return true;
-                case 0x61C3FF3Eu when name.SequenceEqual(propName_is_personal):
+                case 0xF5BCD3ECu when name.SequenceEqual(propName_is_personal):
                     obj.IsPersonal = reader.ReadBool();
                     return true;
-                case 0x6C4F4AF5u when name.SequenceEqual(propName_results):
+                case 0xAD67C0E0u when name.SequenceEqual(propName_results):
                     obj.Results = reader.ReadObjectArray<InputInlineQueryResult>();
                     return true;
-                case 0x70EF59C7u when name.SequenceEqual(propName_cache_time):
+                case 0xD019661Cu when name.SequenceEqual(propName_cache_time):
                     obj.CacheTime = reader.ReadInt();
                     return true;
-                case 0x697AA81Au when name.SequenceEqual(propName_next_offset):
+                case 0x37DD9D00u when name.SequenceEqual(propName_next_offset):
                     obj.NextOffset = reader.ReadString();
                     return true;
-                case 0xAD9E3C99u when name.SequenceEqual(propName_switch_pm_text):
+                case 0x81169FF1u when name.SequenceEqual(propName_switch_pm_text):
                     obj.SwitchPmText = reader.ReadString();
                     return true;
-                case 0x21833D65u when name.SequenceEqual(propName_switch_pm_parameter):
+                case 0x3FBC3F46u when name.SequenceEqual(propName_switch_pm_parameter):
                     obj.SwitchPmParameter = reader.ReadString();
                     return true;
             }
@@ -18729,19 +18729,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xFC520E2Fu when name.SequenceEqual(propName_callback_query_id):
+                case 0x85DAE752u when name.SequenceEqual(propName_callback_query_id):
                     obj.CallbackQueryId = reader.ReadInt64String();
                     return true;
-                case 0xBDE64E3Eu when name.SequenceEqual(propName_text):
+                case 0x2F5319E1u when name.SequenceEqual(propName_text):
                     obj.Text = reader.ReadString();
                     return true;
-                case 0x8C21035Du when name.SequenceEqual(propName_show_alert):
+                case 0x018A7292u when name.SequenceEqual(propName_show_alert):
                     obj.ShowAlert = reader.ReadBool();
                     return true;
-                case 0x328F4C1Eu when name.SequenceEqual(propName_url):
+                case 0xB9E12B82u when name.SequenceEqual(propName_url):
                     obj.Url = reader.ReadString();
                     return true;
-                case 0x70EF59C7u when name.SequenceEqual(propName_cache_time):
+                case 0xD019661Cu when name.SequenceEqual(propName_cache_time):
                     obj.CacheTime = reader.ReadInt();
                     return true;
             }
@@ -18809,22 +18809,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x66108411u when name.SequenceEqual(propName_edit_message):
+                case 0x2C2F276Cu when name.SequenceEqual(propName_edit_message):
                     obj.EditMessage = reader.ReadBool();
                     return true;
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xD22F9095u when name.SequenceEqual(propName_score):
+                case 0x1690F8C8u when name.SequenceEqual(propName_score):
                     obj.Score = reader.ReadInt();
                     return true;
-                case 0x79A98884u when name.SequenceEqual(propName_force):
+                case 0x938B06CFu when name.SequenceEqual(propName_force):
                     obj.Force = reader.ReadBool();
                     return true;
             }
@@ -18843,19 +18843,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xB60D9910u when name.SequenceEqual(propName_inline_message_id):
+                case 0x16AC3B4Eu when name.SequenceEqual(propName_inline_message_id):
                     obj.InlineMessageId = reader.ReadString();
                     return true;
-                case 0x66108411u when name.SequenceEqual(propName_edit_message):
+                case 0x2C2F276Cu when name.SequenceEqual(propName_edit_message):
                     obj.EditMessage = reader.ReadBool();
                     return true;
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0xD22F9095u when name.SequenceEqual(propName_score):
+                case 0x1690F8C8u when name.SequenceEqual(propName_score):
                     obj.Score = reader.ReadInt();
                     return true;
-                case 0x79A98884u when name.SequenceEqual(propName_force):
+                case 0x938B06CFu when name.SequenceEqual(propName_force):
                     obj.Force = reader.ReadBool();
                     return true;
             }
@@ -19006,16 +19006,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xCF8E5A53u when name.SequenceEqual(propName_message_thread_id):
+                case 0xDB316A50u when name.SequenceEqual(propName_message_thread_id):
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
-                case 0x02203345u when name.SequenceEqual(propName_message_ids):
+                case 0xB76C39DCu when name.SequenceEqual(propName_message_ids):
                     obj.MessageIds = reader.ReadInt53Array();
                     return true;
-                case 0xD91A92C1u when name.SequenceEqual(propName_force_read):
+                case 0xCB52D7A9u when name.SequenceEqual(propName_force_read):
                     obj.ForceRead = reader.ReadBool();
                     return true;
             }
@@ -19178,16 +19178,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x19519D69u when name.SequenceEqual(propName_is_channel):
+                case 0x4C39504Du when name.SequenceEqual(propName_is_channel):
                     obj.IsChannel = reader.ReadBool();
                     return true;
-                case 0x346F3B69u when name.SequenceEqual(propName_description):
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
                     obj.Description = reader.ReadString();
                     return true;
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<ChatLocation>();
                     return true;
             }
@@ -19894,16 +19894,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xC7E16877u when name.SequenceEqual(propName_filter):
+                case 0x10835EEFu when name.SequenceEqual(propName_filter):
                     obj.Filter = reader.ReadTLObject<ChatMembersFilter>();
                     return true;
             }
@@ -20073,19 +20073,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x6BBC1599u when name.SequenceEqual(propName_file_id):
+                case 0x0DDD2B3Fu when name.SequenceEqual(propName_file_id):
                     obj.FileId = reader.ReadInt();
                     return true;
-                case 0x94E4E309u when name.SequenceEqual(propName_priority):
+                case 0x3889E214u when name.SequenceEqual(propName_priority):
                     obj.Priority = reader.ReadInt();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0x9F269C56u when name.SequenceEqual(propName_synchronous):
+                case 0xA05F8713u when name.SequenceEqual(propName_synchronous):
                     obj.Synchronous = reader.ReadBool();
                     return true;
             }
@@ -20434,19 +20434,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5A852F4Fu when name.SequenceEqual(propName_call_id):
+                case 0x8B391367u when name.SequenceEqual(propName_call_id):
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0x23243DC1u when name.SequenceEqual(propName_is_disconnected):
+                case 0xBDDFEF41u when name.SequenceEqual(propName_is_disconnected):
                     obj.IsDisconnected = reader.ReadBool();
                     return true;
-                case 0x2FA0FD0Du when name.SequenceEqual(propName_duration):
+                case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
                     return true;
-                case 0x7815FC5Du when name.SequenceEqual(propName_is_video):
+                case 0xE57A104Eu when name.SequenceEqual(propName_is_video):
                     obj.IsVideo = reader.ReadBool();
                     return true;
-                case 0xC1C626FFu when name.SequenceEqual(propName_connection_id):
+                case 0x9EC95538u when name.SequenceEqual(propName_connection_id):
                     obj.ConnectionId = reader.ReadInt64String();
                     return true;
             }
@@ -20465,16 +20465,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5A852F4Fu when name.SequenceEqual(propName_call_id):
+                case 0x8B391367u when name.SequenceEqual(propName_call_id):
                     obj.CallId = reader.ReadInt();
                     return true;
-                case 0xF2891050u when name.SequenceEqual(propName_rating):
+                case 0x470D4D95u when name.SequenceEqual(propName_rating):
                     obj.Rating = reader.ReadInt();
                     return true;
-                case 0x67A6C45Eu when name.SequenceEqual(propName_comment):
+                case 0xEBF9BDA4u when name.SequenceEqual(propName_comment):
                     obj.Comment = reader.ReadString();
                     return true;
-                case 0xA8C6987Du when name.SequenceEqual(propName_problems):
+                case 0xEBB8772Du when name.SequenceEqual(propName_problems):
                     obj.Problems = reader.ReadObjectArray<CallProblem>();
                     return true;
             }
@@ -20515,16 +20515,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x90DD0D6Eu when name.SequenceEqual(propName_delete_message):
+                case 0xBE20F37Au when name.SequenceEqual(propName_delete_message):
                     obj.DeleteMessage = reader.ReadBool();
                     return true;
-                case 0x9E7FB437u when name.SequenceEqual(propName_delete_all_messages):
+                case 0xA918641Fu when name.SequenceEqual(propName_delete_all_messages):
                     obj.DeleteAllMessages = reader.ReadBool();
                     return true;
-                case 0x47FD6F5Du when name.SequenceEqual(propName_report_spam):
+                case 0xF5825C1Cu when name.SequenceEqual(propName_report_spam):
                     obj.ReportSpam = reader.ReadBool();
                     return true;
             }
@@ -21649,16 +21649,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xE5C85855u when name.SequenceEqual(propName_supergroup_id):
+                case 0x94EF2CB7u when name.SequenceEqual(propName_supergroup_id):
                     obj.SupergroupId = reader.ReadInt();
                     return true;
-                case 0xC7E16877u when name.SequenceEqual(propName_filter):
+                case 0x10835EEFu when name.SequenceEqual(propName_filter):
                     obj.Filter = reader.ReadTLObject<SupergroupMembersFilter>();
                     return true;
-                case 0x14C8D3CAu when name.SequenceEqual(propName_offset):
+                case 0xE9D6EBDAu when name.SequenceEqual(propName_offset):
                     obj.Offset = reader.ReadInt();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
             }
@@ -21711,22 +21711,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0xF8CE75E3u when name.SequenceEqual(propName_query):
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x4B0B8882u when name.SequenceEqual(propName_from_event_id):
+                case 0x22F1063Eu when name.SequenceEqual(propName_from_event_id):
                     obj.FromEventId = reader.ReadInt64String();
                     return true;
-                case 0x32DAD934u when name.SequenceEqual(propName_limit):
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
                     obj.Limit = reader.ReadInt();
                     return true;
-                case 0xABD6BE4Cu when name.SequenceEqual(propName_filters):
+                case 0x8D86E3C8u when name.SequenceEqual(propName_filters):
                     obj.Filters = reader.ReadTLObject<ChatEventLogFilters>();
                     return true;
-                case 0xE076DE0Bu when name.SequenceEqual(propName_user_ids):
+                case 0xAB68903Fu when name.SequenceEqual(propName_user_ids):
                     obj.UserIds = reader.ReadInt32Array();
                     return true;
             }
@@ -21767,16 +21767,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0xF60D2304u when name.SequenceEqual(propName_order_info):
+                case 0xE97ED45Eu when name.SequenceEqual(propName_order_info):
                     obj.OrderInfo = reader.ReadTLObject<OrderInfo>();
                     return true;
-                case 0xA7B324C2u when name.SequenceEqual(propName_allow_save):
+                case 0xD8BB3C4Eu when name.SequenceEqual(propName_allow_save):
                     obj.AllowSave = reader.ReadBool();
                     return true;
             }
@@ -21795,19 +21795,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x5E295EB4u when name.SequenceEqual(propName_message_id):
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x01157794u when name.SequenceEqual(propName_order_info_id):
+                case 0xC5280CD3u when name.SequenceEqual(propName_order_info_id):
                     obj.OrderInfoId = reader.ReadString();
                     return true;
-                case 0x20399A5Bu when name.SequenceEqual(propName_shipping_option_id):
+                case 0x93477416u when name.SequenceEqual(propName_shipping_option_id):
                     obj.ShippingOptionId = reader.ReadString();
                     return true;
-                case 0xE8FD9BD1u when name.SequenceEqual(propName_credentials):
+                case 0x6A52DB2Cu when name.SequenceEqual(propName_credentials):
                     obj.Credentials = reader.ReadTLObject<InputCredentials>();
                     return true;
             }
@@ -22521,31 +22521,31 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x23A0D95Cu when name.SequenceEqual(propName_size):
+                case 0x55AC4F76u when name.SequenceEqual(propName_size):
                     obj.Size = reader.ReadLong();
                     return true;
-                case 0xBD2B425Bu when name.SequenceEqual(propName_ttl):
+                case 0x756FE8CEu when name.SequenceEqual(propName_ttl):
                     obj.Ttl = reader.ReadInt();
                     return true;
-                case 0x39B1DDF4u when name.SequenceEqual(propName_count):
+                case 0x1D26CDC5u when name.SequenceEqual(propName_count):
                     obj.Count = reader.ReadInt();
                     return true;
-                case 0xA8BB7C17u when name.SequenceEqual(propName_immunity_delay):
+                case 0xABE4484Cu when name.SequenceEqual(propName_immunity_delay):
                     obj.ImmunityDelay = reader.ReadInt();
                     return true;
-                case 0x13FAFA9Du when name.SequenceEqual(propName_file_types):
+                case 0xC509D5C3u when name.SequenceEqual(propName_file_types):
                     obj.FileTypes = reader.ReadObjectArray<FileType>();
                     return true;
-                case 0x06F8DD46u when name.SequenceEqual(propName_chat_ids):
+                case 0xD49AC59Au when name.SequenceEqual(propName_chat_ids):
                     obj.ChatIds = reader.ReadInt53Array();
                     return true;
-                case 0x10F6373Du when name.SequenceEqual(propName_exclude_chat_ids):
+                case 0x38E33D49u when name.SequenceEqual(propName_exclude_chat_ids):
                     obj.ExcludeChatIds = reader.ReadInt53Array();
                     return true;
-                case 0x1B34D9A2u when name.SequenceEqual(propName_return_deleted_file_statistics):
+                case 0xD078DC63u when name.SequenceEqual(propName_return_deleted_file_statistics):
                     obj.ReturnDeletedFileStatistics = reader.ReadBool();
                     return true;
-                case 0xDE7B75BFu when name.SequenceEqual(propName_chat_limit):
+                case 0xD057488Cu when name.SequenceEqual(propName_chat_limit):
                     obj.ChatLimit = reader.ReadInt();
                     return true;
             }
@@ -22872,16 +22872,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x0BC9D8A8u when name.SequenceEqual(propName_bot_user_id):
+                case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
                     obj.BotUserId = reader.ReadInt();
                     return true;
-                case 0xBE2AF3EBu when name.SequenceEqual(propName_scope):
+                case 0x31D5C826u when name.SequenceEqual(propName_scope):
                     obj.Scope = reader.ReadString();
                     return true;
-                case 0xF88012C4u when name.SequenceEqual(propName_public_key):
+                case 0xEDDC8A97u when name.SequenceEqual(propName_public_key):
                     obj.PublicKey = reader.ReadString();
                     return true;
-                case 0xF90879F8u when name.SequenceEqual(propName_nonce):
+                case 0x80C1EA0Bu when name.SequenceEqual(propName_nonce):
                     obj.Nonce = reader.ReadString();
                     return true;
             }
@@ -23039,19 +23039,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x10A75CDAu when name.SequenceEqual(propName_user_id):
+                case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
                     obj.UserId = reader.ReadInt();
                     return true;
-                case 0x9865B509u when name.SequenceEqual(propName_title):
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
                     return true;
-                case 0x8D39BDE6u when name.SequenceEqual(propName_name):
+                case 0x911200E7u when name.SequenceEqual(propName_name):
                     obj.Name = reader.ReadString();
                     return true;
-                case 0x531AE927u when name.SequenceEqual(propName_is_masks):
+                case 0xBCDC2AC8u when name.SequenceEqual(propName_is_masks):
                     obj.IsMasks = reader.ReadBool();
                     return true;
-                case 0x1C388ABDu when name.SequenceEqual(propName_stickers):
+                case 0xD5CED7ABu when name.SequenceEqual(propName_stickers):
                     obj.Stickers = reader.ReadObjectArray<InputSticker>();
                     return true;
             }
@@ -23163,22 +23163,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x0BF5A9A6u when name.SequenceEqual(propName_location):
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<Location>();
                     return true;
-                case 0xDF92E232u when name.SequenceEqual(propName_zoom):
+                case 0x472820DAu when name.SequenceEqual(propName_zoom):
                     obj.Zoom = reader.ReadInt();
                     return true;
-                case 0x95876E1Fu when name.SequenceEqual(propName_width):
+                case 0xBB6EE548u when name.SequenceEqual(propName_width):
                     obj.Width = reader.ReadInt();
                     return true;
-                case 0xD5BDBB42u when name.SequenceEqual(propName_height):
+                case 0xE6A89F2Cu when name.SequenceEqual(propName_height):
                     obj.Height = reader.ReadInt();
                     return true;
-                case 0x82971C71u when name.SequenceEqual(propName_scale):
+                case 0x346E5311u when name.SequenceEqual(propName_scale):
                     obj.Scale = reader.ReadInt();
                     return true;
-                case 0xA81C9111u when name.SequenceEqual(propName_chat_id):
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
             }
@@ -23364,16 +23364,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x40AC3DD2u when name.SequenceEqual(propName_server):
+                case 0x3C62153Au when name.SequenceEqual(propName_server):
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x7BE412A6u when name.SequenceEqual(propName_port):
+                case 0x991EB78Cu when name.SequenceEqual(propName_port):
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0xAF8BB8CEu when name.SequenceEqual(propName_enable):
+                case 0x375B100Au when name.SequenceEqual(propName_enable):
                     obj.Enable = reader.ReadBool();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
             }
@@ -23392,19 +23392,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0xC9E41541u when name.SequenceEqual(propName_proxy_id):
+                case 0xF21AC04Fu when name.SequenceEqual(propName_proxy_id):
                     obj.ProxyId = reader.ReadInt();
                     return true;
-                case 0x40AC3DD2u when name.SequenceEqual(propName_server):
+                case 0x3C62153Au when name.SequenceEqual(propName_server):
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x7BE412A6u when name.SequenceEqual(propName_port):
+                case 0x991EB78Cu when name.SequenceEqual(propName_port):
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0xAF8BB8CEu when name.SequenceEqual(propName_enable):
+                case 0x375B100Au when name.SequenceEqual(propName_enable):
                     obj.Enable = reader.ReadBool();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
             }
@@ -23754,19 +23754,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x40AC3DD2u when name.SequenceEqual(propName_server):
+                case 0x3C62153Au when name.SequenceEqual(propName_server):
                     obj.Server = reader.ReadString();
                     return true;
-                case 0x7BE412A6u when name.SequenceEqual(propName_port):
+                case 0x991EB78Cu when name.SequenceEqual(propName_port):
                     obj.Port = reader.ReadInt();
                     return true;
-                case 0x5127F14Du when name.SequenceEqual(propName_type):
+                case 0x865F7960u when name.SequenceEqual(propName_type):
                     obj.Type = reader.ReadTLObject<ProxyType>();
                     return true;
-                case 0x226DA008u when name.SequenceEqual(propName_dc_id):
+                case 0xC47F0862u when name.SequenceEqual(propName_dc_id):
                     obj.DcId = reader.ReadInt();
                     return true;
-                case 0x97F68388u when name.SequenceEqual(propName_timeout):
+                case 0x1472F5B1u when name.SequenceEqual(propName_timeout):
                     obj.Timeout = reader.ReadDouble();
                     return true;
             }

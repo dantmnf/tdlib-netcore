@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using TDLibCore.Api;
 
@@ -6,7 +7,6 @@ namespace TDLibCore.JsonClient
 {
     abstract partial class BaseConverter
     {
-        public virtual bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject obj, ReadOnlySpan<byte> name) => false;
         public virtual bool TdJsonReadItem(ref TdJsonReader reader, TLObject obj, ReadOnlySpan<byte> name) => false;
 
         /// <remarks>
@@ -18,6 +18,7 @@ namespace TDLibCore.JsonClient
 
         public abstract TLObject CreateObjectInstance();
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal protected static uint GetHashCodeForPropertyName(ReadOnlySpan<byte> name) => Hash.ComputeHash(name);
     }
 

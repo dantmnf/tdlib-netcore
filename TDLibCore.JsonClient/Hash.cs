@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace TDLibCore.JsonClient
@@ -18,8 +19,10 @@ namespace TDLibCore.JsonClient
             return hash;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint CRC32C(ReadOnlySpan<byte> input) => Crc32C.Update(0, input);
 
-        public static uint ComputeHash(ReadOnlySpan<byte> input) => FNV1a(input);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint ComputeHash(ReadOnlySpan<byte> input) => CRC32C(input);
     }
 }
