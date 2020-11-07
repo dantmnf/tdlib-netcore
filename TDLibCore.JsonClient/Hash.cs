@@ -17,5 +17,9 @@ namespace TDLibCore.JsonClient
             }
             return hash;
         }
+
+        public static uint CRC32C(ReadOnlySpan<byte> input) => Crc32C.Update(0, input);
+
+        public static uint ComputeHash(ReadOnlySpan<byte> input) => CRC32C(input);
     }
 }

@@ -44,11 +44,11 @@ namespace TDLibCore.JsonClient
 
         private static unsafe long DoubleToLongBits(double d)
         {
-            return *((long*)(void*)&d);
+            return BitConverter.DoubleToInt64Bits(d);
         }
         private static unsafe double LongBitsToDouble(long d)
         {
-            return *((double*)(void*)&d);
+            return BitConverter.Int64BitsToDouble(d);
         }
     }
 }

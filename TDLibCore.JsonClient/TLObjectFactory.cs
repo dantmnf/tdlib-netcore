@@ -36,7 +36,7 @@ namespace TDLibCore.JsonClient
                     throw new TypeLoadException($"converter type {converter_type.FullName} does not inherit from Converter<T>");
                 var object_type = converter_generic_type.GenericTypeArguments.FirstOrDefault();
                 var converter = converter_factory();
-                _typehash_map.Add(Crc32C.Update(0, Encoding.UTF8.GetBytes(attr.TLType)), converter);
+                _typehash_map.Add(Hash.ComputeHash(Encoding.UTF8.GetBytes(attr.TLType)), converter);
                 _rtti_map.Add(object_type, converter);
             }
             if (count != _typehash_map.Count)
@@ -97,7 +97,7 @@ namespace TDLibCore.JsonClient
             if (token != TdJsonTokenType.String)
                 throw new TdJsonReaderException(reader.BytesConsumed, "object without @type");
             var typestr = reader.ReadStringUTF8();
-            var typehash = Crc32C.Update(0, typestr);
+            var typehash = Hash.ComputeHash(typestr);
 
             var converter = GetConverterForType(typehash);
             var obj = converter.CreateObjectInstance();

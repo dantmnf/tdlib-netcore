@@ -18,7 +18,7 @@ namespace TDLibCore.JsonClient
 
         public abstract TLObject CreateObjectInstance();
 
-        internal protected static uint GetHashCodeForPropertyName(ReadOnlySpan<byte> name) => Crc32C.Update(0, name);
+        internal protected static uint GetHashCodeForPropertyName(ReadOnlySpan<byte> name) => Hash.ComputeHash(name);
     }
 
     abstract partial class TLObjectConverter<T> : BaseConverter where T : TLObject { }
