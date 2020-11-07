@@ -625,7 +625,7 @@ namespace TDLibCore.Api
         /// <param name="width">Thumbnail width, usually doesn't exceed 40</param>
         /// <param name="height">Thumbnail height, usually doesn't exceed 40</param>
         /// <param name="data">The thumbnail in JPEG format</param>
-        public Minithumbnail(int width = default, int height = default, byte[] data = default)
+        public Minithumbnail(int width = default, int height = default, Memory<byte> data = default)
         {
             this.Width = width;
             this.Height = height;
@@ -1024,7 +1024,7 @@ namespace TDLibCore.Api
         /// <param name="waveform">A waveform representation of the voice note in 5-bit format</param>
         /// <param name="mimeType">MIME type of the file; as defined by the sender</param>
         /// <param name="voice">File containing the voice note</param>
-        public VoiceNote(int duration = default, byte[] waveform = default, string mimeType = default, File voice = default)
+        public VoiceNote(int duration = default, Memory<byte> waveform = default, string mimeType = default, File voice = default)
         {
             this.Duration = duration;
             this.Waveform = waveform;
@@ -2049,7 +2049,7 @@ namespace TDLibCore.Api
         /// <param name="ttl">Current message Time To Live setting (self-destruct timer) for the chat, in seconds</param>
         /// <param name="keyHash">Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 little-endian bytes, which must be split into groups of 2 bits, each denoting a pixel of one of 4 colors FFFFFF, D5E6F3, 2D5775, and 2F99C9. -The pixels must be used to make a 12x12 square image filled from left to right, top to bottom. Alternatively, the first 32 bytes of the hash can be converted to the hexadecimal format and printed as 32 2-digit hex numbers</param>
         /// <param name="layer">Secret chat layer; determines features supported by the chat partner's application. Video notes are supported if the layer &gt;= 66; nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101</param>
-        public SecretChat(int id = default, int userId = default, SecretChatState state = default, bool isOutbound = default, int ttl = default, byte[] keyHash = default, int layer = default)
+        public SecretChat(int id = default, int userId = default, SecretChatState state = default, bool isOutbound = default, int ttl = default, Memory<byte> keyHash = default, int layer = default)
         {
             this.Id = id;
             this.UserId = userId;
@@ -3041,7 +3041,7 @@ namespace TDLibCore.Api
         /// A button that sends a callback query to a bot
         /// </summary>
         /// <param name="data">Data to be sent to the bot via a callback query</param>
-        public InlineKeyboardButtonTypeCallback(byte[] data = default)
+        public InlineKeyboardButtonTypeCallback(Memory<byte> data = default)
         {
             this.Data = data;
         }
@@ -3057,7 +3057,7 @@ namespace TDLibCore.Api
         /// A button that asks for password of the current user and then sends a callback query to a bot
         /// </summary>
         /// <param name="data">Data to be sent to the bot via a callback query</param>
-        public InlineKeyboardButtonTypeCallbackWithPassword(byte[] data = default)
+        public InlineKeyboardButtonTypeCallbackWithPassword(Memory<byte> data = default)
         {
             this.Data = data;
         }
@@ -5603,7 +5603,7 @@ namespace TDLibCore.Api
         /// <param name="data">The encrypted credentials</param>
         /// <param name="hash">The decrypted data hash</param>
         /// <param name="secret">Secret for data decryption, encrypted with the service's public key</param>
-        public EncryptedCredentials(byte[] data = default, byte[] hash = default, byte[] secret = default)
+        public EncryptedCredentials(Memory<byte> data = default, Memory<byte> hash = default, Memory<byte> secret = default)
         {
             this.Data = data;
             this.Hash = hash;
@@ -5629,7 +5629,7 @@ namespace TDLibCore.Api
         /// <param name="files">List of attached files</param>
         /// <param name="value">Unencrypted data, phone number or email address</param>
         /// <param name="hash">Hash of the entire element</param>
-        public EncryptedPassportElement(PassportElementType type = default, byte[] data = default, DatedFile frontSide = default, DatedFile reverseSide = default, DatedFile selfie = default, DatedFile[] translation = default, DatedFile[] files = default, string value = default, string hash = default)
+        public EncryptedPassportElement(PassportElementType type = default, Memory<byte> data = default, DatedFile frontSide = default, DatedFile reverseSide = default, DatedFile selfie = default, DatedFile[] translation = default, DatedFile[] files = default, string value = default, string hash = default)
         {
             this.Type = type;
             this.Data = data;
@@ -5653,7 +5653,7 @@ namespace TDLibCore.Api
         /// The element contains an error in an unspecified place. The error will be considered resolved when new data is added
         /// </summary>
         /// <param name="elementHash">Current hash of the entire element</param>
-        public InputPassportElementErrorSourceUnspecified(byte[] elementHash = default)
+        public InputPassportElementErrorSourceUnspecified(Memory<byte> elementHash = default)
         {
             this.ElementHash = elementHash;
         }
@@ -5670,7 +5670,7 @@ namespace TDLibCore.Api
         /// </summary>
         /// <param name="fieldName">Field name</param>
         /// <param name="dataHash">Current data hash</param>
-        public InputPassportElementErrorSourceDataField(string fieldName = default, byte[] dataHash = default)
+        public InputPassportElementErrorSourceDataField(string fieldName = default, Memory<byte> dataHash = default)
         {
             this.FieldName = fieldName;
             this.DataHash = dataHash;
@@ -5687,7 +5687,7 @@ namespace TDLibCore.Api
         /// The front side of the document contains an error. The error is considered resolved when the file with the front side of the document changes
         /// </summary>
         /// <param name="fileHash">Current hash of the file containing the front side</param>
-        public InputPassportElementErrorSourceFrontSide(byte[] fileHash = default)
+        public InputPassportElementErrorSourceFrontSide(Memory<byte> fileHash = default)
         {
             this.FileHash = fileHash;
         }
@@ -5703,7 +5703,7 @@ namespace TDLibCore.Api
         /// The reverse side of the document contains an error. The error is considered resolved when the file with the reverse side of the document changes
         /// </summary>
         /// <param name="fileHash">Current hash of the file containing the reverse side</param>
-        public InputPassportElementErrorSourceReverseSide(byte[] fileHash = default)
+        public InputPassportElementErrorSourceReverseSide(Memory<byte> fileHash = default)
         {
             this.FileHash = fileHash;
         }
@@ -5719,7 +5719,7 @@ namespace TDLibCore.Api
         /// The selfie contains an error. The error is considered resolved when the file with the selfie changes
         /// </summary>
         /// <param name="fileHash">Current hash of the file containing the selfie</param>
-        public InputPassportElementErrorSourceSelfie(byte[] fileHash = default)
+        public InputPassportElementErrorSourceSelfie(Memory<byte> fileHash = default)
         {
             this.FileHash = fileHash;
         }
@@ -5735,7 +5735,7 @@ namespace TDLibCore.Api
         /// One of the files containing the translation of the document contains an error. The error is considered resolved when the file with the translation changes
         /// </summary>
         /// <param name="fileHash">Current hash of the file containing the translation</param>
-        public InputPassportElementErrorSourceTranslationFile(byte[] fileHash = default)
+        public InputPassportElementErrorSourceTranslationFile(Memory<byte> fileHash = default)
         {
             this.FileHash = fileHash;
         }
@@ -5751,7 +5751,7 @@ namespace TDLibCore.Api
         /// The translation of the document contains an error. The error is considered resolved when the list of files changes
         /// </summary>
         /// <param name="fileHashes">Current hashes of all files with the translation</param>
-        public InputPassportElementErrorSourceTranslationFiles(byte[][] fileHashes = default)
+        public InputPassportElementErrorSourceTranslationFiles(Memory<byte>[] fileHashes = default)
         {
             this.FileHashes = fileHashes;
         }
@@ -5767,7 +5767,7 @@ namespace TDLibCore.Api
         /// The file contains an error. The error is considered resolved when the file changes
         /// </summary>
         /// <param name="fileHash">Current hash of the file which has the error</param>
-        public InputPassportElementErrorSourceFile(byte[] fileHash = default)
+        public InputPassportElementErrorSourceFile(Memory<byte> fileHash = default)
         {
             this.FileHash = fileHash;
         }
@@ -5783,7 +5783,7 @@ namespace TDLibCore.Api
         /// The list of attached files contains an error. The error is considered resolved when the file list changes
         /// </summary>
         /// <param name="fileHashes">Current hashes of all attached files</param>
-        public InputPassportElementErrorSourceFiles(byte[][] fileHashes = default)
+        public InputPassportElementErrorSourceFiles(Memory<byte>[] fileHashes = default)
         {
             this.FileHashes = fileHashes;
         }
@@ -6416,7 +6416,7 @@ namespace TDLibCore.Api
         /// <param name="orderInfo">Information about the order; may be null</param>
         /// <param name="telegramPaymentChargeId">Telegram payment identifier</param>
         /// <param name="providerPaymentChargeId">Provider payment identifier</param>
-        public MessagePaymentSuccessfulBot(long invoiceMessageId = default, string currency = default, long totalAmount = default, byte[] invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default, string telegramPaymentChargeId = default, string providerPaymentChargeId = default)
+        public MessagePaymentSuccessfulBot(long invoiceMessageId = default, string currency = default, long totalAmount = default, Memory<byte> invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default, string telegramPaymentChargeId = default, string providerPaymentChargeId = default)
         {
             this.InvoiceMessageId = invoiceMessageId;
             this.Currency = currency;
@@ -6952,7 +6952,7 @@ namespace TDLibCore.Api
         /// <param name="duration">Duration of the voice note, in seconds</param>
         /// <param name="waveform">Waveform representation of the voice note, in 5-bit format</param>
         /// <param name="caption">Voice note caption; 0-GetOption("message_caption_length_max") characters</param>
-        public InputMessageVoiceNote(InputFile voiceNote = default, int duration = default, byte[] waveform = default, FormattedText caption = default)
+        public InputMessageVoiceNote(InputFile voiceNote = default, int duration = default, Memory<byte> waveform = default, FormattedText caption = default)
         {
             this.VoiceNote = voiceNote;
             this.Duration = duration;
@@ -7067,7 +7067,7 @@ namespace TDLibCore.Api
         /// <param name="providerToken">Payment provider token</param>
         /// <param name="providerData">JSON-encoded data about the invoice, which will be shared with the payment provider</param>
         /// <param name="startParameter">Unique invoice bot start_parameter for the generation of this invoice</param>
-        public InputMessageInvoice(Invoice invoice = default, string title = default, string description = default, string photoUrl = default, int photoSize = default, int photoWidth = default, int photoHeight = default, byte[] payload = default, string providerToken = default, string providerData = default, string startParameter = default)
+        public InputMessageInvoice(Invoice invoice = default, string title = default, string description = default, string photoUrl = default, int photoSize = default, int photoWidth = default, int photoHeight = default, Memory<byte> payload = default, string providerToken = default, string providerData = default, string startParameter = default)
         {
             this.Invoice = invoice;
             this.Title = title;
@@ -7677,7 +7677,7 @@ namespace TDLibCore.Api
         /// A Telegram call reflector
         /// </summary>
         /// <param name="peerTag">A peer tag to be used with the reflector</param>
-        public CallServerTypeTelegramReflector(byte[] peerTag = default)
+        public CallServerTypeTelegramReflector(Memory<byte> peerTag = default)
         {
             this.PeerTag = peerTag;
         }
@@ -7786,7 +7786,7 @@ namespace TDLibCore.Api
         /// <param name="encryptionKey">Call encryption key</param>
         /// <param name="emojis">Encryption key emojis fingerprint</param>
         /// <param name="allowP2p">True, if peer-to-peer connection is allowed by users privacy settings</param>
-        public CallStateReady(CallProtocol protocol = default, CallServer[] servers = default, string config = default, byte[] encryptionKey = default, string[] emojis = default, bool allowP2p = default)
+        public CallStateReady(CallProtocol protocol = default, CallServer[] servers = default, string config = default, Memory<byte> encryptionKey = default, string[] emojis = default, bool allowP2p = default)
         {
             this.Protocol = protocol;
             this.Servers = servers;
@@ -8651,7 +8651,7 @@ namespace TDLibCore.Api
         /// The payload for a general callback button
         /// </summary>
         /// <param name="data">Data that was attached to the callback button</param>
-        public CallbackQueryPayloadData(byte[] data = default)
+        public CallbackQueryPayloadData(Memory<byte> data = default)
         {
             this.Data = data;
         }
@@ -8668,7 +8668,7 @@ namespace TDLibCore.Api
         /// </summary>
         /// <param name="password">The password for the current user</param>
         /// <param name="data">Data that was attached to the callback button</param>
-        public CallbackQueryPayloadDataWithPassword(string password = default, byte[] data = default)
+        public CallbackQueryPayloadDataWithPassword(string password = default, Memory<byte> data = default)
         {
             this.Password = password;
             this.Data = data;
@@ -10961,7 +10961,7 @@ namespace TDLibCore.Api
         /// Contains a part of a file
         /// </summary>
         /// <param name="data">File bytes</param>
-        public FilePart(byte[] data = default)
+        public FilePart(Memory<byte> data = default)
         {
             this.Data = data;
         }
@@ -13006,7 +13006,7 @@ namespace TDLibCore.Api
         /// </summary>
         /// <param name="callId">The call identifier</param>
         /// <param name="data">The data</param>
-        public UpdateNewCallSignalingData(int callId = default, byte[] data = default)
+        public UpdateNewCallSignalingData(int callId = default, Memory<byte> data = default)
         {
             this.CallId = callId;
             this.Data = data;
@@ -13471,7 +13471,7 @@ namespace TDLibCore.Api
         /// <param name="invoicePayload">Invoice payload</param>
         /// <param name="shippingOptionId">Identifier of a shipping option chosen by the user; may be empty if not applicable</param>
         /// <param name="orderInfo">Information about the order; may be null</param>
-        public UpdateNewPreCheckoutQuery(long id = default, int senderUserId = default, string currency = default, long totalAmount = default, byte[] invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default)
+        public UpdateNewPreCheckoutQuery(long id = default, int senderUserId = default, string currency = default, long totalAmount = default, Memory<byte> invoicePayload = default, string shippingOptionId = default, OrderInfo orderInfo = default)
         {
             this.Id = id;
             this.SenderUserId = senderUserId;
@@ -13681,7 +13681,7 @@ namespace TDLibCore.Api
         /// A simple object containing a sequence of bytes; for testing only
         /// </summary>
         /// <param name="value">Bytes</param>
-        public TestBytes(byte[] value = default)
+        public TestBytes(Memory<byte> value = default)
         {
             this.Value = value;
         }
@@ -13785,7 +13785,7 @@ namespace TDLibCore.Api
         /// Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey
         /// </summary>
         /// <param name="encryptionKey">Encryption key to check or set up</param>
-        public CheckDatabaseEncryptionKey(byte[] encryptionKey = default)
+        public CheckDatabaseEncryptionKey(Memory<byte> encryptionKey = default)
         {
             this.EncryptionKey = encryptionKey;
         }
@@ -13981,7 +13981,7 @@ namespace TDLibCore.Api
         /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
         /// </summary>
         /// <param name="newEncryptionKey">New encryption key</param>
-        public SetDatabaseEncryptionKey(byte[] newEncryptionKey = default)
+        public SetDatabaseEncryptionKey(Memory<byte> newEncryptionKey = default)
         {
             this.NewEncryptionKey = newEncryptionKey;
         }
@@ -17093,7 +17093,7 @@ namespace TDLibCore.Api
         /// <param name="generationId">The identifier of the generation process</param>
         /// <param name="offset">The offset from which to write the data to the file</param>
         /// <param name="data">The data to write</param>
-        public WriteGeneratedFilePart(long generationId = default, int offset = default, byte[] data = default)
+        public WriteGeneratedFilePart(long generationId = default, int offset = default, Memory<byte> data = default)
         {
             this.GenerationId = generationId;
             this.Offset = offset;
@@ -17272,7 +17272,7 @@ namespace TDLibCore.Api
         /// </summary>
         /// <param name="callId">Call identifier</param>
         /// <param name="data">The data</param>
-        public SendCallSignalingData(int callId = default, byte[] data = default)
+        public SendCallSignalingData(int callId = default, Memory<byte> data = default)
         {
             this.CallId = callId;
             this.Data = data;
@@ -20097,7 +20097,7 @@ namespace TDLibCore.Api
         /// Returns the received bytes; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Bytes to return</param>
-        public TestCallBytes(byte[] x = default)
+        public TestCallBytes(Memory<byte> x = default)
         {
             this.X = x;
         }

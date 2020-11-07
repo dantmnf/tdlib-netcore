@@ -70,7 +70,7 @@ namespace TDLibCore.JsonClient
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveOptimization | MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static uint crc32c_sw(uint crci, void* buf, int len)
         {
             // Copyright (C) 2013 Mark Adler
@@ -106,7 +106,6 @@ namespace TDLibCore.JsonClient
         }
 
 
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         internal static uint UpdateLittleEndianOptimized(uint crc, ReadOnlySpan<byte> inputSpan)
         {
             var len = inputSpan.Length;
@@ -116,7 +115,6 @@ namespace TDLibCore.JsonClient
             }
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         internal static uint UpdateNaive(uint crc, ReadOnlySpan<byte> inputSpan)
         {
             crc ^= uint.MaxValue;

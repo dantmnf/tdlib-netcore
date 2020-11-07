@@ -691,9 +691,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (Minithumbnail)tlobj;
             writer.WriteNumber(encodedPropName_width, obj.Width);
             writer.WriteNumber(encodedPropName_height, obj.Height);
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -1239,9 +1239,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (VoiceNote)tlobj;
             writer.WriteNumber(encodedPropName_duration, obj.Duration);
-            if (obj.Waveform != null)
+            if (!obj.Waveform.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_waveform, obj.Waveform);
+                writer.WriteBase64String(encodedPropName_waveform, obj.Waveform.Span);
             }
             writer.WriteString(encodedPropName_mime_type, obj.MimeType);
             if (obj.Voice != null)
@@ -2533,9 +2533,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             writer.WriteBoolean(encodedPropName_is_outbound, obj.IsOutbound);
             writer.WriteNumber(encodedPropName_ttl, obj.Ttl);
-            if (obj.KeyHash != null)
+            if (!obj.KeyHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_key_hash, obj.KeyHash);
+                writer.WriteBase64String(encodedPropName_key_hash, obj.KeyHash.Span);
             }
             writer.WriteNumber(encodedPropName_layer, obj.Layer);
         }
@@ -3738,9 +3738,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InlineKeyboardButtonTypeCallback)tlobj;
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -3755,9 +3755,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InlineKeyboardButtonTypeCallbackWithPassword)tlobj;
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -6864,17 +6864,17 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (EncryptedCredentials)tlobj;
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
-            if (obj.Hash != null)
+            if (!obj.Hash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_hash, obj.Hash);
+                writer.WriteBase64String(encodedPropName_hash, obj.Hash.Span);
             }
-            if (obj.Secret != null)
+            if (!obj.Secret.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_secret, obj.Secret);
+                writer.WriteBase64String(encodedPropName_secret, obj.Secret.Span);
             }
         }
     }
@@ -6910,9 +6910,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_type);
                 writer.WriteTLObjectValue(obj.Type);
             }
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
             if (obj.FrontSide != null)
             {
@@ -6954,9 +6954,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InputPassportElementErrorSourceUnspecified)tlobj;
-            if (obj.ElementHash != null)
+            if (!obj.ElementHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_element_hash, obj.ElementHash);
+                writer.WriteBase64String(encodedPropName_element_hash, obj.ElementHash.Span);
             }
         }
     }
@@ -6974,9 +6974,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InputPassportElementErrorSourceDataField)tlobj;
             writer.WriteString(encodedPropName_field_name, obj.FieldName);
-            if (obj.DataHash != null)
+            if (!obj.DataHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data_hash, obj.DataHash);
+                writer.WriteBase64String(encodedPropName_data_hash, obj.DataHash.Span);
             }
         }
     }
@@ -6991,9 +6991,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InputPassportElementErrorSourceFrontSide)tlobj;
-            if (obj.FileHash != null)
+            if (!obj.FileHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash);
+                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash.Span);
             }
         }
     }
@@ -7008,9 +7008,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InputPassportElementErrorSourceReverseSide)tlobj;
-            if (obj.FileHash != null)
+            if (!obj.FileHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash);
+                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash.Span);
             }
         }
     }
@@ -7025,9 +7025,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InputPassportElementErrorSourceSelfie)tlobj;
-            if (obj.FileHash != null)
+            if (!obj.FileHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash);
+                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash.Span);
             }
         }
     }
@@ -7042,9 +7042,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InputPassportElementErrorSourceTranslationFile)tlobj;
-            if (obj.FileHash != null)
+            if (!obj.FileHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash);
+                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash.Span);
             }
         }
     }
@@ -7077,9 +7077,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (InputPassportElementErrorSourceFile)tlobj;
-            if (obj.FileHash != null)
+            if (!obj.FileHash.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash);
+                writer.WriteBase64String(encodedPropName_file_hash, obj.FileHash.Span);
             }
         }
     }
@@ -7845,9 +7845,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteNumber(encodedPropName_invoice_message_id, obj.InvoiceMessageId);
             writer.WriteString(encodedPropName_currency, obj.Currency);
             writer.WriteNumber(encodedPropName_total_amount, obj.TotalAmount);
-            if (obj.InvoicePayload != null)
+            if (!obj.InvoicePayload.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_invoice_payload, obj.InvoicePayload);
+                writer.WriteBase64String(encodedPropName_invoice_payload, obj.InvoicePayload.Span);
             }
             writer.WriteString(encodedPropName_shipping_option_id, obj.ShippingOptionId);
             if (obj.OrderInfo != null)
@@ -8549,9 +8549,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WriteTLObjectValue(obj.VoiceNote);
             }
             writer.WriteNumber(encodedPropName_duration, obj.Duration);
-            if (obj.Waveform != null)
+            if (!obj.Waveform.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_waveform, obj.Waveform);
+                writer.WriteBase64String(encodedPropName_waveform, obj.Waveform.Span);
             }
             if (obj.Caption != null)
             {
@@ -8693,9 +8693,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteNumber(encodedPropName_photo_size, obj.PhotoSize);
             writer.WriteNumber(encodedPropName_photo_width, obj.PhotoWidth);
             writer.WriteNumber(encodedPropName_photo_height, obj.PhotoHeight);
-            if (obj.Payload != null)
+            if (!obj.Payload.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_payload, obj.Payload);
+                writer.WriteBase64String(encodedPropName_payload, obj.Payload.Span);
             }
             writer.WriteString(encodedPropName_provider_token, obj.ProviderToken);
             writer.WriteString(encodedPropName_provider_data, obj.ProviderData);
@@ -9421,9 +9421,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (CallServerTypeTelegramReflector)tlobj;
-            if (obj.PeerTag != null)
+            if (!obj.PeerTag.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_peer_tag, obj.PeerTag);
+                writer.WriteBase64String(encodedPropName_peer_tag, obj.PeerTag.Span);
             }
         }
     }
@@ -9554,9 +9554,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WriteArray(obj.Servers);
             }
             writer.WriteString(encodedPropName_config, obj.Config);
-            if (obj.EncryptionKey != null)
+            if (!obj.EncryptionKey.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_encryption_key, obj.EncryptionKey);
+                writer.WriteBase64String(encodedPropName_encryption_key, obj.EncryptionKey.Span);
             }
             if (obj.Emojis != null)
             {
@@ -10696,9 +10696,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (CallbackQueryPayloadData)tlobj;
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -10716,9 +10716,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (CallbackQueryPayloadDataWithPassword)tlobj;
             writer.WriteString(encodedPropName_password, obj.Password);
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -13236,9 +13236,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (FilePart)tlobj;
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -15671,9 +15671,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (UpdateNewCallSignalingData)tlobj;
             writer.WriteNumber(encodedPropName_call_id, obj.CallId);
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -16244,9 +16244,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteNumber(encodedPropName_sender_user_id, obj.SenderUserId);
             writer.WriteString(encodedPropName_currency, obj.Currency);
             writer.WriteNumber(encodedPropName_total_amount, obj.TotalAmount);
-            if (obj.InvoicePayload != null)
+            if (!obj.InvoicePayload.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_invoice_payload, obj.InvoicePayload);
+                writer.WriteBase64String(encodedPropName_invoice_payload, obj.InvoicePayload.Span);
             }
             writer.WriteString(encodedPropName_shipping_option_id, obj.ShippingOptionId);
             if (obj.OrderInfo != null)
@@ -16463,9 +16463,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (TestBytes)tlobj;
-            if (obj.Value != null)
+            if (!obj.Value.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_value, obj.Value);
+                writer.WriteBase64String(encodedPropName_value, obj.Value.Span);
             }
         }
     }
@@ -16580,9 +16580,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (CheckDatabaseEncryptionKey)tlobj;
-            if (obj.EncryptionKey != null)
+            if (!obj.EncryptionKey.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_encryption_key, obj.EncryptionKey);
+                writer.WriteBase64String(encodedPropName_encryption_key, obj.EncryptionKey.Span);
             }
         }
     }
@@ -16783,9 +16783,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (SetDatabaseEncryptionKey)tlobj;
-            if (obj.NewEncryptionKey != null)
+            if (!obj.NewEncryptionKey.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_new_encryption_key, obj.NewEncryptionKey);
+                writer.WriteBase64String(encodedPropName_new_encryption_key, obj.NewEncryptionKey.Span);
             }
         }
     }
@@ -20160,9 +20160,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WritePropertyName(encodedPropName_generation_id);
             writer.WriteInt64String(obj.GenerationId);
             writer.WriteNumber(encodedPropName_offset, obj.Offset);
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -20344,9 +20344,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (SendCallSignalingData)tlobj;
             writer.WriteNumber(encodedPropName_call_id, obj.CallId);
-            if (obj.Data != null)
+            if (!obj.Data.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_data, obj.Data);
+                writer.WriteBase64String(encodedPropName_data, obj.Data.Span);
             }
         }
     }
@@ -23358,9 +23358,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (TestCallBytes)tlobj;
-            if (obj.X != null)
+            if (!obj.X.IsEmpty)
             {
-                writer.WriteBase64String(encodedPropName_x, obj.X);
+                writer.WriteBase64String(encodedPropName_x, obj.X.Span);
             }
         }
     }

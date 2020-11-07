@@ -6,8 +6,9 @@
         <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
     </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Condition="'$(TargetFramework)' == 'netstandard2.0'" Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.1" />
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+      <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.1" />
+      <PackageReference Include="System.Memory" Version="4.5.4" />
     </ItemGroup>
 
     <ItemGroup>

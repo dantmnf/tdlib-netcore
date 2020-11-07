@@ -7,6 +7,7 @@ namespace TDLibCore.JsonClient
     abstract partial class BaseConverter
     {
         public virtual bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject obj, ReadOnlySpan<byte> name) => false;
+        public virtual bool TdJsonReadItem(ref TdJsonReader reader, TLObject obj, ReadOnlySpan<byte> name) => false;
 
         /// <remarks>
         /// Doesn't write EndObject token '}'.

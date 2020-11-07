@@ -2,7 +2,6 @@
 using System;
 using System.Text.Json;
 using TDLibCore.Api;
-using TDLibCore.JsonClient.Utf8JsonExtension;
 
 namespace TDLibCore.JsonClient.ObjectConverter
 {
@@ -11,7 +10,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ErrorConverter();
         public override TLObject CreateObjectInstance() => new Error();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Error)tlobj;
             if (name.SequenceEqual(propName_code))
@@ -40,7 +39,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TdlibParametersConverter();
         public override TLObject CreateObjectInstance() => new TdlibParameters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TdlibParameters)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -101,7 +100,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeTelegramMessageConverter();
         public override TLObject CreateObjectInstance() => new AuthenticationCodeTypeTelegramMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthenticationCodeTypeTelegramMessage)tlobj;
             if (name.SequenceEqual(propName_length))
@@ -118,7 +117,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeSmsConverter();
         public override TLObject CreateObjectInstance() => new AuthenticationCodeTypeSms();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthenticationCodeTypeSms)tlobj;
             if (name.SequenceEqual(propName_length))
@@ -135,7 +134,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeCallConverter();
         public override TLObject CreateObjectInstance() => new AuthenticationCodeTypeCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthenticationCodeTypeCall)tlobj;
             if (name.SequenceEqual(propName_length))
@@ -152,7 +151,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthenticationCodeTypeFlashCallConverter();
         public override TLObject CreateObjectInstance() => new AuthenticationCodeTypeFlashCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthenticationCodeTypeFlashCall)tlobj;
             if (name.SequenceEqual(propName_pattern))
@@ -169,7 +168,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthenticationCodeInfoConverter();
         public override TLObject CreateObjectInstance() => new AuthenticationCodeInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthenticationCodeInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -197,7 +196,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EmailAddressAuthenticationCodeInfoConverter();
         public override TLObject CreateObjectInstance() => new EmailAddressAuthenticationCodeInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EmailAddressAuthenticationCodeInfo)tlobj;
             if (name.SequenceEqual(propName_email_address_pattern))
@@ -219,7 +218,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TextEntityConverter();
         public override TLObject CreateObjectInstance() => new TextEntity();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TextEntity)tlobj;
             if (name.SequenceEqual(propName_offset))
@@ -246,7 +245,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TextEntitiesConverter();
         public override TLObject CreateObjectInstance() => new TextEntities();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TextEntities)tlobj;
             if (name.SequenceEqual(propName_entities))
@@ -263,7 +262,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new FormattedTextConverter();
         public override TLObject CreateObjectInstance() => new FormattedText();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (FormattedText)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -285,7 +284,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TermsOfServiceConverter();
         public override TLObject CreateObjectInstance() => new TermsOfService();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TermsOfService)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -319,7 +318,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitEncryptionKeyConverter();
         public override TLObject CreateObjectInstance() => new AuthorizationStateWaitEncryptionKey();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthorizationStateWaitEncryptionKey)tlobj;
             if (name.SequenceEqual(propName_is_encrypted))
@@ -343,7 +342,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitCodeConverter();
         public override TLObject CreateObjectInstance() => new AuthorizationStateWaitCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthorizationStateWaitCode)tlobj;
             if (name.SequenceEqual(propName_code_info))
@@ -360,7 +359,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitOtherDeviceConfirmationConverter();
         public override TLObject CreateObjectInstance() => new AuthorizationStateWaitOtherDeviceConfirmation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthorizationStateWaitOtherDeviceConfirmation)tlobj;
             if (name.SequenceEqual(propName_link))
@@ -377,7 +376,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitRegistrationConverter();
         public override TLObject CreateObjectInstance() => new AuthorizationStateWaitRegistration();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthorizationStateWaitRegistration)tlobj;
             if (name.SequenceEqual(propName_terms_of_service))
@@ -394,7 +393,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AuthorizationStateWaitPasswordConverter();
         public override TLObject CreateObjectInstance() => new AuthorizationStateWaitPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AuthorizationStateWaitPassword)tlobj;
             if (name.SequenceEqual(propName_password_hint))
@@ -449,7 +448,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PasswordStateConverter();
         public override TLObject CreateObjectInstance() => new PasswordState();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PasswordState)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -480,7 +479,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RecoveryEmailAddressConverter();
         public override TLObject CreateObjectInstance() => new RecoveryEmailAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RecoveryEmailAddress)tlobj;
             if (name.SequenceEqual(propName_recovery_email_address))
@@ -497,7 +496,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TemporaryPasswordStateConverter();
         public override TLObject CreateObjectInstance() => new TemporaryPasswordState();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TemporaryPasswordState)tlobj;
             if (name.SequenceEqual(propName_has_password))
@@ -519,7 +518,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LocalFileConverter();
         public override TLObject CreateObjectInstance() => new LocalFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LocalFile)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -559,7 +558,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoteFileConverter();
         public override TLObject CreateObjectInstance() => new RemoteFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoteFile)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -590,7 +589,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new FileConverter();
         public override TLObject CreateObjectInstance() => new File();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (File)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -621,7 +620,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputFileIdConverter();
         public override TLObject CreateObjectInstance() => new InputFileId();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputFileId)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -638,7 +637,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputFileRemoteConverter();
         public override TLObject CreateObjectInstance() => new InputFileRemote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputFileRemote)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -655,7 +654,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputFileLocalConverter();
         public override TLObject CreateObjectInstance() => new InputFileLocal();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputFileLocal)tlobj;
             if (name.SequenceEqual(propName_path))
@@ -672,7 +671,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputFileGeneratedConverter();
         public override TLObject CreateObjectInstance() => new InputFileGenerated();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputFileGenerated)tlobj;
             if (name.SequenceEqual(propName_original_path))
@@ -699,7 +698,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PhotoSizeConverter();
         public override TLObject CreateObjectInstance() => new PhotoSize();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PhotoSize)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -730,7 +729,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MinithumbnailConverter();
         public override TLObject CreateObjectInstance() => new Minithumbnail();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Minithumbnail)tlobj;
             if (name.SequenceEqual(propName_width))
@@ -799,7 +798,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ThumbnailConverter();
         public override TLObject CreateObjectInstance() => new Thumbnail();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Thumbnail)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -855,7 +854,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MaskPositionConverter();
         public override TLObject CreateObjectInstance() => new MaskPosition();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MaskPosition)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -883,7 +882,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PollOptionConverter();
         public override TLObject CreateObjectInstance() => new PollOption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PollOption)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -914,7 +913,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PollTypeRegularConverter();
         public override TLObject CreateObjectInstance() => new PollTypeRegular();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PollTypeRegular)tlobj;
             if (name.SequenceEqual(propName_allow_multiple_answers))
@@ -931,7 +930,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PollTypeQuizConverter();
         public override TLObject CreateObjectInstance() => new PollTypeQuiz();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PollTypeQuiz)tlobj;
             if (name.SequenceEqual(propName_correct_option_id))
@@ -953,7 +952,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnimationConverter();
         public override TLObject CreateObjectInstance() => new Animation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Animation)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -996,7 +995,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AudioConverter();
         public override TLObject CreateObjectInstance() => new Audio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Audio)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1036,7 +1035,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DocumentConverter();
         public override TLObject CreateObjectInstance() => new Document();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Document)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1067,7 +1066,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PhotoConverter();
         public override TLObject CreateObjectInstance() => new Photo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Photo)tlobj;
             if (name.SequenceEqual(propName_has_stickers))
@@ -1094,7 +1093,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StickerConverter();
         public override TLObject CreateObjectInstance() => new Sticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Sticker)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1137,7 +1136,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new VideoConverter();
         public override TLObject CreateObjectInstance() => new Video();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Video)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1183,7 +1182,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new VideoNoteConverter();
         public override TLObject CreateObjectInstance() => new VideoNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (VideoNote)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1214,7 +1213,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new VoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new VoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (VoiceNote)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1242,7 +1241,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ContactConverter();
         public override TLObject CreateObjectInstance() => new Contact();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Contact)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1273,7 +1272,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LocationConverter();
         public override TLObject CreateObjectInstance() => new Location();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Location)tlobj;
             if (name.SequenceEqual(propName_latitude))
@@ -1295,7 +1294,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new VenueConverter();
         public override TLObject CreateObjectInstance() => new Venue();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Venue)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1329,7 +1328,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GameConverter();
         public override TLObject CreateObjectInstance() => new Game();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Game)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1366,7 +1365,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PollConverter();
         public override TLObject CreateObjectInstance() => new Poll();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Poll)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1412,7 +1411,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ProfilePhotoConverter();
         public override TLObject CreateObjectInstance() => new ProfilePhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ProfilePhoto)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1440,7 +1439,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatPhotoInfoConverter();
         public override TLObject CreateObjectInstance() => new ChatPhotoInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatPhotoInfo)tlobj;
             if (name.SequenceEqual(propName_small))
@@ -1481,7 +1480,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserTypeBotConverter();
         public override TLObject CreateObjectInstance() => new UserTypeBot();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserTypeBot)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1519,7 +1518,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BotCommandConverter();
         public override TLObject CreateObjectInstance() => new BotCommand();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BotCommand)tlobj;
             if (name.SequenceEqual(propName_command))
@@ -1541,7 +1540,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BotInfoConverter();
         public override TLObject CreateObjectInstance() => new BotInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BotInfo)tlobj;
             if (name.SequenceEqual(propName_description))
@@ -1563,7 +1562,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatLocationConverter();
         public override TLObject CreateObjectInstance() => new ChatLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatLocation)tlobj;
             if (name.SequenceEqual(propName_location))
@@ -1585,7 +1584,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnimatedChatPhotoConverter();
         public override TLObject CreateObjectInstance() => new AnimatedChatPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AnimatedChatPhoto)tlobj;
             if (name.SequenceEqual(propName_length))
@@ -1612,7 +1611,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatPhotoConverter();
         public override TLObject CreateObjectInstance() => new ChatPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatPhoto)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1643,7 +1642,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatPhotosConverter();
         public override TLObject CreateObjectInstance() => new ChatPhotos();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatPhotos)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -1665,7 +1664,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputChatPhotoPreviousConverter();
         public override TLObject CreateObjectInstance() => new InputChatPhotoPrevious();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputChatPhotoPrevious)tlobj;
             if (name.SequenceEqual(propName_chat_photo_id))
@@ -1682,7 +1681,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputChatPhotoStaticConverter();
         public override TLObject CreateObjectInstance() => new InputChatPhotoStatic();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputChatPhotoStatic)tlobj;
             if (name.SequenceEqual(propName_photo))
@@ -1699,7 +1698,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputChatPhotoAnimationConverter();
         public override TLObject CreateObjectInstance() => new InputChatPhotoAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputChatPhotoAnimation)tlobj;
             if (name.SequenceEqual(propName_animation))
@@ -1721,7 +1720,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserConverter();
         public override TLObject CreateObjectInstance() => new User();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (User)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1785,7 +1784,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserFullInfoConverter();
         public override TLObject CreateObjectInstance() => new UserFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserFullInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1828,7 +1827,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UsersConverter();
         public override TLObject CreateObjectInstance() => new Users();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Users)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -1850,7 +1849,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatAdministratorConverter();
         public override TLObject CreateObjectInstance() => new ChatAdministrator();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatAdministrator)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -1877,7 +1876,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatAdministratorsConverter();
         public override TLObject CreateObjectInstance() => new ChatAdministrators();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatAdministrators)tlobj;
             if (name.SequenceEqual(propName_administrators))
@@ -1894,7 +1893,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatPermissionsConverter();
         public override TLObject CreateObjectInstance() => new ChatPermissions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatPermissions)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -1934,7 +1933,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatMemberStatusCreatorConverter();
         public override TLObject CreateObjectInstance() => new ChatMemberStatusCreator();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatMemberStatusCreator)tlobj;
             if (name.SequenceEqual(propName_custom_title))
@@ -1961,7 +1960,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatMemberStatusAdministratorConverter();
         public override TLObject CreateObjectInstance() => new ChatMemberStatusAdministrator();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatMemberStatusAdministrator)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2017,7 +2016,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatMemberStatusRestrictedConverter();
         public override TLObject CreateObjectInstance() => new ChatMemberStatusRestricted();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatMemberStatusRestricted)tlobj;
             if (name.SequenceEqual(propName_is_member))
@@ -2051,7 +2050,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatMemberStatusBannedConverter();
         public override TLObject CreateObjectInstance() => new ChatMemberStatusBanned();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatMemberStatusBanned)tlobj;
             if (name.SequenceEqual(propName_banned_until_date))
@@ -2068,7 +2067,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatMemberConverter();
         public override TLObject CreateObjectInstance() => new ChatMember();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatMember)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2099,7 +2098,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatMembersConverter();
         public override TLObject CreateObjectInstance() => new ChatMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatMembers)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -2170,7 +2169,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterContactsConverter();
         public override TLObject CreateObjectInstance() => new SupergroupMembersFilterContacts();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SupergroupMembersFilterContacts)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -2194,7 +2193,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterSearchConverter();
         public override TLObject CreateObjectInstance() => new SupergroupMembersFilterSearch();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SupergroupMembersFilterSearch)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -2211,7 +2210,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterRestrictedConverter();
         public override TLObject CreateObjectInstance() => new SupergroupMembersFilterRestricted();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SupergroupMembersFilterRestricted)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -2228,7 +2227,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterBannedConverter();
         public override TLObject CreateObjectInstance() => new SupergroupMembersFilterBanned();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SupergroupMembersFilterBanned)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -2252,7 +2251,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BasicGroupConverter();
         public override TLObject CreateObjectInstance() => new BasicGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BasicGroup)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2283,7 +2282,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BasicGroupFullInfoConverter();
         public override TLObject CreateObjectInstance() => new BasicGroupFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BasicGroupFullInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2314,7 +2313,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SupergroupConverter();
         public override TLObject CreateObjectInstance() => new Supergroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Supergroup)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2369,7 +2368,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SupergroupFullInfoConverter();
         public override TLObject CreateObjectInstance() => new SupergroupFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SupergroupFullInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2466,7 +2465,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SecretChatConverter();
         public override TLObject CreateObjectInstance() => new SecretChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SecretChat)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2503,7 +2502,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageForwardOriginUserConverter();
         public override TLObject CreateObjectInstance() => new MessageForwardOriginUser();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageForwardOriginUser)tlobj;
             if (name.SequenceEqual(propName_sender_user_id))
@@ -2520,7 +2519,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageForwardOriginChatConverter();
         public override TLObject CreateObjectInstance() => new MessageForwardOriginChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageForwardOriginChat)tlobj;
             if (name.SequenceEqual(propName_sender_chat_id))
@@ -2537,7 +2536,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageForwardOriginHiddenUserConverter();
         public override TLObject CreateObjectInstance() => new MessageForwardOriginHiddenUser();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageForwardOriginHiddenUser)tlobj;
             if (name.SequenceEqual(propName_sender_name))
@@ -2554,7 +2553,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageForwardOriginChannelConverter();
         public override TLObject CreateObjectInstance() => new MessageForwardOriginChannel();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageForwardOriginChannel)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -2581,7 +2580,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageForwardInfoConverter();
         public override TLObject CreateObjectInstance() => new MessageForwardInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageForwardInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2612,7 +2611,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageReplyInfoConverter();
         public override TLObject CreateObjectInstance() => new MessageReplyInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageReplyInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2643,7 +2642,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageInteractionInfoConverter();
         public override TLObject CreateObjectInstance() => new MessageInteractionInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageInteractionInfo)tlobj;
             if (name.SequenceEqual(propName_view_count))
@@ -2677,7 +2676,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageSendingStateFailedConverter();
         public override TLObject CreateObjectInstance() => new MessageSendingStateFailed();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageSendingStateFailed)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2705,7 +2704,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageConverter();
         public override TLObject CreateObjectInstance() => new Message();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Message)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2811,7 +2810,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagesConverter();
         public override TLObject CreateObjectInstance() => new Messages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Messages)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -2833,7 +2832,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new FoundMessagesConverter();
         public override TLObject CreateObjectInstance() => new FoundMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (FoundMessages)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -2881,7 +2880,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatNotificationSettingsConverter();
         public override TLObject CreateObjectInstance() => new ChatNotificationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatNotificationSettings)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2927,7 +2926,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ScopeNotificationSettingsConverter();
         public override TLObject CreateObjectInstance() => new ScopeNotificationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ScopeNotificationSettings)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -2958,7 +2957,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DraftMessageConverter();
         public override TLObject CreateObjectInstance() => new DraftMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DraftMessage)tlobj;
             if (name.SequenceEqual(propName_reply_to_message_id))
@@ -2985,7 +2984,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatTypePrivateConverter();
         public override TLObject CreateObjectInstance() => new ChatTypePrivate();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatTypePrivate)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -3002,7 +3001,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatTypeBasicGroupConverter();
         public override TLObject CreateObjectInstance() => new ChatTypeBasicGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatTypeBasicGroup)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
@@ -3019,7 +3018,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatTypeSupergroupConverter();
         public override TLObject CreateObjectInstance() => new ChatTypeSupergroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatTypeSupergroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -3041,7 +3040,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatTypeSecretConverter();
         public override TLObject CreateObjectInstance() => new ChatTypeSecret();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatTypeSecret)tlobj;
             if (name.SequenceEqual(propName_secret_chat_id))
@@ -3063,7 +3062,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatFilterConverter();
         public override TLObject CreateObjectInstance() => new ChatFilter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatFilter)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -3118,7 +3117,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatFilterInfoConverter();
         public override TLObject CreateObjectInstance() => new ChatFilterInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatFilterInfo)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -3145,7 +3144,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RecommendedChatFilterConverter();
         public override TLObject CreateObjectInstance() => new RecommendedChatFilter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RecommendedChatFilter)tlobj;
             if (name.SequenceEqual(propName_filter))
@@ -3167,7 +3166,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RecommendedChatFiltersConverter();
         public override TLObject CreateObjectInstance() => new RecommendedChatFilters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RecommendedChatFilters)tlobj;
             if (name.SequenceEqual(propName_chat_filters))
@@ -3198,7 +3197,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatListFilterConverter();
         public override TLObject CreateObjectInstance() => new ChatListFilter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatListFilter)tlobj;
             if (name.SequenceEqual(propName_chat_filter_id))
@@ -3215,7 +3214,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatListsConverter();
         public override TLObject CreateObjectInstance() => new ChatLists();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatLists)tlobj;
             if (name.SequenceEqual(propName_chat_lists))
@@ -3239,7 +3238,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatSourcePublicServiceAnnouncementConverter();
         public override TLObject CreateObjectInstance() => new ChatSourcePublicServiceAnnouncement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatSourcePublicServiceAnnouncement)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -3261,7 +3260,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatPositionConverter();
         public override TLObject CreateObjectInstance() => new ChatPosition();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatPosition)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -3289,7 +3288,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatConverter();
         public override TLObject CreateObjectInstance() => new Chat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Chat)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -3377,7 +3376,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatsConverter();
         public override TLObject CreateObjectInstance() => new Chats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Chats)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -3399,7 +3398,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatNearbyConverter();
         public override TLObject CreateObjectInstance() => new ChatNearby();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatNearby)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -3421,7 +3420,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatsNearbyConverter();
         public override TLObject CreateObjectInstance() => new ChatsNearby();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatsNearby)tlobj;
             if (name.SequenceEqual(propName_users_nearby))
@@ -3443,7 +3442,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatInviteLinkConverter();
         public override TLObject CreateObjectInstance() => new ChatInviteLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatInviteLink)tlobj;
             if (name.SequenceEqual(propName_invite_link))
@@ -3460,7 +3459,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatInviteLinkInfoConverter();
         public override TLObject CreateObjectInstance() => new ChatInviteLinkInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatInviteLinkInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -3514,7 +3513,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatActionBarReportSpamConverter();
         public override TLObject CreateObjectInstance() => new ChatActionBarReportSpam();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatActionBarReportSpam)tlobj;
             if (name.SequenceEqual(propName_can_unarchive))
@@ -3538,7 +3537,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatActionBarReportAddBlockConverter();
         public override TLObject CreateObjectInstance() => new ChatActionBarReportAddBlock();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatActionBarReportAddBlock)tlobj;
             if (name.SequenceEqual(propName_can_unarchive))
@@ -3595,7 +3594,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new KeyboardButtonTypeRequestPollConverter();
         public override TLObject CreateObjectInstance() => new KeyboardButtonTypeRequestPoll();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (KeyboardButtonTypeRequestPoll)tlobj;
             if (name.SequenceEqual(propName_force_regular))
@@ -3617,7 +3616,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new KeyboardButtonConverter();
         public override TLObject CreateObjectInstance() => new KeyboardButton();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (KeyboardButton)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -3639,7 +3638,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeUrlConverter();
         public override TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineKeyboardButtonTypeUrl)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -3656,7 +3655,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeLoginUrlConverter();
         public override TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeLoginUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineKeyboardButtonTypeLoginUrl)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -3683,7 +3682,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeCallbackConverter();
         public override TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeCallback();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineKeyboardButtonTypeCallback)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -3700,7 +3699,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeCallbackWithPasswordConverter();
         public override TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeCallbackWithPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineKeyboardButtonTypeCallbackWithPassword)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -3724,7 +3723,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonTypeSwitchInlineConverter();
         public override TLObject CreateObjectInstance() => new InlineKeyboardButtonTypeSwitchInline();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineKeyboardButtonTypeSwitchInline)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -3753,7 +3752,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineKeyboardButtonConverter();
         public override TLObject CreateObjectInstance() => new InlineKeyboardButton();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineKeyboardButton)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -3775,7 +3774,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReplyMarkupRemoveKeyboardConverter();
         public override TLObject CreateObjectInstance() => new ReplyMarkupRemoveKeyboard();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReplyMarkupRemoveKeyboard)tlobj;
             if (name.SequenceEqual(propName_is_personal))
@@ -3792,7 +3791,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReplyMarkupForceReplyConverter();
         public override TLObject CreateObjectInstance() => new ReplyMarkupForceReply();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReplyMarkupForceReply)tlobj;
             if (name.SequenceEqual(propName_is_personal))
@@ -3809,7 +3808,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReplyMarkupShowKeyboardConverter();
         public override TLObject CreateObjectInstance() => new ReplyMarkupShowKeyboard();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReplyMarkupShowKeyboard)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -3837,7 +3836,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReplyMarkupInlineKeyboardConverter();
         public override TLObject CreateObjectInstance() => new ReplyMarkupInlineKeyboard();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReplyMarkupInlineKeyboard)tlobj;
             if (name.SequenceEqual(propName_rows))
@@ -3854,7 +3853,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LoginUrlInfoOpenConverter();
         public override TLObject CreateObjectInstance() => new LoginUrlInfoOpen();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LoginUrlInfoOpen)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -3876,7 +3875,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LoginUrlInfoRequestConfirmationConverter();
         public override TLObject CreateObjectInstance() => new LoginUrlInfoRequestConfirmation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LoginUrlInfoRequestConfirmation)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -3904,7 +3903,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageThreadInfoConverter();
         public override TLObject CreateObjectInstance() => new MessageThreadInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageThreadInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -3935,7 +3934,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextPlainConverter();
         public override TLObject CreateObjectInstance() => new RichTextPlain();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextPlain)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -3952,7 +3951,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextBoldConverter();
         public override TLObject CreateObjectInstance() => new RichTextBold();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextBold)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -3969,7 +3968,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextItalicConverter();
         public override TLObject CreateObjectInstance() => new RichTextItalic();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextItalic)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -3986,7 +3985,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextUnderlineConverter();
         public override TLObject CreateObjectInstance() => new RichTextUnderline();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextUnderline)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4003,7 +4002,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextStrikethroughConverter();
         public override TLObject CreateObjectInstance() => new RichTextStrikethrough();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextStrikethrough)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4020,7 +4019,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextFixedConverter();
         public override TLObject CreateObjectInstance() => new RichTextFixed();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextFixed)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4037,7 +4036,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextUrlConverter();
         public override TLObject CreateObjectInstance() => new RichTextUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextUrl)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4064,7 +4063,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextEmailAddressConverter();
         public override TLObject CreateObjectInstance() => new RichTextEmailAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextEmailAddress)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4086,7 +4085,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextSubscriptConverter();
         public override TLObject CreateObjectInstance() => new RichTextSubscript();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextSubscript)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4103,7 +4102,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextSuperscriptConverter();
         public override TLObject CreateObjectInstance() => new RichTextSuperscript();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextSuperscript)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4120,7 +4119,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextMarkedConverter();
         public override TLObject CreateObjectInstance() => new RichTextMarked();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextMarked)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4137,7 +4136,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextPhoneNumberConverter();
         public override TLObject CreateObjectInstance() => new RichTextPhoneNumber();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextPhoneNumber)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4159,7 +4158,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextIconConverter();
         public override TLObject CreateObjectInstance() => new RichTextIcon();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextIcon)tlobj;
             if (name.SequenceEqual(propName_document))
@@ -4186,7 +4185,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextReferenceConverter();
         public override TLObject CreateObjectInstance() => new RichTextReference();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextReference)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4213,7 +4212,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextAnchorConverter();
         public override TLObject CreateObjectInstance() => new RichTextAnchor();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextAnchor)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -4230,7 +4229,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextAnchorLinkConverter();
         public override TLObject CreateObjectInstance() => new RichTextAnchorLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTextAnchorLink)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4257,7 +4256,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RichTextsConverter();
         public override TLObject CreateObjectInstance() => new RichTexts();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RichTexts)tlobj;
             if (name.SequenceEqual(propName_texts))
@@ -4274,7 +4273,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockCaptionConverter();
         public override TLObject CreateObjectInstance() => new PageBlockCaption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockCaption)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4296,7 +4295,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockListItemConverter();
         public override TLObject CreateObjectInstance() => new PageBlockListItem();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockListItem)tlobj;
             if (name.SequenceEqual(propName_label))
@@ -4360,7 +4359,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockTableCellConverter();
         public override TLObject CreateObjectInstance() => new PageBlockTableCell();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockTableCell)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -4394,7 +4393,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockRelatedArticleConverter();
         public override TLObject CreateObjectInstance() => new PageBlockRelatedArticle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockRelatedArticle)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -4428,7 +4427,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockTitleConverter();
         public override TLObject CreateObjectInstance() => new PageBlockTitle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockTitle)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -4445,7 +4444,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockSubtitleConverter();
         public override TLObject CreateObjectInstance() => new PageBlockSubtitle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockSubtitle)tlobj;
             if (name.SequenceEqual(propName_subtitle))
@@ -4462,7 +4461,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockAuthorDateConverter();
         public override TLObject CreateObjectInstance() => new PageBlockAuthorDate();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockAuthorDate)tlobj;
             if (name.SequenceEqual(propName_author))
@@ -4484,7 +4483,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockHeaderConverter();
         public override TLObject CreateObjectInstance() => new PageBlockHeader();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockHeader)tlobj;
             if (name.SequenceEqual(propName_header))
@@ -4501,7 +4500,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockSubheaderConverter();
         public override TLObject CreateObjectInstance() => new PageBlockSubheader();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockSubheader)tlobj;
             if (name.SequenceEqual(propName_subheader))
@@ -4518,7 +4517,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockKickerConverter();
         public override TLObject CreateObjectInstance() => new PageBlockKicker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockKicker)tlobj;
             if (name.SequenceEqual(propName_kicker))
@@ -4535,7 +4534,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockParagraphConverter();
         public override TLObject CreateObjectInstance() => new PageBlockParagraph();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockParagraph)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4552,7 +4551,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockPreformattedConverter();
         public override TLObject CreateObjectInstance() => new PageBlockPreformatted();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockPreformatted)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4574,7 +4573,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockFooterConverter();
         public override TLObject CreateObjectInstance() => new PageBlockFooter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockFooter)tlobj;
             if (name.SequenceEqual(propName_footer))
@@ -4598,7 +4597,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockAnchorConverter();
         public override TLObject CreateObjectInstance() => new PageBlockAnchor();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockAnchor)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -4615,7 +4614,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockListConverter();
         public override TLObject CreateObjectInstance() => new PageBlockList();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockList)tlobj;
             if (name.SequenceEqual(propName_items))
@@ -4632,7 +4631,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockBlockQuoteConverter();
         public override TLObject CreateObjectInstance() => new PageBlockBlockQuote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockBlockQuote)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4654,7 +4653,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockPullQuoteConverter();
         public override TLObject CreateObjectInstance() => new PageBlockPullQuote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockPullQuote)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -4676,7 +4675,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockAnimationConverter();
         public override TLObject CreateObjectInstance() => new PageBlockAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockAnimation)tlobj;
             if (name.SequenceEqual(propName_animation))
@@ -4703,7 +4702,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockAudioConverter();
         public override TLObject CreateObjectInstance() => new PageBlockAudio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockAudio)tlobj;
             if (name.SequenceEqual(propName_audio))
@@ -4725,7 +4724,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockPhotoConverter();
         public override TLObject CreateObjectInstance() => new PageBlockPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockPhoto)tlobj;
             if (name.SequenceEqual(propName_photo))
@@ -4752,7 +4751,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockVideoConverter();
         public override TLObject CreateObjectInstance() => new PageBlockVideo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockVideo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -4780,7 +4779,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockVoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new PageBlockVoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockVoiceNote)tlobj;
             if (name.SequenceEqual(propName_voice_note))
@@ -4802,7 +4801,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockCoverConverter();
         public override TLObject CreateObjectInstance() => new PageBlockCover();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockCover)tlobj;
             if (name.SequenceEqual(propName_cover))
@@ -4819,7 +4818,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockEmbeddedConverter();
         public override TLObject CreateObjectInstance() => new PageBlockEmbedded();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockEmbedded)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -4859,7 +4858,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockEmbeddedPostConverter();
         public override TLObject CreateObjectInstance() => new PageBlockEmbeddedPost();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockEmbeddedPost)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -4893,7 +4892,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockCollageConverter();
         public override TLObject CreateObjectInstance() => new PageBlockCollage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockCollage)tlobj;
             if (name.SequenceEqual(propName_page_blocks))
@@ -4915,7 +4914,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockSlideshowConverter();
         public override TLObject CreateObjectInstance() => new PageBlockSlideshow();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockSlideshow)tlobj;
             if (name.SequenceEqual(propName_page_blocks))
@@ -4937,7 +4936,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockChatLinkConverter();
         public override TLObject CreateObjectInstance() => new PageBlockChatLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockChatLink)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -4964,7 +4963,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockTableConverter();
         public override TLObject CreateObjectInstance() => new PageBlockTable();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockTable)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -4992,7 +4991,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockDetailsConverter();
         public override TLObject CreateObjectInstance() => new PageBlockDetails();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockDetails)tlobj;
             if (name.SequenceEqual(propName_header))
@@ -5019,7 +5018,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockRelatedArticlesConverter();
         public override TLObject CreateObjectInstance() => new PageBlockRelatedArticles();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockRelatedArticles)tlobj;
             if (name.SequenceEqual(propName_header))
@@ -5041,7 +5040,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PageBlockMapConverter();
         public override TLObject CreateObjectInstance() => new PageBlockMap();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PageBlockMap)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5072,7 +5071,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new WebPageInstantViewConverter();
         public override TLObject CreateObjectInstance() => new WebPageInstantView();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (WebPageInstantView)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5103,7 +5102,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new WebPageConverter();
         public override TLObject CreateObjectInstance() => new WebPage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (WebPage)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5182,7 +5181,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CountryInfoConverter();
         public override TLObject CreateObjectInstance() => new CountryInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CountryInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5213,7 +5212,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CountriesConverter();
         public override TLObject CreateObjectInstance() => new Countries();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Countries)tlobj;
             if (name.SequenceEqual(propName_countries))
@@ -5230,7 +5229,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PhoneNumberInfoConverter();
         public override TLObject CreateObjectInstance() => new PhoneNumberInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PhoneNumberInfo)tlobj;
             if (name.SequenceEqual(propName_country))
@@ -5257,7 +5256,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BankCardActionOpenUrlConverter();
         public override TLObject CreateObjectInstance() => new BankCardActionOpenUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BankCardActionOpenUrl)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -5279,7 +5278,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BankCardInfoConverter();
         public override TLObject CreateObjectInstance() => new BankCardInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BankCardInfo)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -5301,7 +5300,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddressConverter();
         public override TLObject CreateObjectInstance() => new Address();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Address)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5335,7 +5334,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LabeledPricePartConverter();
         public override TLObject CreateObjectInstance() => new LabeledPricePart();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LabeledPricePart)tlobj;
             if (name.SequenceEqual(propName_label))
@@ -5357,7 +5356,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InvoiceConverter();
         public override TLObject CreateObjectInstance() => new Invoice();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Invoice)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5403,7 +5402,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new OrderInfoConverter();
         public override TLObject CreateObjectInstance() => new OrderInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (OrderInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5431,7 +5430,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ShippingOptionConverter();
         public override TLObject CreateObjectInstance() => new ShippingOption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ShippingOption)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -5458,7 +5457,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SavedCredentialsConverter();
         public override TLObject CreateObjectInstance() => new SavedCredentials();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SavedCredentials)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -5480,7 +5479,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputCredentialsSavedConverter();
         public override TLObject CreateObjectInstance() => new InputCredentialsSaved();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputCredentialsSaved)tlobj;
             if (name.SequenceEqual(propName_saved_credentials_id))
@@ -5497,7 +5496,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputCredentialsNewConverter();
         public override TLObject CreateObjectInstance() => new InputCredentialsNew();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputCredentialsNew)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -5519,7 +5518,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputCredentialsAndroidPayConverter();
         public override TLObject CreateObjectInstance() => new InputCredentialsAndroidPay();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputCredentialsAndroidPay)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -5536,7 +5535,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputCredentialsApplePayConverter();
         public override TLObject CreateObjectInstance() => new InputCredentialsApplePay();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputCredentialsApplePay)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -5553,7 +5552,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PaymentsProviderStripeConverter();
         public override TLObject CreateObjectInstance() => new PaymentsProviderStripe();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PaymentsProviderStripe)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5581,7 +5580,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PaymentFormConverter();
         public override TLObject CreateObjectInstance() => new PaymentForm();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PaymentForm)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5618,7 +5617,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ValidatedOrderInfoConverter();
         public override TLObject CreateObjectInstance() => new ValidatedOrderInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ValidatedOrderInfo)tlobj;
             if (name.SequenceEqual(propName_order_info_id))
@@ -5640,7 +5639,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PaymentResultConverter();
         public override TLObject CreateObjectInstance() => new PaymentResult();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PaymentResult)tlobj;
             if (name.SequenceEqual(propName_success))
@@ -5662,7 +5661,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PaymentReceiptConverter();
         public override TLObject CreateObjectInstance() => new PaymentReceipt();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PaymentReceipt)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5696,7 +5695,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DatedFileConverter();
         public override TLObject CreateObjectInstance() => new DatedFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DatedFile)tlobj;
             if (name.SequenceEqual(propName_file))
@@ -5809,7 +5808,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DateConverter();
         public override TLObject CreateObjectInstance() => new Date();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Date)tlobj;
             if (name.SequenceEqual(propName_day))
@@ -5836,7 +5835,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PersonalDetailsConverter();
         public override TLObject CreateObjectInstance() => new PersonalDetails();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PersonalDetails)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5882,7 +5881,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new IdentityDocumentConverter();
         public override TLObject CreateObjectInstance() => new IdentityDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (IdentityDocument)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5916,7 +5915,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputIdentityDocumentConverter();
         public override TLObject CreateObjectInstance() => new InputIdentityDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputIdentityDocument)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -5950,7 +5949,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PersonalDocumentConverter();
         public override TLObject CreateObjectInstance() => new PersonalDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PersonalDocument)tlobj;
             if (name.SequenceEqual(propName_files))
@@ -5972,7 +5971,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPersonalDocumentConverter();
         public override TLObject CreateObjectInstance() => new InputPersonalDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPersonalDocument)tlobj;
             if (name.SequenceEqual(propName_files))
@@ -5994,7 +5993,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementPersonalDetailsConverter();
         public override TLObject CreateObjectInstance() => new PassportElementPersonalDetails();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementPersonalDetails)tlobj;
             if (name.SequenceEqual(propName_personal_details))
@@ -6011,7 +6010,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementPassportConverter();
         public override TLObject CreateObjectInstance() => new PassportElementPassport();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementPassport)tlobj;
             if (name.SequenceEqual(propName_passport))
@@ -6028,7 +6027,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementDriverLicenseConverter();
         public override TLObject CreateObjectInstance() => new PassportElementDriverLicense();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementDriverLicense)tlobj;
             if (name.SequenceEqual(propName_driver_license))
@@ -6045,7 +6044,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementIdentityCardConverter();
         public override TLObject CreateObjectInstance() => new PassportElementIdentityCard();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementIdentityCard)tlobj;
             if (name.SequenceEqual(propName_identity_card))
@@ -6062,7 +6061,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementInternalPassportConverter();
         public override TLObject CreateObjectInstance() => new PassportElementInternalPassport();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementInternalPassport)tlobj;
             if (name.SequenceEqual(propName_internal_passport))
@@ -6079,7 +6078,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementAddressConverter();
         public override TLObject CreateObjectInstance() => new PassportElementAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementAddress)tlobj;
             if (name.SequenceEqual(propName_address))
@@ -6096,7 +6095,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementUtilityBillConverter();
         public override TLObject CreateObjectInstance() => new PassportElementUtilityBill();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementUtilityBill)tlobj;
             if (name.SequenceEqual(propName_utility_bill))
@@ -6113,7 +6112,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementBankStatementConverter();
         public override TLObject CreateObjectInstance() => new PassportElementBankStatement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementBankStatement)tlobj;
             if (name.SequenceEqual(propName_bank_statement))
@@ -6130,7 +6129,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementRentalAgreementConverter();
         public override TLObject CreateObjectInstance() => new PassportElementRentalAgreement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementRentalAgreement)tlobj;
             if (name.SequenceEqual(propName_rental_agreement))
@@ -6147,7 +6146,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementPassportRegistrationConverter();
         public override TLObject CreateObjectInstance() => new PassportElementPassportRegistration();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementPassportRegistration)tlobj;
             if (name.SequenceEqual(propName_passport_registration))
@@ -6164,7 +6163,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementTemporaryRegistrationConverter();
         public override TLObject CreateObjectInstance() => new PassportElementTemporaryRegistration();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementTemporaryRegistration)tlobj;
             if (name.SequenceEqual(propName_temporary_registration))
@@ -6181,7 +6180,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementPhoneNumberConverter();
         public override TLObject CreateObjectInstance() => new PassportElementPhoneNumber();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementPhoneNumber)tlobj;
             if (name.SequenceEqual(propName_phone_number))
@@ -6198,7 +6197,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementEmailAddressConverter();
         public override TLObject CreateObjectInstance() => new PassportElementEmailAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementEmailAddress)tlobj;
             if (name.SequenceEqual(propName_email_address))
@@ -6215,7 +6214,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementPersonalDetailsConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementPersonalDetails();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementPersonalDetails)tlobj;
             if (name.SequenceEqual(propName_personal_details))
@@ -6232,7 +6231,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementPassportConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementPassport();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementPassport)tlobj;
             if (name.SequenceEqual(propName_passport))
@@ -6249,7 +6248,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementDriverLicenseConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementDriverLicense();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementDriverLicense)tlobj;
             if (name.SequenceEqual(propName_driver_license))
@@ -6266,7 +6265,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementIdentityCardConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementIdentityCard();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementIdentityCard)tlobj;
             if (name.SequenceEqual(propName_identity_card))
@@ -6283,7 +6282,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementInternalPassportConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementInternalPassport();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementInternalPassport)tlobj;
             if (name.SequenceEqual(propName_internal_passport))
@@ -6300,7 +6299,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementAddressConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementAddress)tlobj;
             if (name.SequenceEqual(propName_address))
@@ -6317,7 +6316,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementUtilityBillConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementUtilityBill();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementUtilityBill)tlobj;
             if (name.SequenceEqual(propName_utility_bill))
@@ -6334,7 +6333,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementBankStatementConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementBankStatement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementBankStatement)tlobj;
             if (name.SequenceEqual(propName_bank_statement))
@@ -6351,7 +6350,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementRentalAgreementConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementRentalAgreement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementRentalAgreement)tlobj;
             if (name.SequenceEqual(propName_rental_agreement))
@@ -6368,7 +6367,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementPassportRegistrationConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementPassportRegistration();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementPassportRegistration)tlobj;
             if (name.SequenceEqual(propName_passport_registration))
@@ -6385,7 +6384,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementTemporaryRegistrationConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementTemporaryRegistration();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementTemporaryRegistration)tlobj;
             if (name.SequenceEqual(propName_temporary_registration))
@@ -6402,7 +6401,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementPhoneNumberConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementPhoneNumber();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementPhoneNumber)tlobj;
             if (name.SequenceEqual(propName_phone_number))
@@ -6419,7 +6418,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementEmailAddressConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementEmailAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementEmailAddress)tlobj;
             if (name.SequenceEqual(propName_email_address))
@@ -6436,7 +6435,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementsConverter();
         public override TLObject CreateObjectInstance() => new PassportElements();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElements)tlobj;
             if (name.SequenceEqual(propName_elements))
@@ -6460,7 +6459,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceDataFieldConverter();
         public override TLObject CreateObjectInstance() => new PassportElementErrorSourceDataField();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementErrorSourceDataField)tlobj;
             if (name.SequenceEqual(propName_field_name))
@@ -6498,7 +6497,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceTranslationFileConverter();
         public override TLObject CreateObjectInstance() => new PassportElementErrorSourceTranslationFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementErrorSourceTranslationFile)tlobj;
             if (name.SequenceEqual(propName_file_index))
@@ -6522,7 +6521,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementErrorSourceFileConverter();
         public override TLObject CreateObjectInstance() => new PassportElementErrorSourceFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementErrorSourceFile)tlobj;
             if (name.SequenceEqual(propName_file_index))
@@ -6546,7 +6545,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementErrorConverter();
         public override TLObject CreateObjectInstance() => new PassportElementError();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementError)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -6573,7 +6572,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportSuitableElementConverter();
         public override TLObject CreateObjectInstance() => new PassportSuitableElement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportSuitableElement)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -6601,7 +6600,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportRequiredElementConverter();
         public override TLObject CreateObjectInstance() => new PassportRequiredElement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportRequiredElement)tlobj;
             if (name.SequenceEqual(propName_suitable_elements))
@@ -6618,7 +6617,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportAuthorizationFormConverter();
         public override TLObject CreateObjectInstance() => new PassportAuthorizationForm();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportAuthorizationForm)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -6645,7 +6644,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PassportElementsWithErrorsConverter();
         public override TLObject CreateObjectInstance() => new PassportElementsWithErrors();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PassportElementsWithErrors)tlobj;
             if (name.SequenceEqual(propName_elements))
@@ -6667,7 +6666,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EncryptedCredentialsConverter();
         public override TLObject CreateObjectInstance() => new EncryptedCredentials();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EncryptedCredentials)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -6694,7 +6693,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EncryptedPassportElementConverter();
         public override TLObject CreateObjectInstance() => new EncryptedPassportElement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EncryptedPassportElement)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -6737,7 +6736,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceUnspecifiedConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceUnspecified();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceUnspecified)tlobj;
             if (name.SequenceEqual(propName_element_hash))
@@ -6754,7 +6753,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceDataFieldConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceDataField();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceDataField)tlobj;
             if (name.SequenceEqual(propName_field_name))
@@ -6776,7 +6775,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceFrontSideConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceFrontSide();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceFrontSide)tlobj;
             if (name.SequenceEqual(propName_file_hash))
@@ -6793,7 +6792,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceReverseSideConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceReverseSide();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceReverseSide)tlobj;
             if (name.SequenceEqual(propName_file_hash))
@@ -6810,7 +6809,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceSelfieConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceSelfie();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceSelfie)tlobj;
             if (name.SequenceEqual(propName_file_hash))
@@ -6827,7 +6826,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceTranslationFileConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceTranslationFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceTranslationFile)tlobj;
             if (name.SequenceEqual(propName_file_hash))
@@ -6844,7 +6843,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceTranslationFilesConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceTranslationFiles();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceTranslationFiles)tlobj;
             if (name.SequenceEqual(propName_file_hashes))
@@ -6861,7 +6860,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceFileConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceFile)tlobj;
             if (name.SequenceEqual(propName_file_hash))
@@ -6878,7 +6877,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorSourceFilesConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementErrorSourceFiles();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementErrorSourceFiles)tlobj;
             if (name.SequenceEqual(propName_file_hashes))
@@ -6895,7 +6894,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputPassportElementErrorConverter();
         public override TLObject CreateObjectInstance() => new InputPassportElementError();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputPassportElementError)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -6922,7 +6921,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageTextConverter();
         public override TLObject CreateObjectInstance() => new MessageText();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageText)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -6944,7 +6943,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageAnimationConverter();
         public override TLObject CreateObjectInstance() => new MessageAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageAnimation)tlobj;
             if (name.SequenceEqual(propName_animation))
@@ -6971,7 +6970,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageAudioConverter();
         public override TLObject CreateObjectInstance() => new MessageAudio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageAudio)tlobj;
             if (name.SequenceEqual(propName_audio))
@@ -6993,7 +6992,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageDocumentConverter();
         public override TLObject CreateObjectInstance() => new MessageDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageDocument)tlobj;
             if (name.SequenceEqual(propName_document))
@@ -7015,7 +7014,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagePhotoConverter();
         public override TLObject CreateObjectInstance() => new MessagePhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessagePhoto)tlobj;
             if (name.SequenceEqual(propName_photo))
@@ -7049,7 +7048,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageStickerConverter();
         public override TLObject CreateObjectInstance() => new MessageSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageSticker)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -7066,7 +7065,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageVideoConverter();
         public override TLObject CreateObjectInstance() => new MessageVideo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageVideo)tlobj;
             if (name.SequenceEqual(propName_video))
@@ -7100,7 +7099,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageVideoNoteConverter();
         public override TLObject CreateObjectInstance() => new MessageVideoNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageVideoNote)tlobj;
             if (name.SequenceEqual(propName_video_note))
@@ -7127,7 +7126,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageVoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new MessageVoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageVoiceNote)tlobj;
             if (name.SequenceEqual(propName_voice_note))
@@ -7154,7 +7153,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageLocationConverter();
         public override TLObject CreateObjectInstance() => new MessageLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageLocation)tlobj;
             if (name.SequenceEqual(propName_location))
@@ -7181,7 +7180,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageVenueConverter();
         public override TLObject CreateObjectInstance() => new MessageVenue();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageVenue)tlobj;
             if (name.SequenceEqual(propName_venue))
@@ -7198,7 +7197,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageContactConverter();
         public override TLObject CreateObjectInstance() => new MessageContact();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageContact)tlobj;
             if (name.SequenceEqual(propName_contact))
@@ -7215,7 +7214,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageDiceConverter();
         public override TLObject CreateObjectInstance() => new MessageDice();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageDice)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -7246,7 +7245,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageGameConverter();
         public override TLObject CreateObjectInstance() => new MessageGame();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageGame)tlobj;
             if (name.SequenceEqual(propName_game))
@@ -7263,7 +7262,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagePollConverter();
         public override TLObject CreateObjectInstance() => new MessagePoll();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessagePoll)tlobj;
             if (name.SequenceEqual(propName_poll))
@@ -7280,7 +7279,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageInvoiceConverter();
         public override TLObject CreateObjectInstance() => new MessageInvoice();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageInvoice)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -7323,7 +7322,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageCallConverter();
         public override TLObject CreateObjectInstance() => new MessageCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageCall)tlobj;
             if (name.SequenceEqual(propName_is_video))
@@ -7350,7 +7349,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageBasicGroupChatCreateConverter();
         public override TLObject CreateObjectInstance() => new MessageBasicGroupChatCreate();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageBasicGroupChatCreate)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -7372,7 +7371,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageSupergroupChatCreateConverter();
         public override TLObject CreateObjectInstance() => new MessageSupergroupChatCreate();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageSupergroupChatCreate)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -7389,7 +7388,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageChatChangeTitleConverter();
         public override TLObject CreateObjectInstance() => new MessageChatChangeTitle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageChatChangeTitle)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -7406,7 +7405,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageChatChangePhotoConverter();
         public override TLObject CreateObjectInstance() => new MessageChatChangePhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageChatChangePhoto)tlobj;
             if (name.SequenceEqual(propName_photo))
@@ -7430,7 +7429,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageChatAddMembersConverter();
         public override TLObject CreateObjectInstance() => new MessageChatAddMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageChatAddMembers)tlobj;
             if (name.SequenceEqual(propName_member_user_ids))
@@ -7454,7 +7453,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageChatDeleteMemberConverter();
         public override TLObject CreateObjectInstance() => new MessageChatDeleteMember();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageChatDeleteMember)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -7471,7 +7470,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageChatUpgradeToConverter();
         public override TLObject CreateObjectInstance() => new MessageChatUpgradeTo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageChatUpgradeTo)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -7488,7 +7487,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageChatUpgradeFromConverter();
         public override TLObject CreateObjectInstance() => new MessageChatUpgradeFrom();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageChatUpgradeFrom)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -7510,7 +7509,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagePinMessageConverter();
         public override TLObject CreateObjectInstance() => new MessagePinMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessagePinMessage)tlobj;
             if (name.SequenceEqual(propName_message_id))
@@ -7534,7 +7533,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageChatSetTtlConverter();
         public override TLObject CreateObjectInstance() => new MessageChatSetTtl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageChatSetTtl)tlobj;
             if (name.SequenceEqual(propName_ttl))
@@ -7551,7 +7550,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageCustomServiceActionConverter();
         public override TLObject CreateObjectInstance() => new MessageCustomServiceAction();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageCustomServiceAction)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -7568,7 +7567,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageGameScoreConverter();
         public override TLObject CreateObjectInstance() => new MessageGameScore();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageGameScore)tlobj;
             if (name.SequenceEqual(propName_game_message_id))
@@ -7595,7 +7594,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagePaymentSuccessfulConverter();
         public override TLObject CreateObjectInstance() => new MessagePaymentSuccessful();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessagePaymentSuccessful)tlobj;
             if (name.SequenceEqual(propName_invoice_message_id))
@@ -7622,7 +7621,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagePaymentSuccessfulBotConverter();
         public override TLObject CreateObjectInstance() => new MessagePaymentSuccessfulBot();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessagePaymentSuccessfulBot)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -7669,7 +7668,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageWebsiteConnectedConverter();
         public override TLObject CreateObjectInstance() => new MessageWebsiteConnected();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageWebsiteConnected)tlobj;
             if (name.SequenceEqual(propName_domain_name))
@@ -7686,7 +7685,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagePassportDataSentConverter();
         public override TLObject CreateObjectInstance() => new MessagePassportDataSent();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessagePassportDataSent)tlobj;
             if (name.SequenceEqual(propName_types))
@@ -7703,7 +7702,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessagePassportDataReceivedConverter();
         public override TLObject CreateObjectInstance() => new MessagePassportDataReceived();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessagePassportDataReceived)tlobj;
             if (name.SequenceEqual(propName_elements))
@@ -7830,7 +7829,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TextEntityTypePreCodeConverter();
         public override TLObject CreateObjectInstance() => new TextEntityTypePreCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TextEntityTypePreCode)tlobj;
             if (name.SequenceEqual(propName_language))
@@ -7847,7 +7846,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TextEntityTypeTextUrlConverter();
         public override TLObject CreateObjectInstance() => new TextEntityTypeTextUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TextEntityTypeTextUrl)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -7864,7 +7863,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TextEntityTypeMentionNameConverter();
         public override TLObject CreateObjectInstance() => new TextEntityTypeMentionName();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TextEntityTypeMentionName)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -7881,7 +7880,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputThumbnailConverter();
         public override TLObject CreateObjectInstance() => new InputThumbnail();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputThumbnail)tlobj;
             if (name.SequenceEqual(propName_thumbnail))
@@ -7908,7 +7907,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageSchedulingStateSendAtDateConverter();
         public override TLObject CreateObjectInstance() => new MessageSchedulingStateSendAtDate();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageSchedulingStateSendAtDate)tlobj;
             if (name.SequenceEqual(propName_send_date))
@@ -7932,7 +7931,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageSendOptionsConverter();
         public override TLObject CreateObjectInstance() => new MessageSendOptions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageSendOptions)tlobj;
             if (name.SequenceEqual(propName_disable_notification))
@@ -7959,7 +7958,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageCopyOptionsConverter();
         public override TLObject CreateObjectInstance() => new MessageCopyOptions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageCopyOptions)tlobj;
             if (name.SequenceEqual(propName_send_copy))
@@ -7986,7 +7985,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageTextConverter();
         public override TLObject CreateObjectInstance() => new InputMessageText();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageText)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -8013,7 +8012,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageAnimationConverter();
         public override TLObject CreateObjectInstance() => new InputMessageAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageAnimation)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8050,7 +8049,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageAudioConverter();
         public override TLObject CreateObjectInstance() => new InputMessageAudio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageAudio)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8084,7 +8083,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageDocumentConverter();
         public override TLObject CreateObjectInstance() => new InputMessageDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageDocument)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8112,7 +8111,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessagePhotoConverter();
         public override TLObject CreateObjectInstance() => new InputMessagePhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessagePhoto)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8149,7 +8148,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageStickerConverter();
         public override TLObject CreateObjectInstance() => new InputMessageSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageSticker)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8177,7 +8176,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageVideoConverter();
         public override TLObject CreateObjectInstance() => new InputMessageVideo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageVideo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8220,7 +8219,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageVideoNoteConverter();
         public override TLObject CreateObjectInstance() => new InputMessageVideoNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageVideoNote)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8248,7 +8247,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageVoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new InputMessageVoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageVoiceNote)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8276,7 +8275,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageLocationConverter();
         public override TLObject CreateObjectInstance() => new InputMessageLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageLocation)tlobj;
             if (name.SequenceEqual(propName_location))
@@ -8298,7 +8297,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageVenueConverter();
         public override TLObject CreateObjectInstance() => new InputMessageVenue();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageVenue)tlobj;
             if (name.SequenceEqual(propName_venue))
@@ -8315,7 +8314,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageContactConverter();
         public override TLObject CreateObjectInstance() => new InputMessageContact();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageContact)tlobj;
             if (name.SequenceEqual(propName_contact))
@@ -8332,7 +8331,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageDiceConverter();
         public override TLObject CreateObjectInstance() => new InputMessageDice();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageDice)tlobj;
             if (name.SequenceEqual(propName_emoji))
@@ -8354,7 +8353,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageGameConverter();
         public override TLObject CreateObjectInstance() => new InputMessageGame();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageGame)tlobj;
             if (name.SequenceEqual(propName_bot_user_id))
@@ -8376,7 +8375,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageInvoiceConverter();
         public override TLObject CreateObjectInstance() => new InputMessageInvoice();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageInvoice)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8425,7 +8424,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessagePollConverter();
         public override TLObject CreateObjectInstance() => new InputMessagePoll();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessagePoll)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8462,7 +8461,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputMessageForwardedConverter();
         public override TLObject CreateObjectInstance() => new InputMessageForwarded();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageForwarded)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8623,7 +8622,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatActionUploadingVideoConverter();
         public override TLObject CreateObjectInstance() => new ChatActionUploadingVideo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatActionUploadingVideo)tlobj;
             if (name.SequenceEqual(propName_progress))
@@ -8647,7 +8646,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatActionUploadingVoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new ChatActionUploadingVoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatActionUploadingVoiceNote)tlobj;
             if (name.SequenceEqual(propName_progress))
@@ -8664,7 +8663,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatActionUploadingPhotoConverter();
         public override TLObject CreateObjectInstance() => new ChatActionUploadingPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatActionUploadingPhoto)tlobj;
             if (name.SequenceEqual(propName_progress))
@@ -8681,7 +8680,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatActionUploadingDocumentConverter();
         public override TLObject CreateObjectInstance() => new ChatActionUploadingDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatActionUploadingDocument)tlobj;
             if (name.SequenceEqual(propName_progress))
@@ -8726,7 +8725,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatActionUploadingVideoNoteConverter();
         public override TLObject CreateObjectInstance() => new ChatActionUploadingVideoNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatActionUploadingVideoNote)tlobj;
             if (name.SequenceEqual(propName_progress))
@@ -8757,7 +8756,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserStatusOnlineConverter();
         public override TLObject CreateObjectInstance() => new UserStatusOnline();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserStatusOnline)tlobj;
             if (name.SequenceEqual(propName_expires))
@@ -8774,7 +8773,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserStatusOfflineConverter();
         public override TLObject CreateObjectInstance() => new UserStatusOffline();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserStatusOffline)tlobj;
             if (name.SequenceEqual(propName_was_online))
@@ -8812,7 +8811,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StickersConverter();
         public override TLObject CreateObjectInstance() => new Stickers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Stickers)tlobj;
             if (name.SequenceEqual(propName_stickers))
@@ -8829,7 +8828,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EmojisConverter();
         public override TLObject CreateObjectInstance() => new Emojis();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Emojis)tlobj;
             if (name.SequenceEqual(propName_emojis))
@@ -8846,7 +8845,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StickerSetConverter();
         public override TLObject CreateObjectInstance() => new StickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StickerSet)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8898,7 +8897,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StickerSetInfoConverter();
         public override TLObject CreateObjectInstance() => new StickerSetInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StickerSetInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -8950,7 +8949,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StickerSetsConverter();
         public override TLObject CreateObjectInstance() => new StickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StickerSets)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -9007,7 +9006,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallProtocolConverter();
         public override TLObject CreateObjectInstance() => new CallProtocol();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallProtocol)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9038,7 +9037,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallServerTypeTelegramReflectorConverter();
         public override TLObject CreateObjectInstance() => new CallServerTypeTelegramReflector();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallServerTypeTelegramReflector)tlobj;
             if (name.SequenceEqual(propName_peer_tag))
@@ -9055,7 +9054,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallServerTypeWebrtcConverter();
         public override TLObject CreateObjectInstance() => new CallServerTypeWebrtc();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallServerTypeWebrtc)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9083,7 +9082,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallServerConverter();
         public override TLObject CreateObjectInstance() => new CallServer();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallServer)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9114,7 +9113,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallIdConverter();
         public override TLObject CreateObjectInstance() => new CallId();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallId)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -9131,7 +9130,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallStatePendingConverter();
         public override TLObject CreateObjectInstance() => new CallStatePending();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallStatePending)tlobj;
             if (name.SequenceEqual(propName_is_created))
@@ -9160,7 +9159,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallStateReadyConverter();
         public override TLObject CreateObjectInstance() => new CallStateReady();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallStateReady)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9201,7 +9200,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallStateDiscardedConverter();
         public override TLObject CreateObjectInstance() => new CallStateDiscarded();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallStateDiscarded)tlobj;
             if (name.SequenceEqual(propName_reason))
@@ -9228,7 +9227,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallStateErrorConverter();
         public override TLObject CreateObjectInstance() => new CallStateError();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallStateError)tlobj;
             if (name.SequenceEqual(propName_error))
@@ -9308,7 +9307,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallConverter();
         public override TLObject CreateObjectInstance() => new Call();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Call)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9339,7 +9338,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PhoneNumberAuthenticationSettingsConverter();
         public override TLObject CreateObjectInstance() => new PhoneNumberAuthenticationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PhoneNumberAuthenticationSettings)tlobj;
             if (name.SequenceEqual(propName_allow_flash_call))
@@ -9366,7 +9365,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnimationsConverter();
         public override TLObject CreateObjectInstance() => new Animations();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Animations)tlobj;
             if (name.SequenceEqual(propName_animations))
@@ -9383,7 +9382,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ImportedContactsConverter();
         public override TLObject CreateObjectInstance() => new ImportedContacts();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ImportedContacts)tlobj;
             if (name.SequenceEqual(propName_user_ids))
@@ -9405,7 +9404,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new HttpUrlConverter();
         public override TLObject CreateObjectInstance() => new HttpUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (HttpUrl)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -9422,7 +9421,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultAnimationConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultAnimation)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9471,7 +9470,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultArticleConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultArticle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultArticle)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9517,7 +9516,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultAudioConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultAudio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultAudio)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9554,7 +9553,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultContactConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultContact();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultContact)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9591,7 +9590,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultDocumentConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultDocument)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9637,7 +9636,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultGameConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultGame();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultGame)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -9664,7 +9663,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultLocationConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultLocation)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9707,7 +9706,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultPhotoConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultPhoto)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9750,7 +9749,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultStickerConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultSticker)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9787,7 +9786,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultVenueConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultVenue();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultVenue)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9824,7 +9823,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultVideoConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultVideo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultVideo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9873,7 +9872,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputInlineQueryResultVoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new InputInlineQueryResultVoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputInlineQueryResultVoiceNote)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9907,7 +9906,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultArticleConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultArticle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultArticle)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9941,7 +9940,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultContactConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultContact();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultContact)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -9968,7 +9967,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultLocationConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultLocation)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -9996,7 +9995,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultVenueConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultVenue();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultVenue)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -10023,7 +10022,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultGameConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultGame();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultGame)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -10045,7 +10044,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultAnimationConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultAnimation)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -10072,7 +10071,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultAudioConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultAudio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultAudio)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -10094,7 +10093,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultDocumentConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultDocument)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -10122,7 +10121,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultPhotoConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultPhoto)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -10150,7 +10149,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultStickerConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultSticker)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -10172,7 +10171,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultVideoConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultVideo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultVideo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -10200,7 +10199,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultVoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResultVoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResultVoiceNote)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -10227,7 +10226,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InlineQueryResultsConverter();
         public override TLObject CreateObjectInstance() => new InlineQueryResults();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InlineQueryResults)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -10258,7 +10257,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallbackQueryPayloadDataConverter();
         public override TLObject CreateObjectInstance() => new CallbackQueryPayloadData();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallbackQueryPayloadData)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -10275,7 +10274,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallbackQueryPayloadDataWithPasswordConverter();
         public override TLObject CreateObjectInstance() => new CallbackQueryPayloadDataWithPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallbackQueryPayloadDataWithPassword)tlobj;
             if (name.SequenceEqual(propName_password))
@@ -10297,7 +10296,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallbackQueryPayloadGameConverter();
         public override TLObject CreateObjectInstance() => new CallbackQueryPayloadGame();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallbackQueryPayloadGame)tlobj;
             if (name.SequenceEqual(propName_game_short_name))
@@ -10314,7 +10313,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CallbackQueryAnswerConverter();
         public override TLObject CreateObjectInstance() => new CallbackQueryAnswer();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CallbackQueryAnswer)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -10341,7 +10340,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CustomRequestResultConverter();
         public override TLObject CreateObjectInstance() => new CustomRequestResult();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CustomRequestResult)tlobj;
             if (name.SequenceEqual(propName_result))
@@ -10358,7 +10357,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GameHighScoreConverter();
         public override TLObject CreateObjectInstance() => new GameHighScore();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GameHighScore)tlobj;
             if (name.SequenceEqual(propName_position))
@@ -10385,7 +10384,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GameHighScoresConverter();
         public override TLObject CreateObjectInstance() => new GameHighScores();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GameHighScores)tlobj;
             if (name.SequenceEqual(propName_scores))
@@ -10402,7 +10401,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventMessageEditedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventMessageEdited();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventMessageEdited)tlobj;
             if (name.SequenceEqual(propName_old_message))
@@ -10424,7 +10423,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventMessageDeletedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventMessageDeleted();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventMessageDeleted)tlobj;
             if (name.SequenceEqual(propName_message))
@@ -10441,7 +10440,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventPollStoppedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventPollStopped();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventPollStopped)tlobj;
             if (name.SequenceEqual(propName_message))
@@ -10458,7 +10457,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventMessagePinnedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventMessagePinned();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventMessagePinned)tlobj;
             if (name.SequenceEqual(propName_message))
@@ -10496,7 +10495,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventMemberInvitedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventMemberInvited();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventMemberInvited)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -10518,7 +10517,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventMemberPromotedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventMemberPromoted();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventMemberPromoted)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -10545,7 +10544,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventMemberRestrictedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventMemberRestricted();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventMemberRestricted)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -10572,7 +10571,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventTitleChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventTitleChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventTitleChanged)tlobj;
             if (name.SequenceEqual(propName_old_title))
@@ -10594,7 +10593,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventPermissionsChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventPermissionsChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventPermissionsChanged)tlobj;
             if (name.SequenceEqual(propName_old_permissions))
@@ -10616,7 +10615,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventDescriptionChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventDescriptionChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventDescriptionChanged)tlobj;
             if (name.SequenceEqual(propName_old_description))
@@ -10638,7 +10637,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventUsernameChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventUsernameChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventUsernameChanged)tlobj;
             if (name.SequenceEqual(propName_old_username))
@@ -10660,7 +10659,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventPhotoChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventPhotoChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventPhotoChanged)tlobj;
             if (name.SequenceEqual(propName_old_photo))
@@ -10682,7 +10681,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventInvitesToggledConverter();
         public override TLObject CreateObjectInstance() => new ChatEventInvitesToggled();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventInvitesToggled)tlobj;
             if (name.SequenceEqual(propName_can_invite_users))
@@ -10699,7 +10698,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventLinkedChatChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventLinkedChatChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventLinkedChatChanged)tlobj;
             if (name.SequenceEqual(propName_old_linked_chat_id))
@@ -10721,7 +10720,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventSlowModeDelayChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventSlowModeDelayChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventSlowModeDelayChanged)tlobj;
             if (name.SequenceEqual(propName_old_slow_mode_delay))
@@ -10743,7 +10742,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventSignMessagesToggledConverter();
         public override TLObject CreateObjectInstance() => new ChatEventSignMessagesToggled();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventSignMessagesToggled)tlobj;
             if (name.SequenceEqual(propName_sign_messages))
@@ -10760,7 +10759,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventStickerSetChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventStickerSetChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventStickerSetChanged)tlobj;
             if (name.SequenceEqual(propName_old_sticker_set_id))
@@ -10782,7 +10781,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventLocationChangedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventLocationChanged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventLocationChanged)tlobj;
             if (name.SequenceEqual(propName_old_location))
@@ -10804,7 +10803,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventIsAllHistoryAvailableToggledConverter();
         public override TLObject CreateObjectInstance() => new ChatEventIsAllHistoryAvailableToggled();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventIsAllHistoryAvailableToggled)tlobj;
             if (name.SequenceEqual(propName_is_all_history_available))
@@ -10821,7 +10820,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventConverter();
         public override TLObject CreateObjectInstance() => new ChatEvent();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEvent)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -10849,7 +10848,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventsConverter();
         public override TLObject CreateObjectInstance() => new ChatEvents();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEvents)tlobj;
             if (name.SequenceEqual(propName_events))
@@ -10866,7 +10865,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventLogFiltersConverter();
         public override TLObject CreateObjectInstance() => new ChatEventLogFilters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatEventLogFilters)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -10912,7 +10911,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LanguagePackStringValueOrdinaryConverter();
         public override TLObject CreateObjectInstance() => new LanguagePackStringValueOrdinary();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LanguagePackStringValueOrdinary)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -10929,7 +10928,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LanguagePackStringValuePluralizedConverter();
         public override TLObject CreateObjectInstance() => new LanguagePackStringValuePluralized();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LanguagePackStringValuePluralized)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -10970,7 +10969,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LanguagePackStringConverter();
         public override TLObject CreateObjectInstance() => new LanguagePackString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LanguagePackString)tlobj;
             if (name.SequenceEqual(propName_key))
@@ -10992,7 +10991,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LanguagePackStringsConverter();
         public override TLObject CreateObjectInstance() => new LanguagePackStrings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LanguagePackStrings)tlobj;
             if (name.SequenceEqual(propName_strings))
@@ -11009,7 +11008,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LanguagePackInfoConverter();
         public override TLObject CreateObjectInstance() => new LanguagePackInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LanguagePackInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -11064,7 +11063,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LocalizationTargetInfoConverter();
         public override TLObject CreateObjectInstance() => new LocalizationTargetInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LocalizationTargetInfo)tlobj;
             if (name.SequenceEqual(propName_language_packs))
@@ -11081,7 +11080,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenFirebaseCloudMessagingConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenFirebaseCloudMessaging();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenFirebaseCloudMessaging)tlobj;
             if (name.SequenceEqual(propName_token))
@@ -11103,7 +11102,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenApplePushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenApplePush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenApplePush)tlobj;
             if (name.SequenceEqual(propName_device_token))
@@ -11125,7 +11124,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenApplePushVoIPConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenApplePushVoIP();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenApplePushVoIP)tlobj;
             if (name.SequenceEqual(propName_device_token))
@@ -11152,7 +11151,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenWindowsPushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenWindowsPush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenWindowsPush)tlobj;
             if (name.SequenceEqual(propName_access_token))
@@ -11169,7 +11168,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenMicrosoftPushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenMicrosoftPush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenMicrosoftPush)tlobj;
             if (name.SequenceEqual(propName_channel_uri))
@@ -11186,7 +11185,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenMicrosoftPushVoIPConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenMicrosoftPushVoIP();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenMicrosoftPushVoIP)tlobj;
             if (name.SequenceEqual(propName_channel_uri))
@@ -11203,7 +11202,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenWebPushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenWebPush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenWebPush)tlobj;
             if (name.SequenceEqual(propName_endpoint))
@@ -11230,7 +11229,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenSimplePushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenSimplePush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenSimplePush)tlobj;
             if (name.SequenceEqual(propName_endpoint))
@@ -11247,7 +11246,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenUbuntuPushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenUbuntuPush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenUbuntuPush)tlobj;
             if (name.SequenceEqual(propName_token))
@@ -11264,7 +11263,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenBlackBerryPushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenBlackBerryPush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenBlackBerryPush)tlobj;
             if (name.SequenceEqual(propName_token))
@@ -11281,7 +11280,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeviceTokenTizenPushConverter();
         public override TLObject CreateObjectInstance() => new DeviceTokenTizenPush();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeviceTokenTizenPush)tlobj;
             if (name.SequenceEqual(propName_reg_id))
@@ -11298,7 +11297,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushReceiverIdConverter();
         public override TLObject CreateObjectInstance() => new PushReceiverId();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushReceiverId)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -11315,7 +11314,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BackgroundFillSolidConverter();
         public override TLObject CreateObjectInstance() => new BackgroundFillSolid();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BackgroundFillSolid)tlobj;
             if (name.SequenceEqual(propName_color))
@@ -11332,7 +11331,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BackgroundFillGradientConverter();
         public override TLObject CreateObjectInstance() => new BackgroundFillGradient();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BackgroundFillGradient)tlobj;
             if (name.SequenceEqual(propName_top_color))
@@ -11359,7 +11358,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BackgroundTypeWallpaperConverter();
         public override TLObject CreateObjectInstance() => new BackgroundTypeWallpaper();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BackgroundTypeWallpaper)tlobj;
             if (name.SequenceEqual(propName_is_blurred))
@@ -11381,7 +11380,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BackgroundTypePatternConverter();
         public override TLObject CreateObjectInstance() => new BackgroundTypePattern();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BackgroundTypePattern)tlobj;
             if (name.SequenceEqual(propName_fill))
@@ -11408,7 +11407,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BackgroundTypeFillConverter();
         public override TLObject CreateObjectInstance() => new BackgroundTypeFill();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BackgroundTypeFill)tlobj;
             if (name.SequenceEqual(propName_fill))
@@ -11425,7 +11424,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BackgroundConverter();
         public override TLObject CreateObjectInstance() => new Background();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Background)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -11459,7 +11458,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BackgroundsConverter();
         public override TLObject CreateObjectInstance() => new Backgrounds();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Backgrounds)tlobj;
             if (name.SequenceEqual(propName_backgrounds))
@@ -11476,7 +11475,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputBackgroundLocalConverter();
         public override TLObject CreateObjectInstance() => new InputBackgroundLocal();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputBackgroundLocal)tlobj;
             if (name.SequenceEqual(propName_background))
@@ -11493,7 +11492,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputBackgroundRemoteConverter();
         public override TLObject CreateObjectInstance() => new InputBackgroundRemote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputBackgroundRemote)tlobj;
             if (name.SequenceEqual(propName_background_id))
@@ -11510,7 +11509,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new HashtagsConverter();
         public override TLObject CreateObjectInstance() => new Hashtags();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Hashtags)tlobj;
             if (name.SequenceEqual(propName_hashtags))
@@ -11541,7 +11540,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CanTransferOwnershipResultPasswordTooFreshConverter();
         public override TLObject CreateObjectInstance() => new CanTransferOwnershipResultPasswordTooFresh();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CanTransferOwnershipResultPasswordTooFresh)tlobj;
             if (name.SequenceEqual(propName_retry_after))
@@ -11558,7 +11557,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CanTransferOwnershipResultSessionTooFreshConverter();
         public override TLObject CreateObjectInstance() => new CanTransferOwnershipResultSessionTooFresh();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CanTransferOwnershipResultSessionTooFresh)tlobj;
             if (name.SequenceEqual(propName_retry_after))
@@ -11610,7 +11609,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentHiddenConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentHidden();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentHidden)tlobj;
             if (name.SequenceEqual(propName_is_pinned))
@@ -11627,7 +11626,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentAnimationConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentAnimation)tlobj;
             if (name.SequenceEqual(propName_animation))
@@ -11654,7 +11653,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentAudioConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentAudio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentAudio)tlobj;
             if (name.SequenceEqual(propName_audio))
@@ -11676,7 +11675,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentContactConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentContact();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentContact)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -11705,7 +11704,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentDocumentConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentDocument();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentDocument)tlobj;
             if (name.SequenceEqual(propName_document))
@@ -11727,7 +11726,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentGameConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentGame();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentGame)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -11749,7 +11748,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentGameScoreConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentGameScore();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentGameScore)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -11776,7 +11775,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentInvoiceConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentInvoice();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentInvoice)tlobj;
             if (name.SequenceEqual(propName_price))
@@ -11798,7 +11797,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentLocationConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentLocation)tlobj;
             if (name.SequenceEqual(propName_is_live))
@@ -11820,7 +11819,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentPhotoConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentPhoto)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -11848,7 +11847,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentPollConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentPoll();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentPoll)tlobj;
             if (name.SequenceEqual(propName_question))
@@ -11882,7 +11881,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentStickerConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentSticker)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -11909,7 +11908,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentTextConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentText();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentText)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -11931,7 +11930,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentVideoConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentVideo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentVideo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -11959,7 +11958,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentVideoNoteConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentVideoNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentVideoNote)tlobj;
             if (name.SequenceEqual(propName_video_note))
@@ -11981,7 +11980,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentVoiceNoteConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentVoiceNote();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentVoiceNote)tlobj;
             if (name.SequenceEqual(propName_voice_note))
@@ -12010,7 +12009,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentChatAddMembersConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentChatAddMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentChatAddMembers)tlobj;
             if (name.SequenceEqual(propName_member_name))
@@ -12044,7 +12043,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentChatChangeTitleConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentChatChangeTitle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentChatChangeTitle)tlobj;
             if (name.SequenceEqual(propName_title))
@@ -12061,7 +12060,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentChatDeleteMemberConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentChatDeleteMember();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentChatDeleteMember)tlobj;
             if (name.SequenceEqual(propName_member_name))
@@ -12095,7 +12094,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentMessageForwardsConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentMessageForwards();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentMessageForwards)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -12112,7 +12111,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentMediaAlbumConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentMediaAlbum();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentMediaAlbum)tlobj;
             if (name.SequenceEqual(propName_total_count))
@@ -12139,7 +12138,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NotificationTypeNewMessageConverter();
         public override TLObject CreateObjectInstance() => new NotificationTypeNewMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (NotificationTypeNewMessage)tlobj;
             if (name.SequenceEqual(propName_message))
@@ -12163,7 +12162,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NotificationTypeNewCallConverter();
         public override TLObject CreateObjectInstance() => new NotificationTypeNewCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (NotificationTypeNewCall)tlobj;
             if (name.SequenceEqual(propName_call_id))
@@ -12180,7 +12179,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NotificationTypeNewPushMessageConverter();
         public override TLObject CreateObjectInstance() => new NotificationTypeNewPushMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (NotificationTypeNewPushMessage)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -12242,7 +12241,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NotificationConverter();
         public override TLObject CreateObjectInstance() => new Notification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Notification)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -12270,7 +12269,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NotificationGroupConverter();
         public override TLObject CreateObjectInstance() => new NotificationGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (NotificationGroup)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -12301,7 +12300,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new OptionValueBooleanConverter();
         public override TLObject CreateObjectInstance() => new OptionValueBoolean();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (OptionValueBoolean)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -12325,7 +12324,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new OptionValueIntegerConverter();
         public override TLObject CreateObjectInstance() => new OptionValueInteger();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (OptionValueInteger)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -12342,7 +12341,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new OptionValueStringConverter();
         public override TLObject CreateObjectInstance() => new OptionValueString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (OptionValueString)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -12359,7 +12358,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JsonObjectMemberConverter();
         public override TLObject CreateObjectInstance() => new JsonObjectMember();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JsonObjectMember)tlobj;
             if (name.SequenceEqual(propName_key))
@@ -12388,7 +12387,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JsonValueBooleanConverter();
         public override TLObject CreateObjectInstance() => new JsonValueBoolean();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JsonValueBoolean)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -12405,7 +12404,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JsonValueNumberConverter();
         public override TLObject CreateObjectInstance() => new JsonValueNumber();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JsonValueNumber)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -12422,7 +12421,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JsonValueStringConverter();
         public override TLObject CreateObjectInstance() => new JsonValueString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JsonValueString)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -12439,7 +12438,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JsonValueArrayConverter();
         public override TLObject CreateObjectInstance() => new JsonValueArray();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JsonValueArray)tlobj;
             if (name.SequenceEqual(propName_values))
@@ -12456,7 +12455,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JsonValueObjectConverter();
         public override TLObject CreateObjectInstance() => new JsonValueObject();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JsonValueObject)tlobj;
             if (name.SequenceEqual(propName_members))
@@ -12487,7 +12486,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleAllowUsersConverter();
         public override TLObject CreateObjectInstance() => new UserPrivacySettingRuleAllowUsers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserPrivacySettingRuleAllowUsers)tlobj;
             if (name.SequenceEqual(propName_user_ids))
@@ -12504,7 +12503,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleAllowChatMembersConverter();
         public override TLObject CreateObjectInstance() => new UserPrivacySettingRuleAllowChatMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserPrivacySettingRuleAllowChatMembers)tlobj;
             if (name.SequenceEqual(propName_chat_ids))
@@ -12535,7 +12534,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleRestrictUsersConverter();
         public override TLObject CreateObjectInstance() => new UserPrivacySettingRuleRestrictUsers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserPrivacySettingRuleRestrictUsers)tlobj;
             if (name.SequenceEqual(propName_user_ids))
@@ -12552,7 +12551,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserPrivacySettingRuleRestrictChatMembersConverter();
         public override TLObject CreateObjectInstance() => new UserPrivacySettingRuleRestrictChatMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserPrivacySettingRuleRestrictChatMembers)tlobj;
             if (name.SequenceEqual(propName_chat_ids))
@@ -12569,7 +12568,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UserPrivacySettingRulesConverter();
         public override TLObject CreateObjectInstance() => new UserPrivacySettingRules();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UserPrivacySettingRules)tlobj;
             if (name.SequenceEqual(propName_rules))
@@ -12642,7 +12641,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AccountTtlConverter();
         public override TLObject CreateObjectInstance() => new AccountTtl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AccountTtl)tlobj;
             if (name.SequenceEqual(propName_days))
@@ -12659,7 +12658,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SessionConverter();
         public override TLObject CreateObjectInstance() => new Session();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Session)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -12720,7 +12719,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SessionsConverter();
         public override TLObject CreateObjectInstance() => new Sessions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Sessions)tlobj;
             if (name.SequenceEqual(propName_sessions))
@@ -12737,7 +12736,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ConnectedWebsiteConverter();
         public override TLObject CreateObjectInstance() => new ConnectedWebsite();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ConnectedWebsite)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -12780,7 +12779,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ConnectedWebsitesConverter();
         public override TLObject CreateObjectInstance() => new ConnectedWebsites();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ConnectedWebsites)tlobj;
             if (name.SequenceEqual(propName_websites))
@@ -12839,7 +12838,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatReportReasonCustomConverter();
         public override TLObject CreateObjectInstance() => new ChatReportReasonCustom();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatReportReasonCustom)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -12856,7 +12855,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageLinkConverter();
         public override TLObject CreateObjectInstance() => new MessageLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageLink)tlobj;
             if (name.SequenceEqual(propName_link))
@@ -12878,7 +12877,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageLinkInfoConverter();
         public override TLObject CreateObjectInstance() => new MessageLinkInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageLinkInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -12909,7 +12908,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new FilePartConverter();
         public override TLObject CreateObjectInstance() => new FilePart();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (FilePart)tlobj;
             if (name.SequenceEqual(propName_data))
@@ -13038,7 +13037,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StorageStatisticsByFileTypeConverter();
         public override TLObject CreateObjectInstance() => new StorageStatisticsByFileType();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StorageStatisticsByFileType)tlobj;
             if (name.SequenceEqual(propName_file_type))
@@ -13065,7 +13064,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StorageStatisticsByChatConverter();
         public override TLObject CreateObjectInstance() => new StorageStatisticsByChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StorageStatisticsByChat)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -13093,7 +13092,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StorageStatisticsConverter();
         public override TLObject CreateObjectInstance() => new StorageStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StorageStatistics)tlobj;
             if (name.SequenceEqual(propName_size))
@@ -13120,7 +13119,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StorageStatisticsFastConverter();
         public override TLObject CreateObjectInstance() => new StorageStatisticsFast();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StorageStatisticsFast)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -13151,7 +13150,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DatabaseStatisticsConverter();
         public override TLObject CreateObjectInstance() => new DatabaseStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DatabaseStatistics)tlobj;
             if (name.SequenceEqual(propName_statistics))
@@ -13203,7 +13202,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NetworkStatisticsEntryFileConverter();
         public override TLObject CreateObjectInstance() => new NetworkStatisticsEntryFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (NetworkStatisticsEntryFile)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -13231,7 +13230,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NetworkStatisticsEntryCallConverter();
         public override TLObject CreateObjectInstance() => new NetworkStatisticsEntryCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (NetworkStatisticsEntryCall)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -13259,7 +13258,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new NetworkStatisticsConverter();
         public override TLObject CreateObjectInstance() => new NetworkStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (NetworkStatistics)tlobj;
             if (name.SequenceEqual(propName_since_date))
@@ -13281,7 +13280,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AutoDownloadSettingsConverter();
         public override TLObject CreateObjectInstance() => new AutoDownloadSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AutoDownloadSettings)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -13321,7 +13320,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AutoDownloadSettingsPresetsConverter();
         public override TLObject CreateObjectInstance() => new AutoDownloadSettingsPresets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AutoDownloadSettingsPresets)tlobj;
             if (name.SequenceEqual(propName_low))
@@ -13432,7 +13431,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TMeUrlTypeUserConverter();
         public override TLObject CreateObjectInstance() => new TMeUrlTypeUser();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TMeUrlTypeUser)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -13449,7 +13448,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TMeUrlTypeSupergroupConverter();
         public override TLObject CreateObjectInstance() => new TMeUrlTypeSupergroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TMeUrlTypeSupergroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -13466,7 +13465,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TMeUrlTypeChatInviteConverter();
         public override TLObject CreateObjectInstance() => new TMeUrlTypeChatInvite();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TMeUrlTypeChatInvite)tlobj;
             if (name.SequenceEqual(propName_info))
@@ -13483,7 +13482,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TMeUrlTypeStickerSetConverter();
         public override TLObject CreateObjectInstance() => new TMeUrlTypeStickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TMeUrlTypeStickerSet)tlobj;
             if (name.SequenceEqual(propName_sticker_set_id))
@@ -13500,7 +13499,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TMeUrlConverter();
         public override TLObject CreateObjectInstance() => new TMeUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TMeUrl)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -13522,7 +13521,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TMeUrlsConverter();
         public override TLObject CreateObjectInstance() => new TMeUrls();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TMeUrls)tlobj;
             if (name.SequenceEqual(propName_urls))
@@ -13553,7 +13552,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CountConverter();
         public override TLObject CreateObjectInstance() => new Count();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Count)tlobj;
             if (name.SequenceEqual(propName_count))
@@ -13570,7 +13569,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TextConverter();
         public override TLObject CreateObjectInstance() => new Text();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Text)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -13587,7 +13586,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SecondsConverter();
         public override TLObject CreateObjectInstance() => new Seconds();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Seconds)tlobj;
             if (name.SequenceEqual(propName_seconds))
@@ -13604,7 +13603,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeepLinkInfoConverter();
         public override TLObject CreateObjectInstance() => new DeepLinkInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeepLinkInfo)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -13626,7 +13625,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TextParseModeMarkdownConverter();
         public override TLObject CreateObjectInstance() => new TextParseModeMarkdown();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TextParseModeMarkdown)tlobj;
             if (name.SequenceEqual(propName_version))
@@ -13650,7 +13649,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ProxyTypeSocks5Converter();
         public override TLObject CreateObjectInstance() => new ProxyTypeSocks5();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ProxyTypeSocks5)tlobj;
             if (name.SequenceEqual(propName_username))
@@ -13672,7 +13671,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ProxyTypeHttpConverter();
         public override TLObject CreateObjectInstance() => new ProxyTypeHttp();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ProxyTypeHttp)tlobj;
             if (name.SequenceEqual(propName_username))
@@ -13699,7 +13698,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ProxyTypeMtprotoConverter();
         public override TLObject CreateObjectInstance() => new ProxyTypeMtproto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ProxyTypeMtproto)tlobj;
             if (name.SequenceEqual(propName_secret))
@@ -13716,7 +13715,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ProxyConverter();
         public override TLObject CreateObjectInstance() => new Proxy();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Proxy)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -13750,7 +13749,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ProxiesConverter();
         public override TLObject CreateObjectInstance() => new Proxies();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Proxies)tlobj;
             if (name.SequenceEqual(propName_proxies))
@@ -13767,7 +13766,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputStickerStaticConverter();
         public override TLObject CreateObjectInstance() => new InputStickerStatic();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputStickerStatic)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -13794,7 +13793,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new InputStickerAnimatedConverter();
         public override TLObject CreateObjectInstance() => new InputStickerAnimated();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputStickerAnimated)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -13816,7 +13815,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DateRangeConverter();
         public override TLObject CreateObjectInstance() => new DateRange();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DateRange)tlobj;
             if (name.SequenceEqual(propName_start_date))
@@ -13838,7 +13837,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StatisticsValueConverter();
         public override TLObject CreateObjectInstance() => new StatisticsValue();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StatisticsValue)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -13865,7 +13864,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StatisticsGraphDataConverter();
         public override TLObject CreateObjectInstance() => new StatisticsGraphData();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StatisticsGraphData)tlobj;
             if (name.SequenceEqual(propName_json_data))
@@ -13887,7 +13886,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StatisticsGraphAsyncConverter();
         public override TLObject CreateObjectInstance() => new StatisticsGraphAsync();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StatisticsGraphAsync)tlobj;
             if (name.SequenceEqual(propName_token))
@@ -13904,7 +13903,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StatisticsGraphErrorConverter();
         public override TLObject CreateObjectInstance() => new StatisticsGraphError();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StatisticsGraphError)tlobj;
             if (name.SequenceEqual(propName_error_message))
@@ -13921,7 +13920,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatStatisticsMessageInteractionInfoConverter();
         public override TLObject CreateObjectInstance() => new ChatStatisticsMessageInteractionInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatStatisticsMessageInteractionInfo)tlobj;
             if (name.SequenceEqual(propName_message_id))
@@ -13948,7 +13947,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatStatisticsMessageSenderInfoConverter();
         public override TLObject CreateObjectInstance() => new ChatStatisticsMessageSenderInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatStatisticsMessageSenderInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -13975,7 +13974,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatStatisticsAdministratorActionsInfoConverter();
         public override TLObject CreateObjectInstance() => new ChatStatisticsAdministratorActionsInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatStatisticsAdministratorActionsInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -14003,7 +14002,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatStatisticsInviterInfoConverter();
         public override TLObject CreateObjectInstance() => new ChatStatisticsInviterInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatStatisticsInviterInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -14025,7 +14024,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatStatisticsSupergroupConverter();
         public override TLObject CreateObjectInstance() => new ChatStatisticsSupergroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatStatisticsSupergroup)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -14089,7 +14088,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatStatisticsChannelConverter();
         public override TLObject CreateObjectInstance() => new ChatStatisticsChannel();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChatStatisticsChannel)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -14150,7 +14149,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageStatisticsConverter();
         public override TLObject CreateObjectInstance() => new MessageStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageStatistics)tlobj;
             if (name.SequenceEqual(propName_message_interaction_graph))
@@ -14167,7 +14166,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateAuthorizationStateConverter();
         public override TLObject CreateObjectInstance() => new UpdateAuthorizationState();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateAuthorizationState)tlobj;
             if (name.SequenceEqual(propName_authorization_state))
@@ -14184,7 +14183,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewMessageConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewMessage)tlobj;
             if (name.SequenceEqual(propName_message))
@@ -14201,7 +14200,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageSendAcknowledgedConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageSendAcknowledged();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageSendAcknowledged)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14223,7 +14222,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageSendSucceededConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageSendSucceeded();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageSendSucceeded)tlobj;
             if (name.SequenceEqual(propName_message))
@@ -14245,7 +14244,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageSendFailedConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageSendFailed();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageSendFailed)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -14273,7 +14272,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageContentConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageContent();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageContent)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14300,7 +14299,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageEditedConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageEdited();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageEdited)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -14328,7 +14327,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageInteractionInfoConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageInteractionInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageInteractionInfo)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14355,7 +14354,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageContentOpenedConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageContentOpened();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageContentOpened)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14377,7 +14376,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageMentionReadConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageMentionRead();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageMentionRead)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14404,7 +14403,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateMessageLiveLocationViewedConverter();
         public override TLObject CreateObjectInstance() => new UpdateMessageLiveLocationViewed();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateMessageLiveLocationViewed)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14426,7 +14425,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewChatConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewChat)tlobj;
             if (name.SequenceEqual(propName_chat))
@@ -14443,7 +14442,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatTitleConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatTitle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatTitle)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14465,7 +14464,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatPhotoConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatPhoto)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14487,7 +14486,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatPermissionsConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatPermissions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatPermissions)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14509,7 +14508,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatLastMessageConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatLastMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatLastMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14536,7 +14535,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatPositionConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatPosition();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatPosition)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14558,7 +14557,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatIsMarkedAsUnreadConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatIsMarkedAsUnread();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatIsMarkedAsUnread)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14580,7 +14579,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatIsBlockedConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatIsBlocked();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatIsBlocked)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14602,7 +14601,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatHasScheduledMessagesConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatHasScheduledMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatHasScheduledMessages)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14624,7 +14623,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatDefaultDisableNotificationConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatDefaultDisableNotification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatDefaultDisableNotification)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14646,7 +14645,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatReadInboxConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatReadInbox();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatReadInbox)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14673,7 +14672,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatReadOutboxConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatReadOutbox();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatReadOutbox)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14695,7 +14694,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatUnreadMentionCountConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatUnreadMentionCount();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatUnreadMentionCount)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14717,7 +14716,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatNotificationSettingsConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatNotificationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatNotificationSettings)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14739,7 +14738,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateScopeNotificationSettingsConverter();
         public override TLObject CreateObjectInstance() => new UpdateScopeNotificationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateScopeNotificationSettings)tlobj;
             if (name.SequenceEqual(propName_scope))
@@ -14761,7 +14760,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatActionBarConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatActionBar();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatActionBar)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14783,7 +14782,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatPinnedMessageConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatPinnedMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatPinnedMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14805,7 +14804,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatReplyMarkupConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatReplyMarkup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatReplyMarkup)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14827,7 +14826,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatDraftMessageConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatDraftMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatDraftMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14854,7 +14853,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatFiltersConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatFilters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatFilters)tlobj;
             if (name.SequenceEqual(propName_chat_filters))
@@ -14871,7 +14870,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateChatOnlineMemberCountConverter();
         public override TLObject CreateObjectInstance() => new UpdateChatOnlineMemberCount();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateChatOnlineMemberCount)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -14893,7 +14892,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNotificationConverter();
         public override TLObject CreateObjectInstance() => new UpdateNotification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNotification)tlobj;
             if (name.SequenceEqual(propName_notification_group_id))
@@ -14915,7 +14914,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNotificationGroupConverter();
         public override TLObject CreateObjectInstance() => new UpdateNotificationGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNotificationGroup)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -14955,7 +14954,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateActiveNotificationsConverter();
         public override TLObject CreateObjectInstance() => new UpdateActiveNotifications();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateActiveNotifications)tlobj;
             if (name.SequenceEqual(propName_groups))
@@ -14972,7 +14971,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateHavePendingNotificationsConverter();
         public override TLObject CreateObjectInstance() => new UpdateHavePendingNotifications();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateHavePendingNotifications)tlobj;
             if (name.SequenceEqual(propName_have_delayed_notifications))
@@ -14994,7 +14993,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateDeleteMessagesConverter();
         public override TLObject CreateObjectInstance() => new UpdateDeleteMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateDeleteMessages)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15022,7 +15021,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUserChatActionConverter();
         public override TLObject CreateObjectInstance() => new UpdateUserChatAction();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUserChatAction)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15050,7 +15049,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUserStatusConverter();
         public override TLObject CreateObjectInstance() => new UpdateUserStatus();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUserStatus)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -15072,7 +15071,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUserConverter();
         public override TLObject CreateObjectInstance() => new UpdateUser();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUser)tlobj;
             if (name.SequenceEqual(propName_user))
@@ -15089,7 +15088,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateBasicGroupConverter();
         public override TLObject CreateObjectInstance() => new UpdateBasicGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateBasicGroup)tlobj;
             if (name.SequenceEqual(propName_basic_group))
@@ -15106,7 +15105,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateSupergroupConverter();
         public override TLObject CreateObjectInstance() => new UpdateSupergroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateSupergroup)tlobj;
             if (name.SequenceEqual(propName_supergroup))
@@ -15123,7 +15122,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateSecretChatConverter();
         public override TLObject CreateObjectInstance() => new UpdateSecretChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateSecretChat)tlobj;
             if (name.SequenceEqual(propName_secret_chat))
@@ -15140,7 +15139,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUserFullInfoConverter();
         public override TLObject CreateObjectInstance() => new UpdateUserFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUserFullInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -15162,7 +15161,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateBasicGroupFullInfoConverter();
         public override TLObject CreateObjectInstance() => new UpdateBasicGroupFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateBasicGroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
@@ -15184,7 +15183,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateSupergroupFullInfoConverter();
         public override TLObject CreateObjectInstance() => new UpdateSupergroupFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateSupergroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -15206,7 +15205,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateServiceNotificationConverter();
         public override TLObject CreateObjectInstance() => new UpdateServiceNotification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateServiceNotification)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -15228,7 +15227,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateFileConverter();
         public override TLObject CreateObjectInstance() => new UpdateFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateFile)tlobj;
             if (name.SequenceEqual(propName_file))
@@ -15245,7 +15244,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateFileGenerationStartConverter();
         public override TLObject CreateObjectInstance() => new UpdateFileGenerationStart();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateFileGenerationStart)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15273,7 +15272,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateFileGenerationStopConverter();
         public override TLObject CreateObjectInstance() => new UpdateFileGenerationStop();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateFileGenerationStop)tlobj;
             if (name.SequenceEqual(propName_generation_id))
@@ -15290,7 +15289,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateCallConverter();
         public override TLObject CreateObjectInstance() => new UpdateCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateCall)tlobj;
             if (name.SequenceEqual(propName_call))
@@ -15307,7 +15306,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewCallSignalingDataConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewCallSignalingData();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewCallSignalingData)tlobj;
             if (name.SequenceEqual(propName_call_id))
@@ -15329,7 +15328,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUserPrivacySettingRulesConverter();
         public override TLObject CreateObjectInstance() => new UpdateUserPrivacySettingRules();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUserPrivacySettingRules)tlobj;
             if (name.SequenceEqual(propName_setting))
@@ -15351,7 +15350,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUnreadMessageCountConverter();
         public override TLObject CreateObjectInstance() => new UpdateUnreadMessageCount();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUnreadMessageCount)tlobj;
             if (name.SequenceEqual(propName_chat_list))
@@ -15378,7 +15377,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUnreadChatCountConverter();
         public override TLObject CreateObjectInstance() => new UpdateUnreadChatCount();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUnreadChatCount)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15412,7 +15411,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateOptionConverter();
         public override TLObject CreateObjectInstance() => new UpdateOption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateOption)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -15434,7 +15433,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateStickerSetConverter();
         public override TLObject CreateObjectInstance() => new UpdateStickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateStickerSet)tlobj;
             if (name.SequenceEqual(propName_sticker_set))
@@ -15451,7 +15450,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateInstalledStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new UpdateInstalledStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateInstalledStickerSets)tlobj;
             if (name.SequenceEqual(propName_is_masks))
@@ -15473,7 +15472,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateTrendingStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new UpdateTrendingStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateTrendingStickerSets)tlobj;
             if (name.SequenceEqual(propName_sticker_sets))
@@ -15490,7 +15489,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateRecentStickersConverter();
         public override TLObject CreateObjectInstance() => new UpdateRecentStickers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateRecentStickers)tlobj;
             if (name.SequenceEqual(propName_is_attached))
@@ -15512,7 +15511,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateFavoriteStickersConverter();
         public override TLObject CreateObjectInstance() => new UpdateFavoriteStickers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateFavoriteStickers)tlobj;
             if (name.SequenceEqual(propName_sticker_ids))
@@ -15529,7 +15528,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateSavedAnimationsConverter();
         public override TLObject CreateObjectInstance() => new UpdateSavedAnimations();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateSavedAnimations)tlobj;
             if (name.SequenceEqual(propName_animation_ids))
@@ -15546,7 +15545,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateSelectedBackgroundConverter();
         public override TLObject CreateObjectInstance() => new UpdateSelectedBackground();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateSelectedBackground)tlobj;
             if (name.SequenceEqual(propName_for_dark_theme))
@@ -15568,7 +15567,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateLanguagePackStringsConverter();
         public override TLObject CreateObjectInstance() => new UpdateLanguagePackStrings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateLanguagePackStrings)tlobj;
             if (name.SequenceEqual(propName_localization_target))
@@ -15595,7 +15594,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateConnectionStateConverter();
         public override TLObject CreateObjectInstance() => new UpdateConnectionState();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateConnectionState)tlobj;
             if (name.SequenceEqual(propName_state))
@@ -15612,7 +15611,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateTermsOfServiceConverter();
         public override TLObject CreateObjectInstance() => new UpdateTermsOfService();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateTermsOfService)tlobj;
             if (name.SequenceEqual(propName_terms_of_service_id))
@@ -15634,7 +15633,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateUsersNearbyConverter();
         public override TLObject CreateObjectInstance() => new UpdateUsersNearby();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateUsersNearby)tlobj;
             if (name.SequenceEqual(propName_users_nearby))
@@ -15651,7 +15650,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateDiceEmojisConverter();
         public override TLObject CreateObjectInstance() => new UpdateDiceEmojis();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateDiceEmojis)tlobj;
             if (name.SequenceEqual(propName_emojis))
@@ -15668,7 +15667,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateAnimationSearchParametersConverter();
         public override TLObject CreateObjectInstance() => new UpdateAnimationSearchParameters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateAnimationSearchParameters)tlobj;
             if (name.SequenceEqual(propName_provider))
@@ -15690,7 +15689,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateSuggestedActionsConverter();
         public override TLObject CreateObjectInstance() => new UpdateSuggestedActions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateSuggestedActions)tlobj;
             if (name.SequenceEqual(propName_added_actions))
@@ -15712,7 +15711,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewInlineQueryConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewInlineQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewInlineQuery)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15743,7 +15742,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewChosenInlineResultConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewChosenInlineResult();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewChosenInlineResult)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15774,7 +15773,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewCallbackQueryConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewCallbackQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewCallbackQuery)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15808,7 +15807,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewInlineCallbackQueryConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewInlineCallbackQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewInlineCallbackQuery)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15839,7 +15838,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewShippingQueryConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewShippingQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewShippingQuery)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15867,7 +15866,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewPreCheckoutQueryConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewPreCheckoutQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewPreCheckoutQuery)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -15904,7 +15903,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewCustomEventConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewCustomEvent();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewCustomEvent)tlobj;
             if (name.SequenceEqual(propName_event))
@@ -15921,7 +15920,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdateNewCustomQueryConverter();
         public override TLObject CreateObjectInstance() => new UpdateNewCustomQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdateNewCustomQuery)tlobj;
             if (name.SequenceEqual(propName_id))
@@ -15948,7 +15947,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdatePollConverter();
         public override TLObject CreateObjectInstance() => new UpdatePoll();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdatePoll)tlobj;
             if (name.SequenceEqual(propName_poll))
@@ -15965,7 +15964,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdatePollAnswerConverter();
         public override TLObject CreateObjectInstance() => new UpdatePollAnswer();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpdatePollAnswer)tlobj;
             if (name.SequenceEqual(propName_poll_id))
@@ -15992,7 +15991,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpdatesConverter();
         public override TLObject CreateObjectInstance() => new Updates();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (Updates)tlobj;
             if (name.SequenceEqual(propName_updates))
@@ -16016,7 +16015,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LogStreamFileConverter();
         public override TLObject CreateObjectInstance() => new LogStreamFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LogStreamFile)tlobj;
             if (name.SequenceEqual(propName_path))
@@ -16050,7 +16049,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LogVerbosityLevelConverter();
         public override TLObject CreateObjectInstance() => new LogVerbosityLevel();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LogVerbosityLevel)tlobj;
             if (name.SequenceEqual(propName_verbosity_level))
@@ -16067,7 +16066,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LogTagsConverter();
         public override TLObject CreateObjectInstance() => new LogTags();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LogTags)tlobj;
             if (name.SequenceEqual(propName_tags))
@@ -16084,7 +16083,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestIntConverter();
         public override TLObject CreateObjectInstance() => new TestInt();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestInt)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -16101,7 +16100,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestStringConverter();
         public override TLObject CreateObjectInstance() => new TestString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestString)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -16118,7 +16117,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestBytesConverter();
         public override TLObject CreateObjectInstance() => new TestBytes();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestBytes)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -16135,7 +16134,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestVectorIntConverter();
         public override TLObject CreateObjectInstance() => new TestVectorInt();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestVectorInt)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -16152,7 +16151,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestVectorIntObjectConverter();
         public override TLObject CreateObjectInstance() => new TestVectorIntObject();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestVectorIntObject)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -16169,7 +16168,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestVectorStringConverter();
         public override TLObject CreateObjectInstance() => new TestVectorString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestVectorString)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -16186,7 +16185,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestVectorStringObjectConverter();
         public override TLObject CreateObjectInstance() => new TestVectorStringObject();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestVectorStringObject)tlobj;
             if (name.SequenceEqual(propName_value))
@@ -16210,7 +16209,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetTdlibParametersConverter();
         public override TLObject CreateObjectInstance() => new SetTdlibParameters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetTdlibParameters)tlobj;
             if (name.SequenceEqual(propName_parameters))
@@ -16227,7 +16226,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckDatabaseEncryptionKeyConverter();
         public override TLObject CreateObjectInstance() => new CheckDatabaseEncryptionKey();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckDatabaseEncryptionKey)tlobj;
             if (name.SequenceEqual(propName_encryption_key))
@@ -16244,7 +16243,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetAuthenticationPhoneNumberConverter();
         public override TLObject CreateObjectInstance() => new SetAuthenticationPhoneNumber();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetAuthenticationPhoneNumber)tlobj;
             if (name.SequenceEqual(propName_phone_number))
@@ -16273,7 +16272,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckAuthenticationCodeConverter();
         public override TLObject CreateObjectInstance() => new CheckAuthenticationCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckAuthenticationCode)tlobj;
             if (name.SequenceEqual(propName_code))
@@ -16290,7 +16289,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RequestQrCodeAuthenticationConverter();
         public override TLObject CreateObjectInstance() => new RequestQrCodeAuthentication();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RequestQrCodeAuthentication)tlobj;
             if (name.SequenceEqual(propName_other_user_ids))
@@ -16307,7 +16306,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RegisterUserConverter();
         public override TLObject CreateObjectInstance() => new RegisterUser();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RegisterUser)tlobj;
             if (name.SequenceEqual(propName_first_name))
@@ -16329,7 +16328,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckAuthenticationPasswordConverter();
         public override TLObject CreateObjectInstance() => new CheckAuthenticationPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckAuthenticationPassword)tlobj;
             if (name.SequenceEqual(propName_password))
@@ -16353,7 +16352,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RecoverAuthenticationPasswordConverter();
         public override TLObject CreateObjectInstance() => new RecoverAuthenticationPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RecoverAuthenticationPassword)tlobj;
             if (name.SequenceEqual(propName_recovery_code))
@@ -16370,7 +16369,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckAuthenticationBotTokenConverter();
         public override TLObject CreateObjectInstance() => new CheckAuthenticationBotToken();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckAuthenticationBotToken)tlobj;
             if (name.SequenceEqual(propName_token))
@@ -16408,7 +16407,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ConfirmQrCodeAuthenticationConverter();
         public override TLObject CreateObjectInstance() => new ConfirmQrCodeAuthentication();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ConfirmQrCodeAuthentication)tlobj;
             if (name.SequenceEqual(propName_link))
@@ -16432,7 +16431,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetDatabaseEncryptionKeyConverter();
         public override TLObject CreateObjectInstance() => new SetDatabaseEncryptionKey();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetDatabaseEncryptionKey)tlobj;
             if (name.SequenceEqual(propName_new_encryption_key))
@@ -16456,7 +16455,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetPasswordConverter();
         public override TLObject CreateObjectInstance() => new SetPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetPassword)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -16487,7 +16486,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetRecoveryEmailAddressConverter();
         public override TLObject CreateObjectInstance() => new GetRecoveryEmailAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetRecoveryEmailAddress)tlobj;
             if (name.SequenceEqual(propName_password))
@@ -16504,7 +16503,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetRecoveryEmailAddressConverter();
         public override TLObject CreateObjectInstance() => new SetRecoveryEmailAddress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetRecoveryEmailAddress)tlobj;
             if (name.SequenceEqual(propName_password))
@@ -16526,7 +16525,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckRecoveryEmailAddressCodeConverter();
         public override TLObject CreateObjectInstance() => new CheckRecoveryEmailAddressCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckRecoveryEmailAddressCode)tlobj;
             if (name.SequenceEqual(propName_code))
@@ -16557,7 +16556,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RecoverPasswordConverter();
         public override TLObject CreateObjectInstance() => new RecoverPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RecoverPassword)tlobj;
             if (name.SequenceEqual(propName_recovery_code))
@@ -16574,7 +16573,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateTemporaryPasswordConverter();
         public override TLObject CreateObjectInstance() => new CreateTemporaryPassword();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateTemporaryPassword)tlobj;
             if (name.SequenceEqual(propName_password))
@@ -16610,7 +16609,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetUserConverter();
         public override TLObject CreateObjectInstance() => new GetUser();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetUser)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -16627,7 +16626,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetUserFullInfoConverter();
         public override TLObject CreateObjectInstance() => new GetUserFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetUserFullInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -16644,7 +16643,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetBasicGroupConverter();
         public override TLObject CreateObjectInstance() => new GetBasicGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetBasicGroup)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
@@ -16661,7 +16660,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetBasicGroupFullInfoConverter();
         public override TLObject CreateObjectInstance() => new GetBasicGroupFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetBasicGroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
@@ -16678,7 +16677,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetSupergroupConverter();
         public override TLObject CreateObjectInstance() => new GetSupergroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetSupergroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -16695,7 +16694,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetSupergroupFullInfoConverter();
         public override TLObject CreateObjectInstance() => new GetSupergroupFullInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetSupergroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -16712,7 +16711,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetSecretChatConverter();
         public override TLObject CreateObjectInstance() => new GetSecretChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetSecretChat)tlobj;
             if (name.SequenceEqual(propName_secret_chat_id))
@@ -16729,7 +16728,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatConverter();
         public override TLObject CreateObjectInstance() => new GetChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -16746,7 +16745,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageConverter();
         public override TLObject CreateObjectInstance() => new GetMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -16768,7 +16767,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageLocallyConverter();
         public override TLObject CreateObjectInstance() => new GetMessageLocally();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessageLocally)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -16790,7 +16789,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetRepliedMessageConverter();
         public override TLObject CreateObjectInstance() => new GetRepliedMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetRepliedMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -16812,7 +16811,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatPinnedMessageConverter();
         public override TLObject CreateObjectInstance() => new GetChatPinnedMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatPinnedMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -16829,7 +16828,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessagesConverter();
         public override TLObject CreateObjectInstance() => new GetMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessages)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -16851,7 +16850,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageThreadConverter();
         public override TLObject CreateObjectInstance() => new GetMessageThread();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessageThread)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -16873,7 +16872,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetFileConverter();
         public override TLObject CreateObjectInstance() => new GetFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetFile)tlobj;
             if (name.SequenceEqual(propName_file_id))
@@ -16890,7 +16889,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetRemoteFileConverter();
         public override TLObject CreateObjectInstance() => new GetRemoteFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetRemoteFile)tlobj;
             if (name.SequenceEqual(propName_remote_file_id))
@@ -16912,7 +16911,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatsConverter();
         public override TLObject CreateObjectInstance() => new GetChats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChats)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -16940,7 +16939,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchPublicChatConverter();
         public override TLObject CreateObjectInstance() => new SearchPublicChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchPublicChat)tlobj;
             if (name.SequenceEqual(propName_username))
@@ -16957,7 +16956,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchPublicChatsConverter();
         public override TLObject CreateObjectInstance() => new SearchPublicChats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchPublicChats)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -16974,7 +16973,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchChatsConverter();
         public override TLObject CreateObjectInstance() => new SearchChats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchChats)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -16996,7 +16995,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchChatsOnServerConverter();
         public override TLObject CreateObjectInstance() => new SearchChatsOnServer();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchChatsOnServer)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -17018,7 +17017,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchChatsNearbyConverter();
         public override TLObject CreateObjectInstance() => new SearchChatsNearby();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchChatsNearby)tlobj;
             if (name.SequenceEqual(propName_location))
@@ -17035,7 +17034,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetTopChatsConverter();
         public override TLObject CreateObjectInstance() => new GetTopChats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetTopChats)tlobj;
             if (name.SequenceEqual(propName_category))
@@ -17057,7 +17056,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveTopChatConverter();
         public override TLObject CreateObjectInstance() => new RemoveTopChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveTopChat)tlobj;
             if (name.SequenceEqual(propName_category))
@@ -17079,7 +17078,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddRecentlyFoundChatConverter();
         public override TLObject CreateObjectInstance() => new AddRecentlyFoundChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddRecentlyFoundChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17096,7 +17095,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveRecentlyFoundChatConverter();
         public override TLObject CreateObjectInstance() => new RemoveRecentlyFoundChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveRecentlyFoundChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17120,7 +17119,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckChatUsernameConverter();
         public override TLObject CreateObjectInstance() => new CheckChatUsername();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckChatUsername)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17142,7 +17141,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetCreatedPublicChatsConverter();
         public override TLObject CreateObjectInstance() => new GetCreatedPublicChats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetCreatedPublicChats)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -17159,7 +17158,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckCreatedPublicChatsLimitConverter();
         public override TLObject CreateObjectInstance() => new CheckCreatedPublicChatsLimit();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckCreatedPublicChatsLimit)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -17190,7 +17189,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetGroupsInCommonConverter();
         public override TLObject CreateObjectInstance() => new GetGroupsInCommon();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetGroupsInCommon)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -17217,7 +17216,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatHistoryConverter();
         public override TLObject CreateObjectInstance() => new GetChatHistory();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatHistory)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17248,7 +17247,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageThreadHistoryConverter();
         public override TLObject CreateObjectInstance() => new GetMessageThreadHistory();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessageThreadHistory)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17279,7 +17278,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteChatHistoryConverter();
         public override TLObject CreateObjectInstance() => new DeleteChatHistory();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteChatHistory)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17306,7 +17305,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchChatMessagesConverter();
         public override TLObject CreateObjectInstance() => new SearchChatMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchChatMessages)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17346,7 +17345,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchMessagesConverter();
         public override TLObject CreateObjectInstance() => new SearchMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchMessages)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17389,7 +17388,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchSecretMessagesConverter();
         public override TLObject CreateObjectInstance() => new SearchSecretMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchSecretMessages)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17420,7 +17419,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchCallMessagesConverter();
         public override TLObject CreateObjectInstance() => new SearchCallMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchCallMessages)tlobj;
             if (name.SequenceEqual(propName_from_message_id))
@@ -17447,7 +17446,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchChatRecentLocationMessagesConverter();
         public override TLObject CreateObjectInstance() => new SearchChatRecentLocationMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchChatRecentLocationMessages)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17476,7 +17475,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatMessageByDateConverter();
         public override TLObject CreateObjectInstance() => new GetChatMessageByDate();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatMessageByDate)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17498,7 +17497,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatMessageCountConverter();
         public override TLObject CreateObjectInstance() => new GetChatMessageCount();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatMessageCount)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17525,7 +17524,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatScheduledMessagesConverter();
         public override TLObject CreateObjectInstance() => new GetChatScheduledMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatScheduledMessages)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17542,7 +17541,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessagePublicForwardsConverter();
         public override TLObject CreateObjectInstance() => new GetMessagePublicForwards();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessagePublicForwards)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17570,7 +17569,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveNotificationConverter();
         public override TLObject CreateObjectInstance() => new RemoveNotification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveNotification)tlobj;
             if (name.SequenceEqual(propName_notification_group_id))
@@ -17592,7 +17591,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveNotificationGroupConverter();
         public override TLObject CreateObjectInstance() => new RemoveNotificationGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveNotificationGroup)tlobj;
             if (name.SequenceEqual(propName_notification_group_id))
@@ -17614,7 +17613,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageLinkConverter();
         public override TLObject CreateObjectInstance() => new GetMessageLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessageLink)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17642,7 +17641,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageEmbeddingCodeConverter();
         public override TLObject CreateObjectInstance() => new GetMessageEmbeddingCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessageEmbeddingCode)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17669,7 +17668,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageLinkInfoConverter();
         public override TLObject CreateObjectInstance() => new GetMessageLinkInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessageLinkInfo)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -17686,7 +17685,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendMessageConverter();
         public override TLObject CreateObjectInstance() => new SendMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendMessage)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17720,7 +17719,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendMessageAlbumConverter();
         public override TLObject CreateObjectInstance() => new SendMessageAlbum();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendMessageAlbum)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17751,7 +17750,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendBotStartMessageConverter();
         public override TLObject CreateObjectInstance() => new SendBotStartMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendBotStartMessage)tlobj;
             if (name.SequenceEqual(propName_bot_user_id))
@@ -17778,7 +17777,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendInlineQueryResultMessageConverter();
         public override TLObject CreateObjectInstance() => new SendInlineQueryResultMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendInlineQueryResultMessage)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17815,7 +17814,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ForwardMessagesConverter();
         public override TLObject CreateObjectInstance() => new ForwardMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ForwardMessages)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17849,7 +17848,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ResendMessagesConverter();
         public override TLObject CreateObjectInstance() => new ResendMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ResendMessages)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17871,7 +17870,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendChatSetTtlMessageConverter();
         public override TLObject CreateObjectInstance() => new SendChatSetTtlMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendChatSetTtlMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17893,7 +17892,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendChatScreenshotTakenNotificationConverter();
         public override TLObject CreateObjectInstance() => new SendChatScreenshotTakenNotification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendChatScreenshotTakenNotification)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17910,7 +17909,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddLocalMessageConverter();
         public override TLObject CreateObjectInstance() => new AddLocalMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddLocalMessage)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -17941,7 +17940,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteMessagesConverter();
         public override TLObject CreateObjectInstance() => new DeleteMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteMessages)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17968,7 +17967,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteChatMessagesFromUserConverter();
         public override TLObject CreateObjectInstance() => new DeleteChatMessagesFromUser();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteChatMessagesFromUser)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -17990,7 +17989,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditMessageTextConverter();
         public override TLObject CreateObjectInstance() => new EditMessageText();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditMessageText)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18018,7 +18017,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditMessageLiveLocationConverter();
         public override TLObject CreateObjectInstance() => new EditMessageLiveLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditMessageLiveLocation)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18046,7 +18045,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditMessageMediaConverter();
         public override TLObject CreateObjectInstance() => new EditMessageMedia();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditMessageMedia)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18074,7 +18073,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditMessageCaptionConverter();
         public override TLObject CreateObjectInstance() => new EditMessageCaption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditMessageCaption)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18102,7 +18101,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditMessageReplyMarkupConverter();
         public override TLObject CreateObjectInstance() => new EditMessageReplyMarkup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditMessageReplyMarkup)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18129,7 +18128,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditInlineMessageTextConverter();
         public override TLObject CreateObjectInstance() => new EditInlineMessageText();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditInlineMessageText)tlobj;
             if (name.SequenceEqual(propName_inline_message_id))
@@ -18156,7 +18155,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditInlineMessageLiveLocationConverter();
         public override TLObject CreateObjectInstance() => new EditInlineMessageLiveLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditInlineMessageLiveLocation)tlobj;
             if (name.SequenceEqual(propName_inline_message_id))
@@ -18183,7 +18182,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditInlineMessageMediaConverter();
         public override TLObject CreateObjectInstance() => new EditInlineMessageMedia();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditInlineMessageMedia)tlobj;
             if (name.SequenceEqual(propName_inline_message_id))
@@ -18210,7 +18209,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditInlineMessageCaptionConverter();
         public override TLObject CreateObjectInstance() => new EditInlineMessageCaption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditInlineMessageCaption)tlobj;
             if (name.SequenceEqual(propName_inline_message_id))
@@ -18237,7 +18236,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditInlineMessageReplyMarkupConverter();
         public override TLObject CreateObjectInstance() => new EditInlineMessageReplyMarkup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditInlineMessageReplyMarkup)tlobj;
             if (name.SequenceEqual(propName_inline_message_id))
@@ -18259,7 +18258,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditMessageSchedulingStateConverter();
         public override TLObject CreateObjectInstance() => new EditMessageSchedulingState();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditMessageSchedulingState)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18286,7 +18285,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetTextEntitiesConverter();
         public override TLObject CreateObjectInstance() => new GetTextEntities();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetTextEntities)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -18303,7 +18302,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ParseTextEntitiesConverter();
         public override TLObject CreateObjectInstance() => new ParseTextEntities();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ParseTextEntities)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -18325,7 +18324,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ParseMarkdownConverter();
         public override TLObject CreateObjectInstance() => new ParseMarkdown();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ParseMarkdown)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -18342,7 +18341,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMarkdownTextConverter();
         public override TLObject CreateObjectInstance() => new GetMarkdownText();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMarkdownText)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -18359,7 +18358,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetFileMimeTypeConverter();
         public override TLObject CreateObjectInstance() => new GetFileMimeType();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetFileMimeType)tlobj;
             if (name.SequenceEqual(propName_file_name))
@@ -18376,7 +18375,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetFileExtensionConverter();
         public override TLObject CreateObjectInstance() => new GetFileExtension();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetFileExtension)tlobj;
             if (name.SequenceEqual(propName_mime_type))
@@ -18393,7 +18392,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CleanFileNameConverter();
         public override TLObject CreateObjectInstance() => new CleanFileName();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CleanFileName)tlobj;
             if (name.SequenceEqual(propName_file_name))
@@ -18410,7 +18409,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetLanguagePackStringConverter();
         public override TLObject CreateObjectInstance() => new GetLanguagePackString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetLanguagePackString)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18438,7 +18437,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetJsonValueConverter();
         public override TLObject CreateObjectInstance() => new GetJsonValue();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetJsonValue)tlobj;
             if (name.SequenceEqual(propName_json))
@@ -18455,7 +18454,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetJsonStringConverter();
         public override TLObject CreateObjectInstance() => new GetJsonString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetJsonString)tlobj;
             if (name.SequenceEqual(propName_json_value))
@@ -18472,7 +18471,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetPollAnswerConverter();
         public override TLObject CreateObjectInstance() => new SetPollAnswer();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetPollAnswer)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18499,7 +18498,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPollVotersConverter();
         public override TLObject CreateObjectInstance() => new GetPollVoters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPollVoters)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18530,7 +18529,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new StopPollConverter();
         public override TLObject CreateObjectInstance() => new StopPoll();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StopPoll)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18557,7 +18556,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new HideSuggestedActionConverter();
         public override TLObject CreateObjectInstance() => new HideSuggestedAction();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (HideSuggestedAction)tlobj;
             if (name.SequenceEqual(propName_action))
@@ -18574,7 +18573,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetLoginUrlInfoConverter();
         public override TLObject CreateObjectInstance() => new GetLoginUrlInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetLoginUrlInfo)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18601,7 +18600,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetLoginUrlConverter();
         public override TLObject CreateObjectInstance() => new GetLoginUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetLoginUrl)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18629,7 +18628,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetInlineQueryResultsConverter();
         public override TLObject CreateObjectInstance() => new GetInlineQueryResults();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetInlineQueryResults)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18660,7 +18659,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnswerInlineQueryConverter();
         public override TLObject CreateObjectInstance() => new AnswerInlineQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AnswerInlineQuery)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18697,7 +18696,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetCallbackQueryAnswerConverter();
         public override TLObject CreateObjectInstance() => new GetCallbackQueryAnswer();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetCallbackQueryAnswer)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18724,7 +18723,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnswerCallbackQueryConverter();
         public override TLObject CreateObjectInstance() => new AnswerCallbackQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AnswerCallbackQuery)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18755,7 +18754,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnswerShippingQueryConverter();
         public override TLObject CreateObjectInstance() => new AnswerShippingQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AnswerShippingQuery)tlobj;
             if (name.SequenceEqual(propName_shipping_query_id))
@@ -18782,7 +18781,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnswerPreCheckoutQueryConverter();
         public override TLObject CreateObjectInstance() => new AnswerPreCheckoutQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AnswerPreCheckoutQuery)tlobj;
             if (name.SequenceEqual(propName_pre_checkout_query_id))
@@ -18804,7 +18803,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetGameScoreConverter();
         public override TLObject CreateObjectInstance() => new SetGameScore();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetGameScore)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18838,7 +18837,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetInlineGameScoreConverter();
         public override TLObject CreateObjectInstance() => new SetInlineGameScore();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetInlineGameScore)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -18869,7 +18868,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetGameHighScoresConverter();
         public override TLObject CreateObjectInstance() => new GetGameHighScores();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetGameHighScores)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18896,7 +18895,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetInlineGameHighScoresConverter();
         public override TLObject CreateObjectInstance() => new GetInlineGameHighScores();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetInlineGameHighScores)tlobj;
             if (name.SequenceEqual(propName_inline_message_id))
@@ -18918,7 +18917,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteChatReplyMarkupConverter();
         public override TLObject CreateObjectInstance() => new DeleteChatReplyMarkup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteChatReplyMarkup)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18940,7 +18939,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendChatActionConverter();
         public override TLObject CreateObjectInstance() => new SendChatAction();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendChatAction)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18967,7 +18966,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new OpenChatConverter();
         public override TLObject CreateObjectInstance() => new OpenChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (OpenChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -18984,7 +18983,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CloseChatConverter();
         public override TLObject CreateObjectInstance() => new CloseChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CloseChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19001,7 +19000,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ViewMessagesConverter();
         public override TLObject CreateObjectInstance() => new ViewMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ViewMessages)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -19029,7 +19028,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new OpenMessageContentConverter();
         public override TLObject CreateObjectInstance() => new OpenMessageContent();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (OpenMessageContent)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19051,7 +19050,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReadAllChatMentionsConverter();
         public override TLObject CreateObjectInstance() => new ReadAllChatMentions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReadAllChatMentions)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19068,7 +19067,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreatePrivateChatConverter();
         public override TLObject CreateObjectInstance() => new CreatePrivateChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreatePrivateChat)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -19090,7 +19089,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateBasicGroupChatConverter();
         public override TLObject CreateObjectInstance() => new CreateBasicGroupChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateBasicGroupChat)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
@@ -19112,7 +19111,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateSupergroupChatConverter();
         public override TLObject CreateObjectInstance() => new CreateSupergroupChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateSupergroupChat)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -19134,7 +19133,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateSecretChatConverter();
         public override TLObject CreateObjectInstance() => new CreateSecretChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateSecretChat)tlobj;
             if (name.SequenceEqual(propName_secret_chat_id))
@@ -19151,7 +19150,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateNewBasicGroupChatConverter();
         public override TLObject CreateObjectInstance() => new CreateNewBasicGroupChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateNewBasicGroupChat)tlobj;
             if (name.SequenceEqual(propName_user_ids))
@@ -19173,7 +19172,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateNewSupergroupChatConverter();
         public override TLObject CreateObjectInstance() => new CreateNewSupergroupChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateNewSupergroupChat)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -19201,7 +19200,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateNewSecretChatConverter();
         public override TLObject CreateObjectInstance() => new CreateNewSecretChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateNewSecretChat)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -19218,7 +19217,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UpgradeBasicGroupChatToSupergroupChatConverter();
         public override TLObject CreateObjectInstance() => new UpgradeBasicGroupChatToSupergroupChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UpgradeBasicGroupChatToSupergroupChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19235,7 +19234,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatListsToAddChatConverter();
         public override TLObject CreateObjectInstance() => new GetChatListsToAddChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatListsToAddChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19252,7 +19251,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddChatToListConverter();
         public override TLObject CreateObjectInstance() => new AddChatToList();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddChatToList)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19274,7 +19273,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatFilterConverter();
         public override TLObject CreateObjectInstance() => new GetChatFilter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatFilter)tlobj;
             if (name.SequenceEqual(propName_chat_filter_id))
@@ -19291,7 +19290,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateChatFilterConverter();
         public override TLObject CreateObjectInstance() => new CreateChatFilter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateChatFilter)tlobj;
             if (name.SequenceEqual(propName_filter))
@@ -19308,7 +19307,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditChatFilterConverter();
         public override TLObject CreateObjectInstance() => new EditChatFilter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditChatFilter)tlobj;
             if (name.SequenceEqual(propName_chat_filter_id))
@@ -19330,7 +19329,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteChatFilterConverter();
         public override TLObject CreateObjectInstance() => new DeleteChatFilter();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteChatFilter)tlobj;
             if (name.SequenceEqual(propName_chat_filter_id))
@@ -19347,7 +19346,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReorderChatFiltersConverter();
         public override TLObject CreateObjectInstance() => new ReorderChatFilters();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReorderChatFilters)tlobj;
             if (name.SequenceEqual(propName_chat_filter_ids))
@@ -19371,7 +19370,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatFilterDefaultIconNameConverter();
         public override TLObject CreateObjectInstance() => new GetChatFilterDefaultIconName();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatFilterDefaultIconName)tlobj;
             if (name.SequenceEqual(propName_filter))
@@ -19388,7 +19387,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatTitleConverter();
         public override TLObject CreateObjectInstance() => new SetChatTitle();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatTitle)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19410,7 +19409,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatPhotoConverter();
         public override TLObject CreateObjectInstance() => new SetChatPhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatPhoto)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19432,7 +19431,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatPermissionsConverter();
         public override TLObject CreateObjectInstance() => new SetChatPermissions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatPermissions)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19454,7 +19453,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatDraftMessageConverter();
         public override TLObject CreateObjectInstance() => new SetChatDraftMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatDraftMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19481,7 +19480,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatNotificationSettingsConverter();
         public override TLObject CreateObjectInstance() => new SetChatNotificationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatNotificationSettings)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19503,7 +19502,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ToggleChatIsMarkedAsUnreadConverter();
         public override TLObject CreateObjectInstance() => new ToggleChatIsMarkedAsUnread();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ToggleChatIsMarkedAsUnread)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19525,7 +19524,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ToggleChatIsBlockedConverter();
         public override TLObject CreateObjectInstance() => new ToggleChatIsBlocked();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ToggleChatIsBlocked)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19547,7 +19546,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ToggleChatDefaultDisableNotificationConverter();
         public override TLObject CreateObjectInstance() => new ToggleChatDefaultDisableNotification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ToggleChatDefaultDisableNotification)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19569,7 +19568,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatClientDataConverter();
         public override TLObject CreateObjectInstance() => new SetChatClientData();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatClientData)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19591,7 +19590,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatDescriptionConverter();
         public override TLObject CreateObjectInstance() => new SetChatDescription();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatDescription)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19613,7 +19612,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatDiscussionGroupConverter();
         public override TLObject CreateObjectInstance() => new SetChatDiscussionGroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatDiscussionGroup)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19635,7 +19634,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatLocationConverter();
         public override TLObject CreateObjectInstance() => new SetChatLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatLocation)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19657,7 +19656,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatSlowModeDelayConverter();
         public override TLObject CreateObjectInstance() => new SetChatSlowModeDelay();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatSlowModeDelay)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19679,7 +19678,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PinChatMessageConverter();
         public override TLObject CreateObjectInstance() => new PinChatMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PinChatMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19706,7 +19705,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UnpinChatMessageConverter();
         public override TLObject CreateObjectInstance() => new UnpinChatMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UnpinChatMessage)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19723,7 +19722,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JoinChatConverter();
         public override TLObject CreateObjectInstance() => new JoinChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JoinChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19740,7 +19739,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new LeaveChatConverter();
         public override TLObject CreateObjectInstance() => new LeaveChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (LeaveChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19757,7 +19756,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddChatMemberConverter();
         public override TLObject CreateObjectInstance() => new AddChatMember();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddChatMember)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19784,7 +19783,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddChatMembersConverter();
         public override TLObject CreateObjectInstance() => new AddChatMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddChatMembers)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19806,7 +19805,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetChatMemberStatusConverter();
         public override TLObject CreateObjectInstance() => new SetChatMemberStatus();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetChatMemberStatus)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19840,7 +19839,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TransferChatOwnershipConverter();
         public override TLObject CreateObjectInstance() => new TransferChatOwnership();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TransferChatOwnership)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19867,7 +19866,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatMemberConverter();
         public override TLObject CreateObjectInstance() => new GetChatMember();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatMember)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19889,7 +19888,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchChatMembersConverter();
         public override TLObject CreateObjectInstance() => new SearchChatMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchChatMembers)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -19917,7 +19916,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatAdministratorsConverter();
         public override TLObject CreateObjectInstance() => new GetChatAdministrators();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatAdministrators)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -19934,7 +19933,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ClearAllDraftMessagesConverter();
         public override TLObject CreateObjectInstance() => new ClearAllDraftMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ClearAllDraftMessages)tlobj;
             if (name.SequenceEqual(propName_exclude_secret_chats))
@@ -19951,7 +19950,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatNotificationSettingsExceptionsConverter();
         public override TLObject CreateObjectInstance() => new GetChatNotificationSettingsExceptions();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatNotificationSettingsExceptions)tlobj;
             if (name.SequenceEqual(propName_scope))
@@ -19973,7 +19972,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetScopeNotificationSettingsConverter();
         public override TLObject CreateObjectInstance() => new GetScopeNotificationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetScopeNotificationSettings)tlobj;
             if (name.SequenceEqual(propName_scope))
@@ -19990,7 +19989,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetScopeNotificationSettingsConverter();
         public override TLObject CreateObjectInstance() => new SetScopeNotificationSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetScopeNotificationSettings)tlobj;
             if (name.SequenceEqual(propName_scope))
@@ -20019,7 +20018,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ToggleChatIsPinnedConverter();
         public override TLObject CreateObjectInstance() => new ToggleChatIsPinned();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ToggleChatIsPinned)tlobj;
             if (name.SequenceEqual(propName_chat_list))
@@ -20046,7 +20045,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetPinnedChatsConverter();
         public override TLObject CreateObjectInstance() => new SetPinnedChats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetPinnedChats)tlobj;
             if (name.SequenceEqual(propName_chat_list))
@@ -20068,7 +20067,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DownloadFileConverter();
         public override TLObject CreateObjectInstance() => new DownloadFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DownloadFile)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -20099,7 +20098,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetFileDownloadedPrefixSizeConverter();
         public override TLObject CreateObjectInstance() => new GetFileDownloadedPrefixSize();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetFileDownloadedPrefixSize)tlobj;
             if (name.SequenceEqual(propName_file_id))
@@ -20121,7 +20120,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CancelDownloadFileConverter();
         public override TLObject CreateObjectInstance() => new CancelDownloadFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CancelDownloadFile)tlobj;
             if (name.SequenceEqual(propName_file_id))
@@ -20143,7 +20142,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UploadFileConverter();
         public override TLObject CreateObjectInstance() => new UploadFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UploadFile)tlobj;
             if (name.SequenceEqual(propName_file))
@@ -20170,7 +20169,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CancelUploadFileConverter();
         public override TLObject CreateObjectInstance() => new CancelUploadFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CancelUploadFile)tlobj;
             if (name.SequenceEqual(propName_file_id))
@@ -20187,7 +20186,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new WriteGeneratedFilePartConverter();
         public override TLObject CreateObjectInstance() => new WriteGeneratedFilePart();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (WriteGeneratedFilePart)tlobj;
             if (name.SequenceEqual(propName_generation_id))
@@ -20214,7 +20213,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetFileGenerationProgressConverter();
         public override TLObject CreateObjectInstance() => new SetFileGenerationProgress();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetFileGenerationProgress)tlobj;
             if (name.SequenceEqual(propName_generation_id))
@@ -20241,7 +20240,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new FinishFileGenerationConverter();
         public override TLObject CreateObjectInstance() => new FinishFileGeneration();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (FinishFileGeneration)tlobj;
             if (name.SequenceEqual(propName_generation_id))
@@ -20263,7 +20262,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReadFilePartConverter();
         public override TLObject CreateObjectInstance() => new ReadFilePart();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReadFilePart)tlobj;
             if (name.SequenceEqual(propName_file_id))
@@ -20290,7 +20289,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteFileConverter();
         public override TLObject CreateObjectInstance() => new DeleteFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteFile)tlobj;
             if (name.SequenceEqual(propName_file_id))
@@ -20307,7 +20306,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GenerateChatInviteLinkConverter();
         public override TLObject CreateObjectInstance() => new GenerateChatInviteLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GenerateChatInviteLink)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -20324,7 +20323,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckChatInviteLinkConverter();
         public override TLObject CreateObjectInstance() => new CheckChatInviteLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckChatInviteLink)tlobj;
             if (name.SequenceEqual(propName_invite_link))
@@ -20341,7 +20340,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new JoinChatByInviteLinkConverter();
         public override TLObject CreateObjectInstance() => new JoinChatByInviteLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (JoinChatByInviteLink)tlobj;
             if (name.SequenceEqual(propName_invite_link))
@@ -20358,7 +20357,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateCallConverter();
         public override TLObject CreateObjectInstance() => new CreateCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateCall)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -20385,7 +20384,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AcceptCallConverter();
         public override TLObject CreateObjectInstance() => new AcceptCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AcceptCall)tlobj;
             if (name.SequenceEqual(propName_call_id))
@@ -20407,7 +20406,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendCallSignalingDataConverter();
         public override TLObject CreateObjectInstance() => new SendCallSignalingData();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendCallSignalingData)tlobj;
             if (name.SequenceEqual(propName_call_id))
@@ -20429,7 +20428,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DiscardCallConverter();
         public override TLObject CreateObjectInstance() => new DiscardCall();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DiscardCall)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -20460,7 +20459,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendCallRatingConverter();
         public override TLObject CreateObjectInstance() => new SendCallRating();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendCallRating)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -20488,7 +20487,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendCallDebugInformationConverter();
         public override TLObject CreateObjectInstance() => new SendCallDebugInformation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendCallDebugInformation)tlobj;
             if (name.SequenceEqual(propName_call_id))
@@ -20510,7 +20509,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new BlockChatFromRepliesConverter();
         public override TLObject CreateObjectInstance() => new BlockChatFromReplies();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BlockChatFromReplies)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -20538,7 +20537,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetBlockedChatsConverter();
         public override TLObject CreateObjectInstance() => new GetBlockedChats();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetBlockedChats)tlobj;
             if (name.SequenceEqual(propName_offset))
@@ -20560,7 +20559,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddContactConverter();
         public override TLObject CreateObjectInstance() => new AddContact();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddContact)tlobj;
             if (name.SequenceEqual(propName_contact))
@@ -20582,7 +20581,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ImportContactsConverter();
         public override TLObject CreateObjectInstance() => new ImportContacts();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ImportContacts)tlobj;
             if (name.SequenceEqual(propName_contacts))
@@ -20606,7 +20605,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchContactsConverter();
         public override TLObject CreateObjectInstance() => new SearchContacts();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchContacts)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -20628,7 +20627,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveContactsConverter();
         public override TLObject CreateObjectInstance() => new RemoveContacts();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveContacts)tlobj;
             if (name.SequenceEqual(propName_user_ids))
@@ -20652,7 +20651,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChangeImportedContactsConverter();
         public override TLObject CreateObjectInstance() => new ChangeImportedContacts();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChangeImportedContacts)tlobj;
             if (name.SequenceEqual(propName_contacts))
@@ -20676,7 +20675,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SharePhoneNumberConverter();
         public override TLObject CreateObjectInstance() => new SharePhoneNumber();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SharePhoneNumber)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -20693,7 +20692,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetUserProfilePhotosConverter();
         public override TLObject CreateObjectInstance() => new GetUserProfilePhotos();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetUserProfilePhotos)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -20720,7 +20719,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetStickersConverter();
         public override TLObject CreateObjectInstance() => new GetStickers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetStickers)tlobj;
             if (name.SequenceEqual(propName_emoji))
@@ -20742,7 +20741,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchStickersConverter();
         public override TLObject CreateObjectInstance() => new SearchStickers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchStickers)tlobj;
             if (name.SequenceEqual(propName_emoji))
@@ -20764,7 +20763,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetInstalledStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new GetInstalledStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetInstalledStickerSets)tlobj;
             if (name.SequenceEqual(propName_is_masks))
@@ -20781,7 +20780,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetArchivedStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new GetArchivedStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetArchivedStickerSets)tlobj;
             if (name.SequenceEqual(propName_is_masks))
@@ -20808,7 +20807,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetTrendingStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new GetTrendingStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetTrendingStickerSets)tlobj;
             if (name.SequenceEqual(propName_offset))
@@ -20830,7 +20829,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetAttachedStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new GetAttachedStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetAttachedStickerSets)tlobj;
             if (name.SequenceEqual(propName_file_id))
@@ -20847,7 +20846,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetStickerSetConverter();
         public override TLObject CreateObjectInstance() => new GetStickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetStickerSet)tlobj;
             if (name.SequenceEqual(propName_set_id))
@@ -20864,7 +20863,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchStickerSetConverter();
         public override TLObject CreateObjectInstance() => new SearchStickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchStickerSet)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -20881,7 +20880,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchInstalledStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new SearchInstalledStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchInstalledStickerSets)tlobj;
             if (name.SequenceEqual(propName_is_masks))
@@ -20908,7 +20907,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new SearchStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchStickerSets)tlobj;
             if (name.SequenceEqual(propName_query))
@@ -20925,7 +20924,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChangeStickerSetConverter();
         public override TLObject CreateObjectInstance() => new ChangeStickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChangeStickerSet)tlobj;
             if (name.SequenceEqual(propName_set_id))
@@ -20952,7 +20951,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ViewTrendingStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new ViewTrendingStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ViewTrendingStickerSets)tlobj;
             if (name.SequenceEqual(propName_sticker_set_ids))
@@ -20969,7 +20968,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReorderInstalledStickerSetsConverter();
         public override TLObject CreateObjectInstance() => new ReorderInstalledStickerSets();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReorderInstalledStickerSets)tlobj;
             if (name.SequenceEqual(propName_is_masks))
@@ -20991,7 +20990,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetRecentStickersConverter();
         public override TLObject CreateObjectInstance() => new GetRecentStickers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetRecentStickers)tlobj;
             if (name.SequenceEqual(propName_is_attached))
@@ -21008,7 +21007,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddRecentStickerConverter();
         public override TLObject CreateObjectInstance() => new AddRecentSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddRecentSticker)tlobj;
             if (name.SequenceEqual(propName_is_attached))
@@ -21030,7 +21029,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveRecentStickerConverter();
         public override TLObject CreateObjectInstance() => new RemoveRecentSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveRecentSticker)tlobj;
             if (name.SequenceEqual(propName_is_attached))
@@ -21052,7 +21051,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ClearRecentStickersConverter();
         public override TLObject CreateObjectInstance() => new ClearRecentStickers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ClearRecentStickers)tlobj;
             if (name.SequenceEqual(propName_is_attached))
@@ -21076,7 +21075,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddFavoriteStickerConverter();
         public override TLObject CreateObjectInstance() => new AddFavoriteSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddFavoriteSticker)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -21093,7 +21092,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveFavoriteStickerConverter();
         public override TLObject CreateObjectInstance() => new RemoveFavoriteSticker();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveFavoriteSticker)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -21110,7 +21109,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetStickerEmojisConverter();
         public override TLObject CreateObjectInstance() => new GetStickerEmojis();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetStickerEmojis)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -21127,7 +21126,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchEmojisConverter();
         public override TLObject CreateObjectInstance() => new SearchEmojis();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchEmojis)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -21154,7 +21153,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetEmojiSuggestionsUrlConverter();
         public override TLObject CreateObjectInstance() => new GetEmojiSuggestionsUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetEmojiSuggestionsUrl)tlobj;
             if (name.SequenceEqual(propName_language_code))
@@ -21178,7 +21177,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddSavedAnimationConverter();
         public override TLObject CreateObjectInstance() => new AddSavedAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddSavedAnimation)tlobj;
             if (name.SequenceEqual(propName_animation))
@@ -21195,7 +21194,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveSavedAnimationConverter();
         public override TLObject CreateObjectInstance() => new RemoveSavedAnimation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveSavedAnimation)tlobj;
             if (name.SequenceEqual(propName_animation))
@@ -21219,7 +21218,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchHashtagsConverter();
         public override TLObject CreateObjectInstance() => new SearchHashtags();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchHashtags)tlobj;
             if (name.SequenceEqual(propName_prefix))
@@ -21241,7 +21240,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveRecentHashtagConverter();
         public override TLObject CreateObjectInstance() => new RemoveRecentHashtag();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveRecentHashtag)tlobj;
             if (name.SequenceEqual(propName_hashtag))
@@ -21258,7 +21257,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetWebPagePreviewConverter();
         public override TLObject CreateObjectInstance() => new GetWebPagePreview();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetWebPagePreview)tlobj;
             if (name.SequenceEqual(propName_text))
@@ -21275,7 +21274,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetWebPageInstantViewConverter();
         public override TLObject CreateObjectInstance() => new GetWebPageInstantView();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetWebPageInstantView)tlobj;
             if (name.SequenceEqual(propName_url))
@@ -21297,7 +21296,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetProfilePhotoConverter();
         public override TLObject CreateObjectInstance() => new SetProfilePhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetProfilePhoto)tlobj;
             if (name.SequenceEqual(propName_photo))
@@ -21314,7 +21313,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteProfilePhotoConverter();
         public override TLObject CreateObjectInstance() => new DeleteProfilePhoto();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteProfilePhoto)tlobj;
             if (name.SequenceEqual(propName_profile_photo_id))
@@ -21331,7 +21330,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetNameConverter();
         public override TLObject CreateObjectInstance() => new SetName();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetName)tlobj;
             if (name.SequenceEqual(propName_first_name))
@@ -21353,7 +21352,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetBioConverter();
         public override TLObject CreateObjectInstance() => new SetBio();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetBio)tlobj;
             if (name.SequenceEqual(propName_bio))
@@ -21370,7 +21369,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetUsernameConverter();
         public override TLObject CreateObjectInstance() => new SetUsername();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetUsername)tlobj;
             if (name.SequenceEqual(propName_username))
@@ -21387,7 +21386,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetLocationConverter();
         public override TLObject CreateObjectInstance() => new SetLocation();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetLocation)tlobj;
             if (name.SequenceEqual(propName_location))
@@ -21404,7 +21403,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChangePhoneNumberConverter();
         public override TLObject CreateObjectInstance() => new ChangePhoneNumber();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ChangePhoneNumber)tlobj;
             if (name.SequenceEqual(propName_phone_number))
@@ -21433,7 +21432,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckChangePhoneNumberCodeConverter();
         public override TLObject CreateObjectInstance() => new CheckChangePhoneNumberCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckChangePhoneNumberCode)tlobj;
             if (name.SequenceEqual(propName_code))
@@ -21450,7 +21449,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetCommandsConverter();
         public override TLObject CreateObjectInstance() => new SetCommands();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetCommands)tlobj;
             if (name.SequenceEqual(propName_commands))
@@ -21474,7 +21473,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TerminateSessionConverter();
         public override TLObject CreateObjectInstance() => new TerminateSession();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TerminateSession)tlobj;
             if (name.SequenceEqual(propName_session_id))
@@ -21505,7 +21504,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DisconnectWebsiteConverter();
         public override TLObject CreateObjectInstance() => new DisconnectWebsite();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DisconnectWebsite)tlobj;
             if (name.SequenceEqual(propName_website_id))
@@ -21529,7 +21528,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetSupergroupUsernameConverter();
         public override TLObject CreateObjectInstance() => new SetSupergroupUsername();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetSupergroupUsername)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -21551,7 +21550,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetSupergroupStickerSetConverter();
         public override TLObject CreateObjectInstance() => new SetSupergroupStickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetSupergroupStickerSet)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -21573,7 +21572,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ToggleSupergroupSignMessagesConverter();
         public override TLObject CreateObjectInstance() => new ToggleSupergroupSignMessages();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ToggleSupergroupSignMessages)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -21595,7 +21594,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ToggleSupergroupIsAllHistoryAvailableConverter();
         public override TLObject CreateObjectInstance() => new ToggleSupergroupIsAllHistoryAvailable();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ToggleSupergroupIsAllHistoryAvailable)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -21617,7 +21616,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReportSupergroupSpamConverter();
         public override TLObject CreateObjectInstance() => new ReportSupergroupSpam();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReportSupergroupSpam)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -21644,7 +21643,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetSupergroupMembersConverter();
         public override TLObject CreateObjectInstance() => new GetSupergroupMembers();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetSupergroupMembers)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -21672,7 +21671,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteSupergroupConverter();
         public override TLObject CreateObjectInstance() => new DeleteSupergroup();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteSupergroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
@@ -21689,7 +21688,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CloseSecretChatConverter();
         public override TLObject CreateObjectInstance() => new CloseSecretChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CloseSecretChat)tlobj;
             if (name.SequenceEqual(propName_secret_chat_id))
@@ -21706,7 +21705,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatEventLogConverter();
         public override TLObject CreateObjectInstance() => new GetChatEventLog();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatEventLog)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -21740,7 +21739,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPaymentFormConverter();
         public override TLObject CreateObjectInstance() => new GetPaymentForm();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPaymentForm)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -21762,7 +21761,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ValidateOrderInfoConverter();
         public override TLObject CreateObjectInstance() => new ValidateOrderInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ValidateOrderInfo)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -21790,7 +21789,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendPaymentFormConverter();
         public override TLObject CreateObjectInstance() => new SendPaymentForm();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendPaymentForm)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -21821,7 +21820,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPaymentReceiptConverter();
         public override TLObject CreateObjectInstance() => new GetPaymentReceipt();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPaymentReceipt)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -21871,7 +21870,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetBackgroundsConverter();
         public override TLObject CreateObjectInstance() => new GetBackgrounds();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetBackgrounds)tlobj;
             if (name.SequenceEqual(propName_for_dark_theme))
@@ -21888,7 +21887,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetBackgroundUrlConverter();
         public override TLObject CreateObjectInstance() => new GetBackgroundUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetBackgroundUrl)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -21910,7 +21909,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchBackgroundConverter();
         public override TLObject CreateObjectInstance() => new SearchBackground();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SearchBackground)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -21927,7 +21926,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetBackgroundConverter();
         public override TLObject CreateObjectInstance() => new SetBackground();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetBackground)tlobj;
             if (name.SequenceEqual(propName_background))
@@ -21954,7 +21953,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveBackgroundConverter();
         public override TLObject CreateObjectInstance() => new RemoveBackground();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveBackground)tlobj;
             if (name.SequenceEqual(propName_background_id))
@@ -21978,7 +21977,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetLocalizationTargetInfoConverter();
         public override TLObject CreateObjectInstance() => new GetLocalizationTargetInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetLocalizationTargetInfo)tlobj;
             if (name.SequenceEqual(propName_only_local))
@@ -21995,7 +21994,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetLanguagePackInfoConverter();
         public override TLObject CreateObjectInstance() => new GetLanguagePackInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetLanguagePackInfo)tlobj;
             if (name.SequenceEqual(propName_language_pack_id))
@@ -22012,7 +22011,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetLanguagePackStringsConverter();
         public override TLObject CreateObjectInstance() => new GetLanguagePackStrings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetLanguagePackStrings)tlobj;
             if (name.SequenceEqual(propName_language_pack_id))
@@ -22034,7 +22033,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SynchronizeLanguagePackConverter();
         public override TLObject CreateObjectInstance() => new SynchronizeLanguagePack();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SynchronizeLanguagePack)tlobj;
             if (name.SequenceEqual(propName_language_pack_id))
@@ -22051,7 +22050,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddCustomServerLanguagePackConverter();
         public override TLObject CreateObjectInstance() => new AddCustomServerLanguagePack();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddCustomServerLanguagePack)tlobj;
             if (name.SequenceEqual(propName_language_pack_id))
@@ -22068,7 +22067,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetCustomLanguagePackConverter();
         public override TLObject CreateObjectInstance() => new SetCustomLanguagePack();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetCustomLanguagePack)tlobj;
             if (name.SequenceEqual(propName_info))
@@ -22090,7 +22089,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditCustomLanguagePackInfoConverter();
         public override TLObject CreateObjectInstance() => new EditCustomLanguagePackInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditCustomLanguagePackInfo)tlobj;
             if (name.SequenceEqual(propName_info))
@@ -22107,7 +22106,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetCustomLanguagePackStringConverter();
         public override TLObject CreateObjectInstance() => new SetCustomLanguagePackString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetCustomLanguagePackString)tlobj;
             if (name.SequenceEqual(propName_language_pack_id))
@@ -22129,7 +22128,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteLanguagePackConverter();
         public override TLObject CreateObjectInstance() => new DeleteLanguagePack();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteLanguagePack)tlobj;
             if (name.SequenceEqual(propName_language_pack_id))
@@ -22146,7 +22145,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RegisterDeviceConverter();
         public override TLObject CreateObjectInstance() => new RegisterDevice();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RegisterDevice)tlobj;
             if (name.SequenceEqual(propName_device_token))
@@ -22168,7 +22167,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ProcessPushNotificationConverter();
         public override TLObject CreateObjectInstance() => new ProcessPushNotification();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ProcessPushNotification)tlobj;
             if (name.SequenceEqual(propName_payload))
@@ -22185,7 +22184,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPushReceiverIdConverter();
         public override TLObject CreateObjectInstance() => new GetPushReceiverId();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPushReceiverId)tlobj;
             if (name.SequenceEqual(propName_payload))
@@ -22202,7 +22201,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetRecentlyVisitedTMeUrlsConverter();
         public override TLObject CreateObjectInstance() => new GetRecentlyVisitedTMeUrls();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetRecentlyVisitedTMeUrls)tlobj;
             if (name.SequenceEqual(propName_referrer))
@@ -22219,7 +22218,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetUserPrivacySettingRulesConverter();
         public override TLObject CreateObjectInstance() => new SetUserPrivacySettingRules();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetUserPrivacySettingRules)tlobj;
             if (name.SequenceEqual(propName_setting))
@@ -22241,7 +22240,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetUserPrivacySettingRulesConverter();
         public override TLObject CreateObjectInstance() => new GetUserPrivacySettingRules();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetUserPrivacySettingRules)tlobj;
             if (name.SequenceEqual(propName_setting))
@@ -22258,7 +22257,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetOptionConverter();
         public override TLObject CreateObjectInstance() => new GetOption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetOption)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -22275,7 +22274,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetOptionConverter();
         public override TLObject CreateObjectInstance() => new SetOption();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetOption)tlobj;
             if (name.SequenceEqual(propName_name))
@@ -22297,7 +22296,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetAccountTtlConverter();
         public override TLObject CreateObjectInstance() => new SetAccountTtl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetAccountTtl)tlobj;
             if (name.SequenceEqual(propName_ttl))
@@ -22321,7 +22320,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeleteAccountConverter();
         public override TLObject CreateObjectInstance() => new DeleteAccount();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeleteAccount)tlobj;
             if (name.SequenceEqual(propName_reason))
@@ -22338,7 +22337,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveChatActionBarConverter();
         public override TLObject CreateObjectInstance() => new RemoveChatActionBar();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveChatActionBar)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -22355,7 +22354,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ReportChatConverter();
         public override TLObject CreateObjectInstance() => new ReportChat();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (ReportChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -22382,7 +22381,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatStatisticsUrlConverter();
         public override TLObject CreateObjectInstance() => new GetChatStatisticsUrl();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatStatisticsUrl)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -22409,7 +22408,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetChatStatisticsConverter();
         public override TLObject CreateObjectInstance() => new GetChatStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChatStatistics)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -22431,7 +22430,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMessageStatisticsConverter();
         public override TLObject CreateObjectInstance() => new GetMessageStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMessageStatistics)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -22458,7 +22457,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetStatisticsGraphConverter();
         public override TLObject CreateObjectInstance() => new GetStatisticsGraph();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetStatisticsGraph)tlobj;
             if (name.SequenceEqual(propName_chat_id))
@@ -22485,7 +22484,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetStorageStatisticsConverter();
         public override TLObject CreateObjectInstance() => new GetStorageStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetStorageStatistics)tlobj;
             if (name.SequenceEqual(propName_chat_limit))
@@ -22516,7 +22515,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new OptimizeStorageConverter();
         public override TLObject CreateObjectInstance() => new OptimizeStorage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (OptimizeStorage)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -22559,7 +22558,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetNetworkTypeConverter();
         public override TLObject CreateObjectInstance() => new SetNetworkType();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetNetworkType)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -22576,7 +22575,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetNetworkStatisticsConverter();
         public override TLObject CreateObjectInstance() => new GetNetworkStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetNetworkStatistics)tlobj;
             if (name.SequenceEqual(propName_only_current))
@@ -22593,7 +22592,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddNetworkStatisticsConverter();
         public override TLObject CreateObjectInstance() => new AddNetworkStatistics();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddNetworkStatistics)tlobj;
             if (name.SequenceEqual(propName_entry))
@@ -22624,7 +22623,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetAutoDownloadSettingsConverter();
         public override TLObject CreateObjectInstance() => new SetAutoDownloadSettings();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetAutoDownloadSettings)tlobj;
             if (name.SequenceEqual(propName_settings))
@@ -22646,7 +22645,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetBankCardInfoConverter();
         public override TLObject CreateObjectInstance() => new GetBankCardInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetBankCardInfo)tlobj;
             if (name.SequenceEqual(propName_bank_card_number))
@@ -22663,7 +22662,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPassportElementConverter();
         public override TLObject CreateObjectInstance() => new GetPassportElement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPassportElement)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -22685,7 +22684,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetAllPassportElementsConverter();
         public override TLObject CreateObjectInstance() => new GetAllPassportElements();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetAllPassportElements)tlobj;
             if (name.SequenceEqual(propName_password))
@@ -22702,7 +22701,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetPassportElementConverter();
         public override TLObject CreateObjectInstance() => new SetPassportElement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetPassportElement)tlobj;
             if (name.SequenceEqual(propName_element))
@@ -22724,7 +22723,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new DeletePassportElementConverter();
         public override TLObject CreateObjectInstance() => new DeletePassportElement();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (DeletePassportElement)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -22741,7 +22740,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetPassportElementErrorsConverter();
         public override TLObject CreateObjectInstance() => new SetPassportElementErrors();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetPassportElementErrors)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -22763,7 +22762,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPreferredCountryLanguageConverter();
         public override TLObject CreateObjectInstance() => new GetPreferredCountryLanguage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPreferredCountryLanguage)tlobj;
             if (name.SequenceEqual(propName_country_code))
@@ -22780,7 +22779,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendPhoneNumberVerificationCodeConverter();
         public override TLObject CreateObjectInstance() => new SendPhoneNumberVerificationCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendPhoneNumberVerificationCode)tlobj;
             if (name.SequenceEqual(propName_phone_number))
@@ -22809,7 +22808,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckPhoneNumberVerificationCodeConverter();
         public override TLObject CreateObjectInstance() => new CheckPhoneNumberVerificationCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckPhoneNumberVerificationCode)tlobj;
             if (name.SequenceEqual(propName_code))
@@ -22826,7 +22825,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendEmailAddressVerificationCodeConverter();
         public override TLObject CreateObjectInstance() => new SendEmailAddressVerificationCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendEmailAddressVerificationCode)tlobj;
             if (name.SequenceEqual(propName_email_address))
@@ -22850,7 +22849,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckEmailAddressVerificationCodeConverter();
         public override TLObject CreateObjectInstance() => new CheckEmailAddressVerificationCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckEmailAddressVerificationCode)tlobj;
             if (name.SequenceEqual(propName_code))
@@ -22867,7 +22866,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPassportAuthorizationFormConverter();
         public override TLObject CreateObjectInstance() => new GetPassportAuthorizationForm();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPassportAuthorizationForm)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -22895,7 +22894,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPassportAuthorizationFormAvailableElementsConverter();
         public override TLObject CreateObjectInstance() => new GetPassportAuthorizationFormAvailableElements();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPassportAuthorizationFormAvailableElements)tlobj;
             if (name.SequenceEqual(propName_autorization_form_id))
@@ -22917,7 +22916,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendPassportAuthorizationFormConverter();
         public override TLObject CreateObjectInstance() => new SendPassportAuthorizationForm();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendPassportAuthorizationForm)tlobj;
             if (name.SequenceEqual(propName_autorization_form_id))
@@ -22939,7 +22938,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendPhoneNumberConfirmationCodeConverter();
         public override TLObject CreateObjectInstance() => new SendPhoneNumberConfirmationCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendPhoneNumberConfirmationCode)tlobj;
             if (name.SequenceEqual(propName_hash))
@@ -22973,7 +22972,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckPhoneNumberConfirmationCodeConverter();
         public override TLObject CreateObjectInstance() => new CheckPhoneNumberConfirmationCode();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CheckPhoneNumberConfirmationCode)tlobj;
             if (name.SequenceEqual(propName_code))
@@ -22990,7 +22989,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetBotUpdatesStatusConverter();
         public override TLObject CreateObjectInstance() => new SetBotUpdatesStatus();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetBotUpdatesStatus)tlobj;
             if (name.SequenceEqual(propName_pending_update_count))
@@ -23012,7 +23011,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new UploadStickerFileConverter();
         public override TLObject CreateObjectInstance() => new UploadStickerFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UploadStickerFile)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -23034,7 +23033,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CreateNewStickerSetConverter();
         public override TLObject CreateObjectInstance() => new CreateNewStickerSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateNewStickerSet)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -23065,7 +23064,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddStickerToSetConverter();
         public override TLObject CreateObjectInstance() => new AddStickerToSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddStickerToSet)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -23092,7 +23091,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetStickerSetThumbnailConverter();
         public override TLObject CreateObjectInstance() => new SetStickerSetThumbnail();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetStickerSetThumbnail)tlobj;
             if (name.SequenceEqual(propName_user_id))
@@ -23119,7 +23118,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetStickerPositionInSetConverter();
         public override TLObject CreateObjectInstance() => new SetStickerPositionInSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetStickerPositionInSet)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -23141,7 +23140,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveStickerFromSetConverter();
         public override TLObject CreateObjectInstance() => new RemoveStickerFromSet();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveStickerFromSet)tlobj;
             if (name.SequenceEqual(propName_sticker))
@@ -23158,7 +23157,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetMapThumbnailFileConverter();
         public override TLObject CreateObjectInstance() => new GetMapThumbnailFile();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetMapThumbnailFile)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -23192,7 +23191,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AcceptTermsOfServiceConverter();
         public override TLObject CreateObjectInstance() => new AcceptTermsOfService();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AcceptTermsOfService)tlobj;
             if (name.SequenceEqual(propName_terms_of_service_id))
@@ -23209,7 +23208,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SendCustomRequestConverter();
         public override TLObject CreateObjectInstance() => new SendCustomRequest();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SendCustomRequest)tlobj;
             if (name.SequenceEqual(propName_method))
@@ -23231,7 +23230,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AnswerCustomQueryConverter();
         public override TLObject CreateObjectInstance() => new AnswerCustomQuery();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AnswerCustomQuery)tlobj;
             if (name.SequenceEqual(propName_custom_query_id))
@@ -23253,7 +23252,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetAlarmConverter();
         public override TLObject CreateObjectInstance() => new SetAlarm();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetAlarm)tlobj;
             if (name.SequenceEqual(propName_seconds))
@@ -23284,7 +23283,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetPhoneNumberInfoConverter();
         public override TLObject CreateObjectInstance() => new GetPhoneNumberInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetPhoneNumberInfo)tlobj;
             if (name.SequenceEqual(propName_phone_number_prefix))
@@ -23308,7 +23307,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetDeepLinkInfoConverter();
         public override TLObject CreateObjectInstance() => new GetDeepLinkInfo();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetDeepLinkInfo)tlobj;
             if (name.SequenceEqual(propName_link))
@@ -23332,7 +23331,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SaveApplicationLogEventConverter();
         public override TLObject CreateObjectInstance() => new SaveApplicationLogEvent();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SaveApplicationLogEvent)tlobj;
             if (name.SequenceEqual(propName_type))
@@ -23359,7 +23358,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddProxyConverter();
         public override TLObject CreateObjectInstance() => new AddProxy();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddProxy)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -23387,7 +23386,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EditProxyConverter();
         public override TLObject CreateObjectInstance() => new EditProxy();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditProxy)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -23418,7 +23417,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new EnableProxyConverter();
         public override TLObject CreateObjectInstance() => new EnableProxy();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EnableProxy)tlobj;
             if (name.SequenceEqual(propName_proxy_id))
@@ -23442,7 +23441,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new RemoveProxyConverter();
         public override TLObject CreateObjectInstance() => new RemoveProxy();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (RemoveProxy)tlobj;
             if (name.SequenceEqual(propName_proxy_id))
@@ -23466,7 +23465,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetProxyLinkConverter();
         public override TLObject CreateObjectInstance() => new GetProxyLink();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetProxyLink)tlobj;
             if (name.SequenceEqual(propName_proxy_id))
@@ -23483,7 +23482,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PingProxyConverter();
         public override TLObject CreateObjectInstance() => new PingProxy();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PingProxy)tlobj;
             if (name.SequenceEqual(propName_proxy_id))
@@ -23500,7 +23499,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetLogStreamConverter();
         public override TLObject CreateObjectInstance() => new SetLogStream();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetLogStream)tlobj;
             if (name.SequenceEqual(propName_log_stream))
@@ -23524,7 +23523,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetLogVerbosityLevelConverter();
         public override TLObject CreateObjectInstance() => new SetLogVerbosityLevel();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetLogVerbosityLevel)tlobj;
             if (name.SequenceEqual(propName_new_verbosity_level))
@@ -23555,7 +23554,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SetLogTagVerbosityLevelConverter();
         public override TLObject CreateObjectInstance() => new SetLogTagVerbosityLevel();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetLogTagVerbosityLevel)tlobj;
             if (name.SequenceEqual(propName_tag))
@@ -23577,7 +23576,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new GetLogTagVerbosityLevelConverter();
         public override TLObject CreateObjectInstance() => new GetLogTagVerbosityLevel();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetLogTagVerbosityLevel)tlobj;
             if (name.SequenceEqual(propName_tag))
@@ -23594,7 +23593,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new AddLogMessageConverter();
         public override TLObject CreateObjectInstance() => new AddLogMessage();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (AddLogMessage)tlobj;
             if (name.SequenceEqual(propName_verbosity_level))
@@ -23623,7 +23622,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestCallStringConverter();
         public override TLObject CreateObjectInstance() => new TestCallString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestCallString)tlobj;
             if (name.SequenceEqual(propName_x))
@@ -23640,7 +23639,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestCallBytesConverter();
         public override TLObject CreateObjectInstance() => new TestCallBytes();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestCallBytes)tlobj;
             if (name.SequenceEqual(propName_x))
@@ -23657,7 +23656,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestCallVectorIntConverter();
         public override TLObject CreateObjectInstance() => new TestCallVectorInt();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestCallVectorInt)tlobj;
             if (name.SequenceEqual(propName_x))
@@ -23674,7 +23673,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestCallVectorIntObjectConverter();
         public override TLObject CreateObjectInstance() => new TestCallVectorIntObject();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestCallVectorIntObject)tlobj;
             if (name.SequenceEqual(propName_x))
@@ -23691,7 +23690,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestCallVectorStringConverter();
         public override TLObject CreateObjectInstance() => new TestCallVectorString();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestCallVectorString)tlobj;
             if (name.SequenceEqual(propName_x))
@@ -23708,7 +23707,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestCallVectorStringObjectConverter();
         public override TLObject CreateObjectInstance() => new TestCallVectorStringObject();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestCallVectorStringObject)tlobj;
             if (name.SequenceEqual(propName_x))
@@ -23725,7 +23724,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestSquareIntConverter();
         public override TLObject CreateObjectInstance() => new TestSquareInt();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestSquareInt)tlobj;
             if (name.SequenceEqual(propName_x))
@@ -23749,7 +23748,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestProxyConverter();
         public override TLObject CreateObjectInstance() => new TestProxy();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestProxy)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
@@ -23794,7 +23793,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new TestReturnErrorConverter();
         public override TLObject CreateObjectInstance() => new TestReturnError();
-        public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (TestReturnError)tlobj;
             if (name.SequenceEqual(propName_error))

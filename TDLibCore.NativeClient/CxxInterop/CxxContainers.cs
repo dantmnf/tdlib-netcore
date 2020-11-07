@@ -31,11 +31,11 @@ namespace TDLibCore.NativeClient.CxxInterop
         {
             if (string.IsNullOrEmpty(s))
             {
-                bytes.Set(default);
+                bytes.Set(default(ReadOnlySpan<byte>));
                 return;
             }
             var x = Encoding.UTF8.GetBytes(s);
-            bytes.Set(x);
+            bytes.Set(x.AsSpan());
         }
 
         public static implicit operator string(CxxString x) => x.ToString();
@@ -72,6 +72,8 @@ namespace TDLibCore.NativeClient.CxxInterop
             fixed (byte* x = value)
                 td_bridge_string_setdata(ptr, x, value.Length);
         }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Set(ReadOnlyMemory<byte> value) => Set(value.Span);
 
         public static implicit operator byte[](CxxBytes x) => x.ToArray();
         public static implicit operator ReadOnlySpan<byte>(CxxBytes x) => x.AsSpan();
@@ -322,13 +324,13 @@ namespace TDLibCore.NativeClient.CxxInterop
         public static implicit operator IntPtr(CxxVectorBytes x) => x.ptr;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public byte[][] Fetch() => ToArray();
+        public Memory<byte>[] Fetch() => ToArray();
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Set(IEnumerable<byte[]> data)
+        public void Set(IEnumerable<Memory<byte>> data)
         {
             Clear();
             if (data != null)
-                foreach (var x in data) Add(x);
+                foreach (var x in data) Add(x.Span);
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Add(ReadOnlySpan<byte> value)
@@ -353,10 +355,10 @@ namespace TDLibCore.NativeClient.CxxInterop
         public long Length => td_bridge_vector_string_size(ptr);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public byte[][] ToArray()
+        public Memory<byte>[] ToArray()
         {
             var len = Length;
-            var result = (byte[][])Array.CreateInstance(typeof(byte[]), len);
+            var result = new Memory<byte>[len];
             for (long i = 0; i < len; i++)
             {
                 result[i] = td_bridge_vector_string_at(ptr, i).ToArray();

@@ -28,11 +28,11 @@ def emit_type(io, type)
         csname = check_csharp_keyword propname
 
         case 
-        when prop.type == "byte[]"
-          io.puts "if (obj.#{csname} != null)"
+        when prop.type == "Memory<byte>"
+          io.puts "if (!obj.#{csname}.IsEmpty)"
           io.puts "{"
           io.block do
-            io.puts "writer.WriteBase64String(encodedPropName_#{prop.name}, obj.#{csname});"
+            io.puts "writer.WriteBase64String(encodedPropName_#{prop.name}, obj.#{csname}.Span);"
           end
           io.puts "}"
         when prop.type == 'int' || prop.type == 'long' || prop.type == 'double'

@@ -12,7 +12,7 @@ def pinvoketype(type)
     "CxxInt64"
   when type == "double"
     "CxxFloat64"
-  when type == "byte[]"
+  when type == "Memory<byte>"
     "CxxBytes"
   when type.is_a?(Class) && type == TDLibTLTypeInfo::Int64
     "CxxInt64"
@@ -22,7 +22,7 @@ def pinvoketype(type)
     "CxxVectorInt64"
   when type == TDLibTLTypeInfo::Vector[TDLibTLTypeInfo::Int64]
     "CxxVectorInt64"
-  when type == TDLibTLTypeInfo::Vector["byte[]"]
+  when type == TDLibTLTypeInfo::Vector["Memory<byte>"]
     "CxxVectorBytes"
   when type == TDLibTLTypeInfo::Vector["string"]
     "CxxVectorString"

@@ -1200,7 +1200,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The thumbnail in JPEG format
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -1788,7 +1788,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// A waveform representation of the voice note in 5-bit format
         /// </summary>
-        public byte[] Waveform { get; set; }
+        public Memory<byte> Waveform { get; set; }
 
         /// <summary>
         /// MIME type of the file; as defined by the sender
@@ -3298,7 +3298,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 little-endian bytes, which must be split into groups of 2 bits, each denoting a pixel of one of 4 colors FFFFFF, D5E6F3, 2D5775, and 2F99C9. -The pixels must be used to make a 12x12 square image filled from left to right, top to bottom. Alternatively, the first 32 bytes of the hash can be converted to the hexadecimal format and printed as 32 2-digit hex numbers
         /// </summary>
-        public byte[] KeyHash { get; set; }
+        public Memory<byte> KeyHash { get; set; }
 
         /// <summary>
         /// Secret chat layer; determines features supported by the chat partner's application. Video notes are supported if the layer &gt;= 66; nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101
@@ -4697,7 +4697,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Data to be sent to the bot via a callback query
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -4713,7 +4713,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Data to be sent to the bot via a callback query
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -7869,17 +7869,17 @@ namespace TDLibCore.Api
         /// <summary>
         /// The encrypted credentials
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
         /// <summary>
         /// The decrypted data hash
         /// </summary>
-        public byte[] Hash { get; set; }
+        public Memory<byte> Hash { get; set; }
 
         /// <summary>
         /// Secret for data decryption, encrypted with the service's public key
         /// </summary>
-        public byte[] Secret { get; set; }
+        public Memory<byte> Secret { get; set; }
 
     }
 
@@ -7900,7 +7900,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Encrypted JSON-encoded data about the user
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
         /// <summary>
         /// The front side of an identity document
@@ -7951,7 +7951,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hash of the entire element
         /// </summary>
-        public byte[] ElementHash { get; set; }
+        public Memory<byte> ElementHash { get; set; }
 
     }
 
@@ -7972,7 +7972,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current data hash
         /// </summary>
-        public byte[] DataHash { get; set; }
+        public Memory<byte> DataHash { get; set; }
 
     }
 
@@ -7988,7 +7988,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hash of the file containing the front side
         /// </summary>
-        public byte[] FileHash { get; set; }
+        public Memory<byte> FileHash { get; set; }
 
     }
 
@@ -8004,7 +8004,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hash of the file containing the reverse side
         /// </summary>
-        public byte[] FileHash { get; set; }
+        public Memory<byte> FileHash { get; set; }
 
     }
 
@@ -8020,7 +8020,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hash of the file containing the selfie
         /// </summary>
-        public byte[] FileHash { get; set; }
+        public Memory<byte> FileHash { get; set; }
 
     }
 
@@ -8036,7 +8036,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hash of the file containing the translation
         /// </summary>
-        public byte[] FileHash { get; set; }
+        public Memory<byte> FileHash { get; set; }
 
     }
 
@@ -8052,7 +8052,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hashes of all files with the translation
         /// </summary>
-        public byte[][] FileHashes { get; set; }
+        public Memory<byte>[] FileHashes { get; set; }
 
     }
 
@@ -8068,7 +8068,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hash of the file which has the error
         /// </summary>
-        public byte[] FileHash { get; set; }
+        public Memory<byte> FileHash { get; set; }
 
     }
 
@@ -8084,7 +8084,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Current hashes of all attached files
         /// </summary>
-        public byte[][] FileHashes { get; set; }
+        public Memory<byte>[] FileHashes { get; set; }
 
     }
 
@@ -8851,7 +8851,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Invoice payload
         /// </summary>
-        public byte[] InvoicePayload { get; set; }
+        public Memory<byte> InvoicePayload { get; set; }
 
         /// <summary>
         /// Identifier of the shipping option chosen by the user; may be empty if not applicable
@@ -9587,7 +9587,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Waveform representation of the voice note, in 5-bit format
         /// </summary>
-        public byte[] Waveform { get; set; }
+        public Memory<byte> Waveform { get; set; }
 
         /// <summary>
         /// Voice note caption; 0-GetOption("message_caption_length_max") characters
@@ -9738,7 +9738,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The invoice payload
         /// </summary>
-        public byte[] Payload { get; set; }
+        public Memory<byte> Payload { get; set; }
 
         /// <summary>
         /// Payment provider token
@@ -10563,7 +10563,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// A peer tag to be used with the reflector
         /// </summary>
-        public byte[] PeerTag { get; set; }
+        public Memory<byte> PeerTag { get; set; }
 
     }
 
@@ -10709,7 +10709,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Call encryption key
         /// </summary>
-        public byte[] EncryptionKey { get; set; }
+        public Memory<byte> EncryptionKey { get; set; }
 
         /// <summary>
         /// Encryption key emojis fingerprint
@@ -11987,7 +11987,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Data that was attached to the callback button
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -12008,7 +12008,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Data that was attached to the callback button
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -14825,7 +14825,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// File bytes
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -17408,7 +17408,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The data
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -17997,7 +17997,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Invoice payload
         /// </summary>
-        public byte[] InvoicePayload { get; set; }
+        public Memory<byte> InvoicePayload { get; set; }
 
         /// <summary>
         /// Identifier of a shipping option chosen by the user; may be empty if not applicable
@@ -18235,7 +18235,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Bytes
         /// </summary>
-        public byte[] Value { get; set; }
+        public Memory<byte> Value { get; set; }
 
     }
 
@@ -18342,7 +18342,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Encryption key to check or set up
         /// </summary>
-        public byte[] EncryptionKey { get; set; }
+        public Memory<byte> EncryptionKey { get; set; }
 
     }
 
@@ -18562,7 +18562,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// New encryption key
         /// </summary>
-        public byte[] NewEncryptionKey { get; set; }
+        public Memory<byte> NewEncryptionKey { get; set; }
 
     }
 
@@ -22399,7 +22399,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The data to write
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -22604,7 +22604,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The data
         /// </summary>
-        public byte[] Data { get; set; }
+        public Memory<byte> Data { get; set; }
 
     }
 
@@ -25902,7 +25902,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Bytes to return
         /// </summary>
-        public byte[] X { get; set; }
+        public Memory<byte> X { get; set; }
 
     }
 

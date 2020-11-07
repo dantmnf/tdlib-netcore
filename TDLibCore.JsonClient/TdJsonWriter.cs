@@ -78,12 +78,12 @@ namespace TDLibCore.JsonClient
             writer.WriteEndArray();
         }
 
-        public static void WriteArray(this Utf8JsonWriter writer, byte[][] value)
+        public static void WriteArray(this Utf8JsonWriter writer, Memory<byte>[] value)
         {
             writer.WriteStartArray();
             for (int i = 0; i < value.Length; i++)
             {
-                writer.WriteBase64StringValue(value[i]);
+                writer.WriteBase64StringValue(value[i].Span);
             }
             writer.WriteEndArray();
         }

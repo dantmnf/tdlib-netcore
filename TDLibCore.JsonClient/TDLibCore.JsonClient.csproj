@@ -1,16 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <TargetFrameworks>netcoreapp3.1;net5.0;netstandard2.0;</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.1;netstandard2.0;</TargetFrameworks>
         <LangVersion>preview</LangVersion>
         <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
         <Description></Description>
         <DefineConstants Condition="'$(TargetFramework)' == 'netcoreapp3.1'">X86_INTRINSICS;</DefineConstants>
         <DefineConstants Condition="'$(TargetFramework)' == 'net5.0'">X86_INTRINSICS;ARM_INTRINSICS;</DefineConstants>
     </PropertyGroup>
-    <ItemGroup>
-      <PackageReference Condition="'$(TargetFramework)' == 'netstandard2.0'" Include="System.Text.Json" Version="4.7.2" />
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <PackageReference Include="System.Text.Json" Version="4.7.2" />
+        <PackageReference Include="System.Memory" Version="4.5.4" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\TDLibCore\TDLibCore.csproj" />

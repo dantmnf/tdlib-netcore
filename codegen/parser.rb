@@ -98,7 +98,7 @@ class TDLibTLTypeInfo
     int32: "int",
     int53: "long",
     int64: Int64,
-    bytes: "byte[]",
+    bytes: "Memory<byte>",
     vector: Vector,
     boolFalse: FalseClass,
     boolTrue: TrueClass,

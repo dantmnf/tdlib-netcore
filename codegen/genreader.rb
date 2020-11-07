@@ -33,13 +33,13 @@ def readerof(type)
     "reader.ReadLong()"
   when type == "double"
     "reader.ReadDouble()"
-  when type == "byte[]"
+  when type == "Memory<byte>"
     "reader.ReadBase64String()"
   when type == TDLibTLTypeInfo::Int64
     "reader.ReadInt64String()"
   when type == TDLibTLTypeInfo::Vector["string"]
     "reader.ReadStringArray()"
-  when type == TDLibTLTypeInfo::Vector["byte[]"]
+  when type == TDLibTLTypeInfo::Vector["Memory<byte>"]
     "reader.ReadBytesArray()"
   when type == TDLibTLTypeInfo::Vector["int"]
     "reader.ReadInt32Array()"
@@ -73,7 +73,7 @@ def emit_type(io, type)
   io.puts "public static BaseConverter CreateConverterInstance() => new #{csname}Converter();"
   io.puts "public override TLObject CreateObjectInstance() => new #{csname}();"
   unless type.props.empty?
-    io.puts "public override bool TdJsonReadItem(ref Utf8JsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)"
+    io.puts "public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)"
     io.puts "{"
     io.block do
       # io.puts "if (base.TdJsonReadItem(ref reader, tlobj, hash)) return true;"
@@ -127,7 +127,6 @@ def emit(out=STDOUT)
   io.puts "using System;"
   io.puts "using System.Text.Json;"
   io.puts "using TDLibCore.Api;"
-  io.puts "using TDLibCore.JsonClient.Utf8JsonExtension;"
   io.puts ""
   io.puts "namespace TDLibCore.JsonClient.ObjectConverter"
   io.puts "{"

@@ -34,7 +34,7 @@ namespace TDLibCore.ClientExtensions
         /// Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey
         /// </summary>
         /// <param name="encryptionKey">Encryption key to check or set up</param>
-        public static async Task CheckDatabaseEncryptionKey(this Client client, byte[] encryptionKey = default)
+        public static async Task CheckDatabaseEncryptionKey(this Client client, Memory<byte> encryptionKey = default)
         {
             var obj = new CheckDatabaseEncryptionKey
             {
@@ -209,7 +209,7 @@ namespace TDLibCore.ClientExtensions
         /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
         /// </summary>
         /// <param name="newEncryptionKey">New encryption key</param>
-        public static async Task SetDatabaseEncryptionKey(this Client client, byte[] newEncryptionKey = default)
+        public static async Task SetDatabaseEncryptionKey(this Client client, Memory<byte> newEncryptionKey = default)
         {
             var obj = new SetDatabaseEncryptionKey
             {
@@ -3015,7 +3015,7 @@ namespace TDLibCore.ClientExtensions
         /// <param name="generationId">The identifier of the generation process</param>
         /// <param name="offset">The offset from which to write the data to the file</param>
         /// <param name="data">The data to write</param>
-        public static async Task WriteGeneratedFilePart(this Client client, long generationId = 0, int offset = 0, byte[] data = default)
+        public static async Task WriteGeneratedFilePart(this Client client, long generationId = 0, int offset = 0, Memory<byte> data = default)
         {
             var obj = new WriteGeneratedFilePart
             {
@@ -3164,7 +3164,7 @@ namespace TDLibCore.ClientExtensions
         /// </summary>
         /// <param name="callId">Call identifier</param>
         /// <param name="data">The data</param>
-        public static async Task SendCallSignalingData(this Client client, int callId = 0, byte[] data = default)
+        public static async Task SendCallSignalingData(this Client client, int callId = 0, Memory<byte> data = default)
         {
             var obj = new SendCallSignalingData
             {
@@ -5709,7 +5709,7 @@ namespace TDLibCore.ClientExtensions
         /// Returns the received bytes; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         /// <param name="x">Bytes to return</param>
-        public static async Task<TestBytes> TestCallBytes(this Client client, byte[] x = default)
+        public static async Task<TestBytes> TestCallBytes(this Client client, Memory<byte> x = default)
         {
             var obj = new TestCallBytes
             {
