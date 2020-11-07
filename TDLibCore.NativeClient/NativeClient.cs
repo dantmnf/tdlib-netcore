@@ -22,6 +22,14 @@ namespace TDLibCore.NativeClient
             public ITdClientBinding CreateInstance() => new Binding();
         }
 
+        public static TLObject Execute(Function func)
+        {
+            TLObject obj = null;
+            var ptr = td_bridge_client_execute(TLObjectFactory.CreateCxxObject(func));
+            if (ptr != IntPtr.Zero)
+                obj = TLObjectFactory.FetchAndFreeCxxObject(ptr);
+            return obj;
+        }
 
         public class Binding : ITdClientBinding
         {
@@ -37,15 +45,10 @@ namespace TDLibCore.NativeClient
 
             TLObject ITdClientBinding.Execute(Function func)
             {
-                //var objptr = td_bridge_client_execute(ptr, 114514, TLObjectFactory.CreateCxxObject(func), out var id);
-                //return FetchAndFreeObject(ptr);
-
                 TLObject obj = null;
-                td_bridge_client_execute(ptr, 114514, TLObjectFactory.CreateCxxObject(func), (ptr, id) =>
-                {
-                    if (ptr != IntPtr.Zero)
-                        obj = TLObjectFactory.FetchCxxObject(ptr);
-                });
+                var ptr = td_bridge_client_execute(TLObjectFactory.CreateCxxObject(func));
+                if (ptr != IntPtr.Zero)
+                    obj = TLObjectFactory.FetchAndFreeCxxObject(ptr);
                 return obj;
             }
 
@@ -56,14 +59,9 @@ namespace TDLibCore.NativeClient
                 if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(NativeClient));
                 TLObject obj = null;
                 long id = 0;
-                td_bridge_client_receive(ptr, timeout, (ptr, id_) =>
-                {
-                    if (ptr != IntPtr.Zero)
-                    {
-                        obj = TLObjectFactory.FetchCxxObject(ptr);
-                        id = id_;
-                    }
-                });
+                td_bridge_client_receive(ptr, timeout, out id);
+                if (ptr != IntPtr.Zero)
+                    obj = TLObjectFactory.FetchAndFreeCxxObject(ptr);
                 return (id, obj);
             }
 

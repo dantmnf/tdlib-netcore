@@ -117,7 +117,7 @@ Dir.chdir(opts[:buildroot]) do
     Dir.chdir('tdbridge') do
       system2("cmake", *argv, *%w(--trace --trace-format=json-v1 --trace-expand --trace-redirect=CMakeTrace.log -Wno-dev), "-DUSE_TD_SOURCE_TREE:PATH=#{opts[:sourceroot]}", "-DTD_BUILD_BINARY_DIR:PATH=../tdjson", File.join(scriptroot, 'TDLibCore.NativeClient.Bridge'), exception: true)
       replay_cmake_trace.call
-      system2('cmake', '--build', '.', '--target', 'tdbridge', exception: true)
+      system2('cmake', '--build', '.', '--target', 'TDLibCore.NativeClient.Native', exception: true)
       pattern = get_pattern.call
       system2('dotnet', 'pack', File.join(scriptroot, 'native-pkg', 'runtime', 'runtime.RID.TDLibCore.JsonClient.Native.csproj'),
       '-c', 'Release', "-p:RID=#{opts[:rid]}", "-p:IncludePattern=#{pattern}", "-p:UseReleaseVersioning=#{opts[:release]}",

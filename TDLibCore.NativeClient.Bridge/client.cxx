@@ -10,13 +10,20 @@ EXPORT void td_bridge_client_send(Client *client, uint64_t id, td_api::Function 
     client->send(std::move(req));
 }
 
-EXPORT void td_bridge_client_receive(Client *client, double timeout, FetchObjectCallback callback) {
+EXPORT Object* td_bridge_client_receive(Client *client, double timeout, uint64_t *id) {
     auto result = client->receive(timeout);
-    callback(result.object.get(), result.id);
+	if (result.object) {
+		*id = result.id;
+		return result.object.release();
+	}
+    return nullptr;
 }
 
-EXPORT void td_bridge_client_execute(Client *client, uint64_t inid, td_api::Function *func, FetchObjectCallback callback) {
-    Client::Request req {inid, object_ptr<Function>(func)};
-    auto result = client->execute(std::move(req));
-    callback(result.object.get(), result.id);
+EXPORT Object* td_bridge_client_execute(td_api::Function *func) {
+    Client::Request req {0, object_ptr<Function>(func)};
+    auto result = Client::execute(std::move(req));
+	if (result.object) {
+		return result.object.release();
+	}
+    return nullptr;
 }

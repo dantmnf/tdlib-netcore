@@ -13,7 +13,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ErrorCxxBridge : ObjectBridge<Error>
     {
         public static BaseCxxBridge CreateInstance() => new ErrorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_error();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -36,7 +36,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OkCxxBridge : ObjectBridge<Ok>
     {
         public static BaseCxxBridge CreateInstance() => new OkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_ok();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -55,7 +55,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TdlibParametersCxxBridge : ObjectBridge<TdlibParameters>
     {
         public static BaseCxxBridge CreateInstance() => new TdlibParametersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_tdlibParameters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -104,7 +104,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthenticationCodeTypeTelegramMessageCxxBridge : ObjectBridge<AuthenticationCodeTypeTelegramMessage>
     {
         public static BaseCxxBridge CreateInstance() => new AuthenticationCodeTypeTelegramMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authenticationCodeTypeTelegramMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -125,7 +125,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthenticationCodeTypeSmsCxxBridge : ObjectBridge<AuthenticationCodeTypeSms>
     {
         public static BaseCxxBridge CreateInstance() => new AuthenticationCodeTypeSmsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authenticationCodeTypeSms();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -146,7 +146,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthenticationCodeTypeCallCxxBridge : ObjectBridge<AuthenticationCodeTypeCall>
     {
         public static BaseCxxBridge CreateInstance() => new AuthenticationCodeTypeCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authenticationCodeTypeCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -167,7 +167,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthenticationCodeTypeFlashCallCxxBridge : ObjectBridge<AuthenticationCodeTypeFlashCall>
     {
         public static BaseCxxBridge CreateInstance() => new AuthenticationCodeTypeFlashCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authenticationCodeTypeFlashCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -188,7 +188,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthenticationCodeInfoCxxBridge : ObjectBridge<AuthenticationCodeInfo>
     {
         public static BaseCxxBridge CreateInstance() => new AuthenticationCodeInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authenticationCodeInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -215,7 +215,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EmailAddressAuthenticationCodeInfoCxxBridge : ObjectBridge<EmailAddressAuthenticationCodeInfo>
     {
         public static BaseCxxBridge CreateInstance() => new EmailAddressAuthenticationCodeInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_emailAddressAuthenticationCodeInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -238,7 +238,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityCxxBridge : ObjectBridge<TextEntity>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntity();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -263,7 +263,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntitiesCxxBridge : ObjectBridge<TextEntities>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntitiesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntities();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -284,7 +284,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FormattedTextCxxBridge : ObjectBridge<FormattedText>
     {
         public static BaseCxxBridge CreateInstance() => new FormattedTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_formattedText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -307,7 +307,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TermsOfServiceCxxBridge : ObjectBridge<TermsOfService>
     {
         public static BaseCxxBridge CreateInstance() => new TermsOfServiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_termsOfService();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -332,7 +332,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateWaitTdlibParametersCxxBridge : ObjectBridge<AuthorizationStateWaitTdlibParameters>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateWaitTdlibParametersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateWaitTdlibParameters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -351,7 +351,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateWaitEncryptionKeyCxxBridge : ObjectBridge<AuthorizationStateWaitEncryptionKey>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateWaitEncryptionKeyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateWaitEncryptionKey();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -372,7 +372,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateWaitPhoneNumberCxxBridge : ObjectBridge<AuthorizationStateWaitPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateWaitPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateWaitPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -391,7 +391,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateWaitCodeCxxBridge : ObjectBridge<AuthorizationStateWaitCode>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateWaitCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateWaitCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -412,7 +412,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateWaitOtherDeviceConfirmationCxxBridge : ObjectBridge<AuthorizationStateWaitOtherDeviceConfirmation>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateWaitOtherDeviceConfirmationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateWaitOtherDeviceConfirmation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -433,7 +433,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateWaitRegistrationCxxBridge : ObjectBridge<AuthorizationStateWaitRegistration>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateWaitRegistrationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateWaitRegistration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -454,7 +454,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateWaitPasswordCxxBridge : ObjectBridge<AuthorizationStateWaitPassword>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateWaitPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateWaitPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -479,7 +479,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateReadyCxxBridge : ObjectBridge<AuthorizationStateReady>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateReadyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateReady();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -498,7 +498,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateLoggingOutCxxBridge : ObjectBridge<AuthorizationStateLoggingOut>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateLoggingOutCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateLoggingOut();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -517,7 +517,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateClosingCxxBridge : ObjectBridge<AuthorizationStateClosing>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateClosingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateClosing();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -536,7 +536,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AuthorizationStateClosedCxxBridge : ObjectBridge<AuthorizationStateClosed>
     {
         public static BaseCxxBridge CreateInstance() => new AuthorizationStateClosedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_authorizationStateClosed();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -555,7 +555,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PasswordStateCxxBridge : ObjectBridge<PasswordState>
     {
         public static BaseCxxBridge CreateInstance() => new PasswordStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passwordState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -584,7 +584,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RecoveryEmailAddressCxxBridge : ObjectBridge<RecoveryEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new RecoveryEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_recoveryEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -605,7 +605,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TemporaryPasswordStateCxxBridge : ObjectBridge<TemporaryPasswordState>
     {
         public static BaseCxxBridge CreateInstance() => new TemporaryPasswordStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_temporaryPasswordState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -628,7 +628,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LocalFileCxxBridge : ObjectBridge<LocalFile>
     {
         public static BaseCxxBridge CreateInstance() => new LocalFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_localFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -663,7 +663,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoteFileCxxBridge : ObjectBridge<RemoteFile>
     {
         public static BaseCxxBridge CreateInstance() => new RemoteFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_remoteFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -692,7 +692,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileCxxBridge : ObjectBridge<File>
     {
         public static BaseCxxBridge CreateInstance() => new FileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_file();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -721,7 +721,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputFileIdCxxBridge : ObjectBridge<InputFileId>
     {
         public static BaseCxxBridge CreateInstance() => new InputFileIdCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputFileId();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -742,7 +742,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputFileRemoteCxxBridge : ObjectBridge<InputFileRemote>
     {
         public static BaseCxxBridge CreateInstance() => new InputFileRemoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputFileRemote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -763,7 +763,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputFileLocalCxxBridge : ObjectBridge<InputFileLocal>
     {
         public static BaseCxxBridge CreateInstance() => new InputFileLocalCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputFileLocal();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -784,7 +784,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputFileGeneratedCxxBridge : ObjectBridge<InputFileGenerated>
     {
         public static BaseCxxBridge CreateInstance() => new InputFileGeneratedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputFileGenerated();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -809,7 +809,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PhotoSizeCxxBridge : ObjectBridge<PhotoSize>
     {
         public static BaseCxxBridge CreateInstance() => new PhotoSizeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_photoSize();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -838,7 +838,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MinithumbnailCxxBridge : ObjectBridge<Minithumbnail>
     {
         public static BaseCxxBridge CreateInstance() => new MinithumbnailCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_minithumbnail();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -863,7 +863,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ThumbnailFormatJpegCxxBridge : ObjectBridge<ThumbnailFormatJpeg>
     {
         public static BaseCxxBridge CreateInstance() => new ThumbnailFormatJpegCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_thumbnailFormatJpeg();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -882,7 +882,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ThumbnailFormatPngCxxBridge : ObjectBridge<ThumbnailFormatPng>
     {
         public static BaseCxxBridge CreateInstance() => new ThumbnailFormatPngCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_thumbnailFormatPng();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -901,7 +901,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ThumbnailFormatWebpCxxBridge : ObjectBridge<ThumbnailFormatWebp>
     {
         public static BaseCxxBridge CreateInstance() => new ThumbnailFormatWebpCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_thumbnailFormatWebp();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -920,7 +920,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ThumbnailFormatGifCxxBridge : ObjectBridge<ThumbnailFormatGif>
     {
         public static BaseCxxBridge CreateInstance() => new ThumbnailFormatGifCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_thumbnailFormatGif();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -939,7 +939,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ThumbnailFormatTgsCxxBridge : ObjectBridge<ThumbnailFormatTgs>
     {
         public static BaseCxxBridge CreateInstance() => new ThumbnailFormatTgsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_thumbnailFormatTgs();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -958,7 +958,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ThumbnailFormatMpeg4CxxBridge : ObjectBridge<ThumbnailFormatMpeg4>
     {
         public static BaseCxxBridge CreateInstance() => new ThumbnailFormatMpeg4CxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_thumbnailFormatMpeg4();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -977,7 +977,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ThumbnailCxxBridge : ObjectBridge<Thumbnail>
     {
         public static BaseCxxBridge CreateInstance() => new ThumbnailCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_thumbnail();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1004,7 +1004,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MaskPointForeheadCxxBridge : ObjectBridge<MaskPointForehead>
     {
         public static BaseCxxBridge CreateInstance() => new MaskPointForeheadCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_maskPointForehead();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1023,7 +1023,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MaskPointEyesCxxBridge : ObjectBridge<MaskPointEyes>
     {
         public static BaseCxxBridge CreateInstance() => new MaskPointEyesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_maskPointEyes();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1042,7 +1042,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MaskPointMouthCxxBridge : ObjectBridge<MaskPointMouth>
     {
         public static BaseCxxBridge CreateInstance() => new MaskPointMouthCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_maskPointMouth();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1061,7 +1061,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MaskPointChinCxxBridge : ObjectBridge<MaskPointChin>
     {
         public static BaseCxxBridge CreateInstance() => new MaskPointChinCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_maskPointChin();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1080,7 +1080,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MaskPositionCxxBridge : ObjectBridge<MaskPosition>
     {
         public static BaseCxxBridge CreateInstance() => new MaskPositionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_maskPosition();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1107,7 +1107,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PollOptionCxxBridge : ObjectBridge<PollOption>
     {
         public static BaseCxxBridge CreateInstance() => new PollOptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pollOption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1136,7 +1136,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PollTypeRegularCxxBridge : ObjectBridge<PollTypeRegular>
     {
         public static BaseCxxBridge CreateInstance() => new PollTypeRegularCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pollTypeRegular();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1157,7 +1157,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PollTypeQuizCxxBridge : ObjectBridge<PollTypeQuiz>
     {
         public static BaseCxxBridge CreateInstance() => new PollTypeQuizCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pollTypeQuiz();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1180,7 +1180,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnimationCxxBridge : ObjectBridge<Animation>
     {
         public static BaseCxxBridge CreateInstance() => new AnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_animation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1217,7 +1217,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AudioCxxBridge : ObjectBridge<Audio>
     {
         public static BaseCxxBridge CreateInstance() => new AudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_audio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1252,7 +1252,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DocumentCxxBridge : ObjectBridge<Document>
     {
         public static BaseCxxBridge CreateInstance() => new DocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_document();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1281,7 +1281,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PhotoCxxBridge : ObjectBridge<Photo>
     {
         public static BaseCxxBridge CreateInstance() => new PhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_photo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1306,7 +1306,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StickerCxxBridge : ObjectBridge<Sticker>
     {
         public static BaseCxxBridge CreateInstance() => new StickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1343,7 +1343,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class VideoCxxBridge : ObjectBridge<Video>
     {
         public static BaseCxxBridge CreateInstance() => new VideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_video();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1382,7 +1382,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class VideoNoteCxxBridge : ObjectBridge<VideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new VideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_videoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1411,7 +1411,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class VoiceNoteCxxBridge : ObjectBridge<VoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new VoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_voiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1438,7 +1438,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ContactCxxBridge : ObjectBridge<Contact>
     {
         public static BaseCxxBridge CreateInstance() => new ContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_contact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1467,7 +1467,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LocationCxxBridge : ObjectBridge<Location>
     {
         public static BaseCxxBridge CreateInstance() => new LocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_location();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1490,7 +1490,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class VenueCxxBridge : ObjectBridge<Venue>
     {
         public static BaseCxxBridge CreateInstance() => new VenueCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_venue();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1521,7 +1521,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GameCxxBridge : ObjectBridge<Game>
     {
         public static BaseCxxBridge CreateInstance() => new GameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_game();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1554,7 +1554,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PollCxxBridge : ObjectBridge<Poll>
     {
         public static BaseCxxBridge CreateInstance() => new PollCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_poll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1593,7 +1593,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ProfilePhotoCxxBridge : ObjectBridge<ProfilePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new ProfilePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_profilePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1620,7 +1620,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatPhotoInfoCxxBridge : ObjectBridge<ChatPhotoInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatPhotoInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatPhotoInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1645,7 +1645,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserTypeRegularCxxBridge : ObjectBridge<UserTypeRegular>
     {
         public static BaseCxxBridge CreateInstance() => new UserTypeRegularCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userTypeRegular();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1664,7 +1664,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserTypeDeletedCxxBridge : ObjectBridge<UserTypeDeleted>
     {
         public static BaseCxxBridge CreateInstance() => new UserTypeDeletedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userTypeDeleted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1683,7 +1683,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserTypeBotCxxBridge : ObjectBridge<UserTypeBot>
     {
         public static BaseCxxBridge CreateInstance() => new UserTypeBotCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userTypeBot();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1712,7 +1712,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserTypeUnknownCxxBridge : ObjectBridge<UserTypeUnknown>
     {
         public static BaseCxxBridge CreateInstance() => new UserTypeUnknownCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userTypeUnknown();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1731,7 +1731,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BotCommandCxxBridge : ObjectBridge<BotCommand>
     {
         public static BaseCxxBridge CreateInstance() => new BotCommandCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_botCommand();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1754,7 +1754,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BotInfoCxxBridge : ObjectBridge<BotInfo>
     {
         public static BaseCxxBridge CreateInstance() => new BotInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_botInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1777,7 +1777,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatLocationCxxBridge : ObjectBridge<ChatLocation>
     {
         public static BaseCxxBridge CreateInstance() => new ChatLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1800,7 +1800,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnimatedChatPhotoCxxBridge : ObjectBridge<AnimatedChatPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new AnimatedChatPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_animatedChatPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1825,7 +1825,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatPhotoCxxBridge : ObjectBridge<ChatPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new ChatPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1854,7 +1854,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatPhotosCxxBridge : ObjectBridge<ChatPhotos>
     {
         public static BaseCxxBridge CreateInstance() => new ChatPhotosCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatPhotos();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1877,7 +1877,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputChatPhotoPreviousCxxBridge : ObjectBridge<InputChatPhotoPrevious>
     {
         public static BaseCxxBridge CreateInstance() => new InputChatPhotoPreviousCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputChatPhotoPrevious();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1898,7 +1898,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputChatPhotoStaticCxxBridge : ObjectBridge<InputChatPhotoStatic>
     {
         public static BaseCxxBridge CreateInstance() => new InputChatPhotoStaticCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputChatPhotoStatic();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1919,7 +1919,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputChatPhotoAnimationCxxBridge : ObjectBridge<InputChatPhotoAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new InputChatPhotoAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputChatPhotoAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1942,7 +1942,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserCxxBridge : ObjectBridge<User>
     {
         public static BaseCxxBridge CreateInstance() => new UserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_user();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -1993,7 +1993,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserFullInfoCxxBridge : ObjectBridge<UserFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new UserFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2030,7 +2030,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UsersCxxBridge : ObjectBridge<Users>
     {
         public static BaseCxxBridge CreateInstance() => new UsersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_users();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2053,7 +2053,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatAdministratorCxxBridge : ObjectBridge<ChatAdministrator>
     {
         public static BaseCxxBridge CreateInstance() => new ChatAdministratorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatAdministrator();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2078,7 +2078,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatAdministratorsCxxBridge : ObjectBridge<ChatAdministrators>
     {
         public static BaseCxxBridge CreateInstance() => new ChatAdministratorsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatAdministrators();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2099,7 +2099,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatPermissionsCxxBridge : ObjectBridge<ChatPermissions>
     {
         public static BaseCxxBridge CreateInstance() => new ChatPermissionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatPermissions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2134,7 +2134,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMemberStatusCreatorCxxBridge : ObjectBridge<ChatMemberStatusCreator>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMemberStatusCreatorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMemberStatusCreator();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2159,7 +2159,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMemberStatusAdministratorCxxBridge : ObjectBridge<ChatMemberStatusAdministrator>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMemberStatusAdministratorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMemberStatusAdministrator();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2200,7 +2200,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMemberStatusMemberCxxBridge : ObjectBridge<ChatMemberStatusMember>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMemberStatusMemberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMemberStatusMember();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2219,7 +2219,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMemberStatusRestrictedCxxBridge : ObjectBridge<ChatMemberStatusRestricted>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMemberStatusRestrictedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMemberStatusRestricted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2244,7 +2244,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMemberStatusLeftCxxBridge : ObjectBridge<ChatMemberStatusLeft>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMemberStatusLeftCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMemberStatusLeft();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2263,7 +2263,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMemberStatusBannedCxxBridge : ObjectBridge<ChatMemberStatusBanned>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMemberStatusBannedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMemberStatusBanned();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2284,7 +2284,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMemberCxxBridge : ObjectBridge<ChatMember>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMemberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMember();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2313,7 +2313,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMembersCxxBridge : ObjectBridge<ChatMembers>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2336,7 +2336,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMembersFilterContactsCxxBridge : ObjectBridge<ChatMembersFilterContacts>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMembersFilterContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMembersFilterContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2355,7 +2355,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMembersFilterAdministratorsCxxBridge : ObjectBridge<ChatMembersFilterAdministrators>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMembersFilterAdministratorsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMembersFilterAdministrators();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2374,7 +2374,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMembersFilterMembersCxxBridge : ObjectBridge<ChatMembersFilterMembers>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMembersFilterMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMembersFilterMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2393,7 +2393,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMembersFilterRestrictedCxxBridge : ObjectBridge<ChatMembersFilterRestricted>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMembersFilterRestrictedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMembersFilterRestricted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2412,7 +2412,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMembersFilterBannedCxxBridge : ObjectBridge<ChatMembersFilterBanned>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMembersFilterBannedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMembersFilterBanned();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2431,7 +2431,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatMembersFilterBotsCxxBridge : ObjectBridge<ChatMembersFilterBots>
     {
         public static BaseCxxBridge CreateInstance() => new ChatMembersFilterBotsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatMembersFilterBots();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2450,7 +2450,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupMembersFilterRecentCxxBridge : ObjectBridge<SupergroupMembersFilterRecent>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterRecentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupMembersFilterRecent();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2469,7 +2469,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupMembersFilterContactsCxxBridge : ObjectBridge<SupergroupMembersFilterContacts>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupMembersFilterContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2490,7 +2490,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupMembersFilterAdministratorsCxxBridge : ObjectBridge<SupergroupMembersFilterAdministrators>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterAdministratorsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupMembersFilterAdministrators();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2509,7 +2509,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupMembersFilterSearchCxxBridge : ObjectBridge<SupergroupMembersFilterSearch>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterSearchCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupMembersFilterSearch();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2530,7 +2530,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupMembersFilterRestrictedCxxBridge : ObjectBridge<SupergroupMembersFilterRestricted>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterRestrictedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupMembersFilterRestricted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2551,7 +2551,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupMembersFilterBannedCxxBridge : ObjectBridge<SupergroupMembersFilterBanned>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterBannedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupMembersFilterBanned();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2572,7 +2572,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupMembersFilterBotsCxxBridge : ObjectBridge<SupergroupMembersFilterBots>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterBotsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupMembersFilterBots();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2591,7 +2591,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BasicGroupCxxBridge : ObjectBridge<BasicGroup>
     {
         public static BaseCxxBridge CreateInstance() => new BasicGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_basicGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2620,7 +2620,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BasicGroupFullInfoCxxBridge : ObjectBridge<BasicGroupFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new BasicGroupFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_basicGroupFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2649,7 +2649,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupCxxBridge : ObjectBridge<Supergroup>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2694,7 +2694,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SupergroupFullInfoCxxBridge : ObjectBridge<SupergroupFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new SupergroupFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_supergroupFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2753,7 +2753,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SecretChatStatePendingCxxBridge : ObjectBridge<SecretChatStatePending>
     {
         public static BaseCxxBridge CreateInstance() => new SecretChatStatePendingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_secretChatStatePending();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2772,7 +2772,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SecretChatStateReadyCxxBridge : ObjectBridge<SecretChatStateReady>
     {
         public static BaseCxxBridge CreateInstance() => new SecretChatStateReadyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_secretChatStateReady();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2791,7 +2791,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SecretChatStateClosedCxxBridge : ObjectBridge<SecretChatStateClosed>
     {
         public static BaseCxxBridge CreateInstance() => new SecretChatStateClosedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_secretChatStateClosed();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2810,7 +2810,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SecretChatCxxBridge : ObjectBridge<SecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new SecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_secretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2843,7 +2843,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageForwardOriginUserCxxBridge : ObjectBridge<MessageForwardOriginUser>
     {
         public static BaseCxxBridge CreateInstance() => new MessageForwardOriginUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageForwardOriginUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2864,7 +2864,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageForwardOriginChatCxxBridge : ObjectBridge<MessageForwardOriginChat>
     {
         public static BaseCxxBridge CreateInstance() => new MessageForwardOriginChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageForwardOriginChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2885,7 +2885,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageForwardOriginHiddenUserCxxBridge : ObjectBridge<MessageForwardOriginHiddenUser>
     {
         public static BaseCxxBridge CreateInstance() => new MessageForwardOriginHiddenUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageForwardOriginHiddenUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2906,7 +2906,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageForwardOriginChannelCxxBridge : ObjectBridge<MessageForwardOriginChannel>
     {
         public static BaseCxxBridge CreateInstance() => new MessageForwardOriginChannelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageForwardOriginChannel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2931,7 +2931,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageForwardInfoCxxBridge : ObjectBridge<MessageForwardInfo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageForwardInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageForwardInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2960,7 +2960,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageReplyInfoCxxBridge : ObjectBridge<MessageReplyInfo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageReplyInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageReplyInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -2989,7 +2989,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageInteractionInfoCxxBridge : ObjectBridge<MessageInteractionInfo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageInteractionInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageInteractionInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3014,7 +3014,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageSendingStatePendingCxxBridge : ObjectBridge<MessageSendingStatePending>
     {
         public static BaseCxxBridge CreateInstance() => new MessageSendingStatePendingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageSendingStatePending();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3033,7 +3033,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageSendingStateFailedCxxBridge : ObjectBridge<MessageSendingStateFailed>
     {
         public static BaseCxxBridge CreateInstance() => new MessageSendingStateFailedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageSendingStateFailed();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3060,7 +3060,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageCxxBridge : ObjectBridge<Message>
     {
         public static BaseCxxBridge CreateInstance() => new MessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_message();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3139,7 +3139,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagesCxxBridge : ObjectBridge<Messages>
     {
         public static BaseCxxBridge CreateInstance() => new MessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3162,7 +3162,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FoundMessagesCxxBridge : ObjectBridge<FoundMessages>
     {
         public static BaseCxxBridge CreateInstance() => new FoundMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_foundMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3187,7 +3187,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationSettingsScopePrivateChatsCxxBridge : ObjectBridge<NotificationSettingsScopePrivateChats>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationSettingsScopePrivateChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationSettingsScopePrivateChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3206,7 +3206,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationSettingsScopeGroupChatsCxxBridge : ObjectBridge<NotificationSettingsScopeGroupChats>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationSettingsScopeGroupChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationSettingsScopeGroupChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3225,7 +3225,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationSettingsScopeChannelChatsCxxBridge : ObjectBridge<NotificationSettingsScopeChannelChats>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationSettingsScopeChannelChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationSettingsScopeChannelChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3244,7 +3244,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatNotificationSettingsCxxBridge : ObjectBridge<ChatNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new ChatNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3283,7 +3283,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ScopeNotificationSettingsCxxBridge : ObjectBridge<ScopeNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new ScopeNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_scopeNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3312,7 +3312,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DraftMessageCxxBridge : ObjectBridge<DraftMessage>
     {
         public static BaseCxxBridge CreateInstance() => new DraftMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_draftMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3337,7 +3337,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatTypePrivateCxxBridge : ObjectBridge<ChatTypePrivate>
     {
         public static BaseCxxBridge CreateInstance() => new ChatTypePrivateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatTypePrivate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3358,7 +3358,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatTypeBasicGroupCxxBridge : ObjectBridge<ChatTypeBasicGroup>
     {
         public static BaseCxxBridge CreateInstance() => new ChatTypeBasicGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatTypeBasicGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3379,7 +3379,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatTypeSupergroupCxxBridge : ObjectBridge<ChatTypeSupergroup>
     {
         public static BaseCxxBridge CreateInstance() => new ChatTypeSupergroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatTypeSupergroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3402,7 +3402,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatTypeSecretCxxBridge : ObjectBridge<ChatTypeSecret>
     {
         public static BaseCxxBridge CreateInstance() => new ChatTypeSecretCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatTypeSecret();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3425,7 +3425,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatFilterCxxBridge : ObjectBridge<ChatFilter>
     {
         public static BaseCxxBridge CreateInstance() => new ChatFilterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatFilter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3470,7 +3470,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatFilterInfoCxxBridge : ObjectBridge<ChatFilterInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatFilterInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatFilterInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3495,7 +3495,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RecommendedChatFilterCxxBridge : ObjectBridge<RecommendedChatFilter>
     {
         public static BaseCxxBridge CreateInstance() => new RecommendedChatFilterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_recommendedChatFilter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3518,7 +3518,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RecommendedChatFiltersCxxBridge : ObjectBridge<RecommendedChatFilters>
     {
         public static BaseCxxBridge CreateInstance() => new RecommendedChatFiltersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_recommendedChatFilters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3539,7 +3539,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatListMainCxxBridge : ObjectBridge<ChatListMain>
     {
         public static BaseCxxBridge CreateInstance() => new ChatListMainCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatListMain();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3558,7 +3558,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatListArchiveCxxBridge : ObjectBridge<ChatListArchive>
     {
         public static BaseCxxBridge CreateInstance() => new ChatListArchiveCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatListArchive();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3577,7 +3577,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatListFilterCxxBridge : ObjectBridge<ChatListFilter>
     {
         public static BaseCxxBridge CreateInstance() => new ChatListFilterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatListFilter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3598,7 +3598,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatListsCxxBridge : ObjectBridge<ChatLists>
     {
         public static BaseCxxBridge CreateInstance() => new ChatListsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatLists();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3619,7 +3619,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatSourceMtprotoProxyCxxBridge : ObjectBridge<ChatSourceMtprotoProxy>
     {
         public static BaseCxxBridge CreateInstance() => new ChatSourceMtprotoProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatSourceMtprotoProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3638,7 +3638,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatSourcePublicServiceAnnouncementCxxBridge : ObjectBridge<ChatSourcePublicServiceAnnouncement>
     {
         public static BaseCxxBridge CreateInstance() => new ChatSourcePublicServiceAnnouncementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatSourcePublicServiceAnnouncement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3661,7 +3661,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatPositionCxxBridge : ObjectBridge<ChatPosition>
     {
         public static BaseCxxBridge CreateInstance() => new ChatPositionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatPosition();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3688,7 +3688,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatCxxBridge : ObjectBridge<Chat>
     {
         public static BaseCxxBridge CreateInstance() => new ChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3755,7 +3755,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatsCxxBridge : ObjectBridge<Chats>
     {
         public static BaseCxxBridge CreateInstance() => new ChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3778,7 +3778,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatNearbyCxxBridge : ObjectBridge<ChatNearby>
     {
         public static BaseCxxBridge CreateInstance() => new ChatNearbyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatNearby();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3801,7 +3801,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatsNearbyCxxBridge : ObjectBridge<ChatsNearby>
     {
         public static BaseCxxBridge CreateInstance() => new ChatsNearbyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatsNearby();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3824,7 +3824,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatInviteLinkCxxBridge : ObjectBridge<ChatInviteLink>
     {
         public static BaseCxxBridge CreateInstance() => new ChatInviteLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatInviteLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3845,7 +3845,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatInviteLinkInfoCxxBridge : ObjectBridge<ChatInviteLinkInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatInviteLinkInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatInviteLinkInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3880,7 +3880,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PublicChatTypeHasUsernameCxxBridge : ObjectBridge<PublicChatTypeHasUsername>
     {
         public static BaseCxxBridge CreateInstance() => new PublicChatTypeHasUsernameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_publicChatTypeHasUsername();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3899,7 +3899,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PublicChatTypeIsLocationBasedCxxBridge : ObjectBridge<PublicChatTypeIsLocationBased>
     {
         public static BaseCxxBridge CreateInstance() => new PublicChatTypeIsLocationBasedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_publicChatTypeIsLocationBased();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3918,7 +3918,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionBarReportSpamCxxBridge : ObjectBridge<ChatActionBarReportSpam>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionBarReportSpamCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionBarReportSpam();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3939,7 +3939,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionBarReportUnrelatedLocationCxxBridge : ObjectBridge<ChatActionBarReportUnrelatedLocation>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionBarReportUnrelatedLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionBarReportUnrelatedLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3958,7 +3958,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionBarReportAddBlockCxxBridge : ObjectBridge<ChatActionBarReportAddBlock>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionBarReportAddBlockCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionBarReportAddBlock();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -3981,7 +3981,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionBarAddContactCxxBridge : ObjectBridge<ChatActionBarAddContact>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionBarAddContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionBarAddContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4000,7 +4000,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionBarSharePhoneNumberCxxBridge : ObjectBridge<ChatActionBarSharePhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionBarSharePhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionBarSharePhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4019,7 +4019,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class KeyboardButtonTypeTextCxxBridge : ObjectBridge<KeyboardButtonTypeText>
     {
         public static BaseCxxBridge CreateInstance() => new KeyboardButtonTypeTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_keyboardButtonTypeText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4038,7 +4038,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class KeyboardButtonTypeRequestPhoneNumberCxxBridge : ObjectBridge<KeyboardButtonTypeRequestPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new KeyboardButtonTypeRequestPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_keyboardButtonTypeRequestPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4057,7 +4057,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class KeyboardButtonTypeRequestLocationCxxBridge : ObjectBridge<KeyboardButtonTypeRequestLocation>
     {
         public static BaseCxxBridge CreateInstance() => new KeyboardButtonTypeRequestLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_keyboardButtonTypeRequestLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4076,7 +4076,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class KeyboardButtonTypeRequestPollCxxBridge : ObjectBridge<KeyboardButtonTypeRequestPoll>
     {
         public static BaseCxxBridge CreateInstance() => new KeyboardButtonTypeRequestPollCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_keyboardButtonTypeRequestPoll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4099,7 +4099,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class KeyboardButtonCxxBridge : ObjectBridge<KeyboardButton>
     {
         public static BaseCxxBridge CreateInstance() => new KeyboardButtonCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_keyboardButton();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4122,7 +4122,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonTypeUrlCxxBridge : ObjectBridge<InlineKeyboardButtonTypeUrl>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonTypeUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButtonTypeUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4143,7 +4143,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonTypeLoginUrlCxxBridge : ObjectBridge<InlineKeyboardButtonTypeLoginUrl>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonTypeLoginUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButtonTypeLoginUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4168,7 +4168,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonTypeCallbackCxxBridge : ObjectBridge<InlineKeyboardButtonTypeCallback>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonTypeCallbackCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButtonTypeCallback();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4189,7 +4189,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonTypeCallbackWithPasswordCxxBridge : ObjectBridge<InlineKeyboardButtonTypeCallbackWithPassword>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonTypeCallbackWithPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButtonTypeCallbackWithPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4210,7 +4210,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonTypeCallbackGameCxxBridge : ObjectBridge<InlineKeyboardButtonTypeCallbackGame>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonTypeCallbackGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButtonTypeCallbackGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4229,7 +4229,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonTypeSwitchInlineCxxBridge : ObjectBridge<InlineKeyboardButtonTypeSwitchInline>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonTypeSwitchInlineCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButtonTypeSwitchInline();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4252,7 +4252,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonTypeBuyCxxBridge : ObjectBridge<InlineKeyboardButtonTypeBuy>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonTypeBuyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButtonTypeBuy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4271,7 +4271,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineKeyboardButtonCxxBridge : ObjectBridge<InlineKeyboardButton>
     {
         public static BaseCxxBridge CreateInstance() => new InlineKeyboardButtonCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineKeyboardButton();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4294,7 +4294,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReplyMarkupRemoveKeyboardCxxBridge : ObjectBridge<ReplyMarkupRemoveKeyboard>
     {
         public static BaseCxxBridge CreateInstance() => new ReplyMarkupRemoveKeyboardCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_replyMarkupRemoveKeyboard();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4315,7 +4315,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReplyMarkupForceReplyCxxBridge : ObjectBridge<ReplyMarkupForceReply>
     {
         public static BaseCxxBridge CreateInstance() => new ReplyMarkupForceReplyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_replyMarkupForceReply();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4336,7 +4336,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReplyMarkupShowKeyboardCxxBridge : ObjectBridge<ReplyMarkupShowKeyboard>
     {
         public static BaseCxxBridge CreateInstance() => new ReplyMarkupShowKeyboardCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_replyMarkupShowKeyboard();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4363,7 +4363,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReplyMarkupInlineKeyboardCxxBridge : ObjectBridge<ReplyMarkupInlineKeyboard>
     {
         public static BaseCxxBridge CreateInstance() => new ReplyMarkupInlineKeyboardCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_replyMarkupInlineKeyboard();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4384,7 +4384,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LoginUrlInfoOpenCxxBridge : ObjectBridge<LoginUrlInfoOpen>
     {
         public static BaseCxxBridge CreateInstance() => new LoginUrlInfoOpenCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_loginUrlInfoOpen();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4407,7 +4407,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LoginUrlInfoRequestConfirmationCxxBridge : ObjectBridge<LoginUrlInfoRequestConfirmation>
     {
         public static BaseCxxBridge CreateInstance() => new LoginUrlInfoRequestConfirmationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_loginUrlInfoRequestConfirmation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4434,7 +4434,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageThreadInfoCxxBridge : ObjectBridge<MessageThreadInfo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageThreadInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageThreadInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4463,7 +4463,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextPlainCxxBridge : ObjectBridge<RichTextPlain>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextPlainCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextPlain();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4484,7 +4484,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextBoldCxxBridge : ObjectBridge<RichTextBold>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextBoldCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextBold();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4505,7 +4505,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextItalicCxxBridge : ObjectBridge<RichTextItalic>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextItalicCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextItalic();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4526,7 +4526,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextUnderlineCxxBridge : ObjectBridge<RichTextUnderline>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextUnderlineCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextUnderline();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4547,7 +4547,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextStrikethroughCxxBridge : ObjectBridge<RichTextStrikethrough>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextStrikethroughCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextStrikethrough();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4568,7 +4568,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextFixedCxxBridge : ObjectBridge<RichTextFixed>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextFixedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextFixed();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4589,7 +4589,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextUrlCxxBridge : ObjectBridge<RichTextUrl>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4614,7 +4614,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextEmailAddressCxxBridge : ObjectBridge<RichTextEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4637,7 +4637,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextSubscriptCxxBridge : ObjectBridge<RichTextSubscript>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextSubscriptCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextSubscript();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4658,7 +4658,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextSuperscriptCxxBridge : ObjectBridge<RichTextSuperscript>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextSuperscriptCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextSuperscript();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4679,7 +4679,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextMarkedCxxBridge : ObjectBridge<RichTextMarked>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextMarkedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextMarked();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4700,7 +4700,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextPhoneNumberCxxBridge : ObjectBridge<RichTextPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4723,7 +4723,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextIconCxxBridge : ObjectBridge<RichTextIcon>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextIconCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextIcon();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4748,7 +4748,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextReferenceCxxBridge : ObjectBridge<RichTextReference>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextReferenceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextReference();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4773,7 +4773,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextAnchorCxxBridge : ObjectBridge<RichTextAnchor>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextAnchorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextAnchor();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4794,7 +4794,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextAnchorLinkCxxBridge : ObjectBridge<RichTextAnchorLink>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextAnchorLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTextAnchorLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4819,7 +4819,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RichTextsCxxBridge : ObjectBridge<RichTexts>
     {
         public static BaseCxxBridge CreateInstance() => new RichTextsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_richTexts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4840,7 +4840,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockCaptionCxxBridge : ObjectBridge<PageBlockCaption>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockCaptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockCaption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4863,7 +4863,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockListItemCxxBridge : ObjectBridge<PageBlockListItem>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockListItemCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockListItem();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4886,7 +4886,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockHorizontalAlignmentLeftCxxBridge : ObjectBridge<PageBlockHorizontalAlignmentLeft>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockHorizontalAlignmentLeftCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockHorizontalAlignmentLeft();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4905,7 +4905,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockHorizontalAlignmentCenterCxxBridge : ObjectBridge<PageBlockHorizontalAlignmentCenter>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockHorizontalAlignmentCenterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockHorizontalAlignmentCenter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4924,7 +4924,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockHorizontalAlignmentRightCxxBridge : ObjectBridge<PageBlockHorizontalAlignmentRight>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockHorizontalAlignmentRightCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockHorizontalAlignmentRight();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4943,7 +4943,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockVerticalAlignmentTopCxxBridge : ObjectBridge<PageBlockVerticalAlignmentTop>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockVerticalAlignmentTopCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockVerticalAlignmentTop();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4962,7 +4962,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockVerticalAlignmentMiddleCxxBridge : ObjectBridge<PageBlockVerticalAlignmentMiddle>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockVerticalAlignmentMiddleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockVerticalAlignmentMiddle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -4981,7 +4981,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockVerticalAlignmentBottomCxxBridge : ObjectBridge<PageBlockVerticalAlignmentBottom>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockVerticalAlignmentBottomCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockVerticalAlignmentBottom();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5000,7 +5000,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockTableCellCxxBridge : ObjectBridge<PageBlockTableCell>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockTableCellCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockTableCell();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5031,7 +5031,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockRelatedArticleCxxBridge : ObjectBridge<PageBlockRelatedArticle>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockRelatedArticleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockRelatedArticle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5062,7 +5062,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockTitleCxxBridge : ObjectBridge<PageBlockTitle>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockTitleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockTitle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5083,7 +5083,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockSubtitleCxxBridge : ObjectBridge<PageBlockSubtitle>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockSubtitleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockSubtitle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5104,7 +5104,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockAuthorDateCxxBridge : ObjectBridge<PageBlockAuthorDate>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockAuthorDateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockAuthorDate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5127,7 +5127,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockHeaderCxxBridge : ObjectBridge<PageBlockHeader>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockHeaderCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockHeader();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5148,7 +5148,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockSubheaderCxxBridge : ObjectBridge<PageBlockSubheader>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockSubheaderCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockSubheader();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5169,7 +5169,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockKickerCxxBridge : ObjectBridge<PageBlockKicker>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockKickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockKicker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5190,7 +5190,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockParagraphCxxBridge : ObjectBridge<PageBlockParagraph>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockParagraphCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockParagraph();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5211,7 +5211,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockPreformattedCxxBridge : ObjectBridge<PageBlockPreformatted>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockPreformattedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockPreformatted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5234,7 +5234,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockFooterCxxBridge : ObjectBridge<PageBlockFooter>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockFooterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockFooter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5255,7 +5255,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockDividerCxxBridge : ObjectBridge<PageBlockDivider>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockDividerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockDivider();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5274,7 +5274,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockAnchorCxxBridge : ObjectBridge<PageBlockAnchor>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockAnchorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockAnchor();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5295,7 +5295,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockListCxxBridge : ObjectBridge<PageBlockList>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockListCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockList();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5316,7 +5316,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockBlockQuoteCxxBridge : ObjectBridge<PageBlockBlockQuote>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockBlockQuoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockBlockQuote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5339,7 +5339,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockPullQuoteCxxBridge : ObjectBridge<PageBlockPullQuote>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockPullQuoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockPullQuote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5362,7 +5362,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockAnimationCxxBridge : ObjectBridge<PageBlockAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5387,7 +5387,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockAudioCxxBridge : ObjectBridge<PageBlockAudio>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5410,7 +5410,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockPhotoCxxBridge : ObjectBridge<PageBlockPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5435,7 +5435,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockVideoCxxBridge : ObjectBridge<PageBlockVideo>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5462,7 +5462,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockVoiceNoteCxxBridge : ObjectBridge<PageBlockVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5485,7 +5485,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockCoverCxxBridge : ObjectBridge<PageBlockCover>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockCoverCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockCover();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5506,7 +5506,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockEmbeddedCxxBridge : ObjectBridge<PageBlockEmbedded>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockEmbeddedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockEmbedded();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5541,7 +5541,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockEmbeddedPostCxxBridge : ObjectBridge<PageBlockEmbeddedPost>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockEmbeddedPostCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockEmbeddedPost();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5572,7 +5572,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockCollageCxxBridge : ObjectBridge<PageBlockCollage>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockCollageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockCollage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5595,7 +5595,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockSlideshowCxxBridge : ObjectBridge<PageBlockSlideshow>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockSlideshowCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockSlideshow();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5618,7 +5618,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockChatLinkCxxBridge : ObjectBridge<PageBlockChatLink>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockChatLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockChatLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5643,7 +5643,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockTableCxxBridge : ObjectBridge<PageBlockTable>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockTableCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockTable();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5670,7 +5670,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockDetailsCxxBridge : ObjectBridge<PageBlockDetails>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockDetailsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockDetails();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5695,7 +5695,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockRelatedArticlesCxxBridge : ObjectBridge<PageBlockRelatedArticles>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockRelatedArticlesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockRelatedArticles();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5718,7 +5718,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PageBlockMapCxxBridge : ObjectBridge<PageBlockMap>
     {
         public static BaseCxxBridge CreateInstance() => new PageBlockMapCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pageBlockMap();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5747,7 +5747,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class WebPageInstantViewCxxBridge : ObjectBridge<WebPageInstantView>
     {
         public static BaseCxxBridge CreateInstance() => new WebPageInstantViewCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_webPageInstantView();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5776,7 +5776,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class WebPageCxxBridge : ObjectBridge<WebPage>
     {
         public static BaseCxxBridge CreateInstance() => new WebPageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_webPage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5837,7 +5837,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CountryInfoCxxBridge : ObjectBridge<CountryInfo>
     {
         public static BaseCxxBridge CreateInstance() => new CountryInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_countryInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5866,7 +5866,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CountriesCxxBridge : ObjectBridge<Countries>
     {
         public static BaseCxxBridge CreateInstance() => new CountriesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_countries();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5887,7 +5887,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PhoneNumberInfoCxxBridge : ObjectBridge<PhoneNumberInfo>
     {
         public static BaseCxxBridge CreateInstance() => new PhoneNumberInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_phoneNumberInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5912,7 +5912,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BankCardActionOpenUrlCxxBridge : ObjectBridge<BankCardActionOpenUrl>
     {
         public static BaseCxxBridge CreateInstance() => new BankCardActionOpenUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_bankCardActionOpenUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5935,7 +5935,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BankCardInfoCxxBridge : ObjectBridge<BankCardInfo>
     {
         public static BaseCxxBridge CreateInstance() => new BankCardInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_bankCardInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5958,7 +5958,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddressCxxBridge : ObjectBridge<Address>
     {
         public static BaseCxxBridge CreateInstance() => new AddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_address();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -5989,7 +5989,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LabeledPricePartCxxBridge : ObjectBridge<LabeledPricePart>
     {
         public static BaseCxxBridge CreateInstance() => new LabeledPricePartCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_labeledPricePart();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6012,7 +6012,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InvoiceCxxBridge : ObjectBridge<Invoice>
     {
         public static BaseCxxBridge CreateInstance() => new InvoiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_invoice();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6051,7 +6051,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OrderInfoCxxBridge : ObjectBridge<OrderInfo>
     {
         public static BaseCxxBridge CreateInstance() => new OrderInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_orderInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6078,7 +6078,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ShippingOptionCxxBridge : ObjectBridge<ShippingOption>
     {
         public static BaseCxxBridge CreateInstance() => new ShippingOptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_shippingOption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6103,7 +6103,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SavedCredentialsCxxBridge : ObjectBridge<SavedCredentials>
     {
         public static BaseCxxBridge CreateInstance() => new SavedCredentialsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_savedCredentials();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6126,7 +6126,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputCredentialsSavedCxxBridge : ObjectBridge<InputCredentialsSaved>
     {
         public static BaseCxxBridge CreateInstance() => new InputCredentialsSavedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputCredentialsSaved();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6147,7 +6147,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputCredentialsNewCxxBridge : ObjectBridge<InputCredentialsNew>
     {
         public static BaseCxxBridge CreateInstance() => new InputCredentialsNewCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputCredentialsNew();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6170,7 +6170,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputCredentialsAndroidPayCxxBridge : ObjectBridge<InputCredentialsAndroidPay>
     {
         public static BaseCxxBridge CreateInstance() => new InputCredentialsAndroidPayCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputCredentialsAndroidPay();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6191,7 +6191,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputCredentialsApplePayCxxBridge : ObjectBridge<InputCredentialsApplePay>
     {
         public static BaseCxxBridge CreateInstance() => new InputCredentialsApplePayCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputCredentialsApplePay();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6212,7 +6212,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PaymentsProviderStripeCxxBridge : ObjectBridge<PaymentsProviderStripe>
     {
         public static BaseCxxBridge CreateInstance() => new PaymentsProviderStripeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_paymentsProviderStripe();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6239,7 +6239,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PaymentFormCxxBridge : ObjectBridge<PaymentForm>
     {
         public static BaseCxxBridge CreateInstance() => new PaymentFormCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_paymentForm();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6272,7 +6272,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ValidatedOrderInfoCxxBridge : ObjectBridge<ValidatedOrderInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ValidatedOrderInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_validatedOrderInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6295,7 +6295,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PaymentResultCxxBridge : ObjectBridge<PaymentResult>
     {
         public static BaseCxxBridge CreateInstance() => new PaymentResultCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_paymentResult();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6318,7 +6318,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PaymentReceiptCxxBridge : ObjectBridge<PaymentReceipt>
     {
         public static BaseCxxBridge CreateInstance() => new PaymentReceiptCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_paymentReceipt();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6349,7 +6349,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DatedFileCxxBridge : ObjectBridge<DatedFile>
     {
         public static BaseCxxBridge CreateInstance() => new DatedFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_datedFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6372,7 +6372,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypePersonalDetailsCxxBridge : ObjectBridge<PassportElementTypePersonalDetails>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypePersonalDetailsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypePersonalDetails();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6391,7 +6391,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypePassportCxxBridge : ObjectBridge<PassportElementTypePassport>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypePassportCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypePassport();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6410,7 +6410,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeDriverLicenseCxxBridge : ObjectBridge<PassportElementTypeDriverLicense>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeDriverLicenseCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeDriverLicense();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6429,7 +6429,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeIdentityCardCxxBridge : ObjectBridge<PassportElementTypeIdentityCard>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeIdentityCardCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeIdentityCard();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6448,7 +6448,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeInternalPassportCxxBridge : ObjectBridge<PassportElementTypeInternalPassport>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeInternalPassportCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeInternalPassport();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6467,7 +6467,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeAddressCxxBridge : ObjectBridge<PassportElementTypeAddress>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6486,7 +6486,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeUtilityBillCxxBridge : ObjectBridge<PassportElementTypeUtilityBill>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeUtilityBillCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeUtilityBill();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6505,7 +6505,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeBankStatementCxxBridge : ObjectBridge<PassportElementTypeBankStatement>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeBankStatementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeBankStatement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6524,7 +6524,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeRentalAgreementCxxBridge : ObjectBridge<PassportElementTypeRentalAgreement>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeRentalAgreementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeRentalAgreement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6543,7 +6543,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypePassportRegistrationCxxBridge : ObjectBridge<PassportElementTypePassportRegistration>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypePassportRegistrationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypePassportRegistration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6562,7 +6562,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeTemporaryRegistrationCxxBridge : ObjectBridge<PassportElementTypeTemporaryRegistration>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeTemporaryRegistrationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeTemporaryRegistration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6581,7 +6581,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypePhoneNumberCxxBridge : ObjectBridge<PassportElementTypePhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypePhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypePhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6600,7 +6600,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTypeEmailAddressCxxBridge : ObjectBridge<PassportElementTypeEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTypeEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTypeEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6619,7 +6619,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DateCxxBridge : ObjectBridge<Date>
     {
         public static BaseCxxBridge CreateInstance() => new DateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_date();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6644,7 +6644,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PersonalDetailsCxxBridge : ObjectBridge<PersonalDetails>
     {
         public static BaseCxxBridge CreateInstance() => new PersonalDetailsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_personalDetails();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6683,7 +6683,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class IdentityDocumentCxxBridge : ObjectBridge<IdentityDocument>
     {
         public static BaseCxxBridge CreateInstance() => new IdentityDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_identityDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6714,7 +6714,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputIdentityDocumentCxxBridge : ObjectBridge<InputIdentityDocument>
     {
         public static BaseCxxBridge CreateInstance() => new InputIdentityDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputIdentityDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6745,7 +6745,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PersonalDocumentCxxBridge : ObjectBridge<PersonalDocument>
     {
         public static BaseCxxBridge CreateInstance() => new PersonalDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_personalDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6768,7 +6768,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPersonalDocumentCxxBridge : ObjectBridge<InputPersonalDocument>
     {
         public static BaseCxxBridge CreateInstance() => new InputPersonalDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPersonalDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6791,7 +6791,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementPersonalDetailsCxxBridge : ObjectBridge<PassportElementPersonalDetails>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementPersonalDetailsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementPersonalDetails();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6812,7 +6812,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementPassportCxxBridge : ObjectBridge<PassportElementPassport>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementPassportCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementPassport();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6833,7 +6833,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementDriverLicenseCxxBridge : ObjectBridge<PassportElementDriverLicense>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementDriverLicenseCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementDriverLicense();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6854,7 +6854,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementIdentityCardCxxBridge : ObjectBridge<PassportElementIdentityCard>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementIdentityCardCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementIdentityCard();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6875,7 +6875,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementInternalPassportCxxBridge : ObjectBridge<PassportElementInternalPassport>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementInternalPassportCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementInternalPassport();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6896,7 +6896,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementAddressCxxBridge : ObjectBridge<PassportElementAddress>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6917,7 +6917,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementUtilityBillCxxBridge : ObjectBridge<PassportElementUtilityBill>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementUtilityBillCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementUtilityBill();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6938,7 +6938,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementBankStatementCxxBridge : ObjectBridge<PassportElementBankStatement>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementBankStatementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementBankStatement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6959,7 +6959,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementRentalAgreementCxxBridge : ObjectBridge<PassportElementRentalAgreement>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementRentalAgreementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementRentalAgreement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -6980,7 +6980,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementPassportRegistrationCxxBridge : ObjectBridge<PassportElementPassportRegistration>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementPassportRegistrationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementPassportRegistration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7001,7 +7001,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementTemporaryRegistrationCxxBridge : ObjectBridge<PassportElementTemporaryRegistration>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementTemporaryRegistrationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementTemporaryRegistration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7022,7 +7022,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementPhoneNumberCxxBridge : ObjectBridge<PassportElementPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7043,7 +7043,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementEmailAddressCxxBridge : ObjectBridge<PassportElementEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7064,7 +7064,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementPersonalDetailsCxxBridge : ObjectBridge<InputPassportElementPersonalDetails>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementPersonalDetailsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementPersonalDetails();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7085,7 +7085,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementPassportCxxBridge : ObjectBridge<InputPassportElementPassport>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementPassportCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementPassport();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7106,7 +7106,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementDriverLicenseCxxBridge : ObjectBridge<InputPassportElementDriverLicense>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementDriverLicenseCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementDriverLicense();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7127,7 +7127,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementIdentityCardCxxBridge : ObjectBridge<InputPassportElementIdentityCard>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementIdentityCardCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementIdentityCard();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7148,7 +7148,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementInternalPassportCxxBridge : ObjectBridge<InputPassportElementInternalPassport>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementInternalPassportCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementInternalPassport();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7169,7 +7169,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementAddressCxxBridge : ObjectBridge<InputPassportElementAddress>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7190,7 +7190,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementUtilityBillCxxBridge : ObjectBridge<InputPassportElementUtilityBill>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementUtilityBillCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementUtilityBill();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7211,7 +7211,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementBankStatementCxxBridge : ObjectBridge<InputPassportElementBankStatement>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementBankStatementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementBankStatement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7232,7 +7232,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementRentalAgreementCxxBridge : ObjectBridge<InputPassportElementRentalAgreement>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementRentalAgreementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementRentalAgreement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7253,7 +7253,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementPassportRegistrationCxxBridge : ObjectBridge<InputPassportElementPassportRegistration>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementPassportRegistrationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementPassportRegistration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7274,7 +7274,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementTemporaryRegistrationCxxBridge : ObjectBridge<InputPassportElementTemporaryRegistration>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementTemporaryRegistrationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementTemporaryRegistration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7295,7 +7295,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementPhoneNumberCxxBridge : ObjectBridge<InputPassportElementPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7316,7 +7316,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementEmailAddressCxxBridge : ObjectBridge<InputPassportElementEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7337,7 +7337,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementsCxxBridge : ObjectBridge<PassportElements>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElements();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7358,7 +7358,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceUnspecifiedCxxBridge : ObjectBridge<PassportElementErrorSourceUnspecified>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceUnspecifiedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceUnspecified();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7377,7 +7377,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceDataFieldCxxBridge : ObjectBridge<PassportElementErrorSourceDataField>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceDataFieldCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceDataField();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7398,7 +7398,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceFrontSideCxxBridge : ObjectBridge<PassportElementErrorSourceFrontSide>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceFrontSideCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceFrontSide();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7417,7 +7417,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceReverseSideCxxBridge : ObjectBridge<PassportElementErrorSourceReverseSide>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceReverseSideCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceReverseSide();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7436,7 +7436,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceSelfieCxxBridge : ObjectBridge<PassportElementErrorSourceSelfie>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceSelfieCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceSelfie();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7455,7 +7455,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceTranslationFileCxxBridge : ObjectBridge<PassportElementErrorSourceTranslationFile>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceTranslationFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceTranslationFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7476,7 +7476,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceTranslationFilesCxxBridge : ObjectBridge<PassportElementErrorSourceTranslationFiles>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceTranslationFilesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceTranslationFiles();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7495,7 +7495,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceFileCxxBridge : ObjectBridge<PassportElementErrorSourceFile>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7516,7 +7516,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorSourceFilesCxxBridge : ObjectBridge<PassportElementErrorSourceFiles>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorSourceFilesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementErrorSourceFiles();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7535,7 +7535,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementErrorCxxBridge : ObjectBridge<PassportElementError>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementErrorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementError();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7560,7 +7560,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportSuitableElementCxxBridge : ObjectBridge<PassportSuitableElement>
     {
         public static BaseCxxBridge CreateInstance() => new PassportSuitableElementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportSuitableElement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7587,7 +7587,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportRequiredElementCxxBridge : ObjectBridge<PassportRequiredElement>
     {
         public static BaseCxxBridge CreateInstance() => new PassportRequiredElementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportRequiredElement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7608,7 +7608,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportAuthorizationFormCxxBridge : ObjectBridge<PassportAuthorizationForm>
     {
         public static BaseCxxBridge CreateInstance() => new PassportAuthorizationFormCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportAuthorizationForm();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7633,7 +7633,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PassportElementsWithErrorsCxxBridge : ObjectBridge<PassportElementsWithErrors>
     {
         public static BaseCxxBridge CreateInstance() => new PassportElementsWithErrorsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_passportElementsWithErrors();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7656,7 +7656,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EncryptedCredentialsCxxBridge : ObjectBridge<EncryptedCredentials>
     {
         public static BaseCxxBridge CreateInstance() => new EncryptedCredentialsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_encryptedCredentials();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7681,7 +7681,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EncryptedPassportElementCxxBridge : ObjectBridge<EncryptedPassportElement>
     {
         public static BaseCxxBridge CreateInstance() => new EncryptedPassportElementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_encryptedPassportElement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7718,7 +7718,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceUnspecifiedCxxBridge : ObjectBridge<InputPassportElementErrorSourceUnspecified>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceUnspecifiedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceUnspecified();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7739,7 +7739,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceDataFieldCxxBridge : ObjectBridge<InputPassportElementErrorSourceDataField>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceDataFieldCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceDataField();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7762,7 +7762,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceFrontSideCxxBridge : ObjectBridge<InputPassportElementErrorSourceFrontSide>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceFrontSideCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceFrontSide();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7783,7 +7783,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceReverseSideCxxBridge : ObjectBridge<InputPassportElementErrorSourceReverseSide>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceReverseSideCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceReverseSide();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7804,7 +7804,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceSelfieCxxBridge : ObjectBridge<InputPassportElementErrorSourceSelfie>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceSelfieCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceSelfie();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7825,7 +7825,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceTranslationFileCxxBridge : ObjectBridge<InputPassportElementErrorSourceTranslationFile>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceTranslationFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceTranslationFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7846,7 +7846,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceTranslationFilesCxxBridge : ObjectBridge<InputPassportElementErrorSourceTranslationFiles>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceTranslationFilesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceTranslationFiles();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7867,7 +7867,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceFileCxxBridge : ObjectBridge<InputPassportElementErrorSourceFile>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7888,7 +7888,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorSourceFilesCxxBridge : ObjectBridge<InputPassportElementErrorSourceFiles>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorSourceFilesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementErrorSourceFiles();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7909,7 +7909,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputPassportElementErrorCxxBridge : ObjectBridge<InputPassportElementError>
     {
         public static BaseCxxBridge CreateInstance() => new InputPassportElementErrorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputPassportElementError();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7934,7 +7934,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageTextCxxBridge : ObjectBridge<MessageText>
     {
         public static BaseCxxBridge CreateInstance() => new MessageTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7957,7 +7957,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageAnimationCxxBridge : ObjectBridge<MessageAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new MessageAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -7982,7 +7982,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageAudioCxxBridge : ObjectBridge<MessageAudio>
     {
         public static BaseCxxBridge CreateInstance() => new MessageAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8005,7 +8005,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageDocumentCxxBridge : ObjectBridge<MessageDocument>
     {
         public static BaseCxxBridge CreateInstance() => new MessageDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8028,7 +8028,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagePhotoCxxBridge : ObjectBridge<MessagePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new MessagePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messagePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8053,7 +8053,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageExpiredPhotoCxxBridge : ObjectBridge<MessageExpiredPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new MessageExpiredPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageExpiredPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8072,7 +8072,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageStickerCxxBridge : ObjectBridge<MessageSticker>
     {
         public static BaseCxxBridge CreateInstance() => new MessageStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8093,7 +8093,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageVideoCxxBridge : ObjectBridge<MessageVideo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8118,7 +8118,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageExpiredVideoCxxBridge : ObjectBridge<MessageExpiredVideo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageExpiredVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageExpiredVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8137,7 +8137,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageVideoNoteCxxBridge : ObjectBridge<MessageVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new MessageVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8162,7 +8162,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageVoiceNoteCxxBridge : ObjectBridge<MessageVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new MessageVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8187,7 +8187,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageLocationCxxBridge : ObjectBridge<MessageLocation>
     {
         public static BaseCxxBridge CreateInstance() => new MessageLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8212,7 +8212,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageVenueCxxBridge : ObjectBridge<MessageVenue>
     {
         public static BaseCxxBridge CreateInstance() => new MessageVenueCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageVenue();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8233,7 +8233,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageContactCxxBridge : ObjectBridge<MessageContact>
     {
         public static BaseCxxBridge CreateInstance() => new MessageContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8254,7 +8254,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageDiceCxxBridge : ObjectBridge<MessageDice>
     {
         public static BaseCxxBridge CreateInstance() => new MessageDiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageDice();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8283,7 +8283,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageGameCxxBridge : ObjectBridge<MessageGame>
     {
         public static BaseCxxBridge CreateInstance() => new MessageGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8304,7 +8304,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagePollCxxBridge : ObjectBridge<MessagePoll>
     {
         public static BaseCxxBridge CreateInstance() => new MessagePollCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messagePoll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8325,7 +8325,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageInvoiceCxxBridge : ObjectBridge<MessageInvoice>
     {
         public static BaseCxxBridge CreateInstance() => new MessageInvoiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageInvoice();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8362,7 +8362,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageCallCxxBridge : ObjectBridge<MessageCall>
     {
         public static BaseCxxBridge CreateInstance() => new MessageCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8387,7 +8387,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageBasicGroupChatCreateCxxBridge : ObjectBridge<MessageBasicGroupChatCreate>
     {
         public static BaseCxxBridge CreateInstance() => new MessageBasicGroupChatCreateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageBasicGroupChatCreate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8410,7 +8410,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageSupergroupChatCreateCxxBridge : ObjectBridge<MessageSupergroupChatCreate>
     {
         public static BaseCxxBridge CreateInstance() => new MessageSupergroupChatCreateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageSupergroupChatCreate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8431,7 +8431,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatChangeTitleCxxBridge : ObjectBridge<MessageChatChangeTitle>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatChangeTitleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatChangeTitle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8452,7 +8452,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatChangePhotoCxxBridge : ObjectBridge<MessageChatChangePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatChangePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatChangePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8473,7 +8473,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatDeletePhotoCxxBridge : ObjectBridge<MessageChatDeletePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatDeletePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatDeletePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8492,7 +8492,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatAddMembersCxxBridge : ObjectBridge<MessageChatAddMembers>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatAddMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatAddMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8513,7 +8513,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatJoinByLinkCxxBridge : ObjectBridge<MessageChatJoinByLink>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatJoinByLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatJoinByLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8532,7 +8532,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatDeleteMemberCxxBridge : ObjectBridge<MessageChatDeleteMember>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatDeleteMemberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatDeleteMember();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8553,7 +8553,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatUpgradeToCxxBridge : ObjectBridge<MessageChatUpgradeTo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatUpgradeToCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatUpgradeTo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8574,7 +8574,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatUpgradeFromCxxBridge : ObjectBridge<MessageChatUpgradeFrom>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatUpgradeFromCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatUpgradeFrom();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8597,7 +8597,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagePinMessageCxxBridge : ObjectBridge<MessagePinMessage>
     {
         public static BaseCxxBridge CreateInstance() => new MessagePinMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messagePinMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8618,7 +8618,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageScreenshotTakenCxxBridge : ObjectBridge<MessageScreenshotTaken>
     {
         public static BaseCxxBridge CreateInstance() => new MessageScreenshotTakenCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageScreenshotTaken();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8637,7 +8637,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageChatSetTtlCxxBridge : ObjectBridge<MessageChatSetTtl>
     {
         public static BaseCxxBridge CreateInstance() => new MessageChatSetTtlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageChatSetTtl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8658,7 +8658,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageCustomServiceActionCxxBridge : ObjectBridge<MessageCustomServiceAction>
     {
         public static BaseCxxBridge CreateInstance() => new MessageCustomServiceActionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageCustomServiceAction();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8679,7 +8679,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageGameScoreCxxBridge : ObjectBridge<MessageGameScore>
     {
         public static BaseCxxBridge CreateInstance() => new MessageGameScoreCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageGameScore();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8704,7 +8704,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagePaymentSuccessfulCxxBridge : ObjectBridge<MessagePaymentSuccessful>
     {
         public static BaseCxxBridge CreateInstance() => new MessagePaymentSuccessfulCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messagePaymentSuccessful();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8729,7 +8729,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagePaymentSuccessfulBotCxxBridge : ObjectBridge<MessagePaymentSuccessfulBot>
     {
         public static BaseCxxBridge CreateInstance() => new MessagePaymentSuccessfulBotCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messagePaymentSuccessfulBot();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8764,7 +8764,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageContactRegisteredCxxBridge : ObjectBridge<MessageContactRegistered>
     {
         public static BaseCxxBridge CreateInstance() => new MessageContactRegisteredCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageContactRegistered();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8783,7 +8783,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageWebsiteConnectedCxxBridge : ObjectBridge<MessageWebsiteConnected>
     {
         public static BaseCxxBridge CreateInstance() => new MessageWebsiteConnectedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageWebsiteConnected();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8804,7 +8804,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagePassportDataSentCxxBridge : ObjectBridge<MessagePassportDataSent>
     {
         public static BaseCxxBridge CreateInstance() => new MessagePassportDataSentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messagePassportDataSent();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8825,7 +8825,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessagePassportDataReceivedCxxBridge : ObjectBridge<MessagePassportDataReceived>
     {
         public static BaseCxxBridge CreateInstance() => new MessagePassportDataReceivedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messagePassportDataReceived();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8848,7 +8848,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageUnsupportedCxxBridge : ObjectBridge<MessageUnsupported>
     {
         public static BaseCxxBridge CreateInstance() => new MessageUnsupportedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageUnsupported();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8867,7 +8867,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeMentionCxxBridge : ObjectBridge<TextEntityTypeMention>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeMentionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeMention();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8886,7 +8886,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeHashtagCxxBridge : ObjectBridge<TextEntityTypeHashtag>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeHashtagCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeHashtag();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8905,7 +8905,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeCashtagCxxBridge : ObjectBridge<TextEntityTypeCashtag>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeCashtagCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeCashtag();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8924,7 +8924,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeBotCommandCxxBridge : ObjectBridge<TextEntityTypeBotCommand>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeBotCommandCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeBotCommand();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8943,7 +8943,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeUrlCxxBridge : ObjectBridge<TextEntityTypeUrl>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8962,7 +8962,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeEmailAddressCxxBridge : ObjectBridge<TextEntityTypeEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -8981,7 +8981,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypePhoneNumberCxxBridge : ObjectBridge<TextEntityTypePhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypePhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypePhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9000,7 +9000,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeBankCardNumberCxxBridge : ObjectBridge<TextEntityTypeBankCardNumber>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeBankCardNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeBankCardNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9019,7 +9019,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeBoldCxxBridge : ObjectBridge<TextEntityTypeBold>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeBoldCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeBold();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9038,7 +9038,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeItalicCxxBridge : ObjectBridge<TextEntityTypeItalic>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeItalicCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeItalic();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9057,7 +9057,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeUnderlineCxxBridge : ObjectBridge<TextEntityTypeUnderline>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeUnderlineCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeUnderline();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9076,7 +9076,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeStrikethroughCxxBridge : ObjectBridge<TextEntityTypeStrikethrough>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeStrikethroughCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeStrikethrough();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9095,7 +9095,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeCodeCxxBridge : ObjectBridge<TextEntityTypeCode>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9114,7 +9114,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypePreCxxBridge : ObjectBridge<TextEntityTypePre>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypePreCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypePre();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9133,7 +9133,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypePreCodeCxxBridge : ObjectBridge<TextEntityTypePreCode>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypePreCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypePreCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9154,7 +9154,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeTextUrlCxxBridge : ObjectBridge<TextEntityTypeTextUrl>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeTextUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeTextUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9175,7 +9175,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextEntityTypeMentionNameCxxBridge : ObjectBridge<TextEntityTypeMentionName>
     {
         public static BaseCxxBridge CreateInstance() => new TextEntityTypeMentionNameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textEntityTypeMentionName();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9196,7 +9196,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputThumbnailCxxBridge : ObjectBridge<InputThumbnail>
     {
         public static BaseCxxBridge CreateInstance() => new InputThumbnailCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputThumbnail();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9221,7 +9221,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageSchedulingStateSendAtDateCxxBridge : ObjectBridge<MessageSchedulingStateSendAtDate>
     {
         public static BaseCxxBridge CreateInstance() => new MessageSchedulingStateSendAtDateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageSchedulingStateSendAtDate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9242,7 +9242,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageSchedulingStateSendWhenOnlineCxxBridge : ObjectBridge<MessageSchedulingStateSendWhenOnline>
     {
         public static BaseCxxBridge CreateInstance() => new MessageSchedulingStateSendWhenOnlineCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageSchedulingStateSendWhenOnline();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9261,7 +9261,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageSendOptionsCxxBridge : ObjectBridge<MessageSendOptions>
     {
         public static BaseCxxBridge CreateInstance() => new MessageSendOptionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageSendOptions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9286,7 +9286,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageCopyOptionsCxxBridge : ObjectBridge<MessageCopyOptions>
     {
         public static BaseCxxBridge CreateInstance() => new MessageCopyOptionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageCopyOptions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9311,7 +9311,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageTextCxxBridge : ObjectBridge<InputMessageText>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9336,7 +9336,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageAnimationCxxBridge : ObjectBridge<InputMessageAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9369,7 +9369,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageAudioCxxBridge : ObjectBridge<InputMessageAudio>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9400,7 +9400,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageDocumentCxxBridge : ObjectBridge<InputMessageDocument>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9427,7 +9427,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessagePhotoCxxBridge : ObjectBridge<InputMessagePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessagePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessagePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9460,7 +9460,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageStickerCxxBridge : ObjectBridge<InputMessageSticker>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9487,7 +9487,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageVideoCxxBridge : ObjectBridge<InputMessageVideo>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9524,7 +9524,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageVideoNoteCxxBridge : ObjectBridge<InputMessageVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9551,7 +9551,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageVoiceNoteCxxBridge : ObjectBridge<InputMessageVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9578,7 +9578,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageLocationCxxBridge : ObjectBridge<InputMessageLocation>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9601,7 +9601,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageVenueCxxBridge : ObjectBridge<InputMessageVenue>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageVenueCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageVenue();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9622,7 +9622,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageContactCxxBridge : ObjectBridge<InputMessageContact>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9643,7 +9643,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageDiceCxxBridge : ObjectBridge<InputMessageDice>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageDiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageDice();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9666,7 +9666,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageGameCxxBridge : ObjectBridge<InputMessageGame>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9689,7 +9689,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageInvoiceCxxBridge : ObjectBridge<InputMessageInvoice>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageInvoiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageInvoice();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9730,7 +9730,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessagePollCxxBridge : ObjectBridge<InputMessagePoll>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessagePollCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessagePoll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9763,7 +9763,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputMessageForwardedCxxBridge : ObjectBridge<InputMessageForwarded>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageForwardedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputMessageForwarded();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9790,7 +9790,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterEmptyCxxBridge : ObjectBridge<SearchMessagesFilterEmpty>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterEmptyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterEmpty();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9809,7 +9809,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterAnimationCxxBridge : ObjectBridge<SearchMessagesFilterAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9828,7 +9828,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterAudioCxxBridge : ObjectBridge<SearchMessagesFilterAudio>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9847,7 +9847,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterDocumentCxxBridge : ObjectBridge<SearchMessagesFilterDocument>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9866,7 +9866,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterPhotoCxxBridge : ObjectBridge<SearchMessagesFilterPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9885,7 +9885,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterVideoCxxBridge : ObjectBridge<SearchMessagesFilterVideo>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9904,7 +9904,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterVoiceNoteCxxBridge : ObjectBridge<SearchMessagesFilterVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9923,7 +9923,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterPhotoAndVideoCxxBridge : ObjectBridge<SearchMessagesFilterPhotoAndVideo>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterPhotoAndVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterPhotoAndVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9942,7 +9942,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterUrlCxxBridge : ObjectBridge<SearchMessagesFilterUrl>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9961,7 +9961,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterChatPhotoCxxBridge : ObjectBridge<SearchMessagesFilterChatPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterChatPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterChatPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9980,7 +9980,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterCallCxxBridge : ObjectBridge<SearchMessagesFilterCall>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -9999,7 +9999,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterMissedCallCxxBridge : ObjectBridge<SearchMessagesFilterMissedCall>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterMissedCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterMissedCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10018,7 +10018,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterVideoNoteCxxBridge : ObjectBridge<SearchMessagesFilterVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10037,7 +10037,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterVoiceAndVideoNoteCxxBridge : ObjectBridge<SearchMessagesFilterVoiceAndVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterVoiceAndVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterVoiceAndVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10056,7 +10056,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterMentionCxxBridge : ObjectBridge<SearchMessagesFilterMention>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterMentionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterMention();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10075,7 +10075,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterUnreadMentionCxxBridge : ObjectBridge<SearchMessagesFilterUnreadMention>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterUnreadMentionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterUnreadMention();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10094,7 +10094,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesFilterFailedToSendCxxBridge : ObjectBridge<SearchMessagesFilterFailedToSend>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterFailedToSendCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessagesFilterFailedToSend();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10113,7 +10113,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionTypingCxxBridge : ObjectBridge<ChatActionTyping>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionTypingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionTyping();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10132,7 +10132,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionRecordingVideoCxxBridge : ObjectBridge<ChatActionRecordingVideo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionRecordingVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionRecordingVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10151,7 +10151,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionUploadingVideoCxxBridge : ObjectBridge<ChatActionUploadingVideo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionUploadingVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionUploadingVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10172,7 +10172,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionRecordingVoiceNoteCxxBridge : ObjectBridge<ChatActionRecordingVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionRecordingVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionRecordingVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10191,7 +10191,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionUploadingVoiceNoteCxxBridge : ObjectBridge<ChatActionUploadingVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionUploadingVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionUploadingVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10212,7 +10212,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionUploadingPhotoCxxBridge : ObjectBridge<ChatActionUploadingPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionUploadingPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionUploadingPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10233,7 +10233,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionUploadingDocumentCxxBridge : ObjectBridge<ChatActionUploadingDocument>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionUploadingDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionUploadingDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10254,7 +10254,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionChoosingLocationCxxBridge : ObjectBridge<ChatActionChoosingLocation>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionChoosingLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionChoosingLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10273,7 +10273,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionChoosingContactCxxBridge : ObjectBridge<ChatActionChoosingContact>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionChoosingContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionChoosingContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10292,7 +10292,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionStartPlayingGameCxxBridge : ObjectBridge<ChatActionStartPlayingGame>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionStartPlayingGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionStartPlayingGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10311,7 +10311,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionRecordingVideoNoteCxxBridge : ObjectBridge<ChatActionRecordingVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionRecordingVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionRecordingVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10330,7 +10330,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionUploadingVideoNoteCxxBridge : ObjectBridge<ChatActionUploadingVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionUploadingVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionUploadingVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10351,7 +10351,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatActionCancelCxxBridge : ObjectBridge<ChatActionCancel>
     {
         public static BaseCxxBridge CreateInstance() => new ChatActionCancelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatActionCancel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10370,7 +10370,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserStatusEmptyCxxBridge : ObjectBridge<UserStatusEmpty>
     {
         public static BaseCxxBridge CreateInstance() => new UserStatusEmptyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userStatusEmpty();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10389,7 +10389,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserStatusOnlineCxxBridge : ObjectBridge<UserStatusOnline>
     {
         public static BaseCxxBridge CreateInstance() => new UserStatusOnlineCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userStatusOnline();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10410,7 +10410,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserStatusOfflineCxxBridge : ObjectBridge<UserStatusOffline>
     {
         public static BaseCxxBridge CreateInstance() => new UserStatusOfflineCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userStatusOffline();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10431,7 +10431,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserStatusRecentlyCxxBridge : ObjectBridge<UserStatusRecently>
     {
         public static BaseCxxBridge CreateInstance() => new UserStatusRecentlyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userStatusRecently();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10450,7 +10450,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserStatusLastWeekCxxBridge : ObjectBridge<UserStatusLastWeek>
     {
         public static BaseCxxBridge CreateInstance() => new UserStatusLastWeekCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userStatusLastWeek();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10469,7 +10469,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserStatusLastMonthCxxBridge : ObjectBridge<UserStatusLastMonth>
     {
         public static BaseCxxBridge CreateInstance() => new UserStatusLastMonthCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userStatusLastMonth();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10488,7 +10488,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StickersCxxBridge : ObjectBridge<Stickers>
     {
         public static BaseCxxBridge CreateInstance() => new StickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_stickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10509,7 +10509,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EmojisCxxBridge : ObjectBridge<Emojis>
     {
         public static BaseCxxBridge CreateInstance() => new EmojisCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_emojis();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10530,7 +10530,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StickerSetCxxBridge : ObjectBridge<StickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new StickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_stickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10573,7 +10573,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StickerSetInfoCxxBridge : ObjectBridge<StickerSetInfo>
     {
         public static BaseCxxBridge CreateInstance() => new StickerSetInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_stickerSetInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10616,7 +10616,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StickerSetsCxxBridge : ObjectBridge<StickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new StickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_stickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10639,7 +10639,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallDiscardReasonEmptyCxxBridge : ObjectBridge<CallDiscardReasonEmpty>
     {
         public static BaseCxxBridge CreateInstance() => new CallDiscardReasonEmptyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callDiscardReasonEmpty();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10658,7 +10658,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallDiscardReasonMissedCxxBridge : ObjectBridge<CallDiscardReasonMissed>
     {
         public static BaseCxxBridge CreateInstance() => new CallDiscardReasonMissedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callDiscardReasonMissed();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10677,7 +10677,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallDiscardReasonDeclinedCxxBridge : ObjectBridge<CallDiscardReasonDeclined>
     {
         public static BaseCxxBridge CreateInstance() => new CallDiscardReasonDeclinedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callDiscardReasonDeclined();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10696,7 +10696,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallDiscardReasonDisconnectedCxxBridge : ObjectBridge<CallDiscardReasonDisconnected>
     {
         public static BaseCxxBridge CreateInstance() => new CallDiscardReasonDisconnectedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callDiscardReasonDisconnected();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10715,7 +10715,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallDiscardReasonHungUpCxxBridge : ObjectBridge<CallDiscardReasonHungUp>
     {
         public static BaseCxxBridge CreateInstance() => new CallDiscardReasonHungUpCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callDiscardReasonHungUp();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10734,7 +10734,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProtocolCxxBridge : ObjectBridge<CallProtocol>
     {
         public static BaseCxxBridge CreateInstance() => new CallProtocolCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProtocol();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10763,7 +10763,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallServerTypeTelegramReflectorCxxBridge : ObjectBridge<CallServerTypeTelegramReflector>
     {
         public static BaseCxxBridge CreateInstance() => new CallServerTypeTelegramReflectorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callServerTypeTelegramReflector();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10784,7 +10784,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallServerTypeWebrtcCxxBridge : ObjectBridge<CallServerTypeWebrtc>
     {
         public static BaseCxxBridge CreateInstance() => new CallServerTypeWebrtcCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callServerTypeWebrtc();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10811,7 +10811,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallServerCxxBridge : ObjectBridge<CallServer>
     {
         public static BaseCxxBridge CreateInstance() => new CallServerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callServer();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10840,7 +10840,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallIdCxxBridge : ObjectBridge<CallId>
     {
         public static BaseCxxBridge CreateInstance() => new CallIdCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callId();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10861,7 +10861,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallStatePendingCxxBridge : ObjectBridge<CallStatePending>
     {
         public static BaseCxxBridge CreateInstance() => new CallStatePendingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callStatePending();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10884,7 +10884,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallStateExchangingKeysCxxBridge : ObjectBridge<CallStateExchangingKeys>
     {
         public static BaseCxxBridge CreateInstance() => new CallStateExchangingKeysCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callStateExchangingKeys();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10903,7 +10903,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallStateReadyCxxBridge : ObjectBridge<CallStateReady>
     {
         public static BaseCxxBridge CreateInstance() => new CallStateReadyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callStateReady();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10934,7 +10934,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallStateHangingUpCxxBridge : ObjectBridge<CallStateHangingUp>
     {
         public static BaseCxxBridge CreateInstance() => new CallStateHangingUpCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callStateHangingUp();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10953,7 +10953,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallStateDiscardedCxxBridge : ObjectBridge<CallStateDiscarded>
     {
         public static BaseCxxBridge CreateInstance() => new CallStateDiscardedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callStateDiscarded();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10978,7 +10978,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallStateErrorCxxBridge : ObjectBridge<CallStateError>
     {
         public static BaseCxxBridge CreateInstance() => new CallStateErrorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callStateError();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -10999,7 +10999,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemEchoCxxBridge : ObjectBridge<CallProblemEcho>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemEchoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemEcho();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11018,7 +11018,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemNoiseCxxBridge : ObjectBridge<CallProblemNoise>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemNoiseCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemNoise();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11037,7 +11037,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemInterruptionsCxxBridge : ObjectBridge<CallProblemInterruptions>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemInterruptionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemInterruptions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11056,7 +11056,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemDistortedSpeechCxxBridge : ObjectBridge<CallProblemDistortedSpeech>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemDistortedSpeechCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemDistortedSpeech();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11075,7 +11075,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemSilentLocalCxxBridge : ObjectBridge<CallProblemSilentLocal>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemSilentLocalCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemSilentLocal();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11094,7 +11094,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemSilentRemoteCxxBridge : ObjectBridge<CallProblemSilentRemote>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemSilentRemoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemSilentRemote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11113,7 +11113,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemDroppedCxxBridge : ObjectBridge<CallProblemDropped>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemDroppedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemDropped();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11132,7 +11132,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemDistortedVideoCxxBridge : ObjectBridge<CallProblemDistortedVideo>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemDistortedVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemDistortedVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11151,7 +11151,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallProblemPixelatedVideoCxxBridge : ObjectBridge<CallProblemPixelatedVideo>
     {
         public static BaseCxxBridge CreateInstance() => new CallProblemPixelatedVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callProblemPixelatedVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11170,7 +11170,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallCxxBridge : ObjectBridge<Call>
     {
         public static BaseCxxBridge CreateInstance() => new CallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_call();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11199,7 +11199,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PhoneNumberAuthenticationSettingsCxxBridge : ObjectBridge<PhoneNumberAuthenticationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new PhoneNumberAuthenticationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_phoneNumberAuthenticationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11224,7 +11224,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnimationsCxxBridge : ObjectBridge<Animations>
     {
         public static BaseCxxBridge CreateInstance() => new AnimationsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_animations();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11245,7 +11245,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ImportedContactsCxxBridge : ObjectBridge<ImportedContacts>
     {
         public static BaseCxxBridge CreateInstance() => new ImportedContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_importedContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11268,7 +11268,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class HttpUrlCxxBridge : ObjectBridge<HttpUrl>
     {
         public static BaseCxxBridge CreateInstance() => new HttpUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_httpUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11289,7 +11289,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultAnimationCxxBridge : ObjectBridge<InputInlineQueryResultAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11330,7 +11330,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultArticleCxxBridge : ObjectBridge<InputInlineQueryResultArticle>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultArticleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultArticle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11369,7 +11369,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultAudioCxxBridge : ObjectBridge<InputInlineQueryResultAudio>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11402,7 +11402,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultContactCxxBridge : ObjectBridge<InputInlineQueryResultContact>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11435,7 +11435,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultDocumentCxxBridge : ObjectBridge<InputInlineQueryResultDocument>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11474,7 +11474,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultGameCxxBridge : ObjectBridge<InputInlineQueryResultGame>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11499,7 +11499,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultLocationCxxBridge : ObjectBridge<InputInlineQueryResultLocation>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11536,7 +11536,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultPhotoCxxBridge : ObjectBridge<InputInlineQueryResultPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11573,7 +11573,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultStickerCxxBridge : ObjectBridge<InputInlineQueryResultSticker>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11606,7 +11606,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultVenueCxxBridge : ObjectBridge<InputInlineQueryResultVenue>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultVenueCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultVenue();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11639,7 +11639,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultVideoCxxBridge : ObjectBridge<InputInlineQueryResultVideo>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11680,7 +11680,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputInlineQueryResultVoiceNoteCxxBridge : ObjectBridge<InputInlineQueryResultVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new InputInlineQueryResultVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputInlineQueryResultVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11711,7 +11711,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultArticleCxxBridge : ObjectBridge<InlineQueryResultArticle>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultArticleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultArticle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11742,7 +11742,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultContactCxxBridge : ObjectBridge<InlineQueryResultContact>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11767,7 +11767,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultLocationCxxBridge : ObjectBridge<InlineQueryResultLocation>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11794,7 +11794,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultVenueCxxBridge : ObjectBridge<InlineQueryResultVenue>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultVenueCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultVenue();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11819,7 +11819,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultGameCxxBridge : ObjectBridge<InlineQueryResultGame>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11842,7 +11842,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultAnimationCxxBridge : ObjectBridge<InlineQueryResultAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11867,7 +11867,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultAudioCxxBridge : ObjectBridge<InlineQueryResultAudio>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11890,7 +11890,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultDocumentCxxBridge : ObjectBridge<InlineQueryResultDocument>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11917,7 +11917,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultPhotoCxxBridge : ObjectBridge<InlineQueryResultPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11944,7 +11944,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultStickerCxxBridge : ObjectBridge<InlineQueryResultSticker>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11967,7 +11967,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultVideoCxxBridge : ObjectBridge<InlineQueryResultVideo>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -11994,7 +11994,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultVoiceNoteCxxBridge : ObjectBridge<InlineQueryResultVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResultVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12019,7 +12019,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InlineQueryResultsCxxBridge : ObjectBridge<InlineQueryResults>
     {
         public static BaseCxxBridge CreateInstance() => new InlineQueryResultsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inlineQueryResults();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12048,7 +12048,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallbackQueryPayloadDataCxxBridge : ObjectBridge<CallbackQueryPayloadData>
     {
         public static BaseCxxBridge CreateInstance() => new CallbackQueryPayloadDataCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callbackQueryPayloadData();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12069,7 +12069,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallbackQueryPayloadDataWithPasswordCxxBridge : ObjectBridge<CallbackQueryPayloadDataWithPassword>
     {
         public static BaseCxxBridge CreateInstance() => new CallbackQueryPayloadDataWithPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callbackQueryPayloadDataWithPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12092,7 +12092,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallbackQueryPayloadGameCxxBridge : ObjectBridge<CallbackQueryPayloadGame>
     {
         public static BaseCxxBridge CreateInstance() => new CallbackQueryPayloadGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callbackQueryPayloadGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12113,7 +12113,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CallbackQueryAnswerCxxBridge : ObjectBridge<CallbackQueryAnswer>
     {
         public static BaseCxxBridge CreateInstance() => new CallbackQueryAnswerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_callbackQueryAnswer();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12138,7 +12138,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CustomRequestResultCxxBridge : ObjectBridge<CustomRequestResult>
     {
         public static BaseCxxBridge CreateInstance() => new CustomRequestResultCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_customRequestResult();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12159,7 +12159,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GameHighScoreCxxBridge : ObjectBridge<GameHighScore>
     {
         public static BaseCxxBridge CreateInstance() => new GameHighScoreCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_gameHighScore();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12184,7 +12184,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GameHighScoresCxxBridge : ObjectBridge<GameHighScores>
     {
         public static BaseCxxBridge CreateInstance() => new GameHighScoresCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_gameHighScores();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12205,7 +12205,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMessageEditedCxxBridge : ObjectBridge<ChatEventMessageEdited>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMessageEditedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMessageEdited();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12228,7 +12228,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMessageDeletedCxxBridge : ObjectBridge<ChatEventMessageDeleted>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMessageDeletedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMessageDeleted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12249,7 +12249,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventPollStoppedCxxBridge : ObjectBridge<ChatEventPollStopped>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventPollStoppedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventPollStopped();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12270,7 +12270,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMessagePinnedCxxBridge : ObjectBridge<ChatEventMessagePinned>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMessagePinnedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMessagePinned();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12291,7 +12291,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMessageUnpinnedCxxBridge : ObjectBridge<ChatEventMessageUnpinned>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMessageUnpinnedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMessageUnpinned();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12310,7 +12310,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMemberJoinedCxxBridge : ObjectBridge<ChatEventMemberJoined>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMemberJoinedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMemberJoined();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12329,7 +12329,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMemberLeftCxxBridge : ObjectBridge<ChatEventMemberLeft>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMemberLeftCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMemberLeft();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12348,7 +12348,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMemberInvitedCxxBridge : ObjectBridge<ChatEventMemberInvited>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMemberInvitedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMemberInvited();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12371,7 +12371,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMemberPromotedCxxBridge : ObjectBridge<ChatEventMemberPromoted>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMemberPromotedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMemberPromoted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12396,7 +12396,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventMemberRestrictedCxxBridge : ObjectBridge<ChatEventMemberRestricted>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMemberRestrictedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventMemberRestricted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12421,7 +12421,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventTitleChangedCxxBridge : ObjectBridge<ChatEventTitleChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventTitleChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventTitleChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12444,7 +12444,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventPermissionsChangedCxxBridge : ObjectBridge<ChatEventPermissionsChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventPermissionsChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventPermissionsChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12467,7 +12467,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventDescriptionChangedCxxBridge : ObjectBridge<ChatEventDescriptionChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventDescriptionChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventDescriptionChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12490,7 +12490,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventUsernameChangedCxxBridge : ObjectBridge<ChatEventUsernameChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventUsernameChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventUsernameChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12513,7 +12513,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventPhotoChangedCxxBridge : ObjectBridge<ChatEventPhotoChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventPhotoChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventPhotoChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12536,7 +12536,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventInvitesToggledCxxBridge : ObjectBridge<ChatEventInvitesToggled>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventInvitesToggledCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventInvitesToggled();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12557,7 +12557,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventLinkedChatChangedCxxBridge : ObjectBridge<ChatEventLinkedChatChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventLinkedChatChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventLinkedChatChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12580,7 +12580,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventSlowModeDelayChangedCxxBridge : ObjectBridge<ChatEventSlowModeDelayChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventSlowModeDelayChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventSlowModeDelayChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12603,7 +12603,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventSignMessagesToggledCxxBridge : ObjectBridge<ChatEventSignMessagesToggled>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventSignMessagesToggledCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventSignMessagesToggled();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12624,7 +12624,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventStickerSetChangedCxxBridge : ObjectBridge<ChatEventStickerSetChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventStickerSetChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventStickerSetChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12647,7 +12647,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventLocationChangedCxxBridge : ObjectBridge<ChatEventLocationChanged>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventLocationChangedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventLocationChanged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12670,7 +12670,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventIsAllHistoryAvailableToggledCxxBridge : ObjectBridge<ChatEventIsAllHistoryAvailableToggled>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventIsAllHistoryAvailableToggledCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventIsAllHistoryAvailableToggled();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12691,7 +12691,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventCxxBridge : ObjectBridge<ChatEvent>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEvent();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12718,7 +12718,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventsCxxBridge : ObjectBridge<ChatEvents>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEvents();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12739,7 +12739,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatEventLogFiltersCxxBridge : ObjectBridge<ChatEventLogFilters>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventLogFiltersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatEventLogFilters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12778,7 +12778,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LanguagePackStringValueOrdinaryCxxBridge : ObjectBridge<LanguagePackStringValueOrdinary>
     {
         public static BaseCxxBridge CreateInstance() => new LanguagePackStringValueOrdinaryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_languagePackStringValueOrdinary();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12799,7 +12799,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LanguagePackStringValuePluralizedCxxBridge : ObjectBridge<LanguagePackStringValuePluralized>
     {
         public static BaseCxxBridge CreateInstance() => new LanguagePackStringValuePluralizedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_languagePackStringValuePluralized();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12830,7 +12830,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LanguagePackStringValueDeletedCxxBridge : ObjectBridge<LanguagePackStringValueDeleted>
     {
         public static BaseCxxBridge CreateInstance() => new LanguagePackStringValueDeletedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_languagePackStringValueDeleted();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12849,7 +12849,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LanguagePackStringCxxBridge : ObjectBridge<LanguagePackString>
     {
         public static BaseCxxBridge CreateInstance() => new LanguagePackStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_languagePackString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12872,7 +12872,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LanguagePackStringsCxxBridge : ObjectBridge<LanguagePackStrings>
     {
         public static BaseCxxBridge CreateInstance() => new LanguagePackStringsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_languagePackStrings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12893,7 +12893,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LanguagePackInfoCxxBridge : ObjectBridge<LanguagePackInfo>
     {
         public static BaseCxxBridge CreateInstance() => new LanguagePackInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_languagePackInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12938,7 +12938,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LocalizationTargetInfoCxxBridge : ObjectBridge<LocalizationTargetInfo>
     {
         public static BaseCxxBridge CreateInstance() => new LocalizationTargetInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_localizationTargetInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12959,7 +12959,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenFirebaseCloudMessagingCxxBridge : ObjectBridge<DeviceTokenFirebaseCloudMessaging>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenFirebaseCloudMessagingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenFirebaseCloudMessaging();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -12982,7 +12982,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenApplePushCxxBridge : ObjectBridge<DeviceTokenApplePush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenApplePushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenApplePush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13005,7 +13005,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenApplePushVoIPCxxBridge : ObjectBridge<DeviceTokenApplePushVoIP>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenApplePushVoIPCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenApplePushVoIP();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13030,7 +13030,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenWindowsPushCxxBridge : ObjectBridge<DeviceTokenWindowsPush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenWindowsPushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenWindowsPush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13051,7 +13051,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenMicrosoftPushCxxBridge : ObjectBridge<DeviceTokenMicrosoftPush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenMicrosoftPushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenMicrosoftPush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13072,7 +13072,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenMicrosoftPushVoIPCxxBridge : ObjectBridge<DeviceTokenMicrosoftPushVoIP>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenMicrosoftPushVoIPCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenMicrosoftPushVoIP();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13093,7 +13093,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenWebPushCxxBridge : ObjectBridge<DeviceTokenWebPush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenWebPushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenWebPush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13118,7 +13118,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenSimplePushCxxBridge : ObjectBridge<DeviceTokenSimplePush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenSimplePushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenSimplePush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13139,7 +13139,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenUbuntuPushCxxBridge : ObjectBridge<DeviceTokenUbuntuPush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenUbuntuPushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenUbuntuPush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13160,7 +13160,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenBlackBerryPushCxxBridge : ObjectBridge<DeviceTokenBlackBerryPush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenBlackBerryPushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenBlackBerryPush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13181,7 +13181,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeviceTokenTizenPushCxxBridge : ObjectBridge<DeviceTokenTizenPush>
     {
         public static BaseCxxBridge CreateInstance() => new DeviceTokenTizenPushCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deviceTokenTizenPush();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13202,7 +13202,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushReceiverIdCxxBridge : ObjectBridge<PushReceiverId>
     {
         public static BaseCxxBridge CreateInstance() => new PushReceiverIdCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushReceiverId();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13223,7 +13223,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BackgroundFillSolidCxxBridge : ObjectBridge<BackgroundFillSolid>
     {
         public static BaseCxxBridge CreateInstance() => new BackgroundFillSolidCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_backgroundFillSolid();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13244,7 +13244,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BackgroundFillGradientCxxBridge : ObjectBridge<BackgroundFillGradient>
     {
         public static BaseCxxBridge CreateInstance() => new BackgroundFillGradientCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_backgroundFillGradient();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13269,7 +13269,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BackgroundTypeWallpaperCxxBridge : ObjectBridge<BackgroundTypeWallpaper>
     {
         public static BaseCxxBridge CreateInstance() => new BackgroundTypeWallpaperCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_backgroundTypeWallpaper();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13292,7 +13292,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BackgroundTypePatternCxxBridge : ObjectBridge<BackgroundTypePattern>
     {
         public static BaseCxxBridge CreateInstance() => new BackgroundTypePatternCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_backgroundTypePattern();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13317,7 +13317,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BackgroundTypeFillCxxBridge : ObjectBridge<BackgroundTypeFill>
     {
         public static BaseCxxBridge CreateInstance() => new BackgroundTypeFillCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_backgroundTypeFill();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13338,7 +13338,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BackgroundCxxBridge : ObjectBridge<Background>
     {
         public static BaseCxxBridge CreateInstance() => new BackgroundCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_background();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13369,7 +13369,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BackgroundsCxxBridge : ObjectBridge<Backgrounds>
     {
         public static BaseCxxBridge CreateInstance() => new BackgroundsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_backgrounds();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13390,7 +13390,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputBackgroundLocalCxxBridge : ObjectBridge<InputBackgroundLocal>
     {
         public static BaseCxxBridge CreateInstance() => new InputBackgroundLocalCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputBackgroundLocal();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13411,7 +13411,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputBackgroundRemoteCxxBridge : ObjectBridge<InputBackgroundRemote>
     {
         public static BaseCxxBridge CreateInstance() => new InputBackgroundRemoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputBackgroundRemote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13432,7 +13432,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class HashtagsCxxBridge : ObjectBridge<Hashtags>
     {
         public static BaseCxxBridge CreateInstance() => new HashtagsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_hashtags();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13453,7 +13453,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CanTransferOwnershipResultOkCxxBridge : ObjectBridge<CanTransferOwnershipResultOk>
     {
         public static BaseCxxBridge CreateInstance() => new CanTransferOwnershipResultOkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_canTransferOwnershipResultOk();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13472,7 +13472,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CanTransferOwnershipResultPasswordNeededCxxBridge : ObjectBridge<CanTransferOwnershipResultPasswordNeeded>
     {
         public static BaseCxxBridge CreateInstance() => new CanTransferOwnershipResultPasswordNeededCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_canTransferOwnershipResultPasswordNeeded();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13491,7 +13491,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CanTransferOwnershipResultPasswordTooFreshCxxBridge : ObjectBridge<CanTransferOwnershipResultPasswordTooFresh>
     {
         public static BaseCxxBridge CreateInstance() => new CanTransferOwnershipResultPasswordTooFreshCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_canTransferOwnershipResultPasswordTooFresh();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13512,7 +13512,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CanTransferOwnershipResultSessionTooFreshCxxBridge : ObjectBridge<CanTransferOwnershipResultSessionTooFresh>
     {
         public static BaseCxxBridge CreateInstance() => new CanTransferOwnershipResultSessionTooFreshCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_canTransferOwnershipResultSessionTooFresh();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13533,7 +13533,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChatUsernameResultOkCxxBridge : ObjectBridge<CheckChatUsernameResultOk>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChatUsernameResultOkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChatUsernameResultOk();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13552,7 +13552,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChatUsernameResultUsernameInvalidCxxBridge : ObjectBridge<CheckChatUsernameResultUsernameInvalid>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChatUsernameResultUsernameInvalidCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChatUsernameResultUsernameInvalid();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13571,7 +13571,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChatUsernameResultUsernameOccupiedCxxBridge : ObjectBridge<CheckChatUsernameResultUsernameOccupied>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChatUsernameResultUsernameOccupiedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChatUsernameResultUsernameOccupied();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13590,7 +13590,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChatUsernameResultPublicChatsTooMuchCxxBridge : ObjectBridge<CheckChatUsernameResultPublicChatsTooMuch>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChatUsernameResultPublicChatsTooMuchCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChatUsernameResultPublicChatsTooMuch();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13609,7 +13609,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChatUsernameResultPublicGroupsUnavailableCxxBridge : ObjectBridge<CheckChatUsernameResultPublicGroupsUnavailable>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChatUsernameResultPublicGroupsUnavailableCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChatUsernameResultPublicGroupsUnavailable();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13628,7 +13628,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentHiddenCxxBridge : ObjectBridge<PushMessageContentHidden>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentHiddenCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentHidden();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13649,7 +13649,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentAnimationCxxBridge : ObjectBridge<PushMessageContentAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13674,7 +13674,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentAudioCxxBridge : ObjectBridge<PushMessageContentAudio>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13697,7 +13697,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentContactCxxBridge : ObjectBridge<PushMessageContentContact>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13720,7 +13720,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentContactRegisteredCxxBridge : ObjectBridge<PushMessageContentContactRegistered>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentContactRegisteredCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentContactRegistered();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13739,7 +13739,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentDocumentCxxBridge : ObjectBridge<PushMessageContentDocument>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13762,7 +13762,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentGameCxxBridge : ObjectBridge<PushMessageContentGame>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentGameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentGame();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13785,7 +13785,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentGameScoreCxxBridge : ObjectBridge<PushMessageContentGameScore>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentGameScoreCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentGameScore();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13810,7 +13810,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentInvoiceCxxBridge : ObjectBridge<PushMessageContentInvoice>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentInvoiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentInvoice();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13833,7 +13833,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentLocationCxxBridge : ObjectBridge<PushMessageContentLocation>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13856,7 +13856,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentPhotoCxxBridge : ObjectBridge<PushMessageContentPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13883,7 +13883,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentPollCxxBridge : ObjectBridge<PushMessageContentPoll>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentPollCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentPoll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13908,7 +13908,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentScreenshotTakenCxxBridge : ObjectBridge<PushMessageContentScreenshotTaken>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentScreenshotTakenCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentScreenshotTaken();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13927,7 +13927,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentStickerCxxBridge : ObjectBridge<PushMessageContentSticker>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13952,7 +13952,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentTextCxxBridge : ObjectBridge<PushMessageContentText>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -13975,7 +13975,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentVideoCxxBridge : ObjectBridge<PushMessageContentVideo>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14002,7 +14002,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentVideoNoteCxxBridge : ObjectBridge<PushMessageContentVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14025,7 +14025,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentVoiceNoteCxxBridge : ObjectBridge<PushMessageContentVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14048,7 +14048,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentBasicGroupChatCreateCxxBridge : ObjectBridge<PushMessageContentBasicGroupChatCreate>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentBasicGroupChatCreateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentBasicGroupChatCreate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14067,7 +14067,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentChatAddMembersCxxBridge : ObjectBridge<PushMessageContentChatAddMembers>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentChatAddMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentChatAddMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14092,7 +14092,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentChatChangePhotoCxxBridge : ObjectBridge<PushMessageContentChatChangePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentChatChangePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentChatChangePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14111,7 +14111,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentChatChangeTitleCxxBridge : ObjectBridge<PushMessageContentChatChangeTitle>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentChatChangeTitleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentChatChangeTitle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14132,7 +14132,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentChatDeleteMemberCxxBridge : ObjectBridge<PushMessageContentChatDeleteMember>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentChatDeleteMemberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentChatDeleteMember();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14157,7 +14157,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentChatJoinByLinkCxxBridge : ObjectBridge<PushMessageContentChatJoinByLink>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentChatJoinByLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentChatJoinByLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14176,7 +14176,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentMessageForwardsCxxBridge : ObjectBridge<PushMessageContentMessageForwards>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentMessageForwardsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentMessageForwards();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14197,7 +14197,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PushMessageContentMediaAlbumCxxBridge : ObjectBridge<PushMessageContentMediaAlbum>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentMediaAlbumCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pushMessageContentMediaAlbum();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14222,7 +14222,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationTypeNewMessageCxxBridge : ObjectBridge<NotificationTypeNewMessage>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationTypeNewMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationTypeNewMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14243,7 +14243,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationTypeNewSecretChatCxxBridge : ObjectBridge<NotificationTypeNewSecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationTypeNewSecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationTypeNewSecretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14262,7 +14262,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationTypeNewCallCxxBridge : ObjectBridge<NotificationTypeNewCall>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationTypeNewCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationTypeNewCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14283,7 +14283,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationTypeNewPushMessageCxxBridge : ObjectBridge<NotificationTypeNewPushMessage>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationTypeNewPushMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationTypeNewPushMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14314,7 +14314,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationGroupTypeMessagesCxxBridge : ObjectBridge<NotificationGroupTypeMessages>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationGroupTypeMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationGroupTypeMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14333,7 +14333,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationGroupTypeMentionsCxxBridge : ObjectBridge<NotificationGroupTypeMentions>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationGroupTypeMentionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationGroupTypeMentions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14352,7 +14352,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationGroupTypeSecretChatCxxBridge : ObjectBridge<NotificationGroupTypeSecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationGroupTypeSecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationGroupTypeSecretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14371,7 +14371,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationGroupTypeCallsCxxBridge : ObjectBridge<NotificationGroupTypeCalls>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationGroupTypeCallsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationGroupTypeCalls();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14390,7 +14390,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationCxxBridge : ObjectBridge<Notification>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14417,7 +14417,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NotificationGroupCxxBridge : ObjectBridge<NotificationGroup>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_notificationGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14446,7 +14446,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OptionValueBooleanCxxBridge : ObjectBridge<OptionValueBoolean>
     {
         public static BaseCxxBridge CreateInstance() => new OptionValueBooleanCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_optionValueBoolean();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14467,7 +14467,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OptionValueEmptyCxxBridge : ObjectBridge<OptionValueEmpty>
     {
         public static BaseCxxBridge CreateInstance() => new OptionValueEmptyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_optionValueEmpty();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14486,7 +14486,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OptionValueIntegerCxxBridge : ObjectBridge<OptionValueInteger>
     {
         public static BaseCxxBridge CreateInstance() => new OptionValueIntegerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_optionValueInteger();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14507,7 +14507,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OptionValueStringCxxBridge : ObjectBridge<OptionValueString>
     {
         public static BaseCxxBridge CreateInstance() => new OptionValueStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_optionValueString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14528,7 +14528,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JsonObjectMemberCxxBridge : ObjectBridge<JsonObjectMember>
     {
         public static BaseCxxBridge CreateInstance() => new JsonObjectMemberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_jsonObjectMember();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14551,7 +14551,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JsonValueNullCxxBridge : ObjectBridge<JsonValueNull>
     {
         public static BaseCxxBridge CreateInstance() => new JsonValueNullCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_jsonValueNull();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14570,7 +14570,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JsonValueBooleanCxxBridge : ObjectBridge<JsonValueBoolean>
     {
         public static BaseCxxBridge CreateInstance() => new JsonValueBooleanCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_jsonValueBoolean();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14591,7 +14591,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JsonValueNumberCxxBridge : ObjectBridge<JsonValueNumber>
     {
         public static BaseCxxBridge CreateInstance() => new JsonValueNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_jsonValueNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14612,7 +14612,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JsonValueStringCxxBridge : ObjectBridge<JsonValueString>
     {
         public static BaseCxxBridge CreateInstance() => new JsonValueStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_jsonValueString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14633,7 +14633,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JsonValueArrayCxxBridge : ObjectBridge<JsonValueArray>
     {
         public static BaseCxxBridge CreateInstance() => new JsonValueArrayCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_jsonValueArray();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14654,7 +14654,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JsonValueObjectCxxBridge : ObjectBridge<JsonValueObject>
     {
         public static BaseCxxBridge CreateInstance() => new JsonValueObjectCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_jsonValueObject();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14675,7 +14675,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleAllowAllCxxBridge : ObjectBridge<UserPrivacySettingRuleAllowAll>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleAllowAllCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleAllowAll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14694,7 +14694,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleAllowContactsCxxBridge : ObjectBridge<UserPrivacySettingRuleAllowContacts>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleAllowContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleAllowContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14713,7 +14713,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleAllowUsersCxxBridge : ObjectBridge<UserPrivacySettingRuleAllowUsers>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleAllowUsersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleAllowUsers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14734,7 +14734,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleAllowChatMembersCxxBridge : ObjectBridge<UserPrivacySettingRuleAllowChatMembers>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleAllowChatMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleAllowChatMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14755,7 +14755,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleRestrictAllCxxBridge : ObjectBridge<UserPrivacySettingRuleRestrictAll>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleRestrictAllCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleRestrictAll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14774,7 +14774,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleRestrictContactsCxxBridge : ObjectBridge<UserPrivacySettingRuleRestrictContacts>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleRestrictContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleRestrictContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14793,7 +14793,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleRestrictUsersCxxBridge : ObjectBridge<UserPrivacySettingRuleRestrictUsers>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleRestrictUsersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleRestrictUsers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14814,7 +14814,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRuleRestrictChatMembersCxxBridge : ObjectBridge<UserPrivacySettingRuleRestrictChatMembers>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRuleRestrictChatMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRuleRestrictChatMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14835,7 +14835,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingRulesCxxBridge : ObjectBridge<UserPrivacySettingRules>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingRulesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingRules();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14856,7 +14856,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingShowStatusCxxBridge : ObjectBridge<UserPrivacySettingShowStatus>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingShowStatusCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingShowStatus();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14875,7 +14875,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingShowProfilePhotoCxxBridge : ObjectBridge<UserPrivacySettingShowProfilePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingShowProfilePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingShowProfilePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14894,7 +14894,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingShowLinkInForwardedMessagesCxxBridge : ObjectBridge<UserPrivacySettingShowLinkInForwardedMessages>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingShowLinkInForwardedMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingShowLinkInForwardedMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14913,7 +14913,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingShowPhoneNumberCxxBridge : ObjectBridge<UserPrivacySettingShowPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingShowPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingShowPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14932,7 +14932,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingAllowChatInvitesCxxBridge : ObjectBridge<UserPrivacySettingAllowChatInvites>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingAllowChatInvitesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingAllowChatInvites();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14951,7 +14951,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingAllowCallsCxxBridge : ObjectBridge<UserPrivacySettingAllowCalls>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingAllowCallsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingAllowCalls();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14970,7 +14970,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingAllowPeerToPeerCallsCxxBridge : ObjectBridge<UserPrivacySettingAllowPeerToPeerCalls>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingAllowPeerToPeerCallsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingAllowPeerToPeerCalls();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -14989,7 +14989,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UserPrivacySettingAllowFindingByPhoneNumberCxxBridge : ObjectBridge<UserPrivacySettingAllowFindingByPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new UserPrivacySettingAllowFindingByPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_userPrivacySettingAllowFindingByPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15008,7 +15008,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AccountTtlCxxBridge : ObjectBridge<AccountTtl>
     {
         public static BaseCxxBridge CreateInstance() => new AccountTtlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_accountTtl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15029,7 +15029,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SessionCxxBridge : ObjectBridge<Session>
     {
         public static BaseCxxBridge CreateInstance() => new SessionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_session();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15078,7 +15078,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SessionsCxxBridge : ObjectBridge<Sessions>
     {
         public static BaseCxxBridge CreateInstance() => new SessionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sessions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15099,7 +15099,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConnectedWebsiteCxxBridge : ObjectBridge<ConnectedWebsite>
     {
         public static BaseCxxBridge CreateInstance() => new ConnectedWebsiteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_connectedWebsite();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15136,7 +15136,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConnectedWebsitesCxxBridge : ObjectBridge<ConnectedWebsites>
     {
         public static BaseCxxBridge CreateInstance() => new ConnectedWebsitesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_connectedWebsites();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15157,7 +15157,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatReportReasonSpamCxxBridge : ObjectBridge<ChatReportReasonSpam>
     {
         public static BaseCxxBridge CreateInstance() => new ChatReportReasonSpamCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatReportReasonSpam();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15176,7 +15176,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatReportReasonViolenceCxxBridge : ObjectBridge<ChatReportReasonViolence>
     {
         public static BaseCxxBridge CreateInstance() => new ChatReportReasonViolenceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatReportReasonViolence();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15195,7 +15195,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatReportReasonPornographyCxxBridge : ObjectBridge<ChatReportReasonPornography>
     {
         public static BaseCxxBridge CreateInstance() => new ChatReportReasonPornographyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatReportReasonPornography();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15214,7 +15214,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatReportReasonChildAbuseCxxBridge : ObjectBridge<ChatReportReasonChildAbuse>
     {
         public static BaseCxxBridge CreateInstance() => new ChatReportReasonChildAbuseCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatReportReasonChildAbuse();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15233,7 +15233,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatReportReasonCopyrightCxxBridge : ObjectBridge<ChatReportReasonCopyright>
     {
         public static BaseCxxBridge CreateInstance() => new ChatReportReasonCopyrightCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatReportReasonCopyright();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15252,7 +15252,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatReportReasonUnrelatedLocationCxxBridge : ObjectBridge<ChatReportReasonUnrelatedLocation>
     {
         public static BaseCxxBridge CreateInstance() => new ChatReportReasonUnrelatedLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatReportReasonUnrelatedLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15271,7 +15271,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatReportReasonCustomCxxBridge : ObjectBridge<ChatReportReasonCustom>
     {
         public static BaseCxxBridge CreateInstance() => new ChatReportReasonCustomCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatReportReasonCustom();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15292,7 +15292,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageLinkCxxBridge : ObjectBridge<MessageLink>
     {
         public static BaseCxxBridge CreateInstance() => new MessageLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15315,7 +15315,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageLinkInfoCxxBridge : ObjectBridge<MessageLinkInfo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageLinkInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageLinkInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15344,7 +15344,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FilePartCxxBridge : ObjectBridge<FilePart>
     {
         public static BaseCxxBridge CreateInstance() => new FilePartCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_filePart();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15365,7 +15365,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeNoneCxxBridge : ObjectBridge<FileTypeNone>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeNoneCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeNone();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15384,7 +15384,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeAnimationCxxBridge : ObjectBridge<FileTypeAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15403,7 +15403,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeAudioCxxBridge : ObjectBridge<FileTypeAudio>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeAudioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeAudio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15422,7 +15422,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeDocumentCxxBridge : ObjectBridge<FileTypeDocument>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeDocumentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeDocument();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15441,7 +15441,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypePhotoCxxBridge : ObjectBridge<FileTypePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15460,7 +15460,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeProfilePhotoCxxBridge : ObjectBridge<FileTypeProfilePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeProfilePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeProfilePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15479,7 +15479,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeSecretCxxBridge : ObjectBridge<FileTypeSecret>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeSecretCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeSecret();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15498,7 +15498,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeSecretThumbnailCxxBridge : ObjectBridge<FileTypeSecretThumbnail>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeSecretThumbnailCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeSecretThumbnail();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15517,7 +15517,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeSecureCxxBridge : ObjectBridge<FileTypeSecure>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeSecureCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeSecure();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15536,7 +15536,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeStickerCxxBridge : ObjectBridge<FileTypeSticker>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15555,7 +15555,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeThumbnailCxxBridge : ObjectBridge<FileTypeThumbnail>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeThumbnailCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeThumbnail();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15574,7 +15574,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeUnknownCxxBridge : ObjectBridge<FileTypeUnknown>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeUnknownCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeUnknown();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15593,7 +15593,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeVideoCxxBridge : ObjectBridge<FileTypeVideo>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeVideoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeVideo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15612,7 +15612,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeVideoNoteCxxBridge : ObjectBridge<FileTypeVideoNote>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeVideoNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeVideoNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15631,7 +15631,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeVoiceNoteCxxBridge : ObjectBridge<FileTypeVoiceNote>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeVoiceNoteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeVoiceNote();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15650,7 +15650,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FileTypeWallpaperCxxBridge : ObjectBridge<FileTypeWallpaper>
     {
         public static BaseCxxBridge CreateInstance() => new FileTypeWallpaperCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_fileTypeWallpaper();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15669,7 +15669,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StorageStatisticsByFileTypeCxxBridge : ObjectBridge<StorageStatisticsByFileType>
     {
         public static BaseCxxBridge CreateInstance() => new StorageStatisticsByFileTypeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_storageStatisticsByFileType();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15694,7 +15694,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StorageStatisticsByChatCxxBridge : ObjectBridge<StorageStatisticsByChat>
     {
         public static BaseCxxBridge CreateInstance() => new StorageStatisticsByChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_storageStatisticsByChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15721,7 +15721,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StorageStatisticsCxxBridge : ObjectBridge<StorageStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new StorageStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_storageStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15746,7 +15746,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StorageStatisticsFastCxxBridge : ObjectBridge<StorageStatisticsFast>
     {
         public static BaseCxxBridge CreateInstance() => new StorageStatisticsFastCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_storageStatisticsFast();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15775,7 +15775,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DatabaseStatisticsCxxBridge : ObjectBridge<DatabaseStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new DatabaseStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_databaseStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15796,7 +15796,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkTypeNoneCxxBridge : ObjectBridge<NetworkTypeNone>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkTypeNoneCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkTypeNone();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15815,7 +15815,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkTypeMobileCxxBridge : ObjectBridge<NetworkTypeMobile>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkTypeMobileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkTypeMobile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15834,7 +15834,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkTypeMobileRoamingCxxBridge : ObjectBridge<NetworkTypeMobileRoaming>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkTypeMobileRoamingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkTypeMobileRoaming();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15853,7 +15853,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkTypeWiFiCxxBridge : ObjectBridge<NetworkTypeWiFi>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkTypeWiFiCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkTypeWiFi();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15872,7 +15872,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkTypeOtherCxxBridge : ObjectBridge<NetworkTypeOther>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkTypeOtherCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkTypeOther();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15891,7 +15891,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkStatisticsEntryFileCxxBridge : ObjectBridge<NetworkStatisticsEntryFile>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkStatisticsEntryFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkStatisticsEntryFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15918,7 +15918,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkStatisticsEntryCallCxxBridge : ObjectBridge<NetworkStatisticsEntryCall>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkStatisticsEntryCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkStatisticsEntryCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15945,7 +15945,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class NetworkStatisticsCxxBridge : ObjectBridge<NetworkStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new NetworkStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_networkStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -15968,7 +15968,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AutoDownloadSettingsCxxBridge : ObjectBridge<AutoDownloadSettings>
     {
         public static BaseCxxBridge CreateInstance() => new AutoDownloadSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_autoDownloadSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16003,7 +16003,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AutoDownloadSettingsPresetsCxxBridge : ObjectBridge<AutoDownloadSettingsPresets>
     {
         public static BaseCxxBridge CreateInstance() => new AutoDownloadSettingsPresetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_autoDownloadSettingsPresets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16028,7 +16028,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConnectionStateWaitingForNetworkCxxBridge : ObjectBridge<ConnectionStateWaitingForNetwork>
     {
         public static BaseCxxBridge CreateInstance() => new ConnectionStateWaitingForNetworkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_connectionStateWaitingForNetwork();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16047,7 +16047,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConnectionStateConnectingToProxyCxxBridge : ObjectBridge<ConnectionStateConnectingToProxy>
     {
         public static BaseCxxBridge CreateInstance() => new ConnectionStateConnectingToProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_connectionStateConnectingToProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16066,7 +16066,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConnectionStateConnectingCxxBridge : ObjectBridge<ConnectionStateConnecting>
     {
         public static BaseCxxBridge CreateInstance() => new ConnectionStateConnectingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_connectionStateConnecting();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16085,7 +16085,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConnectionStateUpdatingCxxBridge : ObjectBridge<ConnectionStateUpdating>
     {
         public static BaseCxxBridge CreateInstance() => new ConnectionStateUpdatingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_connectionStateUpdating();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16104,7 +16104,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConnectionStateReadyCxxBridge : ObjectBridge<ConnectionStateReady>
     {
         public static BaseCxxBridge CreateInstance() => new ConnectionStateReadyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_connectionStateReady();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16123,7 +16123,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TopChatCategoryUsersCxxBridge : ObjectBridge<TopChatCategoryUsers>
     {
         public static BaseCxxBridge CreateInstance() => new TopChatCategoryUsersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_topChatCategoryUsers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16142,7 +16142,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TopChatCategoryBotsCxxBridge : ObjectBridge<TopChatCategoryBots>
     {
         public static BaseCxxBridge CreateInstance() => new TopChatCategoryBotsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_topChatCategoryBots();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16161,7 +16161,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TopChatCategoryGroupsCxxBridge : ObjectBridge<TopChatCategoryGroups>
     {
         public static BaseCxxBridge CreateInstance() => new TopChatCategoryGroupsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_topChatCategoryGroups();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16180,7 +16180,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TopChatCategoryChannelsCxxBridge : ObjectBridge<TopChatCategoryChannels>
     {
         public static BaseCxxBridge CreateInstance() => new TopChatCategoryChannelsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_topChatCategoryChannels();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16199,7 +16199,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TopChatCategoryInlineBotsCxxBridge : ObjectBridge<TopChatCategoryInlineBots>
     {
         public static BaseCxxBridge CreateInstance() => new TopChatCategoryInlineBotsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_topChatCategoryInlineBots();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16218,7 +16218,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TopChatCategoryCallsCxxBridge : ObjectBridge<TopChatCategoryCalls>
     {
         public static BaseCxxBridge CreateInstance() => new TopChatCategoryCallsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_topChatCategoryCalls();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16237,7 +16237,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TopChatCategoryForwardChatsCxxBridge : ObjectBridge<TopChatCategoryForwardChats>
     {
         public static BaseCxxBridge CreateInstance() => new TopChatCategoryForwardChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_topChatCategoryForwardChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16256,7 +16256,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TMeUrlTypeUserCxxBridge : ObjectBridge<TMeUrlTypeUser>
     {
         public static BaseCxxBridge CreateInstance() => new TMeUrlTypeUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_tMeUrlTypeUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16277,7 +16277,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TMeUrlTypeSupergroupCxxBridge : ObjectBridge<TMeUrlTypeSupergroup>
     {
         public static BaseCxxBridge CreateInstance() => new TMeUrlTypeSupergroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_tMeUrlTypeSupergroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16298,7 +16298,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TMeUrlTypeChatInviteCxxBridge : ObjectBridge<TMeUrlTypeChatInvite>
     {
         public static BaseCxxBridge CreateInstance() => new TMeUrlTypeChatInviteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_tMeUrlTypeChatInvite();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16319,7 +16319,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TMeUrlTypeStickerSetCxxBridge : ObjectBridge<TMeUrlTypeStickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new TMeUrlTypeStickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_tMeUrlTypeStickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16340,7 +16340,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TMeUrlCxxBridge : ObjectBridge<TMeUrl>
     {
         public static BaseCxxBridge CreateInstance() => new TMeUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_tMeUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16363,7 +16363,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TMeUrlsCxxBridge : ObjectBridge<TMeUrls>
     {
         public static BaseCxxBridge CreateInstance() => new TMeUrlsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_tMeUrls();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16384,7 +16384,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SuggestedActionEnableArchiveAndMuteNewChatsCxxBridge : ObjectBridge<SuggestedActionEnableArchiveAndMuteNewChats>
     {
         public static BaseCxxBridge CreateInstance() => new SuggestedActionEnableArchiveAndMuteNewChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_suggestedActionEnableArchiveAndMuteNewChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16403,7 +16403,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SuggestedActionCheckPhoneNumberCxxBridge : ObjectBridge<SuggestedActionCheckPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new SuggestedActionCheckPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_suggestedActionCheckPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16422,7 +16422,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CountCxxBridge : ObjectBridge<Count>
     {
         public static BaseCxxBridge CreateInstance() => new CountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_count();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16443,7 +16443,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextCxxBridge : ObjectBridge<Text>
     {
         public static BaseCxxBridge CreateInstance() => new TextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_text();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16464,7 +16464,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SecondsCxxBridge : ObjectBridge<Seconds>
     {
         public static BaseCxxBridge CreateInstance() => new SecondsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_seconds();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16485,7 +16485,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeepLinkInfoCxxBridge : ObjectBridge<DeepLinkInfo>
     {
         public static BaseCxxBridge CreateInstance() => new DeepLinkInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deepLinkInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16508,7 +16508,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextParseModeMarkdownCxxBridge : ObjectBridge<TextParseModeMarkdown>
     {
         public static BaseCxxBridge CreateInstance() => new TextParseModeMarkdownCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textParseModeMarkdown();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16529,7 +16529,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TextParseModeHTMLCxxBridge : ObjectBridge<TextParseModeHTML>
     {
         public static BaseCxxBridge CreateInstance() => new TextParseModeHTMLCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_textParseModeHTML();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16548,7 +16548,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ProxyTypeSocks5CxxBridge : ObjectBridge<ProxyTypeSocks5>
     {
         public static BaseCxxBridge CreateInstance() => new ProxyTypeSocks5CxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_proxyTypeSocks5();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16571,7 +16571,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ProxyTypeHttpCxxBridge : ObjectBridge<ProxyTypeHttp>
     {
         public static BaseCxxBridge CreateInstance() => new ProxyTypeHttpCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_proxyTypeHttp();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16596,7 +16596,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ProxyTypeMtprotoCxxBridge : ObjectBridge<ProxyTypeMtproto>
     {
         public static BaseCxxBridge CreateInstance() => new ProxyTypeMtprotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_proxyTypeMtproto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16617,7 +16617,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ProxyCxxBridge : ObjectBridge<Proxy>
     {
         public static BaseCxxBridge CreateInstance() => new ProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_proxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16648,7 +16648,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ProxiesCxxBridge : ObjectBridge<Proxies>
     {
         public static BaseCxxBridge CreateInstance() => new ProxiesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_proxies();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16669,7 +16669,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputStickerStaticCxxBridge : ObjectBridge<InputStickerStatic>
     {
         public static BaseCxxBridge CreateInstance() => new InputStickerStaticCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputStickerStatic();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16694,7 +16694,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class InputStickerAnimatedCxxBridge : ObjectBridge<InputStickerAnimated>
     {
         public static BaseCxxBridge CreateInstance() => new InputStickerAnimatedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_inputStickerAnimated();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16717,7 +16717,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DateRangeCxxBridge : ObjectBridge<DateRange>
     {
         public static BaseCxxBridge CreateInstance() => new DateRangeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_dateRange();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16740,7 +16740,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StatisticsValueCxxBridge : ObjectBridge<StatisticsValue>
     {
         public static BaseCxxBridge CreateInstance() => new StatisticsValueCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_statisticsValue();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16765,7 +16765,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StatisticsGraphDataCxxBridge : ObjectBridge<StatisticsGraphData>
     {
         public static BaseCxxBridge CreateInstance() => new StatisticsGraphDataCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_statisticsGraphData();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16788,7 +16788,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StatisticsGraphAsyncCxxBridge : ObjectBridge<StatisticsGraphAsync>
     {
         public static BaseCxxBridge CreateInstance() => new StatisticsGraphAsyncCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_statisticsGraphAsync();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16809,7 +16809,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StatisticsGraphErrorCxxBridge : ObjectBridge<StatisticsGraphError>
     {
         public static BaseCxxBridge CreateInstance() => new StatisticsGraphErrorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_statisticsGraphError();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16830,7 +16830,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatStatisticsMessageInteractionInfoCxxBridge : ObjectBridge<ChatStatisticsMessageInteractionInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatStatisticsMessageInteractionInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatStatisticsMessageInteractionInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16855,7 +16855,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatStatisticsMessageSenderInfoCxxBridge : ObjectBridge<ChatStatisticsMessageSenderInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatStatisticsMessageSenderInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatStatisticsMessageSenderInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16880,7 +16880,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatStatisticsAdministratorActionsInfoCxxBridge : ObjectBridge<ChatStatisticsAdministratorActionsInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatStatisticsAdministratorActionsInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatStatisticsAdministratorActionsInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16907,7 +16907,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatStatisticsInviterInfoCxxBridge : ObjectBridge<ChatStatisticsInviterInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ChatStatisticsInviterInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatStatisticsInviterInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16930,7 +16930,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatStatisticsSupergroupCxxBridge : ObjectBridge<ChatStatisticsSupergroup>
     {
         public static BaseCxxBridge CreateInstance() => new ChatStatisticsSupergroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatStatisticsSupergroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -16981,7 +16981,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChatStatisticsChannelCxxBridge : ObjectBridge<ChatStatisticsChannel>
     {
         public static BaseCxxBridge CreateInstance() => new ChatStatisticsChannelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_chatStatisticsChannel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17030,7 +17030,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class MessageStatisticsCxxBridge : ObjectBridge<MessageStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new MessageStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_messageStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17051,7 +17051,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateAuthorizationStateCxxBridge : ObjectBridge<UpdateAuthorizationState>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateAuthorizationStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateAuthorizationState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17072,7 +17072,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewMessageCxxBridge : ObjectBridge<UpdateNewMessage>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17093,7 +17093,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageSendAcknowledgedCxxBridge : ObjectBridge<UpdateMessageSendAcknowledged>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageSendAcknowledgedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageSendAcknowledged();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17116,7 +17116,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageSendSucceededCxxBridge : ObjectBridge<UpdateMessageSendSucceeded>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageSendSucceededCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageSendSucceeded();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17139,7 +17139,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageSendFailedCxxBridge : ObjectBridge<UpdateMessageSendFailed>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageSendFailedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageSendFailed();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17166,7 +17166,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageContentCxxBridge : ObjectBridge<UpdateMessageContent>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageContentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageContent();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17191,7 +17191,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageEditedCxxBridge : ObjectBridge<UpdateMessageEdited>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageEditedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageEdited();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17218,7 +17218,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageInteractionInfoCxxBridge : ObjectBridge<UpdateMessageInteractionInfo>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageInteractionInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageInteractionInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17243,7 +17243,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageContentOpenedCxxBridge : ObjectBridge<UpdateMessageContentOpened>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageContentOpenedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageContentOpened();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17266,7 +17266,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageMentionReadCxxBridge : ObjectBridge<UpdateMessageMentionRead>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageMentionReadCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageMentionRead();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17291,7 +17291,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateMessageLiveLocationViewedCxxBridge : ObjectBridge<UpdateMessageLiveLocationViewed>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateMessageLiveLocationViewedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateMessageLiveLocationViewed();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17314,7 +17314,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewChatCxxBridge : ObjectBridge<UpdateNewChat>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17335,7 +17335,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatTitleCxxBridge : ObjectBridge<UpdateChatTitle>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatTitleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatTitle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17358,7 +17358,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatPhotoCxxBridge : ObjectBridge<UpdateChatPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17381,7 +17381,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatPermissionsCxxBridge : ObjectBridge<UpdateChatPermissions>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatPermissionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatPermissions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17404,7 +17404,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatLastMessageCxxBridge : ObjectBridge<UpdateChatLastMessage>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatLastMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatLastMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17429,7 +17429,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatPositionCxxBridge : ObjectBridge<UpdateChatPosition>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatPositionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatPosition();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17452,7 +17452,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatIsMarkedAsUnreadCxxBridge : ObjectBridge<UpdateChatIsMarkedAsUnread>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatIsMarkedAsUnreadCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatIsMarkedAsUnread();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17475,7 +17475,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatIsBlockedCxxBridge : ObjectBridge<UpdateChatIsBlocked>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatIsBlockedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatIsBlocked();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17498,7 +17498,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatHasScheduledMessagesCxxBridge : ObjectBridge<UpdateChatHasScheduledMessages>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatHasScheduledMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatHasScheduledMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17521,7 +17521,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatDefaultDisableNotificationCxxBridge : ObjectBridge<UpdateChatDefaultDisableNotification>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatDefaultDisableNotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatDefaultDisableNotification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17544,7 +17544,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatReadInboxCxxBridge : ObjectBridge<UpdateChatReadInbox>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatReadInboxCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatReadInbox();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17569,7 +17569,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatReadOutboxCxxBridge : ObjectBridge<UpdateChatReadOutbox>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatReadOutboxCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatReadOutbox();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17592,7 +17592,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatUnreadMentionCountCxxBridge : ObjectBridge<UpdateChatUnreadMentionCount>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatUnreadMentionCountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatUnreadMentionCount();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17615,7 +17615,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatNotificationSettingsCxxBridge : ObjectBridge<UpdateChatNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17638,7 +17638,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateScopeNotificationSettingsCxxBridge : ObjectBridge<UpdateScopeNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateScopeNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateScopeNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17661,7 +17661,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatActionBarCxxBridge : ObjectBridge<UpdateChatActionBar>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatActionBarCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatActionBar();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17684,7 +17684,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatPinnedMessageCxxBridge : ObjectBridge<UpdateChatPinnedMessage>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatPinnedMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatPinnedMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17707,7 +17707,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatReplyMarkupCxxBridge : ObjectBridge<UpdateChatReplyMarkup>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatReplyMarkupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatReplyMarkup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17730,7 +17730,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatDraftMessageCxxBridge : ObjectBridge<UpdateChatDraftMessage>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatDraftMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatDraftMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17755,7 +17755,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatFiltersCxxBridge : ObjectBridge<UpdateChatFilters>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatFiltersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatFilters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17776,7 +17776,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateChatOnlineMemberCountCxxBridge : ObjectBridge<UpdateChatOnlineMemberCount>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateChatOnlineMemberCountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateChatOnlineMemberCount();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17799,7 +17799,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNotificationCxxBridge : ObjectBridge<UpdateNotification>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNotification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17822,7 +17822,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNotificationGroupCxxBridge : ObjectBridge<UpdateNotificationGroup>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNotificationGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNotificationGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17857,7 +17857,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateActiveNotificationsCxxBridge : ObjectBridge<UpdateActiveNotifications>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateActiveNotificationsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateActiveNotifications();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17878,7 +17878,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateHavePendingNotificationsCxxBridge : ObjectBridge<UpdateHavePendingNotifications>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateHavePendingNotificationsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateHavePendingNotifications();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17901,7 +17901,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateDeleteMessagesCxxBridge : ObjectBridge<UpdateDeleteMessages>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateDeleteMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateDeleteMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17928,7 +17928,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUserChatActionCxxBridge : ObjectBridge<UpdateUserChatAction>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUserChatActionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUserChatAction();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17955,7 +17955,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUserStatusCxxBridge : ObjectBridge<UpdateUserStatus>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUserStatusCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUserStatus();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17978,7 +17978,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUserCxxBridge : ObjectBridge<UpdateUser>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -17999,7 +17999,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateBasicGroupCxxBridge : ObjectBridge<UpdateBasicGroup>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateBasicGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateBasicGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18020,7 +18020,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateSupergroupCxxBridge : ObjectBridge<UpdateSupergroup>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateSupergroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateSupergroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18041,7 +18041,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateSecretChatCxxBridge : ObjectBridge<UpdateSecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateSecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateSecretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18062,7 +18062,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUserFullInfoCxxBridge : ObjectBridge<UpdateUserFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUserFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUserFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18085,7 +18085,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateBasicGroupFullInfoCxxBridge : ObjectBridge<UpdateBasicGroupFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateBasicGroupFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateBasicGroupFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18108,7 +18108,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateSupergroupFullInfoCxxBridge : ObjectBridge<UpdateSupergroupFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateSupergroupFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateSupergroupFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18131,7 +18131,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateServiceNotificationCxxBridge : ObjectBridge<UpdateServiceNotification>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateServiceNotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateServiceNotification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18154,7 +18154,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateFileCxxBridge : ObjectBridge<UpdateFile>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18175,7 +18175,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateFileGenerationStartCxxBridge : ObjectBridge<UpdateFileGenerationStart>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateFileGenerationStartCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateFileGenerationStart();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18202,7 +18202,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateFileGenerationStopCxxBridge : ObjectBridge<UpdateFileGenerationStop>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateFileGenerationStopCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateFileGenerationStop();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18223,7 +18223,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateCallCxxBridge : ObjectBridge<UpdateCall>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18244,7 +18244,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewCallSignalingDataCxxBridge : ObjectBridge<UpdateNewCallSignalingData>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewCallSignalingDataCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewCallSignalingData();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18267,7 +18267,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUserPrivacySettingRulesCxxBridge : ObjectBridge<UpdateUserPrivacySettingRules>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUserPrivacySettingRulesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUserPrivacySettingRules();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18290,7 +18290,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUnreadMessageCountCxxBridge : ObjectBridge<UpdateUnreadMessageCount>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUnreadMessageCountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUnreadMessageCount();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18315,7 +18315,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUnreadChatCountCxxBridge : ObjectBridge<UpdateUnreadChatCount>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUnreadChatCountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUnreadChatCount();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18346,7 +18346,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateOptionCxxBridge : ObjectBridge<UpdateOption>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateOptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateOption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18369,7 +18369,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateStickerSetCxxBridge : ObjectBridge<UpdateStickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateStickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateStickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18390,7 +18390,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateInstalledStickerSetsCxxBridge : ObjectBridge<UpdateInstalledStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateInstalledStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateInstalledStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18413,7 +18413,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateTrendingStickerSetsCxxBridge : ObjectBridge<UpdateTrendingStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateTrendingStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateTrendingStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18434,7 +18434,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateRecentStickersCxxBridge : ObjectBridge<UpdateRecentStickers>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateRecentStickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateRecentStickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18457,7 +18457,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateFavoriteStickersCxxBridge : ObjectBridge<UpdateFavoriteStickers>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateFavoriteStickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateFavoriteStickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18478,7 +18478,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateSavedAnimationsCxxBridge : ObjectBridge<UpdateSavedAnimations>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateSavedAnimationsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateSavedAnimations();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18499,7 +18499,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateSelectedBackgroundCxxBridge : ObjectBridge<UpdateSelectedBackground>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateSelectedBackgroundCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateSelectedBackground();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18522,7 +18522,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateLanguagePackStringsCxxBridge : ObjectBridge<UpdateLanguagePackStrings>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateLanguagePackStringsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateLanguagePackStrings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18547,7 +18547,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateConnectionStateCxxBridge : ObjectBridge<UpdateConnectionState>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateConnectionStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateConnectionState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18568,7 +18568,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateTermsOfServiceCxxBridge : ObjectBridge<UpdateTermsOfService>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateTermsOfServiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateTermsOfService();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18591,7 +18591,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateUsersNearbyCxxBridge : ObjectBridge<UpdateUsersNearby>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateUsersNearbyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateUsersNearby();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18612,7 +18612,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateDiceEmojisCxxBridge : ObjectBridge<UpdateDiceEmojis>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateDiceEmojisCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateDiceEmojis();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18633,7 +18633,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateAnimationSearchParametersCxxBridge : ObjectBridge<UpdateAnimationSearchParameters>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateAnimationSearchParametersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateAnimationSearchParameters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18656,7 +18656,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateSuggestedActionsCxxBridge : ObjectBridge<UpdateSuggestedActions>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateSuggestedActionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateSuggestedActions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18679,7 +18679,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewInlineQueryCxxBridge : ObjectBridge<UpdateNewInlineQuery>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewInlineQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewInlineQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18708,7 +18708,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewChosenInlineResultCxxBridge : ObjectBridge<UpdateNewChosenInlineResult>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewChosenInlineResultCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewChosenInlineResult();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18737,7 +18737,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewCallbackQueryCxxBridge : ObjectBridge<UpdateNewCallbackQuery>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewCallbackQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewCallbackQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18768,7 +18768,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewInlineCallbackQueryCxxBridge : ObjectBridge<UpdateNewInlineCallbackQuery>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewInlineCallbackQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewInlineCallbackQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18797,7 +18797,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewShippingQueryCxxBridge : ObjectBridge<UpdateNewShippingQuery>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewShippingQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewShippingQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18824,7 +18824,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewPreCheckoutQueryCxxBridge : ObjectBridge<UpdateNewPreCheckoutQuery>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewPreCheckoutQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewPreCheckoutQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18857,7 +18857,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewCustomEventCxxBridge : ObjectBridge<UpdateNewCustomEvent>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewCustomEventCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewCustomEvent();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18878,7 +18878,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdateNewCustomQueryCxxBridge : ObjectBridge<UpdateNewCustomQuery>
     {
         public static BaseCxxBridge CreateInstance() => new UpdateNewCustomQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updateNewCustomQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18903,7 +18903,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdatePollCxxBridge : ObjectBridge<UpdatePoll>
     {
         public static BaseCxxBridge CreateInstance() => new UpdatePollCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updatePoll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18924,7 +18924,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdatePollAnswerCxxBridge : ObjectBridge<UpdatePollAnswer>
     {
         public static BaseCxxBridge CreateInstance() => new UpdatePollAnswerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updatePollAnswer();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18949,7 +18949,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpdatesCxxBridge : ObjectBridge<Updates>
     {
         public static BaseCxxBridge CreateInstance() => new UpdatesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_updates();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18970,7 +18970,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LogStreamDefaultCxxBridge : ObjectBridge<LogStreamDefault>
     {
         public static BaseCxxBridge CreateInstance() => new LogStreamDefaultCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_logStreamDefault();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -18989,7 +18989,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LogStreamFileCxxBridge : ObjectBridge<LogStreamFile>
     {
         public static BaseCxxBridge CreateInstance() => new LogStreamFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_logStreamFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19014,7 +19014,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LogStreamEmptyCxxBridge : ObjectBridge<LogStreamEmpty>
     {
         public static BaseCxxBridge CreateInstance() => new LogStreamEmptyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_logStreamEmpty();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19033,7 +19033,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LogVerbosityLevelCxxBridge : ObjectBridge<LogVerbosityLevel>
     {
         public static BaseCxxBridge CreateInstance() => new LogVerbosityLevelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_logVerbosityLevel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19054,7 +19054,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LogTagsCxxBridge : ObjectBridge<LogTags>
     {
         public static BaseCxxBridge CreateInstance() => new LogTagsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_logTags();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19075,7 +19075,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestIntCxxBridge : ObjectBridge<TestInt>
     {
         public static BaseCxxBridge CreateInstance() => new TestIntCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testInt();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19096,7 +19096,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestStringCxxBridge : ObjectBridge<TestString>
     {
         public static BaseCxxBridge CreateInstance() => new TestStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19117,7 +19117,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestBytesCxxBridge : ObjectBridge<TestBytes>
     {
         public static BaseCxxBridge CreateInstance() => new TestBytesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testBytes();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19138,7 +19138,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestVectorIntCxxBridge : ObjectBridge<TestVectorInt>
     {
         public static BaseCxxBridge CreateInstance() => new TestVectorIntCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testVectorInt();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19159,7 +19159,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestVectorIntObjectCxxBridge : ObjectBridge<TestVectorIntObject>
     {
         public static BaseCxxBridge CreateInstance() => new TestVectorIntObjectCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testVectorIntObject();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19180,7 +19180,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestVectorStringCxxBridge : ObjectBridge<TestVectorString>
     {
         public static BaseCxxBridge CreateInstance() => new TestVectorStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testVectorString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19201,7 +19201,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestVectorStringObjectCxxBridge : ObjectBridge<TestVectorStringObject>
     {
         public static BaseCxxBridge CreateInstance() => new TestVectorStringObjectCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testVectorStringObject();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19222,7 +19222,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetAuthorizationStateCxxBridge : ObjectBridge<GetAuthorizationState>
     {
         public static BaseCxxBridge CreateInstance() => new GetAuthorizationStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getAuthorizationState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19241,7 +19241,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetTdlibParametersCxxBridge : ObjectBridge<SetTdlibParameters>
     {
         public static BaseCxxBridge CreateInstance() => new SetTdlibParametersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setTdlibParameters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19262,7 +19262,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckDatabaseEncryptionKeyCxxBridge : ObjectBridge<CheckDatabaseEncryptionKey>
     {
         public static BaseCxxBridge CreateInstance() => new CheckDatabaseEncryptionKeyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkDatabaseEncryptionKey();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19283,7 +19283,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetAuthenticationPhoneNumberCxxBridge : ObjectBridge<SetAuthenticationPhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new SetAuthenticationPhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setAuthenticationPhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19306,7 +19306,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResendAuthenticationCodeCxxBridge : ObjectBridge<ResendAuthenticationCode>
     {
         public static BaseCxxBridge CreateInstance() => new ResendAuthenticationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resendAuthenticationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19325,7 +19325,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckAuthenticationCodeCxxBridge : ObjectBridge<CheckAuthenticationCode>
     {
         public static BaseCxxBridge CreateInstance() => new CheckAuthenticationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkAuthenticationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19346,7 +19346,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RequestQrCodeAuthenticationCxxBridge : ObjectBridge<RequestQrCodeAuthentication>
     {
         public static BaseCxxBridge CreateInstance() => new RequestQrCodeAuthenticationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_requestQrCodeAuthentication();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19367,7 +19367,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RegisterUserCxxBridge : ObjectBridge<RegisterUser>
     {
         public static BaseCxxBridge CreateInstance() => new RegisterUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_registerUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19390,7 +19390,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckAuthenticationPasswordCxxBridge : ObjectBridge<CheckAuthenticationPassword>
     {
         public static BaseCxxBridge CreateInstance() => new CheckAuthenticationPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkAuthenticationPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19411,7 +19411,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RequestAuthenticationPasswordRecoveryCxxBridge : ObjectBridge<RequestAuthenticationPasswordRecovery>
     {
         public static BaseCxxBridge CreateInstance() => new RequestAuthenticationPasswordRecoveryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_requestAuthenticationPasswordRecovery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19430,7 +19430,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RecoverAuthenticationPasswordCxxBridge : ObjectBridge<RecoverAuthenticationPassword>
     {
         public static BaseCxxBridge CreateInstance() => new RecoverAuthenticationPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_recoverAuthenticationPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19451,7 +19451,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckAuthenticationBotTokenCxxBridge : ObjectBridge<CheckAuthenticationBotToken>
     {
         public static BaseCxxBridge CreateInstance() => new CheckAuthenticationBotTokenCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkAuthenticationBotToken();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19472,7 +19472,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LogOutCxxBridge : ObjectBridge<LogOut>
     {
         public static BaseCxxBridge CreateInstance() => new LogOutCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_logOut();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19491,7 +19491,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CloseCxxBridge : ObjectBridge<Close>
     {
         public static BaseCxxBridge CreateInstance() => new CloseCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_close();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19510,7 +19510,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DestroyCxxBridge : ObjectBridge<Destroy>
     {
         public static BaseCxxBridge CreateInstance() => new DestroyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_destroy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19529,7 +19529,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ConfirmQrCodeAuthenticationCxxBridge : ObjectBridge<ConfirmQrCodeAuthentication>
     {
         public static BaseCxxBridge CreateInstance() => new ConfirmQrCodeAuthenticationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_confirmQrCodeAuthentication();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19550,7 +19550,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetCurrentStateCxxBridge : ObjectBridge<GetCurrentState>
     {
         public static BaseCxxBridge CreateInstance() => new GetCurrentStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getCurrentState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19569,7 +19569,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetDatabaseEncryptionKeyCxxBridge : ObjectBridge<SetDatabaseEncryptionKey>
     {
         public static BaseCxxBridge CreateInstance() => new SetDatabaseEncryptionKeyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setDatabaseEncryptionKey();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19590,7 +19590,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPasswordStateCxxBridge : ObjectBridge<GetPasswordState>
     {
         public static BaseCxxBridge CreateInstance() => new GetPasswordStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPasswordState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19609,7 +19609,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetPasswordCxxBridge : ObjectBridge<SetPassword>
     {
         public static BaseCxxBridge CreateInstance() => new SetPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19638,7 +19638,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetRecoveryEmailAddressCxxBridge : ObjectBridge<GetRecoveryEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new GetRecoveryEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getRecoveryEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19659,7 +19659,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetRecoveryEmailAddressCxxBridge : ObjectBridge<SetRecoveryEmailAddress>
     {
         public static BaseCxxBridge CreateInstance() => new SetRecoveryEmailAddressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setRecoveryEmailAddress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19682,7 +19682,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckRecoveryEmailAddressCodeCxxBridge : ObjectBridge<CheckRecoveryEmailAddressCode>
     {
         public static BaseCxxBridge CreateInstance() => new CheckRecoveryEmailAddressCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkRecoveryEmailAddressCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19703,7 +19703,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResendRecoveryEmailAddressCodeCxxBridge : ObjectBridge<ResendRecoveryEmailAddressCode>
     {
         public static BaseCxxBridge CreateInstance() => new ResendRecoveryEmailAddressCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resendRecoveryEmailAddressCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19722,7 +19722,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RequestPasswordRecoveryCxxBridge : ObjectBridge<RequestPasswordRecovery>
     {
         public static BaseCxxBridge CreateInstance() => new RequestPasswordRecoveryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_requestPasswordRecovery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19741,7 +19741,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RecoverPasswordCxxBridge : ObjectBridge<RecoverPassword>
     {
         public static BaseCxxBridge CreateInstance() => new RecoverPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_recoverPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19762,7 +19762,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateTemporaryPasswordCxxBridge : ObjectBridge<CreateTemporaryPassword>
     {
         public static BaseCxxBridge CreateInstance() => new CreateTemporaryPasswordCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createTemporaryPassword();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19785,7 +19785,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetTemporaryPasswordStateCxxBridge : ObjectBridge<GetTemporaryPasswordState>
     {
         public static BaseCxxBridge CreateInstance() => new GetTemporaryPasswordStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getTemporaryPasswordState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19804,7 +19804,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMeCxxBridge : ObjectBridge<GetMe>
     {
         public static BaseCxxBridge CreateInstance() => new GetMeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMe();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19823,7 +19823,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetUserCxxBridge : ObjectBridge<GetUser>
     {
         public static BaseCxxBridge CreateInstance() => new GetUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19844,7 +19844,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetUserFullInfoCxxBridge : ObjectBridge<GetUserFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetUserFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getUserFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19865,7 +19865,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetBasicGroupCxxBridge : ObjectBridge<GetBasicGroup>
     {
         public static BaseCxxBridge CreateInstance() => new GetBasicGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getBasicGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19886,7 +19886,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetBasicGroupFullInfoCxxBridge : ObjectBridge<GetBasicGroupFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetBasicGroupFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getBasicGroupFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19907,7 +19907,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSupergroupCxxBridge : ObjectBridge<GetSupergroup>
     {
         public static BaseCxxBridge CreateInstance() => new GetSupergroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSupergroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19928,7 +19928,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSupergroupFullInfoCxxBridge : ObjectBridge<GetSupergroupFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetSupergroupFullInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSupergroupFullInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19949,7 +19949,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSecretChatCxxBridge : ObjectBridge<GetSecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new GetSecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSecretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19970,7 +19970,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatCxxBridge : ObjectBridge<GetChat>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -19991,7 +19991,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageCxxBridge : ObjectBridge<GetMessage>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20014,7 +20014,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageLocallyCxxBridge : ObjectBridge<GetMessageLocally>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageLocallyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessageLocally();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20037,7 +20037,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetRepliedMessageCxxBridge : ObjectBridge<GetRepliedMessage>
     {
         public static BaseCxxBridge CreateInstance() => new GetRepliedMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getRepliedMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20060,7 +20060,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatPinnedMessageCxxBridge : ObjectBridge<GetChatPinnedMessage>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatPinnedMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatPinnedMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20081,7 +20081,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessagesCxxBridge : ObjectBridge<GetMessages>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20104,7 +20104,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageThreadCxxBridge : ObjectBridge<GetMessageThread>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageThreadCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessageThread();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20127,7 +20127,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetFileCxxBridge : ObjectBridge<GetFile>
     {
         public static BaseCxxBridge CreateInstance() => new GetFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20148,7 +20148,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetRemoteFileCxxBridge : ObjectBridge<GetRemoteFile>
     {
         public static BaseCxxBridge CreateInstance() => new GetRemoteFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getRemoteFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20171,7 +20171,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatsCxxBridge : ObjectBridge<GetChats>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20198,7 +20198,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchPublicChatCxxBridge : ObjectBridge<SearchPublicChat>
     {
         public static BaseCxxBridge CreateInstance() => new SearchPublicChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchPublicChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20219,7 +20219,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchPublicChatsCxxBridge : ObjectBridge<SearchPublicChats>
     {
         public static BaseCxxBridge CreateInstance() => new SearchPublicChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchPublicChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20240,7 +20240,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchChatsCxxBridge : ObjectBridge<SearchChats>
     {
         public static BaseCxxBridge CreateInstance() => new SearchChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20263,7 +20263,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchChatsOnServerCxxBridge : ObjectBridge<SearchChatsOnServer>
     {
         public static BaseCxxBridge CreateInstance() => new SearchChatsOnServerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchChatsOnServer();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20286,7 +20286,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchChatsNearbyCxxBridge : ObjectBridge<SearchChatsNearby>
     {
         public static BaseCxxBridge CreateInstance() => new SearchChatsNearbyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchChatsNearby();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20307,7 +20307,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetTopChatsCxxBridge : ObjectBridge<GetTopChats>
     {
         public static BaseCxxBridge CreateInstance() => new GetTopChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getTopChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20330,7 +20330,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveTopChatCxxBridge : ObjectBridge<RemoveTopChat>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveTopChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeTopChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20353,7 +20353,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddRecentlyFoundChatCxxBridge : ObjectBridge<AddRecentlyFoundChat>
     {
         public static BaseCxxBridge CreateInstance() => new AddRecentlyFoundChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addRecentlyFoundChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20374,7 +20374,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveRecentlyFoundChatCxxBridge : ObjectBridge<RemoveRecentlyFoundChat>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveRecentlyFoundChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeRecentlyFoundChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20395,7 +20395,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ClearRecentlyFoundChatsCxxBridge : ObjectBridge<ClearRecentlyFoundChats>
     {
         public static BaseCxxBridge CreateInstance() => new ClearRecentlyFoundChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_clearRecentlyFoundChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20414,7 +20414,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChatUsernameCxxBridge : ObjectBridge<CheckChatUsername>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChatUsernameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChatUsername();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20437,7 +20437,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetCreatedPublicChatsCxxBridge : ObjectBridge<GetCreatedPublicChats>
     {
         public static BaseCxxBridge CreateInstance() => new GetCreatedPublicChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getCreatedPublicChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20458,7 +20458,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckCreatedPublicChatsLimitCxxBridge : ObjectBridge<CheckCreatedPublicChatsLimit>
     {
         public static BaseCxxBridge CreateInstance() => new CheckCreatedPublicChatsLimitCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkCreatedPublicChatsLimit();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20479,7 +20479,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSuitableDiscussionChatsCxxBridge : ObjectBridge<GetSuitableDiscussionChats>
     {
         public static BaseCxxBridge CreateInstance() => new GetSuitableDiscussionChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSuitableDiscussionChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20498,7 +20498,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetInactiveSupergroupChatsCxxBridge : ObjectBridge<GetInactiveSupergroupChats>
     {
         public static BaseCxxBridge CreateInstance() => new GetInactiveSupergroupChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getInactiveSupergroupChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20517,7 +20517,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetGroupsInCommonCxxBridge : ObjectBridge<GetGroupsInCommon>
     {
         public static BaseCxxBridge CreateInstance() => new GetGroupsInCommonCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getGroupsInCommon();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20542,7 +20542,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatHistoryCxxBridge : ObjectBridge<GetChatHistory>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatHistoryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatHistory();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20571,7 +20571,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageThreadHistoryCxxBridge : ObjectBridge<GetMessageThreadHistory>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageThreadHistoryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessageThreadHistory();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20600,7 +20600,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteChatHistoryCxxBridge : ObjectBridge<DeleteChatHistory>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteChatHistoryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteChatHistory();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20625,7 +20625,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchChatMessagesCxxBridge : ObjectBridge<SearchChatMessages>
     {
         public static BaseCxxBridge CreateInstance() => new SearchChatMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchChatMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20660,7 +20660,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchMessagesCxxBridge : ObjectBridge<SearchMessages>
     {
         public static BaseCxxBridge CreateInstance() => new SearchMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20697,7 +20697,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchSecretMessagesCxxBridge : ObjectBridge<SearchSecretMessages>
     {
         public static BaseCxxBridge CreateInstance() => new SearchSecretMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchSecretMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20726,7 +20726,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchCallMessagesCxxBridge : ObjectBridge<SearchCallMessages>
     {
         public static BaseCxxBridge CreateInstance() => new SearchCallMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchCallMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20751,7 +20751,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchChatRecentLocationMessagesCxxBridge : ObjectBridge<SearchChatRecentLocationMessages>
     {
         public static BaseCxxBridge CreateInstance() => new SearchChatRecentLocationMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchChatRecentLocationMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20774,7 +20774,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetActiveLiveLocationMessagesCxxBridge : ObjectBridge<GetActiveLiveLocationMessages>
     {
         public static BaseCxxBridge CreateInstance() => new GetActiveLiveLocationMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getActiveLiveLocationMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20793,7 +20793,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatMessageByDateCxxBridge : ObjectBridge<GetChatMessageByDate>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatMessageByDateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatMessageByDate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20816,7 +20816,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatMessageCountCxxBridge : ObjectBridge<GetChatMessageCount>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatMessageCountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatMessageCount();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20841,7 +20841,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatScheduledMessagesCxxBridge : ObjectBridge<GetChatScheduledMessages>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatScheduledMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatScheduledMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20862,7 +20862,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessagePublicForwardsCxxBridge : ObjectBridge<GetMessagePublicForwards>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessagePublicForwardsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessagePublicForwards();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20889,7 +20889,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveNotificationCxxBridge : ObjectBridge<RemoveNotification>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveNotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeNotification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20912,7 +20912,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveNotificationGroupCxxBridge : ObjectBridge<RemoveNotificationGroup>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveNotificationGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeNotificationGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20935,7 +20935,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageLinkCxxBridge : ObjectBridge<GetMessageLink>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessageLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20962,7 +20962,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageEmbeddingCodeCxxBridge : ObjectBridge<GetMessageEmbeddingCode>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageEmbeddingCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessageEmbeddingCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -20987,7 +20987,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageLinkInfoCxxBridge : ObjectBridge<GetMessageLinkInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageLinkInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessageLinkInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21008,7 +21008,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendMessageCxxBridge : ObjectBridge<SendMessage>
     {
         public static BaseCxxBridge CreateInstance() => new SendMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21039,7 +21039,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendMessageAlbumCxxBridge : ObjectBridge<SendMessageAlbum>
     {
         public static BaseCxxBridge CreateInstance() => new SendMessageAlbumCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendMessageAlbum();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21068,7 +21068,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendBotStartMessageCxxBridge : ObjectBridge<SendBotStartMessage>
     {
         public static BaseCxxBridge CreateInstance() => new SendBotStartMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendBotStartMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21093,7 +21093,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendInlineQueryResultMessageCxxBridge : ObjectBridge<SendInlineQueryResultMessage>
     {
         public static BaseCxxBridge CreateInstance() => new SendInlineQueryResultMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendInlineQueryResultMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21126,7 +21126,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ForwardMessagesCxxBridge : ObjectBridge<ForwardMessages>
     {
         public static BaseCxxBridge CreateInstance() => new ForwardMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_forwardMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21157,7 +21157,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResendMessagesCxxBridge : ObjectBridge<ResendMessages>
     {
         public static BaseCxxBridge CreateInstance() => new ResendMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resendMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21180,7 +21180,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendChatSetTtlMessageCxxBridge : ObjectBridge<SendChatSetTtlMessage>
     {
         public static BaseCxxBridge CreateInstance() => new SendChatSetTtlMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendChatSetTtlMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21203,7 +21203,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendChatScreenshotTakenNotificationCxxBridge : ObjectBridge<SendChatScreenshotTakenNotification>
     {
         public static BaseCxxBridge CreateInstance() => new SendChatScreenshotTakenNotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendChatScreenshotTakenNotification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21224,7 +21224,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddLocalMessageCxxBridge : ObjectBridge<AddLocalMessage>
     {
         public static BaseCxxBridge CreateInstance() => new AddLocalMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addLocalMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21253,7 +21253,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteMessagesCxxBridge : ObjectBridge<DeleteMessages>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21278,7 +21278,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteChatMessagesFromUserCxxBridge : ObjectBridge<DeleteChatMessagesFromUser>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteChatMessagesFromUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteChatMessagesFromUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21301,7 +21301,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditMessageTextCxxBridge : ObjectBridge<EditMessageText>
     {
         public static BaseCxxBridge CreateInstance() => new EditMessageTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editMessageText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21328,7 +21328,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditMessageLiveLocationCxxBridge : ObjectBridge<EditMessageLiveLocation>
     {
         public static BaseCxxBridge CreateInstance() => new EditMessageLiveLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editMessageLiveLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21355,7 +21355,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditMessageMediaCxxBridge : ObjectBridge<EditMessageMedia>
     {
         public static BaseCxxBridge CreateInstance() => new EditMessageMediaCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editMessageMedia();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21382,7 +21382,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditMessageCaptionCxxBridge : ObjectBridge<EditMessageCaption>
     {
         public static BaseCxxBridge CreateInstance() => new EditMessageCaptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editMessageCaption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21409,7 +21409,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditMessageReplyMarkupCxxBridge : ObjectBridge<EditMessageReplyMarkup>
     {
         public static BaseCxxBridge CreateInstance() => new EditMessageReplyMarkupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editMessageReplyMarkup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21434,7 +21434,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditInlineMessageTextCxxBridge : ObjectBridge<EditInlineMessageText>
     {
         public static BaseCxxBridge CreateInstance() => new EditInlineMessageTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editInlineMessageText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21459,7 +21459,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditInlineMessageLiveLocationCxxBridge : ObjectBridge<EditInlineMessageLiveLocation>
     {
         public static BaseCxxBridge CreateInstance() => new EditInlineMessageLiveLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editInlineMessageLiveLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21484,7 +21484,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditInlineMessageMediaCxxBridge : ObjectBridge<EditInlineMessageMedia>
     {
         public static BaseCxxBridge CreateInstance() => new EditInlineMessageMediaCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editInlineMessageMedia();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21509,7 +21509,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditInlineMessageCaptionCxxBridge : ObjectBridge<EditInlineMessageCaption>
     {
         public static BaseCxxBridge CreateInstance() => new EditInlineMessageCaptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editInlineMessageCaption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21534,7 +21534,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditInlineMessageReplyMarkupCxxBridge : ObjectBridge<EditInlineMessageReplyMarkup>
     {
         public static BaseCxxBridge CreateInstance() => new EditInlineMessageReplyMarkupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editInlineMessageReplyMarkup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21557,7 +21557,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditMessageSchedulingStateCxxBridge : ObjectBridge<EditMessageSchedulingState>
     {
         public static BaseCxxBridge CreateInstance() => new EditMessageSchedulingStateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editMessageSchedulingState();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21582,7 +21582,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetTextEntitiesCxxBridge : ObjectBridge<GetTextEntities>
     {
         public static BaseCxxBridge CreateInstance() => new GetTextEntitiesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getTextEntities();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21603,7 +21603,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ParseTextEntitiesCxxBridge : ObjectBridge<ParseTextEntities>
     {
         public static BaseCxxBridge CreateInstance() => new ParseTextEntitiesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_parseTextEntities();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21626,7 +21626,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ParseMarkdownCxxBridge : ObjectBridge<ParseMarkdown>
     {
         public static BaseCxxBridge CreateInstance() => new ParseMarkdownCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_parseMarkdown();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21647,7 +21647,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMarkdownTextCxxBridge : ObjectBridge<GetMarkdownText>
     {
         public static BaseCxxBridge CreateInstance() => new GetMarkdownTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMarkdownText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21668,7 +21668,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetFileMimeTypeCxxBridge : ObjectBridge<GetFileMimeType>
     {
         public static BaseCxxBridge CreateInstance() => new GetFileMimeTypeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getFileMimeType();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21689,7 +21689,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetFileExtensionCxxBridge : ObjectBridge<GetFileExtension>
     {
         public static BaseCxxBridge CreateInstance() => new GetFileExtensionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getFileExtension();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21710,7 +21710,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CleanFileNameCxxBridge : ObjectBridge<CleanFileName>
     {
         public static BaseCxxBridge CreateInstance() => new CleanFileNameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_cleanFileName();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21731,7 +21731,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLanguagePackStringCxxBridge : ObjectBridge<GetLanguagePackString>
     {
         public static BaseCxxBridge CreateInstance() => new GetLanguagePackStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLanguagePackString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21758,7 +21758,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetJsonValueCxxBridge : ObjectBridge<GetJsonValue>
     {
         public static BaseCxxBridge CreateInstance() => new GetJsonValueCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getJsonValue();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21779,7 +21779,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetJsonStringCxxBridge : ObjectBridge<GetJsonString>
     {
         public static BaseCxxBridge CreateInstance() => new GetJsonStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getJsonString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21800,7 +21800,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetPollAnswerCxxBridge : ObjectBridge<SetPollAnswer>
     {
         public static BaseCxxBridge CreateInstance() => new SetPollAnswerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setPollAnswer();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21825,7 +21825,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPollVotersCxxBridge : ObjectBridge<GetPollVoters>
     {
         public static BaseCxxBridge CreateInstance() => new GetPollVotersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPollVoters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21854,7 +21854,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class StopPollCxxBridge : ObjectBridge<StopPoll>
     {
         public static BaseCxxBridge CreateInstance() => new StopPollCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_stopPoll();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21879,7 +21879,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class HideSuggestedActionCxxBridge : ObjectBridge<HideSuggestedAction>
     {
         public static BaseCxxBridge CreateInstance() => new HideSuggestedActionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_hideSuggestedAction();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21900,7 +21900,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLoginUrlInfoCxxBridge : ObjectBridge<GetLoginUrlInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetLoginUrlInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLoginUrlInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21925,7 +21925,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLoginUrlCxxBridge : ObjectBridge<GetLoginUrl>
     {
         public static BaseCxxBridge CreateInstance() => new GetLoginUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLoginUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21952,7 +21952,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetInlineQueryResultsCxxBridge : ObjectBridge<GetInlineQueryResults>
     {
         public static BaseCxxBridge CreateInstance() => new GetInlineQueryResultsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getInlineQueryResults();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -21981,7 +21981,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnswerInlineQueryCxxBridge : ObjectBridge<AnswerInlineQuery>
     {
         public static BaseCxxBridge CreateInstance() => new AnswerInlineQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_answerInlineQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22014,7 +22014,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetCallbackQueryAnswerCxxBridge : ObjectBridge<GetCallbackQueryAnswer>
     {
         public static BaseCxxBridge CreateInstance() => new GetCallbackQueryAnswerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getCallbackQueryAnswer();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22039,7 +22039,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnswerCallbackQueryCxxBridge : ObjectBridge<AnswerCallbackQuery>
     {
         public static BaseCxxBridge CreateInstance() => new AnswerCallbackQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_answerCallbackQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22068,7 +22068,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnswerShippingQueryCxxBridge : ObjectBridge<AnswerShippingQuery>
     {
         public static BaseCxxBridge CreateInstance() => new AnswerShippingQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_answerShippingQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22093,7 +22093,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnswerPreCheckoutQueryCxxBridge : ObjectBridge<AnswerPreCheckoutQuery>
     {
         public static BaseCxxBridge CreateInstance() => new AnswerPreCheckoutQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_answerPreCheckoutQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22116,7 +22116,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetGameScoreCxxBridge : ObjectBridge<SetGameScore>
     {
         public static BaseCxxBridge CreateInstance() => new SetGameScoreCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setGameScore();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22147,7 +22147,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetInlineGameScoreCxxBridge : ObjectBridge<SetInlineGameScore>
     {
         public static BaseCxxBridge CreateInstance() => new SetInlineGameScoreCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setInlineGameScore();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22176,7 +22176,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetGameHighScoresCxxBridge : ObjectBridge<GetGameHighScores>
     {
         public static BaseCxxBridge CreateInstance() => new GetGameHighScoresCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getGameHighScores();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22201,7 +22201,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetInlineGameHighScoresCxxBridge : ObjectBridge<GetInlineGameHighScores>
     {
         public static BaseCxxBridge CreateInstance() => new GetInlineGameHighScoresCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getInlineGameHighScores();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22224,7 +22224,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteChatReplyMarkupCxxBridge : ObjectBridge<DeleteChatReplyMarkup>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteChatReplyMarkupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteChatReplyMarkup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22247,7 +22247,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendChatActionCxxBridge : ObjectBridge<SendChatAction>
     {
         public static BaseCxxBridge CreateInstance() => new SendChatActionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendChatAction();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22272,7 +22272,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OpenChatCxxBridge : ObjectBridge<OpenChat>
     {
         public static BaseCxxBridge CreateInstance() => new OpenChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_openChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22293,7 +22293,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CloseChatCxxBridge : ObjectBridge<CloseChat>
     {
         public static BaseCxxBridge CreateInstance() => new CloseChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_closeChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22314,7 +22314,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ViewMessagesCxxBridge : ObjectBridge<ViewMessages>
     {
         public static BaseCxxBridge CreateInstance() => new ViewMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_viewMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22341,7 +22341,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OpenMessageContentCxxBridge : ObjectBridge<OpenMessageContent>
     {
         public static BaseCxxBridge CreateInstance() => new OpenMessageContentCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_openMessageContent();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22364,7 +22364,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReadAllChatMentionsCxxBridge : ObjectBridge<ReadAllChatMentions>
     {
         public static BaseCxxBridge CreateInstance() => new ReadAllChatMentionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_readAllChatMentions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22385,7 +22385,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreatePrivateChatCxxBridge : ObjectBridge<CreatePrivateChat>
     {
         public static BaseCxxBridge CreateInstance() => new CreatePrivateChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createPrivateChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22408,7 +22408,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateBasicGroupChatCxxBridge : ObjectBridge<CreateBasicGroupChat>
     {
         public static BaseCxxBridge CreateInstance() => new CreateBasicGroupChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createBasicGroupChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22431,7 +22431,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateSupergroupChatCxxBridge : ObjectBridge<CreateSupergroupChat>
     {
         public static BaseCxxBridge CreateInstance() => new CreateSupergroupChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createSupergroupChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22454,7 +22454,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateSecretChatCxxBridge : ObjectBridge<CreateSecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new CreateSecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createSecretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22475,7 +22475,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateNewBasicGroupChatCxxBridge : ObjectBridge<CreateNewBasicGroupChat>
     {
         public static BaseCxxBridge CreateInstance() => new CreateNewBasicGroupChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createNewBasicGroupChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22498,7 +22498,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateNewSupergroupChatCxxBridge : ObjectBridge<CreateNewSupergroupChat>
     {
         public static BaseCxxBridge CreateInstance() => new CreateNewSupergroupChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createNewSupergroupChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22525,7 +22525,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateNewSecretChatCxxBridge : ObjectBridge<CreateNewSecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new CreateNewSecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createNewSecretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22546,7 +22546,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UpgradeBasicGroupChatToSupergroupChatCxxBridge : ObjectBridge<UpgradeBasicGroupChatToSupergroupChat>
     {
         public static BaseCxxBridge CreateInstance() => new UpgradeBasicGroupChatToSupergroupChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_upgradeBasicGroupChatToSupergroupChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22567,7 +22567,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatListsToAddChatCxxBridge : ObjectBridge<GetChatListsToAddChat>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatListsToAddChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatListsToAddChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22588,7 +22588,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddChatToListCxxBridge : ObjectBridge<AddChatToList>
     {
         public static BaseCxxBridge CreateInstance() => new AddChatToListCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addChatToList();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22611,7 +22611,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatFilterCxxBridge : ObjectBridge<GetChatFilter>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatFilterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatFilter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22632,7 +22632,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateChatFilterCxxBridge : ObjectBridge<CreateChatFilter>
     {
         public static BaseCxxBridge CreateInstance() => new CreateChatFilterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createChatFilter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22653,7 +22653,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditChatFilterCxxBridge : ObjectBridge<EditChatFilter>
     {
         public static BaseCxxBridge CreateInstance() => new EditChatFilterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editChatFilter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22676,7 +22676,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteChatFilterCxxBridge : ObjectBridge<DeleteChatFilter>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteChatFilterCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteChatFilter();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22697,7 +22697,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReorderChatFiltersCxxBridge : ObjectBridge<ReorderChatFilters>
     {
         public static BaseCxxBridge CreateInstance() => new ReorderChatFiltersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_reorderChatFilters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22718,7 +22718,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetRecommendedChatFiltersCxxBridge : ObjectBridge<GetRecommendedChatFilters>
     {
         public static BaseCxxBridge CreateInstance() => new GetRecommendedChatFiltersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getRecommendedChatFilters();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22737,7 +22737,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatFilterDefaultIconNameCxxBridge : ObjectBridge<GetChatFilterDefaultIconName>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatFilterDefaultIconNameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatFilterDefaultIconName();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22758,7 +22758,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatTitleCxxBridge : ObjectBridge<SetChatTitle>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatTitleCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatTitle();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22781,7 +22781,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatPhotoCxxBridge : ObjectBridge<SetChatPhoto>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatPhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatPhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22804,7 +22804,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatPermissionsCxxBridge : ObjectBridge<SetChatPermissions>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatPermissionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatPermissions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22827,7 +22827,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatDraftMessageCxxBridge : ObjectBridge<SetChatDraftMessage>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatDraftMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatDraftMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22852,7 +22852,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatNotificationSettingsCxxBridge : ObjectBridge<SetChatNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22875,7 +22875,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ToggleChatIsMarkedAsUnreadCxxBridge : ObjectBridge<ToggleChatIsMarkedAsUnread>
     {
         public static BaseCxxBridge CreateInstance() => new ToggleChatIsMarkedAsUnreadCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_toggleChatIsMarkedAsUnread();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22898,7 +22898,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ToggleChatIsBlockedCxxBridge : ObjectBridge<ToggleChatIsBlocked>
     {
         public static BaseCxxBridge CreateInstance() => new ToggleChatIsBlockedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_toggleChatIsBlocked();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22921,7 +22921,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ToggleChatDefaultDisableNotificationCxxBridge : ObjectBridge<ToggleChatDefaultDisableNotification>
     {
         public static BaseCxxBridge CreateInstance() => new ToggleChatDefaultDisableNotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_toggleChatDefaultDisableNotification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22944,7 +22944,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatClientDataCxxBridge : ObjectBridge<SetChatClientData>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatClientDataCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatClientData();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22967,7 +22967,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatDescriptionCxxBridge : ObjectBridge<SetChatDescription>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatDescriptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatDescription();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -22990,7 +22990,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatDiscussionGroupCxxBridge : ObjectBridge<SetChatDiscussionGroup>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatDiscussionGroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatDiscussionGroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23013,7 +23013,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatLocationCxxBridge : ObjectBridge<SetChatLocation>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23036,7 +23036,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatSlowModeDelayCxxBridge : ObjectBridge<SetChatSlowModeDelay>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatSlowModeDelayCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatSlowModeDelay();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23059,7 +23059,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PinChatMessageCxxBridge : ObjectBridge<PinChatMessage>
     {
         public static BaseCxxBridge CreateInstance() => new PinChatMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pinChatMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23084,7 +23084,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UnpinChatMessageCxxBridge : ObjectBridge<UnpinChatMessage>
     {
         public static BaseCxxBridge CreateInstance() => new UnpinChatMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_unpinChatMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23105,7 +23105,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JoinChatCxxBridge : ObjectBridge<JoinChat>
     {
         public static BaseCxxBridge CreateInstance() => new JoinChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_joinChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23126,7 +23126,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class LeaveChatCxxBridge : ObjectBridge<LeaveChat>
     {
         public static BaseCxxBridge CreateInstance() => new LeaveChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_leaveChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23147,7 +23147,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddChatMemberCxxBridge : ObjectBridge<AddChatMember>
     {
         public static BaseCxxBridge CreateInstance() => new AddChatMemberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addChatMember();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23172,7 +23172,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddChatMembersCxxBridge : ObjectBridge<AddChatMembers>
     {
         public static BaseCxxBridge CreateInstance() => new AddChatMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addChatMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23195,7 +23195,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetChatMemberStatusCxxBridge : ObjectBridge<SetChatMemberStatus>
     {
         public static BaseCxxBridge CreateInstance() => new SetChatMemberStatusCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setChatMemberStatus();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23220,7 +23220,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CanTransferOwnershipCxxBridge : ObjectBridge<CanTransferOwnership>
     {
         public static BaseCxxBridge CreateInstance() => new CanTransferOwnershipCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_canTransferOwnership();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23239,7 +23239,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TransferChatOwnershipCxxBridge : ObjectBridge<TransferChatOwnership>
     {
         public static BaseCxxBridge CreateInstance() => new TransferChatOwnershipCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_transferChatOwnership();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23264,7 +23264,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatMemberCxxBridge : ObjectBridge<GetChatMember>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatMemberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatMember();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23287,7 +23287,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchChatMembersCxxBridge : ObjectBridge<SearchChatMembers>
     {
         public static BaseCxxBridge CreateInstance() => new SearchChatMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchChatMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23314,7 +23314,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatAdministratorsCxxBridge : ObjectBridge<GetChatAdministrators>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatAdministratorsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatAdministrators();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23335,7 +23335,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ClearAllDraftMessagesCxxBridge : ObjectBridge<ClearAllDraftMessages>
     {
         public static BaseCxxBridge CreateInstance() => new ClearAllDraftMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_clearAllDraftMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23356,7 +23356,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatNotificationSettingsExceptionsCxxBridge : ObjectBridge<GetChatNotificationSettingsExceptions>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatNotificationSettingsExceptionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatNotificationSettingsExceptions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23379,7 +23379,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetScopeNotificationSettingsCxxBridge : ObjectBridge<GetScopeNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new GetScopeNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getScopeNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23400,7 +23400,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetScopeNotificationSettingsCxxBridge : ObjectBridge<SetScopeNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new SetScopeNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setScopeNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23423,7 +23423,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResetAllNotificationSettingsCxxBridge : ObjectBridge<ResetAllNotificationSettings>
     {
         public static BaseCxxBridge CreateInstance() => new ResetAllNotificationSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resetAllNotificationSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23442,7 +23442,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ToggleChatIsPinnedCxxBridge : ObjectBridge<ToggleChatIsPinned>
     {
         public static BaseCxxBridge CreateInstance() => new ToggleChatIsPinnedCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_toggleChatIsPinned();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23467,7 +23467,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetPinnedChatsCxxBridge : ObjectBridge<SetPinnedChats>
     {
         public static BaseCxxBridge CreateInstance() => new SetPinnedChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setPinnedChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23490,7 +23490,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DownloadFileCxxBridge : ObjectBridge<DownloadFile>
     {
         public static BaseCxxBridge CreateInstance() => new DownloadFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_downloadFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23519,7 +23519,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetFileDownloadedPrefixSizeCxxBridge : ObjectBridge<GetFileDownloadedPrefixSize>
     {
         public static BaseCxxBridge CreateInstance() => new GetFileDownloadedPrefixSizeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getFileDownloadedPrefixSize();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23542,7 +23542,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CancelDownloadFileCxxBridge : ObjectBridge<CancelDownloadFile>
     {
         public static BaseCxxBridge CreateInstance() => new CancelDownloadFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_cancelDownloadFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23565,7 +23565,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UploadFileCxxBridge : ObjectBridge<UploadFile>
     {
         public static BaseCxxBridge CreateInstance() => new UploadFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_uploadFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23590,7 +23590,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CancelUploadFileCxxBridge : ObjectBridge<CancelUploadFile>
     {
         public static BaseCxxBridge CreateInstance() => new CancelUploadFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_cancelUploadFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23611,7 +23611,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class WriteGeneratedFilePartCxxBridge : ObjectBridge<WriteGeneratedFilePart>
     {
         public static BaseCxxBridge CreateInstance() => new WriteGeneratedFilePartCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_writeGeneratedFilePart();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23636,7 +23636,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetFileGenerationProgressCxxBridge : ObjectBridge<SetFileGenerationProgress>
     {
         public static BaseCxxBridge CreateInstance() => new SetFileGenerationProgressCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setFileGenerationProgress();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23661,7 +23661,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class FinishFileGenerationCxxBridge : ObjectBridge<FinishFileGeneration>
     {
         public static BaseCxxBridge CreateInstance() => new FinishFileGenerationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_finishFileGeneration();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23684,7 +23684,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReadFilePartCxxBridge : ObjectBridge<ReadFilePart>
     {
         public static BaseCxxBridge CreateInstance() => new ReadFilePartCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_readFilePart();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23709,7 +23709,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteFileCxxBridge : ObjectBridge<DeleteFile>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23730,7 +23730,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GenerateChatInviteLinkCxxBridge : ObjectBridge<GenerateChatInviteLink>
     {
         public static BaseCxxBridge CreateInstance() => new GenerateChatInviteLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_generateChatInviteLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23751,7 +23751,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChatInviteLinkCxxBridge : ObjectBridge<CheckChatInviteLink>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChatInviteLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChatInviteLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23772,7 +23772,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class JoinChatByInviteLinkCxxBridge : ObjectBridge<JoinChatByInviteLink>
     {
         public static BaseCxxBridge CreateInstance() => new JoinChatByInviteLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_joinChatByInviteLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23793,7 +23793,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateCallCxxBridge : ObjectBridge<CreateCall>
     {
         public static BaseCxxBridge CreateInstance() => new CreateCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23818,7 +23818,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AcceptCallCxxBridge : ObjectBridge<AcceptCall>
     {
         public static BaseCxxBridge CreateInstance() => new AcceptCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_acceptCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23841,7 +23841,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendCallSignalingDataCxxBridge : ObjectBridge<SendCallSignalingData>
     {
         public static BaseCxxBridge CreateInstance() => new SendCallSignalingDataCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendCallSignalingData();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23864,7 +23864,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DiscardCallCxxBridge : ObjectBridge<DiscardCall>
     {
         public static BaseCxxBridge CreateInstance() => new DiscardCallCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_discardCall();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23893,7 +23893,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendCallRatingCxxBridge : ObjectBridge<SendCallRating>
     {
         public static BaseCxxBridge CreateInstance() => new SendCallRatingCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendCallRating();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23920,7 +23920,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendCallDebugInformationCxxBridge : ObjectBridge<SendCallDebugInformation>
     {
         public static BaseCxxBridge CreateInstance() => new SendCallDebugInformationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendCallDebugInformation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23943,7 +23943,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class BlockChatFromRepliesCxxBridge : ObjectBridge<BlockChatFromReplies>
     {
         public static BaseCxxBridge CreateInstance() => new BlockChatFromRepliesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_blockChatFromReplies();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23970,7 +23970,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetBlockedChatsCxxBridge : ObjectBridge<GetBlockedChats>
     {
         public static BaseCxxBridge CreateInstance() => new GetBlockedChatsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getBlockedChats();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -23993,7 +23993,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddContactCxxBridge : ObjectBridge<AddContact>
     {
         public static BaseCxxBridge CreateInstance() => new AddContactCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addContact();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24016,7 +24016,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ImportContactsCxxBridge : ObjectBridge<ImportContacts>
     {
         public static BaseCxxBridge CreateInstance() => new ImportContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_importContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24037,7 +24037,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetContactsCxxBridge : ObjectBridge<GetContacts>
     {
         public static BaseCxxBridge CreateInstance() => new GetContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24056,7 +24056,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchContactsCxxBridge : ObjectBridge<SearchContacts>
     {
         public static BaseCxxBridge CreateInstance() => new SearchContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24079,7 +24079,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveContactsCxxBridge : ObjectBridge<RemoveContacts>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24100,7 +24100,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetImportedContactCountCxxBridge : ObjectBridge<GetImportedContactCount>
     {
         public static BaseCxxBridge CreateInstance() => new GetImportedContactCountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getImportedContactCount();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24119,7 +24119,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChangeImportedContactsCxxBridge : ObjectBridge<ChangeImportedContacts>
     {
         public static BaseCxxBridge CreateInstance() => new ChangeImportedContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_changeImportedContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24140,7 +24140,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ClearImportedContactsCxxBridge : ObjectBridge<ClearImportedContacts>
     {
         public static BaseCxxBridge CreateInstance() => new ClearImportedContactsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_clearImportedContacts();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24159,7 +24159,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SharePhoneNumberCxxBridge : ObjectBridge<SharePhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new SharePhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sharePhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24180,7 +24180,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetUserProfilePhotosCxxBridge : ObjectBridge<GetUserProfilePhotos>
     {
         public static BaseCxxBridge CreateInstance() => new GetUserProfilePhotosCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getUserProfilePhotos();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24205,7 +24205,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetStickersCxxBridge : ObjectBridge<GetStickers>
     {
         public static BaseCxxBridge CreateInstance() => new GetStickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getStickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24228,7 +24228,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchStickersCxxBridge : ObjectBridge<SearchStickers>
     {
         public static BaseCxxBridge CreateInstance() => new SearchStickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchStickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24251,7 +24251,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetInstalledStickerSetsCxxBridge : ObjectBridge<GetInstalledStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new GetInstalledStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getInstalledStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24272,7 +24272,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetArchivedStickerSetsCxxBridge : ObjectBridge<GetArchivedStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new GetArchivedStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getArchivedStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24297,7 +24297,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetTrendingStickerSetsCxxBridge : ObjectBridge<GetTrendingStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new GetTrendingStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getTrendingStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24320,7 +24320,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetAttachedStickerSetsCxxBridge : ObjectBridge<GetAttachedStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new GetAttachedStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getAttachedStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24341,7 +24341,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetStickerSetCxxBridge : ObjectBridge<GetStickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new GetStickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getStickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24362,7 +24362,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchStickerSetCxxBridge : ObjectBridge<SearchStickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new SearchStickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchStickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24383,7 +24383,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchInstalledStickerSetsCxxBridge : ObjectBridge<SearchInstalledStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new SearchInstalledStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchInstalledStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24408,7 +24408,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchStickerSetsCxxBridge : ObjectBridge<SearchStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new SearchStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24429,7 +24429,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChangeStickerSetCxxBridge : ObjectBridge<ChangeStickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new ChangeStickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_changeStickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24454,7 +24454,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ViewTrendingStickerSetsCxxBridge : ObjectBridge<ViewTrendingStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new ViewTrendingStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_viewTrendingStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24475,7 +24475,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReorderInstalledStickerSetsCxxBridge : ObjectBridge<ReorderInstalledStickerSets>
     {
         public static BaseCxxBridge CreateInstance() => new ReorderInstalledStickerSetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_reorderInstalledStickerSets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24498,7 +24498,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetRecentStickersCxxBridge : ObjectBridge<GetRecentStickers>
     {
         public static BaseCxxBridge CreateInstance() => new GetRecentStickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getRecentStickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24519,7 +24519,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddRecentStickerCxxBridge : ObjectBridge<AddRecentSticker>
     {
         public static BaseCxxBridge CreateInstance() => new AddRecentStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addRecentSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24542,7 +24542,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveRecentStickerCxxBridge : ObjectBridge<RemoveRecentSticker>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveRecentStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeRecentSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24565,7 +24565,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ClearRecentStickersCxxBridge : ObjectBridge<ClearRecentStickers>
     {
         public static BaseCxxBridge CreateInstance() => new ClearRecentStickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_clearRecentStickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24586,7 +24586,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetFavoriteStickersCxxBridge : ObjectBridge<GetFavoriteStickers>
     {
         public static BaseCxxBridge CreateInstance() => new GetFavoriteStickersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getFavoriteStickers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24605,7 +24605,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddFavoriteStickerCxxBridge : ObjectBridge<AddFavoriteSticker>
     {
         public static BaseCxxBridge CreateInstance() => new AddFavoriteStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addFavoriteSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24626,7 +24626,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveFavoriteStickerCxxBridge : ObjectBridge<RemoveFavoriteSticker>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveFavoriteStickerCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeFavoriteSticker();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24647,7 +24647,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetStickerEmojisCxxBridge : ObjectBridge<GetStickerEmojis>
     {
         public static BaseCxxBridge CreateInstance() => new GetStickerEmojisCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getStickerEmojis();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24668,7 +24668,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchEmojisCxxBridge : ObjectBridge<SearchEmojis>
     {
         public static BaseCxxBridge CreateInstance() => new SearchEmojisCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchEmojis();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24693,7 +24693,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetEmojiSuggestionsUrlCxxBridge : ObjectBridge<GetEmojiSuggestionsUrl>
     {
         public static BaseCxxBridge CreateInstance() => new GetEmojiSuggestionsUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getEmojiSuggestionsUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24714,7 +24714,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSavedAnimationsCxxBridge : ObjectBridge<GetSavedAnimations>
     {
         public static BaseCxxBridge CreateInstance() => new GetSavedAnimationsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSavedAnimations();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24733,7 +24733,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddSavedAnimationCxxBridge : ObjectBridge<AddSavedAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new AddSavedAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addSavedAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24754,7 +24754,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveSavedAnimationCxxBridge : ObjectBridge<RemoveSavedAnimation>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveSavedAnimationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeSavedAnimation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24775,7 +24775,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetRecentInlineBotsCxxBridge : ObjectBridge<GetRecentInlineBots>
     {
         public static BaseCxxBridge CreateInstance() => new GetRecentInlineBotsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getRecentInlineBots();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24794,7 +24794,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchHashtagsCxxBridge : ObjectBridge<SearchHashtags>
     {
         public static BaseCxxBridge CreateInstance() => new SearchHashtagsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchHashtags();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24817,7 +24817,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveRecentHashtagCxxBridge : ObjectBridge<RemoveRecentHashtag>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveRecentHashtagCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeRecentHashtag();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24838,7 +24838,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetWebPagePreviewCxxBridge : ObjectBridge<GetWebPagePreview>
     {
         public static BaseCxxBridge CreateInstance() => new GetWebPagePreviewCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getWebPagePreview();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24859,7 +24859,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetWebPageInstantViewCxxBridge : ObjectBridge<GetWebPageInstantView>
     {
         public static BaseCxxBridge CreateInstance() => new GetWebPageInstantViewCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getWebPageInstantView();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24882,7 +24882,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetProfilePhotoCxxBridge : ObjectBridge<SetProfilePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new SetProfilePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setProfilePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24903,7 +24903,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteProfilePhotoCxxBridge : ObjectBridge<DeleteProfilePhoto>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteProfilePhotoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteProfilePhoto();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24924,7 +24924,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetNameCxxBridge : ObjectBridge<SetName>
     {
         public static BaseCxxBridge CreateInstance() => new SetNameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setName();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24947,7 +24947,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetBioCxxBridge : ObjectBridge<SetBio>
     {
         public static BaseCxxBridge CreateInstance() => new SetBioCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setBio();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24968,7 +24968,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetUsernameCxxBridge : ObjectBridge<SetUsername>
     {
         public static BaseCxxBridge CreateInstance() => new SetUsernameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setUsername();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -24989,7 +24989,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetLocationCxxBridge : ObjectBridge<SetLocation>
     {
         public static BaseCxxBridge CreateInstance() => new SetLocationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setLocation();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25010,7 +25010,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ChangePhoneNumberCxxBridge : ObjectBridge<ChangePhoneNumber>
     {
         public static BaseCxxBridge CreateInstance() => new ChangePhoneNumberCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_changePhoneNumber();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25033,7 +25033,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResendChangePhoneNumberCodeCxxBridge : ObjectBridge<ResendChangePhoneNumberCode>
     {
         public static BaseCxxBridge CreateInstance() => new ResendChangePhoneNumberCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resendChangePhoneNumberCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25052,7 +25052,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckChangePhoneNumberCodeCxxBridge : ObjectBridge<CheckChangePhoneNumberCode>
     {
         public static BaseCxxBridge CreateInstance() => new CheckChangePhoneNumberCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkChangePhoneNumberCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25073,7 +25073,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetCommandsCxxBridge : ObjectBridge<SetCommands>
     {
         public static BaseCxxBridge CreateInstance() => new SetCommandsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setCommands();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25094,7 +25094,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetActiveSessionsCxxBridge : ObjectBridge<GetActiveSessions>
     {
         public static BaseCxxBridge CreateInstance() => new GetActiveSessionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getActiveSessions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25113,7 +25113,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TerminateSessionCxxBridge : ObjectBridge<TerminateSession>
     {
         public static BaseCxxBridge CreateInstance() => new TerminateSessionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_terminateSession();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25134,7 +25134,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TerminateAllOtherSessionsCxxBridge : ObjectBridge<TerminateAllOtherSessions>
     {
         public static BaseCxxBridge CreateInstance() => new TerminateAllOtherSessionsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_terminateAllOtherSessions();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25153,7 +25153,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetConnectedWebsitesCxxBridge : ObjectBridge<GetConnectedWebsites>
     {
         public static BaseCxxBridge CreateInstance() => new GetConnectedWebsitesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getConnectedWebsites();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25172,7 +25172,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DisconnectWebsiteCxxBridge : ObjectBridge<DisconnectWebsite>
     {
         public static BaseCxxBridge CreateInstance() => new DisconnectWebsiteCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_disconnectWebsite();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25193,7 +25193,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DisconnectAllWebsitesCxxBridge : ObjectBridge<DisconnectAllWebsites>
     {
         public static BaseCxxBridge CreateInstance() => new DisconnectAllWebsitesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_disconnectAllWebsites();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25212,7 +25212,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetSupergroupUsernameCxxBridge : ObjectBridge<SetSupergroupUsername>
     {
         public static BaseCxxBridge CreateInstance() => new SetSupergroupUsernameCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setSupergroupUsername();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25235,7 +25235,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetSupergroupStickerSetCxxBridge : ObjectBridge<SetSupergroupStickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new SetSupergroupStickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setSupergroupStickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25258,7 +25258,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ToggleSupergroupSignMessagesCxxBridge : ObjectBridge<ToggleSupergroupSignMessages>
     {
         public static BaseCxxBridge CreateInstance() => new ToggleSupergroupSignMessagesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_toggleSupergroupSignMessages();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25281,7 +25281,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ToggleSupergroupIsAllHistoryAvailableCxxBridge : ObjectBridge<ToggleSupergroupIsAllHistoryAvailable>
     {
         public static BaseCxxBridge CreateInstance() => new ToggleSupergroupIsAllHistoryAvailableCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_toggleSupergroupIsAllHistoryAvailable();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25304,7 +25304,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReportSupergroupSpamCxxBridge : ObjectBridge<ReportSupergroupSpam>
     {
         public static BaseCxxBridge CreateInstance() => new ReportSupergroupSpamCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_reportSupergroupSpam();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25329,7 +25329,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSupergroupMembersCxxBridge : ObjectBridge<GetSupergroupMembers>
     {
         public static BaseCxxBridge CreateInstance() => new GetSupergroupMembersCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSupergroupMembers();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25356,7 +25356,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteSupergroupCxxBridge : ObjectBridge<DeleteSupergroup>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteSupergroupCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteSupergroup();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25377,7 +25377,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CloseSecretChatCxxBridge : ObjectBridge<CloseSecretChat>
     {
         public static BaseCxxBridge CreateInstance() => new CloseSecretChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_closeSecretChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25398,7 +25398,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatEventLogCxxBridge : ObjectBridge<GetChatEventLog>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatEventLogCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatEventLog();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25429,7 +25429,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPaymentFormCxxBridge : ObjectBridge<GetPaymentForm>
     {
         public static BaseCxxBridge CreateInstance() => new GetPaymentFormCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPaymentForm();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25452,7 +25452,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ValidateOrderInfoCxxBridge : ObjectBridge<ValidateOrderInfo>
     {
         public static BaseCxxBridge CreateInstance() => new ValidateOrderInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_validateOrderInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25479,7 +25479,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendPaymentFormCxxBridge : ObjectBridge<SendPaymentForm>
     {
         public static BaseCxxBridge CreateInstance() => new SendPaymentFormCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendPaymentForm();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25508,7 +25508,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPaymentReceiptCxxBridge : ObjectBridge<GetPaymentReceipt>
     {
         public static BaseCxxBridge CreateInstance() => new GetPaymentReceiptCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPaymentReceipt();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25531,7 +25531,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSavedOrderInfoCxxBridge : ObjectBridge<GetSavedOrderInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetSavedOrderInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSavedOrderInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25550,7 +25550,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteSavedOrderInfoCxxBridge : ObjectBridge<DeleteSavedOrderInfo>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteSavedOrderInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteSavedOrderInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25569,7 +25569,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteSavedCredentialsCxxBridge : ObjectBridge<DeleteSavedCredentials>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteSavedCredentialsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteSavedCredentials();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25588,7 +25588,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetSupportUserCxxBridge : ObjectBridge<GetSupportUser>
     {
         public static BaseCxxBridge CreateInstance() => new GetSupportUserCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getSupportUser();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25607,7 +25607,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetBackgroundsCxxBridge : ObjectBridge<GetBackgrounds>
     {
         public static BaseCxxBridge CreateInstance() => new GetBackgroundsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getBackgrounds();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25628,7 +25628,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetBackgroundUrlCxxBridge : ObjectBridge<GetBackgroundUrl>
     {
         public static BaseCxxBridge CreateInstance() => new GetBackgroundUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getBackgroundUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25651,7 +25651,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SearchBackgroundCxxBridge : ObjectBridge<SearchBackground>
     {
         public static BaseCxxBridge CreateInstance() => new SearchBackgroundCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_searchBackground();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25672,7 +25672,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetBackgroundCxxBridge : ObjectBridge<SetBackground>
     {
         public static BaseCxxBridge CreateInstance() => new SetBackgroundCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setBackground();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25697,7 +25697,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveBackgroundCxxBridge : ObjectBridge<RemoveBackground>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveBackgroundCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeBackground();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25718,7 +25718,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResetBackgroundsCxxBridge : ObjectBridge<ResetBackgrounds>
     {
         public static BaseCxxBridge CreateInstance() => new ResetBackgroundsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resetBackgrounds();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25737,7 +25737,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLocalizationTargetInfoCxxBridge : ObjectBridge<GetLocalizationTargetInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetLocalizationTargetInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLocalizationTargetInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25758,7 +25758,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLanguagePackInfoCxxBridge : ObjectBridge<GetLanguagePackInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetLanguagePackInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLanguagePackInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25779,7 +25779,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLanguagePackStringsCxxBridge : ObjectBridge<GetLanguagePackStrings>
     {
         public static BaseCxxBridge CreateInstance() => new GetLanguagePackStringsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLanguagePackStrings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25802,7 +25802,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SynchronizeLanguagePackCxxBridge : ObjectBridge<SynchronizeLanguagePack>
     {
         public static BaseCxxBridge CreateInstance() => new SynchronizeLanguagePackCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_synchronizeLanguagePack();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25823,7 +25823,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddCustomServerLanguagePackCxxBridge : ObjectBridge<AddCustomServerLanguagePack>
     {
         public static BaseCxxBridge CreateInstance() => new AddCustomServerLanguagePackCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addCustomServerLanguagePack();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25844,7 +25844,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetCustomLanguagePackCxxBridge : ObjectBridge<SetCustomLanguagePack>
     {
         public static BaseCxxBridge CreateInstance() => new SetCustomLanguagePackCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setCustomLanguagePack();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25867,7 +25867,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditCustomLanguagePackInfoCxxBridge : ObjectBridge<EditCustomLanguagePackInfo>
     {
         public static BaseCxxBridge CreateInstance() => new EditCustomLanguagePackInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editCustomLanguagePackInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25888,7 +25888,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetCustomLanguagePackStringCxxBridge : ObjectBridge<SetCustomLanguagePackString>
     {
         public static BaseCxxBridge CreateInstance() => new SetCustomLanguagePackStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setCustomLanguagePackString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25911,7 +25911,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteLanguagePackCxxBridge : ObjectBridge<DeleteLanguagePack>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteLanguagePackCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteLanguagePack();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25932,7 +25932,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RegisterDeviceCxxBridge : ObjectBridge<RegisterDevice>
     {
         public static BaseCxxBridge CreateInstance() => new RegisterDeviceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_registerDevice();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25955,7 +25955,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ProcessPushNotificationCxxBridge : ObjectBridge<ProcessPushNotification>
     {
         public static BaseCxxBridge CreateInstance() => new ProcessPushNotificationCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_processPushNotification();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25976,7 +25976,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPushReceiverIdCxxBridge : ObjectBridge<GetPushReceiverId>
     {
         public static BaseCxxBridge CreateInstance() => new GetPushReceiverIdCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPushReceiverId();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -25997,7 +25997,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetRecentlyVisitedTMeUrlsCxxBridge : ObjectBridge<GetRecentlyVisitedTMeUrls>
     {
         public static BaseCxxBridge CreateInstance() => new GetRecentlyVisitedTMeUrlsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getRecentlyVisitedTMeUrls();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26018,7 +26018,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetUserPrivacySettingRulesCxxBridge : ObjectBridge<SetUserPrivacySettingRules>
     {
         public static BaseCxxBridge CreateInstance() => new SetUserPrivacySettingRulesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setUserPrivacySettingRules();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26041,7 +26041,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetUserPrivacySettingRulesCxxBridge : ObjectBridge<GetUserPrivacySettingRules>
     {
         public static BaseCxxBridge CreateInstance() => new GetUserPrivacySettingRulesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getUserPrivacySettingRules();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26062,7 +26062,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetOptionCxxBridge : ObjectBridge<GetOption>
     {
         public static BaseCxxBridge CreateInstance() => new GetOptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getOption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26083,7 +26083,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetOptionCxxBridge : ObjectBridge<SetOption>
     {
         public static BaseCxxBridge CreateInstance() => new SetOptionCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setOption();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26106,7 +26106,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetAccountTtlCxxBridge : ObjectBridge<SetAccountTtl>
     {
         public static BaseCxxBridge CreateInstance() => new SetAccountTtlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setAccountTtl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26127,7 +26127,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetAccountTtlCxxBridge : ObjectBridge<GetAccountTtl>
     {
         public static BaseCxxBridge CreateInstance() => new GetAccountTtlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getAccountTtl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26146,7 +26146,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeleteAccountCxxBridge : ObjectBridge<DeleteAccount>
     {
         public static BaseCxxBridge CreateInstance() => new DeleteAccountCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deleteAccount();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26167,7 +26167,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveChatActionBarCxxBridge : ObjectBridge<RemoveChatActionBar>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveChatActionBarCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeChatActionBar();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26188,7 +26188,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ReportChatCxxBridge : ObjectBridge<ReportChat>
     {
         public static BaseCxxBridge CreateInstance() => new ReportChatCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_reportChat();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26213,7 +26213,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatStatisticsUrlCxxBridge : ObjectBridge<GetChatStatisticsUrl>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatStatisticsUrlCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatStatisticsUrl();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26238,7 +26238,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetChatStatisticsCxxBridge : ObjectBridge<GetChatStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new GetChatStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getChatStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26261,7 +26261,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMessageStatisticsCxxBridge : ObjectBridge<GetMessageStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new GetMessageStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMessageStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26286,7 +26286,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetStatisticsGraphCxxBridge : ObjectBridge<GetStatisticsGraph>
     {
         public static BaseCxxBridge CreateInstance() => new GetStatisticsGraphCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getStatisticsGraph();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26311,7 +26311,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetStorageStatisticsCxxBridge : ObjectBridge<GetStorageStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new GetStorageStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getStorageStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26332,7 +26332,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetStorageStatisticsFastCxxBridge : ObjectBridge<GetStorageStatisticsFast>
     {
         public static BaseCxxBridge CreateInstance() => new GetStorageStatisticsFastCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getStorageStatisticsFast();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26351,7 +26351,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetDatabaseStatisticsCxxBridge : ObjectBridge<GetDatabaseStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new GetDatabaseStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getDatabaseStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26370,7 +26370,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class OptimizeStorageCxxBridge : ObjectBridge<OptimizeStorage>
     {
         public static BaseCxxBridge CreateInstance() => new OptimizeStorageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_optimizeStorage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26407,7 +26407,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetNetworkTypeCxxBridge : ObjectBridge<SetNetworkType>
     {
         public static BaseCxxBridge CreateInstance() => new SetNetworkTypeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setNetworkType();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26428,7 +26428,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetNetworkStatisticsCxxBridge : ObjectBridge<GetNetworkStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new GetNetworkStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getNetworkStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26449,7 +26449,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddNetworkStatisticsCxxBridge : ObjectBridge<AddNetworkStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new AddNetworkStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addNetworkStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26470,7 +26470,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResetNetworkStatisticsCxxBridge : ObjectBridge<ResetNetworkStatistics>
     {
         public static BaseCxxBridge CreateInstance() => new ResetNetworkStatisticsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resetNetworkStatistics();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26489,7 +26489,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetAutoDownloadSettingsPresetsCxxBridge : ObjectBridge<GetAutoDownloadSettingsPresets>
     {
         public static BaseCxxBridge CreateInstance() => new GetAutoDownloadSettingsPresetsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getAutoDownloadSettingsPresets();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26508,7 +26508,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetAutoDownloadSettingsCxxBridge : ObjectBridge<SetAutoDownloadSettings>
     {
         public static BaseCxxBridge CreateInstance() => new SetAutoDownloadSettingsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setAutoDownloadSettings();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26531,7 +26531,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetBankCardInfoCxxBridge : ObjectBridge<GetBankCardInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetBankCardInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getBankCardInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26552,7 +26552,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPassportElementCxxBridge : ObjectBridge<GetPassportElement>
     {
         public static BaseCxxBridge CreateInstance() => new GetPassportElementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPassportElement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26575,7 +26575,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetAllPassportElementsCxxBridge : ObjectBridge<GetAllPassportElements>
     {
         public static BaseCxxBridge CreateInstance() => new GetAllPassportElementsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getAllPassportElements();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26596,7 +26596,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetPassportElementCxxBridge : ObjectBridge<SetPassportElement>
     {
         public static BaseCxxBridge CreateInstance() => new SetPassportElementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setPassportElement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26619,7 +26619,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DeletePassportElementCxxBridge : ObjectBridge<DeletePassportElement>
     {
         public static BaseCxxBridge CreateInstance() => new DeletePassportElementCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_deletePassportElement();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26640,7 +26640,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetPassportElementErrorsCxxBridge : ObjectBridge<SetPassportElementErrors>
     {
         public static BaseCxxBridge CreateInstance() => new SetPassportElementErrorsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setPassportElementErrors();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26663,7 +26663,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPreferredCountryLanguageCxxBridge : ObjectBridge<GetPreferredCountryLanguage>
     {
         public static BaseCxxBridge CreateInstance() => new GetPreferredCountryLanguageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPreferredCountryLanguage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26684,7 +26684,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendPhoneNumberVerificationCodeCxxBridge : ObjectBridge<SendPhoneNumberVerificationCode>
     {
         public static BaseCxxBridge CreateInstance() => new SendPhoneNumberVerificationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendPhoneNumberVerificationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26707,7 +26707,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResendPhoneNumberVerificationCodeCxxBridge : ObjectBridge<ResendPhoneNumberVerificationCode>
     {
         public static BaseCxxBridge CreateInstance() => new ResendPhoneNumberVerificationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resendPhoneNumberVerificationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26726,7 +26726,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckPhoneNumberVerificationCodeCxxBridge : ObjectBridge<CheckPhoneNumberVerificationCode>
     {
         public static BaseCxxBridge CreateInstance() => new CheckPhoneNumberVerificationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkPhoneNumberVerificationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26747,7 +26747,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendEmailAddressVerificationCodeCxxBridge : ObjectBridge<SendEmailAddressVerificationCode>
     {
         public static BaseCxxBridge CreateInstance() => new SendEmailAddressVerificationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendEmailAddressVerificationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26768,7 +26768,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResendEmailAddressVerificationCodeCxxBridge : ObjectBridge<ResendEmailAddressVerificationCode>
     {
         public static BaseCxxBridge CreateInstance() => new ResendEmailAddressVerificationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resendEmailAddressVerificationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26787,7 +26787,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckEmailAddressVerificationCodeCxxBridge : ObjectBridge<CheckEmailAddressVerificationCode>
     {
         public static BaseCxxBridge CreateInstance() => new CheckEmailAddressVerificationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkEmailAddressVerificationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26808,7 +26808,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPassportAuthorizationFormCxxBridge : ObjectBridge<GetPassportAuthorizationForm>
     {
         public static BaseCxxBridge CreateInstance() => new GetPassportAuthorizationFormCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPassportAuthorizationForm();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26835,7 +26835,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPassportAuthorizationFormAvailableElementsCxxBridge : ObjectBridge<GetPassportAuthorizationFormAvailableElements>
     {
         public static BaseCxxBridge CreateInstance() => new GetPassportAuthorizationFormAvailableElementsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPassportAuthorizationFormAvailableElements();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26858,7 +26858,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendPassportAuthorizationFormCxxBridge : ObjectBridge<SendPassportAuthorizationForm>
     {
         public static BaseCxxBridge CreateInstance() => new SendPassportAuthorizationFormCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendPassportAuthorizationForm();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26881,7 +26881,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendPhoneNumberConfirmationCodeCxxBridge : ObjectBridge<SendPhoneNumberConfirmationCode>
     {
         public static BaseCxxBridge CreateInstance() => new SendPhoneNumberConfirmationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendPhoneNumberConfirmationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26906,7 +26906,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class ResendPhoneNumberConfirmationCodeCxxBridge : ObjectBridge<ResendPhoneNumberConfirmationCode>
     {
         public static BaseCxxBridge CreateInstance() => new ResendPhoneNumberConfirmationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_resendPhoneNumberConfirmationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26925,7 +26925,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CheckPhoneNumberConfirmationCodeCxxBridge : ObjectBridge<CheckPhoneNumberConfirmationCode>
     {
         public static BaseCxxBridge CreateInstance() => new CheckPhoneNumberConfirmationCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_checkPhoneNumberConfirmationCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26946,7 +26946,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetBotUpdatesStatusCxxBridge : ObjectBridge<SetBotUpdatesStatus>
     {
         public static BaseCxxBridge CreateInstance() => new SetBotUpdatesStatusCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setBotUpdatesStatus();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26969,7 +26969,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class UploadStickerFileCxxBridge : ObjectBridge<UploadStickerFile>
     {
         public static BaseCxxBridge CreateInstance() => new UploadStickerFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_uploadStickerFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -26992,7 +26992,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class CreateNewStickerSetCxxBridge : ObjectBridge<CreateNewStickerSet>
     {
         public static BaseCxxBridge CreateInstance() => new CreateNewStickerSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_createNewStickerSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27021,7 +27021,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddStickerToSetCxxBridge : ObjectBridge<AddStickerToSet>
     {
         public static BaseCxxBridge CreateInstance() => new AddStickerToSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addStickerToSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27046,7 +27046,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetStickerSetThumbnailCxxBridge : ObjectBridge<SetStickerSetThumbnail>
     {
         public static BaseCxxBridge CreateInstance() => new SetStickerSetThumbnailCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setStickerSetThumbnail();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27071,7 +27071,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetStickerPositionInSetCxxBridge : ObjectBridge<SetStickerPositionInSet>
     {
         public static BaseCxxBridge CreateInstance() => new SetStickerPositionInSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setStickerPositionInSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27094,7 +27094,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveStickerFromSetCxxBridge : ObjectBridge<RemoveStickerFromSet>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveStickerFromSetCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeStickerFromSet();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27115,7 +27115,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetMapThumbnailFileCxxBridge : ObjectBridge<GetMapThumbnailFile>
     {
         public static BaseCxxBridge CreateInstance() => new GetMapThumbnailFileCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getMapThumbnailFile();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27146,7 +27146,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AcceptTermsOfServiceCxxBridge : ObjectBridge<AcceptTermsOfService>
     {
         public static BaseCxxBridge CreateInstance() => new AcceptTermsOfServiceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_acceptTermsOfService();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27167,7 +27167,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SendCustomRequestCxxBridge : ObjectBridge<SendCustomRequest>
     {
         public static BaseCxxBridge CreateInstance() => new SendCustomRequestCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_sendCustomRequest();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27190,7 +27190,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AnswerCustomQueryCxxBridge : ObjectBridge<AnswerCustomQuery>
     {
         public static BaseCxxBridge CreateInstance() => new AnswerCustomQueryCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_answerCustomQuery();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27213,7 +27213,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetAlarmCxxBridge : ObjectBridge<SetAlarm>
     {
         public static BaseCxxBridge CreateInstance() => new SetAlarmCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setAlarm();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27234,7 +27234,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetCountriesCxxBridge : ObjectBridge<GetCountries>
     {
         public static BaseCxxBridge CreateInstance() => new GetCountriesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getCountries();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27253,7 +27253,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetCountryCodeCxxBridge : ObjectBridge<GetCountryCode>
     {
         public static BaseCxxBridge CreateInstance() => new GetCountryCodeCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getCountryCode();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27272,7 +27272,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetPhoneNumberInfoCxxBridge : ObjectBridge<GetPhoneNumberInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetPhoneNumberInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getPhoneNumberInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27293,7 +27293,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetInviteTextCxxBridge : ObjectBridge<GetInviteText>
     {
         public static BaseCxxBridge CreateInstance() => new GetInviteTextCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getInviteText();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27312,7 +27312,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetDeepLinkInfoCxxBridge : ObjectBridge<GetDeepLinkInfo>
     {
         public static BaseCxxBridge CreateInstance() => new GetDeepLinkInfoCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getDeepLinkInfo();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27333,7 +27333,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetApplicationConfigCxxBridge : ObjectBridge<GetApplicationConfig>
     {
         public static BaseCxxBridge CreateInstance() => new GetApplicationConfigCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getApplicationConfig();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27352,7 +27352,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SaveApplicationLogEventCxxBridge : ObjectBridge<SaveApplicationLogEvent>
     {
         public static BaseCxxBridge CreateInstance() => new SaveApplicationLogEventCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_saveApplicationLogEvent();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27377,7 +27377,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddProxyCxxBridge : ObjectBridge<AddProxy>
     {
         public static BaseCxxBridge CreateInstance() => new AddProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27404,7 +27404,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EditProxyCxxBridge : ObjectBridge<EditProxy>
     {
         public static BaseCxxBridge CreateInstance() => new EditProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_editProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27433,7 +27433,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class EnableProxyCxxBridge : ObjectBridge<EnableProxy>
     {
         public static BaseCxxBridge CreateInstance() => new EnableProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_enableProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27454,7 +27454,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class DisableProxyCxxBridge : ObjectBridge<DisableProxy>
     {
         public static BaseCxxBridge CreateInstance() => new DisableProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_disableProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27473,7 +27473,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class RemoveProxyCxxBridge : ObjectBridge<RemoveProxy>
     {
         public static BaseCxxBridge CreateInstance() => new RemoveProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_removeProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27494,7 +27494,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetProxiesCxxBridge : ObjectBridge<GetProxies>
     {
         public static BaseCxxBridge CreateInstance() => new GetProxiesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getProxies();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27513,7 +27513,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetProxyLinkCxxBridge : ObjectBridge<GetProxyLink>
     {
         public static BaseCxxBridge CreateInstance() => new GetProxyLinkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getProxyLink();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27534,7 +27534,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class PingProxyCxxBridge : ObjectBridge<PingProxy>
     {
         public static BaseCxxBridge CreateInstance() => new PingProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_pingProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27555,7 +27555,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetLogStreamCxxBridge : ObjectBridge<SetLogStream>
     {
         public static BaseCxxBridge CreateInstance() => new SetLogStreamCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setLogStream();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27576,7 +27576,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLogStreamCxxBridge : ObjectBridge<GetLogStream>
     {
         public static BaseCxxBridge CreateInstance() => new GetLogStreamCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLogStream();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27595,7 +27595,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetLogVerbosityLevelCxxBridge : ObjectBridge<SetLogVerbosityLevel>
     {
         public static BaseCxxBridge CreateInstance() => new SetLogVerbosityLevelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setLogVerbosityLevel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27616,7 +27616,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLogVerbosityLevelCxxBridge : ObjectBridge<GetLogVerbosityLevel>
     {
         public static BaseCxxBridge CreateInstance() => new GetLogVerbosityLevelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLogVerbosityLevel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27635,7 +27635,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLogTagsCxxBridge : ObjectBridge<GetLogTags>
     {
         public static BaseCxxBridge CreateInstance() => new GetLogTagsCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLogTags();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27654,7 +27654,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class SetLogTagVerbosityLevelCxxBridge : ObjectBridge<SetLogTagVerbosityLevel>
     {
         public static BaseCxxBridge CreateInstance() => new SetLogTagVerbosityLevelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_setLogTagVerbosityLevel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27677,7 +27677,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class GetLogTagVerbosityLevelCxxBridge : ObjectBridge<GetLogTagVerbosityLevel>
     {
         public static BaseCxxBridge CreateInstance() => new GetLogTagVerbosityLevelCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_getLogTagVerbosityLevel();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27698,7 +27698,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class AddLogMessageCxxBridge : ObjectBridge<AddLogMessage>
     {
         public static BaseCxxBridge CreateInstance() => new AddLogMessageCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_addLogMessage();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27721,7 +27721,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestCallEmptyCxxBridge : ObjectBridge<TestCallEmpty>
     {
         public static BaseCxxBridge CreateInstance() => new TestCallEmptyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testCallEmpty();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27740,7 +27740,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestCallStringCxxBridge : ObjectBridge<TestCallString>
     {
         public static BaseCxxBridge CreateInstance() => new TestCallStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testCallString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27761,7 +27761,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestCallBytesCxxBridge : ObjectBridge<TestCallBytes>
     {
         public static BaseCxxBridge CreateInstance() => new TestCallBytesCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testCallBytes();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27782,7 +27782,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestCallVectorIntCxxBridge : ObjectBridge<TestCallVectorInt>
     {
         public static BaseCxxBridge CreateInstance() => new TestCallVectorIntCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testCallVectorInt();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27803,7 +27803,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestCallVectorIntObjectCxxBridge : ObjectBridge<TestCallVectorIntObject>
     {
         public static BaseCxxBridge CreateInstance() => new TestCallVectorIntObjectCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testCallVectorIntObject();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27824,7 +27824,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestCallVectorStringCxxBridge : ObjectBridge<TestCallVectorString>
     {
         public static BaseCxxBridge CreateInstance() => new TestCallVectorStringCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testCallVectorString();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27845,7 +27845,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestCallVectorStringObjectCxxBridge : ObjectBridge<TestCallVectorStringObject>
     {
         public static BaseCxxBridge CreateInstance() => new TestCallVectorStringObjectCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testCallVectorStringObject();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27866,7 +27866,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestSquareIntCxxBridge : ObjectBridge<TestSquareInt>
     {
         public static BaseCxxBridge CreateInstance() => new TestSquareIntCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testSquareInt();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27887,7 +27887,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestNetworkCxxBridge : ObjectBridge<TestNetwork>
     {
         public static BaseCxxBridge CreateInstance() => new TestNetworkCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testNetwork();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27906,7 +27906,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestProxyCxxBridge : ObjectBridge<TestProxy>
     {
         public static BaseCxxBridge CreateInstance() => new TestProxyCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testProxy();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27935,7 +27935,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestGetDifferenceCxxBridge : ObjectBridge<TestGetDifference>
     {
         public static BaseCxxBridge CreateInstance() => new TestGetDifferenceCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testGetDifference();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27954,7 +27954,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestUseUpdateCxxBridge : ObjectBridge<TestUseUpdate>
     {
         public static BaseCxxBridge CreateInstance() => new TestUseUpdateCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testUseUpdate();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
@@ -27973,7 +27973,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
     internal unsafe class TestReturnErrorCxxBridge : ObjectBridge<TestReturnError>
     {
         public static BaseCxxBridge CreateInstance() => new TestReturnErrorCxxBridge();
-        [DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr td_bridge_newobj_testReturnError();
         public override IntPtr CreateCxxObject(TLObject obj)
         {

@@ -50,7 +50,7 @@ def emit_type(io, type)
     # we need a method to create delegate (fast) instead of Activator.CreateInstance or ConstructorInfo (slow)
     io.puts "public static BaseCxxBridge CreateInstance() => new #{cstype}CxxBridge();"
     supsec = "[SuppressUnmanagedCodeSecurity]"
-    dllimport = '[DllImport("tdbridge", CallingConvention = CallingConvention.Cdecl)]'
+    dllimport = '[DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]'
     # io.puts supsec
     io.puts dllimport
     io.puts "private static extern IntPtr td_bridge_newobj_#{type.realname}();"

@@ -24,6 +24,27 @@ namespace TDLibCore.JsonClient
             return new Client(BindingFactory);
         }
 
+        public static TLObject Execute(Function func)
+        {
+            using var buffer = new ArrayPoolBufferWriter<byte>(512);
+            TLObjectFactory.DumpObject(buffer, func);
+            var requestbytes = buffer.WrittenSpan;
+            byte* result;
+            fixed (byte* str = requestbytes)
+                result = td_json_client_execute(IntPtr.Zero, str);
+            if (result == null) return null;
+            var obj = FetchObject(result);
+            return obj.TLObject;
+        }
+        private static unsafe TLObjectWithExtra FetchObject(byte* cstr)
+        {
+            if (cstr == null || *cstr == 0) return new TLObjectWithExtra();
+
+            var span = new ReadOnlySpan<byte>(cstr, CString.strlen(cstr));
+            var obj = TLObjectFactory.ReadRootObject(span);
+            return obj;
+        }
+
         public class Binding : ITdClientBinding
         {
             ITdClientLogging ITdClientBinding.GlobalLogging => Logging;
@@ -33,15 +54,6 @@ namespace TDLibCore.JsonClient
             internal Binding()
             {
                 client = td_json_client_create();
-            }
-
-            private static unsafe TLObjectWithExtra FetchObject(byte* cstr)
-            {
-                if (cstr == null || *cstr == 0) return new TLObjectWithExtra();
-
-                var span = new ReadOnlySpan<byte>(cstr, CString.strlen(cstr));
-                var obj = TLObjectFactory.ReadRootObject(span);
-                return obj;
             }
 
             TLObject ITdClientBinding.Execute(Function func)
