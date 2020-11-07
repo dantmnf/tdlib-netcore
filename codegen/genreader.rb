@@ -3,7 +3,8 @@ require_relative 'common'
 require_relative 'crc32c'
 
 def hashfn(x)
-  CRC32c.checksum(x)
+  fnv1a(x)
+  # CRC32c.checksum(x)
 end
 
 def fnv1a(x)
