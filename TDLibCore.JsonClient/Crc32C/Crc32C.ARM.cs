@@ -33,7 +33,7 @@ namespace TDLibCore.JsonClient
 
             // Copyright 2008,2009,2010 Massachusetts Institute of Technology.
             // from https://github.com/htot/crc32c/blob/022db995990418e1b581b6bf5f843bb775348e34/crc32c/crc32c.cc#L141
-            [MethodImpl(MethodImplOptions_AggressiveOptimization)]
+            [MethodImpl(MethodImplOptions.AggressiveOptimization)]
             private static uint crc32Hardware32(uint crc, void* data, int length)
             {
                 crc ^= uint.MaxValue;
@@ -91,7 +91,7 @@ namespace TDLibCore.JsonClient
                 return crc ^ uint.MaxValue;
             }
 
-            [MethodImpl(MethodImplOptions_AggressiveOptimization)]
+            [MethodImpl(MethodImplOptions.AggressiveOptimization)]
             private static uint crc32Hardware64(uint crc, byte* data, int length)
             {
                 crc ^= uint.MaxValue;
