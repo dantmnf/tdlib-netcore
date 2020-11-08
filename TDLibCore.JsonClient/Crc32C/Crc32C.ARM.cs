@@ -15,6 +15,7 @@ namespace TDLibCore.JsonClient
         {
             public static uint Update(uint crc, ReadOnlySpan<byte> input)
             {
+                crc ^= uint.MaxValue;
                 while (input.Length >= 4)
                 {
                     crc = Crc32.ComputeCrc32C(crc, Unsafe.ReadUnaligned<uint>(ref MemoryMarshal.GetReference(input)));
@@ -24,11 +25,12 @@ namespace TDLibCore.JsonClient
                 {
                     crc = Crc32.ComputeCrc32C(crc, input[i]);
                 }
-                return crc;
+                return crc ^ uint.MaxValue;
             }
 
             public static uint Update64(uint crc, ReadOnlySpan<byte> input)
             {
+                crc ^= uint.MaxValue;
                 while (input.Length >= sizeof(ulong))
                 {
                     crc = Crc32.Arm64.ComputeCrc32C(crc, Unsafe.ReadUnaligned<ulong>(ref MemoryMarshal.GetReference(input)));
@@ -43,7 +45,7 @@ namespace TDLibCore.JsonClient
                 {
                     crc = Crc32.ComputeCrc32C(crc, input[i]);
                 }
-                return crc;
+                return crc ^ uint.MaxValue;
             }
         }
     }

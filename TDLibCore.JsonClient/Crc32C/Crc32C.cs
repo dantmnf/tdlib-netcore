@@ -14,7 +14,7 @@ namespace TDLibCore.JsonClient
     internal static unsafe partial class Crc32C
     {
 
-        private static readonly uint* table;
+        private static uint* table;
         private const uint poly = 0x82f63b78u;
         private static delegate*<uint, ReadOnlySpan<byte>, uint> implptr;
         static Crc32C()
@@ -43,8 +43,7 @@ namespace TDLibCore.JsonClient
                 goto end_decision;
             }
 #endif
-            table = (uint*)Marshal.AllocHGlobal(16 * 256 * 4);
-            InitializeTable(table);
+            InitializeTable();
             if (BitConverter.IsLittleEndian)
             {
                 implptr = &UpdateLittleEndianOptimized;
@@ -56,8 +55,9 @@ namespace TDLibCore.JsonClient
 
 
 
-        static void InitializeTable(uint* table)
+        static void InitializeTable()
         {
+            table = (uint*)Marshal.AllocHGlobal(16 * 256 * 4);
             for (uint i = 0; i < 256; i++)
             {
                 uint res = i;
