@@ -118,16 +118,17 @@ nmake # additionally with TD_DIR=C:\path\to\tdlib
 ## Benchmarks
 
     BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
-    Intel Core i5-8300H CPU 2.30GHz (Coffee Lake), 1 CPU, 8 logical and 4 physical cores
-    .NET Core SDK=5.0.100-rc.1.20452.10
+    Intel Core i7-4770K CPU 3.50GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
+    .NET Core SDK=5.0.100-rc.2.20479.15
       [Host]     : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
       DefaultJob : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 
 
 |                 Method |      Mean |     Error |    StdDev | Ratio | RatioSD |
 |----------------------- |----------:|----------:|----------:|------:|--------:|
-| td_json_client_execute |  6.579 us | 0.1211 us | 0.1737 us |  1.00 |    0.00 |
-|      JsonClientExecute |  8.303 us | 0.0464 us | 0.0619 us |  1.26 |    0.04 |
-|    NativeClientExecute |  5.814 us | 0.0454 us | 0.0651 us |  0.88 |    0.02 |
-|     JsonDotNetExecute* | 68.461 us | 0.5660 us | 0.5294 us | 10.37 |    0.36 |
+| td_json_client_execute |  6.195 us | 0.0376 us | 0.0294 us |  1.00 |    0.00 |
+|      JsonClientExecute | 10.820 us | 0.0630 us | 0.0558 us |  1.75 |    0.01 |
+|    NativeClientExecute |  4.444 us | 0.0276 us | 0.0230 us |  0.72 |    0.01 |
+|     JsonDotNetExecute* | 67.604 us | 0.5022 us | 0.4452 us | 10.91 |    0.10 |
+
 \*: using Newtonsoft.Json reflection-based converter.
