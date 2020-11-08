@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RestoreFallbackFolders>../pkgs</RestoreFallbackFolders>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.7.0" />
+    <PackageReference Include="runtime.win-x64.TDLibCore.JsonClient.Native" Version="[$(NativePackageVersion)]" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TDLibCore.JsonClient\TDLibCore.JsonClient.csproj" />
+  </ItemGroup>
+
+</Project>

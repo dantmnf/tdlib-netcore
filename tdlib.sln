@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLibCore.ApiVersionTag", "TDLibCore.ApiVersionTag\TDLibCore.ApiVersionTag.csproj", "{AD76328C-4E8F-4574-A135-47463EEB179D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "example", "example\example.csproj", "{1C57EC16-01CA-4AD7-86A4-DCE264B3D32C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{AD76328C-4E8F-4574-A135-47463EEB179D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD76328C-4E8F-4574-A135-47463EEB179D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD76328C-4E8F-4574-A135-47463EEB179D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C57EC16-01CA-4AD7-86A4-DCE264B3D32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C57EC16-01CA-4AD7-86A4-DCE264B3D32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C57EC16-01CA-4AD7-86A4-DCE264B3D32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C57EC16-01CA-4AD7-86A4-DCE264B3D32C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
