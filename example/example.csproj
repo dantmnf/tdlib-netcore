@@ -1,9 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RestoreFallbackFolders>../pkgs</RestoreFallbackFolders>
+    <RestoreAdditionalProjectSources>../pkgs</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
