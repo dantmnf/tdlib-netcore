@@ -9,11 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.7.0" />
+    <PackageReference Include="TDLibCore.JsonClient" Version="[$(PackageVersion)]" />
     <PackageReference Include="runtime.win-x64.TDLibCore.JsonClient.Native" Version="[$(NativePackageVersion)]" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\TDLibCore.JsonClient\TDLibCore.JsonClient.csproj" />
   </ItemGroup>
 
 </Project>
