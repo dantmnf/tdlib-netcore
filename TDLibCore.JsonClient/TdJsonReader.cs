@@ -120,7 +120,7 @@ namespace TDLibCore.JsonClient
         private bool ConfirmFalse()
         {
             AssertRemainingLength(5);
-            if (!cstr.Slice(position, 4).SequenceEqual(falseBytes))
+            if (!cstr.Slice(position, 5).SequenceEqual(falseBytes))
                 throw new TdJsonReaderException(position, "invalid value"); ;
             position += 5;
             return false;
@@ -128,10 +128,10 @@ namespace TDLibCore.JsonClient
 
         private bool ConfirmTrue()
         {
-            AssertRemainingLength(5);
-            if (!cstr.Slice(position, 5).SequenceEqual(falseBytes))
+            AssertRemainingLength(4);
+            if (!cstr.Slice(position, 4).SequenceEqual(trueBytes))
                 throw new TdJsonReaderException(position, "invalid value"); ;
-            position += 5;
+            position += 4;
             return true;
         }
 
