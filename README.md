@@ -11,10 +11,10 @@ Fast [TDLib](https://github.com/tdlib/td) binding for .NET Core and .NET Standar
 There is no official NuGet packages at the moment. You can build your own package with build script, or use packages from CI.
 
 ```bash
+# build native package
+ruby build-native.rb -- -DCMAKE_BUILD_TYPE=Release -DTD_ENABLE_LTO=ON [other tdlib CMake options]
 # build managed (.NET) packages.
 ruby build-managed.rb
-# build native package
-ruby build-native.rb -- [tdlib CMake options]
 ```
 
 This will build package in `pkgs` subdirectory by default.
@@ -124,11 +124,12 @@ nmake # additionally with TD_DIR=C:\path\to\tdlib
       DefaultJob : .NET Core 3.1.9 (CoreCLR 4.700.20.47201, CoreFX 4.700.20.47203), X64 RyuJIT
 
 
-|                 Method |      Mean |     Error |    StdDev | Ratio | RatioSD |
-|----------------------- |----------:|----------:|----------:|------:|--------:|
-| td_json_client_execute |  6.195 us | 0.0376 us | 0.0294 us |  1.00 |    0.00 |
-|      JsonClientExecute | 10.820 us | 0.0630 us | 0.0558 us |  1.75 |    0.01 |
-|    NativeClientExecute |  4.444 us | 0.0276 us | 0.0230 us |  0.72 |    0.01 |
-|     JsonDotNetExecute* | 67.604 us | 0.5022 us | 0.4452 us | 10.91 |    0.10 |
+|                  Method |      Mean |     Error |    StdDev | Ratio | RatioSD |
+|------------------------ |----------:|----------:|----------:|------:|--------:|
+| td_json_client_execute* |  6.195 us | 0.0376 us | 0.0294 us |  1.00 |    0.00 |
+|       JsonClientExecute | 10.820 us | 0.0630 us | 0.0558 us |  1.75 |    0.01 |
+|     NativeClientExecute |  4.444 us | 0.0276 us | 0.0230 us |  0.72 |    0.01 |
+|     JsonDotNetExecute** | 67.604 us | 0.5022 us | 0.4452 us | 10.91 |    0.10 |
 
-\*: using Newtonsoft.Json reflection-based converter.
+\*: invoked with prepared request and discarded response for a baseline of (de)serialization performance.
+\**: using Newtonsoft.Json reflection-based converter.
