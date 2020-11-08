@@ -1285,6 +1285,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 obj.Longitude = reader.ReadDouble();
                 return true;
             }
+            if (name.SequenceEqual(propName_horizontal_accuracy))
+            {
+                obj.HorizontalAccuracy = reader.ReadDouble();
+                return true;
+            }
             return false;
         }
     }
@@ -1793,6 +1798,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<ChatPhoto>();
                     return true;
+                case 0x22AAB78Du when name.SequenceEqual(propName_is_blocked):
+                    obj.IsBlocked = reader.ReadBool();
+                    return true;
                 case 0xA926A5BBu when name.SequenceEqual(propName_can_be_called):
                     obj.CanBeCalled = reader.ReadBool();
                     return true;
@@ -2136,6 +2144,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override TLObject CreateObjectInstance() => new ChatMembersFilterMembers();
     }
 
+    [TLType("chatMembersFilterMention")]
+    partial class ChatMembersFilterMentionConverter : TLObjectConverter<ChatMembersFilterMention>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatMembersFilterMentionConverter();
+        public override TLObject CreateObjectInstance() => new ChatMembersFilterMention();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatMembersFilterMention)tlobj;
+            if (name.SequenceEqual(propName_message_thread_id))
+            {
+                obj.MessageThreadId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("chatMembersFilterRestricted")]
     partial class ChatMembersFilterRestrictedConverter : TLObjectConverter<ChatMembersFilterRestricted>
     {
@@ -2233,6 +2258,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_query))
             {
                 obj.Query = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("supergroupMembersFilterMention")]
+    partial class SupergroupMembersFilterMentionConverter : TLObjectConverter<SupergroupMembersFilterMention>
+    {
+        public static BaseConverter CreateConverterInstance() => new SupergroupMembersFilterMentionConverter();
+        public override TLObject CreateObjectInstance() => new SupergroupMembersFilterMention();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (SupergroupMembersFilterMention)tlobj;
+            if (name.SequenceEqual(propName_query))
+            {
+                obj.Query = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_thread_id))
+            {
+                obj.MessageThreadId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -2497,6 +2544,62 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("messageSenderUser")]
+    partial class MessageSenderUserConverter : TLObjectConverter<MessageSenderUser>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageSenderUserConverter();
+        public override TLObject CreateObjectInstance() => new MessageSenderUser();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageSenderUser)tlobj;
+            if (name.SequenceEqual(propName_user_id))
+            {
+                obj.UserId = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("messageSenderChat")]
+    partial class MessageSenderChatConverter : TLObjectConverter<MessageSenderChat>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageSenderChatConverter();
+        public override TLObject CreateObjectInstance() => new MessageSenderChat();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageSenderChat)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("messageSenders")]
+    partial class MessageSendersConverter : TLObjectConverter<MessageSenders>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageSendersConverter();
+        public override TLObject CreateObjectInstance() => new MessageSenders();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageSenders)tlobj;
+            if (name.SequenceEqual(propName_total_count))
+            {
+                obj.TotalCount = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_senders))
+            {
+                obj.Senders = reader.ReadObjectArray<MessageSender>();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("messageForwardOriginUser")]
     partial class MessageForwardOriginUserConverter : TLObjectConverter<MessageForwardOriginUser>
     {
@@ -2525,6 +2628,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_sender_chat_id))
             {
                 obj.SenderChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_author_signature))
+            {
+                obj.AuthorSignature = reader.ReadString();
                 return true;
             }
             return false;
@@ -2620,8 +2728,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x68003481u when name.SequenceEqual(propName_reply_count):
                     obj.ReplyCount = reader.ReadInt();
                     return true;
-                case 0x6BB81C41u when name.SequenceEqual(propName_recent_replier_user_ids):
-                    obj.RecentReplierUserIds = reader.ReadInt32Array();
+                case 0x812468BBu when name.SequenceEqual(propName_recent_repliers):
+                    obj.RecentRepliers = reader.ReadObjectArray<MessageSender>();
                     return true;
                 case 0xE4D52BA2u when name.SequenceEqual(propName_last_read_inbox_message_id):
                     obj.LastReadInboxMessageId = reader.ReadLong();
@@ -2713,11 +2821,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x59170D66u when name.SequenceEqual(propName_id):
                     obj.Id = reader.ReadLong();
                     return true;
-                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
-                    return true;
-                case 0xDA540536u when name.SequenceEqual(propName_sender_chat_id):
-                    obj.SenderChatId = reader.ReadLong();
+                case 0x67ADD995u when name.SequenceEqual(propName_sender):
+                    obj.Sender = reader.ReadTLObject<MessageSender>();
                     return true;
                 case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
@@ -2730,6 +2835,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0x59EDAC58u when name.SequenceEqual(propName_is_outgoing):
                     obj.IsOutgoing = reader.ReadBool();
+                    return true;
+                case 0x51B35594u when name.SequenceEqual(propName_is_pinned):
+                    obj.IsPinned = reader.ReadBool();
                     return true;
                 case 0xF69F3B17u when name.SequenceEqual(propName_can_be_edited):
                     obj.CanBeEdited = reader.ReadBool();
@@ -3353,9 +3461,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0x29C31F48u when name.SequenceEqual(propName_action_bar):
                     obj.ActionBar = reader.ReadTLObject<ChatActionBar>();
-                    return true;
-                case 0x01C543B1u when name.SequenceEqual(propName_pinned_message_id):
-                    obj.PinnedMessageId = reader.ReadLong();
                     return true;
                 case 0x84A073DBu when name.SequenceEqual(propName_reply_markup_message_id):
                     obj.ReplyMarkupMessageId = reader.ReadLong();
@@ -7156,20 +7261,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (MessageLocation)tlobj;
-            if (name.SequenceEqual(propName_location))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.Location = reader.ReadTLObject<Location>();
-                return true;
-            }
-            if (name.SequenceEqual(propName_live_period))
-            {
-                obj.LivePeriod = reader.ReadInt();
-                return true;
-            }
-            if (name.SequenceEqual(propName_expires_in))
-            {
-                obj.ExpiresIn = reader.ReadInt();
-                return true;
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
+                    obj.Location = reader.ReadTLObject<Location>();
+                    return true;
+                case 0x6EA7C561u when name.SequenceEqual(propName_live_period):
+                    obj.LivePeriod = reader.ReadInt();
+                    return true;
+                case 0x879D494Fu when name.SequenceEqual(propName_expires_in):
+                    obj.ExpiresIn = reader.ReadInt();
+                    return true;
+                case 0x0DF95F48u when name.SequenceEqual(propName_heading):
+                    obj.Heading = reader.ReadInt();
+                    return true;
+                case 0x45CED2E4u when name.SequenceEqual(propName_proximity_alert_radius):
+                    obj.ProximityAlertRadius = reader.ReadInt();
+                    return true;
             }
             return false;
         }
@@ -7220,11 +7329,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
-                case 0x1CCBD02Au when name.SequenceEqual(propName_initial_state_sticker):
-                    obj.InitialStateSticker = reader.ReadTLObject<Sticker>();
+                case 0x8ACFFB8Bu when name.SequenceEqual(propName_initial_state):
+                    obj.InitialState = reader.ReadTLObject<DiceStickers>();
                     return true;
-                case 0x20A84525u when name.SequenceEqual(propName_final_state_sticker):
-                    obj.FinalStateSticker = reader.ReadTLObject<Sticker>();
+                case 0xF84111A8u when name.SequenceEqual(propName_final_state):
+                    obj.FinalState = reader.ReadTLObject<DiceStickers>();
                     return true;
                 case 0xD446748Eu when name.SequenceEqual(propName_emoji):
                     obj.Emoji = reader.ReadString();
@@ -7713,6 +7822,33 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_credentials))
             {
                 obj.Credentials = reader.ReadTLObject<EncryptedCredentials>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("messageProximityAlertTriggered")]
+    partial class MessageProximityAlertTriggeredConverter : TLObjectConverter<MessageProximityAlertTriggered>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageProximityAlertTriggeredConverter();
+        public override TLObject CreateObjectInstance() => new MessageProximityAlertTriggered();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageProximityAlertTriggered)tlobj;
+            if (name.SequenceEqual(propName_traveler))
+            {
+                obj.Traveler = reader.ReadTLObject<MessageSender>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_watcher))
+            {
+                obj.Watcher = reader.ReadTLObject<MessageSender>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_distance))
+            {
+                obj.Distance = reader.ReadInt();
                 return true;
             }
             return false;
@@ -8278,15 +8414,21 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (InputMessageLocation)tlobj;
-            if (name.SequenceEqual(propName_location))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.Location = reader.ReadTLObject<Location>();
-                return true;
-            }
-            if (name.SequenceEqual(propName_live_period))
-            {
-                obj.LivePeriod = reader.ReadInt();
-                return true;
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
+                    obj.Location = reader.ReadTLObject<Location>();
+                    return true;
+                case 0x6EA7C561u when name.SequenceEqual(propName_live_period):
+                    obj.LivePeriod = reader.ReadInt();
+                    return true;
+                case 0x0DF95F48u when name.SequenceEqual(propName_heading):
+                    obj.Heading = reader.ReadInt();
+                    return true;
+                case 0x45CED2E4u when name.SequenceEqual(propName_proximity_alert_radius):
+                    obj.ProximityAlertRadius = reader.ReadInt();
+                    return true;
             }
             return false;
         }
@@ -8601,6 +8743,13 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new SearchMessagesFilterFailedToSendConverter();
         public override TLObject CreateObjectInstance() => new SearchMessagesFilterFailedToSend();
+    }
+
+    [TLType("searchMessagesFilterPinned")]
+    partial class SearchMessagesFilterPinnedConverter : TLObjectConverter<SearchMessagesFilterPinned>
+    {
+        public static BaseConverter CreateConverterInstance() => new SearchMessagesFilterPinnedConverter();
+        public override TLObject CreateObjectInstance() => new SearchMessagesFilterPinned();
     }
 
     [TLType("chatActionTyping")]
@@ -9372,6 +9521,54 @@ namespace TDLibCore.JsonClient.ObjectConverter
             {
                 obj.Animations_ = reader.ReadObjectArray<Animation>();
                 return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("diceStickersRegular")]
+    partial class DiceStickersRegularConverter : TLObjectConverter<DiceStickersRegular>
+    {
+        public static BaseConverter CreateConverterInstance() => new DiceStickersRegularConverter();
+        public override TLObject CreateObjectInstance() => new DiceStickersRegular();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (DiceStickersRegular)tlobj;
+            if (name.SequenceEqual(propName_sticker))
+            {
+                obj.Sticker = reader.ReadTLObject<Sticker>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("diceStickersSlotMachine")]
+    partial class DiceStickersSlotMachineConverter : TLObjectConverter<DiceStickersSlotMachine>
+    {
+        public static BaseConverter CreateConverterInstance() => new DiceStickersSlotMachineConverter();
+        public override TLObject CreateObjectInstance() => new DiceStickersSlotMachine();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (DiceStickersSlotMachine)tlobj;
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
+            {
+                case 0x13FE30D5u when name.SequenceEqual(propName_background):
+                    obj.Background = reader.ReadTLObject<Sticker>();
+                    return true;
+                case 0x5C68C4CDu when name.SequenceEqual(propName_lever):
+                    obj.Lever = reader.ReadTLObject<Sticker>();
+                    return true;
+                case 0x41C35FB2u when name.SequenceEqual(propName_left_reel):
+                    obj.LeftReel = reader.ReadTLObject<Sticker>();
+                    return true;
+                case 0x1E123BBBu when name.SequenceEqual(propName_center_reel):
+                    obj.CenterReel = reader.ReadTLObject<Sticker>();
+                    return true;
+                case 0xA7C470A1u when name.SequenceEqual(propName_right_reel):
+                    obj.RightReel = reader.ReadTLObject<Sticker>();
+                    return true;
             }
             return false;
         }
@@ -10474,6 +10671,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new ChatEventMessageUnpinnedConverter();
         public override TLObject CreateObjectInstance() => new ChatEventMessageUnpinned();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatEventMessageUnpinned)tlobj;
+            if (name.SequenceEqual(propName_message))
+            {
+                obj.Message = reader.ReadTLObject<Message>();
+                return true;
+            }
+            return false;
+        }
     }
 
     [TLType("chatEventMemberJoined")]
@@ -12114,20 +12321,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PushMessageContentMediaAlbum)tlobj;
-            if (name.SequenceEqual(propName_total_count))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.TotalCount = reader.ReadInt();
-                return true;
-            }
-            if (name.SequenceEqual(propName_has_photos))
-            {
-                obj.HasPhotos = reader.ReadBool();
-                return true;
-            }
-            if (name.SequenceEqual(propName_has_videos))
-            {
-                obj.HasVideos = reader.ReadBool();
-                return true;
+                case 0x65E7DFBDu when name.SequenceEqual(propName_total_count):
+                    obj.TotalCount = reader.ReadInt();
+                    return true;
+                case 0x48A73F1Au when name.SequenceEqual(propName_has_photos):
+                    obj.HasPhotos = reader.ReadBool();
+                    return true;
+                case 0x584AC229u when name.SequenceEqual(propName_has_videos):
+                    obj.HasVideos = reader.ReadBool();
+                    return true;
+                case 0x12804097u when name.SequenceEqual(propName_has_audios):
+                    obj.HasAudios = reader.ReadBool();
+                    return true;
+                case 0xE2F7A19Au when name.SequenceEqual(propName_has_documents):
+                    obj.HasDocuments = reader.ReadBool();
+                    return true;
             }
             return false;
         }
@@ -12188,11 +12399,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
                     return true;
-                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
-                    return true;
-                case 0xDA540536u when name.SequenceEqual(propName_sender_chat_id):
-                    obj.SenderChatId = reader.ReadLong();
+                case 0x67ADD995u when name.SequenceEqual(propName_sender):
+                    obj.Sender = reader.ReadTLObject<MessageSender>();
                     return true;
                 case 0xD88ED020u when name.SequenceEqual(propName_sender_name):
                     obj.SenderName = reader.ReadString();
@@ -14322,6 +14530,33 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("updateMessageIsPinned")]
+    partial class UpdateMessageIsPinnedConverter : TLObjectConverter<UpdateMessageIsPinned>
+    {
+        public static BaseConverter CreateConverterInstance() => new UpdateMessageIsPinnedConverter();
+        public override TLObject CreateObjectInstance() => new UpdateMessageIsPinned();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (UpdateMessageIsPinned)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_id))
+            {
+                obj.MessageId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_is_pinned))
+            {
+                obj.IsPinned = reader.ReadBool();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("updateMessageInteractionInfo")]
     partial class UpdateMessageInteractionInfoConverter : TLObjectConverter<UpdateMessageInteractionInfo>
     {
@@ -14771,28 +15006,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_action_bar))
             {
                 obj.ActionBar = reader.ReadTLObject<ChatActionBar>();
-                return true;
-            }
-            return false;
-        }
-    }
-
-    [TLType("updateChatPinnedMessage")]
-    partial class UpdateChatPinnedMessageConverter : TLObjectConverter<UpdateChatPinnedMessage>
-    {
-        public static BaseConverter CreateConverterInstance() => new UpdateChatPinnedMessageConverter();
-        public override TLObject CreateObjectInstance() => new UpdateChatPinnedMessage();
-        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
-        {
-            var obj = (UpdateChatPinnedMessage)tlobj;
-            if (name.SequenceEqual(propName_chat_id))
-            {
-                obj.ChatId = reader.ReadLong();
-                return true;
-            }
-            if (name.SequenceEqual(propName_pinned_message_id))
-            {
-                obj.PinnedMessageId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -16823,6 +17036,33 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("getCallbackQueryMessage")]
+    partial class GetCallbackQueryMessageConverter : TLObjectConverter<GetCallbackQueryMessage>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetCallbackQueryMessageConverter();
+        public override TLObject CreateObjectInstance() => new GetCallbackQueryMessage();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetCallbackQueryMessage)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_id))
+            {
+                obj.MessageId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_callback_query_id))
+            {
+                obj.CallbackQueryId = reader.ReadInt64String();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("getMessages")]
     partial class GetMessagesConverter : TLObjectConverter<GetMessages>
     {
@@ -17317,8 +17557,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x61B0E0A8u when name.SequenceEqual(propName_query):
                     obj.Query = reader.ReadString();
                     return true;
-                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                case 0x67ADD995u when name.SequenceEqual(propName_sender):
+                    obj.Sender = reader.ReadTLObject<MessageSender>();
                     return true;
                 case 0xCB003A8Du when name.SequenceEqual(propName_from_message_id):
                     obj.FromMessageId = reader.ReadLong();
@@ -17918,8 +18158,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
                     return true;
-                case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                case 0x67ADD995u when name.SequenceEqual(propName_sender):
+                    obj.Sender = reader.ReadTLObject<MessageSender>();
                     return true;
                 case 0x2A4A6D16u when name.SequenceEqual(propName_reply_to_message_id):
                     obj.ReplyToMessageId = reader.ReadLong();
@@ -18034,6 +18274,12 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0xB8217A08u when name.SequenceEqual(propName_location):
                     obj.Location = reader.ReadTLObject<Location>();
+                    return true;
+                case 0x0DF95F48u when name.SequenceEqual(propName_heading):
+                    obj.Heading = reader.ReadInt();
+                    return true;
+                case 0x45CED2E4u when name.SequenceEqual(propName_proximity_alert_radius):
+                    obj.ProximityAlertRadius = reader.ReadInt();
                     return true;
             }
             return false;
@@ -18158,20 +18404,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (EditInlineMessageLiveLocation)tlobj;
-            if (name.SequenceEqual(propName_inline_message_id))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.InlineMessageId = reader.ReadString();
-                return true;
-            }
-            if (name.SequenceEqual(propName_reply_markup))
-            {
-                obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
-                return true;
-            }
-            if (name.SequenceEqual(propName_location))
-            {
-                obj.Location = reader.ReadTLObject<Location>();
-                return true;
+                case 0x16AC3B4Eu when name.SequenceEqual(propName_inline_message_id):
+                    obj.InlineMessageId = reader.ReadString();
+                    return true;
+                case 0x3E524C18u when name.SequenceEqual(propName_reply_markup):
+                    obj.ReplyMarkup = reader.ReadTLObject<ReplyMarkup>();
+                    return true;
+                case 0xB8217A08u when name.SequenceEqual(propName_location):
+                    obj.Location = reader.ReadTLObject<Location>();
+                    return true;
+                case 0x0DF95F48u when name.SequenceEqual(propName_heading):
+                    obj.Heading = reader.ReadInt();
+                    return true;
+                case 0x45CED2E4u when name.SequenceEqual(propName_proximity_alert_radius):
+                    obj.ProximityAlertRadius = reader.ReadInt();
+                    return true;
             }
             return false;
         }
@@ -19519,28 +19769,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("toggleChatIsBlocked")]
-    partial class ToggleChatIsBlockedConverter : TLObjectConverter<ToggleChatIsBlocked>
-    {
-        public static BaseConverter CreateConverterInstance() => new ToggleChatIsBlockedConverter();
-        public override TLObject CreateObjectInstance() => new ToggleChatIsBlocked();
-        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
-        {
-            var obj = (ToggleChatIsBlocked)tlobj;
-            if (name.SequenceEqual(propName_chat_id))
-            {
-                obj.ChatId = reader.ReadLong();
-                return true;
-            }
-            if (name.SequenceEqual(propName_is_blocked))
-            {
-                obj.IsBlocked = reader.ReadBool();
-                return true;
-            }
-            return false;
-        }
-    }
-
     [TLType("toggleChatDefaultDisableNotification")]
     partial class ToggleChatDefaultDisableNotificationConverter : TLObjectConverter<ToggleChatDefaultDisableNotification>
     {
@@ -19681,20 +19909,21 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (PinChatMessage)tlobj;
-            if (name.SequenceEqual(propName_chat_id))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.ChatId = reader.ReadLong();
-                return true;
-            }
-            if (name.SequenceEqual(propName_message_id))
-            {
-                obj.MessageId = reader.ReadLong();
-                return true;
-            }
-            if (name.SequenceEqual(propName_disable_notification))
-            {
-                obj.DisableNotification = reader.ReadBool();
-                return true;
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
+                    obj.ChatId = reader.ReadLong();
+                    return true;
+                case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
+                    obj.MessageId = reader.ReadLong();
+                    return true;
+                case 0x53B8E768u when name.SequenceEqual(propName_disable_notification):
+                    obj.DisableNotification = reader.ReadBool();
+                    return true;
+                case 0x19501926u when name.SequenceEqual(propName_only_for_self):
+                    obj.OnlyForSelf = reader.ReadBool();
+                    return true;
             }
             return false;
         }
@@ -19708,6 +19937,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (UnpinChatMessage)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_id))
+            {
+                obj.MessageId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("unpinAllChatMessages")]
+    partial class UnpinAllChatMessagesConverter : TLObjectConverter<UnpinAllChatMessages>
+    {
+        public static BaseConverter CreateConverterInstance() => new UnpinAllChatMessagesConverter();
+        public override TLObject CreateObjectInstance() => new UnpinAllChatMessages();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (UnpinAllChatMessages)tlobj;
             if (name.SequenceEqual(propName_chat_id))
             {
                 obj.ChatId = reader.ReadLong();
@@ -20504,14 +20755,36 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("blockChatFromReplies")]
-    partial class BlockChatFromRepliesConverter : TLObjectConverter<BlockChatFromReplies>
+    [TLType("toggleMessageSenderIsBlocked")]
+    partial class ToggleMessageSenderIsBlockedConverter : TLObjectConverter<ToggleMessageSenderIsBlocked>
     {
-        public static BaseConverter CreateConverterInstance() => new BlockChatFromRepliesConverter();
-        public override TLObject CreateObjectInstance() => new BlockChatFromReplies();
+        public static BaseConverter CreateConverterInstance() => new ToggleMessageSenderIsBlockedConverter();
+        public override TLObject CreateObjectInstance() => new ToggleMessageSenderIsBlocked();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (BlockChatFromReplies)tlobj;
+            var obj = (ToggleMessageSenderIsBlocked)tlobj;
+            if (name.SequenceEqual(propName_sender))
+            {
+                obj.Sender = reader.ReadTLObject<MessageSender>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_is_blocked))
+            {
+                obj.IsBlocked = reader.ReadBool();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("blockMessageSenderFromReplies")]
+    partial class BlockMessageSenderFromRepliesConverter : TLObjectConverter<BlockMessageSenderFromReplies>
+    {
+        public static BaseConverter CreateConverterInstance() => new BlockMessageSenderFromRepliesConverter();
+        public override TLObject CreateObjectInstance() => new BlockMessageSenderFromReplies();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (BlockMessageSenderFromReplies)tlobj;
             var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
             switch (keyhash)
             {
@@ -20532,14 +20805,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("getBlockedChats")]
-    partial class GetBlockedChatsConverter : TLObjectConverter<GetBlockedChats>
+    [TLType("getBlockedMessageSenders")]
+    partial class GetBlockedMessageSendersConverter : TLObjectConverter<GetBlockedMessageSenders>
     {
-        public static BaseConverter CreateConverterInstance() => new GetBlockedChatsConverter();
-        public override TLObject CreateObjectInstance() => new GetBlockedChats();
+        public static BaseConverter CreateConverterInstance() => new GetBlockedMessageSendersConverter();
+        public override TLObject CreateObjectInstance() => new GetBlockedMessageSenders();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (GetBlockedChats)tlobj;
+            var obj = (GetBlockedMessageSenders)tlobj;
             if (name.SequenceEqual(propName_offset))
             {
                 obj.Offset = reader.ReadInt();

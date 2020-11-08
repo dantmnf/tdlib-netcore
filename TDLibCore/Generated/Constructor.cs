@@ -1068,10 +1068,12 @@ namespace TDLibCore.Api
         /// </summary>
         /// <param name="latitude">Latitude of the location in degrees; as defined by the sender</param>
         /// <param name="longitude">Longitude of the location, in degrees; as defined by the sender</param>
-        public Location(double latitude = default, double longitude = default)
+        /// <param name="horizontalAccuracy">The estimated horizontal accuracy of the location, in meters; as defined by the sender. 0 if unknown</param>
+        public Location(double latitude = default, double longitude = default, double horizontalAccuracy = default)
         {
             this.Latitude = latitude;
             this.Longitude = longitude;
+            this.HorizontalAccuracy = horizontalAccuracy;
         }
     }
 
@@ -1475,6 +1477,7 @@ namespace TDLibCore.Api
         /// Contains full information about a user
         /// </summary>
         /// <param name="photo">User profile photo; may be null</param>
+        /// <param name="isBlocked">True, if the user is blocked by the current user</param>
         /// <param name="canBeCalled">True, if the user can be called</param>
         /// <param name="supportsVideoCalls">True, if a video call can be created with the user</param>
         /// <param name="hasPrivateCalls">True, if the user can't be called due to their privacy settings</param>
@@ -1483,9 +1486,10 @@ namespace TDLibCore.Api
         /// <param name="shareText">For bots, the text that is included with the link when users share the bot</param>
         /// <param name="groupInCommonCount">Number of group chats where both the other user and the current user are a member; 0 for the current user</param>
         /// <param name="botInfo">If the user is a bot, information about the bot; may be null</param>
-        public UserFullInfo(ChatPhoto photo = default, bool canBeCalled = default, bool supportsVideoCalls = default, bool hasPrivateCalls = default, bool needPhoneNumberPrivacyException = default, string bio = default, string shareText = default, int groupInCommonCount = default, BotInfo botInfo = default)
+        public UserFullInfo(ChatPhoto photo = default, bool isBlocked = default, bool canBeCalled = default, bool supportsVideoCalls = default, bool hasPrivateCalls = default, bool needPhoneNumberPrivacyException = default, string bio = default, string shareText = default, int groupInCommonCount = default, BotInfo botInfo = default)
         {
             this.Photo = photo;
+            this.IsBlocked = isBlocked;
             this.CanBeCalled = canBeCalled;
             this.SupportsVideoCalls = supportsVideoCalls;
             this.HasPrivateCalls = hasPrivateCalls;
@@ -1755,6 +1759,22 @@ namespace TDLibCore.Api
         public ChatMembersFilterMembers() { }
     }
 
+    public partial class ChatMembersFilterMention
+    {
+        /// <summary>
+        /// Returns users which can be mentioned in the chat
+        /// </summary>
+        public ChatMembersFilterMention() { }
+        /// <summary>
+        /// Returns users which can be mentioned in the chat
+        /// </summary>
+        /// <param name="messageThreadId">If non-zero, the identifier of the current message thread</param>
+        public ChatMembersFilterMention(long messageThreadId = default)
+        {
+            this.MessageThreadId = messageThreadId;
+        }
+    }
+
     public partial class ChatMembersFilterRestricted
     {
         /// <summary>
@@ -1856,6 +1876,24 @@ namespace TDLibCore.Api
         public SupergroupMembersFilterBanned(string query = default)
         {
             this.Query = query;
+        }
+    }
+
+    public partial class SupergroupMembersFilterMention
+    {
+        /// <summary>
+        /// Returns users which can be mentioned in the supergroup
+        /// </summary>
+        public SupergroupMembersFilterMention() { }
+        /// <summary>
+        /// Returns users which can be mentioned in the supergroup
+        /// </summary>
+        /// <param name="query">Query to search for</param>
+        /// <param name="messageThreadId">If non-zero, the identifier of the current message thread</param>
+        public SupergroupMembersFilterMention(string query = default, long messageThreadId = default)
+        {
+            this.Query = query;
+            this.MessageThreadId = messageThreadId;
         }
     }
 
@@ -2061,14 +2099,64 @@ namespace TDLibCore.Api
         }
     }
 
+    public partial class MessageSenderUser
+    {
+        /// <summary>
+        /// The message was sent by a known user
+        /// </summary>
+        public MessageSenderUser() { }
+        /// <summary>
+        /// The message was sent by a known user
+        /// </summary>
+        /// <param name="userId">Identifier of the user that sent the message</param>
+        public MessageSenderUser(int userId = default)
+        {
+            this.UserId = userId;
+        }
+    }
+
+    public partial class MessageSenderChat
+    {
+        /// <summary>
+        /// The message was sent on behalf of a chat
+        /// </summary>
+        public MessageSenderChat() { }
+        /// <summary>
+        /// The message was sent on behalf of a chat
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat that sent the message</param>
+        public MessageSenderChat(long chatId = default)
+        {
+            this.ChatId = chatId;
+        }
+    }
+
+    public partial class MessageSenders
+    {
+        /// <summary>
+        /// Represents a list of message senders
+        /// </summary>
+        public MessageSenders() { }
+        /// <summary>
+        /// Represents a list of message senders
+        /// </summary>
+        /// <param name="totalCount">Approximate total count of messages senders found</param>
+        /// <param name="senders">List of message senders</param>
+        public MessageSenders(int totalCount = default, MessageSender[] senders = default)
+        {
+            this.TotalCount = totalCount;
+            this.Senders = senders;
+        }
+    }
+
     public partial class MessageForwardOriginUser
     {
         /// <summary>
-        /// The message was originally written by a known user
+        /// The message was originally sent by a known user
         /// </summary>
         public MessageForwardOriginUser() { }
         /// <summary>
-        /// The message was originally written by a known user
+        /// The message was originally sent by a known user
         /// </summary>
         /// <param name="senderUserId">Identifier of the user that originally sent the message</param>
         public MessageForwardOriginUser(int senderUserId = default)
@@ -2080,27 +2168,29 @@ namespace TDLibCore.Api
     public partial class MessageForwardOriginChat
     {
         /// <summary>
-        /// The message was originally written by an anonymous chat administrator on behalf of the chat
+        /// The message was originally sent by an anonymous chat administrator on behalf of the chat
         /// </summary>
         public MessageForwardOriginChat() { }
         /// <summary>
-        /// The message was originally written by an anonymous chat administrator on behalf of the chat
+        /// The message was originally sent by an anonymous chat administrator on behalf of the chat
         /// </summary>
         /// <param name="senderChatId">Identifier of the chat that originally sent the message</param>
-        public MessageForwardOriginChat(long senderChatId = default)
+        /// <param name="authorSignature">Original message author signature</param>
+        public MessageForwardOriginChat(long senderChatId = default, string authorSignature = default)
         {
             this.SenderChatId = senderChatId;
+            this.AuthorSignature = authorSignature;
         }
     }
 
     public partial class MessageForwardOriginHiddenUser
     {
         /// <summary>
-        /// The message was originally written by a user, which is hidden by their privacy settings
+        /// The message was originally sent by a user, which is hidden by their privacy settings
         /// </summary>
         public MessageForwardOriginHiddenUser() { }
         /// <summary>
-        /// The message was originally written by a user, which is hidden by their privacy settings
+        /// The message was originally sent by a user, which is hidden by their privacy settings
         /// </summary>
         /// <param name="senderName">Name of the sender</param>
         public MessageForwardOriginHiddenUser(string senderName = default)
@@ -2163,14 +2253,14 @@ namespace TDLibCore.Api
         /// Contains information about message replies
         /// </summary>
         /// <param name="replyCount">Number of times the message was directly or indirectly replied</param>
-        /// <param name="recentReplierUserIds">User identifiers of the recent repliers to the message; available in channels with a discussion supergroup</param>
+        /// <param name="recentRepliers">Recent repliers to the message; available in channels with a discussion supergroup</param>
         /// <param name="lastReadInboxMessageId">Identifier of the last read incoming reply to the message</param>
         /// <param name="lastReadOutboxMessageId">Identifier of the last read outgoing reply to the message</param>
         /// <param name="lastMessageId">Identifier of the last reply to the message</param>
-        public MessageReplyInfo(int replyCount = default, int[] recentReplierUserIds = default, long lastReadInboxMessageId = default, long lastReadOutboxMessageId = default, long lastMessageId = default)
+        public MessageReplyInfo(int replyCount = default, MessageSender[] recentRepliers = default, long lastReadInboxMessageId = default, long lastReadOutboxMessageId = default, long lastMessageId = default)
         {
             this.ReplyCount = replyCount;
-            this.RecentReplierUserIds = recentReplierUserIds;
+            this.RecentRepliers = recentRepliers;
             this.LastReadInboxMessageId = lastReadInboxMessageId;
             this.LastReadOutboxMessageId = lastReadOutboxMessageId;
             this.LastMessageId = lastMessageId;
@@ -2237,12 +2327,12 @@ namespace TDLibCore.Api
         /// Describes a message
         /// </summary>
         /// <param name="id">Message identifier; unique for the chat to which the message belongs</param>
-        /// <param name="senderUserId">Identifier of the user who sent the message; 0 if unknown. Currently, it is unknown for channel posts, for channel posts automatically forwarded to discussion group and for anonymously sent supergroup messages</param>
-        /// <param name="senderChatId">Identifier of the chat on behalf of which the message was sent; 0 if none</param>
+        /// <param name="sender">The sender of the message</param>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="sendingState">Information about the sending state of the message; may be null</param>
         /// <param name="schedulingState">Information about the scheduling state of the message; may be null</param>
         /// <param name="isOutgoing">True, if the message is outgoing</param>
+        /// <param name="isPinned">True, if the message is pinned</param>
         /// <param name="canBeEdited">True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application</param>
         /// <param name="canBeForwarded">True, if the message can be forwarded</param>
         /// <param name="canBeDeletedOnlyForSelf">True, if the message can be deleted only for the current user while other users will continue to see it</param>
@@ -2261,20 +2351,20 @@ namespace TDLibCore.Api
         /// <param name="ttl">For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the TTL expires</param>
         /// <param name="ttlExpiresIn">Time left before the message expires, in seconds</param>
         /// <param name="viaBotUserId">If non-zero, the user identifier of the bot through which this message was sent</param>
-        /// <param name="authorSignature">For channel posts, optional author signature</param>
+        /// <param name="authorSignature">For channel posts and anonymous administrator messages, optional author signature</param>
         /// <param name="mediaAlbumId">Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums</param>
         /// <param name="restrictionReason">If non-empty, contains a human-readable description of the reason why access to this message must be restricted</param>
         /// <param name="content">Content of the message</param>
         /// <param name="replyMarkup">Reply markup for the message; may be null</param>
-        public Message(long id = default, int senderUserId = default, long senderChatId = default, long chatId = default, MessageSendingState sendingState = default, MessageSchedulingState schedulingState = default, bool isOutgoing = default, bool canBeEdited = default, bool canBeForwarded = default, bool canBeDeletedOnlyForSelf = default, bool canBeDeletedForAllUsers = default, bool canGetStatistics = default, bool canGetMessageThread = default, bool isChannelPost = default, bool containsUnreadMention = default, int date = default, int editDate = default, MessageForwardInfo forwardInfo = default, MessageInteractionInfo interactionInfo = default, long replyInChatId = default, long replyToMessageId = default, long messageThreadId = default, int ttl = default, double ttlExpiresIn = default, int viaBotUserId = default, string authorSignature = default, long mediaAlbumId = default, string restrictionReason = default, MessageContent content = default, ReplyMarkup replyMarkup = default)
+        public Message(long id = default, MessageSender sender = default, long chatId = default, MessageSendingState sendingState = default, MessageSchedulingState schedulingState = default, bool isOutgoing = default, bool isPinned = default, bool canBeEdited = default, bool canBeForwarded = default, bool canBeDeletedOnlyForSelf = default, bool canBeDeletedForAllUsers = default, bool canGetStatistics = default, bool canGetMessageThread = default, bool isChannelPost = default, bool containsUnreadMention = default, int date = default, int editDate = default, MessageForwardInfo forwardInfo = default, MessageInteractionInfo interactionInfo = default, long replyInChatId = default, long replyToMessageId = default, long messageThreadId = default, int ttl = default, double ttlExpiresIn = default, int viaBotUserId = default, string authorSignature = default, long mediaAlbumId = default, string restrictionReason = default, MessageContent content = default, ReplyMarkup replyMarkup = default)
         {
             this.Id = id;
-            this.SenderUserId = senderUserId;
-            this.SenderChatId = senderChatId;
+            this.Sender = sender;
             this.ChatId = chatId;
             this.SendingState = sendingState;
             this.SchedulingState = schedulingState;
             this.IsOutgoing = isOutgoing;
+            this.IsPinned = isPinned;
             this.CanBeEdited = canBeEdited;
             this.CanBeForwarded = canBeForwarded;
             this.CanBeDeletedOnlyForSelf = canBeDeletedOnlyForSelf;
@@ -2728,11 +2818,10 @@ namespace TDLibCore.Api
         /// <param name="unreadMentionCount">Number of unread messages with a mention/reply in the chat</param>
         /// <param name="notificationSettings">Notification settings for this chat</param>
         /// <param name="actionBar">Describes actions which should be possible to do through a chat action bar; may be null</param>
-        /// <param name="pinnedMessageId">Identifier of the pinned message in the chat; 0 if none</param>
         /// <param name="replyMarkupMessageId">Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat</param>
         /// <param name="draftMessage">A draft of a message in the chat; may be null</param>
         /// <param name="clientData">Contains application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used</param>
-        public Chat(long id = default, ChatType type = default, string title = default, ChatPhotoInfo photo = default, ChatPermissions permissions = default, Message lastMessage = default, ChatPosition[] positions = default, bool isMarkedAsUnread = default, bool isBlocked = default, bool hasScheduledMessages = default, bool canBeDeletedOnlyForSelf = default, bool canBeDeletedForAllUsers = default, bool canBeReported = default, bool defaultDisableNotification = default, int unreadCount = default, long lastReadInboxMessageId = default, long lastReadOutboxMessageId = default, int unreadMentionCount = default, ChatNotificationSettings notificationSettings = default, ChatActionBar actionBar = default, long pinnedMessageId = default, long replyMarkupMessageId = default, DraftMessage draftMessage = default, string clientData = default)
+        public Chat(long id = default, ChatType type = default, string title = default, ChatPhotoInfo photo = default, ChatPermissions permissions = default, Message lastMessage = default, ChatPosition[] positions = default, bool isMarkedAsUnread = default, bool isBlocked = default, bool hasScheduledMessages = default, bool canBeDeletedOnlyForSelf = default, bool canBeDeletedForAllUsers = default, bool canBeReported = default, bool defaultDisableNotification = default, int unreadCount = default, long lastReadInboxMessageId = default, long lastReadOutboxMessageId = default, int unreadMentionCount = default, ChatNotificationSettings notificationSettings = default, ChatActionBar actionBar = default, long replyMarkupMessageId = default, DraftMessage draftMessage = default, string clientData = default)
         {
             this.Id = id;
             this.Type = type;
@@ -2754,7 +2843,6 @@ namespace TDLibCore.Api
             this.UnreadMentionCount = unreadMentionCount;
             this.NotificationSettings = notificationSettings;
             this.ActionBar = actionBar;
-            this.PinnedMessageId = pinnedMessageId;
             this.ReplyMarkupMessageId = replyMarkupMessageId;
             this.DraftMessage = draftMessage;
             this.ClientData = clientData;
@@ -2789,7 +2877,7 @@ namespace TDLibCore.Api
         /// Describes a chat located nearby
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="distance">Distance to the chat location in meters</param>
+        /// <param name="distance">Distance to the chat location, in meters</param>
         public ChatNearby(long chatId = default, int distance = default)
         {
             this.ChatId = chatId;
@@ -6005,13 +6093,17 @@ namespace TDLibCore.Api
         /// A message with a location
         /// </summary>
         /// <param name="location">The location description</param>
-        /// <param name="livePeriod">Time relative to the message sent date until which the location can be updated, in seconds</param>
+        /// <param name="livePeriod">Time relative to the message send date, for which the location can be updated, in seconds</param>
         /// <param name="expiresIn">Left time for which the location can be updated, in seconds. updateMessageContent is not sent when this field changes</param>
-        public MessageLocation(Location location = default, int livePeriod = default, int expiresIn = default)
+        /// <param name="heading">For live locations, a direction in which the location moves, in degrees; 1-360. If 0 the direction is unknown</param>
+        /// <param name="proximityAlertRadius">For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). 0 if the notification is disabled. Available only for the message sender</param>
+        public MessageLocation(Location location = default, int livePeriod = default, int expiresIn = default, int heading = default, int proximityAlertRadius = default)
         {
             this.Location = location;
             this.LivePeriod = livePeriod;
             this.ExpiresIn = expiresIn;
+            this.Heading = heading;
+            this.ProximityAlertRadius = proximityAlertRadius;
         }
     }
 
@@ -6056,15 +6148,15 @@ namespace TDLibCore.Api
         /// <summary>
         /// A dice message. The dice value is randomly generated by the server
         /// </summary>
-        /// <param name="initialStateSticker">The animated sticker with the initial dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known</param>
-        /// <param name="finalStateSticker">The animated sticker with the final dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known</param>
+        /// <param name="initialState">The animated stickers with the initial dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known</param>
+        /// <param name="finalState">The animated stickers with the final dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known</param>
         /// <param name="emoji">Emoji on which the dice throw animation is based</param>
         /// <param name="value">The dice value. If the value is 0, the dice don't have final state yet</param>
         /// <param name="successAnimationFrameNumber">Number of frame after which a success animation like a shower of confetti needs to be shown on updateMessageSendSucceeded</param>
-        public MessageDice(Sticker initialStateSticker = default, Sticker finalStateSticker = default, string emoji = default, int value = default, int successAnimationFrameNumber = default)
+        public MessageDice(DiceStickers initialState = default, DiceStickers finalState = default, string emoji = default, int value = default, int successAnimationFrameNumber = default)
         {
-            this.InitialStateSticker = initialStateSticker;
-            this.FinalStateSticker = finalStateSticker;
+            this.InitialState = initialState;
+            this.FinalState = finalState;
             this.Emoji = emoji;
             this.Value = value;
             this.SuccessAnimationFrameNumber = successAnimationFrameNumber;
@@ -6484,6 +6576,26 @@ namespace TDLibCore.Api
         {
             this.Elements = elements;
             this.Credentials = credentials;
+        }
+    }
+
+    public partial class MessageProximityAlertTriggered
+    {
+        /// <summary>
+        /// A user in the chat came within proximity alert range
+        /// </summary>
+        public MessageProximityAlertTriggered() { }
+        /// <summary>
+        /// A user in the chat came within proximity alert range
+        /// </summary>
+        /// <param name="traveler">The user or chat, which triggered the proximity alert</param>
+        /// <param name="watcher">The user or chat, which subscribed for the proximity alert</param>
+        /// <param name="distance">The distance between the users</param>
+        public MessageProximityAlertTriggered(MessageSender traveler = default, MessageSender watcher = default, int distance = default)
+        {
+            this.Traveler = traveler;
+            this.Watcher = watcher;
+            this.Distance = distance;
         }
     }
 
@@ -6972,10 +7084,14 @@ namespace TDLibCore.Api
         /// </summary>
         /// <param name="location">Location to be sent</param>
         /// <param name="livePeriod">Period for which the location can be updated, in seconds; should be between 60 and 86400 for a live location and 0 otherwise</param>
-        public InputMessageLocation(Location location = default, int livePeriod = default)
+        /// <param name="heading">For live locations, a direction in which the location moves, in degrees; 1-360. Pass 0 if unknown</param>
+        /// <param name="proximityAlertRadius">For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled. Can't be enabled in channels and Saved Messages</param>
+        public InputMessageLocation(Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
         {
             this.Location = location;
             this.LivePeriod = livePeriod;
+            this.Heading = heading;
+            this.ProximityAlertRadius = proximityAlertRadius;
         }
     }
 
@@ -7267,6 +7383,14 @@ namespace TDLibCore.Api
         /// Returns only failed to send messages. This filter can be used only if the message database is used
         /// </summary>
         public SearchMessagesFilterFailedToSend() { }
+    }
+
+    public partial class SearchMessagesFilterPinned
+    {
+        /// <summary>
+        /// Returns only pinned messages
+        /// </summary>
+        public SearchMessagesFilterPinned() { }
     }
 
     public partial class ChatActionTyping
@@ -7970,6 +8094,46 @@ namespace TDLibCore.Api
         public Animations(Animation[] animations_ = default)
         {
             this.Animations_ = animations_;
+        }
+    }
+
+    public partial class DiceStickersRegular
+    {
+        /// <summary>
+        /// A regular animated sticker
+        /// </summary>
+        public DiceStickersRegular() { }
+        /// <summary>
+        /// A regular animated sticker
+        /// </summary>
+        /// <param name="sticker">The animated sticker with the dice animation</param>
+        public DiceStickersRegular(Sticker sticker = default)
+        {
+            this.Sticker = sticker;
+        }
+    }
+
+    public partial class DiceStickersSlotMachine
+    {
+        /// <summary>
+        /// Animated stickers to be combined into a slot machine
+        /// </summary>
+        public DiceStickersSlotMachine() { }
+        /// <summary>
+        /// Animated stickers to be combined into a slot machine
+        /// </summary>
+        /// <param name="background">The animated sticker with the slot machine background. The background animation must start playing after all reel animations finish</param>
+        /// <param name="lever">The animated sticker with the lever animation. The lever animation must play once in the initial dice state</param>
+        /// <param name="leftReel">The animated sticker with the left reel</param>
+        /// <param name="centerReel">The animated sticker with the center reel</param>
+        /// <param name="rightReel">The animated sticker with the right reel</param>
+        public DiceStickersSlotMachine(Sticker background = default, Sticker lever = default, Sticker leftReel = default, Sticker centerReel = default, Sticker rightReel = default)
+        {
+            this.Background = background;
+            this.Lever = lever;
+            this.LeftReel = leftReel;
+            this.CenterReel = centerReel;
+            this.RightReel = rightReel;
         }
     }
 
@@ -8835,6 +8999,14 @@ namespace TDLibCore.Api
         /// A message was unpinned
         /// </summary>
         public ChatEventMessageUnpinned() { }
+        /// <summary>
+        /// A message was unpinned
+        /// </summary>
+        /// <param name="message">Unpinned message</param>
+        public ChatEventMessageUnpinned(Message message = default)
+        {
+            this.Message = message;
+        }
     }
 
     public partial class ChatEventMemberJoined
@@ -10231,11 +10403,15 @@ namespace TDLibCore.Api
         /// <param name="totalCount">Number of messages in the album</param>
         /// <param name="hasPhotos">True, if the album has at least one photo</param>
         /// <param name="hasVideos">True, if the album has at least one video</param>
-        public PushMessageContentMediaAlbum(int totalCount = default, bool hasPhotos = default, bool hasVideos = default)
+        /// <param name="hasAudios">True, if the album has at least one audio file</param>
+        /// <param name="hasDocuments">True, if the album has at least one document</param>
+        public PushMessageContentMediaAlbum(int totalCount = default, bool hasPhotos = default, bool hasVideos = default, bool hasAudios = default, bool hasDocuments = default)
         {
             this.TotalCount = totalCount;
             this.HasPhotos = hasPhotos;
             this.HasVideos = hasVideos;
+            this.HasAudios = hasAudios;
+            this.HasDocuments = hasDocuments;
         }
     }
 
@@ -10289,16 +10465,14 @@ namespace TDLibCore.Api
         /// New message was received through a push notification
         /// </summary>
         /// <param name="messageId">The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages, or as reply_to_message_id</param>
-        /// <param name="senderUserId">Sender of the message; 0 if unknown. Corresponding user may be inaccessible</param>
-        /// <param name="senderChatId">Sender chat of the message; 0 if none</param>
+        /// <param name="sender">The sender of the message. Corresponding user or chat may be inaccessible</param>
         /// <param name="senderName">Name of the sender; can be different from the name of the sender user</param>
         /// <param name="isOutgoing">True, if the message is outgoing</param>
         /// <param name="content">Push message content</param>
-        public NotificationTypeNewPushMessage(long messageId = default, int senderUserId = default, long senderChatId = default, string senderName = default, bool isOutgoing = default, PushMessageContent content = default)
+        public NotificationTypeNewPushMessage(long messageId = default, MessageSender sender = default, string senderName = default, bool isOutgoing = default, PushMessageContent content = default)
         {
             this.MessageId = messageId;
-            this.SenderUserId = senderUserId;
-            this.SenderChatId = senderChatId;
+            this.Sender = sender;
             this.SenderName = senderName;
             this.IsOutgoing = isOutgoing;
             this.Content = content;
@@ -12189,6 +12363,26 @@ namespace TDLibCore.Api
         }
     }
 
+    public partial class UpdateMessageIsPinned
+    {
+        /// <summary>
+        /// The message pinned state was changed
+        /// </summary>
+        public UpdateMessageIsPinned() { }
+        /// <summary>
+        /// The message pinned state was changed
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="messageId">The message identifier</param>
+        /// <param name="isPinned">True, if the message is pinned</param>
+        public UpdateMessageIsPinned(long chatId = default, long messageId = default, bool isPinned = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
+            this.IsPinned = isPinned;
+        }
+    }
+
     public partial class UpdateMessageInteractionInfo
     {
         /// <summary>
@@ -12552,24 +12746,6 @@ namespace TDLibCore.Api
         {
             this.ChatId = chatId;
             this.ActionBar = actionBar;
-        }
-    }
-
-    public partial class UpdateChatPinnedMessage
-    {
-        /// <summary>
-        /// The chat pinned message was changed
-        /// </summary>
-        public UpdateChatPinnedMessage() { }
-        /// <summary>
-        /// The chat pinned message was changed
-        /// </summary>
-        /// <param name="chatId">Chat identifier</param>
-        /// <param name="pinnedMessageId">The new identifier of the pinned message; 0 if there is no pinned message in the chat</param>
-        public UpdateChatPinnedMessage(long chatId = default, long pinnedMessageId = default)
-        {
-            this.ChatId = chatId;
-            this.PinnedMessageId = pinnedMessageId;
         }
     }
 
@@ -14320,16 +14496,36 @@ namespace TDLibCore.Api
     public partial class GetChatPinnedMessage
     {
         /// <summary>
-        /// Returns information about a pinned chat message
+        /// Returns information about a newest pinned chat message
         /// </summary>
         public GetChatPinnedMessage() { }
         /// <summary>
-        /// Returns information about a pinned chat message
+        /// Returns information about a newest pinned chat message
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
         public GetChatPinnedMessage(long chatId = default)
         {
             this.ChatId = chatId;
+        }
+    }
+
+    public partial class GetCallbackQueryMessage
+    {
+        /// <summary>
+        /// Returns information about a message with the callback button that originated a callback query; for bots only
+        /// </summary>
+        public GetCallbackQueryMessage() { }
+        /// <summary>
+        /// Returns information about a message with the callback button that originated a callback query; for bots only
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat the message belongs to</param>
+        /// <param name="messageId">Message identifier</param>
+        /// <param name="callbackQueryId">Identifier of the callback query</param>
+        public GetCallbackQueryMessage(long chatId = default, long messageId = default, long callbackQueryId = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
+            this.CallbackQueryId = callbackQueryId;
         }
     }
 
@@ -14638,7 +14834,7 @@ namespace TDLibCore.Api
     public partial class GetSuitableDiscussionChats
     {
         /// <summary>
-        /// Returns a list of basic group and supergroup chats, which can be used as a discussion group for a channel. Basic group chats need to be first upgraded to supergroups before they can be set as a discussion group
+        /// Returns a list of basic group and supergroup chats, which can be used as a discussion group for a channel. Returned basic group chats must be first upgraded to supergroups before they can be set as a discussion group. To set a returned supergroup as a discussion group, access to its old messages must be enabled using toggleSupergroupIsAllHistoryAvailable first
         /// </summary>
         public GetSuitableDiscussionChats() { }
     }
@@ -14750,17 +14946,17 @@ namespace TDLibCore.Api
         /// </summary>
         /// <param name="chatId">Identifier of the chat in which to search messages</param>
         /// <param name="query">Query to search for</param>
-        /// <param name="senderUserId">If not 0, only messages sent by the specified user will be returned. Not supported in secret chats</param>
+        /// <param name="sender">If not null, only messages sent by the specified sender will be returned. Not supported in secret chats</param>
         /// <param name="fromMessageId">Identifier of the message starting from which history must be fetched; use 0 to get results from the last message</param>
         /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages</param>
         /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="filter">Filter for message content in the search results</param>
         /// <param name="messageThreadId">If not 0, only messages in the specified thread will be returned; supergroups only</param>
-        public SearchChatMessages(long chatId = default, string query = default, int senderUserId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default, long messageThreadId = default)
+        public SearchChatMessages(long chatId = default, string query = default, MessageSender sender = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default, long messageThreadId = default)
         {
             this.ChatId = chatId;
             this.Query = query;
-            this.SenderUserId = senderUserId;
+            this.Sender = sender;
             this.FromMessageId = fromMessageId;
             this.Offset = offset;
             this.Limit = limit;
@@ -14784,7 +14980,7 @@ namespace TDLibCore.Api
         /// <param name="offsetChatId">The chat identifier of the last found message, or 0 for the first request</param>
         /// <param name="offsetMessageId">The message identifier of the last found message, or 0 for the first request</param>
         /// <param name="limit">The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
-        /// <param name="filter">Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention and searchMessagesFilterFailedToSend are unsupported in this function</param>
+        /// <param name="filter">Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function</param>
         /// <param name="minDate">If not 0, the minimum date of the messages to return</param>
         /// <param name="maxDate">If not 0, the maximum date of the messages to return</param>
         public SearchMessages(ChatList chatList = default, string query = default, int offsetDate = default, long offsetChatId = default, long offsetMessageId = default, int limit = default, SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)
@@ -14928,11 +15124,11 @@ namespace TDLibCore.Api
     public partial class GetMessagePublicForwards
     {
         /// <summary>
-        /// Returns forwarded copies of a channel message to another public channels. For optimal performance the number of returned messages is chosen by the library. The method is under development and may or may not work
+        /// Returns forwarded copies of a channel message to different public channels. For optimal performance the number of returned messages is chosen by the library
         /// </summary>
         public GetMessagePublicForwards() { }
         /// <summary>
-        /// Returns forwarded copies of a channel message to another public channels. For optimal performance the number of returned messages is chosen by the library. The method is under development and may or may not work
+        /// Returns forwarded copies of a channel message to different public channels. For optimal performance the number of returned messages is chosen by the library
         /// </summary>
         /// <param name="chatId">Chat identifier of the message</param>
         /// <param name="messageId">Message identifier</param>
@@ -15227,14 +15423,14 @@ namespace TDLibCore.Api
         /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
         /// </summary>
         /// <param name="chatId">Target chat</param>
-        /// <param name="senderUserId">Identifier of the user who will be shown as the sender of the message; may be 0 for channel posts</param>
+        /// <param name="sender">The sender sender of the message</param>
         /// <param name="replyToMessageId">Identifier of the message to reply to or 0</param>
         /// <param name="disableNotification">Pass true to disable notification for the message</param>
         /// <param name="inputMessageContent">The content of the message to be added</param>
-        public AddLocalMessage(long chatId = default, int senderUserId = default, long replyToMessageId = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
+        public AddLocalMessage(long chatId = default, MessageSender sender = default, long replyToMessageId = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
         {
             this.ChatId = chatId;
-            this.SenderUserId = senderUserId;
+            this.Sender = sender;
             this.ReplyToMessageId = replyToMessageId;
             this.DisableNotification = disableNotification;
             this.InputMessageContent = inputMessageContent;
@@ -15314,12 +15510,16 @@ namespace TDLibCore.Api
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
         /// <param name="location">New location content of the message; may be null. Pass null to stop sharing the live location</param>
-        public EditMessageLiveLocation(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default)
+        /// <param name="heading">The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown</param>
+        /// <param name="proximityAlertRadius">The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled</param>
+        public EditMessageLiveLocation(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int heading = default, int proximityAlertRadius = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
             this.ReplyMarkup = replyMarkup;
             this.Location = location;
+            this.Heading = heading;
+            this.ProximityAlertRadius = proximityAlertRadius;
         }
     }
 
@@ -15419,11 +15619,15 @@ namespace TDLibCore.Api
         /// <param name="inlineMessageId">Inline message identifier</param>
         /// <param name="replyMarkup">The new message reply markup</param>
         /// <param name="location">New location content of the message; may be null. Pass null to stop sharing the live location</param>
-        public EditInlineMessageLiveLocation(string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default)
+        /// <param name="heading">The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown</param>
+        /// <param name="proximityAlertRadius">The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled</param>
+        public EditInlineMessageLiveLocation(string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int heading = default, int proximityAlertRadius = default)
         {
             this.InlineMessageId = inlineMessageId;
             this.ReplyMarkup = replyMarkup;
             this.Location = location;
+            this.Heading = heading;
+            this.ProximityAlertRadius = proximityAlertRadius;
         }
     }
 
@@ -16535,24 +16739,6 @@ namespace TDLibCore.Api
         }
     }
 
-    public partial class ToggleChatIsBlocked
-    {
-        /// <summary>
-        /// Changes the block state of a chat. Currently, only private chats and supergroups can be blocked
-        /// </summary>
-        public ToggleChatIsBlocked() { }
-        /// <summary>
-        /// Changes the block state of a chat. Currently, only private chats and supergroups can be blocked
-        /// </summary>
-        /// <param name="chatId">Chat identifier</param>
-        /// <param name="isBlocked">New value of is_blocked</param>
-        public ToggleChatIsBlocked(long chatId = default, bool isBlocked = default)
-        {
-            this.ChatId = chatId;
-            this.IsBlocked = isBlocked;
-        }
-    }
-
     public partial class ToggleChatDefaultDisableNotification
     {
         /// <summary>
@@ -16617,7 +16803,7 @@ namespace TDLibCore.Api
         /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
         /// </summary>
         /// <param name="chatId">Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages rights in the supergroup)</param>
-        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that</param>
+        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable must be used first to change that</param>
         public SetChatDiscussionGroup(long chatId = default, long discussionChatId = default)
         {
             this.ChatId = chatId;
@@ -16664,34 +16850,54 @@ namespace TDLibCore.Api
     public partial class PinChatMessage
     {
         /// <summary>
-        /// Pins a message in a chat; requires can_pin_messages rights
+        /// Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
         /// </summary>
         public PinChatMessage() { }
         /// <summary>
-        /// Pins a message in a chat; requires can_pin_messages rights
+        /// Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
         /// <param name="messageId">Identifier of the new pinned message</param>
-        /// <param name="disableNotification">True, if there should be no notification about the pinned message</param>
-        public PinChatMessage(long chatId = default, long messageId = default, bool disableNotification = default)
+        /// <param name="disableNotification">True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats</param>
+        /// <param name="onlyForSelf">True, if the message needs to be pinned only for self; private chats only</param>
+        public PinChatMessage(long chatId = default, long messageId = default, bool disableNotification = default, bool onlyForSelf = default)
         {
             this.ChatId = chatId;
             this.MessageId = messageId;
             this.DisableNotification = disableNotification;
+            this.OnlyForSelf = onlyForSelf;
         }
     }
 
     public partial class UnpinChatMessage
     {
         /// <summary>
-        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel
+        /// Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
         /// </summary>
         public UnpinChatMessage() { }
         /// <summary>
-        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel
+        /// Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
-        public UnpinChatMessage(long chatId = default)
+        /// <param name="messageId">Identifier of the removed pinned message</param>
+        public UnpinChatMessage(long chatId = default, long messageId = default)
+        {
+            this.ChatId = chatId;
+            this.MessageId = messageId;
+        }
+    }
+
+    public partial class UnpinAllChatMessages
+    {
+        /// <summary>
+        /// Removes all pinned messages from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
+        /// </summary>
+        public UnpinAllChatMessages() { }
+        /// <summary>
+        /// Removes all pinned messages from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat</param>
+        public UnpinAllChatMessages(long chatId = default)
         {
             this.ChatId = chatId;
         }
@@ -17343,12 +17549,30 @@ namespace TDLibCore.Api
         }
     }
 
-    public partial class BlockChatFromReplies
+    public partial class ToggleMessageSenderIsBlocked
+    {
+        /// <summary>
+        /// Changes the block state of a message sender. Currently, only users and supergroup chats can be blocked
+        /// </summary>
+        public ToggleMessageSenderIsBlocked() { }
+        /// <summary>
+        /// Changes the block state of a message sender. Currently, only users and supergroup chats can be blocked
+        /// </summary>
+        /// <param name="sender">Message Sender</param>
+        /// <param name="isBlocked">New value of is_blocked</param>
+        public ToggleMessageSenderIsBlocked(MessageSender sender = default, bool isBlocked = default)
+        {
+            this.Sender = sender;
+            this.IsBlocked = isBlocked;
+        }
+    }
+
+    public partial class BlockMessageSenderFromReplies
     {
         /// <summary>
         /// Blocks an original sender of a message in the Replies chat
         /// </summary>
-        public BlockChatFromReplies() { }
+        public BlockMessageSenderFromReplies() { }
         /// <summary>
         /// Blocks an original sender of a message in the Replies chat
         /// </summary>
@@ -17356,7 +17580,7 @@ namespace TDLibCore.Api
         /// <param name="deleteMessage">Pass true if the message must be deleted</param>
         /// <param name="deleteAllMessages">Pass true if all messages from the same sender must be deleted</param>
         /// <param name="reportSpam">Pass true if the sender must be reported to the Telegram moderators</param>
-        public BlockChatFromReplies(long messageId = default, bool deleteMessage = default, bool deleteAllMessages = default, bool reportSpam = default)
+        public BlockMessageSenderFromReplies(long messageId = default, bool deleteMessage = default, bool deleteAllMessages = default, bool reportSpam = default)
         {
             this.MessageId = messageId;
             this.DeleteMessage = deleteMessage;
@@ -17365,18 +17589,18 @@ namespace TDLibCore.Api
         }
     }
 
-    public partial class GetBlockedChats
+    public partial class GetBlockedMessageSenders
     {
         /// <summary>
-        /// Returns chats that were blocked by the current user
+        /// Returns users and chats that were blocked by the current user
         /// </summary>
-        public GetBlockedChats() { }
+        public GetBlockedMessageSenders() { }
         /// <summary>
-        /// Returns chats that were blocked by the current user
+        /// Returns users and chats that were blocked by the current user
         /// </summary>
-        /// <param name="offset">Number of chats to skip in the result; must be non-negative</param>
-        /// <param name="limit">The maximum number of chats to return; up to 100</param>
-        public GetBlockedChats(int offset = default, int limit = default)
+        /// <param name="offset">Number of users and chats to skip in the result; must be non-negative</param>
+        /// <param name="limit">The maximum number of users and chats to return; up to 100</param>
+        public GetBlockedMessageSenders(int offset = default, int limit = default)
         {
             this.Offset = offset;
             this.Limit = limit;
@@ -19032,11 +19256,11 @@ namespace TDLibCore.Api
     public partial class GetMessageStatistics
     {
         /// <summary>
-        /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true. The method is under development and may or may not work
+        /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true
         /// </summary>
         public GetMessageStatistics() { }
         /// <summary>
-        /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true. The method is under development and may or may not work
+        /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageId">Message identifier</param>

@@ -1463,7 +1463,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(749028016)]
+    [TLTypeID(-443392141)]
     internal unsafe class LocationCxxBridge : ObjectBridge<Location>
     {
         public static BaseCxxBridge CreateInstance() => new LocationCxxBridge();
@@ -1475,6 +1475,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var cxxobj = td_bridge_newobj_location();
             new CxxFloat64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.location_latitude)).Set(specobj.Latitude);
             new CxxFloat64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.location_longitude)).Set(specobj.Longitude);
+            new CxxFloat64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.location_horizontal_accuracy)).Set(specobj.HorizontalAccuracy);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
@@ -1482,6 +1483,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var obj = new Location();
             obj.Latitude = new CxxFloat64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.location_latitude)).Fetch();
             obj.Longitude = new CxxFloat64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.location_longitude)).Fetch();
+            obj.HorizontalAccuracy = new CxxFloat64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.location_horizontal_accuracy)).Fetch();
             return obj;
         }
     }
@@ -1989,7 +1991,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-1067749716)]
+    [TLTypeID(-710655904)]
     internal unsafe class UserFullInfoCxxBridge : ObjectBridge<UserFullInfo>
     {
         public static BaseCxxBridge CreateInstance() => new UserFullInfoCxxBridge();
@@ -2000,6 +2002,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var specobj = (UserFullInfo)obj;
             var cxxobj = td_bridge_newobj_userFullInfo();
             new CxxTLObject<ChatPhoto>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_photo)).Set(specobj.Photo);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_is_blocked)).Set(specobj.IsBlocked);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_can_be_called)).Set(specobj.CanBeCalled);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_supports_video_calls)).Set(specobj.SupportsVideoCalls);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_has_private_calls)).Set(specobj.HasPrivateCalls);
@@ -2014,6 +2017,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var obj = new UserFullInfo();
             obj.Photo = new CxxTLObject<ChatPhoto>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_photo)).Fetch();
+            obj.IsBlocked = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_is_blocked)).Fetch();
             obj.CanBeCalled = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_can_be_called)).Fetch();
             obj.SupportsVideoCalls = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_supports_video_calls)).Fetch();
             obj.HasPrivateCalls = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.userFullInfo_has_private_calls)).Fetch();
@@ -2389,6 +2393,27 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
+    [TLTypeID(856419831)]
+    internal unsafe class ChatMembersFilterMentionCxxBridge : ObjectBridge<ChatMembersFilterMention>
+    {
+        public static BaseCxxBridge CreateInstance() => new ChatMembersFilterMentionCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_chatMembersFilterMention();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (ChatMembersFilterMention)obj;
+            var cxxobj = td_bridge_newobj_chatMembersFilterMention();
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chatMembersFilterMention_message_thread_id)).Set(specobj.MessageThreadId);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new ChatMembersFilterMention();
+            obj.MessageThreadId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chatMembersFilterMention_message_thread_id)).Fetch();
+            return obj;
+        }
+    }
+
     [TLTypeID(1256282813)]
     internal unsafe class ChatMembersFilterRestrictedCxxBridge : ObjectBridge<ChatMembersFilterRestricted>
     {
@@ -2564,6 +2589,29 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var obj = new SupergroupMembersFilterBanned();
             obj.Query = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.supergroupMembersFilterBanned_query)).Fetch();
+            return obj;
+        }
+    }
+
+    [TLTypeID(947915036)]
+    internal unsafe class SupergroupMembersFilterMentionCxxBridge : ObjectBridge<SupergroupMembersFilterMention>
+    {
+        public static BaseCxxBridge CreateInstance() => new SupergroupMembersFilterMentionCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_supergroupMembersFilterMention();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (SupergroupMembersFilterMention)obj;
+            var cxxobj = td_bridge_newobj_supergroupMembersFilterMention();
+            new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.supergroupMembersFilterMention_query)).Set(specobj.Query);
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.supergroupMembersFilterMention_message_thread_id)).Set(specobj.MessageThreadId);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new SupergroupMembersFilterMention();
+            obj.Query = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.supergroupMembersFilterMention_query)).Fetch();
+            obj.MessageThreadId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.supergroupMembersFilterMention_message_thread_id)).Fetch();
             return obj;
         }
     }
@@ -2839,6 +2887,71 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
+    [TLTypeID(1647122213)]
+    internal unsafe class MessageSenderUserCxxBridge : ObjectBridge<MessageSenderUser>
+    {
+        public static BaseCxxBridge CreateInstance() => new MessageSenderUserCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_messageSenderUser();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (MessageSenderUser)obj;
+            var cxxobj = td_bridge_newobj_messageSenderUser();
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenderUser_user_id)).Set(specobj.UserId);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new MessageSenderUser();
+            obj.UserId = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenderUser_user_id)).Fetch();
+            return obj;
+        }
+    }
+
+    [TLTypeID(-239660751)]
+    internal unsafe class MessageSenderChatCxxBridge : ObjectBridge<MessageSenderChat>
+    {
+        public static BaseCxxBridge CreateInstance() => new MessageSenderChatCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_messageSenderChat();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (MessageSenderChat)obj;
+            var cxxobj = td_bridge_newobj_messageSenderChat();
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenderChat_chat_id)).Set(specobj.ChatId);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new MessageSenderChat();
+            obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenderChat_chat_id)).Fetch();
+            return obj;
+        }
+    }
+
+    [TLTypeID(-690158467)]
+    internal unsafe class MessageSendersCxxBridge : ObjectBridge<MessageSenders>
+    {
+        public static BaseCxxBridge CreateInstance() => new MessageSendersCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_messageSenders();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (MessageSenders)obj;
+            var cxxobj = td_bridge_newobj_messageSenders();
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenders_total_count)).Set(specobj.TotalCount);
+            new CxxVectorObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenders_senders)).Set(specobj.Senders);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new MessageSenders();
+            obj.TotalCount = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenders_total_count)).Fetch();
+            obj.Senders = new CxxVectorObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageSenders_senders)).Fetch();
+            return obj;
+        }
+    }
+
     [TLTypeID(2781520)]
     internal unsafe class MessageForwardOriginUserCxxBridge : ObjectBridge<MessageForwardOriginUser>
     {
@@ -2860,7 +2973,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(872598889)]
+    [TLTypeID(1526010724)]
     internal unsafe class MessageForwardOriginChatCxxBridge : ObjectBridge<MessageForwardOriginChat>
     {
         public static BaseCxxBridge CreateInstance() => new MessageForwardOriginChatCxxBridge();
@@ -2871,12 +2984,14 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var specobj = (MessageForwardOriginChat)obj;
             var cxxobj = td_bridge_newobj_messageForwardOriginChat();
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageForwardOriginChat_sender_chat_id)).Set(specobj.SenderChatId);
+            new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageForwardOriginChat_author_signature)).Set(specobj.AuthorSignature);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
         {
             var obj = new MessageForwardOriginChat();
             obj.SenderChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageForwardOriginChat_sender_chat_id)).Fetch();
+            obj.AuthorSignature = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageForwardOriginChat_author_signature)).Fetch();
             return obj;
         }
     }
@@ -2956,7 +3071,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-67189409)]
+    [TLTypeID(-1443221826)]
     internal unsafe class MessageReplyInfoCxxBridge : ObjectBridge<MessageReplyInfo>
     {
         public static BaseCxxBridge CreateInstance() => new MessageReplyInfoCxxBridge();
@@ -2967,7 +3082,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var specobj = (MessageReplyInfo)obj;
             var cxxobj = td_bridge_newobj_messageReplyInfo();
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_reply_count)).Set(specobj.ReplyCount);
-            new CxxVectorInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_recent_replier_user_ids)).Set(specobj.RecentReplierUserIds);
+            new CxxVectorObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_recent_repliers)).Set(specobj.RecentRepliers);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_last_read_inbox_message_id)).Set(specobj.LastReadInboxMessageId);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_last_read_outbox_message_id)).Set(specobj.LastReadOutboxMessageId);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_last_message_id)).Set(specobj.LastMessageId);
@@ -2977,7 +3092,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var obj = new MessageReplyInfo();
             obj.ReplyCount = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_reply_count)).Fetch();
-            obj.RecentReplierUserIds = new CxxVectorInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_recent_replier_user_ids)).Fetch();
+            obj.RecentRepliers = new CxxVectorObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_recent_repliers)).Fetch();
             obj.LastReadInboxMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_last_read_inbox_message_id)).Fetch();
             obj.LastReadOutboxMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_last_read_outbox_message_id)).Fetch();
             obj.LastMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageReplyInfo_last_message_id)).Fetch();
@@ -3056,7 +3171,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(81067037)]
+    [TLTypeID(-1370136327)]
     internal unsafe class MessageCxxBridge : ObjectBridge<Message>
     {
         public static BaseCxxBridge CreateInstance() => new MessageCxxBridge();
@@ -3067,12 +3182,12 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var specobj = (Message)obj;
             var cxxobj = td_bridge_newobj_message();
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_id)).Set(specobj.Id);
-            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sender_user_id)).Set(specobj.SenderUserId);
-            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sender_chat_id)).Set(specobj.SenderChatId);
+            new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sender)).Set(specobj.Sender);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_chat_id)).Set(specobj.ChatId);
             new CxxTLObject<MessageSendingState>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sending_state)).Set(specobj.SendingState);
             new CxxTLObject<MessageSchedulingState>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_scheduling_state)).Set(specobj.SchedulingState);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_is_outgoing)).Set(specobj.IsOutgoing);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_is_pinned)).Set(specobj.IsPinned);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_can_be_edited)).Set(specobj.CanBeEdited);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_can_be_forwarded)).Set(specobj.CanBeForwarded);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_can_be_deleted_only_for_self)).Set(specobj.CanBeDeletedOnlyForSelf);
@@ -3102,12 +3217,12 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var obj = new Message();
             obj.Id = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_id)).Fetch();
-            obj.SenderUserId = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sender_user_id)).Fetch();
-            obj.SenderChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sender_chat_id)).Fetch();
+            obj.Sender = new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sender)).Fetch();
             obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_chat_id)).Fetch();
             obj.SendingState = new CxxTLObject<MessageSendingState>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_sending_state)).Fetch();
             obj.SchedulingState = new CxxTLObject<MessageSchedulingState>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_scheduling_state)).Fetch();
             obj.IsOutgoing = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_is_outgoing)).Fetch();
+            obj.IsPinned = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_is_pinned)).Fetch();
             obj.CanBeEdited = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_can_be_edited)).Fetch();
             obj.CanBeForwarded = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_can_be_forwarded)).Fetch();
             obj.CanBeDeletedOnlyForSelf = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.message_can_be_deleted_only_for_self)).Fetch();
@@ -3684,7 +3799,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(1881489172)]
+    [TLTypeID(1811058223)]
     internal unsafe class ChatCxxBridge : ObjectBridge<Chat>
     {
         public static BaseCxxBridge CreateInstance() => new ChatCxxBridge();
@@ -3714,7 +3829,6 @@ namespace TDLibCore.NativeClient.ObjectBridge
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_unread_mention_count)).Set(specobj.UnreadMentionCount);
             new CxxTLObject<ChatNotificationSettings>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_notification_settings)).Set(specobj.NotificationSettings);
             new CxxTLObject<ChatActionBar>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_action_bar)).Set(specobj.ActionBar);
-            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_pinned_message_id)).Set(specobj.PinnedMessageId);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_reply_markup_message_id)).Set(specobj.ReplyMarkupMessageId);
             new CxxTLObject<DraftMessage>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_draft_message)).Set(specobj.DraftMessage);
             new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_client_data)).Set(specobj.ClientData);
@@ -3743,7 +3857,6 @@ namespace TDLibCore.NativeClient.ObjectBridge
             obj.UnreadMentionCount = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_unread_mention_count)).Fetch();
             obj.NotificationSettings = new CxxTLObject<ChatNotificationSettings>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_notification_settings)).Fetch();
             obj.ActionBar = new CxxTLObject<ChatActionBar>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_action_bar)).Fetch();
-            obj.PinnedMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_pinned_message_id)).Fetch();
             obj.ReplyMarkupMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_reply_markup_message_id)).Fetch();
             obj.DraftMessage = new CxxTLObject<DraftMessage>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_draft_message)).Fetch();
             obj.ClientData = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chat_client_data)).Fetch();
@@ -8183,7 +8296,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-1301887786)]
+    [TLTypeID(303973492)]
     internal unsafe class MessageLocationCxxBridge : ObjectBridge<MessageLocation>
     {
         public static BaseCxxBridge CreateInstance() => new MessageLocationCxxBridge();
@@ -8196,6 +8309,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_location)).Set(specobj.Location);
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_live_period)).Set(specobj.LivePeriod);
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_expires_in)).Set(specobj.ExpiresIn);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_heading)).Set(specobj.Heading);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_proximity_alert_radius)).Set(specobj.ProximityAlertRadius);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
@@ -8204,6 +8319,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             obj.Location = new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_location)).Fetch();
             obj.LivePeriod = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_live_period)).Fetch();
             obj.ExpiresIn = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_expires_in)).Fetch();
+            obj.Heading = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_heading)).Fetch();
+            obj.ProximityAlertRadius = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageLocation_proximity_alert_radius)).Fetch();
             return obj;
         }
     }
@@ -8250,7 +8367,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-1350654849)]
+    [TLTypeID(1115779641)]
     internal unsafe class MessageDiceCxxBridge : ObjectBridge<MessageDice>
     {
         public static BaseCxxBridge CreateInstance() => new MessageDiceCxxBridge();
@@ -8260,8 +8377,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var specobj = (MessageDice)obj;
             var cxxobj = td_bridge_newobj_messageDice();
-            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_initial_state_sticker)).Set(specobj.InitialStateSticker);
-            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_final_state_sticker)).Set(specobj.FinalStateSticker);
+            new CxxTLObject<DiceStickers>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_initial_state)).Set(specobj.InitialState);
+            new CxxTLObject<DiceStickers>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_final_state)).Set(specobj.FinalState);
             new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_emoji)).Set(specobj.Emoji);
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_value)).Set(specobj.Value);
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_success_animation_frame_number)).Set(specobj.SuccessAnimationFrameNumber);
@@ -8270,8 +8387,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
         public override TLObject FetchCxxObject(IntPtr cxxobj)
         {
             var obj = new MessageDice();
-            obj.InitialStateSticker = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_initial_state_sticker)).Fetch();
-            obj.FinalStateSticker = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_final_state_sticker)).Fetch();
+            obj.InitialState = new CxxTLObject<DiceStickers>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_initial_state)).Fetch();
+            obj.FinalState = new CxxTLObject<DiceStickers>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_final_state)).Fetch();
             obj.Emoji = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_emoji)).Fetch();
             obj.Value = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_value)).Fetch();
             obj.SuccessAnimationFrameNumber = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageDice_success_animation_frame_number)).Fetch();
@@ -8840,6 +8957,31 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var obj = new MessagePassportDataReceived();
             obj.Elements = new CxxVectorObject<EncryptedPassportElement>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messagePassportDataReceived_elements)).Fetch();
             obj.Credentials = new CxxTLObject<EncryptedCredentials>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messagePassportDataReceived_credentials)).Fetch();
+            return obj;
+        }
+    }
+
+    [TLTypeID(-1311617562)]
+    internal unsafe class MessageProximityAlertTriggeredCxxBridge : ObjectBridge<MessageProximityAlertTriggered>
+    {
+        public static BaseCxxBridge CreateInstance() => new MessageProximityAlertTriggeredCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_messageProximityAlertTriggered();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (MessageProximityAlertTriggered)obj;
+            var cxxobj = td_bridge_newobj_messageProximityAlertTriggered();
+            new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageProximityAlertTriggered_traveler)).Set(specobj.Traveler);
+            new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageProximityAlertTriggered_watcher)).Set(specobj.Watcher);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageProximityAlertTriggered_distance)).Set(specobj.Distance);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new MessageProximityAlertTriggered();
+            obj.Traveler = new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageProximityAlertTriggered_traveler)).Fetch();
+            obj.Watcher = new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageProximityAlertTriggered_watcher)).Fetch();
+            obj.Distance = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.messageProximityAlertTriggered_distance)).Fetch();
             return obj;
         }
     }
@@ -9574,7 +9716,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-1624179655)]
+    [TLTypeID(648735088)]
     internal unsafe class InputMessageLocationCxxBridge : ObjectBridge<InputMessageLocation>
     {
         public static BaseCxxBridge CreateInstance() => new InputMessageLocationCxxBridge();
@@ -9586,6 +9728,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var cxxobj = td_bridge_newobj_inputMessageLocation();
             new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_location)).Set(specobj.Location);
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_live_period)).Set(specobj.LivePeriod);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_heading)).Set(specobj.Heading);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_proximity_alert_radius)).Set(specobj.ProximityAlertRadius);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
@@ -9593,6 +9737,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var obj = new InputMessageLocation();
             obj.Location = new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_location)).Fetch();
             obj.LivePeriod = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_live_period)).Fetch();
+            obj.Heading = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_heading)).Fetch();
+            obj.ProximityAlertRadius = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.inputMessageLocation_proximity_alert_radius)).Fetch();
             return obj;
         }
     }
@@ -10105,6 +10251,25 @@ namespace TDLibCore.NativeClient.ObjectBridge
         public override TLObject FetchCxxObject(IntPtr cxxobj)
         {
             var obj = new SearchMessagesFilterFailedToSend();
+            return obj;
+        }
+    }
+
+    [TLTypeID(371805512)]
+    internal unsafe class SearchMessagesFilterPinnedCxxBridge : ObjectBridge<SearchMessagesFilterPinned>
+    {
+        public static BaseCxxBridge CreateInstance() => new SearchMessagesFilterPinnedCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_searchMessagesFilterPinned();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (SearchMessagesFilterPinned)obj;
+            var cxxobj = td_bridge_newobj_searchMessagesFilterPinned();
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new SearchMessagesFilterPinned();
             return obj;
         }
     }
@@ -11241,6 +11406,56 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
+    [TLTypeID(-740299570)]
+    internal unsafe class DiceStickersRegularCxxBridge : ObjectBridge<DiceStickersRegular>
+    {
+        public static BaseCxxBridge CreateInstance() => new DiceStickersRegularCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_diceStickersRegular();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (DiceStickersRegular)obj;
+            var cxxobj = td_bridge_newobj_diceStickersRegular();
+            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersRegular_sticker)).Set(specobj.Sticker);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new DiceStickersRegular();
+            obj.Sticker = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersRegular_sticker)).Fetch();
+            return obj;
+        }
+    }
+
+    [TLTypeID(-375223124)]
+    internal unsafe class DiceStickersSlotMachineCxxBridge : ObjectBridge<DiceStickersSlotMachine>
+    {
+        public static BaseCxxBridge CreateInstance() => new DiceStickersSlotMachineCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_diceStickersSlotMachine();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (DiceStickersSlotMachine)obj;
+            var cxxobj = td_bridge_newobj_diceStickersSlotMachine();
+            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_background)).Set(specobj.Background);
+            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_lever)).Set(specobj.Lever);
+            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_left_reel)).Set(specobj.LeftReel);
+            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_center_reel)).Set(specobj.CenterReel);
+            new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_right_reel)).Set(specobj.RightReel);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new DiceStickersSlotMachine();
+            obj.Background = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_background)).Fetch();
+            obj.Lever = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_lever)).Fetch();
+            obj.LeftReel = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_left_reel)).Fetch();
+            obj.CenterReel = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_center_reel)).Fetch();
+            obj.RightReel = new CxxTLObject<Sticker>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.diceStickersSlotMachine_right_reel)).Fetch();
+            return obj;
+        }
+    }
+
     [TLTypeID(-741685354)]
     internal unsafe class ImportedContactsCxxBridge : ObjectBridge<ImportedContacts>
     {
@@ -12287,7 +12502,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(2002594849)]
+    [TLTypeID(-376161513)]
     internal unsafe class ChatEventMessageUnpinnedCxxBridge : ObjectBridge<ChatEventMessageUnpinned>
     {
         public static BaseCxxBridge CreateInstance() => new ChatEventMessageUnpinnedCxxBridge();
@@ -12297,11 +12512,13 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var specobj = (ChatEventMessageUnpinned)obj;
             var cxxobj = td_bridge_newobj_chatEventMessageUnpinned();
+            new CxxTLObject<Message>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chatEventMessageUnpinned_message)).Set(specobj.Message);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
         {
             var obj = new ChatEventMessageUnpinned();
+            obj.Message = new CxxTLObject<Message>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.chatEventMessageUnpinned_message)).Fetch();
             return obj;
         }
     }
@@ -14193,7 +14410,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-874278109)]
+    [TLTypeID(-748426897)]
     internal unsafe class PushMessageContentMediaAlbumCxxBridge : ObjectBridge<PushMessageContentMediaAlbum>
     {
         public static BaseCxxBridge CreateInstance() => new PushMessageContentMediaAlbumCxxBridge();
@@ -14206,6 +14423,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_total_count)).Set(specobj.TotalCount);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_photos)).Set(specobj.HasPhotos);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_videos)).Set(specobj.HasVideos);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_audios)).Set(specobj.HasAudios);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_documents)).Set(specobj.HasDocuments);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
@@ -14214,6 +14433,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             obj.TotalCount = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_total_count)).Fetch();
             obj.HasPhotos = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_photos)).Fetch();
             obj.HasVideos = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_videos)).Fetch();
+            obj.HasAudios = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_audios)).Fetch();
+            obj.HasDocuments = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pushMessageContentMediaAlbum_has_documents)).Fetch();
             return obj;
         }
     }
@@ -14279,7 +14500,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-728846585)]
+    [TLTypeID(-1999850882)]
     internal unsafe class NotificationTypeNewPushMessageCxxBridge : ObjectBridge<NotificationTypeNewPushMessage>
     {
         public static BaseCxxBridge CreateInstance() => new NotificationTypeNewPushMessageCxxBridge();
@@ -14290,8 +14511,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var specobj = (NotificationTypeNewPushMessage)obj;
             var cxxobj = td_bridge_newobj_notificationTypeNewPushMessage();
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_message_id)).Set(specobj.MessageId);
-            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender_user_id)).Set(specobj.SenderUserId);
-            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender_chat_id)).Set(specobj.SenderChatId);
+            new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender)).Set(specobj.Sender);
             new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender_name)).Set(specobj.SenderName);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_is_outgoing)).Set(specobj.IsOutgoing);
             new CxxTLObject<PushMessageContent>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_content)).Set(specobj.Content);
@@ -14301,8 +14521,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var obj = new NotificationTypeNewPushMessage();
             obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_message_id)).Fetch();
-            obj.SenderUserId = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender_user_id)).Fetch();
-            obj.SenderChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender_chat_id)).Fetch();
+            obj.Sender = new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender)).Fetch();
             obj.SenderName = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_sender_name)).Fetch();
             obj.IsOutgoing = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_is_outgoing)).Fetch();
             obj.Content = new CxxTLObject<PushMessageContent>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.notificationTypeNewPushMessage_content)).Fetch();
@@ -17214,6 +17433,31 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
+    [TLTypeID(1102848829)]
+    internal unsafe class UpdateMessageIsPinnedCxxBridge : ObjectBridge<UpdateMessageIsPinned>
+    {
+        public static BaseCxxBridge CreateInstance() => new UpdateMessageIsPinnedCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_updateMessageIsPinned();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (UpdateMessageIsPinned)obj;
+            var cxxobj = td_bridge_newobj_updateMessageIsPinned();
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateMessageIsPinned_chat_id)).Set(specobj.ChatId);
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateMessageIsPinned_message_id)).Set(specobj.MessageId);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateMessageIsPinned_is_pinned)).Set(specobj.IsPinned);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new UpdateMessageIsPinned();
+            obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateMessageIsPinned_chat_id)).Fetch();
+            obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateMessageIsPinned_message_id)).Fetch();
+            obj.IsPinned = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateMessageIsPinned_is_pinned)).Fetch();
+            return obj;
+        }
+    }
+
     [TLTypeID(-1417659394)]
     internal unsafe class UpdateMessageInteractionInfoCxxBridge : ObjectBridge<UpdateMessageInteractionInfo>
     {
@@ -17676,29 +17920,6 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var obj = new UpdateChatActionBar();
             obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateChatActionBar_chat_id)).Fetch();
             obj.ActionBar = new CxxTLObject<ChatActionBar>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateChatActionBar_action_bar)).Fetch();
-            return obj;
-        }
-    }
-
-    [TLTypeID(802160507)]
-    internal unsafe class UpdateChatPinnedMessageCxxBridge : ObjectBridge<UpdateChatPinnedMessage>
-    {
-        public static BaseCxxBridge CreateInstance() => new UpdateChatPinnedMessageCxxBridge();
-        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_updateChatPinnedMessage();
-        public override IntPtr CreateCxxObject(TLObject obj)
-        {
-            var specobj = (UpdateChatPinnedMessage)obj;
-            var cxxobj = td_bridge_newobj_updateChatPinnedMessage();
-            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateChatPinnedMessage_chat_id)).Set(specobj.ChatId);
-            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateChatPinnedMessage_pinned_message_id)).Set(specobj.PinnedMessageId);
-            return cxxobj;
-        }
-        public override TLObject FetchCxxObject(IntPtr cxxobj)
-        {
-            var obj = new UpdateChatPinnedMessage();
-            obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateChatPinnedMessage_chat_id)).Fetch();
-            obj.PinnedMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.updateChatPinnedMessage_pinned_message_id)).Fetch();
             return obj;
         }
     }
@@ -20077,6 +20298,31 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
+    [TLTypeID(-1121939086)]
+    internal unsafe class GetCallbackQueryMessageCxxBridge : ObjectBridge<GetCallbackQueryMessage>
+    {
+        public static BaseCxxBridge CreateInstance() => new GetCallbackQueryMessageCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getCallbackQueryMessage();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (GetCallbackQueryMessage)obj;
+            var cxxobj = td_bridge_newobj_getCallbackQueryMessage();
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getCallbackQueryMessage_chat_id)).Set(specobj.ChatId);
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getCallbackQueryMessage_message_id)).Set(specobj.MessageId);
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getCallbackQueryMessage_callback_query_id)).Set(specobj.CallbackQueryId);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new GetCallbackQueryMessage();
+            obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getCallbackQueryMessage_chat_id)).Fetch();
+            obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getCallbackQueryMessage_message_id)).Fetch();
+            obj.CallbackQueryId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getCallbackQueryMessage_callback_query_id)).Fetch();
+            return obj;
+        }
+    }
+
     [TLTypeID(425299338)]
     internal unsafe class GetMessagesCxxBridge : ObjectBridge<GetMessages>
     {
@@ -20621,7 +20867,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(1445943052)]
+    [TLTypeID(-1700459472)]
     internal unsafe class SearchChatMessagesCxxBridge : ObjectBridge<SearchChatMessages>
     {
         public static BaseCxxBridge CreateInstance() => new SearchChatMessagesCxxBridge();
@@ -20633,7 +20879,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var cxxobj = td_bridge_newobj_searchChatMessages();
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_chat_id)).Set(specobj.ChatId);
             new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_query)).Set(specobj.Query);
-            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_sender_user_id)).Set(specobj.SenderUserId);
+            new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_sender)).Set(specobj.Sender);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_from_message_id)).Set(specobj.FromMessageId);
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_offset)).Set(specobj.Offset);
             new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_limit)).Set(specobj.Limit);
@@ -20646,7 +20892,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var obj = new SearchChatMessages();
             obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_chat_id)).Fetch();
             obj.Query = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_query)).Fetch();
-            obj.SenderUserId = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_sender_user_id)).Fetch();
+            obj.Sender = new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_sender)).Fetch();
             obj.FromMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_from_message_id)).Fetch();
             obj.Offset = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_offset)).Fetch();
             obj.Limit = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.searchChatMessages_limit)).Fetch();
@@ -21220,7 +21466,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-348943149)]
+    [TLTypeID(856399322)]
     internal unsafe class AddLocalMessageCxxBridge : ObjectBridge<AddLocalMessage>
     {
         public static BaseCxxBridge CreateInstance() => new AddLocalMessageCxxBridge();
@@ -21231,7 +21477,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var specobj = (AddLocalMessage)obj;
             var cxxobj = td_bridge_newobj_addLocalMessage();
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_chat_id)).Set(specobj.ChatId);
-            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_sender_user_id)).Set(specobj.SenderUserId);
+            new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_sender)).Set(specobj.Sender);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_reply_to_message_id)).Set(specobj.ReplyToMessageId);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_disable_notification)).Set(specobj.DisableNotification);
             new CxxTLObject<InputMessageContent>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_input_message_content)).Set(specobj.InputMessageContent);
@@ -21241,7 +21487,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         {
             var obj = new AddLocalMessage();
             obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_chat_id)).Fetch();
-            obj.SenderUserId = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_sender_user_id)).Fetch();
+            obj.Sender = new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_sender)).Fetch();
             obj.ReplyToMessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_reply_to_message_id)).Fetch();
             obj.DisableNotification = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_disable_notification)).Fetch();
             obj.InputMessageContent = new CxxTLObject<InputMessageContent>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.addLocalMessage_input_message_content)).Fetch();
@@ -21324,7 +21570,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-1146772745)]
+    [TLTypeID(-14047982)]
     internal unsafe class EditMessageLiveLocationCxxBridge : ObjectBridge<EditMessageLiveLocation>
     {
         public static BaseCxxBridge CreateInstance() => new EditMessageLiveLocationCxxBridge();
@@ -21338,6 +21584,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_message_id)).Set(specobj.MessageId);
             new CxxTLObject<ReplyMarkup>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_reply_markup)).Set(specobj.ReplyMarkup);
             new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_location)).Set(specobj.Location);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_heading)).Set(specobj.Heading);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_proximity_alert_radius)).Set(specobj.ProximityAlertRadius);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
@@ -21347,6 +21595,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_message_id)).Fetch();
             obj.ReplyMarkup = new CxxTLObject<ReplyMarkup>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_reply_markup)).Fetch();
             obj.Location = new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_location)).Fetch();
+            obj.Heading = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_heading)).Fetch();
+            obj.ProximityAlertRadius = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editMessageLiveLocation_proximity_alert_radius)).Fetch();
             return obj;
         }
     }
@@ -21455,7 +21705,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(655046316)]
+    [TLTypeID(-156902912)]
     internal unsafe class EditInlineMessageLiveLocationCxxBridge : ObjectBridge<EditInlineMessageLiveLocation>
     {
         public static BaseCxxBridge CreateInstance() => new EditInlineMessageLiveLocationCxxBridge();
@@ -21468,6 +21718,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_inline_message_id)).Set(specobj.InlineMessageId);
             new CxxTLObject<ReplyMarkup>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_reply_markup)).Set(specobj.ReplyMarkup);
             new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_location)).Set(specobj.Location);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_heading)).Set(specobj.Heading);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_proximity_alert_radius)).Set(specobj.ProximityAlertRadius);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
@@ -21476,6 +21728,8 @@ namespace TDLibCore.NativeClient.ObjectBridge
             obj.InlineMessageId = new CxxString(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_inline_message_id)).Fetch();
             obj.ReplyMarkup = new CxxTLObject<ReplyMarkup>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_reply_markup)).Fetch();
             obj.Location = new CxxTLObject<Location>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_location)).Fetch();
+            obj.Heading = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_heading)).Fetch();
+            obj.ProximityAlertRadius = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.editInlineMessageLiveLocation_proximity_alert_radius)).Fetch();
             return obj;
         }
     }
@@ -22894,29 +23148,6 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(202580115)]
-    internal unsafe class ToggleChatIsBlockedCxxBridge : ObjectBridge<ToggleChatIsBlocked>
-    {
-        public static BaseCxxBridge CreateInstance() => new ToggleChatIsBlockedCxxBridge();
-        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_toggleChatIsBlocked();
-        public override IntPtr CreateCxxObject(TLObject obj)
-        {
-            var specobj = (ToggleChatIsBlocked)obj;
-            var cxxobj = td_bridge_newobj_toggleChatIsBlocked();
-            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleChatIsBlocked_chat_id)).Set(specobj.ChatId);
-            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleChatIsBlocked_is_blocked)).Set(specobj.IsBlocked);
-            return cxxobj;
-        }
-        public override TLObject FetchCxxObject(IntPtr cxxobj)
-        {
-            var obj = new ToggleChatIsBlocked();
-            obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleChatIsBlocked_chat_id)).Fetch();
-            obj.IsBlocked = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleChatIsBlocked_is_blocked)).Fetch();
-            return obj;
-        }
-    }
-
     [TLTypeID(314794002)]
     internal unsafe class ToggleChatDefaultDisableNotificationCxxBridge : ObjectBridge<ToggleChatDefaultDisableNotification>
     {
@@ -23055,7 +23286,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-554712351)]
+    [TLTypeID(2034719663)]
     internal unsafe class PinChatMessageCxxBridge : ObjectBridge<PinChatMessage>
     {
         public static BaseCxxBridge CreateInstance() => new PinChatMessageCxxBridge();
@@ -23068,6 +23299,7 @@ namespace TDLibCore.NativeClient.ObjectBridge
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_chat_id)).Set(specobj.ChatId);
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_message_id)).Set(specobj.MessageId);
             new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_disable_notification)).Set(specobj.DisableNotification);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_only_for_self)).Set(specobj.OnlyForSelf);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
@@ -23076,11 +23308,12 @@ namespace TDLibCore.NativeClient.ObjectBridge
             obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_chat_id)).Fetch();
             obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_message_id)).Fetch();
             obj.DisableNotification = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_disable_notification)).Fetch();
+            obj.OnlyForSelf = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.pinChatMessage_only_for_self)).Fetch();
             return obj;
         }
     }
 
-    [TLTypeID(277557690)]
+    [TLTypeID(2065448670)]
     internal unsafe class UnpinChatMessageCxxBridge : ObjectBridge<UnpinChatMessage>
     {
         public static BaseCxxBridge CreateInstance() => new UnpinChatMessageCxxBridge();
@@ -23091,12 +23324,35 @@ namespace TDLibCore.NativeClient.ObjectBridge
             var specobj = (UnpinChatMessage)obj;
             var cxxobj = td_bridge_newobj_unpinChatMessage();
             new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.unpinChatMessage_chat_id)).Set(specobj.ChatId);
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.unpinChatMessage_message_id)).Set(specobj.MessageId);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
         {
             var obj = new UnpinChatMessage();
             obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.unpinChatMessage_chat_id)).Fetch();
+            obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.unpinChatMessage_message_id)).Fetch();
+            return obj;
+        }
+    }
+
+    [TLTypeID(-1437805385)]
+    internal unsafe class UnpinAllChatMessagesCxxBridge : ObjectBridge<UnpinAllChatMessages>
+    {
+        public static BaseCxxBridge CreateInstance() => new UnpinAllChatMessagesCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_unpinAllChatMessages();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (UnpinAllChatMessages)obj;
+            var cxxobj = td_bridge_newobj_unpinAllChatMessages();
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.unpinAllChatMessages_chat_id)).Set(specobj.ChatId);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new UnpinAllChatMessages();
+            obj.ChatId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.unpinAllChatMessages_chat_id)).Fetch();
             return obj;
         }
     }
@@ -23939,52 +24195,75 @@ namespace TDLibCore.NativeClient.ObjectBridge
         }
     }
 
-    [TLTypeID(-869244252)]
-    internal unsafe class BlockChatFromRepliesCxxBridge : ObjectBridge<BlockChatFromReplies>
+    [TLTypeID(-760132705)]
+    internal unsafe class ToggleMessageSenderIsBlockedCxxBridge : ObjectBridge<ToggleMessageSenderIsBlocked>
     {
-        public static BaseCxxBridge CreateInstance() => new BlockChatFromRepliesCxxBridge();
+        public static BaseCxxBridge CreateInstance() => new ToggleMessageSenderIsBlockedCxxBridge();
         [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_blockChatFromReplies();
+        private static extern IntPtr td_bridge_newobj_toggleMessageSenderIsBlocked();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
-            var specobj = (BlockChatFromReplies)obj;
-            var cxxobj = td_bridge_newobj_blockChatFromReplies();
-            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_message_id)).Set(specobj.MessageId);
-            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_delete_message)).Set(specobj.DeleteMessage);
-            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_delete_all_messages)).Set(specobj.DeleteAllMessages);
-            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_report_spam)).Set(specobj.ReportSpam);
+            var specobj = (ToggleMessageSenderIsBlocked)obj;
+            var cxxobj = td_bridge_newobj_toggleMessageSenderIsBlocked();
+            new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleMessageSenderIsBlocked_sender)).Set(specobj.Sender);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleMessageSenderIsBlocked_is_blocked)).Set(specobj.IsBlocked);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
         {
-            var obj = new BlockChatFromReplies();
-            obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_message_id)).Fetch();
-            obj.DeleteMessage = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_delete_message)).Fetch();
-            obj.DeleteAllMessages = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_delete_all_messages)).Fetch();
-            obj.ReportSpam = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockChatFromReplies_report_spam)).Fetch();
+            var obj = new ToggleMessageSenderIsBlocked();
+            obj.Sender = new CxxTLObject<MessageSender>(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleMessageSenderIsBlocked_sender)).Fetch();
+            obj.IsBlocked = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.toggleMessageSenderIsBlocked_is_blocked)).Fetch();
             return obj;
         }
     }
 
-    [TLTypeID(-733106443)]
-    internal unsafe class GetBlockedChatsCxxBridge : ObjectBridge<GetBlockedChats>
+    [TLTypeID(-1214384757)]
+    internal unsafe class BlockMessageSenderFromRepliesCxxBridge : ObjectBridge<BlockMessageSenderFromReplies>
     {
-        public static BaseCxxBridge CreateInstance() => new GetBlockedChatsCxxBridge();
+        public static BaseCxxBridge CreateInstance() => new BlockMessageSenderFromRepliesCxxBridge();
         [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr td_bridge_newobj_getBlockedChats();
+        private static extern IntPtr td_bridge_newobj_blockMessageSenderFromReplies();
         public override IntPtr CreateCxxObject(TLObject obj)
         {
-            var specobj = (GetBlockedChats)obj;
-            var cxxobj = td_bridge_newobj_getBlockedChats();
-            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedChats_offset)).Set(specobj.Offset);
-            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedChats_limit)).Set(specobj.Limit);
+            var specobj = (BlockMessageSenderFromReplies)obj;
+            var cxxobj = td_bridge_newobj_blockMessageSenderFromReplies();
+            new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_message_id)).Set(specobj.MessageId);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_delete_message)).Set(specobj.DeleteMessage);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_delete_all_messages)).Set(specobj.DeleteAllMessages);
+            new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_report_spam)).Set(specobj.ReportSpam);
             return cxxobj;
         }
         public override TLObject FetchCxxObject(IntPtr cxxobj)
         {
-            var obj = new GetBlockedChats();
-            obj.Offset = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedChats_offset)).Fetch();
-            obj.Limit = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedChats_limit)).Fetch();
+            var obj = new BlockMessageSenderFromReplies();
+            obj.MessageId = new CxxInt64(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_message_id)).Fetch();
+            obj.DeleteMessage = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_delete_message)).Fetch();
+            obj.DeleteAllMessages = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_delete_all_messages)).Fetch();
+            obj.ReportSpam = new CxxBool(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.blockMessageSenderFromReplies_report_spam)).Fetch();
+            return obj;
+        }
+    }
+
+    [TLTypeID(1947079776)]
+    internal unsafe class GetBlockedMessageSendersCxxBridge : ObjectBridge<GetBlockedMessageSenders>
+    {
+        public static BaseCxxBridge CreateInstance() => new GetBlockedMessageSendersCxxBridge();
+        [DllImport(Native.LibraryName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern IntPtr td_bridge_newobj_getBlockedMessageSenders();
+        public override IntPtr CreateCxxObject(TLObject obj)
+        {
+            var specobj = (GetBlockedMessageSenders)obj;
+            var cxxobj = td_bridge_newobj_getBlockedMessageSenders();
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedMessageSenders_offset)).Set(specobj.Offset);
+            new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedMessageSenders_limit)).Set(specobj.Limit);
+            return cxxobj;
+        }
+        public override TLObject FetchCxxObject(IntPtr cxxobj)
+        {
+            var obj = new GetBlockedMessageSenders();
+            obj.Offset = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedMessageSenders_offset)).Fetch();
+            obj.Limit = new CxxInt32(_MemberOffsets.GetMemberAddress(cxxobj, _MemberOffsetIndex.getBlockedMessageSenders_limit)).Fetch();
             return obj;
         }
     }

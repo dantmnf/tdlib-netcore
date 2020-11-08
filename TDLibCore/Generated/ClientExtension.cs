@@ -503,7 +503,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Returns information about a pinned chat message
+        /// Returns information about a newest pinned chat message
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
         public static async Task<Message> GetChatPinnedMessage(this Client client, long chatId = 0)
@@ -511,6 +511,23 @@ namespace TDLibCore.ClientExtensions
             var obj = new GetChatPinnedMessage
             {
                 ChatId = chatId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns information about a message with the callback button that originated a callback query; for bots only
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat the message belongs to</param>
+        /// <param name="messageId">Message identifier</param>
+        /// <param name="callbackQueryId">Identifier of the callback query</param>
+        public static async Task<Message> GetCallbackQueryMessage(this Client client, long chatId = 0, long messageId = 0, long callbackQueryId = 0)
+        {
+            var obj = new GetCallbackQueryMessage
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+                CallbackQueryId = callbackQueryId,
             };
             return await client.InvokeAsync(obj);
         }
@@ -768,7 +785,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Returns a list of basic group and supergroup chats, which can be used as a discussion group for a channel. Basic group chats need to be first upgraded to supergroups before they can be set as a discussion group
+        /// Returns a list of basic group and supergroup chats, which can be used as a discussion group for a channel. Returned basic group chats must be first upgraded to supergroups before they can be set as a discussion group. To set a returned supergroup as a discussion group, access to its old messages must be enabled using toggleSupergroupIsAllHistoryAvailable first
         /// </summary>
         public static async Task<Chats> GetSuitableDiscussionChats(this Client client)
         {
@@ -866,19 +883,19 @@ namespace TDLibCore.ClientExtensions
         /// </summary>
         /// <param name="chatId">Identifier of the chat in which to search messages</param>
         /// <param name="query">Query to search for</param>
-        /// <param name="senderUserId">If not 0, only messages sent by the specified user will be returned. Not supported in secret chats</param>
+        /// <param name="sender">If not null, only messages sent by the specified sender will be returned. Not supported in secret chats</param>
         /// <param name="fromMessageId">Identifier of the message starting from which history must be fetched; use 0 to get results from the last message</param>
         /// <param name="offset">Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages</param>
         /// <param name="limit">The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
         /// <param name="filter">Filter for message content in the search results</param>
         /// <param name="messageThreadId">If not 0, only messages in the specified thread will be returned; supergroups only</param>
-        public static async Task<Messages> SearchChatMessages(this Client client, long chatId = 0, string query = default, int senderUserId = 0, long fromMessageId = 0, int offset = 0, int limit = 0, SearchMessagesFilter filter = default, long messageThreadId = 0)
+        public static async Task<Messages> SearchChatMessages(this Client client, long chatId = 0, string query = default, MessageSender sender = default, long fromMessageId = 0, int offset = 0, int limit = 0, SearchMessagesFilter filter = default, long messageThreadId = 0)
         {
             var obj = new SearchChatMessages
             {
                 ChatId = chatId,
                 Query = query,
-                SenderUserId = senderUserId,
+                Sender = sender,
                 FromMessageId = fromMessageId,
                 Offset = offset,
                 Limit = limit,
@@ -897,7 +914,7 @@ namespace TDLibCore.ClientExtensions
         /// <param name="offsetChatId">The chat identifier of the last found message, or 0 for the first request</param>
         /// <param name="offsetMessageId">The message identifier of the last found message, or 0 for the first request</param>
         /// <param name="limit">The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached</param>
-        /// <param name="filter">Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention and searchMessagesFilterFailedToSend are unsupported in this function</param>
+        /// <param name="filter">Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function</param>
         /// <param name="minDate">If not 0, the minimum date of the messages to return</param>
         /// <param name="maxDate">If not 0, the maximum date of the messages to return</param>
         public static async Task<Messages> SearchMessages(this Client client, ChatList chatList = default, string query = default, int offsetDate = 0, long offsetChatId = 0, long offsetMessageId = 0, int limit = 0, SearchMessagesFilter filter = default, int minDate = 0, int maxDate = 0)
@@ -1025,7 +1042,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Returns forwarded copies of a channel message to another public channels. For optimal performance the number of returned messages is chosen by the library. The method is under development and may or may not work
+        /// Returns forwarded copies of a channel message to different public channels. For optimal performance the number of returned messages is chosen by the library
         /// </summary>
         /// <param name="chatId">Chat identifier of the message</param>
         /// <param name="messageId">Message identifier</param>
@@ -1278,16 +1295,16 @@ namespace TDLibCore.ClientExtensions
         /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
         /// </summary>
         /// <param name="chatId">Target chat</param>
-        /// <param name="senderUserId">Identifier of the user who will be shown as the sender of the message; may be 0 for channel posts</param>
+        /// <param name="sender">The sender sender of the message</param>
         /// <param name="replyToMessageId">Identifier of the message to reply to or 0</param>
         /// <param name="disableNotification">Pass true to disable notification for the message</param>
         /// <param name="inputMessageContent">The content of the message to be added</param>
-        public static async Task<Message> AddLocalMessage(this Client client, long chatId = 0, int senderUserId = 0, long replyToMessageId = 0, bool disableNotification = false, InputMessageContent inputMessageContent = default)
+        public static async Task<Message> AddLocalMessage(this Client client, long chatId = 0, MessageSender sender = default, long replyToMessageId = 0, bool disableNotification = false, InputMessageContent inputMessageContent = default)
         {
             var obj = new AddLocalMessage
             {
                 ChatId = chatId,
-                SenderUserId = senderUserId,
+                Sender = sender,
                 ReplyToMessageId = replyToMessageId,
                 DisableNotification = disableNotification,
                 InputMessageContent = inputMessageContent,
@@ -1353,7 +1370,9 @@ namespace TDLibCore.ClientExtensions
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
         /// <param name="location">New location content of the message; may be null. Pass null to stop sharing the live location</param>
-        public static async Task<Message> EditMessageLiveLocation(this Client client, long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, Location location = default)
+        /// <param name="heading">The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown</param>
+        /// <param name="proximityAlertRadius">The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled</param>
+        public static async Task<Message> EditMessageLiveLocation(this Client client, long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, Location location = default, int heading = 0, int proximityAlertRadius = 0)
         {
             var obj = new EditMessageLiveLocation
             {
@@ -1361,6 +1380,8 @@ namespace TDLibCore.ClientExtensions
                 MessageId = messageId,
                 ReplyMarkup = replyMarkup,
                 Location = location,
+                Heading = heading,
+                ProximityAlertRadius = proximityAlertRadius,
             };
             return await client.InvokeAsync(obj);
         }
@@ -1443,13 +1464,17 @@ namespace TDLibCore.ClientExtensions
         /// <param name="inlineMessageId">Inline message identifier</param>
         /// <param name="replyMarkup">The new message reply markup</param>
         /// <param name="location">New location content of the message; may be null. Pass null to stop sharing the live location</param>
-        public static async Task EditInlineMessageLiveLocation(this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default)
+        /// <param name="heading">The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown</param>
+        /// <param name="proximityAlertRadius">The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled</param>
+        public static async Task EditInlineMessageLiveLocation(this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int heading = 0, int proximityAlertRadius = 0)
         {
             var obj = new EditInlineMessageLiveLocation
             {
                 InlineMessageId = inlineMessageId,
                 ReplyMarkup = replyMarkup,
                 Location = location,
+                Heading = heading,
+                ProximityAlertRadius = proximityAlertRadius,
             };
             _ = await client.InvokeAsync<Ok>(obj);
         }
@@ -2549,21 +2574,6 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the block state of a chat. Currently, only private chats and supergroups can be blocked
-        /// </summary>
-        /// <param name="chatId">Chat identifier</param>
-        /// <param name="isBlocked">New value of is_blocked</param>
-        public static async Task ToggleChatIsBlocked(this Client client, long chatId = 0, bool isBlocked = false)
-        {
-            var obj = new ToggleChatIsBlocked
-            {
-                ChatId = chatId,
-                IsBlocked = isBlocked,
-            };
-            _ = await client.InvokeAsync<Ok>(obj);
-        }
-
-        /// <summary>
         /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
@@ -2612,7 +2622,7 @@ namespace TDLibCore.ClientExtensions
         /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
         /// </summary>
         /// <param name="chatId">Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages rights in the supergroup)</param>
-        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that</param>
+        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable must be used first to change that</param>
         public static async Task SetChatDiscussionGroup(this Client client, long chatId = 0, long discussionChatId = 0)
         {
             var obj = new SetChatDiscussionGroup
@@ -2654,29 +2664,46 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Pins a message in a chat; requires can_pin_messages rights
+        /// Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
         /// <param name="messageId">Identifier of the new pinned message</param>
-        /// <param name="disableNotification">True, if there should be no notification about the pinned message</param>
-        public static async Task PinChatMessage(this Client client, long chatId = 0, long messageId = 0, bool disableNotification = false)
+        /// <param name="disableNotification">True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats</param>
+        /// <param name="onlyForSelf">True, if the message needs to be pinned only for self; private chats only</param>
+        public static async Task PinChatMessage(this Client client, long chatId = 0, long messageId = 0, bool disableNotification = false, bool onlyForSelf = false)
         {
             var obj = new PinChatMessage
             {
                 ChatId = chatId,
                 MessageId = messageId,
                 DisableNotification = disableNotification,
+                OnlyForSelf = onlyForSelf,
             };
             _ = await client.InvokeAsync<Ok>(obj);
         }
 
         /// <summary>
-        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel
+        /// Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
-        public static async Task UnpinChatMessage(this Client client, long chatId = 0)
+        /// <param name="messageId">Identifier of the removed pinned message</param>
+        public static async Task UnpinChatMessage(this Client client, long chatId = 0, long messageId = 0)
         {
             var obj = new UnpinChatMessage
+            {
+                ChatId = chatId,
+                MessageId = messageId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Removes all pinned messages from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
+        /// </summary>
+        /// <param name="chatId">Identifier of the chat</param>
+        public static async Task UnpinAllChatMessages(this Client client, long chatId = 0)
+        {
+            var obj = new UnpinAllChatMessages
             {
                 ChatId = chatId,
             };
@@ -3230,15 +3257,30 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
+        /// Changes the block state of a message sender. Currently, only users and supergroup chats can be blocked
+        /// </summary>
+        /// <param name="sender">Message Sender</param>
+        /// <param name="isBlocked">New value of is_blocked</param>
+        public static async Task ToggleMessageSenderIsBlocked(this Client client, MessageSender sender = default, bool isBlocked = false)
+        {
+            var obj = new ToggleMessageSenderIsBlocked
+            {
+                Sender = sender,
+                IsBlocked = isBlocked,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
         /// Blocks an original sender of a message in the Replies chat
         /// </summary>
         /// <param name="messageId">The identifier of an incoming message in the Replies chat</param>
         /// <param name="deleteMessage">Pass true if the message must be deleted</param>
         /// <param name="deleteAllMessages">Pass true if all messages from the same sender must be deleted</param>
         /// <param name="reportSpam">Pass true if the sender must be reported to the Telegram moderators</param>
-        public static async Task BlockChatFromReplies(this Client client, long messageId = 0, bool deleteMessage = false, bool deleteAllMessages = false, bool reportSpam = false)
+        public static async Task BlockMessageSenderFromReplies(this Client client, long messageId = 0, bool deleteMessage = false, bool deleteAllMessages = false, bool reportSpam = false)
         {
-            var obj = new BlockChatFromReplies
+            var obj = new BlockMessageSenderFromReplies
             {
                 MessageId = messageId,
                 DeleteMessage = deleteMessage,
@@ -3249,13 +3291,13 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Returns chats that were blocked by the current user
+        /// Returns users and chats that were blocked by the current user
         /// </summary>
-        /// <param name="offset">Number of chats to skip in the result; must be non-negative</param>
-        /// <param name="limit">The maximum number of chats to return; up to 100</param>
-        public static async Task<Chats> GetBlockedChats(this Client client, int offset = 0, int limit = 0)
+        /// <param name="offset">Number of users and chats to skip in the result; must be non-negative</param>
+        /// <param name="limit">The maximum number of users and chats to return; up to 100</param>
+        public static async Task<MessageSenders> GetBlockedMessageSenders(this Client client, int offset = 0, int limit = 0)
         {
-            var obj = new GetBlockedChats
+            var obj = new GetBlockedMessageSenders
             {
                 Offset = offset,
                 Limit = limit,
@@ -4680,7 +4722,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true. The method is under development and may or may not work
+        /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="messageId">Message identifier</param>

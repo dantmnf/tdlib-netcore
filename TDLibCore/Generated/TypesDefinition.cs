@@ -64,6 +64,11 @@ namespace TDLibCore.Api
     public abstract class SecretChatState : TLObject { }
 
     /// <summary>
+    /// Contains information about the sender of a message
+    /// </summary>
+    public abstract class MessageSender : TLObject { }
+
+    /// <summary>
     /// Contains information about the origin of a forwarded message
     /// </summary>
     public abstract class MessageForwardOrigin : TLObject { }
@@ -227,6 +232,11 @@ namespace TDLibCore.Api
     /// Describes the exact type of a problem with a call
     /// </summary>
     public abstract class CallProblem : TLObject { }
+
+    /// <summary>
+    /// Contains animated stickers which should be used for dice animation rendering
+    /// </summary>
+    public abstract class DiceStickers : TLObject { }
 
     /// <summary>
     /// Represents a single result of an inline query; for bots only
@@ -1843,7 +1853,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// location latitude:double longitude:double = Location;
+    /// location latitude:double longitude:double horizontal_accuracy:double = Location;
     /// </remarks>
     public partial class Location : TLObject
     {
@@ -1856,6 +1866,11 @@ namespace TDLibCore.Api
         /// Longitude of the location, in degrees; as defined by the sender
         /// </summary>
         public double Longitude { get; set; }
+
+        /// <summary>
+        /// The estimated horizontal accuracy of the location, in meters; as defined by the sender. 0 if unknown
+        /// </summary>
+        public double HorizontalAccuracy { get; set; }
 
     }
 
@@ -2428,7 +2443,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// userFullInfo photo:chatPhoto can_be_called:Bool supports_video_calls:Bool has_private_calls:Bool need_phone_number_privacy_exception:Bool bio:string share_text:string group_in_common_count:int32 bot_info:botInfo = UserFullInfo;
+    /// userFullInfo photo:chatPhoto is_blocked:Bool can_be_called:Bool supports_video_calls:Bool has_private_calls:Bool need_phone_number_privacy_exception:Bool bio:string share_text:string group_in_common_count:int32 bot_info:botInfo = UserFullInfo;
     /// </remarks>
     public partial class UserFullInfo : TLObject
     {
@@ -2436,6 +2451,11 @@ namespace TDLibCore.Api
         /// User profile photo; may be null
         /// </summary>
         public ChatPhoto Photo { get; set; }
+
+        /// <summary>
+        /// True, if the user is blocked by the current user
+        /// </summary>
+        public bool IsBlocked { get; set; }
 
         /// <summary>
         /// True, if the user can be called
@@ -2840,6 +2860,22 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Returns users which can be mentioned in the chat
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// chatMembersFilterMention message_thread_id:int53 = ChatMembersFilter;
+    /// </remarks>
+    public partial class ChatMembersFilterMention : ChatMembersFilter
+    {
+        /// <summary>
+        /// If non-zero, the identifier of the current message thread
+        /// </summary>
+        public long MessageThreadId { get; set; }
+
+    }
+
+    /// <summary>
     /// Returns users under certain restrictions in the chat; can be used only by administrators in a supergroup
     /// </summary>
     /// <remarks>
@@ -2955,6 +2991,27 @@ namespace TDLibCore.Api
         /// Query to search for
         /// </summary>
         public string Query { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns users which can be mentioned in the supergroup
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// supergroupMembersFilterMention query:string message_thread_id:int53 = SupergroupMembersFilter;
+    /// </remarks>
+    public partial class SupergroupMembersFilterMention : SupergroupMembersFilter
+    {
+        /// <summary>
+        /// Query to search for
+        /// </summary>
+        public string Query { get; set; }
+
+        /// <summary>
+        /// If non-zero, the identifier of the current message thread
+        /// </summary>
+        public long MessageThreadId { get; set; }
 
     }
 
@@ -3308,7 +3365,60 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The message was originally written by a known user
+    /// The message was sent by a known user
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageSenderUser user_id:int32 = MessageSender;
+    /// </remarks>
+    public partial class MessageSenderUser : MessageSender
+    {
+        /// <summary>
+        /// Identifier of the user that sent the message
+        /// </summary>
+        public int UserId { get; set; }
+
+    }
+
+    /// <summary>
+    /// The message was sent on behalf of a chat
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageSenderChat chat_id:int53 = MessageSender;
+    /// </remarks>
+    public partial class MessageSenderChat : MessageSender
+    {
+        /// <summary>
+        /// Identifier of the chat that sent the message
+        /// </summary>
+        public long ChatId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Represents a list of message senders
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageSenders total_count:int32 senders:vector&lt;MessageSender&gt; = MessageSenders;
+    /// </remarks>
+    public partial class MessageSenders : TLObject
+    {
+        /// <summary>
+        /// Approximate total count of messages senders found
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// List of message senders
+        /// </summary>
+        public MessageSender[] Senders { get; set; }
+
+    }
+
+    /// <summary>
+    /// The message was originally sent by a known user
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -3324,11 +3434,11 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The message was originally written by an anonymous chat administrator on behalf of the chat
+    /// The message was originally sent by an anonymous chat administrator on behalf of the chat
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageForwardOriginChat sender_chat_id:int53 = MessageForwardOrigin;
+    /// messageForwardOriginChat sender_chat_id:int53 author_signature:string = MessageForwardOrigin;
     /// </remarks>
     public partial class MessageForwardOriginChat : MessageForwardOrigin
     {
@@ -3337,10 +3447,15 @@ namespace TDLibCore.Api
         /// </summary>
         public long SenderChatId { get; set; }
 
+        /// <summary>
+        /// Original message author signature
+        /// </summary>
+        public string AuthorSignature { get; set; }
+
     }
 
     /// <summary>
-    /// The message was originally written by a user, which is hidden by their privacy settings
+    /// The message was originally sent by a user, which is hidden by their privacy settings
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -3422,7 +3537,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageReplyInfo reply_count:int32 recent_replier_user_ids:vector&lt;int32&gt; last_read_inbox_message_id:int53 last_read_outbox_message_id:int53 last_message_id:int53 = MessageReplyInfo;
+    /// messageReplyInfo reply_count:int32 recent_repliers:vector&lt;MessageSender&gt; last_read_inbox_message_id:int53 last_read_outbox_message_id:int53 last_message_id:int53 = MessageReplyInfo;
     /// </remarks>
     public partial class MessageReplyInfo : TLObject
     {
@@ -3432,9 +3547,9 @@ namespace TDLibCore.Api
         public int ReplyCount { get; set; }
 
         /// <summary>
-        /// User identifiers of the recent repliers to the message; available in channels with a discussion supergroup
+        /// Recent repliers to the message; available in channels with a discussion supergroup
         /// </summary>
-        public int[] RecentReplierUserIds { get; set; }
+        public MessageSender[] RecentRepliers { get; set; }
 
         /// <summary>
         /// Identifier of the last read incoming reply to the message
@@ -3526,7 +3641,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// message id:int53 sender_user_id:int32 sender_chat_id:int53 chat_id:int53 sending_state:MessageSendingState scheduling_state:MessageSchedulingState is_outgoing:Bool can_be_edited:Bool can_be_forwarded:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool can_get_statistics:Bool can_get_message_thread:Bool is_channel_post:Bool contains_unread_mention:Bool date:int32 edit_date:int32 forward_info:messageForwardInfo interaction_info:messageInteractionInfo reply_in_chat_id:int53 reply_to_message_id:int53 message_thread_id:int53 ttl:int32 ttl_expires_in:double via_bot_user_id:int32 author_signature:string media_album_id:int64 restriction_reason:string content:MessageContent reply_markup:ReplyMarkup = Message;
+    /// message id:int53 sender:MessageSender chat_id:int53 sending_state:MessageSendingState scheduling_state:MessageSchedulingState is_outgoing:Bool is_pinned:Bool can_be_edited:Bool can_be_forwarded:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool can_get_statistics:Bool can_get_message_thread:Bool is_channel_post:Bool contains_unread_mention:Bool date:int32 edit_date:int32 forward_info:messageForwardInfo interaction_info:messageInteractionInfo reply_in_chat_id:int53 reply_to_message_id:int53 message_thread_id:int53 ttl:int32 ttl_expires_in:double via_bot_user_id:int32 author_signature:string media_album_id:int64 restriction_reason:string content:MessageContent reply_markup:ReplyMarkup = Message;
     /// </remarks>
     public partial class Message : TLObject
     {
@@ -3536,14 +3651,9 @@ namespace TDLibCore.Api
         public long Id { get; set; }
 
         /// <summary>
-        /// Identifier of the user who sent the message; 0 if unknown. Currently, it is unknown for channel posts, for channel posts automatically forwarded to discussion group and for anonymously sent supergroup messages
+        /// The sender of the message
         /// </summary>
-        public int SenderUserId { get; set; }
-
-        /// <summary>
-        /// Identifier of the chat on behalf of which the message was sent; 0 if none
-        /// </summary>
-        public long SenderChatId { get; set; }
+        public MessageSender Sender { get; set; }
 
         /// <summary>
         /// Chat identifier
@@ -3564,6 +3674,11 @@ namespace TDLibCore.Api
         /// True, if the message is outgoing
         /// </summary>
         public bool IsOutgoing { get; set; }
+
+        /// <summary>
+        /// True, if the message is pinned
+        /// </summary>
+        public bool IsPinned { get; set; }
 
         /// <summary>
         /// True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application
@@ -3656,7 +3771,7 @@ namespace TDLibCore.Api
         public int ViaBotUserId { get; set; }
 
         /// <summary>
-        /// For channel posts, optional author signature
+        /// For channel posts and anonymous administrator messages, optional author signature
         /// </summary>
         public string AuthorSignature { get; set; }
 
@@ -4220,7 +4335,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chat id:int53 type:ChatType title:string photo:chatPhotoInfo permissions:chatPermissions last_message:message positions:vector&lt;chatPosition&gt; is_marked_as_unread:Bool is_blocked:Bool has_scheduled_messages:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool can_be_reported:Bool default_disable_notification:Bool unread_count:int32 last_read_inbox_message_id:int53 last_read_outbox_message_id:int53 unread_mention_count:int32 notification_settings:chatNotificationSettings action_bar:ChatActionBar pinned_message_id:int53 reply_markup_message_id:int53 draft_message:draftMessage client_data:string = Chat;
+    /// chat id:int53 type:ChatType title:string photo:chatPhotoInfo permissions:chatPermissions last_message:message positions:vector&lt;chatPosition&gt; is_marked_as_unread:Bool is_blocked:Bool has_scheduled_messages:Bool can_be_deleted_only_for_self:Bool can_be_deleted_for_all_users:Bool can_be_reported:Bool default_disable_notification:Bool unread_count:int32 last_read_inbox_message_id:int53 last_read_outbox_message_id:int53 unread_mention_count:int32 notification_settings:chatNotificationSettings action_bar:ChatActionBar reply_markup_message_id:int53 draft_message:draftMessage client_data:string = Chat;
     /// </remarks>
     public partial class Chat : TLObject
     {
@@ -4325,11 +4440,6 @@ namespace TDLibCore.Api
         public ChatActionBar ActionBar { get; set; }
 
         /// <summary>
-        /// Identifier of the pinned message in the chat; 0 if none
-        /// </summary>
-        public long PinnedMessageId { get; set; }
-
-        /// <summary>
         /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
         /// </summary>
         public long ReplyMarkupMessageId { get; set; }
@@ -4382,7 +4492,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Distance to the chat location in meters
+        /// Distance to the chat location, in meters
         /// </summary>
         public int Distance { get; set; }
 
@@ -8350,7 +8460,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageLocation location:location live_period:int32 expires_in:int32 = MessageContent;
+    /// messageLocation location:location live_period:int32 expires_in:int32 heading:int32 proximity_alert_radius:int32 = MessageContent;
     /// </remarks>
     public partial class MessageLocation : MessageContent
     {
@@ -8360,7 +8470,7 @@ namespace TDLibCore.Api
         public Location Location { get; set; }
 
         /// <summary>
-        /// Time relative to the message sent date until which the location can be updated, in seconds
+        /// Time relative to the message send date, for which the location can be updated, in seconds
         /// </summary>
         public int LivePeriod { get; set; }
 
@@ -8368,6 +8478,16 @@ namespace TDLibCore.Api
         /// Left time for which the location can be updated, in seconds. updateMessageContent is not sent when this field changes
         /// </summary>
         public int ExpiresIn { get; set; }
+
+        /// <summary>
+        /// For live locations, a direction in which the location moves, in degrees; 1-360. If 0 the direction is unknown
+        /// </summary>
+        public int Heading { get; set; }
+
+        /// <summary>
+        /// For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). 0 if the notification is disabled. Available only for the message sender
+        /// </summary>
+        public int ProximityAlertRadius { get; set; }
 
     }
 
@@ -8408,19 +8528,19 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// messageDice initial_state_sticker:sticker final_state_sticker:sticker emoji:string value:int32 success_animation_frame_number:int32 = MessageContent;
+    /// messageDice initial_state:DiceStickers final_state:DiceStickers emoji:string value:int32 success_animation_frame_number:int32 = MessageContent;
     /// </remarks>
     public partial class MessageDice : MessageContent
     {
         /// <summary>
-        /// The animated sticker with the initial dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
+        /// The animated stickers with the initial dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
         /// </summary>
-        public Sticker InitialStateSticker { get; set; }
+        public DiceStickers InitialState { get; set; }
 
         /// <summary>
-        /// The animated sticker with the final dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
+        /// The animated stickers with the final dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
         /// </summary>
-        public Sticker FinalStateSticker { get; set; }
+        public DiceStickers FinalState { get; set; }
 
         /// <summary>
         /// Emoji on which the dice throw animation is based
@@ -8936,6 +9056,32 @@ namespace TDLibCore.Api
         /// Encrypted data credentials
         /// </summary>
         public EncryptedCredentials Credentials { get; set; }
+
+    }
+
+    /// <summary>
+    /// A user in the chat came within proximity alert range
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// messageProximityAlertTriggered traveler:MessageSender watcher:MessageSender distance:int32 = MessageContent;
+    /// </remarks>
+    public partial class MessageProximityAlertTriggered : MessageContent
+    {
+        /// <summary>
+        /// The user or chat, which triggered the proximity alert
+        /// </summary>
+        public MessageSender Traveler { get; set; }
+
+        /// <summary>
+        /// The user or chat, which subscribed for the proximity alert
+        /// </summary>
+        public MessageSender Watcher { get; set; }
+
+        /// <summary>
+        /// The distance between the users
+        /// </summary>
+        public int Distance { get; set; }
 
     }
 
@@ -9601,7 +9747,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// inputMessageLocation location:location live_period:int32 = InputMessageContent;
+    /// inputMessageLocation location:location live_period:int32 heading:int32 proximity_alert_radius:int32 = InputMessageContent;
     /// </remarks>
     public partial class InputMessageLocation : InputMessageContent
     {
@@ -9614,6 +9760,16 @@ namespace TDLibCore.Api
         /// Period for which the location can be updated, in seconds; should be between 60 and 86400 for a live location and 0 otherwise
         /// </summary>
         public int LivePeriod { get; set; }
+
+        /// <summary>
+        /// For live locations, a direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
+        /// </summary>
+        public int Heading { get; set; }
+
+        /// <summary>
+        /// For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled. Can't be enabled in channels and Saved Messages
+        /// </summary>
+        public int ProximityAlertRadius { get; set; }
 
     }
 
@@ -10018,6 +10174,17 @@ namespace TDLibCore.Api
     /// searchMessagesFilterFailedToSend = SearchMessagesFilter;
     /// </remarks>
     public partial class SearchMessagesFilterFailedToSend : SearchMessagesFilter
+    {
+    }
+
+    /// <summary>
+    /// Returns only pinned messages
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// searchMessagesFilterPinned = SearchMessagesFilter;
+    /// </remarks>
+    public partial class SearchMessagesFilterPinned : SearchMessagesFilter
     {
     }
 
@@ -10950,6 +11117,58 @@ namespace TDLibCore.Api
         /// List of animations
         /// </summary>
         public Animation[] Animations_ { get; set; }
+
+    }
+
+    /// <summary>
+    /// A regular animated sticker
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// diceStickersRegular sticker:sticker = DiceStickers;
+    /// </remarks>
+    public partial class DiceStickersRegular : DiceStickers
+    {
+        /// <summary>
+        /// The animated sticker with the dice animation
+        /// </summary>
+        public Sticker Sticker { get; set; }
+
+    }
+
+    /// <summary>
+    /// Animated stickers to be combined into a slot machine
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// diceStickersSlotMachine background:sticker lever:sticker left_reel:sticker center_reel:sticker right_reel:sticker = DiceStickers;
+    /// </remarks>
+    public partial class DiceStickersSlotMachine : DiceStickers
+    {
+        /// <summary>
+        /// The animated sticker with the slot machine background. The background animation must start playing after all reel animations finish
+        /// </summary>
+        public Sticker Background { get; set; }
+
+        /// <summary>
+        /// The animated sticker with the lever animation. The lever animation must play once in the initial dice state
+        /// </summary>
+        public Sticker Lever { get; set; }
+
+        /// <summary>
+        /// The animated sticker with the left reel
+        /// </summary>
+        public Sticker LeftReel { get; set; }
+
+        /// <summary>
+        /// The animated sticker with the center reel
+        /// </summary>
+        public Sticker CenterReel { get; set; }
+
+        /// <summary>
+        /// The animated sticker with the right reel
+        /// </summary>
+        public Sticker RightReel { get; set; }
 
     }
 
@@ -12186,10 +12405,15 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// chatEventMessageUnpinned = ChatEventAction;
+    /// chatEventMessageUnpinned message:message = ChatEventAction;
     /// </remarks>
     public partial class ChatEventMessageUnpinned : ChatEventAction
     {
+        /// <summary>
+        /// Unpinned message
+        /// </summary>
+        public Message Message { get; set; }
+
     }
 
     /// <summary>
@@ -13885,7 +14109,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// pushMessageContentMediaAlbum total_count:int32 has_photos:Bool has_videos:Bool = PushMessageContent;
+    /// pushMessageContentMediaAlbum total_count:int32 has_photos:Bool has_videos:Bool has_audios:Bool has_documents:Bool = PushMessageContent;
     /// </remarks>
     public partial class PushMessageContentMediaAlbum : PushMessageContent
     {
@@ -13903,6 +14127,16 @@ namespace TDLibCore.Api
         /// True, if the album has at least one video
         /// </summary>
         public bool HasVideos { get; set; }
+
+        /// <summary>
+        /// True, if the album has at least one audio file
+        /// </summary>
+        public bool HasAudios { get; set; }
+
+        /// <summary>
+        /// True, if the album has at least one document
+        /// </summary>
+        public bool HasDocuments { get; set; }
 
     }
 
@@ -13954,7 +14188,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// notificationTypeNewPushMessage message_id:int53 sender_user_id:int32 sender_chat_id:int53 sender_name:string is_outgoing:Bool content:PushMessageContent = NotificationType;
+    /// notificationTypeNewPushMessage message_id:int53 sender:MessageSender sender_name:string is_outgoing:Bool content:PushMessageContent = NotificationType;
     /// </remarks>
     public partial class NotificationTypeNewPushMessage : NotificationType
     {
@@ -13964,14 +14198,9 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Sender of the message; 0 if unknown. Corresponding user may be inaccessible
+        /// The sender of the message. Corresponding user or chat may be inaccessible
         /// </summary>
-        public int SenderUserId { get; set; }
-
-        /// <summary>
-        /// Sender chat of the message; 0 if none
-        /// </summary>
-        public long SenderChatId { get; set; }
+        public MessageSender Sender { get; set; }
 
         /// <summary>
         /// Name of the sender; can be different from the name of the sender user
@@ -16433,6 +16662,32 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// The message pinned state was changed
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// updateMessageIsPinned chat_id:int53 message_id:int53 is_pinned:Bool = Update;
+    /// </remarks>
+    public partial class UpdateMessageIsPinned : Update
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// The message identifier
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// True, if the message is pinned
+        /// </summary>
+        public bool IsPinned { get; set; }
+
+    }
+
+    /// <summary>
     /// The information about interactions with a message has changed
     /// </summary>
     /// <remarks>
@@ -16864,27 +17119,6 @@ namespace TDLibCore.Api
         /// The new value of the action bar; may be null
         /// </summary>
         public ChatActionBar ActionBar { get; set; }
-
-    }
-
-    /// <summary>
-    /// The chat pinned message was changed
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// updateChatPinnedMessage chat_id:int53 pinned_message_id:int53 = Update;
-    /// </remarks>
-    public partial class UpdateChatPinnedMessage : Update
-    {
-        /// <summary>
-        /// Chat identifier
-        /// </summary>
-        public long ChatId { get; set; }
-
-        /// <summary>
-        /// The new identifier of the pinned message; 0 if there is no pinned message in the chat
-        /// </summary>
-        public long PinnedMessageId { get; set; }
 
     }
 
@@ -18939,7 +19173,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns information about a pinned chat message
+    /// Returns information about a newest pinned chat message
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -18951,6 +19185,32 @@ namespace TDLibCore.Api
         /// Identifier of the chat the message belongs to
         /// </summary>
         public long ChatId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns information about a message with the callback button that originated a callback query; for bots only
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// getCallbackQueryMessage chat_id:int53 message_id:int53 callback_query_id:int64 = Message;
+    /// </remarks>
+    public partial class GetCallbackQueryMessage : Function<Message>
+    {
+        /// <summary>
+        /// Identifier of the chat the message belongs to
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Message identifier
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// Identifier of the callback query
+        /// </summary>
+        public long CallbackQueryId { get; set; }
 
     }
 
@@ -19293,7 +19553,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns a list of basic group and supergroup chats, which can be used as a discussion group for a channel. Basic group chats need to be first upgraded to supergroups before they can be set as a discussion group
+    /// Returns a list of basic group and supergroup chats, which can be used as a discussion group for a channel. Returned basic group chats must be first upgraded to supergroups before they can be set as a discussion group. To set a returned supergroup as a discussion group, access to its old messages must be enabled using toggleSupergroupIsAllHistoryAvailable first
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -19443,7 +19703,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// searchChatMessages chat_id:int53 query:string sender_user_id:int32 from_message_id:int53 offset:int32 limit:int32 filter:SearchMessagesFilter message_thread_id:int53 = Messages;
+    /// searchChatMessages chat_id:int53 query:string sender:MessageSender from_message_id:int53 offset:int32 limit:int32 filter:SearchMessagesFilter message_thread_id:int53 = Messages;
     /// </remarks>
     public partial class SearchChatMessages : Function<Messages>
     {
@@ -19458,9 +19718,9 @@ namespace TDLibCore.Api
         public string Query { get; set; }
 
         /// <summary>
-        /// If not 0, only messages sent by the specified user will be returned. Not supported in secret chats
+        /// If not null, only messages sent by the specified sender will be returned. Not supported in secret chats
         /// </summary>
-        public int SenderUserId { get; set; }
+        public MessageSender Sender { get; set; }
 
         /// <summary>
         /// Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
@@ -19529,7 +19789,7 @@ namespace TDLibCore.Api
         public int Limit { get; set; }
 
         /// <summary>
-        /// Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention and searchMessagesFilterFailedToSend are unsupported in this function
+        /// Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function
         /// </summary>
         public SearchMessagesFilter Filter { get; set; }
 
@@ -19703,7 +19963,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns forwarded copies of a channel message to another public channels. For optimal performance the number of returned messages is chosen by the library. The method is under development and may or may not work
+    /// Returns forwarded copies of a channel message to different public channels. For optimal performance the number of returned messages is chosen by the library
     /// </summary>
     /// <remarks>
     /// TL source:
@@ -20101,7 +20361,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// addLocalMessage chat_id:int53 sender_user_id:int32 reply_to_message_id:int53 disable_notification:Bool input_message_content:InputMessageContent = Message;
+    /// addLocalMessage chat_id:int53 sender:MessageSender reply_to_message_id:int53 disable_notification:Bool input_message_content:InputMessageContent = Message;
     /// </remarks>
     public partial class AddLocalMessage : Function<Message>
     {
@@ -20111,9 +20371,9 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the user who will be shown as the sender of the message; may be 0 for channel posts
+        /// The sender sender of the message
         /// </summary>
-        public int SenderUserId { get; set; }
+        public MessageSender Sender { get; set; }
 
         /// <summary>
         /// Identifier of the message to reply to or 0
@@ -20215,7 +20475,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// editMessageLiveLocation chat_id:int53 message_id:int53 reply_markup:ReplyMarkup location:location = Message;
+    /// editMessageLiveLocation chat_id:int53 message_id:int53 reply_markup:ReplyMarkup location:location heading:int32 proximity_alert_radius:int32 = Message;
     /// </remarks>
     public partial class EditMessageLiveLocation : Function<Message>
     {
@@ -20238,6 +20498,16 @@ namespace TDLibCore.Api
         /// New location content of the message; may be null. Pass null to stop sharing the live location
         /// </summary>
         public Location Location { get; set; }
+
+        /// <summary>
+        /// The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
+        /// </summary>
+        public int Heading { get; set; }
+
+        /// <summary>
+        /// The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled
+        /// </summary>
+        public int ProximityAlertRadius { get; set; }
 
     }
 
@@ -20360,7 +20630,7 @@ namespace TDLibCore.Api
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// editInlineMessageLiveLocation inline_message_id:string reply_markup:ReplyMarkup location:location = Ok;
+    /// editInlineMessageLiveLocation inline_message_id:string reply_markup:ReplyMarkup location:location heading:int32 proximity_alert_radius:int32 = Ok;
     /// </remarks>
     public partial class EditInlineMessageLiveLocation : Function<Ok>
     {
@@ -20378,6 +20648,16 @@ namespace TDLibCore.Api
         /// New location content of the message; may be null. Pass null to stop sharing the live location
         /// </summary>
         public Location Location { get; set; }
+
+        /// <summary>
+        /// The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
+        /// </summary>
+        public int Heading { get; set; }
+
+        /// <summary>
+        /// The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled
+        /// </summary>
+        public int ProximityAlertRadius { get; set; }
 
     }
 
@@ -21727,27 +22007,6 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Changes the block state of a chat. Currently, only private chats and supergroups can be blocked
-    /// </summary>
-    /// <remarks>
-    /// TL source:
-    /// toggleChatIsBlocked chat_id:int53 is_blocked:Bool = Ok;
-    /// </remarks>
-    public partial class ToggleChatIsBlocked : Function<Ok>
-    {
-        /// <summary>
-        /// Chat identifier
-        /// </summary>
-        public long ChatId { get; set; }
-
-        /// <summary>
-        /// New value of is_blocked
-        /// </summary>
-        public bool IsBlocked { get; set; }
-
-    }
-
-    /// <summary>
     /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat
     /// </summary>
     /// <remarks>
@@ -21825,7 +22084,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable needs to be used first to change that
+        /// Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable must be used first to change that
         /// </summary>
         public long DiscussionChatId { get; set; }
 
@@ -21874,11 +22133,11 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Pins a message in a chat; requires can_pin_messages rights
+    /// Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// pinChatMessage chat_id:int53 message_id:int53 disable_notification:Bool = Ok;
+    /// pinChatMessage chat_id:int53 message_id:int53 disable_notification:Bool only_for_self:Bool = Ok;
     /// </remarks>
     public partial class PinChatMessage : Function<Ok>
     {
@@ -21893,20 +22152,46 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// True, if there should be no notification about the pinned message
+        /// True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats
         /// </summary>
         public bool DisableNotification { get; set; }
+
+        /// <summary>
+        /// True, if the message needs to be pinned only for self; private chats only
+        /// </summary>
+        public bool OnlyForSelf { get; set; }
 
     }
 
     /// <summary>
-    /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel
+    /// Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// unpinChatMessage chat_id:int53 = Ok;
+    /// unpinChatMessage chat_id:int53 message_id:int53 = Ok;
     /// </remarks>
     public partial class UnpinChatMessage : Function<Ok>
+    {
+        /// <summary>
+        /// Identifier of the chat
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Identifier of the removed pinned message
+        /// </summary>
+        public long MessageId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Removes all pinned messages from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// unpinAllChatMessages chat_id:int53 = Ok;
+    /// </remarks>
+    public partial class UnpinAllChatMessages : Function<Ok>
     {
         /// <summary>
         /// Identifier of the chat
@@ -22697,13 +22982,34 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Changes the block state of a message sender. Currently, only users and supergroup chats can be blocked
+    /// </summary>
+    /// <remarks>
+    /// TL source:
+    /// toggleMessageSenderIsBlocked sender:MessageSender is_blocked:Bool = Ok;
+    /// </remarks>
+    public partial class ToggleMessageSenderIsBlocked : Function<Ok>
+    {
+        /// <summary>
+        /// Message Sender
+        /// </summary>
+        public MessageSender Sender { get; set; }
+
+        /// <summary>
+        /// New value of is_blocked
+        /// </summary>
+        public bool IsBlocked { get; set; }
+
+    }
+
+    /// <summary>
     /// Blocks an original sender of a message in the Replies chat
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// blockChatFromReplies message_id:int53 delete_message:Bool delete_all_messages:Bool report_spam:Bool = Ok;
+    /// blockMessageSenderFromReplies message_id:int53 delete_message:Bool delete_all_messages:Bool report_spam:Bool = Ok;
     /// </remarks>
-    public partial class BlockChatFromReplies : Function<Ok>
+    public partial class BlockMessageSenderFromReplies : Function<Ok>
     {
         /// <summary>
         /// The identifier of an incoming message in the Replies chat
@@ -22728,21 +23034,21 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns chats that were blocked by the current user
+    /// Returns users and chats that were blocked by the current user
     /// </summary>
     /// <remarks>
     /// TL source:
-    /// getBlockedChats offset:int32 limit:int32 = Chats;
+    /// getBlockedMessageSenders offset:int32 limit:int32 = MessageSenders;
     /// </remarks>
-    public partial class GetBlockedChats : Function<Chats>
+    public partial class GetBlockedMessageSenders : Function<MessageSenders>
     {
         /// <summary>
-        /// Number of chats to skip in the result; must be non-negative
+        /// Number of users and chats to skip in the result; must be non-negative
         /// </summary>
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of chats to return; up to 100
+        /// The maximum number of users and chats to return; up to 100
         /// </summary>
         public int Limit { get; set; }
 
@@ -24623,7 +24929,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true. The method is under development and may or may not work
+    /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true
     /// </summary>
     /// <remarks>
     /// TL source:

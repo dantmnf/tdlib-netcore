@@ -163,6 +163,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(contact, user_id_), // contact::user_id
     (uint32_t)__builtin_offsetof(location, latitude_), // location::latitude
     (uint32_t)__builtin_offsetof(location, longitude_), // location::longitude
+    (uint32_t)__builtin_offsetof(location, horizontal_accuracy_), // location::horizontal_accuracy
     (uint32_t)__builtin_offsetof(venue, location_), // venue::location
     (uint32_t)__builtin_offsetof(venue, title_), // venue::title
     (uint32_t)__builtin_offsetof(venue, address_), // venue::address
@@ -235,6 +236,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(user, type_), // user::type
     (uint32_t)__builtin_offsetof(user, language_code_), // user::language_code
     (uint32_t)__builtin_offsetof(userFullInfo, photo_), // userFullInfo::photo
+    (uint32_t)__builtin_offsetof(userFullInfo, is_blocked_), // userFullInfo::is_blocked
     (uint32_t)__builtin_offsetof(userFullInfo, can_be_called_), // userFullInfo::can_be_called
     (uint32_t)__builtin_offsetof(userFullInfo, supports_video_calls_), // userFullInfo::supports_video_calls
     (uint32_t)__builtin_offsetof(userFullInfo, has_private_calls_), // userFullInfo::has_private_calls
@@ -282,10 +284,13 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatMember, bot_info_), // chatMember::bot_info
     (uint32_t)__builtin_offsetof(chatMembers, total_count_), // chatMembers::total_count
     (uint32_t)__builtin_offsetof(chatMembers, members_), // chatMembers::members
+    (uint32_t)__builtin_offsetof(chatMembersFilterMention, message_thread_id_), // chatMembersFilterMention::message_thread_id
     (uint32_t)__builtin_offsetof(supergroupMembersFilterContacts, query_), // supergroupMembersFilterContacts::query
     (uint32_t)__builtin_offsetof(supergroupMembersFilterSearch, query_), // supergroupMembersFilterSearch::query
     (uint32_t)__builtin_offsetof(supergroupMembersFilterRestricted, query_), // supergroupMembersFilterRestricted::query
     (uint32_t)__builtin_offsetof(supergroupMembersFilterBanned, query_), // supergroupMembersFilterBanned::query
+    (uint32_t)__builtin_offsetof(supergroupMembersFilterMention, query_), // supergroupMembersFilterMention::query
+    (uint32_t)__builtin_offsetof(supergroupMembersFilterMention, message_thread_id_), // supergroupMembersFilterMention::message_thread_id
     (uint32_t)__builtin_offsetof(basicGroup, id_), // basicGroup::id
     (uint32_t)__builtin_offsetof(basicGroup, member_count_), // basicGroup::member_count
     (uint32_t)__builtin_offsetof(basicGroup, status_), // basicGroup::status
@@ -336,8 +341,13 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(secretChat, ttl_), // secretChat::ttl
     (uint32_t)__builtin_offsetof(secretChat, key_hash_), // secretChat::key_hash
     (uint32_t)__builtin_offsetof(secretChat, layer_), // secretChat::layer
+    (uint32_t)__builtin_offsetof(messageSenderUser, user_id_), // messageSenderUser::user_id
+    (uint32_t)__builtin_offsetof(messageSenderChat, chat_id_), // messageSenderChat::chat_id
+    (uint32_t)__builtin_offsetof(messageSenders, total_count_), // messageSenders::total_count
+    (uint32_t)__builtin_offsetof(messageSenders, senders_), // messageSenders::senders
     (uint32_t)__builtin_offsetof(messageForwardOriginUser, sender_user_id_), // messageForwardOriginUser::sender_user_id
     (uint32_t)__builtin_offsetof(messageForwardOriginChat, sender_chat_id_), // messageForwardOriginChat::sender_chat_id
+    (uint32_t)__builtin_offsetof(messageForwardOriginChat, author_signature_), // messageForwardOriginChat::author_signature
     (uint32_t)__builtin_offsetof(messageForwardOriginHiddenUser, sender_name_), // messageForwardOriginHiddenUser::sender_name
     (uint32_t)__builtin_offsetof(messageForwardOriginChannel, chat_id_), // messageForwardOriginChannel::chat_id
     (uint32_t)__builtin_offsetof(messageForwardOriginChannel, message_id_), // messageForwardOriginChannel::message_id
@@ -348,7 +358,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messageForwardInfo, from_chat_id_), // messageForwardInfo::from_chat_id
     (uint32_t)__builtin_offsetof(messageForwardInfo, from_message_id_), // messageForwardInfo::from_message_id
     (uint32_t)__builtin_offsetof(messageReplyInfo, reply_count_), // messageReplyInfo::reply_count
-    (uint32_t)__builtin_offsetof(messageReplyInfo, recent_replier_user_ids_), // messageReplyInfo::recent_replier_user_ids
+    (uint32_t)__builtin_offsetof(messageReplyInfo, recent_repliers_), // messageReplyInfo::recent_repliers
     (uint32_t)__builtin_offsetof(messageReplyInfo, last_read_inbox_message_id_), // messageReplyInfo::last_read_inbox_message_id
     (uint32_t)__builtin_offsetof(messageReplyInfo, last_read_outbox_message_id_), // messageReplyInfo::last_read_outbox_message_id
     (uint32_t)__builtin_offsetof(messageReplyInfo, last_message_id_), // messageReplyInfo::last_message_id
@@ -360,12 +370,12 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messageSendingStateFailed, can_retry_), // messageSendingStateFailed::can_retry
     (uint32_t)__builtin_offsetof(messageSendingStateFailed, retry_after_), // messageSendingStateFailed::retry_after
     (uint32_t)__builtin_offsetof(message, id_), // message::id
-    (uint32_t)__builtin_offsetof(message, sender_user_id_), // message::sender_user_id
-    (uint32_t)__builtin_offsetof(message, sender_chat_id_), // message::sender_chat_id
+    (uint32_t)__builtin_offsetof(message, sender_), // message::sender
     (uint32_t)__builtin_offsetof(message, chat_id_), // message::chat_id
     (uint32_t)__builtin_offsetof(message, sending_state_), // message::sending_state
     (uint32_t)__builtin_offsetof(message, scheduling_state_), // message::scheduling_state
     (uint32_t)__builtin_offsetof(message, is_outgoing_), // message::is_outgoing
+    (uint32_t)__builtin_offsetof(message, is_pinned_), // message::is_pinned
     (uint32_t)__builtin_offsetof(message, can_be_edited_), // message::can_be_edited
     (uint32_t)__builtin_offsetof(message, can_be_forwarded_), // message::can_be_forwarded
     (uint32_t)__builtin_offsetof(message, can_be_deleted_only_for_self_), // message::can_be_deleted_only_for_self
@@ -465,7 +475,6 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chat, unread_mention_count_), // chat::unread_mention_count
     (uint32_t)__builtin_offsetof(chat, notification_settings_), // chat::notification_settings
     (uint32_t)__builtin_offsetof(chat, action_bar_), // chat::action_bar
-    (uint32_t)__builtin_offsetof(chat, pinned_message_id_), // chat::pinned_message_id
     (uint32_t)__builtin_offsetof(chat, reply_markup_message_id_), // chat::reply_markup_message_id
     (uint32_t)__builtin_offsetof(chat, draft_message_), // chat::draft_message
     (uint32_t)__builtin_offsetof(chat, client_data_), // chat::client_data
@@ -845,10 +854,12 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messageLocation, location_), // messageLocation::location
     (uint32_t)__builtin_offsetof(messageLocation, live_period_), // messageLocation::live_period
     (uint32_t)__builtin_offsetof(messageLocation, expires_in_), // messageLocation::expires_in
+    (uint32_t)__builtin_offsetof(messageLocation, heading_), // messageLocation::heading
+    (uint32_t)__builtin_offsetof(messageLocation, proximity_alert_radius_), // messageLocation::proximity_alert_radius
     (uint32_t)__builtin_offsetof(messageVenue, venue_), // messageVenue::venue
     (uint32_t)__builtin_offsetof(messageContact, contact_), // messageContact::contact
-    (uint32_t)__builtin_offsetof(messageDice, initial_state_sticker_), // messageDice::initial_state_sticker
-    (uint32_t)__builtin_offsetof(messageDice, final_state_sticker_), // messageDice::final_state_sticker
+    (uint32_t)__builtin_offsetof(messageDice, initial_state_), // messageDice::initial_state
+    (uint32_t)__builtin_offsetof(messageDice, final_state_), // messageDice::final_state
     (uint32_t)__builtin_offsetof(messageDice, emoji_), // messageDice::emoji
     (uint32_t)__builtin_offsetof(messageDice, value_), // messageDice::value
     (uint32_t)__builtin_offsetof(messageDice, success_animation_frame_number_), // messageDice::success_animation_frame_number
@@ -897,6 +908,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messagePassportDataSent, types_), // messagePassportDataSent::types
     (uint32_t)__builtin_offsetof(messagePassportDataReceived, elements_), // messagePassportDataReceived::elements
     (uint32_t)__builtin_offsetof(messagePassportDataReceived, credentials_), // messagePassportDataReceived::credentials
+    (uint32_t)__builtin_offsetof(messageProximityAlertTriggered, traveler_), // messageProximityAlertTriggered::traveler
+    (uint32_t)__builtin_offsetof(messageProximityAlertTriggered, watcher_), // messageProximityAlertTriggered::watcher
+    (uint32_t)__builtin_offsetof(messageProximityAlertTriggered, distance_), // messageProximityAlertTriggered::distance
     (uint32_t)__builtin_offsetof(textEntityTypePreCode, language_), // textEntityTypePreCode::language
     (uint32_t)__builtin_offsetof(textEntityTypeTextUrl, url_), // textEntityTypeTextUrl::url
     (uint32_t)__builtin_offsetof(textEntityTypeMentionName, user_id_), // textEntityTypeMentionName::user_id
@@ -960,6 +974,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(inputMessageVoiceNote, caption_), // inputMessageVoiceNote::caption
     (uint32_t)__builtin_offsetof(inputMessageLocation, location_), // inputMessageLocation::location
     (uint32_t)__builtin_offsetof(inputMessageLocation, live_period_), // inputMessageLocation::live_period
+    (uint32_t)__builtin_offsetof(inputMessageLocation, heading_), // inputMessageLocation::heading
+    (uint32_t)__builtin_offsetof(inputMessageLocation, proximity_alert_radius_), // inputMessageLocation::proximity_alert_radius
     (uint32_t)__builtin_offsetof(inputMessageVenue, venue_), // inputMessageVenue::venue
     (uint32_t)__builtin_offsetof(inputMessageContact, contact_), // inputMessageContact::contact
     (uint32_t)__builtin_offsetof(inputMessageDice, emoji_), // inputMessageDice::emoji
@@ -1060,6 +1076,12 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(phoneNumberAuthenticationSettings, is_current_phone_number_), // phoneNumberAuthenticationSettings::is_current_phone_number
     (uint32_t)__builtin_offsetof(phoneNumberAuthenticationSettings, allow_sms_retriever_api_), // phoneNumberAuthenticationSettings::allow_sms_retriever_api
     (uint32_t)__builtin_offsetof(animations, animations_), // animations::animations
+    (uint32_t)__builtin_offsetof(diceStickersRegular, sticker_), // diceStickersRegular::sticker
+    (uint32_t)__builtin_offsetof(diceStickersSlotMachine, background_), // diceStickersSlotMachine::background
+    (uint32_t)__builtin_offsetof(diceStickersSlotMachine, lever_), // diceStickersSlotMachine::lever
+    (uint32_t)__builtin_offsetof(diceStickersSlotMachine, left_reel_), // diceStickersSlotMachine::left_reel
+    (uint32_t)__builtin_offsetof(diceStickersSlotMachine, center_reel_), // diceStickersSlotMachine::center_reel
+    (uint32_t)__builtin_offsetof(diceStickersSlotMachine, right_reel_), // diceStickersSlotMachine::right_reel
     (uint32_t)__builtin_offsetof(importedContacts, user_ids_), // importedContacts::user_ids
     (uint32_t)__builtin_offsetof(importedContacts, importer_count_), // importedContacts::importer_count
     (uint32_t)__builtin_offsetof(httpUrl, url_), // httpUrl::url
@@ -1222,6 +1244,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatEventMessageDeleted, message_), // chatEventMessageDeleted::message
     (uint32_t)__builtin_offsetof(chatEventPollStopped, message_), // chatEventPollStopped::message
     (uint32_t)__builtin_offsetof(chatEventMessagePinned, message_), // chatEventMessagePinned::message
+    (uint32_t)__builtin_offsetof(chatEventMessageUnpinned, message_), // chatEventMessageUnpinned::message
     (uint32_t)__builtin_offsetof(chatEventMemberInvited, user_id_), // chatEventMemberInvited::user_id
     (uint32_t)__builtin_offsetof(chatEventMemberInvited, status_), // chatEventMemberInvited::status
     (uint32_t)__builtin_offsetof(chatEventMemberPromoted, user_id_), // chatEventMemberPromoted::user_id
@@ -1380,11 +1403,12 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(pushMessageContentMediaAlbum, total_count_), // pushMessageContentMediaAlbum::total_count
     (uint32_t)__builtin_offsetof(pushMessageContentMediaAlbum, has_photos_), // pushMessageContentMediaAlbum::has_photos
     (uint32_t)__builtin_offsetof(pushMessageContentMediaAlbum, has_videos_), // pushMessageContentMediaAlbum::has_videos
+    (uint32_t)__builtin_offsetof(pushMessageContentMediaAlbum, has_audios_), // pushMessageContentMediaAlbum::has_audios
+    (uint32_t)__builtin_offsetof(pushMessageContentMediaAlbum, has_documents_), // pushMessageContentMediaAlbum::has_documents
     (uint32_t)__builtin_offsetof(notificationTypeNewMessage, message_), // notificationTypeNewMessage::message
     (uint32_t)__builtin_offsetof(notificationTypeNewCall, call_id_), // notificationTypeNewCall::call_id
     (uint32_t)__builtin_offsetof(notificationTypeNewPushMessage, message_id_), // notificationTypeNewPushMessage::message_id
-    (uint32_t)__builtin_offsetof(notificationTypeNewPushMessage, sender_user_id_), // notificationTypeNewPushMessage::sender_user_id
-    (uint32_t)__builtin_offsetof(notificationTypeNewPushMessage, sender_chat_id_), // notificationTypeNewPushMessage::sender_chat_id
+    (uint32_t)__builtin_offsetof(notificationTypeNewPushMessage, sender_), // notificationTypeNewPushMessage::sender
     (uint32_t)__builtin_offsetof(notificationTypeNewPushMessage, sender_name_), // notificationTypeNewPushMessage::sender_name
     (uint32_t)__builtin_offsetof(notificationTypeNewPushMessage, is_outgoing_), // notificationTypeNewPushMessage::is_outgoing
     (uint32_t)__builtin_offsetof(notificationTypeNewPushMessage, content_), // notificationTypeNewPushMessage::content
@@ -1586,6 +1610,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(updateMessageEdited, message_id_), // updateMessageEdited::message_id
     (uint32_t)__builtin_offsetof(updateMessageEdited, edit_date_), // updateMessageEdited::edit_date
     (uint32_t)__builtin_offsetof(updateMessageEdited, reply_markup_), // updateMessageEdited::reply_markup
+    (uint32_t)__builtin_offsetof(updateMessageIsPinned, chat_id_), // updateMessageIsPinned::chat_id
+    (uint32_t)__builtin_offsetof(updateMessageIsPinned, message_id_), // updateMessageIsPinned::message_id
+    (uint32_t)__builtin_offsetof(updateMessageIsPinned, is_pinned_), // updateMessageIsPinned::is_pinned
     (uint32_t)__builtin_offsetof(updateMessageInteractionInfo, chat_id_), // updateMessageInteractionInfo::chat_id
     (uint32_t)__builtin_offsetof(updateMessageInteractionInfo, message_id_), // updateMessageInteractionInfo::message_id
     (uint32_t)__builtin_offsetof(updateMessageInteractionInfo, interaction_info_), // updateMessageInteractionInfo::interaction_info
@@ -1629,8 +1656,6 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(updateScopeNotificationSettings, notification_settings_), // updateScopeNotificationSettings::notification_settings
     (uint32_t)__builtin_offsetof(updateChatActionBar, chat_id_), // updateChatActionBar::chat_id
     (uint32_t)__builtin_offsetof(updateChatActionBar, action_bar_), // updateChatActionBar::action_bar
-    (uint32_t)__builtin_offsetof(updateChatPinnedMessage, chat_id_), // updateChatPinnedMessage::chat_id
-    (uint32_t)__builtin_offsetof(updateChatPinnedMessage, pinned_message_id_), // updateChatPinnedMessage::pinned_message_id
     (uint32_t)__builtin_offsetof(updateChatReplyMarkup, chat_id_), // updateChatReplyMarkup::chat_id
     (uint32_t)__builtin_offsetof(updateChatReplyMarkup, reply_markup_message_id_), // updateChatReplyMarkup::reply_markup_message_id
     (uint32_t)__builtin_offsetof(updateChatDraftMessage, chat_id_), // updateChatDraftMessage::chat_id
@@ -1811,6 +1836,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(getRepliedMessage, chat_id_), // getRepliedMessage::chat_id
     (uint32_t)__builtin_offsetof(getRepliedMessage, message_id_), // getRepliedMessage::message_id
     (uint32_t)__builtin_offsetof(getChatPinnedMessage, chat_id_), // getChatPinnedMessage::chat_id
+    (uint32_t)__builtin_offsetof(getCallbackQueryMessage, chat_id_), // getCallbackQueryMessage::chat_id
+    (uint32_t)__builtin_offsetof(getCallbackQueryMessage, message_id_), // getCallbackQueryMessage::message_id
+    (uint32_t)__builtin_offsetof(getCallbackQueryMessage, callback_query_id_), // getCallbackQueryMessage::callback_query_id
     (uint32_t)__builtin_offsetof(getMessages, chat_id_), // getMessages::chat_id
     (uint32_t)__builtin_offsetof(getMessages, message_ids_), // getMessages::message_ids
     (uint32_t)__builtin_offsetof(getMessageThread, chat_id_), // getMessageThread::chat_id
@@ -1857,7 +1885,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(deleteChatHistory, revoke_), // deleteChatHistory::revoke
     (uint32_t)__builtin_offsetof(searchChatMessages, chat_id_), // searchChatMessages::chat_id
     (uint32_t)__builtin_offsetof(searchChatMessages, query_), // searchChatMessages::query
-    (uint32_t)__builtin_offsetof(searchChatMessages, sender_user_id_), // searchChatMessages::sender_user_id
+    (uint32_t)__builtin_offsetof(searchChatMessages, sender_), // searchChatMessages::sender
     (uint32_t)__builtin_offsetof(searchChatMessages, from_message_id_), // searchChatMessages::from_message_id
     (uint32_t)__builtin_offsetof(searchChatMessages, offset_), // searchChatMessages::offset
     (uint32_t)__builtin_offsetof(searchChatMessages, limit_), // searchChatMessages::limit
@@ -1937,7 +1965,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(sendChatSetTtlMessage, ttl_), // sendChatSetTtlMessage::ttl
     (uint32_t)__builtin_offsetof(sendChatScreenshotTakenNotification, chat_id_), // sendChatScreenshotTakenNotification::chat_id
     (uint32_t)__builtin_offsetof(addLocalMessage, chat_id_), // addLocalMessage::chat_id
-    (uint32_t)__builtin_offsetof(addLocalMessage, sender_user_id_), // addLocalMessage::sender_user_id
+    (uint32_t)__builtin_offsetof(addLocalMessage, sender_), // addLocalMessage::sender
     (uint32_t)__builtin_offsetof(addLocalMessage, reply_to_message_id_), // addLocalMessage::reply_to_message_id
     (uint32_t)__builtin_offsetof(addLocalMessage, disable_notification_), // addLocalMessage::disable_notification
     (uint32_t)__builtin_offsetof(addLocalMessage, input_message_content_), // addLocalMessage::input_message_content
@@ -1954,6 +1982,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(editMessageLiveLocation, message_id_), // editMessageLiveLocation::message_id
     (uint32_t)__builtin_offsetof(editMessageLiveLocation, reply_markup_), // editMessageLiveLocation::reply_markup
     (uint32_t)__builtin_offsetof(editMessageLiveLocation, location_), // editMessageLiveLocation::location
+    (uint32_t)__builtin_offsetof(editMessageLiveLocation, heading_), // editMessageLiveLocation::heading
+    (uint32_t)__builtin_offsetof(editMessageLiveLocation, proximity_alert_radius_), // editMessageLiveLocation::proximity_alert_radius
     (uint32_t)__builtin_offsetof(editMessageMedia, chat_id_), // editMessageMedia::chat_id
     (uint32_t)__builtin_offsetof(editMessageMedia, message_id_), // editMessageMedia::message_id
     (uint32_t)__builtin_offsetof(editMessageMedia, reply_markup_), // editMessageMedia::reply_markup
@@ -1971,6 +2001,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(editInlineMessageLiveLocation, inline_message_id_), // editInlineMessageLiveLocation::inline_message_id
     (uint32_t)__builtin_offsetof(editInlineMessageLiveLocation, reply_markup_), // editInlineMessageLiveLocation::reply_markup
     (uint32_t)__builtin_offsetof(editInlineMessageLiveLocation, location_), // editInlineMessageLiveLocation::location
+    (uint32_t)__builtin_offsetof(editInlineMessageLiveLocation, heading_), // editInlineMessageLiveLocation::heading
+    (uint32_t)__builtin_offsetof(editInlineMessageLiveLocation, proximity_alert_radius_), // editInlineMessageLiveLocation::proximity_alert_radius
     (uint32_t)__builtin_offsetof(editInlineMessageMedia, inline_message_id_), // editInlineMessageMedia::inline_message_id
     (uint32_t)__builtin_offsetof(editInlineMessageMedia, reply_markup_), // editInlineMessageMedia::reply_markup
     (uint32_t)__builtin_offsetof(editInlineMessageMedia, input_message_content_), // editInlineMessageMedia::input_message_content
@@ -2108,8 +2140,6 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(setChatNotificationSettings, notification_settings_), // setChatNotificationSettings::notification_settings
     (uint32_t)__builtin_offsetof(toggleChatIsMarkedAsUnread, chat_id_), // toggleChatIsMarkedAsUnread::chat_id
     (uint32_t)__builtin_offsetof(toggleChatIsMarkedAsUnread, is_marked_as_unread_), // toggleChatIsMarkedAsUnread::is_marked_as_unread
-    (uint32_t)__builtin_offsetof(toggleChatIsBlocked, chat_id_), // toggleChatIsBlocked::chat_id
-    (uint32_t)__builtin_offsetof(toggleChatIsBlocked, is_blocked_), // toggleChatIsBlocked::is_blocked
     (uint32_t)__builtin_offsetof(toggleChatDefaultDisableNotification, chat_id_), // toggleChatDefaultDisableNotification::chat_id
     (uint32_t)__builtin_offsetof(toggleChatDefaultDisableNotification, default_disable_notification_), // toggleChatDefaultDisableNotification::default_disable_notification
     (uint32_t)__builtin_offsetof(setChatClientData, chat_id_), // setChatClientData::chat_id
@@ -2125,7 +2155,10 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(pinChatMessage, chat_id_), // pinChatMessage::chat_id
     (uint32_t)__builtin_offsetof(pinChatMessage, message_id_), // pinChatMessage::message_id
     (uint32_t)__builtin_offsetof(pinChatMessage, disable_notification_), // pinChatMessage::disable_notification
+    (uint32_t)__builtin_offsetof(pinChatMessage, only_for_self_), // pinChatMessage::only_for_self
     (uint32_t)__builtin_offsetof(unpinChatMessage, chat_id_), // unpinChatMessage::chat_id
+    (uint32_t)__builtin_offsetof(unpinChatMessage, message_id_), // unpinChatMessage::message_id
+    (uint32_t)__builtin_offsetof(unpinAllChatMessages, chat_id_), // unpinAllChatMessages::chat_id
     (uint32_t)__builtin_offsetof(joinChat, chat_id_), // joinChat::chat_id
     (uint32_t)__builtin_offsetof(leaveChat, chat_id_), // leaveChat::chat_id
     (uint32_t)__builtin_offsetof(addChatMember, chat_id_), // addChatMember::chat_id
@@ -2203,12 +2236,14 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(sendCallRating, problems_), // sendCallRating::problems
     (uint32_t)__builtin_offsetof(sendCallDebugInformation, call_id_), // sendCallDebugInformation::call_id
     (uint32_t)__builtin_offsetof(sendCallDebugInformation, debug_information_), // sendCallDebugInformation::debug_information
-    (uint32_t)__builtin_offsetof(blockChatFromReplies, message_id_), // blockChatFromReplies::message_id
-    (uint32_t)__builtin_offsetof(blockChatFromReplies, delete_message_), // blockChatFromReplies::delete_message
-    (uint32_t)__builtin_offsetof(blockChatFromReplies, delete_all_messages_), // blockChatFromReplies::delete_all_messages
-    (uint32_t)__builtin_offsetof(blockChatFromReplies, report_spam_), // blockChatFromReplies::report_spam
-    (uint32_t)__builtin_offsetof(getBlockedChats, offset_), // getBlockedChats::offset
-    (uint32_t)__builtin_offsetof(getBlockedChats, limit_), // getBlockedChats::limit
+    (uint32_t)__builtin_offsetof(toggleMessageSenderIsBlocked, sender_), // toggleMessageSenderIsBlocked::sender
+    (uint32_t)__builtin_offsetof(toggleMessageSenderIsBlocked, is_blocked_), // toggleMessageSenderIsBlocked::is_blocked
+    (uint32_t)__builtin_offsetof(blockMessageSenderFromReplies, message_id_), // blockMessageSenderFromReplies::message_id
+    (uint32_t)__builtin_offsetof(blockMessageSenderFromReplies, delete_message_), // blockMessageSenderFromReplies::delete_message
+    (uint32_t)__builtin_offsetof(blockMessageSenderFromReplies, delete_all_messages_), // blockMessageSenderFromReplies::delete_all_messages
+    (uint32_t)__builtin_offsetof(blockMessageSenderFromReplies, report_spam_), // blockMessageSenderFromReplies::report_spam
+    (uint32_t)__builtin_offsetof(getBlockedMessageSenders, offset_), // getBlockedMessageSenders::offset
+    (uint32_t)__builtin_offsetof(getBlockedMessageSenders, limit_), // getBlockedMessageSenders::limit
     (uint32_t)__builtin_offsetof(addContact, contact_), // addContact::contact
     (uint32_t)__builtin_offsetof(addContact, share_phone_number_), // addContact::share_phone_number
     (uint32_t)__builtin_offsetof(importContacts, contacts_), // importContacts::contacts
