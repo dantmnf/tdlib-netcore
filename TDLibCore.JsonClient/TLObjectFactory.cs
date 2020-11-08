@@ -3,7 +3,9 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Unicode;
 using TDLibCore.Api;
 
 namespace TDLibCore.JsonClient
@@ -83,6 +85,16 @@ namespace TDLibCore.JsonClient
             var span = buffer.GetSpan(1);
             span[0] = 0;
             buffer.Advance(1);
+        }
+
+        private static JavaScriptEncoder notEscapingEncoder = JavaScriptEncoder.Create(UnicodeRange.Create('\u0000', '\uFFFF'));
+        public static string ToJsonString(this TLObject obj, bool indented = false, bool escapeString = false)
+        {
+            using var buffer = new ArrayPoolBufferWriter<byte>(512);
+            using var writer = new Utf8JsonWriter(buffer, new JsonWriterOptions { Indented = indented, Encoder = escapeString ? null : notEscapingEncoder });
+            writer.WriteTLObjectValue(obj);
+            writer.Flush();
+            return Encoding.UTF8.GetString(buffer.WrittenSpan);
         }
 
 
