@@ -132,4 +132,5 @@ nmake # additionally with TD_DIR=C:\path\to\tdlib
 |     JsonDotNetExecute** | 67.604 us | 0.5022 us | 0.4452 us | 10.91 |    0.10 |
 
 \*: invoked with prepared request and discarded response for a baseline of (de)serialization performance.
+
 \**: using Newtonsoft.Json reflection-based converter.
