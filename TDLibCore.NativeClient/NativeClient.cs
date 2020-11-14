@@ -10,16 +10,10 @@ namespace TDLibCore.NativeClient
     public static class NativeClient
     {
         public static ITdClientLogging Logging { get; } = new CxxClientLogging();
-        public static ITdClientBindingFactory BindingFactory { get; } = new NativeClientBindingFactory();
-        public static Client Create()
+        private static readonly Func<IExclusiveWorkerClientImpl> factory = static () => new Binding();
+        public static ExclusiveWorkerClient Create(EventHandler<Update> updateHandler)
         {
-            return new Client(BindingFactory);
-        }
-
-        private class NativeClientBindingFactory : ITdClientBindingFactory
-        {
-            public ITdClientLogging GlobalLogging => Logging;
-            public ITdClientBinding CreateInstance() => new Binding();
+            return new ExclusiveWorkerClient(factory, updateHandler);
         }
 
         public static TLObject Execute(Function func)
@@ -31,9 +25,9 @@ namespace TDLibCore.NativeClient
             return obj;
         }
 
-        public class Binding : ITdClientBinding
+        public class Binding : IExclusiveWorkerClientImpl
         {
-            ITdClientLogging ITdClientBinding.GlobalLogging => Logging;
+            ITdClientLogging IExclusiveWorkerClientImpl.GlobalLogging => Logging;
 
             private IntPtr ptr;
             public IntPtr Handle => ptr;
@@ -43,7 +37,7 @@ namespace TDLibCore.NativeClient
                 ptr = td_bridge_client_create();
             }
 
-            TLObject ITdClientBinding.Execute(Function func)
+            public TLObject Execute(Function func)
             {
                 TLObject obj = null;
                 var ptr = td_bridge_client_execute(TLObjectFactory.CreateCxxObject(func));
@@ -52,11 +46,11 @@ namespace TDLibCore.NativeClient
                 return obj;
             }
 
-            (long, TLObject) ITdClientBinding.Receive(double timeout)
+            public (long, TLObject) Receive(double timeout)
             {
                 //var objptr = td_bridge_client_receive(ptr, timeout, out var id);
                 //return (id, FetchAndFreeObject(objptr));
-                if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(NativeClient));
+                if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(Binding));
                 TLObject obj = null;
                 long id = 0;
                 td_bridge_client_receive(ptr, timeout, out id);
@@ -65,14 +59,14 @@ namespace TDLibCore.NativeClient
                 return (id, obj);
             }
 
-            void ITdClientBinding.Send(Function func, long id)
+            public void Send(Function func, long id)
             {
-                if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(NativeClient));
+                if (ptr == IntPtr.Zero) throw new ObjectDisposedException(nameof(Binding));
                 td_bridge_client_send(ptr, id, TLObjectFactory.CreateCxxObject(func));
             }
 
             private int disposed = 0;
-            void IDisposable.Dispose()
+            public void Dispose()
             {
                 if (Interlocked.CompareExchange(ref disposed, 1, 0) == 0)
                 {

@@ -5,11 +5,11 @@ using TDLibCore.Api;
 
 namespace TDLibCore
 {
-    public interface ITdClientBinding : IDisposable
+    public interface IExclusiveWorkerClientImpl : IDisposable
     {
         ITdClientLogging GlobalLogging { get; }
         TLObject Execute(Function func);
-        (long id, TLObject obj) Receive(double timeout);
         void Send(Function func, long id);
+        (long id, TLObject obj) Receive(double timeout);
     }
 }

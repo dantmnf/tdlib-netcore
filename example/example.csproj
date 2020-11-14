@@ -3,14 +3,18 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RestoreAdditionalProjectSources>../pkgs</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.7.0" />
-    <PackageReference Include="TDLibCore.JsonClient" Version="[$(PackageVersion)]" />
-    <PackageReference Include="runtime.win-x64.TDLibCore.JsonClient.Native" Version="[$(NativePackageVersion)]" />
+    <PackageReference Include="runtime.win-x64.TDLibCore.NativeClient.Native" Version="[$(NativePackageVersion)]" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <ProjectReference Include="..\TDLibCore.JsonClient\TDLibCore.JsonClient.csproj" />
+      <ProjectReference Include="..\TDLibCore.NativeClient\TDLibCore.NativeClient.csproj" />
   </ItemGroup>
 
 </Project>

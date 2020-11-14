@@ -1,3 +1,4 @@
+using Microsoft.CodeAnalysis.CSharp.Scripting.Hosting;
 using System;
 using System.Globalization;
 using System.IO;
@@ -7,6 +8,7 @@ using TDLibCore;
 using TDLibCore.Api;
 using TDLibCore.ClientExtensions;
 using TDLibCore.JsonClient;
+using TDLibCore.NativeClient;
 
 namespace example
 {
@@ -22,6 +24,7 @@ namespace example
         private static async void AuthHandler(object sender, Update u)
         {
             var client = (Client)sender;
+            Console.WriteLine(CSharpObjectFormatter.Instance.FormatObject(u));
             if (u is UpdateAuthorizationState uas)
             {
                 try
@@ -100,7 +103,7 @@ namespace example
 
         public static async Task Main()
         {
-            JsonClient.Logging.VerbosityLevel = 1;
+            NativeClient.Logging.VerbosityLevel = 1;
             var eval = new ScriptEvaluator();
             var cts = new CancellationTokenSource();
             var ct = cts.Token;
@@ -113,11 +116,8 @@ namespace example
                 e.Cancel = true;
             };
 
-            using var client = JsonClient.Create();
+            using var client = NativeClient.Create(AuthHandler);
             waitAuthReady = new TaskCompletionSource<bool>();
-            client.Update += AuthHandler;
-            client.Update += (sender, u) => { Console.WriteLine(eval.FormatObject(u)); };
-            client.RunEventLoop();
 
 
             await Task.WhenAny(waitAuthReady.Task, canceltasksrc.Task);

@@ -11,17 +11,13 @@ namespace TDLibCore.JsonClient
     {
         public static ITdClientLogging Logging { get; } = new JsonClientLogging();
 
-        private class JsonClientBindingFactory : ITdClientBindingFactory
-        {
-            public ITdClientLogging GlobalLogging => Logging;
-            public ITdClientBinding CreateInstance() => new Binding();
-        }
+        private static IExclusiveWorkerClientImpl CreateImplInstance() => new Binding();
 
-        public static ITdClientBindingFactory BindingFactory { get; } = new JsonClientBindingFactory();
+        private static readonly Func<IExclusiveWorkerClientImpl> factory = CreateImplInstance;
 
-        public static Client Create()
+        public static ExclusiveWorkerClient Create(EventHandler<Update> updateHandler)
         {
-            return new Client(BindingFactory);
+            return new ExclusiveWorkerClient(factory, updateHandler);
         }
 
         public static TLObject Execute(Function func)
@@ -45,9 +41,9 @@ namespace TDLibCore.JsonClient
             return obj;
         }
 
-        public class Binding : ITdClientBinding
+        public class Binding : IExclusiveWorkerClientImpl
         {
-            ITdClientLogging ITdClientBinding.GlobalLogging => Logging;
+            public ITdClientLogging GlobalLogging => Logging;
 
             private readonly IntPtr client;
             public IntPtr Handle => client;
@@ -56,7 +52,7 @@ namespace TDLibCore.JsonClient
                 client = td_json_client_create();
             }
 
-            TLObject ITdClientBinding.Execute(Function func)
+            public TLObject Execute(Function func)
             {
                 using var buffer = new ArrayPoolBufferWriter<byte>(512);
                 TLObjectFactory.DumpObject(buffer, func);
@@ -69,7 +65,7 @@ namespace TDLibCore.JsonClient
                 return obj.TLObject;
             }
 
-            (long id, TLObject obj) ITdClientBinding.Receive(double timeout)
+            public (long id, TLObject obj) Receive(double timeout)
             {
                 var result = (byte*)td_json_client_receive(client, timeout);
                 if (result == null) return (0, null);
@@ -77,7 +73,7 @@ namespace TDLibCore.JsonClient
                 return (obj.Extra.GetValueOrDefault(), obj.TLObject);
             }
 
-            void ITdClientBinding.Send(Function func, long id)
+            public void Send(Function func, long id)
             {
                 using var buffer = new ArrayPoolBufferWriter<byte>(512);
                 TLObjectFactory.DumpObject(buffer, new TLObjectWithExtra(func, id));
@@ -87,7 +83,7 @@ namespace TDLibCore.JsonClient
             }
 
             private int disposed = 0;
-            void IDisposable.Dispose()
+            public void Dispose()
             {
                 if (Interlocked.Exchange(ref disposed, 1) == 0)
                 {
