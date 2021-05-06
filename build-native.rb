@@ -89,15 +89,15 @@ Dir.chdir(opts[:buildroot]) do
         when 'Linux' then 'linux'
         when 'Darwin' then 'osx'
         else
-          raise 'unknown CMAKE_SYSTEM_NAME, specify --rid'
+          raise "unknown CMAKE_SYSTEM_NAME #{cmake_variables["CMAKE_SYSTEM_NAME"]}, specify --rid"
         end
-        rid_platform = case cmake_variables["CMAKE_SYSTEM_PROCESSOR"]
-        when /i[3-6]86/, 'x86' then 'x86'
+        rid_platform = case cmake_variables["CMAKE_SYSTEM_PROCESSOR"].downcase
+        when /i[3-6]86/i, 'x86' then 'x86'
         when 'amd64', 'x86_64', 'x64' then 'x64'
         when 'aarch64', 'arm64' then 'arm64'
         when 'armv7', 'arm' then 'arm'
         else
-          raise 'unknown CMAKE_SYSTEM_PROCESSOR, specify --rid'
+          raise "unknown CMAKE_SYSTEM_PROCESSOR #{cmake_variables["CMAKE_SYSTEM_PROCESSOR"]}, specify --rid"
         end
         opts[:rid] = "#{rid_system}-#{rid_platform}"
       end

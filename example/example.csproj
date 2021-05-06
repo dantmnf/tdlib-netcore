@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.7.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(Configuration) == 'Debug'">
     <PackageReference Include="runtime.win-x64.TDLibCore.NativeClient.Native" Version="[$(NativePackageVersion)]" />
   </ItemGroup>
 

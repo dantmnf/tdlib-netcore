@@ -6,7 +6,7 @@ def emit_type(io, type)
     io.puts "/// " + type.comment.encode(xml: :text)
     io.puts "/// </summary>"
     
-    io.puts "/// <remarks>"
+    # io.puts "/// <remarks>"
     # io.puts "/// TL source:"
     # io.puts "/// " + type.source.encode(xml: :text)
     # io.puts "/// </remarks>"

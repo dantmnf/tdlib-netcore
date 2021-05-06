@@ -503,7 +503,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Returns information about a newest pinned chat message
+        /// Returns information about a newest pinned message in the chat
         /// </summary>
         /// <param name="chatId">Identifier of the chat the message belongs to</param>
         public static async Task<Message> GetChatPinnedMessage(this Client client, long chatId = 0)
@@ -879,6 +879,19 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
+        /// Deletes a chat along with all messages in the corresponding chat for all chat members; requires owner privileges. For group chats this will release the username and remove all members. Chats with more than 1000 members can't be deleted using this method
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        public static async Task DeleteChat(this Client client, long chatId = 0)
+        {
+            var obj = new DeleteChat
+            {
+                ChatId = chatId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
         /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query -(searchSecretMessages should be used instead), or without an enabled message database. For optimal performance the number of returned messages is chosen by the library
         /// </summary>
         /// <param name="chatId">Identifier of the chat in which to search messages</param>
@@ -908,7 +921,7 @@ namespace TDLibCore.ClientExtensions
         /// <summary>
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)). -For optimal performance the number of returned messages is chosen by the library
         /// </summary>
-        /// <param name="chatList">Chat list in which to search messages; pass null to search in all chats regardless of their chat list</param>
+        /// <param name="chatList">Chat list in which to search messages; pass null to search in all chats regardless of their chat list. Only Main and Archive chat lists are supported</param>
         /// <param name="query">Query to search for</param>
         /// <param name="offsetDate">The date of the message starting from which the results should be fetched. Use 0 or any date in the future to get results from the last message</param>
         /// <param name="offsetChatId">The chat identifier of the last found message, or 0 for the first request</param>
@@ -970,6 +983,19 @@ namespace TDLibCore.ClientExtensions
                 OnlyMissed = onlyMissed,
             };
             return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Deletes all call messages
+        /// </summary>
+        /// <param name="revoke">Pass true to delete the messages for all users</param>
+        public static async Task DeleteAllCallMessages(this Client client, bool revoke = false)
+        {
+            var obj = new DeleteAllCallMessages
+            {
+                Revoke = revoke,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
         }
 
         /// <summary>
@@ -1163,13 +1189,13 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Sends messages grouped together into an album. Currently only photo and video messages can be grouped into an album. Returns sent messages
+        /// Sends 2-10 messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         /// <param name="chatId">Target chat</param>
         /// <param name="messageThreadId">If not 0, a message thread identifier in which the messages will be sent</param>
         /// <param name="replyToMessageId">Identifier of a message to reply to or 0</param>
         /// <param name="options">Options to be used to send the messages</param>
-        /// <param name="inputMessageContents">Contents of messages to be sent</param>
+        /// <param name="inputMessageContents">Contents of messages to be sent. At most 10 messages can be added to an album</param>
         public static async Task<Messages> SendMessageAlbum(this Client client, long chatId = 0, long messageThreadId = 0, long replyToMessageId = 0, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             var obj = new SendMessageAlbum
@@ -1230,7 +1256,7 @@ namespace TDLibCore.ClientExtensions
         /// </summary>
         /// <param name="chatId">Identifier of the chat to which to forward messages</param>
         /// <param name="fromChatId">Identifier of the chat from which to forward messages</param>
-        /// <param name="messageIds">Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order</param>
+        /// <param name="messageIds">Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously</param>
         /// <param name="options">Options to be used to send the messages</param>
         /// <param name="sendCopy">True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat</param>
         /// <param name="removeCaption">True, if media caption of message copies needs to be removed. Ignored if send_copy is false</param>
@@ -1259,21 +1285,6 @@ namespace TDLibCore.ClientExtensions
             {
                 ChatId = chatId,
                 MessageIds = messageIds,
-            };
-            return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
-        /// Changes the current TTL setting (sets a new self-destruct timer) in a secret chat and sends the corresponding message
-        /// </summary>
-        /// <param name="chatId">Chat identifier</param>
-        /// <param name="ttl">New TTL value, in seconds</param>
-        public static async Task<Message> SendChatSetTtlMessage(this Client client, long chatId = 0, int ttl = 0)
-        {
-            var obj = new SendChatSetTtlMessage
-            {
-                ChatId = chatId,
-                Ttl = ttl,
             };
             return await client.InvokeAsync(obj);
         }
@@ -1350,7 +1361,7 @@ namespace TDLibCore.ClientExtensions
         /// <param name="chatId">The chat the message belongs to</param>
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
-        /// <param name="inputMessageContent">New text content of the message. Should be of type InputMessageText</param>
+        /// <param name="inputMessageContent">New text content of the message. Should be of type inputMessageText</param>
         public static async Task<Message> EditMessageText(this Client client, long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             var obj = new EditMessageText
@@ -1392,7 +1403,7 @@ namespace TDLibCore.ClientExtensions
         /// <param name="chatId">The chat the message belongs to</param>
         /// <param name="messageId">Identifier of the message</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
-        /// <param name="inputMessageContent">New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo</param>
+        /// <param name="inputMessageContent">New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo</param>
         public static async Task<Message> EditMessageMedia(this Client client, long chatId = 0, long messageId = 0, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             var obj = new EditMessageMedia
@@ -1446,7 +1457,7 @@ namespace TDLibCore.ClientExtensions
         /// </summary>
         /// <param name="inlineMessageId">Inline message identifier</param>
         /// <param name="replyMarkup">The new message reply markup</param>
-        /// <param name="inputMessageContent">New text content of the message. Should be of type InputMessageText</param>
+        /// <param name="inputMessageContent">New text content of the message. Should be of type inputMessageText</param>
         public static async Task EditInlineMessageText(this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             var obj = new EditInlineMessageText
@@ -1484,7 +1495,7 @@ namespace TDLibCore.ClientExtensions
         /// </summary>
         /// <param name="inlineMessageId">Inline message identifier</param>
         /// <param name="replyMarkup">The new message reply markup; for bots only</param>
-        /// <param name="inputMessageContent">New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo</param>
+        /// <param name="inputMessageContent">New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo</param>
         public static async Task EditInlineMessageMedia(this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             var obj = new EditInlineMessageMedia
@@ -2220,6 +2231,34 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
+        /// Returns information about an action to be done when the current user clicks an HTTP link. This method can be used to automatically authorize the current user on a website. Don't use this method for links from secret chats if link preview is disabled in secret chats
+        /// </summary>
+        /// <param name="link">The HTTP link</param>
+        public static async Task<LoginUrlInfo> GetExternalLinkInfo(this Client client, string link = default)
+        {
+            var obj = new GetExternalLinkInfo
+            {
+                Link = link,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link. Use the method getExternalLinkInfo to find whether a prior user confirmation is needed
+        /// </summary>
+        /// <param name="link">The HTTP link</param>
+        /// <param name="allowWriteAccess">True, if the current user allowed the bot, returned in getExternalLinkInfo, to send them messages</param>
+        public static async Task<HttpUrl> GetExternalLink(this Client client, string link = default, bool allowWriteAccess = false)
+        {
+            var obj = new GetExternalLink
+            {
+                Link = link,
+                AllowWriteAccess = allowWriteAccess,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
         /// Marks all mentions in a chat as read
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
@@ -2309,10 +2348,11 @@ namespace TDLibCore.ClientExtensions
         /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
         /// </summary>
         /// <param name="title">Title of the new chat; 1-128 characters</param>
-        /// <param name="isChannel">True, if a channel chat should be created</param>
+        /// <param name="isChannel">True, if a channel chat needs to be created</param>
         /// <param name="description">Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat</param>
         /// <param name="location">Chat location if a location-based supergroup is being created</param>
-        public static async Task<Chat> CreateNewSupergroupChat(this Client client, string title = default, bool isChannel = false, string description = default, ChatLocation location = default)
+        /// <param name="forImport">True, if the supergroup is created for importing messages using importMessage</param>
+        public static async Task<Chat> CreateNewSupergroupChat(this Client client, string title = default, bool isChannel = false, string description = default, ChatLocation location = default, bool forImport = false)
         {
             var obj = new CreateNewSupergroupChat
             {
@@ -2320,6 +2360,7 @@ namespace TDLibCore.ClientExtensions
                 IsChannel = isChannel,
                 Description = description,
                 Location = location,
+                ForImport = forImport,
             };
             return await client.InvokeAsync(obj);
         }
@@ -2482,7 +2523,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info administrator right
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="title">New title of the chat; 1-128 characters</param>
@@ -2497,7 +2538,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info administrator right
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="photo">New chat photo. Pass null to delete the chat photo</param>
@@ -2507,6 +2548,21 @@ namespace TDLibCore.ClientExtensions
             {
                 ChatId = chatId,
                 Photo = photo,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Changes the message TTL setting (sets a new self-destruct timer) in a chat. Requires can_delete_messages administrator right in basic groups, supergroups and channels -Message TTL setting of a chat with the current user (Saved Messages) and the chat 777000 (Telegram) can't be changed
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="ttl">New TTL value, in seconds; must be one of 0, 86400, 604800 unless chat is secret</param>
+        public static async Task SetChatMessageTtlSetting(this Client client, long chatId = 0, int ttl = 0)
+        {
+            var obj = new SetChatMessageTtlSetting
+            {
+                ChatId = chatId,
+                Ttl = ttl,
             };
             _ = await client.InvokeAsync<Ok>(obj);
         }
@@ -2604,10 +2660,10 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights
+        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info administrator right
         /// </summary>
         /// <param name="chatId">Identifier of the chat</param>
-        /// <param name="description">Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights</param>
+        /// <param name="description">Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info administrator right</param>
         public static async Task SetChatDescription(this Client client, long chatId = 0, string description = default)
         {
             var obj = new SetChatDescription
@@ -2619,10 +2675,10 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
+        /// Changes the discussion group of a channel chat; requires can_change_info administrator right in the channel if it is specified
         /// </summary>
         /// <param name="chatId">Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages rights in the supergroup)</param>
-        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats need to be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable must be used first to change that</param>
+        /// <param name="discussionChatId">Identifier of a new channel's discussion group. Use 0 to remove the discussion group. -Use the method getSuitableDiscussionChats to find all suitable groups. Basic group chats must be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable must be used first to change that</param>
         public static async Task SetChatDiscussionGroup(this Client client, long chatId = 0, long discussionChatId = 0)
         {
             var obj = new SetChatDiscussionGroup
@@ -2669,7 +2725,7 @@ namespace TDLibCore.ClientExtensions
         /// <param name="chatId">Identifier of the chat</param>
         /// <param name="messageId">Identifier of the new pinned message</param>
         /// <param name="disableNotification">True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats</param>
-        /// <param name="onlyForSelf">True, if the message needs to be pinned only for self; private chats only</param>
+        /// <param name="onlyForSelf">True, if the message needs to be pinned for one side only; private chats only</param>
         public static async Task PinChatMessage(this Client client, long chatId = 0, long messageId = 0, bool disableNotification = false, bool onlyForSelf = false)
         {
             var obj = new PinChatMessage
@@ -2711,7 +2767,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Adds current user as a new member to a chat. Private and secret chats can't be joined using this method
+        /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         public static async Task JoinChat(this Client client, long chatId = 0)
@@ -2724,7 +2780,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Removes current user from chat members. Private and secret chats can't be left using this method
+        /// Removes the current user from chat members. Private and secret chats can't be left using this method
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         public static async Task LeaveChat(this Client client, long chatId = 0)
@@ -2737,7 +2793,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server
+        /// Adds a new member to a chat. Members can't be added to private or secret chats
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="userId">Identifier of the user</param>
@@ -2754,10 +2810,10 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Adds multiple new members to a chat. Currently this option is only available for supergroups and channels. This option can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Members will not be added until the chat state has been synchronized with the server
+        /// Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="userIds">Identifiers of the users to be added to the chat</param>
+        /// <param name="userIds">Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels</param>
         public static async Task AddChatMembers(this Client client, long chatId = 0, int[] userIds = default)
         {
             var obj = new AddChatMembers
@@ -2769,18 +2825,37 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server
+        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="userId">User identifier</param>
+        /// <param name="memberId">Member identifier. Chats can be only banned and unbanned in supergroups and channels</param>
         /// <param name="status">The new status of the member in the chat</param>
-        public static async Task SetChatMemberStatus(this Client client, long chatId = 0, int userId = 0, ChatMemberStatus status = default)
+        public static async Task SetChatMemberStatus(this Client client, long chatId = 0, MessageSender memberId = default, ChatMemberStatus status = default)
         {
             var obj = new SetChatMemberStatus
             {
                 ChatId = chatId,
-                UserId = userId,
+                MemberId = memberId,
                 Status = status,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Bans a member in a chat. Members can't be banned in private or secret chats. In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="memberId">Member identifier</param>
+        /// <param name="bannedUntilDate">Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever. Ignored in basic groups</param>
+        /// <param name="revokeMessages">Pass true to delete all messages in the chat for the user. Always true for supergroups and channels</param>
+        public static async Task BanChatMember(this Client client, long chatId = 0, MessageSender memberId = default, int bannedUntilDate = 0, bool revokeMessages = false)
+        {
+            var obj = new BanChatMember
+            {
+                ChatId = chatId,
+                MemberId = memberId,
+                BannedUntilDate = bannedUntilDate,
+                RevokeMessages = revokeMessages,
             };
             _ = await client.InvokeAsync<Ok>(obj);
         }
@@ -2815,13 +2890,13 @@ namespace TDLibCore.ClientExtensions
         /// Returns information about a single member of a chat
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="userId">User identifier</param>
-        public static async Task<ChatMember> GetChatMember(this Client client, long chatId = 0, int userId = 0)
+        /// <param name="memberId">Member identifier</param>
+        public static async Task<ChatMember> GetChatMember(this Client client, long chatId = 0, MessageSender memberId = default)
         {
             var obj = new GetChatMember
             {
                 ChatId = chatId,
-                UserId = userId,
+                MemberId = memberId,
             };
             return await client.InvokeAsync(obj);
         }
@@ -3116,12 +3191,25 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
+        /// Returns information about a file with messages exported from another app
         /// </summary>
-        /// <param name="chatId">Chat identifier</param>
-        public static async Task<ChatInviteLink> GenerateChatInviteLink(this Client client, long chatId = 0)
+        /// <param name="messageFileHead">Beginning of the message file; up to 100 first lines</param>
+        public static async Task<MessageFileType> GetMessageFileType(this Client client, string messageFileHead = default)
         {
-            var obj = new GenerateChatInviteLink
+            var obj = new GetMessageFileType
+            {
+                MessageFileHead = messageFileHead,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns a confirmation text to be shown to the user before starting message import
+        /// </summary>
+        /// <param name="chatId">Identifier of a chat to which the messages will be imported. It must be an identifier of a private chat with a mutual contact or an identifier of a supergroup chat with can_change_info administrator right</param>
+        public static async Task<Text> GetMessageImportConfirmationText(this Client client, long chatId = 0)
+        {
+            var obj = new GetMessageImportConfirmationText
             {
                 ChatId = chatId,
             };
@@ -3129,9 +3217,190 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
+        /// Imports messages exported from another app
+        /// </summary>
+        /// <param name="chatId">Identifier of a chat to which the messages will be imported. It must be an identifier of a private chat with a mutual contact or an identifier of a supergroup chat with can_change_info administrator right</param>
+        /// <param name="messageFile">File with messages to import. Only inputFileLocal and inputFileGenerated are supported. The file must not be previously uploaded</param>
+        /// <param name="attachedFiles">Files used in the imported messages. Only inputFileLocal and inputFileGenerated are supported. The files must not be previously uploaded</param>
+        public static async Task ImportMessages(this Client client, long chatId = 0, InputFile messageFile = default, InputFile[] attachedFiles = default)
+        {
+            var obj = new ImportMessages
+            {
+                ChatId = chatId,
+                MessageFile = messageFile,
+                AttachedFiles = attachedFiles,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Replaces current primary invite link for a chat with a new primary invite link. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        public static async Task<ChatInviteLink> ReplacePrimaryChatInviteLink(this Client client, long chatId = 0)
+        {
+            var obj = new ReplacePrimaryChatInviteLink
+            {
+                ChatId = chatId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Creates a new invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire; pass 0 if never</param>
+        /// <param name="memberLimit">The maximum number of chat members that can join the chat by the link simultaneously; 0-99999; pass 0 if not limited</param>
+        public static async Task<ChatInviteLink> CreateChatInviteLink(this Client client, long chatId = 0, int expireDate = 0, int memberLimit = 0)
+        {
+            var obj = new CreateChatInviteLink
+            {
+                ChatId = chatId,
+                ExpireDate = expireDate,
+                MemberLimit = memberLimit,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Edits a non-primary invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="inviteLink">Invite link to be edited</param>
+        /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire; pass 0 if never</param>
+        /// <param name="memberLimit">The maximum number of chat members that can join the chat by the link simultaneously; 0-99999; pass 0 if not limited</param>
+        public static async Task<ChatInviteLink> EditChatInviteLink(this Client client, long chatId = 0, string inviteLink = default, int expireDate = 0, int memberLimit = 0)
+        {
+            var obj = new EditChatInviteLink
+            {
+                ChatId = chatId,
+                InviteLink = inviteLink,
+                ExpireDate = expireDate,
+                MemberLimit = memberLimit,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns information about an invite link. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="inviteLink">Invite link to get</param>
+        public static async Task<ChatInviteLink> GetChatInviteLink(this Client client, long chatId = 0, string inviteLink = default)
+        {
+            var obj = new GetChatInviteLink
+            {
+                ChatId = chatId,
+                InviteLink = inviteLink,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns list of chat administrators with number of their invite links. Requires owner privileges in the chat
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        public static async Task<ChatInviteLinkCounts> GetChatInviteLinkCounts(this Client client, long chatId = 0)
+        {
+            var obj = new GetChatInviteLinkCounts
+            {
+                ChatId = chatId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns invite links for a chat created by specified administrator. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="creatorUserId">User identifier of a chat administrator. Must be an identifier of the current user for non-owner</param>
+        /// <param name="isRevoked">Pass true if revoked links needs to be returned instead of active or expired</param>
+        /// <param name="offsetDate">Creation date of an invite link starting after which to return invite links; use 0 to get results from the beginning</param>
+        /// <param name="offsetInviteLink">Invite link starting after which to return invite links; use empty string to get results from the beginning</param>
+        /// <param name="limit">The maximum number of invite links to return</param>
+        public static async Task<ChatInviteLinks> GetChatInviteLinks(this Client client, long chatId = 0, int creatorUserId = 0, bool isRevoked = false, int offsetDate = 0, string offsetInviteLink = default, int limit = 0)
+        {
+            var obj = new GetChatInviteLinks
+            {
+                ChatId = chatId,
+                CreatorUserId = creatorUserId,
+                IsRevoked = isRevoked,
+                OffsetDate = offsetDate,
+                OffsetInviteLink = offsetInviteLink,
+                Limit = limit,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns chat members joined a chat by an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="inviteLink">Invite link for which to return chat members</param>
+        /// <param name="offsetMember">A chat member from which to return next chat members; use null to get results from the beginning</param>
+        /// <param name="limit">The maximum number of chat members to return</param>
+        public static async Task<ChatInviteLinkMembers> GetChatInviteLinkMembers(this Client client, long chatId = 0, string inviteLink = default, ChatInviteLinkMember offsetMember = default, int limit = 0)
+        {
+            var obj = new GetChatInviteLinkMembers
+            {
+                ChatId = chatId,
+                InviteLink = inviteLink,
+                OffsetMember = offsetMember,
+                Limit = limit,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Revokes invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links. -If a primary link is revoked, then additionally to the revoked link returns new primary link
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="inviteLink">Invite link to be revoked</param>
+        public static async Task<ChatInviteLinks> RevokeChatInviteLink(this Client client, long chatId = 0, string inviteLink = default)
+        {
+            var obj = new RevokeChatInviteLink
+            {
+                ChatId = chatId,
+                InviteLink = inviteLink,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Deletes revoked chat invite links. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="inviteLink">Invite link to revoke</param>
+        public static async Task DeleteRevokedChatInviteLink(this Client client, long chatId = 0, string inviteLink = default)
+        {
+            var obj = new DeleteRevokedChatInviteLink
+            {
+                ChatId = chatId,
+                InviteLink = inviteLink,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Deletes all revoked chat invite links created by a given chat administrator. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="creatorUserId">User identifier of a chat administrator, which links will be deleted. Must be an identifier of the current user for non-owner</param>
+        public static async Task DeleteAllRevokedChatInviteLinks(this Client client, long chatId = 0, int creatorUserId = 0)
+        {
+            var obj = new DeleteAllRevokedChatInviteLinks
+            {
+                ChatId = chatId,
+                CreatorUserId = creatorUserId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
         /// Checks the validity of an invite link for a chat and returns information about the corresponding chat
         /// </summary>
-        /// <param name="inviteLink">Invite link to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"</param>
+        /// <param name="inviteLink">Invite link to be checked; must have URL "t.me", "telegram.me", or "telegram.dog" and query beginning with "/joinchat/" or "/+"</param>
         public static async Task<ChatInviteLinkInfo> CheckChatInviteLink(this Client client, string inviteLink = default)
         {
             var obj = new CheckChatInviteLink
@@ -3142,9 +3411,9 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Uses an invite link to add the current user to the chat if possible. The new member will not be added until the chat state has been synchronized with the server
+        /// Uses an invite link to add the current user to the chat if possible
         /// </summary>
-        /// <param name="inviteLink">Invite link to import; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"</param>
+        /// <param name="inviteLink">Invite link to import; must have URL "t.me", "telegram.me", or "telegram.dog" and query beginning with "/joinchat/" or "/+"</param>
         public static async Task<Chat> JoinChatByInviteLink(this Client client, string inviteLink = default)
         {
             var obj = new JoinChatByInviteLink
@@ -3254,6 +3523,342 @@ namespace TDLibCore.ClientExtensions
                 DebugInformation = debugInformation,
             };
             _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Returns list of participant identifiers, which can be used to join voice chats in a chat
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        public static async Task<MessageSenders> GetVoiceChatAvailableParticipants(this Client client, long chatId = 0)
+        {
+            var obj = new GetVoiceChatAvailableParticipants
+            {
+                ChatId = chatId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Changes default participant identifier, which can be used to join voice chats in a chat
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="defaultParticipantId">Default group call participant identifier to join the voice chats</param>
+        public static async Task SetVoiceChatDefaultParticipant(this Client client, long chatId = 0, MessageSender defaultParticipantId = default)
+        {
+            var obj = new SetVoiceChatDefaultParticipant
+            {
+                ChatId = chatId,
+                DefaultParticipantId = defaultParticipantId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Creates a voice chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_voice_chats rights
+        /// </summary>
+        /// <param name="chatId">Chat identifier, in which the voice chat will be created</param>
+        /// <param name="title">Group call title; if empty, chat title will be used</param>
+        /// <param name="startDate">Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the voice chat immediately. The date must be at least 10 seconds and at most 8 days in the future</param>
+        public static async Task<GroupCallId> CreateVoiceChat(this Client client, long chatId = 0, string title = default, int startDate = 0)
+        {
+            var obj = new CreateVoiceChat
+            {
+                ChatId = chatId,
+                Title = title,
+                StartDate = startDate,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Returns information about a group call
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        public static async Task<GroupCall> GetGroupCall(this Client client, int groupCallId = 0)
+        {
+            var obj = new GetGroupCall
+            {
+                GroupCallId = groupCallId,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Starts a scheduled group call
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        public static async Task StartScheduledGroupCall(this Client client, int groupCallId = 0)
+        {
+            var obj = new StartScheduledGroupCall
+            {
+                GroupCallId = groupCallId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Toggles whether the current user will receive a notification when the group call will start; scheduled group calls only
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="enabledStartNotification">New value of the enabled_start_notification setting</param>
+        public static async Task ToggleGroupCallEnabledStartNotification(this Client client, int groupCallId = 0, bool enabledStartNotification = false)
+        {
+            var obj = new ToggleGroupCallEnabledStartNotification
+            {
+                GroupCallId = groupCallId,
+                EnabledStartNotification = enabledStartNotification,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Joins an active group call
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="participantId">Identifier of a group call participant, which will be used to join the call; voice chats only</param>
+        /// <param name="payload">Group join payload; received from tgcalls</param>
+        /// <param name="source">Caller synchronization source identifier; received from tgcalls</param>
+        /// <param name="isMuted">True, if the user's microphone is muted</param>
+        /// <param name="inviteHash">If non-empty, invite hash to be used to join the group call without being muted by administrators</param>
+        public static async Task<GroupCallJoinResponse> JoinGroupCall(this Client client, int groupCallId = 0, MessageSender participantId = default, GroupCallPayload payload = default, int source = 0, bool isMuted = false, string inviteHash = default)
+        {
+            var obj = new JoinGroupCall
+            {
+                GroupCallId = groupCallId,
+                ParticipantId = participantId,
+                Payload = payload,
+                Source = source,
+                IsMuted = isMuted,
+                InviteHash = inviteHash,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Sets group call title. Requires groupCall.can_be_managed group call flag
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="title">New group call title; 1-64 characters</param>
+        public static async Task SetGroupCallTitle(this Client client, int groupCallId = 0, string title = default)
+        {
+            var obj = new SetGroupCallTitle
+            {
+                GroupCallId = groupCallId,
+                Title = title,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Toggles whether new participants of a group call can be unmuted only by administrators of the group call. Requires groupCall.can_change_mute_new_participants group call flag
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="muteNewParticipants">New value of the mute_new_participants setting</param>
+        public static async Task ToggleGroupCallMuteNewParticipants(this Client client, int groupCallId = 0, bool muteNewParticipants = false)
+        {
+            var obj = new ToggleGroupCallMuteNewParticipants
+            {
+                GroupCallId = groupCallId,
+                MuteNewParticipants = muteNewParticipants,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Revokes invite link for a group call. Requires groupCall.can_be_managed group call flag
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        public static async Task RevokeGroupCallInviteLink(this Client client, int groupCallId = 0)
+        {
+            var obj = new RevokeGroupCallInviteLink
+            {
+                GroupCallId = groupCallId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Invites users to an active group call. Sends a service message of type messageInviteToGroupCall for voice chats
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="userIds">User identifiers. At most 10 users can be invited simultaneously</param>
+        public static async Task InviteGroupCallParticipants(this Client client, int groupCallId = 0, int[] userIds = default)
+        {
+            var obj = new InviteGroupCallParticipants
+            {
+                GroupCallId = groupCallId,
+                UserIds = userIds,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Returns invite link to a voice chat in a public chat
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="canSelfUnmute">Pass true if the invite_link should contain an invite hash, passing which to joinGroupCall would allow the invited user to unmute themself. Requires groupCall.can_be_managed group call flag</param>
+        public static async Task<HttpUrl> GetGroupCallInviteLink(this Client client, int groupCallId = 0, bool canSelfUnmute = false)
+        {
+            var obj = new GetGroupCallInviteLink
+            {
+                GroupCallId = groupCallId,
+                CanSelfUnmute = canSelfUnmute,
+            };
+            return await client.InvokeAsync(obj);
+        }
+
+        /// <summary>
+        /// Starts recording of an active group call. Requires groupCall.can_be_managed group call flag
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="title">Group call recording title; 0-64 characters</param>
+        public static async Task StartGroupCallRecording(this Client client, int groupCallId = 0, string title = default)
+        {
+            var obj = new StartGroupCallRecording
+            {
+                GroupCallId = groupCallId,
+                Title = title,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Ends recording of an active group call. Requires groupCall.can_be_managed group call flag
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        public static async Task EndGroupCallRecording(this Client client, int groupCallId = 0)
+        {
+            var obj = new EndGroupCallRecording
+            {
+                GroupCallId = groupCallId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Informs TDLib that a participant of an active group call speaking state has changed
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="source">Group call participant's synchronization source identifier, or 0 for the current user</param>
+        /// <param name="isSpeaking">True, if the user is speaking</param>
+        public static async Task SetGroupCallParticipantIsSpeaking(this Client client, int groupCallId = 0, int source = 0, bool isSpeaking = false)
+        {
+            var obj = new SetGroupCallParticipantIsSpeaking
+            {
+                GroupCallId = groupCallId,
+                Source = source,
+                IsSpeaking = isSpeaking,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themself
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="participantId">Participant identifier</param>
+        /// <param name="isMuted">Pass true if the user must be muted and false otherwise</param>
+        public static async Task ToggleGroupCallParticipantIsMuted(this Client client, int groupCallId = 0, MessageSender participantId = default, bool isMuted = false)
+        {
+            var obj = new ToggleGroupCallParticipantIsMuted
+            {
+                GroupCallId = groupCallId,
+                ParticipantId = participantId,
+                IsMuted = isMuted,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Changes volume level of a participant of an active group call. If the current user can manage the group call, then the participant's volume level will be changed for all users with default volume level
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="participantId">Participant identifier</param>
+        /// <param name="volumeLevel">New participant's volume level; 1-20000 in hundreds of percents</param>
+        public static async Task SetGroupCallParticipantVolumeLevel(this Client client, int groupCallId = 0, MessageSender participantId = default, int volumeLevel = 0)
+        {
+            var obj = new SetGroupCallParticipantVolumeLevel
+            {
+                GroupCallId = groupCallId,
+                ParticipantId = participantId,
+                VolumeLevel = volumeLevel,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Toggles whether a group call participant hand is rased
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="participantId">Participant identifier</param>
+        /// <param name="isHandRaised">Pass true if the user's hand should be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand</param>
+        public static async Task ToggleGroupCallParticipantIsHandRaised(this Client client, int groupCallId = 0, MessageSender participantId = default, bool isHandRaised = false)
+        {
+            var obj = new ToggleGroupCallParticipantIsHandRaised
+            {
+                GroupCallId = groupCallId,
+                ParticipantId = participantId,
+                IsHandRaised = isHandRaised,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Loads more participants of a group call. The loaded participants will be received through updates. Use the field groupCall.loaded_all_participants to check whether all participants has already been loaded
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier. The group call must be previously received through getGroupCall and must be joined or being joined</param>
+        /// <param name="limit">The maximum number of participants to load</param>
+        public static async Task LoadGroupCallParticipants(this Client client, int groupCallId = 0, int limit = 0)
+        {
+            var obj = new LoadGroupCallParticipants
+            {
+                GroupCallId = groupCallId,
+                Limit = limit,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Leaves a group call
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        public static async Task LeaveGroupCall(this Client client, int groupCallId = 0)
+        {
+            var obj = new LeaveGroupCall
+            {
+                GroupCallId = groupCallId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Discards a group call. Requires groupCall.can_be_managed
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        public static async Task DiscardGroupCall(this Client client, int groupCallId = 0)
+        {
+            var obj = new DiscardGroupCall
+            {
+                GroupCallId = groupCallId,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Returns a file with a segment of a group call stream in a modified OGG format
+        /// </summary>
+        /// <param name="groupCallId">Group call identifier</param>
+        /// <param name="timeOffset">Point in time when the stream segment begins; Unix timestamp in milliseconds</param>
+        /// <param name="scale">Segment duration scale; 0-1. Segment's duration is 1000/(2**scale) milliseconds</param>
+        public static async Task<FilePart> GetGroupCallStreamSegment(this Client client, int groupCallId = 0, long timeOffset = 0, int scale = 0)
+        {
+            var obj = new GetGroupCallStreamSegment
+            {
+                GroupCallId = groupCallId,
+                TimeOffset = timeOffset,
+                Scale = scale,
+            };
+            return await client.InvokeAsync(obj);
         }
 
         /// <summary>
@@ -3380,7 +3985,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes imported contacts using the list of current user contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts. -Query result depends on the result of the previous query, so only one query is possible at the same time
+        /// Changes imported contacts using the list of contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts. -Query result depends on the result of the previous query, so only one query is possible at the same time
         /// </summary>
         /// <param name="contacts">The new list of contacts, contact's vCard are ignored and are not imported</param>
         public static async Task<ImportedContacts> ChangeImportedContacts(this Client client, Contact[] contacts = default)
@@ -4062,7 +4667,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires can_change_info rights
+        /// Changes the sticker set of a supergroup; requires can_change_info administrator right
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup</param>
         /// <param name="stickerSetId">New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set</param>
@@ -4077,7 +4682,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Toggles sender signatures messages sent in a channel; requires can_change_info rights
+        /// Toggles sender signatures messages sent in a channel; requires can_change_info administrator right
         /// </summary>
         /// <param name="supergroupId">Identifier of the channel</param>
         /// <param name="signMessages">New value of sign_messages</param>
@@ -4092,7 +4697,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info administrator right
         /// </summary>
         /// <param name="supergroupId">The identifier of the supergroup</param>
         /// <param name="isAllHistoryAvailable">The new value of is_all_history_available</param>
@@ -4102,6 +4707,19 @@ namespace TDLibCore.ClientExtensions
             {
                 SupergroupId = supergroupId,
                 IsAllHistoryAvailable = isAllHistoryAvailable,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Upgrades supergroup to a broadcast group; requires owner privileges in the supergroup
+        /// </summary>
+        /// <param name="supergroupId">Identifier of the supergroup</param>
+        public static async Task ToggleSupergroupIsBroadcastGroup(this Client client, int supergroupId = 0)
+        {
+            var obj = new ToggleSupergroupIsBroadcastGroup
+            {
+                SupergroupId = supergroupId,
             };
             _ = await client.InvokeAsync<Ok>(obj);
         }
@@ -4127,7 +4745,7 @@ namespace TDLibCore.ClientExtensions
         /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
         /// </summary>
         /// <param name="supergroupId">Identifier of the supergroup or channel</param>
-        /// <param name="filter">The type of users to return. By default, supergroupMembersRecent</param>
+        /// <param name="filter">The type of users to return. By default, supergroupMembersFilterRecent</param>
         /// <param name="offset">Number of users to skip</param>
         /// <param name="limit">The maximum number of users be returned; up to 200</param>
         public static async Task<ChatMembers> GetSupergroupMembers(this Client client, int supergroupId = 0, SupergroupMembersFilter filter = default, int offset = 0, int limit = 0)
@@ -4140,19 +4758,6 @@ namespace TDLibCore.ClientExtensions
                 Limit = limit,
             };
             return await client.InvokeAsync(obj);
-        }
-
-        /// <summary>
-        /// Deletes a supergroup or channel along with all messages in the corresponding chat. This will release the supergroup or channel username and remove all members; requires owner privileges in the supergroup or channel. Chats with more than 1000 members can't be deleted using this method
-        /// </summary>
-        /// <param name="supergroupId">Identifier of the supergroup or channel</param>
-        public static async Task DeleteSupergroup(this Client client, int supergroupId = 0)
-        {
-            var obj = new DeleteSupergroup
-            {
-                SupergroupId = supergroupId,
-            };
-            _ = await client.InvokeAsync<Ok>(obj);
         }
 
         /// <summary>
@@ -4196,12 +4801,14 @@ namespace TDLibCore.ClientExtensions
         /// </summary>
         /// <param name="chatId">Chat identifier of the Invoice message</param>
         /// <param name="messageId">Message identifier</param>
-        public static async Task<PaymentForm> GetPaymentForm(this Client client, long chatId = 0, long messageId = 0)
+        /// <param name="theme">Preferred payment form theme</param>
+        public static async Task<PaymentForm> GetPaymentForm(this Client client, long chatId = 0, long messageId = 0, PaymentFormTheme theme = default)
         {
             var obj = new GetPaymentForm
             {
                 ChatId = chatId,
                 MessageId = messageId,
+                Theme = theme,
             };
             return await client.InvokeAsync(obj);
         }
@@ -4230,18 +4837,22 @@ namespace TDLibCore.ClientExtensions
         /// </summary>
         /// <param name="chatId">Chat identifier of the Invoice message</param>
         /// <param name="messageId">Message identifier</param>
-        /// <param name="orderInfoId">Identifier returned by ValidateOrderInfo, or an empty string</param>
+        /// <param name="paymentFormId">Payment form identifier returned by getPaymentForm</param>
+        /// <param name="orderInfoId">Identifier returned by validateOrderInfo, or an empty string</param>
         /// <param name="shippingOptionId">Identifier of a chosen shipping option, if applicable</param>
         /// <param name="credentials">The credentials chosen by user for payment</param>
-        public static async Task<PaymentResult> SendPaymentForm(this Client client, long chatId = 0, long messageId = 0, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default)
+        /// <param name="tipAmount">Chosen by the user amount of tip in the smallest units of the currency</param>
+        public static async Task<PaymentResult> SendPaymentForm(this Client client, long chatId = 0, long messageId = 0, long paymentFormId = 0, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = 0)
         {
             var obj = new SendPaymentForm
             {
                 ChatId = chatId,
                 MessageId = messageId,
+                PaymentFormId = paymentFormId,
                 OrderInfoId = orderInfoId,
                 ShippingOptionId = shippingOptionId,
                 Credentials = credentials,
+                TipAmount = tipAmount,
             };
             return await client.InvokeAsync(obj);
         }
@@ -4300,7 +4911,7 @@ namespace TDLibCore.ClientExtensions
         /// <summary>
         /// Returns backgrounds installed by the user
         /// </summary>
-        /// <param name="forDarkTheme">True, if the backgrounds need to be ordered for dark theme</param>
+        /// <param name="forDarkTheme">True, if the backgrounds must be ordered for dark theme</param>
         public static async Task<Backgrounds> GetBackgrounds(this Client client, bool forDarkTheme = false)
         {
             var obj = new GetBackgrounds
@@ -4419,7 +5030,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Fetches the latest versions of all strings from a language pack in the current localization target from the server. This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
+        /// Fetches the latest versions of all strings from a language pack in the current localization target from the server. This method shouldn't be called explicitly for the current used/base language packs. Can be called before authorization
         /// </summary>
         /// <param name="languagePackId">Language pack identifier</param>
         public static async Task SynchronizeLanguagePack(this Client client, string languagePackId = default)
@@ -4673,18 +5284,39 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chat with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
-        /// <param name="reason">The reason for reporting the chat</param>
         /// <param name="messageIds">Identifiers of reported messages, if any</param>
-        public static async Task ReportChat(this Client client, long chatId = 0, ChatReportReason reason = default, long[] messageIds = default)
+        /// <param name="reason">The reason for reporting the chat</param>
+        /// <param name="text">Additional report details; 0-1024 characters</param>
+        public static async Task ReportChat(this Client client, long chatId = 0, long[] messageIds = default, ChatReportReason reason = default, string text = default)
         {
             var obj = new ReportChat
             {
                 ChatId = chatId,
-                Reason = reason,
                 MessageIds = messageIds,
+                Reason = reason,
+                Text = text,
+            };
+            _ = await client.InvokeAsync<Ok>(obj);
+        }
+
+        /// <summary>
+        /// Reports a chat photo to the Telegram moderators. A chat photo can be reported only if this is a private chat with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
+        /// </summary>
+        /// <param name="chatId">Chat identifier</param>
+        /// <param name="fileId">Identifier of the photo to report. Only full photos from chatPhoto can be reported</param>
+        /// <param name="reason">The reason for reporting the chat photo</param>
+        /// <param name="text">Additional report details; 0-1024 characters</param>
+        public static async Task ReportChatPhoto(this Client client, long chatId = 0, int fileId = 0, ChatReportReason reason = default, string text = default)
+        {
+            var obj = new ReportChatPhoto
+            {
+                ChatId = chatId,
+                FileId = fileId,
+                Reason = reason,
+                Text = text,
             };
             _ = await client.InvokeAsync<Ok>(obj);
         }
@@ -4739,14 +5371,14 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Loads asynchronous or zoomed in chat or message statistics graph
+        /// Loads an asynchronous or a zoomed in statistical graph
         /// </summary>
         /// <param name="chatId">Chat identifier</param>
         /// <param name="token">The token for graph loading</param>
         /// <param name="x">X-value for zoomed in graph or 0 otherwise</param>
-        public static async Task<StatisticsGraph> GetStatisticsGraph(this Client client, long chatId = 0, string token = default, long x = 0)
+        public static async Task<StatisticalGraph> GetStatisticalGraph(this Client client, long chatId = 0, string token = default, long x = 0)
         {
-            var obj = new GetStatisticsGraph
+            var obj = new GetStatisticalGraph
             {
                 ChatId = chatId,
                 Token = token,
@@ -4796,7 +5428,7 @@ namespace TDLibCore.ClientExtensions
         /// <param name="fileTypes">If not empty, only files with the given type(s) are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted</param>
         /// <param name="chatIds">If not empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)</param>
         /// <param name="excludeChatIds">If not empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)</param>
-        /// <param name="returnDeletedFileStatistics">Pass true if deleted file statistics need to be returned instead of the whole storage usage statistics. Affects only returned statistics</param>
+        /// <param name="returnDeletedFileStatistics">Pass true if statistics about the files that were deleted must be returned instead of the whole storage usage statistics. Affects only returned statistics</param>
         /// <param name="chatLimit">Same as in getStorageStatistics. Affects only returned statistics</param>
         public static async Task<StorageStatistics> OptimizeStorage(this Client client, long size = 0, int ttl = 0, int count = 0, int immunityDelay = 0, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, bool returnDeletedFileStatistics = false, int chatLimit = 0)
         {
@@ -5091,7 +5723,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements need to be used
+        /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
         /// </summary>
         /// <param name="autorizationFormId">Authorization form identifier</param>
         /// <param name="types">Types of Telegram Passport elements chosen by user to complete the authorization form</param>
@@ -5346,7 +5978,7 @@ namespace TDLibCore.ClientExtensions
         }
 
         /// <summary>
-        /// Uses current user IP address to find their country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
+        /// Uses the current IP address to find the current country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
         /// </summary>
         public static async Task<Text> GetCountryCode(this Client client)
         {
@@ -5503,7 +6135,7 @@ namespace TDLibCore.ClientExtensions
         /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization
         /// </summary>
         /// <param name="proxyId">Proxy identifier</param>
-        public static async Task<Text> GetProxyLink(this Client client, int proxyId = 0)
+        public static async Task<HttpUrl> GetProxyLink(this Client client, int proxyId = 0)
         {
             var obj = new GetProxyLink
             {
@@ -5697,7 +6329,7 @@ namespace TDLibCore.ClientExtensions
         /// <summary>
         /// Adds a message to TDLib internal log. Can be called synchronously
         /// </summary>
-        /// <param name="verbosityLevel">The minimum verbosity level needed for the message to be logged, 0-1023</param>
+        /// <param name="verbosityLevel">The minimum verbosity level needed for the message to be logged; 0-1023</param>
         /// <param name="text">Text of a message to log</param>
         public static async Task AddLogMessage(this Client client, int verbosityLevel = 0, string text = default)
         {
@@ -5712,7 +6344,7 @@ namespace TDLibCore.ClientExtensions
         /// <summary>
         /// Adds a message to TDLib internal log. Can be called synchronously
         /// </summary>
-        /// <param name="verbosityLevel">The minimum verbosity level needed for the message to be logged, 0-1023</param>
+        /// <param name="verbosityLevel">The minimum verbosity level needed for the message to be logged; 0-1023</param>
         /// <param name="text">Text of a message to log</param>
         /// <remarks>This extension method is synchronous.</remarks>
         public static void AddLogMessageSync(this Client client, int verbosityLevel = 0, string text = default)
