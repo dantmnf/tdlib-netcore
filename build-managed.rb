@@ -37,6 +37,7 @@ def system2(*args, exception: false)
 end
 
 FileUtils.mkdir_p(opts[:buildroot])
+FileUtils.mkdir_p(opts[:outdir])
 
 Dir.chdir(opts[:buildroot]) do
   system2('dotnet', 'pack', File.join(scriptroot, 'tdlib.sln'), '-c', 'Release', '-p:Platform=Any CPU',
