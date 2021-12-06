@@ -436,6 +436,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_has_passport_data = JsonEncodedText.Encode(propName_has_passport_data);
         private static ReadOnlySpan<byte> propName_recovery_email_address_code_info => new byte[] { 114, 101, 99, 111, 118, 101, 114, 121, 95, 101, 109, 97, 105, 108, 95, 97, 100, 100, 114, 101, 115, 115, 95, 99, 111, 100, 101, 95, 105, 110, 102, 111 };
         private static readonly JsonEncodedText encodedPropName_recovery_email_address_code_info = JsonEncodedText.Encode(propName_recovery_email_address_code_info);
+        private static ReadOnlySpan<byte> propName_pending_reset_date => new byte[] { 112, 101, 110, 100, 105, 110, 103, 95, 114, 101, 115, 101, 116, 95, 100, 97, 116, 101 };
+        private static readonly JsonEncodedText encodedPropName_pending_reset_date = JsonEncodedText.Encode(propName_pending_reset_date);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -450,6 +452,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_recovery_email_address_code_info);
                 writer.WriteTLObjectValue(obj.RecoveryEmailAddressCodeInfo);
             }
+            writer.WriteNumber(encodedPropName_pending_reset_date, obj.PendingResetDate);
         }
     }
 
@@ -853,6 +856,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteNumber(encodedPropName_x_shift, obj.XShift);
             writer.WriteNumber(encodedPropName_y_shift, obj.YShift);
             writer.WriteNumber(encodedPropName_scale, obj.Scale);
+        }
+    }
+
+    partial class ColorReplacementConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 111, 108, 111, 114, 82, 101, 112, 108, 97, 99, 101, 109, 101, 110, 116 }));
+        private static ReadOnlySpan<byte> propName_old_color => new byte[] { 111, 108, 100, 95, 99, 111, 108, 111, 114 };
+        private static readonly JsonEncodedText encodedPropName_old_color = JsonEncodedText.Encode(propName_old_color);
+        private static ReadOnlySpan<byte> propName_new_color => new byte[] { 110, 101, 119, 95, 99, 111, 108, 111, 114 };
+        private static readonly JsonEncodedText encodedPropName_new_color = JsonEncodedText.Encode(propName_new_color);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ColorReplacement)tlobj;
+            writer.WriteNumber(encodedPropName_old_color, obj.OldColor);
+            writer.WriteNumber(encodedPropName_new_color, obj.NewColor);
         }
     }
 
@@ -1277,6 +1297,38 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class AnimatedEmojiConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 97, 110, 105, 109, 97, 116, 101, 100, 69, 109, 111, 106, 105 }));
+        private static ReadOnlySpan<byte> propName_sticker => new byte[] { 115, 116, 105, 99, 107, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_sticker = JsonEncodedText.Encode(propName_sticker);
+        private static ReadOnlySpan<byte> propName_color_replacements => new byte[] { 99, 111, 108, 111, 114, 95, 114, 101, 112, 108, 97, 99, 101, 109, 101, 110, 116, 115 };
+        private static readonly JsonEncodedText encodedPropName_color_replacements = JsonEncodedText.Encode(propName_color_replacements);
+        private static ReadOnlySpan<byte> propName_sound => new byte[] { 115, 111, 117, 110, 100 };
+        private static readonly JsonEncodedText encodedPropName_sound = JsonEncodedText.Encode(propName_sound);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (AnimatedEmoji)tlobj;
+            if (obj.Sticker != null)
+            {
+                writer.WritePropertyName(encodedPropName_sticker);
+                writer.WriteTLObjectValue(obj.Sticker);
+            }
+            if (obj.ColorReplacements != null)
+            {
+                writer.WritePropertyName(encodedPropName_color_replacements);
+                writer.WriteArray(obj.ColorReplacements);
+            }
+            if (obj.Sound != null)
+            {
+                writer.WritePropertyName(encodedPropName_sound);
+                writer.WriteTLObjectValue(obj.Sound);
+            }
+        }
+    }
+
     partial class ContactConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 111, 110, 116, 97, 99, 116 }));
@@ -1602,19 +1654,19 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class BotInfoConverter
+    partial class BotCommandsConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 73, 110, 102, 111 }));
-        private static ReadOnlySpan<byte> propName_description => new byte[] { 100, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110 };
-        private static readonly JsonEncodedText encodedPropName_description = JsonEncodedText.Encode(propName_description);
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 115 }));
+        private static ReadOnlySpan<byte> propName_bot_user_id => new byte[] { 98, 111, 116, 95, 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_bot_user_id = JsonEncodedText.Encode(propName_bot_user_id);
         private static ReadOnlySpan<byte> propName_commands => new byte[] { 99, 111, 109, 109, 97, 110, 100, 115 };
         private static readonly JsonEncodedText encodedPropName_commands = JsonEncodedText.Encode(propName_commands);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (BotInfo)tlobj;
-            writer.WriteString(encodedPropName_description, obj.Description);
+            var obj = (BotCommands)tlobj;
+            writer.WriteNumber(encodedPropName_bot_user_id, obj.BotUserId);
             if (obj.Commands != null)
             {
                 writer.WritePropertyName(encodedPropName_commands);
@@ -1875,10 +1927,12 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_bio = JsonEncodedText.Encode(propName_bio);
         private static ReadOnlySpan<byte> propName_share_text => new byte[] { 115, 104, 97, 114, 101, 95, 116, 101, 120, 116 };
         private static readonly JsonEncodedText encodedPropName_share_text = JsonEncodedText.Encode(propName_share_text);
+        private static ReadOnlySpan<byte> propName_description => new byte[] { 100, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110 };
+        private static readonly JsonEncodedText encodedPropName_description = JsonEncodedText.Encode(propName_description);
         private static ReadOnlySpan<byte> propName_group_in_common_count => new byte[] { 103, 114, 111, 117, 112, 95, 105, 110, 95, 99, 111, 109, 109, 111, 110, 95, 99, 111, 117, 110, 116 };
         private static readonly JsonEncodedText encodedPropName_group_in_common_count = JsonEncodedText.Encode(propName_group_in_common_count);
-        private static ReadOnlySpan<byte> propName_bot_info => new byte[] { 98, 111, 116, 95, 105, 110, 102, 111 };
-        private static readonly JsonEncodedText encodedPropName_bot_info = JsonEncodedText.Encode(propName_bot_info);
+        private static ReadOnlySpan<byte> propName_commands => new byte[] { 99, 111, 109, 109, 97, 110, 100, 115 };
+        private static readonly JsonEncodedText encodedPropName_commands = JsonEncodedText.Encode(propName_commands);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -1896,11 +1950,12 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteBoolean(encodedPropName_need_phone_number_privacy_exception, obj.NeedPhoneNumberPrivacyException);
             writer.WriteString(encodedPropName_bio, obj.Bio);
             writer.WriteString(encodedPropName_share_text, obj.ShareText);
+            writer.WriteString(encodedPropName_description, obj.Description);
             writer.WriteNumber(encodedPropName_group_in_common_count, obj.GroupInCommonCount);
-            if (obj.BotInfo != null)
+            if (obj.Commands != null)
             {
-                writer.WritePropertyName(encodedPropName_bot_info);
-                writer.WriteTLObjectValue(obj.BotInfo);
+                writer.WritePropertyName(encodedPropName_commands);
+                writer.WriteArray(obj.Commands);
             }
         }
     }
@@ -2044,8 +2099,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_can_pin_messages = JsonEncodedText.Encode(propName_can_pin_messages);
         private static ReadOnlySpan<byte> propName_can_promote_members => new byte[] { 99, 97, 110, 95, 112, 114, 111, 109, 111, 116, 101, 95, 109, 101, 109, 98, 101, 114, 115 };
         private static readonly JsonEncodedText encodedPropName_can_promote_members = JsonEncodedText.Encode(propName_can_promote_members);
-        private static ReadOnlySpan<byte> propName_can_manage_voice_chats => new byte[] { 99, 97, 110, 95, 109, 97, 110, 97, 103, 101, 95, 118, 111, 105, 99, 101, 95, 99, 104, 97, 116, 115 };
-        private static readonly JsonEncodedText encodedPropName_can_manage_voice_chats = JsonEncodedText.Encode(propName_can_manage_voice_chats);
+        private static ReadOnlySpan<byte> propName_can_manage_video_chats => new byte[] { 99, 97, 110, 95, 109, 97, 110, 97, 103, 101, 95, 118, 105, 100, 101, 111, 95, 99, 104, 97, 116, 115 };
+        private static readonly JsonEncodedText encodedPropName_can_manage_video_chats = JsonEncodedText.Encode(propName_can_manage_video_chats);
         private static ReadOnlySpan<byte> propName_is_anonymous => new byte[] { 105, 115, 95, 97, 110, 111, 110, 121, 109, 111, 117, 115 };
         private static readonly JsonEncodedText encodedPropName_is_anonymous = JsonEncodedText.Encode(propName_is_anonymous);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -2064,7 +2119,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteBoolean(encodedPropName_can_restrict_members, obj.CanRestrictMembers);
             writer.WriteBoolean(encodedPropName_can_pin_messages, obj.CanPinMessages);
             writer.WriteBoolean(encodedPropName_can_promote_members, obj.CanPromoteMembers);
-            writer.WriteBoolean(encodedPropName_can_manage_voice_chats, obj.CanManageVoiceChats);
+            writer.WriteBoolean(encodedPropName_can_manage_video_chats, obj.CanManageVideoChats);
             writer.WriteBoolean(encodedPropName_is_anonymous, obj.IsAnonymous);
         }
     }
@@ -2138,8 +2193,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_joined_chat_date = JsonEncodedText.Encode(propName_joined_chat_date);
         private static ReadOnlySpan<byte> propName_status => new byte[] { 115, 116, 97, 116, 117, 115 };
         private static readonly JsonEncodedText encodedPropName_status = JsonEncodedText.Encode(propName_status);
-        private static ReadOnlySpan<byte> propName_bot_info => new byte[] { 98, 111, 116, 95, 105, 110, 102, 111 };
-        private static readonly JsonEncodedText encodedPropName_bot_info = JsonEncodedText.Encode(propName_bot_info);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -2156,11 +2209,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
             {
                 writer.WritePropertyName(encodedPropName_status);
                 writer.WriteTLObjectValue(obj.Status);
-            }
-            if (obj.BotInfo != null)
-            {
-                writer.WritePropertyName(encodedPropName_bot_info);
-                writer.WriteTLObjectValue(obj.BotInfo);
             }
         }
     }
@@ -2368,6 +2416,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 73, 110, 118, 105, 116, 101, 76, 105, 110, 107 }));
         private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
         private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        private static ReadOnlySpan<byte> propName_name => new byte[] { 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_name = JsonEncodedText.Encode(propName_name);
         private static ReadOnlySpan<byte> propName_creator_user_id => new byte[] { 99, 114, 101, 97, 116, 111, 114, 95, 117, 115, 101, 114, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_creator_user_id = JsonEncodedText.Encode(propName_creator_user_id);
         private static ReadOnlySpan<byte> propName_date => new byte[] { 100, 97, 116, 101 };
@@ -2380,6 +2430,10 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_member_limit = JsonEncodedText.Encode(propName_member_limit);
         private static ReadOnlySpan<byte> propName_member_count => new byte[] { 109, 101, 109, 98, 101, 114, 95, 99, 111, 117, 110, 116 };
         private static readonly JsonEncodedText encodedPropName_member_count = JsonEncodedText.Encode(propName_member_count);
+        private static ReadOnlySpan<byte> propName_pending_join_request_count => new byte[] { 112, 101, 110, 100, 105, 110, 103, 95, 106, 111, 105, 110, 95, 114, 101, 113, 117, 101, 115, 116, 95, 99, 111, 117, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_pending_join_request_count = JsonEncodedText.Encode(propName_pending_join_request_count);
+        private static ReadOnlySpan<byte> propName_creates_join_request => new byte[] { 99, 114, 101, 97, 116, 101, 115, 95, 106, 111, 105, 110, 95, 114, 101, 113, 117, 101, 115, 116 };
+        private static readonly JsonEncodedText encodedPropName_creates_join_request = JsonEncodedText.Encode(propName_creates_join_request);
         private static ReadOnlySpan<byte> propName_is_primary => new byte[] { 105, 115, 95, 112, 114, 105, 109, 97, 114, 121 };
         private static readonly JsonEncodedText encodedPropName_is_primary = JsonEncodedText.Encode(propName_is_primary);
         private static ReadOnlySpan<byte> propName_is_revoked => new byte[] { 105, 115, 95, 114, 101, 118, 111, 107, 101, 100 };
@@ -2390,12 +2444,15 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (ChatInviteLink)tlobj;
             writer.WriteString(encodedPropName_invite_link, obj.InviteLink);
+            writer.WriteString(encodedPropName_name, obj.Name);
             writer.WriteNumber(encodedPropName_creator_user_id, obj.CreatorUserId);
             writer.WriteNumber(encodedPropName_date, obj.Date);
             writer.WriteNumber(encodedPropName_edit_date, obj.EditDate);
             writer.WriteNumber(encodedPropName_expire_date, obj.ExpireDate);
             writer.WriteNumber(encodedPropName_member_limit, obj.MemberLimit);
             writer.WriteNumber(encodedPropName_member_count, obj.MemberCount);
+            writer.WriteNumber(encodedPropName_pending_join_request_count, obj.PendingJoinRequestCount);
+            writer.WriteBoolean(encodedPropName_creates_join_request, obj.CreatesJoinRequest);
             writer.WriteBoolean(encodedPropName_is_primary, obj.IsPrimary);
             writer.WriteBoolean(encodedPropName_is_revoked, obj.IsRevoked);
         }
@@ -2467,6 +2524,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_user_id = JsonEncodedText.Encode(propName_user_id);
         private static ReadOnlySpan<byte> propName_joined_chat_date => new byte[] { 106, 111, 105, 110, 101, 100, 95, 99, 104, 97, 116, 95, 100, 97, 116, 101 };
         private static readonly JsonEncodedText encodedPropName_joined_chat_date = JsonEncodedText.Encode(propName_joined_chat_date);
+        private static ReadOnlySpan<byte> propName_approver_user_id => new byte[] { 97, 112, 112, 114, 111, 118, 101, 114, 95, 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_approver_user_id = JsonEncodedText.Encode(propName_approver_user_id);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -2474,6 +2533,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatInviteLinkMember)tlobj;
             writer.WriteNumber(encodedPropName_user_id, obj.UserId);
             writer.WriteNumber(encodedPropName_joined_chat_date, obj.JoinedChatDate);
+            writer.WriteNumber(encodedPropName_approver_user_id, obj.ApproverUserId);
         }
     }
 
@@ -2511,10 +2571,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_title = JsonEncodedText.Encode(propName_title);
         private static ReadOnlySpan<byte> propName_photo => new byte[] { 112, 104, 111, 116, 111 };
         private static readonly JsonEncodedText encodedPropName_photo = JsonEncodedText.Encode(propName_photo);
+        private static ReadOnlySpan<byte> propName_description => new byte[] { 100, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110 };
+        private static readonly JsonEncodedText encodedPropName_description = JsonEncodedText.Encode(propName_description);
         private static ReadOnlySpan<byte> propName_member_count => new byte[] { 109, 101, 109, 98, 101, 114, 95, 99, 111, 117, 110, 116 };
         private static readonly JsonEncodedText encodedPropName_member_count = JsonEncodedText.Encode(propName_member_count);
         private static ReadOnlySpan<byte> propName_member_user_ids => new byte[] { 109, 101, 109, 98, 101, 114, 95, 117, 115, 101, 114, 95, 105, 100, 115 };
         private static readonly JsonEncodedText encodedPropName_member_user_ids = JsonEncodedText.Encode(propName_member_user_ids);
+        private static ReadOnlySpan<byte> propName_creates_join_request => new byte[] { 99, 114, 101, 97, 116, 101, 115, 95, 106, 111, 105, 110, 95, 114, 101, 113, 117, 101, 115, 116 };
+        private static readonly JsonEncodedText encodedPropName_creates_join_request = JsonEncodedText.Encode(propName_creates_join_request);
         private static ReadOnlySpan<byte> propName_is_public => new byte[] { 105, 115, 95, 112, 117, 98, 108, 105, 99 };
         private static readonly JsonEncodedText encodedPropName_is_public = JsonEncodedText.Encode(propName_is_public);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -2535,13 +2599,77 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_photo);
                 writer.WriteTLObjectValue(obj.Photo);
             }
+            writer.WriteString(encodedPropName_description, obj.Description);
             writer.WriteNumber(encodedPropName_member_count, obj.MemberCount);
             if (obj.MemberUserIds != null)
             {
                 writer.WritePropertyName(encodedPropName_member_user_ids);
                 writer.WriteArray(obj.MemberUserIds);
             }
+            writer.WriteBoolean(encodedPropName_creates_join_request, obj.CreatesJoinRequest);
             writer.WriteBoolean(encodedPropName_is_public, obj.IsPublic);
+        }
+    }
+
+    partial class ChatJoinRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116 }));
+        private static ReadOnlySpan<byte> propName_user_id => new byte[] { 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_user_id = JsonEncodedText.Encode(propName_user_id);
+        private static ReadOnlySpan<byte> propName_date => new byte[] { 100, 97, 116, 101 };
+        private static readonly JsonEncodedText encodedPropName_date = JsonEncodedText.Encode(propName_date);
+        private static ReadOnlySpan<byte> propName_bio => new byte[] { 98, 105, 111 };
+        private static readonly JsonEncodedText encodedPropName_bio = JsonEncodedText.Encode(propName_bio);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ChatJoinRequest)tlobj;
+            writer.WriteNumber(encodedPropName_user_id, obj.UserId);
+            writer.WriteNumber(encodedPropName_date, obj.Date);
+            writer.WriteString(encodedPropName_bio, obj.Bio);
+        }
+    }
+
+    partial class ChatJoinRequestsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116, 115 }));
+        private static ReadOnlySpan<byte> propName_total_count => new byte[] { 116, 111, 116, 97, 108, 95, 99, 111, 117, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_total_count = JsonEncodedText.Encode(propName_total_count);
+        private static ReadOnlySpan<byte> propName_requests => new byte[] { 114, 101, 113, 117, 101, 115, 116, 115 };
+        private static readonly JsonEncodedText encodedPropName_requests = JsonEncodedText.Encode(propName_requests);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ChatJoinRequests)tlobj;
+            writer.WriteNumber(encodedPropName_total_count, obj.TotalCount);
+            if (obj.Requests != null)
+            {
+                writer.WritePropertyName(encodedPropName_requests);
+                writer.WriteArray(obj.Requests);
+            }
+        }
+    }
+
+    partial class ChatJoinRequestsInfoConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116, 115, 73, 110, 102, 111 }));
+        private static ReadOnlySpan<byte> propName_total_count => new byte[] { 116, 111, 116, 97, 108, 95, 99, 111, 117, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_total_count = JsonEncodedText.Encode(propName_total_count);
+        private static ReadOnlySpan<byte> propName_user_ids => new byte[] { 117, 115, 101, 114, 95, 105, 100, 115 };
+        private static readonly JsonEncodedText encodedPropName_user_ids = JsonEncodedText.Encode(propName_user_ids);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ChatJoinRequestsInfo)tlobj;
+            writer.WriteNumber(encodedPropName_total_count, obj.TotalCount);
+            if (obj.UserIds != null)
+            {
+                writer.WritePropertyName(encodedPropName_user_ids);
+                writer.WriteArray(obj.UserIds);
+            }
         }
     }
 
@@ -2588,6 +2716,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_members = JsonEncodedText.Encode(propName_members);
         private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
         private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        private static ReadOnlySpan<byte> propName_bot_commands => new byte[] { 98, 111, 116, 95, 99, 111, 109, 109, 97, 110, 100, 115 };
+        private static readonly JsonEncodedText encodedPropName_bot_commands = JsonEncodedText.Encode(propName_bot_commands);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -2609,6 +2739,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
             {
                 writer.WritePropertyName(encodedPropName_invite_link);
                 writer.WriteTLObjectValue(obj.InviteLink);
+            }
+            if (obj.BotCommands != null)
+            {
+                writer.WritePropertyName(encodedPropName_bot_commands);
+                writer.WriteArray(obj.BotCommands);
             }
         }
     }
@@ -2712,6 +2847,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_location = JsonEncodedText.Encode(propName_location);
         private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
         private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        private static ReadOnlySpan<byte> propName_bot_commands => new byte[] { 98, 111, 116, 95, 99, 111, 109, 109, 97, 110, 100, 115 };
+        private static readonly JsonEncodedText encodedPropName_bot_commands = JsonEncodedText.Encode(propName_bot_commands);
         private static ReadOnlySpan<byte> propName_upgraded_from_basic_group_id => new byte[] { 117, 112, 103, 114, 97, 100, 101, 100, 95, 102, 114, 111, 109, 95, 98, 97, 115, 105, 99, 95, 103, 114, 111, 117, 112, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_upgraded_from_basic_group_id = JsonEncodedText.Encode(propName_upgraded_from_basic_group_id);
         private static ReadOnlySpan<byte> propName_upgraded_from_max_message_id => new byte[] { 117, 112, 103, 114, 97, 100, 101, 100, 95, 102, 114, 111, 109, 95, 109, 97, 120, 95, 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
@@ -2751,6 +2888,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
             {
                 writer.WritePropertyName(encodedPropName_invite_link);
                 writer.WriteTLObjectValue(obj.InviteLink);
+            }
+            if (obj.BotCommands != null)
+            {
+                writer.WritePropertyName(encodedPropName_bot_commands);
+                writer.WriteArray(obj.BotCommands);
             }
             writer.WriteNumber(encodedPropName_upgraded_from_basic_group_id, obj.UpgradedFromBasicGroupId);
             writer.WriteNumber(encodedPropName_upgraded_from_max_message_id, obj.UpgradedFromMaxMessageId);
@@ -3097,6 +3239,12 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_can_get_statistics = JsonEncodedText.Encode(propName_can_get_statistics);
         private static ReadOnlySpan<byte> propName_can_get_message_thread => new byte[] { 99, 97, 110, 95, 103, 101, 116, 95, 109, 101, 115, 115, 97, 103, 101, 95, 116, 104, 114, 101, 97, 100 };
         private static readonly JsonEncodedText encodedPropName_can_get_message_thread = JsonEncodedText.Encode(propName_can_get_message_thread);
+        private static ReadOnlySpan<byte> propName_can_get_viewers => new byte[] { 99, 97, 110, 95, 103, 101, 116, 95, 118, 105, 101, 119, 101, 114, 115 };
+        private static readonly JsonEncodedText encodedPropName_can_get_viewers = JsonEncodedText.Encode(propName_can_get_viewers);
+        private static ReadOnlySpan<byte> propName_can_get_media_timestamp_links => new byte[] { 99, 97, 110, 95, 103, 101, 116, 95, 109, 101, 100, 105, 97, 95, 116, 105, 109, 101, 115, 116, 97, 109, 112, 95, 108, 105, 110, 107, 115 };
+        private static readonly JsonEncodedText encodedPropName_can_get_media_timestamp_links = JsonEncodedText.Encode(propName_can_get_media_timestamp_links);
+        private static ReadOnlySpan<byte> propName_has_timestamped_media => new byte[] { 104, 97, 115, 95, 116, 105, 109, 101, 115, 116, 97, 109, 112, 101, 100, 95, 109, 101, 100, 105, 97 };
+        private static readonly JsonEncodedText encodedPropName_has_timestamped_media = JsonEncodedText.Encode(propName_has_timestamped_media);
         private static ReadOnlySpan<byte> propName_is_channel_post => new byte[] { 105, 115, 95, 99, 104, 97, 110, 110, 101, 108, 95, 112, 111, 115, 116 };
         private static readonly JsonEncodedText encodedPropName_is_channel_post = JsonEncodedText.Encode(propName_is_channel_post);
         private static ReadOnlySpan<byte> propName_contains_unread_mention => new byte[] { 99, 111, 110, 116, 97, 105, 110, 115, 95, 117, 110, 114, 101, 97, 100, 95, 109, 101, 110, 116, 105, 111, 110 };
@@ -3161,6 +3309,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteBoolean(encodedPropName_can_be_deleted_for_all_users, obj.CanBeDeletedForAllUsers);
             writer.WriteBoolean(encodedPropName_can_get_statistics, obj.CanGetStatistics);
             writer.WriteBoolean(encodedPropName_can_get_message_thread, obj.CanGetMessageThread);
+            writer.WriteBoolean(encodedPropName_can_get_viewers, obj.CanGetViewers);
+            writer.WriteBoolean(encodedPropName_can_get_media_timestamp_links, obj.CanGetMediaTimestampLinks);
+            writer.WriteBoolean(encodedPropName_has_timestamped_media, obj.HasTimestampedMedia);
             writer.WriteBoolean(encodedPropName_is_channel_post, obj.IsChannelPost);
             writer.WriteBoolean(encodedPropName_contains_unread_mention, obj.ContainsUnreadMention);
             writer.WriteNumber(encodedPropName_date, obj.Date);
@@ -3240,6 +3391,138 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WriteArray(obj.Messages);
             }
             writer.WriteString(encodedPropName_next_offset, obj.NextOffset);
+        }
+    }
+
+    partial class MessagePositionConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 80, 111, 115, 105, 116, 105, 111, 110 }));
+        private static ReadOnlySpan<byte> propName_position => new byte[] { 112, 111, 115, 105, 116, 105, 111, 110 };
+        private static readonly JsonEncodedText encodedPropName_position = JsonEncodedText.Encode(propName_position);
+        private static ReadOnlySpan<byte> propName_message_id => new byte[] { 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_message_id = JsonEncodedText.Encode(propName_message_id);
+        private static ReadOnlySpan<byte> propName_date => new byte[] { 100, 97, 116, 101 };
+        private static readonly JsonEncodedText encodedPropName_date = JsonEncodedText.Encode(propName_date);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (MessagePosition)tlobj;
+            writer.WriteNumber(encodedPropName_position, obj.Position);
+            writer.WriteNumber(encodedPropName_message_id, obj.MessageId);
+            writer.WriteNumber(encodedPropName_date, obj.Date);
+        }
+    }
+
+    partial class MessagePositionsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 80, 111, 115, 105, 116, 105, 111, 110, 115 }));
+        private static ReadOnlySpan<byte> propName_total_count => new byte[] { 116, 111, 116, 97, 108, 95, 99, 111, 117, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_total_count = JsonEncodedText.Encode(propName_total_count);
+        private static ReadOnlySpan<byte> propName_positions => new byte[] { 112, 111, 115, 105, 116, 105, 111, 110, 115 };
+        private static readonly JsonEncodedText encodedPropName_positions = JsonEncodedText.Encode(propName_positions);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (MessagePositions)tlobj;
+            writer.WriteNumber(encodedPropName_total_count, obj.TotalCount);
+            if (obj.Positions != null)
+            {
+                writer.WritePropertyName(encodedPropName_positions);
+                writer.WriteArray(obj.Positions);
+            }
+        }
+    }
+
+    partial class MessageCalendarDayConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 67, 97, 108, 101, 110, 100, 97, 114, 68, 97, 121 }));
+        private static ReadOnlySpan<byte> propName_total_count => new byte[] { 116, 111, 116, 97, 108, 95, 99, 111, 117, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_total_count = JsonEncodedText.Encode(propName_total_count);
+        private static ReadOnlySpan<byte> propName_message => new byte[] { 109, 101, 115, 115, 97, 103, 101 };
+        private static readonly JsonEncodedText encodedPropName_message = JsonEncodedText.Encode(propName_message);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (MessageCalendarDay)tlobj;
+            writer.WriteNumber(encodedPropName_total_count, obj.TotalCount);
+            if (obj.Message != null)
+            {
+                writer.WritePropertyName(encodedPropName_message);
+                writer.WriteTLObjectValue(obj.Message);
+            }
+        }
+    }
+
+    partial class MessageCalendarConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 67, 97, 108, 101, 110, 100, 97, 114 }));
+        private static ReadOnlySpan<byte> propName_total_count => new byte[] { 116, 111, 116, 97, 108, 95, 99, 111, 117, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_total_count = JsonEncodedText.Encode(propName_total_count);
+        private static ReadOnlySpan<byte> propName_days => new byte[] { 100, 97, 121, 115 };
+        private static readonly JsonEncodedText encodedPropName_days = JsonEncodedText.Encode(propName_days);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (MessageCalendar)tlobj;
+            writer.WriteNumber(encodedPropName_total_count, obj.TotalCount);
+            if (obj.Days != null)
+            {
+                writer.WritePropertyName(encodedPropName_days);
+                writer.WriteArray(obj.Days);
+            }
+        }
+    }
+
+    partial class SponsoredMessageConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 112, 111, 110, 115, 111, 114, 101, 100, 77, 101, 115, 115, 97, 103, 101 }));
+        private static ReadOnlySpan<byte> propName_id => new byte[] { 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_id = JsonEncodedText.Encode(propName_id);
+        private static ReadOnlySpan<byte> propName_sponsor_chat_id => new byte[] { 115, 112, 111, 110, 115, 111, 114, 95, 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_sponsor_chat_id = JsonEncodedText.Encode(propName_sponsor_chat_id);
+        private static ReadOnlySpan<byte> propName_link => new byte[] { 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_link = JsonEncodedText.Encode(propName_link);
+        private static ReadOnlySpan<byte> propName_content => new byte[] { 99, 111, 110, 116, 101, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_content = JsonEncodedText.Encode(propName_content);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (SponsoredMessage)tlobj;
+            writer.WriteNumber(encodedPropName_id, obj.Id);
+            writer.WriteNumber(encodedPropName_sponsor_chat_id, obj.SponsorChatId);
+            if (obj.Link != null)
+            {
+                writer.WritePropertyName(encodedPropName_link);
+                writer.WriteTLObjectValue(obj.Link);
+            }
+            if (obj.Content != null)
+            {
+                writer.WritePropertyName(encodedPropName_content);
+                writer.WriteTLObjectValue(obj.Content);
+            }
+        }
+    }
+
+    partial class SponsoredMessagesConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 112, 111, 110, 115, 111, 114, 101, 100, 77, 101, 115, 115, 97, 103, 101, 115 }));
+        private static ReadOnlySpan<byte> propName_messages => new byte[] { 109, 101, 115, 115, 97, 103, 101, 115 };
+        private static readonly JsonEncodedText encodedPropName_messages = JsonEncodedText.Encode(propName_messages);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (SponsoredMessages)tlobj;
+            if (obj.Messages != null)
+            {
+                writer.WritePropertyName(encodedPropName_messages);
+                writer.WriteArray(obj.Messages);
+            }
         }
     }
 
@@ -3658,9 +3941,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class VoiceChatConverter
+    partial class VideoChatConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 118, 111, 105, 99, 101, 67, 104, 97, 116 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 118, 105, 100, 101, 111, 67, 104, 97, 116 }));
         private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         private static ReadOnlySpan<byte> propName_has_participants => new byte[] { 104, 97, 115, 95, 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 };
@@ -3671,7 +3954,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (VoiceChat)tlobj;
+            var obj = (VideoChat)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
             writer.WriteBoolean(encodedPropName_has_participants, obj.HasParticipants);
             if (obj.DefaultParticipantId != null)
@@ -3725,10 +4008,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_notification_settings = JsonEncodedText.Encode(propName_notification_settings);
         private static ReadOnlySpan<byte> propName_message_ttl_setting => new byte[] { 109, 101, 115, 115, 97, 103, 101, 95, 116, 116, 108, 95, 115, 101, 116, 116, 105, 110, 103 };
         private static readonly JsonEncodedText encodedPropName_message_ttl_setting = JsonEncodedText.Encode(propName_message_ttl_setting);
+        private static ReadOnlySpan<byte> propName_theme_name => new byte[] { 116, 104, 101, 109, 101, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_theme_name = JsonEncodedText.Encode(propName_theme_name);
         private static ReadOnlySpan<byte> propName_action_bar => new byte[] { 97, 99, 116, 105, 111, 110, 95, 98, 97, 114 };
         private static readonly JsonEncodedText encodedPropName_action_bar = JsonEncodedText.Encode(propName_action_bar);
-        private static ReadOnlySpan<byte> propName_voice_chat => new byte[] { 118, 111, 105, 99, 101, 95, 99, 104, 97, 116 };
-        private static readonly JsonEncodedText encodedPropName_voice_chat = JsonEncodedText.Encode(propName_voice_chat);
+        private static ReadOnlySpan<byte> propName_video_chat => new byte[] { 118, 105, 100, 101, 111, 95, 99, 104, 97, 116 };
+        private static readonly JsonEncodedText encodedPropName_video_chat = JsonEncodedText.Encode(propName_video_chat);
+        private static ReadOnlySpan<byte> propName_pending_join_requests => new byte[] { 112, 101, 110, 100, 105, 110, 103, 95, 106, 111, 105, 110, 95, 114, 101, 113, 117, 101, 115, 116, 115 };
+        private static readonly JsonEncodedText encodedPropName_pending_join_requests = JsonEncodedText.Encode(propName_pending_join_requests);
         private static ReadOnlySpan<byte> propName_reply_markup_message_id => new byte[] { 114, 101, 112, 108, 121, 95, 109, 97, 114, 107, 117, 112, 95, 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_reply_markup_message_id = JsonEncodedText.Encode(propName_reply_markup_message_id);
         private static ReadOnlySpan<byte> propName_draft_message => new byte[] { 100, 114, 97, 102, 116, 95, 109, 101, 115, 115, 97, 103, 101 };
@@ -3784,15 +4071,21 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WriteTLObjectValue(obj.NotificationSettings);
             }
             writer.WriteNumber(encodedPropName_message_ttl_setting, obj.MessageTtlSetting);
+            writer.WriteString(encodedPropName_theme_name, obj.ThemeName);
             if (obj.ActionBar != null)
             {
                 writer.WritePropertyName(encodedPropName_action_bar);
                 writer.WriteTLObjectValue(obj.ActionBar);
             }
-            if (obj.VoiceChat != null)
+            if (obj.VideoChat != null)
             {
-                writer.WritePropertyName(encodedPropName_voice_chat);
-                writer.WriteTLObjectValue(obj.VoiceChat);
+                writer.WritePropertyName(encodedPropName_video_chat);
+                writer.WriteTLObjectValue(obj.VideoChat);
+            }
+            if (obj.PendingJoinRequests != null)
+            {
+                writer.WritePropertyName(encodedPropName_pending_join_requests);
+                writer.WriteTLObjectValue(obj.PendingJoinRequests);
             }
             writer.WriteNumber(encodedPropName_reply_markup_message_id, obj.ReplyMarkupMessageId);
             if (obj.DraftMessage != null)
@@ -4171,12 +4464,15 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 112, 108, 121, 77, 97, 114, 107, 117, 112, 70, 111, 114, 99, 101, 82, 101, 112, 108, 121 }));
         private static ReadOnlySpan<byte> propName_is_personal => new byte[] { 105, 115, 95, 112, 101, 114, 115, 111, 110, 97, 108 };
         private static readonly JsonEncodedText encodedPropName_is_personal = JsonEncodedText.Encode(propName_is_personal);
+        private static ReadOnlySpan<byte> propName_input_field_placeholder => new byte[] { 105, 110, 112, 117, 116, 95, 102, 105, 101, 108, 100, 95, 112, 108, 97, 99, 101, 104, 111, 108, 100, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_input_field_placeholder = JsonEncodedText.Encode(propName_input_field_placeholder);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (ReplyMarkupForceReply)tlobj;
             writer.WriteBoolean(encodedPropName_is_personal, obj.IsPersonal);
+            writer.WriteString(encodedPropName_input_field_placeholder, obj.InputFieldPlaceholder);
         }
     }
 
@@ -4191,6 +4487,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_one_time = JsonEncodedText.Encode(propName_one_time);
         private static ReadOnlySpan<byte> propName_is_personal => new byte[] { 105, 115, 95, 112, 101, 114, 115, 111, 110, 97, 108 };
         private static readonly JsonEncodedText encodedPropName_is_personal = JsonEncodedText.Encode(propName_is_personal);
+        private static ReadOnlySpan<byte> propName_input_field_placeholder => new byte[] { 105, 110, 112, 117, 116, 95, 102, 105, 101, 108, 100, 95, 112, 108, 97, 99, 101, 104, 111, 108, 100, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_input_field_placeholder = JsonEncodedText.Encode(propName_input_field_placeholder);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -4204,6 +4502,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteBoolean(encodedPropName_resize_keyboard, obj.ResizeKeyboard);
             writer.WriteBoolean(encodedPropName_one_time, obj.OneTime);
             writer.WriteBoolean(encodedPropName_is_personal, obj.IsPersonal);
+            writer.WriteString(encodedPropName_input_field_placeholder, obj.InputFieldPlaceholder);
         }
     }
 
@@ -4274,6 +4573,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_message_thread_id = JsonEncodedText.Encode(propName_message_thread_id);
         private static ReadOnlySpan<byte> propName_reply_info => new byte[] { 114, 101, 112, 108, 121, 95, 105, 110, 102, 111 };
         private static readonly JsonEncodedText encodedPropName_reply_info = JsonEncodedText.Encode(propName_reply_info);
+        private static ReadOnlySpan<byte> propName_unread_message_count => new byte[] { 117, 110, 114, 101, 97, 100, 95, 109, 101, 115, 115, 97, 103, 101, 95, 99, 111, 117, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_unread_message_count = JsonEncodedText.Encode(propName_unread_message_count);
         private static ReadOnlySpan<byte> propName_messages => new byte[] { 109, 101, 115, 115, 97, 103, 101, 115 };
         private static readonly JsonEncodedText encodedPropName_messages = JsonEncodedText.Encode(propName_messages);
         private static ReadOnlySpan<byte> propName_draft_message => new byte[] { 100, 114, 97, 102, 116, 95, 109, 101, 115, 115, 97, 103, 101 };
@@ -4290,6 +4591,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_reply_info);
                 writer.WriteTLObjectValue(obj.ReplyInfo);
             }
+            writer.WriteNumber(encodedPropName_unread_message_count, obj.UnreadMessageCount);
             if (obj.Messages != null)
             {
                 writer.WritePropertyName(encodedPropName_messages);
@@ -5515,6 +5817,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_is_rtl = JsonEncodedText.Encode(propName_is_rtl);
         private static ReadOnlySpan<byte> propName_is_full => new byte[] { 105, 115, 95, 102, 117, 108, 108 };
         private static readonly JsonEncodedText encodedPropName_is_full = JsonEncodedText.Encode(propName_is_full);
+        private static ReadOnlySpan<byte> propName_feedback_link => new byte[] { 102, 101, 101, 100, 98, 97, 99, 107, 95, 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_feedback_link = JsonEncodedText.Encode(propName_feedback_link);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -5529,6 +5833,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteNumber(encodedPropName_version, obj.Version);
             writer.WriteBoolean(encodedPropName_is_rtl, obj.IsRtl);
             writer.WriteBoolean(encodedPropName_is_full, obj.IsFull);
+            if (obj.FeedbackLink != null)
+            {
+                writer.WritePropertyName(encodedPropName_feedback_link);
+                writer.WriteTLObjectValue(obj.FeedbackLink);
+            }
         }
     }
 
@@ -7841,6 +8150,27 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class MessageAnimatedEmojiConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 65, 110, 105, 109, 97, 116, 101, 100, 69, 109, 111, 106, 105 }));
+        private static ReadOnlySpan<byte> propName_animated_emoji => new byte[] { 97, 110, 105, 109, 97, 116, 101, 100, 95, 101, 109, 111, 106, 105 };
+        private static readonly JsonEncodedText encodedPropName_animated_emoji = JsonEncodedText.Encode(propName_animated_emoji);
+        private static ReadOnlySpan<byte> propName_emoji => new byte[] { 101, 109, 111, 106, 105 };
+        private static readonly JsonEncodedText encodedPropName_emoji = JsonEncodedText.Encode(propName_emoji);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (MessageAnimatedEmoji)tlobj;
+            if (obj.AnimatedEmoji != null)
+            {
+                writer.WritePropertyName(encodedPropName_animated_emoji);
+                writer.WriteTLObjectValue(obj.AnimatedEmoji);
+            }
+            writer.WriteString(encodedPropName_emoji, obj.Emoji);
+        }
+    }
+
     partial class MessageDiceConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 68, 105, 99, 101 }));
@@ -7977,9 +8307,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class MessageVoiceChatScheduledConverter
+    partial class MessageVideoChatScheduledConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 86, 111, 105, 99, 101, 67, 104, 97, 116, 83, 99, 104, 101, 100, 117, 108, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 86, 105, 100, 101, 111, 67, 104, 97, 116, 83, 99, 104, 101, 100, 117, 108, 101, 100 }));
         private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         private static ReadOnlySpan<byte> propName_start_date => new byte[] { 115, 116, 97, 114, 116, 95, 100, 97, 116, 101 };
@@ -7988,43 +8318,43 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (MessageVoiceChatScheduled)tlobj;
+            var obj = (MessageVideoChatScheduled)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
             writer.WriteNumber(encodedPropName_start_date, obj.StartDate);
         }
     }
 
-    partial class MessageVoiceChatStartedConverter
+    partial class MessageVideoChatStartedConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 86, 111, 105, 99, 101, 67, 104, 97, 116, 83, 116, 97, 114, 116, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 86, 105, 100, 101, 111, 67, 104, 97, 116, 83, 116, 97, 114, 116, 101, 100 }));
         private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (MessageVoiceChatStarted)tlobj;
+            var obj = (MessageVideoChatStarted)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
         }
     }
 
-    partial class MessageVoiceChatEndedConverter
+    partial class MessageVideoChatEndedConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 86, 111, 105, 99, 101, 67, 104, 97, 116, 69, 110, 100, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 86, 105, 100, 101, 111, 67, 104, 97, 116, 69, 110, 100, 101, 100 }));
         private static ReadOnlySpan<byte> propName_duration => new byte[] { 100, 117, 114, 97, 116, 105, 111, 110 };
         private static readonly JsonEncodedText encodedPropName_duration = JsonEncodedText.Encode(propName_duration);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (MessageVoiceChatEnded)tlobj;
+            var obj = (MessageVideoChatEnded)tlobj;
             writer.WriteNumber(encodedPropName_duration, obj.Duration);
         }
     }
 
-    partial class MessageInviteVoiceChatParticipantsConverter
+    partial class MessageInviteVideoChatParticipantsConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 73, 110, 118, 105, 116, 101, 86, 111, 105, 99, 101, 67, 104, 97, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 73, 110, 118, 105, 116, 101, 86, 105, 100, 101, 111, 67, 104, 97, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 }));
         private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         private static ReadOnlySpan<byte> propName_user_ids => new byte[] { 117, 115, 101, 114, 95, 105, 100, 115 };
@@ -8033,7 +8363,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (MessageInviteVoiceChatParticipants)tlobj;
+            var obj = (MessageInviteVideoChatParticipants)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
             if (obj.UserIds != null)
             {
@@ -8148,6 +8478,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class MessageChatJoinByRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 67, 104, 97, 116, 74, 111, 105, 110, 66, 121, 82, 101, 113, 117, 101, 115, 116 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
     partial class MessageChatDeleteMemberConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 67, 104, 97, 116, 68, 101, 108, 101, 116, 101, 77, 101, 109, 98, 101, 114 }));
@@ -8214,6 +8554,20 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class MessageChatSetThemeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 67, 104, 97, 116, 83, 101, 116, 84, 104, 101, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_theme_name => new byte[] { 116, 104, 101, 109, 101, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_theme_name = JsonEncodedText.Encode(propName_theme_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (MessageChatSetTheme)tlobj;
+            writer.WriteString(encodedPropName_theme_name, obj.ThemeName);
         }
     }
 
@@ -8612,6 +8966,20 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (TextEntityTypeMentionName)tlobj;
             writer.WriteNumber(encodedPropName_user_id, obj.UserId);
+        }
+    }
+
+    partial class TextEntityTypeMediaTimestampConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 116, 101, 120, 116, 69, 110, 116, 105, 116, 121, 84, 121, 112, 101, 77, 101, 100, 105, 97, 84, 105, 109, 101, 115, 116, 97, 109, 112 }));
+        private static ReadOnlySpan<byte> propName_media_timestamp => new byte[] { 109, 101, 100, 105, 97, 95, 116, 105, 109, 101, 115, 116, 97, 109, 112 };
+        private static readonly JsonEncodedText encodedPropName_media_timestamp = JsonEncodedText.Encode(propName_media_timestamp);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (TextEntityTypeMediaTimestamp)tlobj;
+            writer.WriteNumber(encodedPropName_media_timestamp, obj.MediaTimestamp);
         }
     }
 
@@ -9541,6 +9909,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class ChatActionChoosingStickerConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 65, 99, 116, 105, 111, 110, 67, 104, 111, 111, 115, 105, 110, 103, 83, 116, 105, 99, 107, 101, 114 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
     partial class ChatActionChoosingLocationConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 65, 99, 116, 105, 111, 110, 67, 104, 111, 111, 115, 105, 110, 103, 76, 111, 99, 97, 116, 105, 111, 110 }));
@@ -9592,6 +9970,20 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (ChatActionUploadingVideoNote)tlobj;
             writer.WriteNumber(encodedPropName_progress, obj.Progress);
+        }
+    }
+
+    partial class ChatActionWatchingAnimationsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 65, 99, 116, 105, 111, 110, 87, 97, 116, 99, 104, 105, 110, 103, 65, 110, 105, 109, 97, 116, 105, 111, 110, 115 }));
+        private static ReadOnlySpan<byte> propName_emoji => new byte[] { 101, 109, 111, 106, 105 };
+        private static readonly JsonEncodedText encodedPropName_emoji = JsonEncodedText.Encode(propName_emoji);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ChatActionWatchingAnimations)tlobj;
+            writer.WriteString(encodedPropName_emoji, obj.Emoji);
         }
     }
 
@@ -10162,6 +10554,36 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class GroupCallVideoQualityThumbnailConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 86, 105, 100, 101, 111, 81, 117, 97, 108, 105, 116, 121, 84, 104, 117, 109, 98, 110, 97, 105, 108 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class GroupCallVideoQualityMediumConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 86, 105, 100, 101, 111, 81, 117, 97, 108, 105, 116, 121, 77, 101, 100, 105, 117, 109 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class GroupCallVideoQualityFullConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 86, 105, 100, 101, 111, 81, 117, 97, 108, 105, 116, 121, 70, 117, 108, 108 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
     partial class GroupCallRecentSpeakerConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 82, 101, 99, 101, 110, 116, 83, 112, 101, 97, 107, 101, 114 }));
@@ -10208,12 +10630,20 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_loaded_all_participants = JsonEncodedText.Encode(propName_loaded_all_participants);
         private static ReadOnlySpan<byte> propName_recent_speakers => new byte[] { 114, 101, 99, 101, 110, 116, 95, 115, 112, 101, 97, 107, 101, 114, 115 };
         private static readonly JsonEncodedText encodedPropName_recent_speakers = JsonEncodedText.Encode(propName_recent_speakers);
+        private static ReadOnlySpan<byte> propName_is_my_video_enabled => new byte[] { 105, 115, 95, 109, 121, 95, 118, 105, 100, 101, 111, 95, 101, 110, 97, 98, 108, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_my_video_enabled = JsonEncodedText.Encode(propName_is_my_video_enabled);
+        private static ReadOnlySpan<byte> propName_is_my_video_paused => new byte[] { 105, 115, 95, 109, 121, 95, 118, 105, 100, 101, 111, 95, 112, 97, 117, 115, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_my_video_paused = JsonEncodedText.Encode(propName_is_my_video_paused);
+        private static ReadOnlySpan<byte> propName_can_enable_video => new byte[] { 99, 97, 110, 95, 101, 110, 97, 98, 108, 101, 95, 118, 105, 100, 101, 111 };
+        private static readonly JsonEncodedText encodedPropName_can_enable_video = JsonEncodedText.Encode(propName_can_enable_video);
         private static ReadOnlySpan<byte> propName_mute_new_participants => new byte[] { 109, 117, 116, 101, 95, 110, 101, 119, 95, 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 };
         private static readonly JsonEncodedText encodedPropName_mute_new_participants = JsonEncodedText.Encode(propName_mute_new_participants);
-        private static ReadOnlySpan<byte> propName_can_change_mute_new_participants => new byte[] { 99, 97, 110, 95, 99, 104, 97, 110, 103, 101, 95, 109, 117, 116, 101, 95, 110, 101, 119, 95, 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 };
-        private static readonly JsonEncodedText encodedPropName_can_change_mute_new_participants = JsonEncodedText.Encode(propName_can_change_mute_new_participants);
+        private static ReadOnlySpan<byte> propName_can_toggle_mute_new_participants => new byte[] { 99, 97, 110, 95, 116, 111, 103, 103, 108, 101, 95, 109, 117, 116, 101, 95, 110, 101, 119, 95, 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 };
+        private static readonly JsonEncodedText encodedPropName_can_toggle_mute_new_participants = JsonEncodedText.Encode(propName_can_toggle_mute_new_participants);
         private static ReadOnlySpan<byte> propName_record_duration => new byte[] { 114, 101, 99, 111, 114, 100, 95, 100, 117, 114, 97, 116, 105, 111, 110 };
         private static readonly JsonEncodedText encodedPropName_record_duration = JsonEncodedText.Encode(propName_record_duration);
+        private static ReadOnlySpan<byte> propName_is_video_recorded => new byte[] { 105, 115, 95, 118, 105, 100, 101, 111, 95, 114, 101, 99, 111, 114, 100, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_video_recorded = JsonEncodedText.Encode(propName_is_video_recorded);
         private static ReadOnlySpan<byte> propName_duration => new byte[] { 100, 117, 114, 97, 116, 105, 111, 110 };
         private static readonly JsonEncodedText encodedPropName_duration = JsonEncodedText.Encode(propName_duration);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -10236,139 +10666,59 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_recent_speakers);
                 writer.WriteArray(obj.RecentSpeakers);
             }
+            writer.WriteBoolean(encodedPropName_is_my_video_enabled, obj.IsMyVideoEnabled);
+            writer.WriteBoolean(encodedPropName_is_my_video_paused, obj.IsMyVideoPaused);
+            writer.WriteBoolean(encodedPropName_can_enable_video, obj.CanEnableVideo);
             writer.WriteBoolean(encodedPropName_mute_new_participants, obj.MuteNewParticipants);
-            writer.WriteBoolean(encodedPropName_can_change_mute_new_participants, obj.CanChangeMuteNewParticipants);
+            writer.WriteBoolean(encodedPropName_can_toggle_mute_new_participants, obj.CanToggleMuteNewParticipants);
             writer.WriteNumber(encodedPropName_record_duration, obj.RecordDuration);
+            writer.WriteBoolean(encodedPropName_is_video_recorded, obj.IsVideoRecorded);
             writer.WriteNumber(encodedPropName_duration, obj.Duration);
         }
     }
 
-    partial class GroupCallPayloadFingerprintConverter
+    partial class GroupCallVideoSourceGroupConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 80, 97, 121, 108, 111, 97, 100, 70, 105, 110, 103, 101, 114, 112, 114, 105, 110, 116 }));
-        private static ReadOnlySpan<byte> propName_hash => new byte[] { 104, 97, 115, 104 };
-        private static readonly JsonEncodedText encodedPropName_hash = JsonEncodedText.Encode(propName_hash);
-        private static ReadOnlySpan<byte> propName_setup => new byte[] { 115, 101, 116, 117, 112 };
-        private static readonly JsonEncodedText encodedPropName_setup = JsonEncodedText.Encode(propName_setup);
-        private static ReadOnlySpan<byte> propName_fingerprint => new byte[] { 102, 105, 110, 103, 101, 114, 112, 114, 105, 110, 116 };
-        private static readonly JsonEncodedText encodedPropName_fingerprint = JsonEncodedText.Encode(propName_fingerprint);
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 86, 105, 100, 101, 111, 83, 111, 117, 114, 99, 101, 71, 114, 111, 117, 112 }));
+        private static ReadOnlySpan<byte> propName_semantics => new byte[] { 115, 101, 109, 97, 110, 116, 105, 99, 115 };
+        private static readonly JsonEncodedText encodedPropName_semantics = JsonEncodedText.Encode(propName_semantics);
+        private static ReadOnlySpan<byte> propName_source_ids => new byte[] { 115, 111, 117, 114, 99, 101, 95, 105, 100, 115 };
+        private static readonly JsonEncodedText encodedPropName_source_ids = JsonEncodedText.Encode(propName_source_ids);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (GroupCallPayloadFingerprint)tlobj;
-            writer.WriteString(encodedPropName_hash, obj.Hash);
-            writer.WriteString(encodedPropName_setup, obj.Setup);
-            writer.WriteString(encodedPropName_fingerprint, obj.Fingerprint);
-        }
-    }
-
-    partial class GroupCallPayloadConverter
-    {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 80, 97, 121, 108, 111, 97, 100 }));
-        private static ReadOnlySpan<byte> propName_ufrag => new byte[] { 117, 102, 114, 97, 103 };
-        private static readonly JsonEncodedText encodedPropName_ufrag = JsonEncodedText.Encode(propName_ufrag);
-        private static ReadOnlySpan<byte> propName_pwd => new byte[] { 112, 119, 100 };
-        private static readonly JsonEncodedText encodedPropName_pwd = JsonEncodedText.Encode(propName_pwd);
-        private static ReadOnlySpan<byte> propName_fingerprints => new byte[] { 102, 105, 110, 103, 101, 114, 112, 114, 105, 110, 116, 115 };
-        private static readonly JsonEncodedText encodedPropName_fingerprints = JsonEncodedText.Encode(propName_fingerprints);
-        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
-        {
-            writer.WriteStartObject();
-            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (GroupCallPayload)tlobj;
-            writer.WriteString(encodedPropName_ufrag, obj.Ufrag);
-            writer.WriteString(encodedPropName_pwd, obj.Pwd);
-            if (obj.Fingerprints != null)
+            var obj = (GroupCallVideoSourceGroup)tlobj;
+            writer.WriteString(encodedPropName_semantics, obj.Semantics);
+            if (obj.SourceIds != null)
             {
-                writer.WritePropertyName(encodedPropName_fingerprints);
-                writer.WriteArray(obj.Fingerprints);
+                writer.WritePropertyName(encodedPropName_source_ids);
+                writer.WriteArray(obj.SourceIds);
             }
         }
     }
 
-    partial class GroupCallJoinResponseCandidateConverter
+    partial class GroupCallParticipantVideoInfoConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 74, 111, 105, 110, 82, 101, 115, 112, 111, 110, 115, 101, 67, 97, 110, 100, 105, 100, 97, 116, 101 }));
-        private static ReadOnlySpan<byte> propName_port => new byte[] { 112, 111, 114, 116 };
-        private static readonly JsonEncodedText encodedPropName_port = JsonEncodedText.Encode(propName_port);
-        private static ReadOnlySpan<byte> propName_protocol => new byte[] { 112, 114, 111, 116, 111, 99, 111, 108 };
-        private static readonly JsonEncodedText encodedPropName_protocol = JsonEncodedText.Encode(propName_protocol);
-        private static ReadOnlySpan<byte> propName_network => new byte[] { 110, 101, 116, 119, 111, 114, 107 };
-        private static readonly JsonEncodedText encodedPropName_network = JsonEncodedText.Encode(propName_network);
-        private static ReadOnlySpan<byte> propName_generation => new byte[] { 103, 101, 110, 101, 114, 97, 116, 105, 111, 110 };
-        private static readonly JsonEncodedText encodedPropName_generation = JsonEncodedText.Encode(propName_generation);
-        private static ReadOnlySpan<byte> propName_id => new byte[] { 105, 100 };
-        private static readonly JsonEncodedText encodedPropName_id = JsonEncodedText.Encode(propName_id);
-        private static ReadOnlySpan<byte> propName_component => new byte[] { 99, 111, 109, 112, 111, 110, 101, 110, 116 };
-        private static readonly JsonEncodedText encodedPropName_component = JsonEncodedText.Encode(propName_component);
-        private static ReadOnlySpan<byte> propName_foundation => new byte[] { 102, 111, 117, 110, 100, 97, 116, 105, 111, 110 };
-        private static readonly JsonEncodedText encodedPropName_foundation = JsonEncodedText.Encode(propName_foundation);
-        private static ReadOnlySpan<byte> propName_priority => new byte[] { 112, 114, 105, 111, 114, 105, 116, 121 };
-        private static readonly JsonEncodedText encodedPropName_priority = JsonEncodedText.Encode(propName_priority);
-        private static ReadOnlySpan<byte> propName_ip => new byte[] { 105, 112 };
-        private static readonly JsonEncodedText encodedPropName_ip = JsonEncodedText.Encode(propName_ip);
-        private static ReadOnlySpan<byte> propName_type => new byte[] { 116, 121, 112, 101 };
-        private static readonly JsonEncodedText encodedPropName_type = JsonEncodedText.Encode(propName_type);
-        private static ReadOnlySpan<byte> propName_tcp_type => new byte[] { 116, 99, 112, 95, 116, 121, 112, 101 };
-        private static readonly JsonEncodedText encodedPropName_tcp_type = JsonEncodedText.Encode(propName_tcp_type);
-        private static ReadOnlySpan<byte> propName_rel_addr => new byte[] { 114, 101, 108, 95, 97, 100, 100, 114 };
-        private static readonly JsonEncodedText encodedPropName_rel_addr = JsonEncodedText.Encode(propName_rel_addr);
-        private static ReadOnlySpan<byte> propName_rel_port => new byte[] { 114, 101, 108, 95, 112, 111, 114, 116 };
-        private static readonly JsonEncodedText encodedPropName_rel_port = JsonEncodedText.Encode(propName_rel_port);
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 86, 105, 100, 101, 111, 73, 110, 102, 111 }));
+        private static ReadOnlySpan<byte> propName_source_groups => new byte[] { 115, 111, 117, 114, 99, 101, 95, 103, 114, 111, 117, 112, 115 };
+        private static readonly JsonEncodedText encodedPropName_source_groups = JsonEncodedText.Encode(propName_source_groups);
+        private static ReadOnlySpan<byte> propName_endpoint_id => new byte[] { 101, 110, 100, 112, 111, 105, 110, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_endpoint_id = JsonEncodedText.Encode(propName_endpoint_id);
+        private static ReadOnlySpan<byte> propName_is_paused => new byte[] { 105, 115, 95, 112, 97, 117, 115, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_paused = JsonEncodedText.Encode(propName_is_paused);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (GroupCallJoinResponseCandidate)tlobj;
-            writer.WriteString(encodedPropName_port, obj.Port);
-            writer.WriteString(encodedPropName_protocol, obj.Protocol);
-            writer.WriteString(encodedPropName_network, obj.Network);
-            writer.WriteString(encodedPropName_generation, obj.Generation);
-            writer.WriteString(encodedPropName_id, obj.Id);
-            writer.WriteString(encodedPropName_component, obj.Component);
-            writer.WriteString(encodedPropName_foundation, obj.Foundation);
-            writer.WriteString(encodedPropName_priority, obj.Priority);
-            writer.WriteString(encodedPropName_ip, obj.Ip);
-            writer.WriteString(encodedPropName_type, obj.Type);
-            writer.WriteString(encodedPropName_tcp_type, obj.TcpType);
-            writer.WriteString(encodedPropName_rel_addr, obj.RelAddr);
-            writer.WriteString(encodedPropName_rel_port, obj.RelPort);
-        }
-    }
-
-    partial class GroupCallJoinResponseWebrtcConverter
-    {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 74, 111, 105, 110, 82, 101, 115, 112, 111, 110, 115, 101, 87, 101, 98, 114, 116, 99 }));
-        private static ReadOnlySpan<byte> propName_payload => new byte[] { 112, 97, 121, 108, 111, 97, 100 };
-        private static readonly JsonEncodedText encodedPropName_payload = JsonEncodedText.Encode(propName_payload);
-        private static ReadOnlySpan<byte> propName_candidates => new byte[] { 99, 97, 110, 100, 105, 100, 97, 116, 101, 115 };
-        private static readonly JsonEncodedText encodedPropName_candidates = JsonEncodedText.Encode(propName_candidates);
-        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
-        {
-            writer.WriteStartObject();
-            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (GroupCallJoinResponseWebrtc)tlobj;
-            if (obj.Payload != null)
+            var obj = (GroupCallParticipantVideoInfo)tlobj;
+            if (obj.SourceGroups != null)
             {
-                writer.WritePropertyName(encodedPropName_payload);
-                writer.WriteTLObjectValue(obj.Payload);
+                writer.WritePropertyName(encodedPropName_source_groups);
+                writer.WriteArray(obj.SourceGroups);
             }
-            if (obj.Candidates != null)
-            {
-                writer.WritePropertyName(encodedPropName_candidates);
-                writer.WriteArray(obj.Candidates);
-            }
-        }
-    }
-
-    partial class GroupCallJoinResponseStreamConverter
-    {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 74, 111, 105, 110, 82, 101, 115, 112, 111, 110, 115, 101, 83, 116, 114, 101, 97, 109 }));
-        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
-        {
-            writer.WriteStartObject();
-            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            writer.WriteString(encodedPropName_endpoint_id, obj.EndpointId);
+            writer.WriteBoolean(encodedPropName_is_paused, obj.IsPaused);
         }
     }
 
@@ -10377,8 +10727,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 114, 111, 117, 112, 67, 97, 108, 108, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116 }));
         private static ReadOnlySpan<byte> propName_participant_id => new byte[] { 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_participant_id = JsonEncodedText.Encode(propName_participant_id);
-        private static ReadOnlySpan<byte> propName_source => new byte[] { 115, 111, 117, 114, 99, 101 };
-        private static readonly JsonEncodedText encodedPropName_source = JsonEncodedText.Encode(propName_source);
+        private static ReadOnlySpan<byte> propName_audio_source_id => new byte[] { 97, 117, 100, 105, 111, 95, 115, 111, 117, 114, 99, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_audio_source_id = JsonEncodedText.Encode(propName_audio_source_id);
+        private static ReadOnlySpan<byte> propName_screen_sharing_audio_source_id => new byte[] { 115, 99, 114, 101, 101, 110, 95, 115, 104, 97, 114, 105, 110, 103, 95, 97, 117, 100, 105, 111, 95, 115, 111, 117, 114, 99, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_screen_sharing_audio_source_id = JsonEncodedText.Encode(propName_screen_sharing_audio_source_id);
+        private static ReadOnlySpan<byte> propName_video_info => new byte[] { 118, 105, 100, 101, 111, 95, 105, 110, 102, 111 };
+        private static readonly JsonEncodedText encodedPropName_video_info = JsonEncodedText.Encode(propName_video_info);
+        private static ReadOnlySpan<byte> propName_screen_sharing_video_info => new byte[] { 115, 99, 114, 101, 101, 110, 95, 115, 104, 97, 114, 105, 110, 103, 95, 118, 105, 100, 101, 111, 95, 105, 110, 102, 111 };
+        private static readonly JsonEncodedText encodedPropName_screen_sharing_video_info = JsonEncodedText.Encode(propName_screen_sharing_video_info);
         private static ReadOnlySpan<byte> propName_bio => new byte[] { 98, 105, 111 };
         private static readonly JsonEncodedText encodedPropName_bio = JsonEncodedText.Encode(propName_bio);
         private static ReadOnlySpan<byte> propName_is_current_user => new byte[] { 105, 115, 95, 99, 117, 114, 114, 101, 110, 116, 95, 117, 115, 101, 114 };
@@ -10415,7 +10771,18 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_participant_id);
                 writer.WriteTLObjectValue(obj.ParticipantId);
             }
-            writer.WriteNumber(encodedPropName_source, obj.Source);
+            writer.WriteNumber(encodedPropName_audio_source_id, obj.AudioSourceId);
+            writer.WriteNumber(encodedPropName_screen_sharing_audio_source_id, obj.ScreenSharingAudioSourceId);
+            if (obj.VideoInfo != null)
+            {
+                writer.WritePropertyName(encodedPropName_video_info);
+                writer.WriteTLObjectValue(obj.VideoInfo);
+            }
+            if (obj.ScreenSharingVideoInfo != null)
+            {
+                writer.WritePropertyName(encodedPropName_screen_sharing_video_info);
+                writer.WriteTLObjectValue(obj.ScreenSharingVideoInfo);
+            }
             writer.WriteString(encodedPropName_bio, obj.Bio);
             writer.WriteBoolean(encodedPropName_is_current_user, obj.IsCurrentUser);
             writer.WriteBoolean(encodedPropName_is_speaking, obj.IsSpeaking);
@@ -11811,6 +12178,27 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class ChatEventMemberJoinedByRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 77, 101, 109, 98, 101, 114, 74, 111, 105, 110, 101, 100, 66, 121, 82, 101, 113, 117, 101, 115, 116 }));
+        private static ReadOnlySpan<byte> propName_approver_user_id => new byte[] { 97, 112, 112, 114, 111, 118, 101, 114, 95, 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_approver_user_id = JsonEncodedText.Encode(propName_approver_user_id);
+        private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ChatEventMemberJoinedByRequest)tlobj;
+            writer.WriteNumber(encodedPropName_approver_user_id, obj.ApproverUserId);
+            if (obj.InviteLink != null)
+            {
+                writer.WritePropertyName(encodedPropName_invite_link);
+                writer.WriteTLObjectValue(obj.InviteLink);
+            }
+        }
+    }
+
     partial class ChatEventMemberLeftConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 77, 101, 109, 98, 101, 114, 76, 101, 102, 116 }));
@@ -12201,37 +12589,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class ChatEventVoiceChatCreatedConverter
+    partial class ChatEventVideoChatCreatedConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116, 67, 114, 101, 97, 116, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116, 67, 114, 101, 97, 116, 101, 100 }));
         private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (ChatEventVoiceChatCreated)tlobj;
+            var obj = (ChatEventVideoChatCreated)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
         }
     }
 
-    partial class ChatEventVoiceChatDiscardedConverter
+    partial class ChatEventVideoChatDiscardedConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116, 68, 105, 115, 99, 97, 114, 100, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116, 68, 105, 115, 99, 97, 114, 100, 101, 100 }));
         private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (ChatEventVoiceChatDiscarded)tlobj;
+            var obj = (ChatEventVideoChatDiscarded)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
         }
     }
 
-    partial class ChatEventVoiceChatParticipantIsMutedToggledConverter
+    partial class ChatEventVideoChatParticipantIsMutedToggledConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 73, 115, 77, 117, 116, 101, 100, 84, 111, 103, 103, 108, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 73, 115, 77, 117, 116, 101, 100, 84, 111, 103, 103, 108, 101, 100 }));
         private static ReadOnlySpan<byte> propName_participant_id => new byte[] { 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_participant_id = JsonEncodedText.Encode(propName_participant_id);
         private static ReadOnlySpan<byte> propName_is_muted => new byte[] { 105, 115, 95, 109, 117, 116, 101, 100 };
@@ -12240,7 +12628,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (ChatEventVoiceChatParticipantIsMutedToggled)tlobj;
+            var obj = (ChatEventVideoChatParticipantIsMutedToggled)tlobj;
             if (obj.ParticipantId != null)
             {
                 writer.WritePropertyName(encodedPropName_participant_id);
@@ -12250,9 +12638,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class ChatEventVoiceChatParticipantVolumeLevelChangedConverter
+    partial class ChatEventVideoChatParticipantVolumeLevelChangedConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 86, 111, 108, 117, 109, 101, 76, 101, 118, 101, 108, 67, 104, 97, 110, 103, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 86, 111, 108, 117, 109, 101, 76, 101, 118, 101, 108, 67, 104, 97, 110, 103, 101, 100 }));
         private static ReadOnlySpan<byte> propName_participant_id => new byte[] { 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_participant_id = JsonEncodedText.Encode(propName_participant_id);
         private static ReadOnlySpan<byte> propName_volume_level => new byte[] { 118, 111, 108, 117, 109, 101, 95, 108, 101, 118, 101, 108 };
@@ -12261,7 +12649,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (ChatEventVoiceChatParticipantVolumeLevelChanged)tlobj;
+            var obj = (ChatEventVideoChatParticipantVolumeLevelChanged)tlobj;
             if (obj.ParticipantId != null)
             {
                 writer.WritePropertyName(encodedPropName_participant_id);
@@ -12271,16 +12659,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class ChatEventVoiceChatMuteNewParticipantsToggledConverter
+    partial class ChatEventVideoChatMuteNewParticipantsToggledConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116, 77, 117, 116, 101, 78, 101, 119, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115, 84, 111, 103, 103, 108, 101, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 69, 118, 101, 110, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116, 77, 117, 116, 101, 78, 101, 119, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115, 84, 111, 103, 103, 108, 101, 100 }));
         private static ReadOnlySpan<byte> propName_mute_new_participants => new byte[] { 109, 117, 116, 101, 95, 110, 101, 119, 95, 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 };
         private static readonly JsonEncodedText encodedPropName_mute_new_participants = JsonEncodedText.Encode(propName_mute_new_participants);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (ChatEventVoiceChatMuteNewParticipantsToggled)tlobj;
+            var obj = (ChatEventVideoChatMuteNewParticipantsToggled)tlobj;
             writer.WriteBoolean(encodedPropName_mute_new_participants, obj.MuteNewParticipants);
         }
     }
@@ -12356,8 +12744,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_setting_changes = JsonEncodedText.Encode(propName_setting_changes);
         private static ReadOnlySpan<byte> propName_invite_link_changes => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107, 95, 99, 104, 97, 110, 103, 101, 115 };
         private static readonly JsonEncodedText encodedPropName_invite_link_changes = JsonEncodedText.Encode(propName_invite_link_changes);
-        private static ReadOnlySpan<byte> propName_voice_chat_changes => new byte[] { 118, 111, 105, 99, 101, 95, 99, 104, 97, 116, 95, 99, 104, 97, 110, 103, 101, 115 };
-        private static readonly JsonEncodedText encodedPropName_voice_chat_changes = JsonEncodedText.Encode(propName_voice_chat_changes);
+        private static ReadOnlySpan<byte> propName_video_chat_changes => new byte[] { 118, 105, 100, 101, 111, 95, 99, 104, 97, 116, 95, 99, 104, 97, 110, 103, 101, 115 };
+        private static readonly JsonEncodedText encodedPropName_video_chat_changes = JsonEncodedText.Encode(propName_video_chat_changes);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -12374,7 +12762,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteBoolean(encodedPropName_info_changes, obj.InfoChanges);
             writer.WriteBoolean(encodedPropName_setting_changes, obj.SettingChanges);
             writer.WriteBoolean(encodedPropName_invite_link_changes, obj.InviteLinkChanges);
-            writer.WriteBoolean(encodedPropName_voice_chat_changes, obj.VoiceChatChanges);
+            writer.WriteBoolean(encodedPropName_video_chat_changes, obj.VideoChatChanges);
         }
     }
 
@@ -12759,6 +13147,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class BackgroundFillFreeformGradientConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 97, 99, 107, 103, 114, 111, 117, 110, 100, 70, 105, 108, 108, 70, 114, 101, 101, 102, 111, 114, 109, 71, 114, 97, 100, 105, 101, 110, 116 }));
+        private static ReadOnlySpan<byte> propName_colors => new byte[] { 99, 111, 108, 111, 114, 115 };
+        private static readonly JsonEncodedText encodedPropName_colors = JsonEncodedText.Encode(propName_colors);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (BackgroundFillFreeformGradient)tlobj;
+            if (obj.Colors != null)
+            {
+                writer.WritePropertyName(encodedPropName_colors);
+                writer.WriteArray(obj.Colors);
+            }
+        }
+    }
+
     partial class BackgroundTypeWallpaperConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 97, 99, 107, 103, 114, 111, 117, 110, 100, 84, 121, 112, 101, 87, 97, 108, 108, 112, 97, 112, 101, 114 }));
@@ -12783,6 +13189,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_fill = JsonEncodedText.Encode(propName_fill);
         private static ReadOnlySpan<byte> propName_intensity => new byte[] { 105, 110, 116, 101, 110, 115, 105, 116, 121 };
         private static readonly JsonEncodedText encodedPropName_intensity = JsonEncodedText.Encode(propName_intensity);
+        private static ReadOnlySpan<byte> propName_is_inverted => new byte[] { 105, 115, 95, 105, 110, 118, 101, 114, 116, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_inverted = JsonEncodedText.Encode(propName_is_inverted);
         private static ReadOnlySpan<byte> propName_is_moving => new byte[] { 105, 115, 95, 109, 111, 118, 105, 110, 103 };
         private static readonly JsonEncodedText encodedPropName_is_moving = JsonEncodedText.Encode(propName_is_moving);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -12796,6 +13204,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WriteTLObjectValue(obj.Fill);
             }
             writer.WriteNumber(encodedPropName_intensity, obj.Intensity);
+            writer.WriteBoolean(encodedPropName_is_inverted, obj.IsInverted);
             writer.WriteBoolean(encodedPropName_is_moving, obj.IsMoving);
         }
     }
@@ -12904,6 +13313,68 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (InputBackgroundRemote)tlobj;
             writer.WritePropertyName(encodedPropName_background_id);
             writer.WriteInt64String(obj.BackgroundId);
+        }
+    }
+
+    partial class ThemeSettingsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 116, 104, 101, 109, 101, 83, 101, 116, 116, 105, 110, 103, 115 }));
+        private static ReadOnlySpan<byte> propName_accent_color => new byte[] { 97, 99, 99, 101, 110, 116, 95, 99, 111, 108, 111, 114 };
+        private static readonly JsonEncodedText encodedPropName_accent_color = JsonEncodedText.Encode(propName_accent_color);
+        private static ReadOnlySpan<byte> propName_background => new byte[] { 98, 97, 99, 107, 103, 114, 111, 117, 110, 100 };
+        private static readonly JsonEncodedText encodedPropName_background = JsonEncodedText.Encode(propName_background);
+        private static ReadOnlySpan<byte> propName_outgoing_message_fill => new byte[] { 111, 117, 116, 103, 111, 105, 110, 103, 95, 109, 101, 115, 115, 97, 103, 101, 95, 102, 105, 108, 108 };
+        private static readonly JsonEncodedText encodedPropName_outgoing_message_fill = JsonEncodedText.Encode(propName_outgoing_message_fill);
+        private static ReadOnlySpan<byte> propName_animate_outgoing_message_fill => new byte[] { 97, 110, 105, 109, 97, 116, 101, 95, 111, 117, 116, 103, 111, 105, 110, 103, 95, 109, 101, 115, 115, 97, 103, 101, 95, 102, 105, 108, 108 };
+        private static readonly JsonEncodedText encodedPropName_animate_outgoing_message_fill = JsonEncodedText.Encode(propName_animate_outgoing_message_fill);
+        private static ReadOnlySpan<byte> propName_outgoing_message_accent_color => new byte[] { 111, 117, 116, 103, 111, 105, 110, 103, 95, 109, 101, 115, 115, 97, 103, 101, 95, 97, 99, 99, 101, 110, 116, 95, 99, 111, 108, 111, 114 };
+        private static readonly JsonEncodedText encodedPropName_outgoing_message_accent_color = JsonEncodedText.Encode(propName_outgoing_message_accent_color);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ThemeSettings)tlobj;
+            writer.WriteNumber(encodedPropName_accent_color, obj.AccentColor);
+            if (obj.Background != null)
+            {
+                writer.WritePropertyName(encodedPropName_background);
+                writer.WriteTLObjectValue(obj.Background);
+            }
+            if (obj.OutgoingMessageFill != null)
+            {
+                writer.WritePropertyName(encodedPropName_outgoing_message_fill);
+                writer.WriteTLObjectValue(obj.OutgoingMessageFill);
+            }
+            writer.WriteBoolean(encodedPropName_animate_outgoing_message_fill, obj.AnimateOutgoingMessageFill);
+            writer.WriteNumber(encodedPropName_outgoing_message_accent_color, obj.OutgoingMessageAccentColor);
+        }
+    }
+
+    partial class ChatThemeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 97, 116, 84, 104, 101, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_name => new byte[] { 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_name = JsonEncodedText.Encode(propName_name);
+        private static ReadOnlySpan<byte> propName_light_settings => new byte[] { 108, 105, 103, 104, 116, 95, 115, 101, 116, 116, 105, 110, 103, 115 };
+        private static readonly JsonEncodedText encodedPropName_light_settings = JsonEncodedText.Encode(propName_light_settings);
+        private static ReadOnlySpan<byte> propName_dark_settings => new byte[] { 100, 97, 114, 107, 95, 115, 101, 116, 116, 105, 110, 103, 115 };
+        private static readonly JsonEncodedText encodedPropName_dark_settings = JsonEncodedText.Encode(propName_dark_settings);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ChatTheme)tlobj;
+            writer.WriteString(encodedPropName_name, obj.Name);
+            if (obj.LightSettings != null)
+            {
+                writer.WritePropertyName(encodedPropName_light_settings);
+                writer.WriteTLObjectValue(obj.LightSettings);
+            }
+            if (obj.DarkSettings != null)
+            {
+                writer.WritePropertyName(encodedPropName_dark_settings);
+                writer.WriteTLObjectValue(obj.DarkSettings);
+            }
         }
     }
 
@@ -13020,6 +13491,74 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class CheckStickerSetNameResultOkConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 101, 99, 107, 83, 116, 105, 99, 107, 101, 114, 83, 101, 116, 78, 97, 109, 101, 82, 101, 115, 117, 108, 116, 79, 107 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class CheckStickerSetNameResultNameInvalidConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 101, 99, 107, 83, 116, 105, 99, 107, 101, 114, 83, 101, 116, 78, 97, 109, 101, 82, 101, 115, 117, 108, 116, 78, 97, 109, 101, 73, 110, 118, 97, 108, 105, 100 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class CheckStickerSetNameResultNameOccupiedConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 101, 99, 107, 83, 116, 105, 99, 107, 101, 114, 83, 101, 116, 78, 97, 109, 101, 82, 101, 115, 117, 108, 116, 78, 97, 109, 101, 79, 99, 99, 117, 112, 105, 101, 100 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class ResetPasswordResultOkConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 115, 101, 116, 80, 97, 115, 115, 119, 111, 114, 100, 82, 101, 115, 117, 108, 116, 79, 107 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class ResetPasswordResultPendingConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 115, 101, 116, 80, 97, 115, 115, 119, 111, 114, 100, 82, 101, 115, 117, 108, 116, 80, 101, 110, 100, 105, 110, 103 }));
+        private static ReadOnlySpan<byte> propName_pending_reset_date => new byte[] { 112, 101, 110, 100, 105, 110, 103, 95, 114, 101, 115, 101, 116, 95, 100, 97, 116, 101 };
+        private static readonly JsonEncodedText encodedPropName_pending_reset_date = JsonEncodedText.Encode(propName_pending_reset_date);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ResetPasswordResultPending)tlobj;
+            writer.WriteNumber(encodedPropName_pending_reset_date, obj.PendingResetDate);
+        }
+    }
+
+    partial class ResetPasswordResultDeclinedConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 115, 101, 116, 80, 97, 115, 115, 119, 111, 114, 100, 82, 101, 115, 117, 108, 116, 68, 101, 99, 108, 105, 110, 101, 100 }));
+        private static ReadOnlySpan<byte> propName_retry_date => new byte[] { 114, 101, 116, 114, 121, 95, 100, 97, 116, 101 };
+        private static readonly JsonEncodedText encodedPropName_retry_date = JsonEncodedText.Encode(propName_retry_date);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ResetPasswordResultDeclined)tlobj;
+            writer.WriteNumber(encodedPropName_retry_date, obj.RetryDate);
         }
     }
 
@@ -13460,6 +13999,20 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class PushMessageContentChatSetThemeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 112, 117, 115, 104, 77, 101, 115, 115, 97, 103, 101, 67, 111, 110, 116, 101, 110, 116, 67, 104, 97, 116, 83, 101, 116, 84, 104, 101, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_theme_name => new byte[] { 116, 104, 101, 109, 101, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_theme_name = JsonEncodedText.Encode(propName_theme_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (PushMessageContentChatSetTheme)tlobj;
+            writer.WriteString(encodedPropName_theme_name, obj.ThemeName);
+        }
+    }
+
     partial class PushMessageContentChatDeleteMemberConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 112, 117, 115, 104, 77, 101, 115, 115, 97, 103, 101, 67, 111, 110, 116, 101, 110, 116, 67, 104, 97, 116, 68, 101, 108, 101, 116, 101, 77, 101, 109, 98, 101, 114 }));
@@ -13483,6 +14036,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
     partial class PushMessageContentChatJoinByLinkConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 112, 117, 115, 104, 77, 101, 115, 115, 97, 103, 101, 67, 111, 110, 116, 101, 110, 116, 67, 104, 97, 116, 74, 111, 105, 110, 66, 121, 76, 105, 110, 107 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class PushMessageContentChatJoinByRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 112, 117, 115, 104, 77, 101, 115, 115, 97, 103, 101, 67, 111, 110, 116, 101, 110, 116, 67, 104, 97, 116, 74, 111, 105, 110, 66, 121, 82, 101, 113, 117, 101, 115, 116 }));
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -14305,6 +14868,361 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class InternalLinkTypeActiveSessionsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 65, 99, 116, 105, 118, 101, 83, 101, 115, 115, 105, 111, 110, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class InternalLinkTypeAuthenticationCodeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 105, 111, 110, 67, 111, 100, 101 }));
+        private static ReadOnlySpan<byte> propName_code => new byte[] { 99, 111, 100, 101 };
+        private static readonly JsonEncodedText encodedPropName_code = JsonEncodedText.Encode(propName_code);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeAuthenticationCode)tlobj;
+            writer.WriteString(encodedPropName_code, obj.Code);
+        }
+    }
+
+    partial class InternalLinkTypeBackgroundConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 66, 97, 99, 107, 103, 114, 111, 117, 110, 100 }));
+        private static ReadOnlySpan<byte> propName_background_name => new byte[] { 98, 97, 99, 107, 103, 114, 111, 117, 110, 100, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_background_name = JsonEncodedText.Encode(propName_background_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeBackground)tlobj;
+            writer.WriteString(encodedPropName_background_name, obj.BackgroundName);
+        }
+    }
+
+    partial class InternalLinkTypeBotStartConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 66, 111, 116, 83, 116, 97, 114, 116 }));
+        private static ReadOnlySpan<byte> propName_bot_username => new byte[] { 98, 111, 116, 95, 117, 115, 101, 114, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_bot_username = JsonEncodedText.Encode(propName_bot_username);
+        private static ReadOnlySpan<byte> propName_start_parameter => new byte[] { 115, 116, 97, 114, 116, 95, 112, 97, 114, 97, 109, 101, 116, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_start_parameter = JsonEncodedText.Encode(propName_start_parameter);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeBotStart)tlobj;
+            writer.WriteString(encodedPropName_bot_username, obj.BotUsername);
+            writer.WriteString(encodedPropName_start_parameter, obj.StartParameter);
+        }
+    }
+
+    partial class InternalLinkTypeBotStartInGroupConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 66, 111, 116, 83, 116, 97, 114, 116, 73, 110, 71, 114, 111, 117, 112 }));
+        private static ReadOnlySpan<byte> propName_bot_username => new byte[] { 98, 111, 116, 95, 117, 115, 101, 114, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_bot_username = JsonEncodedText.Encode(propName_bot_username);
+        private static ReadOnlySpan<byte> propName_start_parameter => new byte[] { 115, 116, 97, 114, 116, 95, 112, 97, 114, 97, 109, 101, 116, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_start_parameter = JsonEncodedText.Encode(propName_start_parameter);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeBotStartInGroup)tlobj;
+            writer.WriteString(encodedPropName_bot_username, obj.BotUsername);
+            writer.WriteString(encodedPropName_start_parameter, obj.StartParameter);
+        }
+    }
+
+    partial class InternalLinkTypeChangePhoneNumberConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 67, 104, 97, 110, 103, 101, 80, 104, 111, 110, 101, 78, 117, 109, 98, 101, 114 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class InternalLinkTypeChatInviteConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 67, 104, 97, 116, 73, 110, 118, 105, 116, 101 }));
+        private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeChatInvite)tlobj;
+            writer.WriteString(encodedPropName_invite_link, obj.InviteLink);
+        }
+    }
+
+    partial class InternalLinkTypeFilterSettingsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 70, 105, 108, 116, 101, 114, 83, 101, 116, 116, 105, 110, 103, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class InternalLinkTypeGameConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 71, 97, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_bot_username => new byte[] { 98, 111, 116, 95, 117, 115, 101, 114, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_bot_username = JsonEncodedText.Encode(propName_bot_username);
+        private static ReadOnlySpan<byte> propName_game_short_name => new byte[] { 103, 97, 109, 101, 95, 115, 104, 111, 114, 116, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_game_short_name = JsonEncodedText.Encode(propName_game_short_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeGame)tlobj;
+            writer.WriteString(encodedPropName_bot_username, obj.BotUsername);
+            writer.WriteString(encodedPropName_game_short_name, obj.GameShortName);
+        }
+    }
+
+    partial class InternalLinkTypeLanguagePackConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 76, 97, 110, 103, 117, 97, 103, 101, 80, 97, 99, 107 }));
+        private static ReadOnlySpan<byte> propName_language_pack_id => new byte[] { 108, 97, 110, 103, 117, 97, 103, 101, 95, 112, 97, 99, 107, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_language_pack_id = JsonEncodedText.Encode(propName_language_pack_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeLanguagePack)tlobj;
+            writer.WriteString(encodedPropName_language_pack_id, obj.LanguagePackId);
+        }
+    }
+
+    partial class InternalLinkTypeMessageConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 77, 101, 115, 115, 97, 103, 101 }));
+        private static ReadOnlySpan<byte> propName_url => new byte[] { 117, 114, 108 };
+        private static readonly JsonEncodedText encodedPropName_url = JsonEncodedText.Encode(propName_url);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeMessage)tlobj;
+            writer.WriteString(encodedPropName_url, obj.Url);
+        }
+    }
+
+    partial class InternalLinkTypeMessageDraftConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 77, 101, 115, 115, 97, 103, 101, 68, 114, 97, 102, 116 }));
+        private static ReadOnlySpan<byte> propName_text => new byte[] { 116, 101, 120, 116 };
+        private static readonly JsonEncodedText encodedPropName_text = JsonEncodedText.Encode(propName_text);
+        private static ReadOnlySpan<byte> propName_contains_link => new byte[] { 99, 111, 110, 116, 97, 105, 110, 115, 95, 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_contains_link = JsonEncodedText.Encode(propName_contains_link);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeMessageDraft)tlobj;
+            if (obj.Text != null)
+            {
+                writer.WritePropertyName(encodedPropName_text);
+                writer.WriteTLObjectValue(obj.Text);
+            }
+            writer.WriteBoolean(encodedPropName_contains_link, obj.ContainsLink);
+        }
+    }
+
+    partial class InternalLinkTypePassportDataRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 80, 97, 115, 115, 112, 111, 114, 116, 68, 97, 116, 97, 82, 101, 113, 117, 101, 115, 116 }));
+        private static ReadOnlySpan<byte> propName_bot_user_id => new byte[] { 98, 111, 116, 95, 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_bot_user_id = JsonEncodedText.Encode(propName_bot_user_id);
+        private static ReadOnlySpan<byte> propName_scope => new byte[] { 115, 99, 111, 112, 101 };
+        private static readonly JsonEncodedText encodedPropName_scope = JsonEncodedText.Encode(propName_scope);
+        private static ReadOnlySpan<byte> propName_public_key => new byte[] { 112, 117, 98, 108, 105, 99, 95, 107, 101, 121 };
+        private static readonly JsonEncodedText encodedPropName_public_key = JsonEncodedText.Encode(propName_public_key);
+        private static ReadOnlySpan<byte> propName_nonce => new byte[] { 110, 111, 110, 99, 101 };
+        private static readonly JsonEncodedText encodedPropName_nonce = JsonEncodedText.Encode(propName_nonce);
+        private static ReadOnlySpan<byte> propName_callback_url => new byte[] { 99, 97, 108, 108, 98, 97, 99, 107, 95, 117, 114, 108 };
+        private static readonly JsonEncodedText encodedPropName_callback_url = JsonEncodedText.Encode(propName_callback_url);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypePassportDataRequest)tlobj;
+            writer.WriteNumber(encodedPropName_bot_user_id, obj.BotUserId);
+            writer.WriteString(encodedPropName_scope, obj.Scope);
+            writer.WriteString(encodedPropName_public_key, obj.PublicKey);
+            writer.WriteString(encodedPropName_nonce, obj.Nonce);
+            writer.WriteString(encodedPropName_callback_url, obj.CallbackUrl);
+        }
+    }
+
+    partial class InternalLinkTypePhoneNumberConfirmationConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 80, 104, 111, 110, 101, 78, 117, 109, 98, 101, 114, 67, 111, 110, 102, 105, 114, 109, 97, 116, 105, 111, 110 }));
+        private static ReadOnlySpan<byte> propName_hash => new byte[] { 104, 97, 115, 104 };
+        private static readonly JsonEncodedText encodedPropName_hash = JsonEncodedText.Encode(propName_hash);
+        private static ReadOnlySpan<byte> propName_phone_number => new byte[] { 112, 104, 111, 110, 101, 95, 110, 117, 109, 98, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_phone_number = JsonEncodedText.Encode(propName_phone_number);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypePhoneNumberConfirmation)tlobj;
+            writer.WriteString(encodedPropName_hash, obj.Hash);
+            writer.WriteString(encodedPropName_phone_number, obj.PhoneNumber);
+        }
+    }
+
+    partial class InternalLinkTypeProxyConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 80, 114, 111, 120, 121 }));
+        private static ReadOnlySpan<byte> propName_server => new byte[] { 115, 101, 114, 118, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_server = JsonEncodedText.Encode(propName_server);
+        private static ReadOnlySpan<byte> propName_port => new byte[] { 112, 111, 114, 116 };
+        private static readonly JsonEncodedText encodedPropName_port = JsonEncodedText.Encode(propName_port);
+        private static ReadOnlySpan<byte> propName_type => new byte[] { 116, 121, 112, 101 };
+        private static readonly JsonEncodedText encodedPropName_type = JsonEncodedText.Encode(propName_type);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeProxy)tlobj;
+            writer.WriteString(encodedPropName_server, obj.Server);
+            writer.WriteNumber(encodedPropName_port, obj.Port);
+            if (obj.Type != null)
+            {
+                writer.WritePropertyName(encodedPropName_type);
+                writer.WriteTLObjectValue(obj.Type);
+            }
+        }
+    }
+
+    partial class InternalLinkTypePublicChatConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 80, 117, 98, 108, 105, 99, 67, 104, 97, 116 }));
+        private static ReadOnlySpan<byte> propName_chat_username => new byte[] { 99, 104, 97, 116, 95, 117, 115, 101, 114, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_chat_username = JsonEncodedText.Encode(propName_chat_username);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypePublicChat)tlobj;
+            writer.WriteString(encodedPropName_chat_username, obj.ChatUsername);
+        }
+    }
+
+    partial class InternalLinkTypeQrCodeAuthenticationConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 81, 114, 67, 111, 100, 101, 65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 105, 111, 110 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class InternalLinkTypeSettingsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 83, 101, 116, 116, 105, 110, 103, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class InternalLinkTypeStickerSetConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 83, 116, 105, 99, 107, 101, 114, 83, 101, 116 }));
+        private static ReadOnlySpan<byte> propName_sticker_set_name => new byte[] { 115, 116, 105, 99, 107, 101, 114, 95, 115, 101, 116, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_sticker_set_name = JsonEncodedText.Encode(propName_sticker_set_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeStickerSet)tlobj;
+            writer.WriteString(encodedPropName_sticker_set_name, obj.StickerSetName);
+        }
+    }
+
+    partial class InternalLinkTypeThemeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 84, 104, 101, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_theme_name => new byte[] { 116, 104, 101, 109, 101, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_theme_name = JsonEncodedText.Encode(propName_theme_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeTheme)tlobj;
+            writer.WriteString(encodedPropName_theme_name, obj.ThemeName);
+        }
+    }
+
+    partial class InternalLinkTypeThemeSettingsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 84, 104, 101, 109, 101, 83, 101, 116, 116, 105, 110, 103, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class InternalLinkTypeUnknownDeepLinkConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 85, 110, 107, 110, 111, 119, 110, 68, 101, 101, 112, 76, 105, 110, 107 }));
+        private static ReadOnlySpan<byte> propName_link => new byte[] { 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_link = JsonEncodedText.Encode(propName_link);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeUnknownDeepLink)tlobj;
+            writer.WriteString(encodedPropName_link, obj.Link);
+        }
+    }
+
+    partial class InternalLinkTypeUnsupportedProxyConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 85, 110, 115, 117, 112, 112, 111, 114, 116, 101, 100, 80, 114, 111, 120, 121 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class InternalLinkTypeVideoChatConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 105, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101, 86, 105, 100, 101, 111, 67, 104, 97, 116 }));
+        private static ReadOnlySpan<byte> propName_chat_username => new byte[] { 99, 104, 97, 116, 95, 117, 115, 101, 114, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_chat_username = JsonEncodedText.Encode(propName_chat_username);
+        private static ReadOnlySpan<byte> propName_invite_hash => new byte[] { 105, 110, 118, 105, 116, 101, 95, 104, 97, 115, 104 };
+        private static readonly JsonEncodedText encodedPropName_invite_hash = JsonEncodedText.Encode(propName_invite_hash);
+        private static ReadOnlySpan<byte> propName_is_live_stream => new byte[] { 105, 115, 95, 108, 105, 118, 101, 95, 115, 116, 114, 101, 97, 109 };
+        private static readonly JsonEncodedText encodedPropName_is_live_stream = JsonEncodedText.Encode(propName_is_live_stream);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (InternalLinkTypeVideoChat)tlobj;
+            writer.WriteString(encodedPropName_chat_username, obj.ChatUsername);
+            writer.WriteString(encodedPropName_invite_hash, obj.InviteHash);
+            writer.WriteBoolean(encodedPropName_is_live_stream, obj.IsLiveStream);
+        }
+    }
+
     partial class MessageLinkConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 109, 101, 115, 115, 97, 103, 101, 76, 105, 110, 107 }));
@@ -14331,6 +15249,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
         private static ReadOnlySpan<byte> propName_message => new byte[] { 109, 101, 115, 115, 97, 103, 101 };
         private static readonly JsonEncodedText encodedPropName_message = JsonEncodedText.Encode(propName_message);
+        private static ReadOnlySpan<byte> propName_media_timestamp => new byte[] { 109, 101, 100, 105, 97, 95, 116, 105, 109, 101, 115, 116, 97, 109, 112 };
+        private static readonly JsonEncodedText encodedPropName_media_timestamp = JsonEncodedText.Encode(propName_media_timestamp);
         private static ReadOnlySpan<byte> propName_for_album => new byte[] { 102, 111, 114, 95, 97, 108, 98, 117, 109 };
         private static readonly JsonEncodedText encodedPropName_for_album = JsonEncodedText.Encode(propName_for_album);
         private static ReadOnlySpan<byte> propName_for_comment => new byte[] { 102, 111, 114, 95, 99, 111, 109, 109, 101, 110, 116 };
@@ -14347,6 +15267,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_message);
                 writer.WriteTLObjectValue(obj.Message);
             }
+            writer.WriteNumber(encodedPropName_media_timestamp, obj.MediaTimestamp);
             writer.WriteBoolean(encodedPropName_for_album, obj.ForAlbum);
             writer.WriteBoolean(encodedPropName_for_comment, obj.ForComment);
         }
@@ -15063,6 +15984,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
     partial class SuggestedActionEnableArchiveAndMuteNewChatsConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 117, 103, 103, 101, 115, 116, 101, 100, 65, 99, 116, 105, 111, 110, 69, 110, 97, 98, 108, 101, 65, 114, 99, 104, 105, 118, 101, 65, 110, 100, 77, 117, 116, 101, 78, 101, 119, 67, 104, 97, 116, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class SuggestedActionCheckPasswordConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 117, 103, 103, 101, 115, 116, 101, 100, 65, 99, 116, 105, 111, 110, 67, 104, 101, 99, 107, 80, 97, 115, 115, 119, 111, 114, 100 }));
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -15824,6 +16755,91 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class BotCommandScopeDefaultConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 83, 99, 111, 112, 101, 68, 101, 102, 97, 117, 108, 116 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class BotCommandScopeAllPrivateChatsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 83, 99, 111, 112, 101, 65, 108, 108, 80, 114, 105, 118, 97, 116, 101, 67, 104, 97, 116, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class BotCommandScopeAllGroupChatsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 83, 99, 111, 112, 101, 65, 108, 108, 71, 114, 111, 117, 112, 67, 104, 97, 116, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class BotCommandScopeAllChatAdministratorsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 83, 99, 111, 112, 101, 65, 108, 108, 67, 104, 97, 116, 65, 100, 109, 105, 110, 105, 115, 116, 114, 97, 116, 111, 114, 115 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class BotCommandScopeChatConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 83, 99, 111, 112, 101, 67, 104, 97, 116 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (BotCommandScopeChat)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+        }
+    }
+
+    partial class BotCommandScopeChatAdministratorsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 83, 99, 111, 112, 101, 67, 104, 97, 116, 65, 100, 109, 105, 110, 105, 115, 116, 114, 97, 116, 111, 114, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (BotCommandScopeChatAdministrators)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+        }
+    }
+
+    partial class BotCommandScopeChatMemberConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 98, 111, 116, 67, 111, 109, 109, 97, 110, 100, 83, 99, 111, 112, 101, 67, 104, 97, 116, 77, 101, 109, 98, 101, 114 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_user_id => new byte[] { 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_user_id = JsonEncodedText.Encode(propName_user_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (BotCommandScopeChatMember)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_user_id, obj.UserId);
+        }
+    }
+
     partial class UpdateAuthorizationStateConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 65, 117, 116, 104, 111, 114, 105, 122, 97, 116, 105, 111, 110, 83, 116, 97, 116, 101 }));
@@ -16251,23 +17267,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class UpdateChatVoiceChatConverter
+    partial class UpdateChatVideoChatConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 67, 104, 97, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 67, 104, 97, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116 }));
         private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
-        private static ReadOnlySpan<byte> propName_voice_chat => new byte[] { 118, 111, 105, 99, 101, 95, 99, 104, 97, 116 };
-        private static readonly JsonEncodedText encodedPropName_voice_chat = JsonEncodedText.Encode(propName_voice_chat);
+        private static ReadOnlySpan<byte> propName_video_chat => new byte[] { 118, 105, 100, 101, 111, 95, 99, 104, 97, 116 };
+        private static readonly JsonEncodedText encodedPropName_video_chat = JsonEncodedText.Encode(propName_video_chat);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (UpdateChatVoiceChat)tlobj;
+            var obj = (UpdateChatVideoChat)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
-            if (obj.VoiceChat != null)
+            if (obj.VideoChat != null)
             {
-                writer.WritePropertyName(encodedPropName_voice_chat);
-                writer.WriteTLObjectValue(obj.VoiceChat);
+                writer.WritePropertyName(encodedPropName_video_chat);
+                writer.WriteTLObjectValue(obj.VideoChat);
             }
         }
     }
@@ -16423,6 +17439,44 @@ namespace TDLibCore.JsonClient.ObjectConverter
             {
                 writer.WritePropertyName(encodedPropName_action_bar);
                 writer.WriteTLObjectValue(obj.ActionBar);
+            }
+        }
+    }
+
+    partial class UpdateChatThemeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 67, 104, 97, 116, 84, 104, 101, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_theme_name => new byte[] { 116, 104, 101, 109, 101, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_theme_name = JsonEncodedText.Encode(propName_theme_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (UpdateChatTheme)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteString(encodedPropName_theme_name, obj.ThemeName);
+        }
+    }
+
+    partial class UpdateChatPendingJoinRequestsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 67, 104, 97, 116, 80, 101, 110, 100, 105, 110, 103, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_pending_join_requests => new byte[] { 112, 101, 110, 100, 105, 110, 103, 95, 106, 111, 105, 110, 95, 114, 101, 113, 117, 101, 115, 116, 115 };
+        private static readonly JsonEncodedText encodedPropName_pending_join_requests = JsonEncodedText.Encode(propName_pending_join_requests);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (UpdateChatPendingJoinRequests)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            if (obj.PendingJoinRequests != null)
+            {
+                writer.WritePropertyName(encodedPropName_pending_join_requests);
+                writer.WriteTLObjectValue(obj.PendingJoinRequests);
             }
         }
     }
@@ -17213,6 +18267,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class UpdateChatThemesConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 67, 104, 97, 116, 84, 104, 101, 109, 101, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_themes => new byte[] { 99, 104, 97, 116, 95, 116, 104, 101, 109, 101, 115 };
+        private static readonly JsonEncodedText encodedPropName_chat_themes = JsonEncodedText.Encode(propName_chat_themes);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (UpdateChatThemes)tlobj;
+            if (obj.ChatThemes != null)
+            {
+                writer.WritePropertyName(encodedPropName_chat_themes);
+                writer.WriteArray(obj.ChatThemes);
+            }
+        }
+    }
+
     partial class UpdateLanguagePackStringsConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 76, 97, 110, 103, 117, 97, 103, 101, 80, 97, 99, 107, 83, 116, 114, 105, 110, 103, 115 }));
@@ -17308,6 +18380,30 @@ namespace TDLibCore.JsonClient.ObjectConverter
             {
                 writer.WritePropertyName(encodedPropName_emojis);
                 writer.WriteArray(obj.Emojis);
+            }
+        }
+    }
+
+    partial class UpdateAnimatedEmojiMessageClickedConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 65, 110, 105, 109, 97, 116, 101, 100, 69, 109, 111, 106, 105, 77, 101, 115, 115, 97, 103, 101, 67, 108, 105, 99, 107, 101, 100 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_message_id => new byte[] { 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_message_id = JsonEncodedText.Encode(propName_message_id);
+        private static ReadOnlySpan<byte> propName_sticker => new byte[] { 115, 116, 105, 99, 107, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_sticker = JsonEncodedText.Encode(propName_sticker);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (UpdateAnimatedEmojiMessageClicked)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_message_id, obj.MessageId);
+            if (obj.Sticker != null)
+            {
+                writer.WritePropertyName(encodedPropName_sticker);
+                writer.WriteTLObjectValue(obj.Sticker);
             }
         }
     }
@@ -17680,6 +18776,34 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class UpdateNewChatJoinRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 78, 101, 119, 67, 104, 97, 116, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_request => new byte[] { 114, 101, 113, 117, 101, 115, 116 };
+        private static readonly JsonEncodedText encodedPropName_request = JsonEncodedText.Encode(propName_request);
+        private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (UpdateNewChatJoinRequest)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            if (obj.Request != null)
+            {
+                writer.WritePropertyName(encodedPropName_request);
+                writer.WriteTLObjectValue(obj.Request);
+            }
+            if (obj.InviteLink != null)
+            {
+                writer.WritePropertyName(encodedPropName_invite_link);
+                writer.WriteTLObjectValue(obj.InviteLink);
+            }
+        }
+    }
+
     partial class UpdatesConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 100, 97, 116, 101, 115 }));
@@ -18036,17 +19160,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class RecoverAuthenticationPasswordConverter
+    partial class CheckAuthenticationPasswordRecoveryCodeConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 99, 111, 118, 101, 114, 65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 105, 111, 110, 80, 97, 115, 115, 119, 111, 114, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 101, 99, 107, 65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 105, 111, 110, 80, 97, 115, 115, 119, 111, 114, 100, 82, 101, 99, 111, 118, 101, 114, 121, 67, 111, 100, 101 }));
         private static ReadOnlySpan<byte> propName_recovery_code => new byte[] { 114, 101, 99, 111, 118, 101, 114, 121, 95, 99, 111, 100, 101 };
         private static readonly JsonEncodedText encodedPropName_recovery_code = JsonEncodedText.Encode(propName_recovery_code);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (CheckAuthenticationPasswordRecoveryCode)tlobj;
+            writer.WriteString(encodedPropName_recovery_code, obj.RecoveryCode);
+        }
+    }
+
+    partial class RecoverAuthenticationPasswordConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 99, 111, 118, 101, 114, 65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 105, 111, 110, 80, 97, 115, 115, 119, 111, 114, 100 }));
+        private static ReadOnlySpan<byte> propName_recovery_code => new byte[] { 114, 101, 99, 111, 118, 101, 114, 121, 95, 99, 111, 100, 101 };
+        private static readonly JsonEncodedText encodedPropName_recovery_code = JsonEncodedText.Encode(propName_recovery_code);
+        private static ReadOnlySpan<byte> propName_new_password => new byte[] { 110, 101, 119, 95, 112, 97, 115, 115, 119, 111, 114, 100 };
+        private static readonly JsonEncodedText encodedPropName_new_password = JsonEncodedText.Encode(propName_new_password);
+        private static ReadOnlySpan<byte> propName_new_hint => new byte[] { 110, 101, 119, 95, 104, 105, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_new_hint = JsonEncodedText.Encode(propName_new_hint);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (RecoverAuthenticationPassword)tlobj;
             writer.WriteString(encodedPropName_recovery_code, obj.RecoveryCode);
+            writer.WriteString(encodedPropName_new_password, obj.NewPassword);
+            writer.WriteString(encodedPropName_new_hint, obj.NewHint);
         }
     }
 
@@ -18236,17 +19380,57 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class RecoverPasswordConverter
+    partial class CheckPasswordRecoveryCodeConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 99, 111, 118, 101, 114, 80, 97, 115, 115, 119, 111, 114, 100 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 101, 99, 107, 80, 97, 115, 115, 119, 111, 114, 100, 82, 101, 99, 111, 118, 101, 114, 121, 67, 111, 100, 101 }));
         private static ReadOnlySpan<byte> propName_recovery_code => new byte[] { 114, 101, 99, 111, 118, 101, 114, 121, 95, 99, 111, 100, 101 };
         private static readonly JsonEncodedText encodedPropName_recovery_code = JsonEncodedText.Encode(propName_recovery_code);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (CheckPasswordRecoveryCode)tlobj;
+            writer.WriteString(encodedPropName_recovery_code, obj.RecoveryCode);
+        }
+    }
+
+    partial class RecoverPasswordConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 99, 111, 118, 101, 114, 80, 97, 115, 115, 119, 111, 114, 100 }));
+        private static ReadOnlySpan<byte> propName_recovery_code => new byte[] { 114, 101, 99, 111, 118, 101, 114, 121, 95, 99, 111, 100, 101 };
+        private static readonly JsonEncodedText encodedPropName_recovery_code = JsonEncodedText.Encode(propName_recovery_code);
+        private static ReadOnlySpan<byte> propName_new_password => new byte[] { 110, 101, 119, 95, 112, 97, 115, 115, 119, 111, 114, 100 };
+        private static readonly JsonEncodedText encodedPropName_new_password = JsonEncodedText.Encode(propName_new_password);
+        private static ReadOnlySpan<byte> propName_new_hint => new byte[] { 110, 101, 119, 95, 104, 105, 110, 116 };
+        private static readonly JsonEncodedText encodedPropName_new_hint = JsonEncodedText.Encode(propName_new_hint);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (RecoverPassword)tlobj;
             writer.WriteString(encodedPropName_recovery_code, obj.RecoveryCode);
+            writer.WriteString(encodedPropName_new_password, obj.NewPassword);
+            writer.WriteString(encodedPropName_new_hint, obj.NewHint);
+        }
+    }
+
+    partial class ResetPasswordConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 115, 101, 116, 80, 97, 115, 115, 119, 111, 114, 100 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class CancelPasswordResetConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 97, 110, 99, 101, 108, 80, 97, 115, 115, 119, 111, 114, 100, 82, 101, 115, 101, 116 }));
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
         }
     }
 
@@ -18523,6 +19707,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class GetMessageViewersConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 77, 101, 115, 115, 97, 103, 101, 86, 105, 101, 119, 101, 114, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_message_id => new byte[] { 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_message_id = JsonEncodedText.Encode(propName_message_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetMessageViewers)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_message_id, obj.MessageId);
+        }
+    }
+
     partial class GetFileConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 70, 105, 108, 101 }));
@@ -18558,15 +19759,32 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class LoadChatsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 108, 111, 97, 100, 67, 104, 97, 116, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_list => new byte[] { 99, 104, 97, 116, 95, 108, 105, 115, 116 };
+        private static readonly JsonEncodedText encodedPropName_chat_list = JsonEncodedText.Encode(propName_chat_list);
+        private static ReadOnlySpan<byte> propName_limit => new byte[] { 108, 105, 109, 105, 116 };
+        private static readonly JsonEncodedText encodedPropName_limit = JsonEncodedText.Encode(propName_limit);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (LoadChats)tlobj;
+            if (obj.ChatList != null)
+            {
+                writer.WritePropertyName(encodedPropName_chat_list);
+                writer.WriteTLObjectValue(obj.ChatList);
+            }
+            writer.WriteNumber(encodedPropName_limit, obj.Limit);
+        }
+    }
+
     partial class GetChatsConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 115 }));
         private static ReadOnlySpan<byte> propName_chat_list => new byte[] { 99, 104, 97, 116, 95, 108, 105, 115, 116 };
         private static readonly JsonEncodedText encodedPropName_chat_list = JsonEncodedText.Encode(propName_chat_list);
-        private static ReadOnlySpan<byte> propName_offset_order => new byte[] { 111, 102, 102, 115, 101, 116, 95, 111, 114, 100, 101, 114 };
-        private static readonly JsonEncodedText encodedPropName_offset_order = JsonEncodedText.Encode(propName_offset_order);
-        private static ReadOnlySpan<byte> propName_offset_chat_id => new byte[] { 111, 102, 102, 115, 101, 116, 95, 99, 104, 97, 116, 95, 105, 100 };
-        private static readonly JsonEncodedText encodedPropName_offset_chat_id = JsonEncodedText.Encode(propName_offset_chat_id);
         private static ReadOnlySpan<byte> propName_limit => new byte[] { 108, 105, 109, 105, 116 };
         private static readonly JsonEncodedText encodedPropName_limit = JsonEncodedText.Encode(propName_limit);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -18579,9 +19797,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_chat_list);
                 writer.WriteTLObjectValue(obj.ChatList);
             }
-            writer.WritePropertyName(encodedPropName_offset_order);
-            writer.WriteInt64String(obj.OffsetOrder);
-            writer.WriteNumber(encodedPropName_offset_chat_id, obj.OffsetChatId);
             writer.WriteNumber(encodedPropName_limit, obj.Limit);
         }
     }
@@ -18743,6 +19958,20 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+        }
+    }
+
+    partial class GetRecentlyOpenedChatsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 82, 101, 99, 101, 110, 116, 108, 121, 79, 112, 101, 110, 101, 100, 67, 104, 97, 116, 115 }));
+        private static ReadOnlySpan<byte> propName_limit => new byte[] { 108, 105, 109, 105, 116 };
+        private static readonly JsonEncodedText encodedPropName_limit = JsonEncodedText.Encode(propName_limit);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetRecentlyOpenedChats)tlobj;
+            writer.WriteNumber(encodedPropName_limit, obj.Limit);
         }
     }
 
@@ -19122,6 +20351,57 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class GetChatSparseMessagePositionsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 83, 112, 97, 114, 115, 101, 77, 101, 115, 115, 97, 103, 101, 80, 111, 115, 105, 116, 105, 111, 110, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_filter => new byte[] { 102, 105, 108, 116, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_filter = JsonEncodedText.Encode(propName_filter);
+        private static ReadOnlySpan<byte> propName_from_message_id => new byte[] { 102, 114, 111, 109, 95, 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_from_message_id = JsonEncodedText.Encode(propName_from_message_id);
+        private static ReadOnlySpan<byte> propName_limit => new byte[] { 108, 105, 109, 105, 116 };
+        private static readonly JsonEncodedText encodedPropName_limit = JsonEncodedText.Encode(propName_limit);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetChatSparseMessagePositions)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            if (obj.Filter != null)
+            {
+                writer.WritePropertyName(encodedPropName_filter);
+                writer.WriteTLObjectValue(obj.Filter);
+            }
+            writer.WriteNumber(encodedPropName_from_message_id, obj.FromMessageId);
+            writer.WriteNumber(encodedPropName_limit, obj.Limit);
+        }
+    }
+
+    partial class GetChatMessageCalendarConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 77, 101, 115, 115, 97, 103, 101, 67, 97, 108, 101, 110, 100, 97, 114 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_filter => new byte[] { 102, 105, 108, 116, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_filter = JsonEncodedText.Encode(propName_filter);
+        private static ReadOnlySpan<byte> propName_from_message_id => new byte[] { 102, 114, 111, 109, 95, 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_from_message_id = JsonEncodedText.Encode(propName_from_message_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetChatMessageCalendar)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            if (obj.Filter != null)
+            {
+                writer.WritePropertyName(encodedPropName_filter);
+                writer.WriteTLObjectValue(obj.Filter);
+            }
+            writer.WriteNumber(encodedPropName_from_message_id, obj.FromMessageId);
+        }
+    }
+
     partial class GetChatMessageCountConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 77, 101, 115, 115, 97, 103, 101, 67, 111, 117, 110, 116 }));
@@ -19183,6 +20463,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class GetChatSponsoredMessagesConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 83, 112, 111, 110, 115, 111, 114, 101, 100, 77, 101, 115, 115, 97, 103, 101, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetChatSponsoredMessages)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+        }
+    }
+
+    partial class ViewSponsoredMessageConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 118, 105, 101, 119, 83, 112, 111, 110, 115, 111, 114, 101, 100, 77, 101, 115, 115, 97, 103, 101 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_sponsored_message_id => new byte[] { 115, 112, 111, 110, 115, 111, 114, 101, 100, 95, 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_sponsored_message_id = JsonEncodedText.Encode(propName_sponsored_message_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ViewSponsoredMessage)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_sponsored_message_id, obj.SponsoredMessageId);
+        }
+    }
+
     partial class RemoveNotificationConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 114, 101, 109, 111, 118, 101, 78, 111, 116, 105, 102, 105, 99, 97, 116, 105, 111, 110 }));
@@ -19224,6 +20535,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
         private static ReadOnlySpan<byte> propName_message_id => new byte[] { 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_message_id = JsonEncodedText.Encode(propName_message_id);
+        private static ReadOnlySpan<byte> propName_media_timestamp => new byte[] { 109, 101, 100, 105, 97, 95, 116, 105, 109, 101, 115, 116, 97, 109, 112 };
+        private static readonly JsonEncodedText encodedPropName_media_timestamp = JsonEncodedText.Encode(propName_media_timestamp);
         private static ReadOnlySpan<byte> propName_for_album => new byte[] { 102, 111, 114, 95, 97, 108, 98, 117, 109 };
         private static readonly JsonEncodedText encodedPropName_for_album = JsonEncodedText.Encode(propName_for_album);
         private static ReadOnlySpan<byte> propName_for_comment => new byte[] { 102, 111, 114, 95, 99, 111, 109, 109, 101, 110, 116 };
@@ -19235,6 +20548,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetMessageLink)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
             writer.WriteNumber(encodedPropName_message_id, obj.MessageId);
+            writer.WriteNumber(encodedPropName_media_timestamp, obj.MediaTimestamp);
             writer.WriteBoolean(encodedPropName_for_album, obj.ForAlbum);
             writer.WriteBoolean(encodedPropName_for_comment, obj.ForComment);
         }
@@ -19421,6 +20735,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_send_copy = JsonEncodedText.Encode(propName_send_copy);
         private static ReadOnlySpan<byte> propName_remove_caption => new byte[] { 114, 101, 109, 111, 118, 101, 95, 99, 97, 112, 116, 105, 111, 110 };
         private static readonly JsonEncodedText encodedPropName_remove_caption = JsonEncodedText.Encode(propName_remove_caption);
+        private static ReadOnlySpan<byte> propName_only_preview => new byte[] { 111, 110, 108, 121, 95, 112, 114, 101, 118, 105, 101, 119 };
+        private static readonly JsonEncodedText encodedPropName_only_preview = JsonEncodedText.Encode(propName_only_preview);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -19440,6 +20756,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             writer.WriteBoolean(encodedPropName_send_copy, obj.SendCopy);
             writer.WriteBoolean(encodedPropName_remove_caption, obj.RemoveCaption);
+            writer.WriteBoolean(encodedPropName_only_preview, obj.OnlyPreview);
         }
     }
 
@@ -19550,6 +20867,29 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (DeleteChatMessagesFromUser)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
             writer.WriteNumber(encodedPropName_user_id, obj.UserId);
+        }
+    }
+
+    partial class DeleteChatMessagesByDateConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 100, 101, 108, 101, 116, 101, 67, 104, 97, 116, 77, 101, 115, 115, 97, 103, 101, 115, 66, 121, 68, 97, 116, 101 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_min_date => new byte[] { 109, 105, 110, 95, 100, 97, 116, 101 };
+        private static readonly JsonEncodedText encodedPropName_min_date = JsonEncodedText.Encode(propName_min_date);
+        private static ReadOnlySpan<byte> propName_max_date => new byte[] { 109, 97, 120, 95, 100, 97, 116, 101 };
+        private static readonly JsonEncodedText encodedPropName_max_date = JsonEncodedText.Encode(propName_max_date);
+        private static ReadOnlySpan<byte> propName_revoke => new byte[] { 114, 101, 118, 111, 107, 101 };
+        private static readonly JsonEncodedText encodedPropName_revoke = JsonEncodedText.Encode(propName_revoke);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (DeleteChatMessagesByDate)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_min_date, obj.MinDate);
+            writer.WriteNumber(encodedPropName_max_date, obj.MaxDate);
+            writer.WriteBoolean(encodedPropName_revoke, obj.Revoke);
         }
     }
 
@@ -20539,6 +21879,37 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class ClickAnimatedEmojiMessageConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 108, 105, 99, 107, 65, 110, 105, 109, 97, 116, 101, 100, 69, 109, 111, 106, 105, 77, 101, 115, 115, 97, 103, 101 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_message_id => new byte[] { 109, 101, 115, 115, 97, 103, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_message_id = JsonEncodedText.Encode(propName_message_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ClickAnimatedEmojiMessage)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_message_id, obj.MessageId);
+        }
+    }
+
+    partial class GetInternalLinkTypeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 73, 110, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 84, 121, 112, 101 }));
+        private static ReadOnlySpan<byte> propName_link => new byte[] { 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_link = JsonEncodedText.Encode(propName_link);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetInternalLinkType)tlobj;
+            writer.WriteString(encodedPropName_link, obj.Link);
+        }
+    }
+
     partial class GetExternalLinkInfoConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 69, 120, 116, 101, 114, 110, 97, 108, 76, 105, 110, 107, 73, 110, 102, 111 }));
@@ -20949,6 +22320,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_permissions);
                 writer.WriteTLObjectValue(obj.Permissions);
             }
+        }
+    }
+
+    partial class SetChatThemeConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 101, 116, 67, 104, 97, 116, 84, 104, 101, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_theme_name => new byte[] { 116, 104, 101, 109, 101, 95, 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_theme_name = JsonEncodedText.Encode(propName_theme_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (SetChatTheme)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteString(encodedPropName_theme_name, obj.ThemeName);
         }
     }
 
@@ -21587,6 +22975,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class GetSuggestedFileNameConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 83, 117, 103, 103, 101, 115, 116, 101, 100, 70, 105, 108, 101, 78, 97, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_file_id => new byte[] { 102, 105, 108, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_file_id = JsonEncodedText.Encode(propName_file_id);
+        private static ReadOnlySpan<byte> propName_directory => new byte[] { 100, 105, 114, 101, 99, 116, 111, 114, 121 };
+        private static readonly JsonEncodedText encodedPropName_directory = JsonEncodedText.Encode(propName_directory);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetSuggestedFileName)tlobj;
+            writer.WriteNumber(encodedPropName_file_id, obj.FileId);
+            writer.WriteString(encodedPropName_directory, obj.Directory);
+        }
+    }
+
     partial class UploadFileConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 108, 111, 97, 100, 70, 105, 108, 101 }));
@@ -21805,18 +23210,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 114, 101, 97, 116, 101, 67, 104, 97, 116, 73, 110, 118, 105, 116, 101, 76, 105, 110, 107 }));
         private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_name => new byte[] { 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_name = JsonEncodedText.Encode(propName_name);
         private static ReadOnlySpan<byte> propName_expire_date => new byte[] { 101, 120, 112, 105, 114, 101, 95, 100, 97, 116, 101 };
         private static readonly JsonEncodedText encodedPropName_expire_date = JsonEncodedText.Encode(propName_expire_date);
         private static ReadOnlySpan<byte> propName_member_limit => new byte[] { 109, 101, 109, 98, 101, 114, 95, 108, 105, 109, 105, 116 };
         private static readonly JsonEncodedText encodedPropName_member_limit = JsonEncodedText.Encode(propName_member_limit);
+        private static ReadOnlySpan<byte> propName_creates_join_request => new byte[] { 99, 114, 101, 97, 116, 101, 115, 95, 106, 111, 105, 110, 95, 114, 101, 113, 117, 101, 115, 116 };
+        private static readonly JsonEncodedText encodedPropName_creates_join_request = JsonEncodedText.Encode(propName_creates_join_request);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (CreateChatInviteLink)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteString(encodedPropName_name, obj.Name);
             writer.WriteNumber(encodedPropName_expire_date, obj.ExpireDate);
             writer.WriteNumber(encodedPropName_member_limit, obj.MemberLimit);
+            writer.WriteBoolean(encodedPropName_creates_join_request, obj.CreatesJoinRequest);
         }
     }
 
@@ -21827,10 +23238,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
         private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
         private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        private static ReadOnlySpan<byte> propName_name => new byte[] { 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_name = JsonEncodedText.Encode(propName_name);
         private static ReadOnlySpan<byte> propName_expire_date => new byte[] { 101, 120, 112, 105, 114, 101, 95, 100, 97, 116, 101 };
         private static readonly JsonEncodedText encodedPropName_expire_date = JsonEncodedText.Encode(propName_expire_date);
         private static ReadOnlySpan<byte> propName_member_limit => new byte[] { 109, 101, 109, 98, 101, 114, 95, 108, 105, 109, 105, 116 };
         private static readonly JsonEncodedText encodedPropName_member_limit = JsonEncodedText.Encode(propName_member_limit);
+        private static ReadOnlySpan<byte> propName_creates_join_request => new byte[] { 99, 114, 101, 97, 116, 101, 115, 95, 106, 111, 105, 110, 95, 114, 101, 113, 117, 101, 115, 116 };
+        private static readonly JsonEncodedText encodedPropName_creates_join_request = JsonEncodedText.Encode(propName_creates_join_request);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -21838,8 +23253,10 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (EditChatInviteLink)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
             writer.WriteString(encodedPropName_invite_link, obj.InviteLink);
+            writer.WriteString(encodedPropName_name, obj.Name);
             writer.WriteNumber(encodedPropName_expire_date, obj.ExpireDate);
             writer.WriteNumber(encodedPropName_member_limit, obj.MemberLimit);
+            writer.WriteBoolean(encodedPropName_creates_join_request, obj.CreatesJoinRequest);
         }
     }
 
@@ -22009,6 +23426,70 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class GetChatJoinRequestsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116, 115 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_invite_link => new byte[] { 105, 110, 118, 105, 116, 101, 95, 108, 105, 110, 107 };
+        private static readonly JsonEncodedText encodedPropName_invite_link = JsonEncodedText.Encode(propName_invite_link);
+        private static ReadOnlySpan<byte> propName_query => new byte[] { 113, 117, 101, 114, 121 };
+        private static readonly JsonEncodedText encodedPropName_query = JsonEncodedText.Encode(propName_query);
+        private static ReadOnlySpan<byte> propName_offset_request => new byte[] { 111, 102, 102, 115, 101, 116, 95, 114, 101, 113, 117, 101, 115, 116 };
+        private static readonly JsonEncodedText encodedPropName_offset_request = JsonEncodedText.Encode(propName_offset_request);
+        private static ReadOnlySpan<byte> propName_limit => new byte[] { 108, 105, 109, 105, 116 };
+        private static readonly JsonEncodedText encodedPropName_limit = JsonEncodedText.Encode(propName_limit);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetChatJoinRequests)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteString(encodedPropName_invite_link, obj.InviteLink);
+            writer.WriteString(encodedPropName_query, obj.Query);
+            if (obj.OffsetRequest != null)
+            {
+                writer.WritePropertyName(encodedPropName_offset_request);
+                writer.WriteTLObjectValue(obj.OffsetRequest);
+            }
+            writer.WriteNumber(encodedPropName_limit, obj.Limit);
+        }
+    }
+
+    partial class ApproveChatJoinRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 97, 112, 112, 114, 111, 118, 101, 67, 104, 97, 116, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_user_id => new byte[] { 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_user_id = JsonEncodedText.Encode(propName_user_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ApproveChatJoinRequest)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_user_id, obj.UserId);
+        }
+    }
+
+    partial class DeclineChatJoinRequestConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 100, 101, 99, 108, 105, 110, 101, 67, 104, 97, 116, 74, 111, 105, 110, 82, 101, 113, 117, 101, 115, 116 }));
+        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
+        private static ReadOnlySpan<byte> propName_user_id => new byte[] { 117, 115, 101, 114, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_user_id = JsonEncodedText.Encode(propName_user_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (DeclineChatJoinRequest)tlobj;
+            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
+            writer.WriteNumber(encodedPropName_user_id, obj.UserId);
+        }
+    }
+
     partial class CreateCallConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 114, 101, 97, 116, 101, 67, 97, 108, 108 }));
@@ -22145,23 +23626,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class GetVoiceChatAvailableParticipantsConverter
+    partial class GetVideoChatAvailableParticipantsConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116, 65, 118, 97, 105, 108, 97, 98, 108, 101, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116, 65, 118, 97, 105, 108, 97, 98, 108, 101, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 115 }));
         private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (GetVoiceChatAvailableParticipants)tlobj;
+            var obj = (GetVideoChatAvailableParticipants)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
         }
     }
 
-    partial class SetVoiceChatDefaultParticipantConverter
+    partial class SetVideoChatDefaultParticipantConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 101, 116, 86, 111, 105, 99, 101, 67, 104, 97, 116, 68, 101, 102, 97, 117, 108, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 101, 116, 86, 105, 100, 101, 111, 67, 104, 97, 116, 68, 101, 102, 97, 117, 108, 116, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116 }));
         private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
         private static ReadOnlySpan<byte> propName_default_participant_id => new byte[] { 100, 101, 102, 97, 117, 108, 116, 95, 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 95, 105, 100 };
@@ -22170,7 +23651,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (SetVoiceChatDefaultParticipant)tlobj;
+            var obj = (SetVideoChatDefaultParticipant)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
             if (obj.DefaultParticipantId != null)
             {
@@ -22180,9 +23661,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class CreateVoiceChatConverter
+    partial class CreateVideoChatConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 114, 101, 97, 116, 101, 86, 111, 105, 99, 101, 67, 104, 97, 116 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 114, 101, 97, 116, 101, 86, 105, 100, 101, 111, 67, 104, 97, 116 }));
         private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
         private static ReadOnlySpan<byte> propName_title => new byte[] { 116, 105, 116, 108, 101 };
@@ -22193,7 +23674,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (CreateVoiceChat)tlobj;
+            var obj = (CreateVideoChat)tlobj;
             writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
             writer.WriteString(encodedPropName_title, obj.Title);
             writer.WriteNumber(encodedPropName_start_date, obj.StartDate);
@@ -22252,12 +23733,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         private static ReadOnlySpan<byte> propName_participant_id => new byte[] { 112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_participant_id = JsonEncodedText.Encode(propName_participant_id);
+        private static ReadOnlySpan<byte> propName_audio_source_id => new byte[] { 97, 117, 100, 105, 111, 95, 115, 111, 117, 114, 99, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_audio_source_id = JsonEncodedText.Encode(propName_audio_source_id);
         private static ReadOnlySpan<byte> propName_payload => new byte[] { 112, 97, 121, 108, 111, 97, 100 };
         private static readonly JsonEncodedText encodedPropName_payload = JsonEncodedText.Encode(propName_payload);
-        private static ReadOnlySpan<byte> propName_source => new byte[] { 115, 111, 117, 114, 99, 101 };
-        private static readonly JsonEncodedText encodedPropName_source = JsonEncodedText.Encode(propName_source);
         private static ReadOnlySpan<byte> propName_is_muted => new byte[] { 105, 115, 95, 109, 117, 116, 101, 100 };
         private static readonly JsonEncodedText encodedPropName_is_muted = JsonEncodedText.Encode(propName_is_muted);
+        private static ReadOnlySpan<byte> propName_is_my_video_enabled => new byte[] { 105, 115, 95, 109, 121, 95, 118, 105, 100, 101, 111, 95, 101, 110, 97, 98, 108, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_my_video_enabled = JsonEncodedText.Encode(propName_is_my_video_enabled);
         private static ReadOnlySpan<byte> propName_invite_hash => new byte[] { 105, 110, 118, 105, 116, 101, 95, 104, 97, 115, 104 };
         private static readonly JsonEncodedText encodedPropName_invite_hash = JsonEncodedText.Encode(propName_invite_hash);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -22271,14 +23754,62 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_participant_id);
                 writer.WriteTLObjectValue(obj.ParticipantId);
             }
-            if (obj.Payload != null)
-            {
-                writer.WritePropertyName(encodedPropName_payload);
-                writer.WriteTLObjectValue(obj.Payload);
-            }
-            writer.WriteNumber(encodedPropName_source, obj.Source);
+            writer.WriteNumber(encodedPropName_audio_source_id, obj.AudioSourceId);
+            writer.WriteString(encodedPropName_payload, obj.Payload);
             writer.WriteBoolean(encodedPropName_is_muted, obj.IsMuted);
+            writer.WriteBoolean(encodedPropName_is_my_video_enabled, obj.IsMyVideoEnabled);
             writer.WriteString(encodedPropName_invite_hash, obj.InviteHash);
+        }
+    }
+
+    partial class StartGroupCallScreenSharingConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 116, 97, 114, 116, 71, 114, 111, 117, 112, 67, 97, 108, 108, 83, 99, 114, 101, 101, 110, 83, 104, 97, 114, 105, 110, 103 }));
+        private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
+        private static ReadOnlySpan<byte> propName_audio_source_id => new byte[] { 97, 117, 100, 105, 111, 95, 115, 111, 117, 114, 99, 101, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_audio_source_id = JsonEncodedText.Encode(propName_audio_source_id);
+        private static ReadOnlySpan<byte> propName_payload => new byte[] { 112, 97, 121, 108, 111, 97, 100 };
+        private static readonly JsonEncodedText encodedPropName_payload = JsonEncodedText.Encode(propName_payload);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (StartGroupCallScreenSharing)tlobj;
+            writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
+            writer.WriteNumber(encodedPropName_audio_source_id, obj.AudioSourceId);
+            writer.WriteString(encodedPropName_payload, obj.Payload);
+        }
+    }
+
+    partial class ToggleGroupCallScreenSharingIsPausedConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 116, 111, 103, 103, 108, 101, 71, 114, 111, 117, 112, 67, 97, 108, 108, 83, 99, 114, 101, 101, 110, 83, 104, 97, 114, 105, 110, 103, 73, 115, 80, 97, 117, 115, 101, 100 }));
+        private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
+        private static ReadOnlySpan<byte> propName_is_paused => new byte[] { 105, 115, 95, 112, 97, 117, 115, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_paused = JsonEncodedText.Encode(propName_is_paused);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ToggleGroupCallScreenSharingIsPaused)tlobj;
+            writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
+            writer.WriteBoolean(encodedPropName_is_paused, obj.IsPaused);
+        }
+    }
+
+    partial class EndGroupCallScreenSharingConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 101, 110, 100, 71, 114, 111, 117, 112, 67, 97, 108, 108, 83, 99, 114, 101, 101, 110, 83, 104, 97, 114, 105, 110, 103 }));
+        private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (EndGroupCallScreenSharing)tlobj;
+            writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
         }
     }
 
@@ -22375,6 +23906,10 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
         private static ReadOnlySpan<byte> propName_title => new byte[] { 116, 105, 116, 108, 101 };
         private static readonly JsonEncodedText encodedPropName_title = JsonEncodedText.Encode(propName_title);
+        private static ReadOnlySpan<byte> propName_record_video => new byte[] { 114, 101, 99, 111, 114, 100, 95, 118, 105, 100, 101, 111 };
+        private static readonly JsonEncodedText encodedPropName_record_video = JsonEncodedText.Encode(propName_record_video);
+        private static ReadOnlySpan<byte> propName_use_portrait_orientation => new byte[] { 117, 115, 101, 95, 112, 111, 114, 116, 114, 97, 105, 116, 95, 111, 114, 105, 101, 110, 116, 97, 116, 105, 111, 110 };
+        private static readonly JsonEncodedText encodedPropName_use_portrait_orientation = JsonEncodedText.Encode(propName_use_portrait_orientation);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -22382,6 +23917,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (StartGroupCallRecording)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
             writer.WriteString(encodedPropName_title, obj.Title);
+            writer.WriteBoolean(encodedPropName_record_video, obj.RecordVideo);
+            writer.WriteBoolean(encodedPropName_use_portrait_orientation, obj.UsePortraitOrientation);
         }
     }
 
@@ -22399,13 +23936,47 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class ToggleGroupCallIsMyVideoPausedConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 116, 111, 103, 103, 108, 101, 71, 114, 111, 117, 112, 67, 97, 108, 108, 73, 115, 77, 121, 86, 105, 100, 101, 111, 80, 97, 117, 115, 101, 100 }));
+        private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
+        private static ReadOnlySpan<byte> propName_is_my_video_paused => new byte[] { 105, 115, 95, 109, 121, 95, 118, 105, 100, 101, 111, 95, 112, 97, 117, 115, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_my_video_paused = JsonEncodedText.Encode(propName_is_my_video_paused);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ToggleGroupCallIsMyVideoPaused)tlobj;
+            writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
+            writer.WriteBoolean(encodedPropName_is_my_video_paused, obj.IsMyVideoPaused);
+        }
+    }
+
+    partial class ToggleGroupCallIsMyVideoEnabledConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 116, 111, 103, 103, 108, 101, 71, 114, 111, 117, 112, 67, 97, 108, 108, 73, 115, 77, 121, 86, 105, 100, 101, 111, 69, 110, 97, 98, 108, 101, 100 }));
+        private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
+        private static ReadOnlySpan<byte> propName_is_my_video_enabled => new byte[] { 105, 115, 95, 109, 121, 95, 118, 105, 100, 101, 111, 95, 101, 110, 97, 98, 108, 101, 100 };
+        private static readonly JsonEncodedText encodedPropName_is_my_video_enabled = JsonEncodedText.Encode(propName_is_my_video_enabled);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (ToggleGroupCallIsMyVideoEnabled)tlobj;
+            writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
+            writer.WriteBoolean(encodedPropName_is_my_video_enabled, obj.IsMyVideoEnabled);
+        }
+    }
+
     partial class SetGroupCallParticipantIsSpeakingConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 101, 116, 71, 114, 111, 117, 112, 67, 97, 108, 108, 80, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116, 73, 115, 83, 112, 101, 97, 107, 105, 110, 103 }));
         private static ReadOnlySpan<byte> propName_group_call_id => new byte[] { 103, 114, 111, 117, 112, 95, 99, 97, 108, 108, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_group_call_id = JsonEncodedText.Encode(propName_group_call_id);
-        private static ReadOnlySpan<byte> propName_source => new byte[] { 115, 111, 117, 114, 99, 101 };
-        private static readonly JsonEncodedText encodedPropName_source = JsonEncodedText.Encode(propName_source);
+        private static ReadOnlySpan<byte> propName_audio_source => new byte[] { 97, 117, 100, 105, 111, 95, 115, 111, 117, 114, 99, 101 };
+        private static readonly JsonEncodedText encodedPropName_audio_source = JsonEncodedText.Encode(propName_audio_source);
         private static ReadOnlySpan<byte> propName_is_speaking => new byte[] { 105, 115, 95, 115, 112, 101, 97, 107, 105, 110, 103 };
         private static readonly JsonEncodedText encodedPropName_is_speaking = JsonEncodedText.Encode(propName_is_speaking);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -22414,7 +23985,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (SetGroupCallParticipantIsSpeaking)tlobj;
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
-            writer.WriteNumber(encodedPropName_source, obj.Source);
+            writer.WriteNumber(encodedPropName_audio_source, obj.AudioSource);
             writer.WriteBoolean(encodedPropName_is_speaking, obj.IsSpeaking);
         }
     }
@@ -22545,6 +24116,10 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_time_offset = JsonEncodedText.Encode(propName_time_offset);
         private static ReadOnlySpan<byte> propName_scale => new byte[] { 115, 99, 97, 108, 101 };
         private static readonly JsonEncodedText encodedPropName_scale = JsonEncodedText.Encode(propName_scale);
+        private static ReadOnlySpan<byte> propName_channel_id => new byte[] { 99, 104, 97, 110, 110, 101, 108, 95, 105, 100 };
+        private static readonly JsonEncodedText encodedPropName_channel_id = JsonEncodedText.Encode(propName_channel_id);
+        private static ReadOnlySpan<byte> propName_video_quality => new byte[] { 118, 105, 100, 101, 111, 95, 113, 117, 97, 108, 105, 116, 121 };
+        private static readonly JsonEncodedText encodedPropName_video_quality = JsonEncodedText.Encode(propName_video_quality);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -22553,6 +24128,12 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteNumber(encodedPropName_group_call_id, obj.GroupCallId);
             writer.WriteNumber(encodedPropName_time_offset, obj.TimeOffset);
             writer.WriteNumber(encodedPropName_scale, obj.Scale);
+            writer.WriteNumber(encodedPropName_channel_id, obj.ChannelId);
+            if (obj.VideoQuality != null)
+            {
+                writer.WritePropertyName(encodedPropName_video_quality);
+                writer.WriteTLObjectValue(obj.VideoQuality);
+            }
         }
     }
 
@@ -23154,6 +24735,20 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    partial class GetAnimatedEmojiConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 65, 110, 105, 109, 97, 116, 101, 100, 69, 109, 111, 106, 105 }));
+        private static ReadOnlySpan<byte> propName_emoji => new byte[] { 101, 109, 111, 106, 105 };
+        private static readonly JsonEncodedText encodedPropName_emoji = JsonEncodedText.Encode(propName_emoji);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetAnimatedEmoji)tlobj;
+            writer.WriteString(encodedPropName_emoji, obj.Emoji);
+        }
+    }
+
     partial class GetEmojiSuggestionsUrlConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 69, 109, 111, 106, 105, 83, 117, 103, 103, 101, 115, 116, 105, 111, 110, 115, 85, 114, 108 }));
@@ -23434,6 +25029,10 @@ namespace TDLibCore.JsonClient.ObjectConverter
     partial class SetCommandsConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 115, 101, 116, 67, 111, 109, 109, 97, 110, 100, 115 }));
+        private static ReadOnlySpan<byte> propName_scope => new byte[] { 115, 99, 111, 112, 101 };
+        private static readonly JsonEncodedText encodedPropName_scope = JsonEncodedText.Encode(propName_scope);
+        private static ReadOnlySpan<byte> propName_language_code => new byte[] { 108, 97, 110, 103, 117, 97, 103, 101, 95, 99, 111, 100, 101 };
+        private static readonly JsonEncodedText encodedPropName_language_code = JsonEncodedText.Encode(propName_language_code);
         private static ReadOnlySpan<byte> propName_commands => new byte[] { 99, 111, 109, 109, 97, 110, 100, 115 };
         private static readonly JsonEncodedText encodedPropName_commands = JsonEncodedText.Encode(propName_commands);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
@@ -23441,11 +25040,59 @@ namespace TDLibCore.JsonClient.ObjectConverter
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (SetCommands)tlobj;
+            if (obj.Scope != null)
+            {
+                writer.WritePropertyName(encodedPropName_scope);
+                writer.WriteTLObjectValue(obj.Scope);
+            }
+            writer.WriteString(encodedPropName_language_code, obj.LanguageCode);
             if (obj.Commands != null)
             {
                 writer.WritePropertyName(encodedPropName_commands);
                 writer.WriteArray(obj.Commands);
             }
+        }
+    }
+
+    partial class DeleteCommandsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 100, 101, 108, 101, 116, 101, 67, 111, 109, 109, 97, 110, 100, 115 }));
+        private static ReadOnlySpan<byte> propName_scope => new byte[] { 115, 99, 111, 112, 101 };
+        private static readonly JsonEncodedText encodedPropName_scope = JsonEncodedText.Encode(propName_scope);
+        private static ReadOnlySpan<byte> propName_language_code => new byte[] { 108, 97, 110, 103, 117, 97, 103, 101, 95, 99, 111, 100, 101 };
+        private static readonly JsonEncodedText encodedPropName_language_code = JsonEncodedText.Encode(propName_language_code);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (DeleteCommands)tlobj;
+            if (obj.Scope != null)
+            {
+                writer.WritePropertyName(encodedPropName_scope);
+                writer.WriteTLObjectValue(obj.Scope);
+            }
+            writer.WriteString(encodedPropName_language_code, obj.LanguageCode);
+        }
+    }
+
+    partial class GetCommandsConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 111, 109, 109, 97, 110, 100, 115 }));
+        private static ReadOnlySpan<byte> propName_scope => new byte[] { 115, 99, 111, 112, 101 };
+        private static readonly JsonEncodedText encodedPropName_scope = JsonEncodedText.Encode(propName_scope);
+        private static ReadOnlySpan<byte> propName_language_code => new byte[] { 108, 97, 110, 103, 117, 97, 103, 101, 95, 99, 111, 100, 101 };
+        private static readonly JsonEncodedText encodedPropName_language_code = JsonEncodedText.Encode(propName_language_code);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetCommands)tlobj;
+            if (obj.Scope != null)
+            {
+                writer.WritePropertyName(encodedPropName_scope);
+                writer.WriteTLObjectValue(obj.Scope);
+            }
+            writer.WriteString(encodedPropName_language_code, obj.LanguageCode);
         }
     }
 
@@ -24366,26 +26013,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class GetChatStatisticsUrlConverter
-    {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 83, 116, 97, 116, 105, 115, 116, 105, 99, 115, 85, 114, 108 }));
-        private static ReadOnlySpan<byte> propName_chat_id => new byte[] { 99, 104, 97, 116, 95, 105, 100 };
-        private static readonly JsonEncodedText encodedPropName_chat_id = JsonEncodedText.Encode(propName_chat_id);
-        private static ReadOnlySpan<byte> propName_parameters => new byte[] { 112, 97, 114, 97, 109, 101, 116, 101, 114, 115 };
-        private static readonly JsonEncodedText encodedPropName_parameters = JsonEncodedText.Encode(propName_parameters);
-        private static ReadOnlySpan<byte> propName_is_dark => new byte[] { 105, 115, 95, 100, 97, 114, 107 };
-        private static readonly JsonEncodedText encodedPropName_is_dark = JsonEncodedText.Encode(propName_is_dark);
-        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
-        {
-            writer.WriteStartObject();
-            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
-            var obj = (GetChatStatisticsUrl)tlobj;
-            writer.WriteNumber(encodedPropName_chat_id, obj.ChatId);
-            writer.WriteString(encodedPropName_parameters, obj.Parameters);
-            writer.WriteBoolean(encodedPropName_is_dark, obj.IsDark);
-        }
-    }
-
     partial class GetChatStatisticsConverter
     {
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 67, 104, 97, 116, 83, 116, 97, 116, 105, 115, 116, 105, 99, 115 }));
@@ -24959,19 +26586,47 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 117, 112, 108, 111, 97, 100, 83, 116, 105, 99, 107, 101, 114, 70, 105, 108, 101 }));
         private static ReadOnlySpan<byte> propName_user_id => new byte[] { 117, 115, 101, 114, 95, 105, 100 };
         private static readonly JsonEncodedText encodedPropName_user_id = JsonEncodedText.Encode(propName_user_id);
-        private static ReadOnlySpan<byte> propName_png_sticker => new byte[] { 112, 110, 103, 95, 115, 116, 105, 99, 107, 101, 114 };
-        private static readonly JsonEncodedText encodedPropName_png_sticker = JsonEncodedText.Encode(propName_png_sticker);
+        private static ReadOnlySpan<byte> propName_sticker => new byte[] { 115, 116, 105, 99, 107, 101, 114 };
+        private static readonly JsonEncodedText encodedPropName_sticker = JsonEncodedText.Encode(propName_sticker);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
             writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
             var obj = (UploadStickerFile)tlobj;
             writer.WriteNumber(encodedPropName_user_id, obj.UserId);
-            if (obj.PngSticker != null)
+            if (obj.Sticker != null)
             {
-                writer.WritePropertyName(encodedPropName_png_sticker);
-                writer.WriteTLObjectValue(obj.PngSticker);
+                writer.WritePropertyName(encodedPropName_sticker);
+                writer.WriteTLObjectValue(obj.Sticker);
             }
+        }
+    }
+
+    partial class GetSuggestedStickerSetNameConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 83, 117, 103, 103, 101, 115, 116, 101, 100, 83, 116, 105, 99, 107, 101, 114, 83, 101, 116, 78, 97, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_title => new byte[] { 116, 105, 116, 108, 101 };
+        private static readonly JsonEncodedText encodedPropName_title = JsonEncodedText.Encode(propName_title);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetSuggestedStickerSetName)tlobj;
+            writer.WriteString(encodedPropName_title, obj.Title);
+        }
+    }
+
+    partial class CheckStickerSetNameConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 99, 104, 101, 99, 107, 83, 116, 105, 99, 107, 101, 114, 83, 101, 116, 78, 97, 109, 101 }));
+        private static ReadOnlySpan<byte> propName_name => new byte[] { 110, 97, 109, 101 };
+        private static readonly JsonEncodedText encodedPropName_name = JsonEncodedText.Encode(propName_name);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (CheckStickerSetName)tlobj;
+            writer.WriteString(encodedPropName_name, obj.Name);
         }
     }
 
@@ -24988,6 +26643,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
         private static readonly JsonEncodedText encodedPropName_is_masks = JsonEncodedText.Encode(propName_is_masks);
         private static ReadOnlySpan<byte> propName_stickers => new byte[] { 115, 116, 105, 99, 107, 101, 114, 115 };
         private static readonly JsonEncodedText encodedPropName_stickers = JsonEncodedText.Encode(propName_stickers);
+        private static ReadOnlySpan<byte> propName_source => new byte[] { 115, 111, 117, 114, 99, 101 };
+        private static readonly JsonEncodedText encodedPropName_source = JsonEncodedText.Encode(propName_source);
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();
@@ -25002,6 +26659,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 writer.WritePropertyName(encodedPropName_stickers);
                 writer.WriteArray(obj.Stickers);
             }
+            writer.WriteString(encodedPropName_source, obj.Source);
         }
     }
 
@@ -25222,9 +26880,26 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    partial class GetInviteTextConverter
+    partial class GetPhoneNumberInfoSyncConverter
     {
-        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 73, 110, 118, 105, 116, 101, 84, 101, 120, 116 }));
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 80, 104, 111, 110, 101, 78, 117, 109, 98, 101, 114, 73, 110, 102, 111, 83, 121, 110, 99 }));
+        private static ReadOnlySpan<byte> propName_language_code => new byte[] { 108, 97, 110, 103, 117, 97, 103, 101, 95, 99, 111, 100, 101 };
+        private static readonly JsonEncodedText encodedPropName_language_code = JsonEncodedText.Encode(propName_language_code);
+        private static ReadOnlySpan<byte> propName_phone_number_prefix => new byte[] { 112, 104, 111, 110, 101, 95, 110, 117, 109, 98, 101, 114, 95, 112, 114, 101, 102, 105, 120 };
+        private static readonly JsonEncodedText encodedPropName_phone_number_prefix = JsonEncodedText.Encode(propName_phone_number_prefix);
+        public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
+        {
+            writer.WriteStartObject();
+            writer.WriteString(TdJsonWriter.TypePropertyName, jsonTypeName);
+            var obj = (GetPhoneNumberInfoSync)tlobj;
+            writer.WriteString(encodedPropName_language_code, obj.LanguageCode);
+            writer.WriteString(encodedPropName_phone_number_prefix, obj.PhoneNumberPrefix);
+        }
+    }
+
+    partial class GetApplicationDownloadLinkConverter
+    {
+        private static readonly JsonEncodedText jsonTypeName = JsonEncodedText.Encode(new ReadOnlySpan<byte>(new byte[] { 103, 101, 116, 65, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 68, 111, 119, 110, 108, 111, 97, 100, 76, 105, 110, 107 }));
         public override void TdJsonWriteUnclosedObject(Utf8JsonWriter writer, TLObject tlobj)
         {
             writer.WriteStartObject();

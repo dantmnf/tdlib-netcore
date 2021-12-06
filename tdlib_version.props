@@ -1,8 +1,8 @@
 <!-- auto-generated file -->
 <Project>
     <PropertyGroup>
-        <Version>1.7.4</Version>
-        <TdApiCommitHash>6b0637f402bacf0bdf088f86be802621a1c5af9e</TdApiCommitHash>
-        <TdCommitHash>b342ec33e535893312af1ded6a67f8c4f784aee5</TdCommitHash>
+        <Version>1.7.9</Version>
+        <TdApiCommitHash>340e0f0b851e87477b5c98ab84ca970a254552a0</TdApiCommitHash>
+        <TdCommitHash>858078d89fcd2ad1d9860547e3f87c49d0f9abe9</TdCommitHash>
     </PropertyGroup>
 </Project>

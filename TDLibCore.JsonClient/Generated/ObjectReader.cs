@@ -469,6 +469,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xBB00D238u when name.SequenceEqual(propName_recovery_email_address_code_info):
                     obj.RecoveryEmailAddressCodeInfo = reader.ReadTLObject<EmailAddressAuthenticationCodeInfo>();
                     return true;
+                case 0x2C314DD1u when name.SequenceEqual(propName_pending_reset_date):
+                    obj.PendingResetDate = reader.ReadInt();
+                    return true;
             }
             return false;
         }
@@ -877,6 +880,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("colorReplacement")]
+    partial class ColorReplacementConverter : TLObjectConverter<ColorReplacement>
+    {
+        public static BaseConverter CreateConverterInstance() => new ColorReplacementConverter();
+        public override TLObject CreateObjectInstance() => new ColorReplacement();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ColorReplacement)tlobj;
+            if (name.SequenceEqual(propName_old_color))
+            {
+                obj.OldColor = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_new_color))
+            {
+                obj.NewColor = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("closedVectorPath")]
     partial class ClosedVectorPathConverter : TLObjectConverter<ClosedVectorPath>
     {
@@ -1256,6 +1281,33 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("animatedEmoji")]
+    partial class AnimatedEmojiConverter : TLObjectConverter<AnimatedEmoji>
+    {
+        public static BaseConverter CreateConverterInstance() => new AnimatedEmojiConverter();
+        public override TLObject CreateObjectInstance() => new AnimatedEmoji();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (AnimatedEmoji)tlobj;
+            if (name.SequenceEqual(propName_sticker))
+            {
+                obj.Sticker = reader.ReadTLObject<Sticker>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_color_replacements))
+            {
+                obj.ColorReplacements = reader.ReadObjectArray<ColorReplacement>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_sound))
+            {
+                obj.Sound = reader.ReadTLObject<File>();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("contact")]
     partial class ContactConverter : TLObjectConverter<Contact>
     {
@@ -1280,7 +1332,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Vcard = reader.ReadString();
                     return true;
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
             }
             return false;
@@ -1409,7 +1461,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.TotalVoterCount = reader.ReadInt();
                     return true;
                 case 0x64442176u when name.SequenceEqual(propName_recent_voter_user_ids):
-                    obj.RecentVoterUserIds = reader.ReadInt32Array();
+                    obj.RecentVoterUserIds = reader.ReadInt53Array();
                     return true;
                 case 0x41D798A8u when name.SequenceEqual(propName_is_anonymous):
                     obj.IsAnonymous = reader.ReadBool();
@@ -1564,17 +1616,17 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("botInfo")]
-    partial class BotInfoConverter : TLObjectConverter<BotInfo>
+    [TLType("botCommands")]
+    partial class BotCommandsConverter : TLObjectConverter<BotCommands>
     {
-        public static BaseConverter CreateConverterInstance() => new BotInfoConverter();
-        public override TLObject CreateObjectInstance() => new BotInfo();
+        public static BaseConverter CreateConverterInstance() => new BotCommandsConverter();
+        public override TLObject CreateObjectInstance() => new BotCommands();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (BotInfo)tlobj;
-            if (name.SequenceEqual(propName_description))
+            var obj = (BotCommands)tlobj;
+            if (name.SequenceEqual(propName_bot_user_id))
             {
-                obj.Description = reader.ReadString();
+                obj.BotUserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_commands))
@@ -1756,7 +1808,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x59170D66u when name.SequenceEqual(propName_id):
-                    obj.Id = reader.ReadInt();
+                    obj.Id = reader.ReadLong();
                     return true;
                 case 0x9042082Fu when name.SequenceEqual(propName_first_name):
                     obj.FirstName = reader.ReadString();
@@ -1846,11 +1898,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xA7BEE66Du when name.SequenceEqual(propName_share_text):
                     obj.ShareText = reader.ReadString();
                     return true;
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
+                    obj.Description = reader.ReadString();
+                    return true;
                 case 0x915BE050u when name.SequenceEqual(propName_group_in_common_count):
                     obj.GroupInCommonCount = reader.ReadInt();
                     return true;
-                case 0x7FDA81AAu when name.SequenceEqual(propName_bot_info):
-                    obj.BotInfo = reader.ReadTLObject<BotInfo>();
+                case 0x1168EFDEu when name.SequenceEqual(propName_commands):
+                    obj.Commands = reader.ReadObjectArray<BotCommand>();
                     return true;
             }
             return false;
@@ -1872,7 +1927,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -1889,7 +1944,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatAdministrator)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_custom_title))
@@ -2034,8 +2089,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x857F7E60u when name.SequenceEqual(propName_can_promote_members):
                     obj.CanPromoteMembers = reader.ReadBool();
                     return true;
-                case 0x2831EFCEu when name.SequenceEqual(propName_can_manage_voice_chats):
-                    obj.CanManageVoiceChats = reader.ReadBool();
+                case 0x27D021FEu when name.SequenceEqual(propName_can_manage_video_chats):
+                    obj.CanManageVideoChats = reader.ReadBool();
                     return true;
                 case 0x41D798A8u when name.SequenceEqual(propName_is_anonymous):
                     obj.IsAnonymous = reader.ReadBool();
@@ -2118,16 +2173,13 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.MemberId = reader.ReadTLObject<MessageSender>();
                     return true;
                 case 0xCC956F6Bu when name.SequenceEqual(propName_inviter_user_id):
-                    obj.InviterUserId = reader.ReadInt();
+                    obj.InviterUserId = reader.ReadLong();
                     return true;
                 case 0xD8798A74u when name.SequenceEqual(propName_joined_chat_date):
                     obj.JoinedChatDate = reader.ReadInt();
                     return true;
                 case 0x82D603CEu when name.SequenceEqual(propName_status):
                     obj.Status = reader.ReadTLObject<ChatMemberStatus>();
-                    return true;
-                case 0x7FDA81AAu when name.SequenceEqual(propName_bot_info):
-                    obj.BotInfo = reader.ReadTLObject<BotInfo>();
                     return true;
             }
             return false;
@@ -2340,8 +2392,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x56350A39u when name.SequenceEqual(propName_invite_link):
                     obj.InviteLink = reader.ReadString();
                     return true;
+                case 0x911200E7u when name.SequenceEqual(propName_name):
+                    obj.Name = reader.ReadString();
+                    return true;
                 case 0x94699334u when name.SequenceEqual(propName_creator_user_id):
-                    obj.CreatorUserId = reader.ReadInt();
+                    obj.CreatorUserId = reader.ReadLong();
                     return true;
                 case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
@@ -2357,6 +2412,12 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadInt();
+                    return true;
+                case 0x44E2FED3u when name.SequenceEqual(propName_pending_join_request_count):
+                    obj.PendingJoinRequestCount = reader.ReadInt();
+                    return true;
+                case 0xAD1B2379u when name.SequenceEqual(propName_creates_join_request):
+                    obj.CreatesJoinRequest = reader.ReadBool();
                     return true;
                 case 0x980264E2u when name.SequenceEqual(propName_is_primary):
                     obj.IsPrimary = reader.ReadBool();
@@ -2401,7 +2462,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatInviteLinkCount)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_invite_link_count))
@@ -2445,12 +2506,17 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatInviteLinkMember)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_joined_chat_date))
             {
                 obj.JoinedChatDate = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_approver_user_id))
+            {
+                obj.ApproverUserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -2505,15 +2571,92 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xC8E8DBE9u when name.SequenceEqual(propName_photo):
                     obj.Photo = reader.ReadTLObject<ChatPhotoInfo>();
                     return true;
+                case 0x37C40C36u when name.SequenceEqual(propName_description):
+                    obj.Description = reader.ReadString();
+                    return true;
                 case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadInt();
                     return true;
                 case 0xAD820684u when name.SequenceEqual(propName_member_user_ids):
-                    obj.MemberUserIds = reader.ReadInt32Array();
+                    obj.MemberUserIds = reader.ReadInt53Array();
+                    return true;
+                case 0xAD1B2379u when name.SequenceEqual(propName_creates_join_request):
+                    obj.CreatesJoinRequest = reader.ReadBool();
                     return true;
                 case 0x3EEE47F1u when name.SequenceEqual(propName_is_public):
                     obj.IsPublic = reader.ReadBool();
                     return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("chatJoinRequest")]
+    partial class ChatJoinRequestConverter : TLObjectConverter<ChatJoinRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatJoinRequestConverter();
+        public override TLObject CreateObjectInstance() => new ChatJoinRequest();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatJoinRequest)tlobj;
+            if (name.SequenceEqual(propName_user_id))
+            {
+                obj.UserId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_date))
+            {
+                obj.Date = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_bio))
+            {
+                obj.Bio = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("chatJoinRequests")]
+    partial class ChatJoinRequestsConverter : TLObjectConverter<ChatJoinRequests>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatJoinRequestsConverter();
+        public override TLObject CreateObjectInstance() => new ChatJoinRequests();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatJoinRequests)tlobj;
+            if (name.SequenceEqual(propName_total_count))
+            {
+                obj.TotalCount = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_requests))
+            {
+                obj.Requests = reader.ReadObjectArray<ChatJoinRequest>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("chatJoinRequestsInfo")]
+    partial class ChatJoinRequestsInfoConverter : TLObjectConverter<ChatJoinRequestsInfo>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatJoinRequestsInfoConverter();
+        public override TLObject CreateObjectInstance() => new ChatJoinRequestsInfo();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatJoinRequestsInfo)tlobj;
+            if (name.SequenceEqual(propName_total_count))
+            {
+                obj.TotalCount = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_user_ids))
+            {
+                obj.UserIds = reader.ReadInt53Array();
+                return true;
             }
             return false;
         }
@@ -2531,7 +2674,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x59170D66u when name.SequenceEqual(propName_id):
-                    obj.Id = reader.ReadInt();
+                    obj.Id = reader.ReadLong();
                     return true;
                 case 0x510F06B4u when name.SequenceEqual(propName_member_count):
                     obj.MemberCount = reader.ReadInt();
@@ -2543,7 +2686,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.IsActive = reader.ReadBool();
                     return true;
                 case 0xF1E7131Au when name.SequenceEqual(propName_upgraded_to_supergroup_id):
-                    obj.UpgradedToSupergroupId = reader.ReadInt();
+                    obj.UpgradedToSupergroupId = reader.ReadLong();
                     return true;
             }
             return false;
@@ -2568,13 +2711,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Description = reader.ReadString();
                     return true;
                 case 0x94699334u when name.SequenceEqual(propName_creator_user_id):
-                    obj.CreatorUserId = reader.ReadInt();
+                    obj.CreatorUserId = reader.ReadLong();
                     return true;
                 case 0xBC6D8848u when name.SequenceEqual(propName_members):
                     obj.Members = reader.ReadObjectArray<ChatMember>();
                     return true;
                 case 0x56350A39u when name.SequenceEqual(propName_invite_link):
                     obj.InviteLink = reader.ReadTLObject<ChatInviteLink>();
+                    return true;
+                case 0x5A6D0A03u when name.SequenceEqual(propName_bot_commands):
+                    obj.BotCommands = reader.ReadObjectArray<BotCommands>();
                     return true;
             }
             return false;
@@ -2593,7 +2739,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x59170D66u when name.SequenceEqual(propName_id):
-                    obj.Id = reader.ReadInt();
+                    obj.Id = reader.ReadLong();
                     return true;
                 case 0xC874DABCu when name.SequenceEqual(propName_username):
                     obj.Username = reader.ReadString();
@@ -2707,8 +2853,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x56350A39u when name.SequenceEqual(propName_invite_link):
                     obj.InviteLink = reader.ReadTLObject<ChatInviteLink>();
                     return true;
+                case 0x5A6D0A03u when name.SequenceEqual(propName_bot_commands):
+                    obj.BotCommands = reader.ReadObjectArray<BotCommands>();
+                    return true;
                 case 0x7498EB7Cu when name.SequenceEqual(propName_upgraded_from_basic_group_id):
-                    obj.UpgradedFromBasicGroupId = reader.ReadInt();
+                    obj.UpgradedFromBasicGroupId = reader.ReadLong();
                     return true;
                 case 0x78CE8860u when name.SequenceEqual(propName_upgraded_from_max_message_id):
                     obj.UpgradedFromMaxMessageId = reader.ReadLong();
@@ -2754,7 +2903,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Id = reader.ReadInt();
                     return true;
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0x66DB68DFu when name.SequenceEqual(propName_state):
                     obj.State = reader.ReadTLObject<SecretChatState>();
@@ -2783,7 +2932,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (MessageSenderUser)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -2839,7 +2988,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (MessageForwardOriginUser)tlobj;
             if (name.SequenceEqual(propName_sender_user_id))
             {
-                obj.SenderUserId = reader.ReadInt();
+                obj.SenderUserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -3103,6 +3252,15 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x0CFB794Fu when name.SequenceEqual(propName_can_get_message_thread):
                     obj.CanGetMessageThread = reader.ReadBool();
                     return true;
+                case 0x3CCB3B86u when name.SequenceEqual(propName_can_get_viewers):
+                    obj.CanGetViewers = reader.ReadBool();
+                    return true;
+                case 0x198A68FBu when name.SequenceEqual(propName_can_get_media_timestamp_links):
+                    obj.CanGetMediaTimestampLinks = reader.ReadBool();
+                    return true;
+                case 0x7E847756u when name.SequenceEqual(propName_has_timestamped_media):
+                    obj.HasTimestampedMedia = reader.ReadBool();
+                    return true;
                 case 0x1A140C1Du when name.SequenceEqual(propName_is_channel_post):
                     obj.IsChannelPost = reader.ReadBool();
                     return true;
@@ -3137,7 +3295,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.TtlExpiresIn = reader.ReadDouble();
                     return true;
                 case 0xDBDFE365u when name.SequenceEqual(propName_via_bot_user_id):
-                    obj.ViaBotUserId = reader.ReadInt();
+                    obj.ViaBotUserId = reader.ReadLong();
                     return true;
                 case 0xD067E72Du when name.SequenceEqual(propName_author_signature):
                     obj.AuthorSignature = reader.ReadString();
@@ -3202,6 +3360,144 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_next_offset))
             {
                 obj.NextOffset = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("messagePosition")]
+    partial class MessagePositionConverter : TLObjectConverter<MessagePosition>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessagePositionConverter();
+        public override TLObject CreateObjectInstance() => new MessagePosition();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessagePosition)tlobj;
+            if (name.SequenceEqual(propName_position))
+            {
+                obj.Position = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_id))
+            {
+                obj.MessageId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_date))
+            {
+                obj.Date = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("messagePositions")]
+    partial class MessagePositionsConverter : TLObjectConverter<MessagePositions>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessagePositionsConverter();
+        public override TLObject CreateObjectInstance() => new MessagePositions();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessagePositions)tlobj;
+            if (name.SequenceEqual(propName_total_count))
+            {
+                obj.TotalCount = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_positions))
+            {
+                obj.Positions = reader.ReadObjectArray<MessagePosition>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("messageCalendarDay")]
+    partial class MessageCalendarDayConverter : TLObjectConverter<MessageCalendarDay>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageCalendarDayConverter();
+        public override TLObject CreateObjectInstance() => new MessageCalendarDay();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageCalendarDay)tlobj;
+            if (name.SequenceEqual(propName_total_count))
+            {
+                obj.TotalCount = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message))
+            {
+                obj.Message = reader.ReadTLObject<Message>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("messageCalendar")]
+    partial class MessageCalendarConverter : TLObjectConverter<MessageCalendar>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageCalendarConverter();
+        public override TLObject CreateObjectInstance() => new MessageCalendar();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageCalendar)tlobj;
+            if (name.SequenceEqual(propName_total_count))
+            {
+                obj.TotalCount = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_days))
+            {
+                obj.Days = reader.ReadObjectArray<MessageCalendarDay>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("sponsoredMessage")]
+    partial class SponsoredMessageConverter : TLObjectConverter<SponsoredMessage>
+    {
+        public static BaseConverter CreateConverterInstance() => new SponsoredMessageConverter();
+        public override TLObject CreateObjectInstance() => new SponsoredMessage();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (SponsoredMessage)tlobj;
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
+            {
+                case 0x59170D66u when name.SequenceEqual(propName_id):
+                    obj.Id = reader.ReadInt();
+                    return true;
+                case 0x116594F6u when name.SequenceEqual(propName_sponsor_chat_id):
+                    obj.SponsorChatId = reader.ReadLong();
+                    return true;
+                case 0x8EBB0A1Du when name.SequenceEqual(propName_link):
+                    obj.Link = reader.ReadTLObject<InternalLinkType>();
+                    return true;
+                case 0x61AF7533u when name.SequenceEqual(propName_content):
+                    obj.Content = reader.ReadTLObject<MessageContent>();
+                    return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("sponsoredMessages")]
+    partial class SponsoredMessagesConverter : TLObjectConverter<SponsoredMessages>
+    {
+        public static BaseConverter CreateConverterInstance() => new SponsoredMessagesConverter();
+        public override TLObject CreateObjectInstance() => new SponsoredMessages();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (SponsoredMessages)tlobj;
+            if (name.SequenceEqual(propName_messages))
+            {
+                obj.Messages = reader.ReadObjectArray<SponsoredMessage>();
                 return true;
             }
             return false;
@@ -3343,7 +3639,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatTypePrivate)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -3360,7 +3656,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatTypeBasicGroup)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
             {
-                obj.BasicGroupId = reader.ReadInt();
+                obj.BasicGroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -3377,7 +3673,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatTypeSupergroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_is_channel))
@@ -3404,7 +3700,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -3637,14 +3933,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("voiceChat")]
-    partial class VoiceChatConverter : TLObjectConverter<VoiceChat>
+    [TLType("videoChat")]
+    partial class VideoChatConverter : TLObjectConverter<VideoChat>
     {
-        public static BaseConverter CreateConverterInstance() => new VoiceChatConverter();
-        public override TLObject CreateObjectInstance() => new VoiceChat();
+        public static BaseConverter CreateConverterInstance() => new VideoChatConverter();
+        public override TLObject CreateObjectInstance() => new VideoChat();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (VoiceChat)tlobj;
+            var obj = (VideoChat)tlobj;
             if (name.SequenceEqual(propName_group_call_id))
             {
                 obj.GroupCallId = reader.ReadInt();
@@ -3735,11 +4031,17 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x3AD54423u when name.SequenceEqual(propName_message_ttl_setting):
                     obj.MessageTtlSetting = reader.ReadInt();
                     return true;
+                case 0x8C0A45E3u when name.SequenceEqual(propName_theme_name):
+                    obj.ThemeName = reader.ReadString();
+                    return true;
                 case 0x29C31F48u when name.SequenceEqual(propName_action_bar):
                     obj.ActionBar = reader.ReadTLObject<ChatActionBar>();
                     return true;
-                case 0x7C5F5FF9u when name.SequenceEqual(propName_voice_chat):
-                    obj.VoiceChat = reader.ReadTLObject<VoiceChat>();
+                case 0xAB7798A6u when name.SequenceEqual(propName_video_chat):
+                    obj.VideoChat = reader.ReadTLObject<VideoChat>();
+                    return true;
+                case 0x7F99EA15u when name.SequenceEqual(propName_pending_join_requests):
+                    obj.PendingJoinRequests = reader.ReadTLObject<ChatJoinRequestsInfo>();
                     return true;
                 case 0x84A073DBu when name.SequenceEqual(propName_reply_markup_message_id):
                     obj.ReplyMarkupMessageId = reader.ReadLong();
@@ -3999,7 +4301,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_id))
             {
-                obj.Id = reader.ReadInt();
+                obj.Id = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_forward_text))
@@ -4133,6 +4435,11 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 obj.IsPersonal = reader.ReadBool();
                 return true;
             }
+            if (name.SequenceEqual(propName_input_field_placeholder))
+            {
+                obj.InputFieldPlaceholder = reader.ReadString();
+                return true;
+            }
             return false;
         }
     }
@@ -4159,6 +4466,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0xF5BCD3ECu when name.SequenceEqual(propName_is_personal):
                     obj.IsPersonal = reader.ReadBool();
+                    return true;
+                case 0xB6975E29u when name.SequenceEqual(propName_input_field_placeholder):
+                    obj.InputFieldPlaceholder = reader.ReadString();
                     return true;
             }
             return false;
@@ -4222,7 +4532,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Domain = reader.ReadString();
                     return true;
                 case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
-                    obj.BotUserId = reader.ReadInt();
+                    obj.BotUserId = reader.ReadLong();
                     return true;
                 case 0x738BEF92u when name.SequenceEqual(propName_request_write_access):
                     obj.RequestWriteAccess = reader.ReadBool();
@@ -4251,6 +4561,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0xAFBE332Cu when name.SequenceEqual(propName_reply_info):
                     obj.ReplyInfo = reader.ReadTLObject<MessageReplyInfo>();
+                    return true;
+                case 0xC5614E8Du when name.SequenceEqual(propName_unread_message_count):
+                    obj.UnreadMessageCount = reader.ReadInt();
                     return true;
                 case 0xE3FEB717u when name.SequenceEqual(propName_messages):
                     obj.Messages = reader.ReadObjectArray<Message>();
@@ -5426,6 +5739,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xDA8335F6u when name.SequenceEqual(propName_is_full):
                     obj.IsFull = reader.ReadBool();
                     return true;
+                case 0x04E63E46u when name.SequenceEqual(propName_feedback_link):
+                    obj.FeedbackLink = reader.ReadTLObject<InternalLinkType>();
+                    return true;
             }
             return false;
         }
@@ -5970,10 +6286,10 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Url = reader.ReadString();
                     return true;
                 case 0xD2DA96C6u when name.SequenceEqual(propName_seller_bot_user_id):
-                    obj.SellerBotUserId = reader.ReadInt();
+                    obj.SellerBotUserId = reader.ReadLong();
                     return true;
                 case 0xDC608EF8u when name.SequenceEqual(propName_payments_provider_user_id):
-                    obj.PaymentsProviderUserId = reader.ReadInt();
+                    obj.PaymentsProviderUserId = reader.ReadLong();
                     return true;
                 case 0xF3222933u when name.SequenceEqual(propName_payments_provider):
                     obj.PaymentsProvider = reader.ReadTLObject<PaymentsProviderStripe>();
@@ -6063,10 +6379,10 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Date = reader.ReadInt();
                     return true;
                 case 0xD2DA96C6u when name.SequenceEqual(propName_seller_bot_user_id):
-                    obj.SellerBotUserId = reader.ReadInt();
+                    obj.SellerBotUserId = reader.ReadLong();
                     return true;
                 case 0xDC608EF8u when name.SequenceEqual(propName_payments_provider_user_id):
-                    obj.PaymentsProviderUserId = reader.ReadInt();
+                    obj.PaymentsProviderUserId = reader.ReadLong();
                     return true;
                 case 0xA3756FE9u when name.SequenceEqual(propName_invoice):
                     obj.Invoice = reader.ReadTLObject<Invoice>();
@@ -7611,6 +7927,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("messageAnimatedEmoji")]
+    partial class MessageAnimatedEmojiConverter : TLObjectConverter<MessageAnimatedEmoji>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageAnimatedEmojiConverter();
+        public override TLObject CreateObjectInstance() => new MessageAnimatedEmoji();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageAnimatedEmoji)tlobj;
+            if (name.SequenceEqual(propName_animated_emoji))
+            {
+                obj.AnimatedEmoji = reader.ReadTLObject<AnimatedEmoji>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_emoji))
+            {
+                obj.Emoji = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("messageDice")]
     partial class MessageDiceConverter : TLObjectConverter<MessageDice>
     {
@@ -7746,14 +8084,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("messageVoiceChatScheduled")]
-    partial class MessageVoiceChatScheduledConverter : TLObjectConverter<MessageVoiceChatScheduled>
+    [TLType("messageVideoChatScheduled")]
+    partial class MessageVideoChatScheduledConverter : TLObjectConverter<MessageVideoChatScheduled>
     {
-        public static BaseConverter CreateConverterInstance() => new MessageVoiceChatScheduledConverter();
-        public override TLObject CreateObjectInstance() => new MessageVoiceChatScheduled();
+        public static BaseConverter CreateConverterInstance() => new MessageVideoChatScheduledConverter();
+        public override TLObject CreateObjectInstance() => new MessageVideoChatScheduled();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (MessageVoiceChatScheduled)tlobj;
+            var obj = (MessageVideoChatScheduled)tlobj;
             if (name.SequenceEqual(propName_group_call_id))
             {
                 obj.GroupCallId = reader.ReadInt();
@@ -7768,14 +8106,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("messageVoiceChatStarted")]
-    partial class MessageVoiceChatStartedConverter : TLObjectConverter<MessageVoiceChatStarted>
+    [TLType("messageVideoChatStarted")]
+    partial class MessageVideoChatStartedConverter : TLObjectConverter<MessageVideoChatStarted>
     {
-        public static BaseConverter CreateConverterInstance() => new MessageVoiceChatStartedConverter();
-        public override TLObject CreateObjectInstance() => new MessageVoiceChatStarted();
+        public static BaseConverter CreateConverterInstance() => new MessageVideoChatStartedConverter();
+        public override TLObject CreateObjectInstance() => new MessageVideoChatStarted();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (MessageVoiceChatStarted)tlobj;
+            var obj = (MessageVideoChatStarted)tlobj;
             if (name.SequenceEqual(propName_group_call_id))
             {
                 obj.GroupCallId = reader.ReadInt();
@@ -7785,14 +8123,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("messageVoiceChatEnded")]
-    partial class MessageVoiceChatEndedConverter : TLObjectConverter<MessageVoiceChatEnded>
+    [TLType("messageVideoChatEnded")]
+    partial class MessageVideoChatEndedConverter : TLObjectConverter<MessageVideoChatEnded>
     {
-        public static BaseConverter CreateConverterInstance() => new MessageVoiceChatEndedConverter();
-        public override TLObject CreateObjectInstance() => new MessageVoiceChatEnded();
+        public static BaseConverter CreateConverterInstance() => new MessageVideoChatEndedConverter();
+        public override TLObject CreateObjectInstance() => new MessageVideoChatEnded();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (MessageVoiceChatEnded)tlobj;
+            var obj = (MessageVideoChatEnded)tlobj;
             if (name.SequenceEqual(propName_duration))
             {
                 obj.Duration = reader.ReadInt();
@@ -7802,14 +8140,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("messageInviteVoiceChatParticipants")]
-    partial class MessageInviteVoiceChatParticipantsConverter : TLObjectConverter<MessageInviteVoiceChatParticipants>
+    [TLType("messageInviteVideoChatParticipants")]
+    partial class MessageInviteVideoChatParticipantsConverter : TLObjectConverter<MessageInviteVideoChatParticipants>
     {
-        public static BaseConverter CreateConverterInstance() => new MessageInviteVoiceChatParticipantsConverter();
-        public override TLObject CreateObjectInstance() => new MessageInviteVoiceChatParticipants();
+        public static BaseConverter CreateConverterInstance() => new MessageInviteVideoChatParticipantsConverter();
+        public override TLObject CreateObjectInstance() => new MessageInviteVideoChatParticipants();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (MessageInviteVoiceChatParticipants)tlobj;
+            var obj = (MessageInviteVideoChatParticipants)tlobj;
             if (name.SequenceEqual(propName_group_call_id))
             {
                 obj.GroupCallId = reader.ReadInt();
@@ -7817,7 +8155,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -7839,7 +8177,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_member_user_ids))
             {
-                obj.MemberUserIds = reader.ReadInt32Array();
+                obj.MemberUserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -7914,7 +8252,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (MessageChatAddMembers)tlobj;
             if (name.SequenceEqual(propName_member_user_ids))
             {
-                obj.MemberUserIds = reader.ReadInt32Array();
+                obj.MemberUserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -7928,6 +8266,13 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override TLObject CreateObjectInstance() => new MessageChatJoinByLink();
     }
 
+    [TLType("messageChatJoinByRequest")]
+    partial class MessageChatJoinByRequestConverter : TLObjectConverter<MessageChatJoinByRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageChatJoinByRequestConverter();
+        public override TLObject CreateObjectInstance() => new MessageChatJoinByRequest();
+    }
+
     [TLType("messageChatDeleteMember")]
     partial class MessageChatDeleteMemberConverter : TLObjectConverter<MessageChatDeleteMember>
     {
@@ -7938,7 +8283,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (MessageChatDeleteMember)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -7955,7 +8300,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (MessageChatUpgradeTo)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -7977,7 +8322,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_basic_group_id))
             {
-                obj.BasicGroupId = reader.ReadInt();
+                obj.BasicGroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -8006,6 +8351,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new MessageScreenshotTakenConverter();
         public override TLObject CreateObjectInstance() => new MessageScreenshotTaken();
+    }
+
+    [TLType("messageChatSetTheme")]
+    partial class MessageChatSetThemeConverter : TLObjectConverter<MessageChatSetTheme>
+    {
+        public static BaseConverter CreateConverterInstance() => new MessageChatSetThemeConverter();
+        public override TLObject CreateObjectInstance() => new MessageChatSetTheme();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (MessageChatSetTheme)tlobj;
+            if (name.SequenceEqual(propName_theme_name))
+            {
+                obj.ThemeName = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
     }
 
     [TLType("messageChatSetTtl")]
@@ -8373,7 +8735,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (TextEntityTypeMentionName)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("textEntityTypeMediaTimestamp")]
+    partial class TextEntityTypeMediaTimestampConverter : TLObjectConverter<TextEntityTypeMediaTimestamp>
+    {
+        public static BaseConverter CreateConverterInstance() => new TextEntityTypeMediaTimestampConverter();
+        public override TLObject CreateObjectInstance() => new TextEntityTypeMediaTimestamp();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (TextEntityTypeMediaTimestamp)tlobj;
+            if (name.SequenceEqual(propName_media_timestamp))
+            {
+                obj.MediaTimestamp = reader.ReadInt();
                 return true;
             }
             return false;
@@ -8872,7 +9251,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (InputMessageGame)tlobj;
             if (name.SequenceEqual(propName_bot_user_id))
             {
-                obj.BotUserId = reader.ReadInt();
+                obj.BotUserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_game_short_name))
@@ -9213,6 +9592,13 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("chatActionChoosingSticker")]
+    partial class ChatActionChoosingStickerConverter : TLObjectConverter<ChatActionChoosingSticker>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatActionChoosingStickerConverter();
+        public override TLObject CreateObjectInstance() => new ChatActionChoosingSticker();
+    }
+
     [TLType("chatActionChoosingLocation")]
     partial class ChatActionChoosingLocationConverter : TLObjectConverter<ChatActionChoosingLocation>
     {
@@ -9252,6 +9638,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_progress))
             {
                 obj.Progress = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("chatActionWatchingAnimations")]
+    partial class ChatActionWatchingAnimationsConverter : TLObjectConverter<ChatActionWatchingAnimations>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatActionWatchingAnimationsConverter();
+        public override TLObject CreateObjectInstance() => new ChatActionWatchingAnimations();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatActionWatchingAnimations)tlobj;
+            if (name.SequenceEqual(propName_emoji))
+            {
+                obj.Emoji = reader.ReadString();
                 return true;
             }
             return false;
@@ -9783,6 +10186,27 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("groupCallVideoQualityThumbnail")]
+    partial class GroupCallVideoQualityThumbnailConverter : TLObjectConverter<GroupCallVideoQualityThumbnail>
+    {
+        public static BaseConverter CreateConverterInstance() => new GroupCallVideoQualityThumbnailConverter();
+        public override TLObject CreateObjectInstance() => new GroupCallVideoQualityThumbnail();
+    }
+
+    [TLType("groupCallVideoQualityMedium")]
+    partial class GroupCallVideoQualityMediumConverter : TLObjectConverter<GroupCallVideoQualityMedium>
+    {
+        public static BaseConverter CreateConverterInstance() => new GroupCallVideoQualityMediumConverter();
+        public override TLObject CreateObjectInstance() => new GroupCallVideoQualityMedium();
+    }
+
+    [TLType("groupCallVideoQualityFull")]
+    partial class GroupCallVideoQualityFullConverter : TLObjectConverter<GroupCallVideoQualityFull>
+    {
+        public static BaseConverter CreateConverterInstance() => new GroupCallVideoQualityFullConverter();
+        public override TLObject CreateObjectInstance() => new GroupCallVideoQualityFull();
+    }
+
     [TLType("groupCallRecentSpeaker")]
     partial class GroupCallRecentSpeakerConverter : TLObjectConverter<GroupCallRecentSpeaker>
     {
@@ -9849,14 +10273,26 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xA63D937Fu when name.SequenceEqual(propName_recent_speakers):
                     obj.RecentSpeakers = reader.ReadObjectArray<GroupCallRecentSpeaker>();
                     return true;
+                case 0x7AA9D516u when name.SequenceEqual(propName_is_my_video_enabled):
+                    obj.IsMyVideoEnabled = reader.ReadBool();
+                    return true;
+                case 0x8DCBF0BFu when name.SequenceEqual(propName_is_my_video_paused):
+                    obj.IsMyVideoPaused = reader.ReadBool();
+                    return true;
+                case 0xD094854Bu when name.SequenceEqual(propName_can_enable_video):
+                    obj.CanEnableVideo = reader.ReadBool();
+                    return true;
                 case 0x41A3C90Eu when name.SequenceEqual(propName_mute_new_participants):
                     obj.MuteNewParticipants = reader.ReadBool();
                     return true;
-                case 0x5C9861C1u when name.SequenceEqual(propName_can_change_mute_new_participants):
-                    obj.CanChangeMuteNewParticipants = reader.ReadBool();
+                case 0x1AF45865u when name.SequenceEqual(propName_can_toggle_mute_new_participants):
+                    obj.CanToggleMuteNewParticipants = reader.ReadBool();
                     return true;
                 case 0x651149EBu when name.SequenceEqual(propName_record_duration):
                     obj.RecordDuration = reader.ReadInt();
+                    return true;
+                case 0xAD35EA34u when name.SequenceEqual(propName_is_video_recorded):
+                    obj.IsVideoRecorded = reader.ReadBool();
                     return true;
                 case 0xD7567B90u when name.SequenceEqual(propName_duration):
                     obj.Duration = reader.ReadInt();
@@ -9866,142 +10302,53 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("groupCallPayloadFingerprint")]
-    partial class GroupCallPayloadFingerprintConverter : TLObjectConverter<GroupCallPayloadFingerprint>
+    [TLType("groupCallVideoSourceGroup")]
+    partial class GroupCallVideoSourceGroupConverter : TLObjectConverter<GroupCallVideoSourceGroup>
     {
-        public static BaseConverter CreateConverterInstance() => new GroupCallPayloadFingerprintConverter();
-        public override TLObject CreateObjectInstance() => new GroupCallPayloadFingerprint();
+        public static BaseConverter CreateConverterInstance() => new GroupCallVideoSourceGroupConverter();
+        public override TLObject CreateObjectInstance() => new GroupCallVideoSourceGroup();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (GroupCallPayloadFingerprint)tlobj;
-            if (name.SequenceEqual(propName_hash))
+            var obj = (GroupCallVideoSourceGroup)tlobj;
+            if (name.SequenceEqual(propName_semantics))
             {
-                obj.Hash = reader.ReadString();
+                obj.Semantics = reader.ReadString();
                 return true;
             }
-            if (name.SequenceEqual(propName_setup))
+            if (name.SequenceEqual(propName_source_ids))
             {
-                obj.Setup = reader.ReadString();
-                return true;
-            }
-            if (name.SequenceEqual(propName_fingerprint))
-            {
-                obj.Fingerprint = reader.ReadString();
+                obj.SourceIds = reader.ReadInt32Array();
                 return true;
             }
             return false;
         }
     }
 
-    [TLType("groupCallPayload")]
-    partial class GroupCallPayloadConverter : TLObjectConverter<GroupCallPayload>
+    [TLType("groupCallParticipantVideoInfo")]
+    partial class GroupCallParticipantVideoInfoConverter : TLObjectConverter<GroupCallParticipantVideoInfo>
     {
-        public static BaseConverter CreateConverterInstance() => new GroupCallPayloadConverter();
-        public override TLObject CreateObjectInstance() => new GroupCallPayload();
+        public static BaseConverter CreateConverterInstance() => new GroupCallParticipantVideoInfoConverter();
+        public override TLObject CreateObjectInstance() => new GroupCallParticipantVideoInfo();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (GroupCallPayload)tlobj;
-            if (name.SequenceEqual(propName_ufrag))
+            var obj = (GroupCallParticipantVideoInfo)tlobj;
+            if (name.SequenceEqual(propName_source_groups))
             {
-                obj.Ufrag = reader.ReadString();
+                obj.SourceGroups = reader.ReadObjectArray<GroupCallVideoSourceGroup>();
                 return true;
             }
-            if (name.SequenceEqual(propName_pwd))
+            if (name.SequenceEqual(propName_endpoint_id))
             {
-                obj.Pwd = reader.ReadString();
+                obj.EndpointId = reader.ReadString();
                 return true;
             }
-            if (name.SequenceEqual(propName_fingerprints))
+            if (name.SequenceEqual(propName_is_paused))
             {
-                obj.Fingerprints = reader.ReadObjectArray<GroupCallPayloadFingerprint>();
+                obj.IsPaused = reader.ReadBool();
                 return true;
             }
             return false;
         }
-    }
-
-    [TLType("groupCallJoinResponseCandidate")]
-    partial class GroupCallJoinResponseCandidateConverter : TLObjectConverter<GroupCallJoinResponseCandidate>
-    {
-        public static BaseConverter CreateConverterInstance() => new GroupCallJoinResponseCandidateConverter();
-        public override TLObject CreateObjectInstance() => new GroupCallJoinResponseCandidate();
-        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
-        {
-            var obj = (GroupCallJoinResponseCandidate)tlobj;
-            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
-            switch (keyhash)
-            {
-                case 0x991EB78Cu when name.SequenceEqual(propName_port):
-                    obj.Port = reader.ReadString();
-                    return true;
-                case 0x2E66C39Du when name.SequenceEqual(propName_protocol):
-                    obj.Protocol = reader.ReadString();
-                    return true;
-                case 0xD48621E0u when name.SequenceEqual(propName_network):
-                    obj.Network = reader.ReadString();
-                    return true;
-                case 0xBD6CD7C9u when name.SequenceEqual(propName_generation):
-                    obj.Generation = reader.ReadString();
-                    return true;
-                case 0x59170D66u when name.SequenceEqual(propName_id):
-                    obj.Id = reader.ReadString();
-                    return true;
-                case 0x69B2E1FAu when name.SequenceEqual(propName_component):
-                    obj.Component = reader.ReadString();
-                    return true;
-                case 0x618C211Cu when name.SequenceEqual(propName_foundation):
-                    obj.Foundation = reader.ReadString();
-                    return true;
-                case 0x3889E214u when name.SequenceEqual(propName_priority):
-                    obj.Priority = reader.ReadString();
-                    return true;
-                case 0x8ED35D16u when name.SequenceEqual(propName_ip):
-                    obj.Ip = reader.ReadString();
-                    return true;
-                case 0x865F7960u when name.SequenceEqual(propName_type):
-                    obj.Type = reader.ReadString();
-                    return true;
-                case 0x910C2730u when name.SequenceEqual(propName_tcp_type):
-                    obj.TcpType = reader.ReadString();
-                    return true;
-                case 0xCCC4B080u when name.SequenceEqual(propName_rel_addr):
-                    obj.RelAddr = reader.ReadString();
-                    return true;
-                case 0x5A3112E8u when name.SequenceEqual(propName_rel_port):
-                    obj.RelPort = reader.ReadString();
-                    return true;
-            }
-            return false;
-        }
-    }
-
-    [TLType("groupCallJoinResponseWebrtc")]
-    partial class GroupCallJoinResponseWebrtcConverter : TLObjectConverter<GroupCallJoinResponseWebrtc>
-    {
-        public static BaseConverter CreateConverterInstance() => new GroupCallJoinResponseWebrtcConverter();
-        public override TLObject CreateObjectInstance() => new GroupCallJoinResponseWebrtc();
-        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
-        {
-            var obj = (GroupCallJoinResponseWebrtc)tlobj;
-            if (name.SequenceEqual(propName_payload))
-            {
-                obj.Payload = reader.ReadTLObject<GroupCallPayload>();
-                return true;
-            }
-            if (name.SequenceEqual(propName_candidates))
-            {
-                obj.Candidates = reader.ReadObjectArray<GroupCallJoinResponseCandidate>();
-                return true;
-            }
-            return false;
-        }
-    }
-
-    [TLType("groupCallJoinResponseStream")]
-    partial class GroupCallJoinResponseStreamConverter : TLObjectConverter<GroupCallJoinResponseStream>
-    {
-        public static BaseConverter CreateConverterInstance() => new GroupCallJoinResponseStreamConverter();
-        public override TLObject CreateObjectInstance() => new GroupCallJoinResponseStream();
     }
 
     [TLType("groupCallParticipant")]
@@ -10018,8 +10365,17 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xF2E1CF9Eu when name.SequenceEqual(propName_participant_id):
                     obj.ParticipantId = reader.ReadTLObject<MessageSender>();
                     return true;
-                case 0xA3A22F95u when name.SequenceEqual(propName_source):
-                    obj.Source = reader.ReadInt();
+                case 0x60A559A0u when name.SequenceEqual(propName_audio_source_id):
+                    obj.AudioSourceId = reader.ReadInt();
+                    return true;
+                case 0x89CB8682u when name.SequenceEqual(propName_screen_sharing_audio_source_id):
+                    obj.ScreenSharingAudioSourceId = reader.ReadInt();
+                    return true;
+                case 0xC05F8BC7u when name.SequenceEqual(propName_video_info):
+                    obj.VideoInfo = reader.ReadTLObject<GroupCallParticipantVideoInfo>();
+                    return true;
+                case 0x1B2E8765u when name.SequenceEqual(propName_screen_sharing_video_info):
+                    obj.ScreenSharingVideoInfo = reader.ReadTLObject<GroupCallParticipantVideoInfo>();
                     return true;
                 case 0x38D55B35u when name.SequenceEqual(propName_bio):
                     obj.Bio = reader.ReadString();
@@ -10143,7 +10499,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Id = reader.ReadInt();
                     return true;
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0x59EDAC58u when name.SequenceEqual(propName_is_outgoing):
                     obj.IsOutgoing = reader.ReadBool();
@@ -10261,7 +10617,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ImportedContacts)tlobj;
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             if (name.SequenceEqual(propName_importer_count))
@@ -11241,7 +11597,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_score))
@@ -11384,6 +11740,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("chatEventMemberJoinedByRequest")]
+    partial class ChatEventMemberJoinedByRequestConverter : TLObjectConverter<ChatEventMemberJoinedByRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatEventMemberJoinedByRequestConverter();
+        public override TLObject CreateObjectInstance() => new ChatEventMemberJoinedByRequest();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatEventMemberJoinedByRequest)tlobj;
+            if (name.SequenceEqual(propName_approver_user_id))
+            {
+                obj.ApproverUserId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_invite_link))
+            {
+                obj.InviteLink = reader.ReadTLObject<ChatInviteLink>();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("chatEventMemberLeft")]
     partial class ChatEventMemberLeftConverter : TLObjectConverter<ChatEventMemberLeft>
     {
@@ -11401,7 +11779,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatEventMemberInvited)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_status))
@@ -11423,7 +11801,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatEventMemberPromoted)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_old_status))
@@ -11794,14 +12172,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("chatEventVoiceChatCreated")]
-    partial class ChatEventVoiceChatCreatedConverter : TLObjectConverter<ChatEventVoiceChatCreated>
+    [TLType("chatEventVideoChatCreated")]
+    partial class ChatEventVideoChatCreatedConverter : TLObjectConverter<ChatEventVideoChatCreated>
     {
-        public static BaseConverter CreateConverterInstance() => new ChatEventVoiceChatCreatedConverter();
-        public override TLObject CreateObjectInstance() => new ChatEventVoiceChatCreated();
+        public static BaseConverter CreateConverterInstance() => new ChatEventVideoChatCreatedConverter();
+        public override TLObject CreateObjectInstance() => new ChatEventVideoChatCreated();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (ChatEventVoiceChatCreated)tlobj;
+            var obj = (ChatEventVideoChatCreated)tlobj;
             if (name.SequenceEqual(propName_group_call_id))
             {
                 obj.GroupCallId = reader.ReadInt();
@@ -11811,14 +12189,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("chatEventVoiceChatDiscarded")]
-    partial class ChatEventVoiceChatDiscardedConverter : TLObjectConverter<ChatEventVoiceChatDiscarded>
+    [TLType("chatEventVideoChatDiscarded")]
+    partial class ChatEventVideoChatDiscardedConverter : TLObjectConverter<ChatEventVideoChatDiscarded>
     {
-        public static BaseConverter CreateConverterInstance() => new ChatEventVoiceChatDiscardedConverter();
-        public override TLObject CreateObjectInstance() => new ChatEventVoiceChatDiscarded();
+        public static BaseConverter CreateConverterInstance() => new ChatEventVideoChatDiscardedConverter();
+        public override TLObject CreateObjectInstance() => new ChatEventVideoChatDiscarded();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (ChatEventVoiceChatDiscarded)tlobj;
+            var obj = (ChatEventVideoChatDiscarded)tlobj;
             if (name.SequenceEqual(propName_group_call_id))
             {
                 obj.GroupCallId = reader.ReadInt();
@@ -11828,14 +12206,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("chatEventVoiceChatParticipantIsMutedToggled")]
-    partial class ChatEventVoiceChatParticipantIsMutedToggledConverter : TLObjectConverter<ChatEventVoiceChatParticipantIsMutedToggled>
+    [TLType("chatEventVideoChatParticipantIsMutedToggled")]
+    partial class ChatEventVideoChatParticipantIsMutedToggledConverter : TLObjectConverter<ChatEventVideoChatParticipantIsMutedToggled>
     {
-        public static BaseConverter CreateConverterInstance() => new ChatEventVoiceChatParticipantIsMutedToggledConverter();
-        public override TLObject CreateObjectInstance() => new ChatEventVoiceChatParticipantIsMutedToggled();
+        public static BaseConverter CreateConverterInstance() => new ChatEventVideoChatParticipantIsMutedToggledConverter();
+        public override TLObject CreateObjectInstance() => new ChatEventVideoChatParticipantIsMutedToggled();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (ChatEventVoiceChatParticipantIsMutedToggled)tlobj;
+            var obj = (ChatEventVideoChatParticipantIsMutedToggled)tlobj;
             if (name.SequenceEqual(propName_participant_id))
             {
                 obj.ParticipantId = reader.ReadTLObject<MessageSender>();
@@ -11850,14 +12228,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("chatEventVoiceChatParticipantVolumeLevelChanged")]
-    partial class ChatEventVoiceChatParticipantVolumeLevelChangedConverter : TLObjectConverter<ChatEventVoiceChatParticipantVolumeLevelChanged>
+    [TLType("chatEventVideoChatParticipantVolumeLevelChanged")]
+    partial class ChatEventVideoChatParticipantVolumeLevelChangedConverter : TLObjectConverter<ChatEventVideoChatParticipantVolumeLevelChanged>
     {
-        public static BaseConverter CreateConverterInstance() => new ChatEventVoiceChatParticipantVolumeLevelChangedConverter();
-        public override TLObject CreateObjectInstance() => new ChatEventVoiceChatParticipantVolumeLevelChanged();
+        public static BaseConverter CreateConverterInstance() => new ChatEventVideoChatParticipantVolumeLevelChangedConverter();
+        public override TLObject CreateObjectInstance() => new ChatEventVideoChatParticipantVolumeLevelChanged();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (ChatEventVoiceChatParticipantVolumeLevelChanged)tlobj;
+            var obj = (ChatEventVideoChatParticipantVolumeLevelChanged)tlobj;
             if (name.SequenceEqual(propName_participant_id))
             {
                 obj.ParticipantId = reader.ReadTLObject<MessageSender>();
@@ -11872,14 +12250,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("chatEventVoiceChatMuteNewParticipantsToggled")]
-    partial class ChatEventVoiceChatMuteNewParticipantsToggledConverter : TLObjectConverter<ChatEventVoiceChatMuteNewParticipantsToggled>
+    [TLType("chatEventVideoChatMuteNewParticipantsToggled")]
+    partial class ChatEventVideoChatMuteNewParticipantsToggledConverter : TLObjectConverter<ChatEventVideoChatMuteNewParticipantsToggled>
     {
-        public static BaseConverter CreateConverterInstance() => new ChatEventVoiceChatMuteNewParticipantsToggledConverter();
-        public override TLObject CreateObjectInstance() => new ChatEventVoiceChatMuteNewParticipantsToggled();
+        public static BaseConverter CreateConverterInstance() => new ChatEventVideoChatMuteNewParticipantsToggledConverter();
+        public override TLObject CreateObjectInstance() => new ChatEventVideoChatMuteNewParticipantsToggled();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (ChatEventVoiceChatMuteNewParticipantsToggled)tlobj;
+            var obj = (ChatEventVideoChatMuteNewParticipantsToggled)tlobj;
             if (name.SequenceEqual(propName_mute_new_participants))
             {
                 obj.MuteNewParticipants = reader.ReadBool();
@@ -11907,7 +12285,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Date = reader.ReadInt();
                     return true;
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0xA88F2A92u when name.SequenceEqual(propName_action):
                     obj.Action = reader.ReadTLObject<ChatEventAction>();
@@ -11978,8 +12356,8 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x25979A32u when name.SequenceEqual(propName_invite_link_changes):
                     obj.InviteLinkChanges = reader.ReadBool();
                     return true;
-                case 0xBE0E4785u when name.SequenceEqual(propName_voice_chat_changes):
-                    obj.VoiceChatChanges = reader.ReadBool();
+                case 0x9173E32Du when name.SequenceEqual(propName_video_chat_changes):
+                    obj.VideoChatChanges = reader.ReadBool();
                     return true;
             }
             return false;
@@ -12433,6 +12811,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("backgroundFillFreeformGradient")]
+    partial class BackgroundFillFreeformGradientConverter : TLObjectConverter<BackgroundFillFreeformGradient>
+    {
+        public static BaseConverter CreateConverterInstance() => new BackgroundFillFreeformGradientConverter();
+        public override TLObject CreateObjectInstance() => new BackgroundFillFreeformGradient();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (BackgroundFillFreeformGradient)tlobj;
+            if (name.SequenceEqual(propName_colors))
+            {
+                obj.Colors = reader.ReadInt32Array();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("backgroundTypeWallpaper")]
     partial class BackgroundTypeWallpaperConverter : TLObjectConverter<BackgroundTypeWallpaper>
     {
@@ -12463,20 +12858,21 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (BackgroundTypePattern)tlobj;
-            if (name.SequenceEqual(propName_fill))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.Fill = reader.ReadTLObject<BackgroundFill>();
-                return true;
-            }
-            if (name.SequenceEqual(propName_intensity))
-            {
-                obj.Intensity = reader.ReadInt();
-                return true;
-            }
-            if (name.SequenceEqual(propName_is_moving))
-            {
-                obj.IsMoving = reader.ReadBool();
-                return true;
+                case 0x34171E7Fu when name.SequenceEqual(propName_fill):
+                    obj.Fill = reader.ReadTLObject<BackgroundFill>();
+                    return true;
+                case 0x4FB501A1u when name.SequenceEqual(propName_intensity):
+                    obj.Intensity = reader.ReadInt();
+                    return true;
+                case 0x5BDD7D23u when name.SequenceEqual(propName_is_inverted):
+                    obj.IsInverted = reader.ReadBool();
+                    return true;
+                case 0xED686E54u when name.SequenceEqual(propName_is_moving):
+                    obj.IsMoving = reader.ReadBool();
+                    return true;
             }
             return false;
         }
@@ -12584,6 +12980,64 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("themeSettings")]
+    partial class ThemeSettingsConverter : TLObjectConverter<ThemeSettings>
+    {
+        public static BaseConverter CreateConverterInstance() => new ThemeSettingsConverter();
+        public override TLObject CreateObjectInstance() => new ThemeSettings();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ThemeSettings)tlobj;
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
+            {
+                case 0x62054AE4u when name.SequenceEqual(propName_accent_color):
+                    obj.AccentColor = reader.ReadInt();
+                    return true;
+                case 0x13FE30D5u when name.SequenceEqual(propName_background):
+                    obj.Background = reader.ReadTLObject<Background>();
+                    return true;
+                case 0x9294FF92u when name.SequenceEqual(propName_outgoing_message_fill):
+                    obj.OutgoingMessageFill = reader.ReadTLObject<BackgroundFill>();
+                    return true;
+                case 0xE6723E79u when name.SequenceEqual(propName_animate_outgoing_message_fill):
+                    obj.AnimateOutgoingMessageFill = reader.ReadBool();
+                    return true;
+                case 0x7C4652AFu when name.SequenceEqual(propName_outgoing_message_accent_color):
+                    obj.OutgoingMessageAccentColor = reader.ReadInt();
+                    return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("chatTheme")]
+    partial class ChatThemeConverter : TLObjectConverter<ChatTheme>
+    {
+        public static BaseConverter CreateConverterInstance() => new ChatThemeConverter();
+        public override TLObject CreateObjectInstance() => new ChatTheme();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ChatTheme)tlobj;
+            if (name.SequenceEqual(propName_name))
+            {
+                obj.Name = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_light_settings))
+            {
+                obj.LightSettings = reader.ReadTLObject<ThemeSettings>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_dark_settings))
+            {
+                obj.DarkSettings = reader.ReadTLObject<ThemeSettings>();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("hashtags")]
     partial class HashtagsConverter : TLObjectConverter<Hashtags>
     {
@@ -12682,6 +13136,68 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new CheckChatUsernameResultPublicGroupsUnavailableConverter();
         public override TLObject CreateObjectInstance() => new CheckChatUsernameResultPublicGroupsUnavailable();
+    }
+
+    [TLType("checkStickerSetNameResultOk")]
+    partial class CheckStickerSetNameResultOkConverter : TLObjectConverter<CheckStickerSetNameResultOk>
+    {
+        public static BaseConverter CreateConverterInstance() => new CheckStickerSetNameResultOkConverter();
+        public override TLObject CreateObjectInstance() => new CheckStickerSetNameResultOk();
+    }
+
+    [TLType("checkStickerSetNameResultNameInvalid")]
+    partial class CheckStickerSetNameResultNameInvalidConverter : TLObjectConverter<CheckStickerSetNameResultNameInvalid>
+    {
+        public static BaseConverter CreateConverterInstance() => new CheckStickerSetNameResultNameInvalidConverter();
+        public override TLObject CreateObjectInstance() => new CheckStickerSetNameResultNameInvalid();
+    }
+
+    [TLType("checkStickerSetNameResultNameOccupied")]
+    partial class CheckStickerSetNameResultNameOccupiedConverter : TLObjectConverter<CheckStickerSetNameResultNameOccupied>
+    {
+        public static BaseConverter CreateConverterInstance() => new CheckStickerSetNameResultNameOccupiedConverter();
+        public override TLObject CreateObjectInstance() => new CheckStickerSetNameResultNameOccupied();
+    }
+
+    [TLType("resetPasswordResultOk")]
+    partial class ResetPasswordResultOkConverter : TLObjectConverter<ResetPasswordResultOk>
+    {
+        public static BaseConverter CreateConverterInstance() => new ResetPasswordResultOkConverter();
+        public override TLObject CreateObjectInstance() => new ResetPasswordResultOk();
+    }
+
+    [TLType("resetPasswordResultPending")]
+    partial class ResetPasswordResultPendingConverter : TLObjectConverter<ResetPasswordResultPending>
+    {
+        public static BaseConverter CreateConverterInstance() => new ResetPasswordResultPendingConverter();
+        public override TLObject CreateObjectInstance() => new ResetPasswordResultPending();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ResetPasswordResultPending)tlobj;
+            if (name.SequenceEqual(propName_pending_reset_date))
+            {
+                obj.PendingResetDate = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("resetPasswordResultDeclined")]
+    partial class ResetPasswordResultDeclinedConverter : TLObjectConverter<ResetPasswordResultDeclined>
+    {
+        public static BaseConverter CreateConverterInstance() => new ResetPasswordResultDeclinedConverter();
+        public override TLObject CreateObjectInstance() => new ResetPasswordResultDeclined();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ResetPasswordResultDeclined)tlobj;
+            if (name.SequenceEqual(propName_retry_date))
+            {
+                obj.RetryDate = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
     }
 
     [TLType("messageFileTypePrivate")]
@@ -13176,6 +13692,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("pushMessageContentChatSetTheme")]
+    partial class PushMessageContentChatSetThemeConverter : TLObjectConverter<PushMessageContentChatSetTheme>
+    {
+        public static BaseConverter CreateConverterInstance() => new PushMessageContentChatSetThemeConverter();
+        public override TLObject CreateObjectInstance() => new PushMessageContentChatSetTheme();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (PushMessageContentChatSetTheme)tlobj;
+            if (name.SequenceEqual(propName_theme_name))
+            {
+                obj.ThemeName = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("pushMessageContentChatDeleteMember")]
     partial class PushMessageContentChatDeleteMemberConverter : TLObjectConverter<PushMessageContentChatDeleteMember>
     {
@@ -13208,6 +13741,13 @@ namespace TDLibCore.JsonClient.ObjectConverter
     {
         public static BaseConverter CreateConverterInstance() => new PushMessageContentChatJoinByLinkConverter();
         public override TLObject CreateObjectInstance() => new PushMessageContentChatJoinByLink();
+    }
+
+    [TLType("pushMessageContentChatJoinByRequest")]
+    partial class PushMessageContentChatJoinByRequestConverter : TLObjectConverter<PushMessageContentChatJoinByRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new PushMessageContentChatJoinByRequestConverter();
+        public override TLObject CreateObjectInstance() => new PushMessageContentChatJoinByRequest();
     }
 
     [TLType("pushMessageContentMessageForwards")]
@@ -13613,7 +14153,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (UserPrivacySettingRuleAllowUsers)tlobj;
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -13661,7 +14201,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (UserPrivacySettingRuleRestrictUsers)tlobj;
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -13871,7 +14411,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.DomainName = reader.ReadString();
                     return true;
                 case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
-                    obj.BotUserId = reader.ReadInt();
+                    obj.BotUserId = reader.ReadLong();
                     return true;
                 case 0x8011CC75u when name.SequenceEqual(propName_browser):
                     obj.Browser = reader.ReadString();
@@ -13969,6 +14509,403 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override TLObject CreateObjectInstance() => new ChatReportReasonCustom();
     }
 
+    [TLType("internalLinkTypeActiveSessions")]
+    partial class InternalLinkTypeActiveSessionsConverter : TLObjectConverter<InternalLinkTypeActiveSessions>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeActiveSessionsConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeActiveSessions();
+    }
+
+    [TLType("internalLinkTypeAuthenticationCode")]
+    partial class InternalLinkTypeAuthenticationCodeConverter : TLObjectConverter<InternalLinkTypeAuthenticationCode>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeAuthenticationCodeConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeAuthenticationCode();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeAuthenticationCode)tlobj;
+            if (name.SequenceEqual(propName_code))
+            {
+                obj.Code = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeBackground")]
+    partial class InternalLinkTypeBackgroundConverter : TLObjectConverter<InternalLinkTypeBackground>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeBackgroundConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeBackground();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeBackground)tlobj;
+            if (name.SequenceEqual(propName_background_name))
+            {
+                obj.BackgroundName = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeBotStart")]
+    partial class InternalLinkTypeBotStartConverter : TLObjectConverter<InternalLinkTypeBotStart>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeBotStartConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeBotStart();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeBotStart)tlobj;
+            if (name.SequenceEqual(propName_bot_username))
+            {
+                obj.BotUsername = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_start_parameter))
+            {
+                obj.StartParameter = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeBotStartInGroup")]
+    partial class InternalLinkTypeBotStartInGroupConverter : TLObjectConverter<InternalLinkTypeBotStartInGroup>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeBotStartInGroupConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeBotStartInGroup();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeBotStartInGroup)tlobj;
+            if (name.SequenceEqual(propName_bot_username))
+            {
+                obj.BotUsername = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_start_parameter))
+            {
+                obj.StartParameter = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeChangePhoneNumber")]
+    partial class InternalLinkTypeChangePhoneNumberConverter : TLObjectConverter<InternalLinkTypeChangePhoneNumber>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeChangePhoneNumberConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeChangePhoneNumber();
+    }
+
+    [TLType("internalLinkTypeChatInvite")]
+    partial class InternalLinkTypeChatInviteConverter : TLObjectConverter<InternalLinkTypeChatInvite>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeChatInviteConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeChatInvite();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeChatInvite)tlobj;
+            if (name.SequenceEqual(propName_invite_link))
+            {
+                obj.InviteLink = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeFilterSettings")]
+    partial class InternalLinkTypeFilterSettingsConverter : TLObjectConverter<InternalLinkTypeFilterSettings>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeFilterSettingsConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeFilterSettings();
+    }
+
+    [TLType("internalLinkTypeGame")]
+    partial class InternalLinkTypeGameConverter : TLObjectConverter<InternalLinkTypeGame>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeGameConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeGame();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeGame)tlobj;
+            if (name.SequenceEqual(propName_bot_username))
+            {
+                obj.BotUsername = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_game_short_name))
+            {
+                obj.GameShortName = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeLanguagePack")]
+    partial class InternalLinkTypeLanguagePackConverter : TLObjectConverter<InternalLinkTypeLanguagePack>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeLanguagePackConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeLanguagePack();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeLanguagePack)tlobj;
+            if (name.SequenceEqual(propName_language_pack_id))
+            {
+                obj.LanguagePackId = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeMessage")]
+    partial class InternalLinkTypeMessageConverter : TLObjectConverter<InternalLinkTypeMessage>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeMessageConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeMessage();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeMessage)tlobj;
+            if (name.SequenceEqual(propName_url))
+            {
+                obj.Url = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeMessageDraft")]
+    partial class InternalLinkTypeMessageDraftConverter : TLObjectConverter<InternalLinkTypeMessageDraft>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeMessageDraftConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeMessageDraft();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeMessageDraft)tlobj;
+            if (name.SequenceEqual(propName_text))
+            {
+                obj.Text = reader.ReadTLObject<FormattedText>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_contains_link))
+            {
+                obj.ContainsLink = reader.ReadBool();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypePassportDataRequest")]
+    partial class InternalLinkTypePassportDataRequestConverter : TLObjectConverter<InternalLinkTypePassportDataRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypePassportDataRequestConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypePassportDataRequest();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypePassportDataRequest)tlobj;
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
+            {
+                case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
+                    obj.BotUserId = reader.ReadLong();
+                    return true;
+                case 0x31D5C826u when name.SequenceEqual(propName_scope):
+                    obj.Scope = reader.ReadString();
+                    return true;
+                case 0xEDDC8A97u when name.SequenceEqual(propName_public_key):
+                    obj.PublicKey = reader.ReadString();
+                    return true;
+                case 0x80C1EA0Bu when name.SequenceEqual(propName_nonce):
+                    obj.Nonce = reader.ReadString();
+                    return true;
+                case 0xAADB6BA0u when name.SequenceEqual(propName_callback_url):
+                    obj.CallbackUrl = reader.ReadString();
+                    return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypePhoneNumberConfirmation")]
+    partial class InternalLinkTypePhoneNumberConfirmationConverter : TLObjectConverter<InternalLinkTypePhoneNumberConfirmation>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypePhoneNumberConfirmationConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypePhoneNumberConfirmation();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypePhoneNumberConfirmation)tlobj;
+            if (name.SequenceEqual(propName_hash))
+            {
+                obj.Hash = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_phone_number))
+            {
+                obj.PhoneNumber = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeProxy")]
+    partial class InternalLinkTypeProxyConverter : TLObjectConverter<InternalLinkTypeProxy>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeProxyConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeProxy();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeProxy)tlobj;
+            if (name.SequenceEqual(propName_server))
+            {
+                obj.Server = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_port))
+            {
+                obj.Port = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_type))
+            {
+                obj.Type = reader.ReadTLObject<ProxyType>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypePublicChat")]
+    partial class InternalLinkTypePublicChatConverter : TLObjectConverter<InternalLinkTypePublicChat>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypePublicChatConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypePublicChat();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypePublicChat)tlobj;
+            if (name.SequenceEqual(propName_chat_username))
+            {
+                obj.ChatUsername = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeQrCodeAuthentication")]
+    partial class InternalLinkTypeQrCodeAuthenticationConverter : TLObjectConverter<InternalLinkTypeQrCodeAuthentication>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeQrCodeAuthenticationConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeQrCodeAuthentication();
+    }
+
+    [TLType("internalLinkTypeSettings")]
+    partial class InternalLinkTypeSettingsConverter : TLObjectConverter<InternalLinkTypeSettings>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeSettingsConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeSettings();
+    }
+
+    [TLType("internalLinkTypeStickerSet")]
+    partial class InternalLinkTypeStickerSetConverter : TLObjectConverter<InternalLinkTypeStickerSet>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeStickerSetConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeStickerSet();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeStickerSet)tlobj;
+            if (name.SequenceEqual(propName_sticker_set_name))
+            {
+                obj.StickerSetName = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeTheme")]
+    partial class InternalLinkTypeThemeConverter : TLObjectConverter<InternalLinkTypeTheme>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeThemeConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeTheme();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeTheme)tlobj;
+            if (name.SequenceEqual(propName_theme_name))
+            {
+                obj.ThemeName = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeThemeSettings")]
+    partial class InternalLinkTypeThemeSettingsConverter : TLObjectConverter<InternalLinkTypeThemeSettings>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeThemeSettingsConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeThemeSettings();
+    }
+
+    [TLType("internalLinkTypeUnknownDeepLink")]
+    partial class InternalLinkTypeUnknownDeepLinkConverter : TLObjectConverter<InternalLinkTypeUnknownDeepLink>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeUnknownDeepLinkConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeUnknownDeepLink();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeUnknownDeepLink)tlobj;
+            if (name.SequenceEqual(propName_link))
+            {
+                obj.Link = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("internalLinkTypeUnsupportedProxy")]
+    partial class InternalLinkTypeUnsupportedProxyConverter : TLObjectConverter<InternalLinkTypeUnsupportedProxy>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeUnsupportedProxyConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeUnsupportedProxy();
+    }
+
+    [TLType("internalLinkTypeVideoChat")]
+    partial class InternalLinkTypeVideoChatConverter : TLObjectConverter<InternalLinkTypeVideoChat>
+    {
+        public static BaseConverter CreateConverterInstance() => new InternalLinkTypeVideoChatConverter();
+        public override TLObject CreateObjectInstance() => new InternalLinkTypeVideoChat();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (InternalLinkTypeVideoChat)tlobj;
+            if (name.SequenceEqual(propName_chat_username))
+            {
+                obj.ChatUsername = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_invite_hash))
+            {
+                obj.InviteHash = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_is_live_stream))
+            {
+                obj.IsLiveStream = reader.ReadBool();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("messageLink")]
     partial class MessageLinkConverter : TLObjectConverter<MessageLink>
     {
@@ -14010,6 +14947,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0x98A214D0u when name.SequenceEqual(propName_message):
                     obj.Message = reader.ReadTLObject<Message>();
+                    return true;
+                case 0xF04AE7ABu when name.SequenceEqual(propName_media_timestamp):
+                    obj.MediaTimestamp = reader.ReadInt();
                     return true;
                 case 0x8F261B50u when name.SequenceEqual(propName_for_album):
                     obj.ForAlbum = reader.ReadBool();
@@ -14555,7 +15495,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (TMeUrlTypeUser)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -14659,6 +15599,13 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override TLObject CreateObjectInstance() => new SuggestedActionEnableArchiveAndMuteNewChats();
     }
 
+    [TLType("suggestedActionCheckPassword")]
+    partial class SuggestedActionCheckPasswordConverter : TLObjectConverter<SuggestedActionCheckPassword>
+    {
+        public static BaseConverter CreateConverterInstance() => new SuggestedActionCheckPasswordConverter();
+        public override TLObject CreateObjectInstance() => new SuggestedActionCheckPassword();
+    }
+
     [TLType("suggestedActionCheckPhoneNumber")]
     partial class SuggestedActionCheckPhoneNumberConverter : TLObjectConverter<SuggestedActionCheckPhoneNumber>
     {
@@ -14683,7 +15630,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (SuggestedActionConvertToBroadcastGroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -15095,7 +16042,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatStatisticsMessageSenderInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_sent_message_count))
@@ -15124,7 +16071,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0xC9319F78u when name.SequenceEqual(propName_deleted_message_count):
                     obj.DeletedMessageCount = reader.ReadInt();
@@ -15150,7 +16097,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ChatStatisticsInviterInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_added_member_count))
@@ -15364,6 +16311,90 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_end_point))
             {
                 obj.EndPoint = reader.ReadTLObject<Point>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("botCommandScopeDefault")]
+    partial class BotCommandScopeDefaultConverter : TLObjectConverter<BotCommandScopeDefault>
+    {
+        public static BaseConverter CreateConverterInstance() => new BotCommandScopeDefaultConverter();
+        public override TLObject CreateObjectInstance() => new BotCommandScopeDefault();
+    }
+
+    [TLType("botCommandScopeAllPrivateChats")]
+    partial class BotCommandScopeAllPrivateChatsConverter : TLObjectConverter<BotCommandScopeAllPrivateChats>
+    {
+        public static BaseConverter CreateConverterInstance() => new BotCommandScopeAllPrivateChatsConverter();
+        public override TLObject CreateObjectInstance() => new BotCommandScopeAllPrivateChats();
+    }
+
+    [TLType("botCommandScopeAllGroupChats")]
+    partial class BotCommandScopeAllGroupChatsConverter : TLObjectConverter<BotCommandScopeAllGroupChats>
+    {
+        public static BaseConverter CreateConverterInstance() => new BotCommandScopeAllGroupChatsConverter();
+        public override TLObject CreateObjectInstance() => new BotCommandScopeAllGroupChats();
+    }
+
+    [TLType("botCommandScopeAllChatAdministrators")]
+    partial class BotCommandScopeAllChatAdministratorsConverter : TLObjectConverter<BotCommandScopeAllChatAdministrators>
+    {
+        public static BaseConverter CreateConverterInstance() => new BotCommandScopeAllChatAdministratorsConverter();
+        public override TLObject CreateObjectInstance() => new BotCommandScopeAllChatAdministrators();
+    }
+
+    [TLType("botCommandScopeChat")]
+    partial class BotCommandScopeChatConverter : TLObjectConverter<BotCommandScopeChat>
+    {
+        public static BaseConverter CreateConverterInstance() => new BotCommandScopeChatConverter();
+        public override TLObject CreateObjectInstance() => new BotCommandScopeChat();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (BotCommandScopeChat)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("botCommandScopeChatAdministrators")]
+    partial class BotCommandScopeChatAdministratorsConverter : TLObjectConverter<BotCommandScopeChatAdministrators>
+    {
+        public static BaseConverter CreateConverterInstance() => new BotCommandScopeChatAdministratorsConverter();
+        public override TLObject CreateObjectInstance() => new BotCommandScopeChatAdministrators();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (BotCommandScopeChatAdministrators)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("botCommandScopeChatMember")]
+    partial class BotCommandScopeChatMemberConverter : TLObjectConverter<BotCommandScopeChatMember>
+    {
+        public static BaseConverter CreateConverterInstance() => new BotCommandScopeChatMemberConverter();
+        public override TLObject CreateObjectInstance() => new BotCommandScopeChatMember();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (BotCommandScopeChatMember)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_user_id))
+            {
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -15854,22 +16885,22 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("updateChatVoiceChat")]
-    partial class UpdateChatVoiceChatConverter : TLObjectConverter<UpdateChatVoiceChat>
+    [TLType("updateChatVideoChat")]
+    partial class UpdateChatVideoChatConverter : TLObjectConverter<UpdateChatVideoChat>
     {
-        public static BaseConverter CreateConverterInstance() => new UpdateChatVoiceChatConverter();
-        public override TLObject CreateObjectInstance() => new UpdateChatVoiceChat();
+        public static BaseConverter CreateConverterInstance() => new UpdateChatVideoChatConverter();
+        public override TLObject CreateObjectInstance() => new UpdateChatVideoChat();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (UpdateChatVoiceChat)tlobj;
+            var obj = (UpdateChatVideoChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
             {
                 obj.ChatId = reader.ReadLong();
                 return true;
             }
-            if (name.SequenceEqual(propName_voice_chat))
+            if (name.SequenceEqual(propName_video_chat))
             {
-                obj.VoiceChat = reader.ReadTLObject<VoiceChat>();
+                obj.VideoChat = reader.ReadTLObject<VideoChat>();
                 return true;
             }
             return false;
@@ -16051,6 +17082,50 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_action_bar))
             {
                 obj.ActionBar = reader.ReadTLObject<ChatActionBar>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("updateChatTheme")]
+    partial class UpdateChatThemeConverter : TLObjectConverter<UpdateChatTheme>
+    {
+        public static BaseConverter CreateConverterInstance() => new UpdateChatThemeConverter();
+        public override TLObject CreateObjectInstance() => new UpdateChatTheme();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (UpdateChatTheme)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_theme_name))
+            {
+                obj.ThemeName = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("updateChatPendingJoinRequests")]
+    partial class UpdateChatPendingJoinRequestsConverter : TLObjectConverter<UpdateChatPendingJoinRequests>
+    {
+        public static BaseConverter CreateConverterInstance() => new UpdateChatPendingJoinRequestsConverter();
+        public override TLObject CreateObjectInstance() => new UpdateChatPendingJoinRequests();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (UpdateChatPendingJoinRequests)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_pending_join_requests))
+            {
+                obj.PendingJoinRequests = reader.ReadTLObject<ChatJoinRequestsInfo>();
                 return true;
             }
             return false;
@@ -16292,7 +17367,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.MessageThreadId = reader.ReadLong();
                     return true;
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0xA88F2A92u when name.SequenceEqual(propName_action):
                     obj.Action = reader.ReadTLObject<ChatAction>();
@@ -16312,7 +17387,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (UpdateUserStatus)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_status))
@@ -16402,7 +17477,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (UpdateUserFullInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_user_full_info))
@@ -16424,7 +17499,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (UpdateBasicGroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
             {
-                obj.BasicGroupId = reader.ReadInt();
+                obj.BasicGroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_basic_group_full_info))
@@ -16446,7 +17521,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (UpdateSupergroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_supergroup_full_info))
@@ -16859,6 +17934,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("updateChatThemes")]
+    partial class UpdateChatThemesConverter : TLObjectConverter<UpdateChatThemes>
+    {
+        public static BaseConverter CreateConverterInstance() => new UpdateChatThemesConverter();
+        public override TLObject CreateObjectInstance() => new UpdateChatThemes();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (UpdateChatThemes)tlobj;
+            if (name.SequenceEqual(propName_chat_themes))
+            {
+                obj.ChatThemes = reader.ReadObjectArray<ChatTheme>();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("updateLanguagePackStrings")]
     partial class UpdateLanguagePackStringsConverter : TLObjectConverter<UpdateLanguagePackStrings>
     {
@@ -16959,6 +18051,33 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("updateAnimatedEmojiMessageClicked")]
+    partial class UpdateAnimatedEmojiMessageClickedConverter : TLObjectConverter<UpdateAnimatedEmojiMessageClicked>
+    {
+        public static BaseConverter CreateConverterInstance() => new UpdateAnimatedEmojiMessageClickedConverter();
+        public override TLObject CreateObjectInstance() => new UpdateAnimatedEmojiMessageClicked();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (UpdateAnimatedEmojiMessageClicked)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_id))
+            {
+                obj.MessageId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_sticker))
+            {
+                obj.Sticker = reader.ReadTLObject<Sticker>();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("updateAnimationSearchParameters")]
     partial class UpdateAnimationSearchParametersConverter : TLObjectConverter<UpdateAnimationSearchParameters>
     {
@@ -17018,7 +18137,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Id = reader.ReadInt64String();
                     return true;
                 case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                    obj.SenderUserId = reader.ReadLong();
                     return true;
                 case 0x81A400F4u when name.SequenceEqual(propName_user_location):
                     obj.UserLocation = reader.ReadTLObject<Location>();
@@ -17049,7 +18168,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                    obj.SenderUserId = reader.ReadLong();
                     return true;
                 case 0x81A400F4u when name.SequenceEqual(propName_user_location):
                     obj.UserLocation = reader.ReadTLObject<Location>();
@@ -17083,7 +18202,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Id = reader.ReadInt64String();
                     return true;
                 case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                    obj.SenderUserId = reader.ReadLong();
                     return true;
                 case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
@@ -17117,7 +18236,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Id = reader.ReadInt64String();
                     return true;
                 case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                    obj.SenderUserId = reader.ReadLong();
                     return true;
                 case 0x16AC3B4Eu when name.SequenceEqual(propName_inline_message_id):
                     obj.InlineMessageId = reader.ReadString();
@@ -17148,7 +18267,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Id = reader.ReadInt64String();
                     return true;
                 case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                    obj.SenderUserId = reader.ReadLong();
                     return true;
                 case 0xF2C30B29u when name.SequenceEqual(propName_invoice_payload):
                     obj.InvoicePayload = reader.ReadString();
@@ -17176,7 +18295,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Id = reader.ReadInt64String();
                     return true;
                 case 0x835F2CE8u when name.SequenceEqual(propName_sender_user_id):
-                    obj.SenderUserId = reader.ReadInt();
+                    obj.SenderUserId = reader.ReadLong();
                     return true;
                 case 0xBDC5D1BFu when name.SequenceEqual(propName_currency):
                     obj.Currency = reader.ReadString();
@@ -17274,7 +18393,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_option_ids))
@@ -17301,7 +18420,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.ChatId = reader.ReadLong();
                     return true;
                 case 0x3FC6BCA4u when name.SequenceEqual(propName_actor_user_id):
-                    obj.ActorUserId = reader.ReadInt();
+                    obj.ActorUserId = reader.ReadLong();
                     return true;
                 case 0x6942EACEu when name.SequenceEqual(propName_date):
                     obj.Date = reader.ReadInt();
@@ -17315,6 +18434,33 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xEE17799Eu when name.SequenceEqual(propName_new_chat_member):
                     obj.NewChatMember = reader.ReadTLObject<ChatMember>();
                     return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("updateNewChatJoinRequest")]
+    partial class UpdateNewChatJoinRequestConverter : TLObjectConverter<UpdateNewChatJoinRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new UpdateNewChatJoinRequestConverter();
+        public override TLObject CreateObjectInstance() => new UpdateNewChatJoinRequest();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (UpdateNewChatJoinRequest)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_request))
+            {
+                obj.Request = reader.ReadTLObject<ChatJoinRequest>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_invite_link))
+            {
+                obj.InviteLink = reader.ReadTLObject<ChatInviteLink>();
+                return true;
             }
             return false;
         }
@@ -17628,7 +18774,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (RequestQrCodeAuthentication)tlobj;
             if (name.SequenceEqual(propName_other_user_ids))
             {
-                obj.OtherUserIds = reader.ReadInt32Array();
+                obj.OtherUserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -17681,6 +18827,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override TLObject CreateObjectInstance() => new RequestAuthenticationPasswordRecovery();
     }
 
+    [TLType("checkAuthenticationPasswordRecoveryCode")]
+    partial class CheckAuthenticationPasswordRecoveryCodeConverter : TLObjectConverter<CheckAuthenticationPasswordRecoveryCode>
+    {
+        public static BaseConverter CreateConverterInstance() => new CheckAuthenticationPasswordRecoveryCodeConverter();
+        public override TLObject CreateObjectInstance() => new CheckAuthenticationPasswordRecoveryCode();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (CheckAuthenticationPasswordRecoveryCode)tlobj;
+            if (name.SequenceEqual(propName_recovery_code))
+            {
+                obj.RecoveryCode = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("recoverAuthenticationPassword")]
     partial class RecoverAuthenticationPasswordConverter : TLObjectConverter<RecoverAuthenticationPassword>
     {
@@ -17692,6 +18855,16 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_recovery_code))
             {
                 obj.RecoveryCode = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_new_password))
+            {
+                obj.NewPassword = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_new_hint))
+            {
+                obj.NewHint = reader.ReadString();
                 return true;
             }
             return false;
@@ -17885,6 +19058,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override TLObject CreateObjectInstance() => new RequestPasswordRecovery();
     }
 
+    [TLType("checkPasswordRecoveryCode")]
+    partial class CheckPasswordRecoveryCodeConverter : TLObjectConverter<CheckPasswordRecoveryCode>
+    {
+        public static BaseConverter CreateConverterInstance() => new CheckPasswordRecoveryCodeConverter();
+        public override TLObject CreateObjectInstance() => new CheckPasswordRecoveryCode();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (CheckPasswordRecoveryCode)tlobj;
+            if (name.SequenceEqual(propName_recovery_code))
+            {
+                obj.RecoveryCode = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("recoverPassword")]
     partial class RecoverPasswordConverter : TLObjectConverter<RecoverPassword>
     {
@@ -17898,8 +19088,32 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 obj.RecoveryCode = reader.ReadString();
                 return true;
             }
+            if (name.SequenceEqual(propName_new_password))
+            {
+                obj.NewPassword = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_new_hint))
+            {
+                obj.NewHint = reader.ReadString();
+                return true;
+            }
             return false;
         }
+    }
+
+    [TLType("resetPassword")]
+    partial class ResetPasswordConverter : TLObjectConverter<ResetPassword>
+    {
+        public static BaseConverter CreateConverterInstance() => new ResetPasswordConverter();
+        public override TLObject CreateObjectInstance() => new ResetPassword();
+    }
+
+    [TLType("cancelPasswordReset")]
+    partial class CancelPasswordResetConverter : TLObjectConverter<CancelPasswordReset>
+    {
+        public static BaseConverter CreateConverterInstance() => new CancelPasswordResetConverter();
+        public override TLObject CreateObjectInstance() => new CancelPasswordReset();
     }
 
     [TLType("createTemporaryPassword")]
@@ -17948,7 +19162,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetUser)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -17965,7 +19179,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetUserFullInfo)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -17982,7 +19196,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetBasicGroup)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
             {
-                obj.BasicGroupId = reader.ReadInt();
+                obj.BasicGroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -17999,7 +19213,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetBasicGroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
             {
-                obj.BasicGroupId = reader.ReadInt();
+                obj.BasicGroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -18016,7 +19230,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetSupergroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -18033,7 +19247,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetSupergroupFullInfo)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -18228,6 +19442,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("getMessageViewers")]
+    partial class GetMessageViewersConverter : TLObjectConverter<GetMessageViewers>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetMessageViewersConverter();
+        public override TLObject CreateObjectInstance() => new GetMessageViewers();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetMessageViewers)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_id))
+            {
+                obj.MessageId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("getFile")]
     partial class GetFileConverter : TLObjectConverter<GetFile>
     {
@@ -18267,6 +19503,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("loadChats")]
+    partial class LoadChatsConverter : TLObjectConverter<LoadChats>
+    {
+        public static BaseConverter CreateConverterInstance() => new LoadChatsConverter();
+        public override TLObject CreateObjectInstance() => new LoadChats();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (LoadChats)tlobj;
+            if (name.SequenceEqual(propName_chat_list))
+            {
+                obj.ChatList = reader.ReadTLObject<ChatList>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_limit))
+            {
+                obj.Limit = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("getChats")]
     partial class GetChatsConverter : TLObjectConverter<GetChats>
     {
@@ -18275,21 +19533,15 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetChats)tlobj;
-            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
-            switch (keyhash)
+            if (name.SequenceEqual(propName_chat_list))
             {
-                case 0xB8484D43u when name.SequenceEqual(propName_chat_list):
-                    obj.ChatList = reader.ReadTLObject<ChatList>();
-                    return true;
-                case 0xA359972Cu when name.SequenceEqual(propName_offset_order):
-                    obj.OffsetOrder = reader.ReadInt64String();
-                    return true;
-                case 0x2DD4FEE9u when name.SequenceEqual(propName_offset_chat_id):
-                    obj.OffsetChatId = reader.ReadLong();
-                    return true;
-                case 0x86EC5068u when name.SequenceEqual(propName_limit):
-                    obj.Limit = reader.ReadInt();
-                    return true;
+                obj.ChatList = reader.ReadTLObject<ChatList>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_limit))
+            {
+                obj.Limit = reader.ReadInt();
+                return true;
             }
             return false;
         }
@@ -18475,6 +19727,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override TLObject CreateObjectInstance() => new ClearRecentlyFoundChats();
     }
 
+    [TLType("getRecentlyOpenedChats")]
+    partial class GetRecentlyOpenedChatsConverter : TLObjectConverter<GetRecentlyOpenedChats>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetRecentlyOpenedChatsConverter();
+        public override TLObject CreateObjectInstance() => new GetRecentlyOpenedChats();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetRecentlyOpenedChats)tlobj;
+            if (name.SequenceEqual(propName_limit))
+            {
+                obj.Limit = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("checkChatUsername")]
     partial class CheckChatUsernameConverter : TLObjectConverter<CheckChatUsername>
     {
@@ -18555,7 +19824,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetGroupsInCommon)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_offset_chat_id))
@@ -18887,6 +20156,61 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("getChatSparseMessagePositions")]
+    partial class GetChatSparseMessagePositionsConverter : TLObjectConverter<GetChatSparseMessagePositions>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetChatSparseMessagePositionsConverter();
+        public override TLObject CreateObjectInstance() => new GetChatSparseMessagePositions();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetChatSparseMessagePositions)tlobj;
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
+            {
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
+                    obj.ChatId = reader.ReadLong();
+                    return true;
+                case 0x10835EEFu when name.SequenceEqual(propName_filter):
+                    obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
+                    return true;
+                case 0xCB003A8Du when name.SequenceEqual(propName_from_message_id):
+                    obj.FromMessageId = reader.ReadLong();
+                    return true;
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
+                    obj.Limit = reader.ReadInt();
+                    return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("getChatMessageCalendar")]
+    partial class GetChatMessageCalendarConverter : TLObjectConverter<GetChatMessageCalendar>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetChatMessageCalendarConverter();
+        public override TLObject CreateObjectInstance() => new GetChatMessageCalendar();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetChatMessageCalendar)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_filter))
+            {
+                obj.Filter = reader.ReadTLObject<SearchMessagesFilter>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_from_message_id))
+            {
+                obj.FromMessageId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("getChatMessageCount")]
     partial class GetChatMessageCountConverter : TLObjectConverter<GetChatMessageCount>
     {
@@ -18959,6 +20283,45 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("getChatSponsoredMessages")]
+    partial class GetChatSponsoredMessagesConverter : TLObjectConverter<GetChatSponsoredMessages>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetChatSponsoredMessagesConverter();
+        public override TLObject CreateObjectInstance() => new GetChatSponsoredMessages();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetChatSponsoredMessages)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("viewSponsoredMessage")]
+    partial class ViewSponsoredMessageConverter : TLObjectConverter<ViewSponsoredMessage>
+    {
+        public static BaseConverter CreateConverterInstance() => new ViewSponsoredMessageConverter();
+        public override TLObject CreateObjectInstance() => new ViewSponsoredMessage();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ViewSponsoredMessage)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_sponsored_message_id))
+            {
+                obj.SponsoredMessageId = reader.ReadInt();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("removeNotification")]
     partial class RemoveNotificationConverter : TLObjectConverter<RemoveNotification>
     {
@@ -19019,6 +20382,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0x3DABA1B5u when name.SequenceEqual(propName_message_id):
                     obj.MessageId = reader.ReadLong();
+                    return true;
+                case 0xF04AE7ABu when name.SequenceEqual(propName_media_timestamp):
+                    obj.MediaTimestamp = reader.ReadInt();
                     return true;
                 case 0x8F261B50u when name.SequenceEqual(propName_for_album):
                     obj.ForAlbum = reader.ReadBool();
@@ -19150,7 +20516,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (SendBotStartMessage)tlobj;
             if (name.SequenceEqual(propName_bot_user_id))
             {
-                obj.BotUserId = reader.ReadInt();
+                obj.BotUserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_chat_id))
@@ -19232,6 +20598,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0xD0362263u when name.SequenceEqual(propName_remove_caption):
                     obj.RemoveCaption = reader.ReadBool();
+                    return true;
+                case 0x33A54CB0u when name.SequenceEqual(propName_only_preview):
+                    obj.OnlyPreview = reader.ReadBool();
                     return true;
             }
             return false;
@@ -19350,8 +20719,36 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("deleteChatMessagesByDate")]
+    partial class DeleteChatMessagesByDateConverter : TLObjectConverter<DeleteChatMessagesByDate>
+    {
+        public static BaseConverter CreateConverterInstance() => new DeleteChatMessagesByDateConverter();
+        public override TLObject CreateObjectInstance() => new DeleteChatMessagesByDate();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (DeleteChatMessagesByDate)tlobj;
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
+            {
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
+                    obj.ChatId = reader.ReadLong();
+                    return true;
+                case 0xA638DF81u when name.SequenceEqual(propName_min_date):
+                    obj.MinDate = reader.ReadInt();
+                    return true;
+                case 0x41608558u when name.SequenceEqual(propName_max_date):
+                    obj.MaxDate = reader.ReadInt();
+                    return true;
+                case 0x758DAFEFu when name.SequenceEqual(propName_revoke):
+                    obj.Revoke = reader.ReadBool();
+                    return true;
             }
             return false;
         }
@@ -19971,7 +21368,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_button_id))
             {
-                obj.ButtonId = reader.ReadInt();
+                obj.ButtonId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -19996,7 +21393,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.MessageId = reader.ReadLong();
                     return true;
                 case 0x4DD238A4u when name.SequenceEqual(propName_button_id):
-                    obj.ButtonId = reader.ReadInt();
+                    obj.ButtonId = reader.ReadLong();
                     return true;
                 case 0x06295B41u when name.SequenceEqual(propName_allow_write_access):
                     obj.AllowWriteAccess = reader.ReadBool();
@@ -20018,7 +21415,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
-                    obj.BotUserId = reader.ReadInt();
+                    obj.BotUserId = reader.ReadLong();
                     return true;
                 case 0x061C6837u when name.SequenceEqual(propName_chat_id):
                     obj.ChatId = reader.ReadLong();
@@ -20202,7 +21599,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.EditMessage = reader.ReadBool();
                     return true;
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0x1690F8C8u when name.SequenceEqual(propName_score):
                     obj.Score = reader.ReadInt();
@@ -20233,7 +21630,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.EditMessage = reader.ReadBool();
                     return true;
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0x1690F8C8u when name.SequenceEqual(propName_score):
                     obj.Score = reader.ReadInt();
@@ -20266,7 +21663,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -20288,7 +21685,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -20428,6 +21825,45 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("clickAnimatedEmojiMessage")]
+    partial class ClickAnimatedEmojiMessageConverter : TLObjectConverter<ClickAnimatedEmojiMessage>
+    {
+        public static BaseConverter CreateConverterInstance() => new ClickAnimatedEmojiMessageConverter();
+        public override TLObject CreateObjectInstance() => new ClickAnimatedEmojiMessage();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ClickAnimatedEmojiMessage)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_message_id))
+            {
+                obj.MessageId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("getInternalLinkType")]
+    partial class GetInternalLinkTypeConverter : TLObjectConverter<GetInternalLinkType>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetInternalLinkTypeConverter();
+        public override TLObject CreateObjectInstance() => new GetInternalLinkType();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetInternalLinkType)tlobj;
+            if (name.SequenceEqual(propName_link))
+            {
+                obj.Link = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("getExternalLinkInfo")]
     partial class GetExternalLinkInfoConverter : TLObjectConverter<GetExternalLinkInfo>
     {
@@ -20494,7 +21930,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (CreatePrivateChat)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_force))
@@ -20516,7 +21952,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (CreateBasicGroupChat)tlobj;
             if (name.SequenceEqual(propName_basic_group_id))
             {
-                obj.BasicGroupId = reader.ReadInt();
+                obj.BasicGroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_force))
@@ -20538,7 +21974,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (CreateSupergroupChat)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_force))
@@ -20577,7 +22013,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (CreateNewBasicGroupChat)tlobj;
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             if (name.SequenceEqual(propName_title))
@@ -20630,7 +22066,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (CreateNewSecretChat)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -20889,6 +22325,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
             if (name.SequenceEqual(propName_permissions))
             {
                 obj.Permissions = reader.ReadTLObject<ChatPermissions>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("setChatTheme")]
+    partial class SetChatThemeConverter : TLObjectConverter<SetChatTheme>
+    {
+        public static BaseConverter CreateConverterInstance() => new SetChatThemeConverter();
+        public override TLObject CreateObjectInstance() => new SetChatTheme();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (SetChatTheme)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_theme_name))
+            {
+                obj.ThemeName = reader.ReadString();
                 return true;
             }
             return false;
@@ -21214,7 +22672,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_forward_limit))
@@ -21241,7 +22699,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -21325,7 +22783,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_password))
@@ -21613,6 +23071,28 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("getSuggestedFileName")]
+    partial class GetSuggestedFileNameConverter : TLObjectConverter<GetSuggestedFileName>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetSuggestedFileNameConverter();
+        public override TLObject CreateObjectInstance() => new GetSuggestedFileName();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetSuggestedFileName)tlobj;
+            if (name.SequenceEqual(propName_file_id))
+            {
+                obj.FileId = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_directory))
+            {
+                obj.Directory = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("uploadFile")]
     partial class UploadFileConverter : TLObjectConverter<UploadFile>
     {
@@ -21863,20 +23343,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (CreateChatInviteLink)tlobj;
-            if (name.SequenceEqual(propName_chat_id))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.ChatId = reader.ReadLong();
-                return true;
-            }
-            if (name.SequenceEqual(propName_expire_date))
-            {
-                obj.ExpireDate = reader.ReadInt();
-                return true;
-            }
-            if (name.SequenceEqual(propName_member_limit))
-            {
-                obj.MemberLimit = reader.ReadInt();
-                return true;
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
+                    obj.ChatId = reader.ReadLong();
+                    return true;
+                case 0x911200E7u when name.SequenceEqual(propName_name):
+                    obj.Name = reader.ReadString();
+                    return true;
+                case 0x30CD1BF3u when name.SequenceEqual(propName_expire_date):
+                    obj.ExpireDate = reader.ReadInt();
+                    return true;
+                case 0xCAC59B19u when name.SequenceEqual(propName_member_limit):
+                    obj.MemberLimit = reader.ReadInt();
+                    return true;
+                case 0xAD1B2379u when name.SequenceEqual(propName_creates_join_request):
+                    obj.CreatesJoinRequest = reader.ReadBool();
+                    return true;
             }
             return false;
         }
@@ -21899,11 +23383,17 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x56350A39u when name.SequenceEqual(propName_invite_link):
                     obj.InviteLink = reader.ReadString();
                     return true;
+                case 0x911200E7u when name.SequenceEqual(propName_name):
+                    obj.Name = reader.ReadString();
+                    return true;
                 case 0x30CD1BF3u when name.SequenceEqual(propName_expire_date):
                     obj.ExpireDate = reader.ReadInt();
                     return true;
                 case 0xCAC59B19u when name.SequenceEqual(propName_member_limit):
                     obj.MemberLimit = reader.ReadInt();
+                    return true;
+                case 0xAD1B2379u when name.SequenceEqual(propName_creates_join_request):
+                    obj.CreatesJoinRequest = reader.ReadBool();
                     return true;
             }
             return false;
@@ -21964,7 +23454,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.ChatId = reader.ReadLong();
                     return true;
                 case 0x94699334u when name.SequenceEqual(propName_creator_user_id):
-                    obj.CreatorUserId = reader.ReadInt();
+                    obj.CreatorUserId = reader.ReadLong();
                     return true;
                 case 0xCEF569D6u when name.SequenceEqual(propName_is_revoked):
                     obj.IsRevoked = reader.ReadBool();
@@ -22070,7 +23560,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_creator_user_id))
             {
-                obj.CreatorUserId = reader.ReadInt();
+                obj.CreatorUserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -22111,6 +23601,81 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("getChatJoinRequests")]
+    partial class GetChatJoinRequestsConverter : TLObjectConverter<GetChatJoinRequests>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetChatJoinRequestsConverter();
+        public override TLObject CreateObjectInstance() => new GetChatJoinRequests();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetChatJoinRequests)tlobj;
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
+            {
+                case 0x061C6837u when name.SequenceEqual(propName_chat_id):
+                    obj.ChatId = reader.ReadLong();
+                    return true;
+                case 0x56350A39u when name.SequenceEqual(propName_invite_link):
+                    obj.InviteLink = reader.ReadString();
+                    return true;
+                case 0x61B0E0A8u when name.SequenceEqual(propName_query):
+                    obj.Query = reader.ReadString();
+                    return true;
+                case 0xC53A8873u when name.SequenceEqual(propName_offset_request):
+                    obj.OffsetRequest = reader.ReadTLObject<ChatJoinRequest>();
+                    return true;
+                case 0x86EC5068u when name.SequenceEqual(propName_limit):
+                    obj.Limit = reader.ReadInt();
+                    return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("approveChatJoinRequest")]
+    partial class ApproveChatJoinRequestConverter : TLObjectConverter<ApproveChatJoinRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new ApproveChatJoinRequestConverter();
+        public override TLObject CreateObjectInstance() => new ApproveChatJoinRequest();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ApproveChatJoinRequest)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_user_id))
+            {
+                obj.UserId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("declineChatJoinRequest")]
+    partial class DeclineChatJoinRequestConverter : TLObjectConverter<DeclineChatJoinRequest>
+    {
+        public static BaseConverter CreateConverterInstance() => new DeclineChatJoinRequestConverter();
+        public override TLObject CreateObjectInstance() => new DeclineChatJoinRequest();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (DeclineChatJoinRequest)tlobj;
+            if (name.SequenceEqual(propName_chat_id))
+            {
+                obj.ChatId = reader.ReadLong();
+                return true;
+            }
+            if (name.SequenceEqual(propName_user_id))
+            {
+                obj.UserId = reader.ReadLong();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("createCall")]
     partial class CreateCallConverter : TLObjectConverter<CreateCall>
     {
@@ -22121,7 +23686,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (CreateCall)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_protocol))
@@ -22263,14 +23828,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("getVoiceChatAvailableParticipants")]
-    partial class GetVoiceChatAvailableParticipantsConverter : TLObjectConverter<GetVoiceChatAvailableParticipants>
+    [TLType("getVideoChatAvailableParticipants")]
+    partial class GetVideoChatAvailableParticipantsConverter : TLObjectConverter<GetVideoChatAvailableParticipants>
     {
-        public static BaseConverter CreateConverterInstance() => new GetVoiceChatAvailableParticipantsConverter();
-        public override TLObject CreateObjectInstance() => new GetVoiceChatAvailableParticipants();
+        public static BaseConverter CreateConverterInstance() => new GetVideoChatAvailableParticipantsConverter();
+        public override TLObject CreateObjectInstance() => new GetVideoChatAvailableParticipants();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (GetVoiceChatAvailableParticipants)tlobj;
+            var obj = (GetVideoChatAvailableParticipants)tlobj;
             if (name.SequenceEqual(propName_chat_id))
             {
                 obj.ChatId = reader.ReadLong();
@@ -22280,14 +23845,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("setVoiceChatDefaultParticipant")]
-    partial class SetVoiceChatDefaultParticipantConverter : TLObjectConverter<SetVoiceChatDefaultParticipant>
+    [TLType("setVideoChatDefaultParticipant")]
+    partial class SetVideoChatDefaultParticipantConverter : TLObjectConverter<SetVideoChatDefaultParticipant>
     {
-        public static BaseConverter CreateConverterInstance() => new SetVoiceChatDefaultParticipantConverter();
-        public override TLObject CreateObjectInstance() => new SetVoiceChatDefaultParticipant();
+        public static BaseConverter CreateConverterInstance() => new SetVideoChatDefaultParticipantConverter();
+        public override TLObject CreateObjectInstance() => new SetVideoChatDefaultParticipant();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (SetVoiceChatDefaultParticipant)tlobj;
+            var obj = (SetVideoChatDefaultParticipant)tlobj;
             if (name.SequenceEqual(propName_chat_id))
             {
                 obj.ChatId = reader.ReadLong();
@@ -22302,14 +23867,14 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("createVoiceChat")]
-    partial class CreateVoiceChatConverter : TLObjectConverter<CreateVoiceChat>
+    [TLType("createVideoChat")]
+    partial class CreateVideoChatConverter : TLObjectConverter<CreateVideoChat>
     {
-        public static BaseConverter CreateConverterInstance() => new CreateVoiceChatConverter();
-        public override TLObject CreateObjectInstance() => new CreateVoiceChat();
+        public static BaseConverter CreateConverterInstance() => new CreateVideoChatConverter();
+        public override TLObject CreateObjectInstance() => new CreateVideoChat();
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
-            var obj = (CreateVoiceChat)tlobj;
+            var obj = (CreateVideoChat)tlobj;
             if (name.SequenceEqual(propName_chat_id))
             {
                 obj.ChatId = reader.ReadLong();
@@ -22402,18 +23967,87 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0xF2E1CF9Eu when name.SequenceEqual(propName_participant_id):
                     obj.ParticipantId = reader.ReadTLObject<MessageSender>();
                     return true;
-                case 0xF4E36970u when name.SequenceEqual(propName_payload):
-                    obj.Payload = reader.ReadTLObject<GroupCallPayload>();
+                case 0x60A559A0u when name.SequenceEqual(propName_audio_source_id):
+                    obj.AudioSourceId = reader.ReadInt();
                     return true;
-                case 0xA3A22F95u when name.SequenceEqual(propName_source):
-                    obj.Source = reader.ReadInt();
+                case 0xF4E36970u when name.SequenceEqual(propName_payload):
+                    obj.Payload = reader.ReadString();
                     return true;
                 case 0x6A25FF61u when name.SequenceEqual(propName_is_muted):
                     obj.IsMuted = reader.ReadBool();
                     return true;
+                case 0x7AA9D516u when name.SequenceEqual(propName_is_my_video_enabled):
+                    obj.IsMyVideoEnabled = reader.ReadBool();
+                    return true;
                 case 0xF9EF3D69u when name.SequenceEqual(propName_invite_hash):
                     obj.InviteHash = reader.ReadString();
                     return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("startGroupCallScreenSharing")]
+    partial class StartGroupCallScreenSharingConverter : TLObjectConverter<StartGroupCallScreenSharing>
+    {
+        public static BaseConverter CreateConverterInstance() => new StartGroupCallScreenSharingConverter();
+        public override TLObject CreateObjectInstance() => new StartGroupCallScreenSharing();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (StartGroupCallScreenSharing)tlobj;
+            if (name.SequenceEqual(propName_group_call_id))
+            {
+                obj.GroupCallId = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_audio_source_id))
+            {
+                obj.AudioSourceId = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_payload))
+            {
+                obj.Payload = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("toggleGroupCallScreenSharingIsPaused")]
+    partial class ToggleGroupCallScreenSharingIsPausedConverter : TLObjectConverter<ToggleGroupCallScreenSharingIsPaused>
+    {
+        public static BaseConverter CreateConverterInstance() => new ToggleGroupCallScreenSharingIsPausedConverter();
+        public override TLObject CreateObjectInstance() => new ToggleGroupCallScreenSharingIsPaused();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ToggleGroupCallScreenSharingIsPaused)tlobj;
+            if (name.SequenceEqual(propName_group_call_id))
+            {
+                obj.GroupCallId = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_is_paused))
+            {
+                obj.IsPaused = reader.ReadBool();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("endGroupCallScreenSharing")]
+    partial class EndGroupCallScreenSharingConverter : TLObjectConverter<EndGroupCallScreenSharing>
+    {
+        public static BaseConverter CreateConverterInstance() => new EndGroupCallScreenSharingConverter();
+        public override TLObject CreateObjectInstance() => new EndGroupCallScreenSharing();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (EndGroupCallScreenSharing)tlobj;
+            if (name.SequenceEqual(propName_group_call_id))
+            {
+                obj.GroupCallId = reader.ReadInt();
+                return true;
             }
             return false;
         }
@@ -22495,7 +24129,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -22532,15 +24166,21 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (StartGroupCallRecording)tlobj;
-            if (name.SequenceEqual(propName_group_call_id))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.GroupCallId = reader.ReadInt();
-                return true;
-            }
-            if (name.SequenceEqual(propName_title))
-            {
-                obj.Title = reader.ReadString();
-                return true;
+                case 0x9932A388u when name.SequenceEqual(propName_group_call_id):
+                    obj.GroupCallId = reader.ReadInt();
+                    return true;
+                case 0x9E0656DCu when name.SequenceEqual(propName_title):
+                    obj.Title = reader.ReadString();
+                    return true;
+                case 0xC502FCF3u when name.SequenceEqual(propName_record_video):
+                    obj.RecordVideo = reader.ReadBool();
+                    return true;
+                case 0xDF602038u when name.SequenceEqual(propName_use_portrait_orientation):
+                    obj.UsePortraitOrientation = reader.ReadBool();
+                    return true;
             }
             return false;
         }
@@ -22563,6 +24203,50 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("toggleGroupCallIsMyVideoPaused")]
+    partial class ToggleGroupCallIsMyVideoPausedConverter : TLObjectConverter<ToggleGroupCallIsMyVideoPaused>
+    {
+        public static BaseConverter CreateConverterInstance() => new ToggleGroupCallIsMyVideoPausedConverter();
+        public override TLObject CreateObjectInstance() => new ToggleGroupCallIsMyVideoPaused();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ToggleGroupCallIsMyVideoPaused)tlobj;
+            if (name.SequenceEqual(propName_group_call_id))
+            {
+                obj.GroupCallId = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_is_my_video_paused))
+            {
+                obj.IsMyVideoPaused = reader.ReadBool();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("toggleGroupCallIsMyVideoEnabled")]
+    partial class ToggleGroupCallIsMyVideoEnabledConverter : TLObjectConverter<ToggleGroupCallIsMyVideoEnabled>
+    {
+        public static BaseConverter CreateConverterInstance() => new ToggleGroupCallIsMyVideoEnabledConverter();
+        public override TLObject CreateObjectInstance() => new ToggleGroupCallIsMyVideoEnabled();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (ToggleGroupCallIsMyVideoEnabled)tlobj;
+            if (name.SequenceEqual(propName_group_call_id))
+            {
+                obj.GroupCallId = reader.ReadInt();
+                return true;
+            }
+            if (name.SequenceEqual(propName_is_my_video_enabled))
+            {
+                obj.IsMyVideoEnabled = reader.ReadBool();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("setGroupCallParticipantIsSpeaking")]
     partial class SetGroupCallParticipantIsSpeakingConverter : TLObjectConverter<SetGroupCallParticipantIsSpeaking>
     {
@@ -22576,9 +24260,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 obj.GroupCallId = reader.ReadInt();
                 return true;
             }
-            if (name.SequenceEqual(propName_source))
+            if (name.SequenceEqual(propName_audio_source))
             {
-                obj.Source = reader.ReadInt();
+                obj.AudioSource = reader.ReadInt();
                 return true;
             }
             if (name.SequenceEqual(propName_is_speaking))
@@ -22735,20 +24419,24 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (GetGroupCallStreamSegment)tlobj;
-            if (name.SequenceEqual(propName_group_call_id))
+            var keyhash = BaseConverter.GetHashCodeForPropertyName(name);
+            switch (keyhash)
             {
-                obj.GroupCallId = reader.ReadInt();
-                return true;
-            }
-            if (name.SequenceEqual(propName_time_offset))
-            {
-                obj.TimeOffset = reader.ReadLong();
-                return true;
-            }
-            if (name.SequenceEqual(propName_scale))
-            {
-                obj.Scale = reader.ReadInt();
-                return true;
+                case 0x9932A388u when name.SequenceEqual(propName_group_call_id):
+                    obj.GroupCallId = reader.ReadInt();
+                    return true;
+                case 0x1A7BB168u when name.SequenceEqual(propName_time_offset):
+                    obj.TimeOffset = reader.ReadLong();
+                    return true;
+                case 0x346E5311u when name.SequenceEqual(propName_scale):
+                    obj.Scale = reader.ReadInt();
+                    return true;
+                case 0xED29B7C9u when name.SequenceEqual(propName_channel_id):
+                    obj.ChannelId = reader.ReadInt();
+                    return true;
+                case 0xCA8CC9F9u when name.SequenceEqual(propName_video_quality):
+                    obj.VideoQuality = reader.ReadTLObject<GroupCallVideoQuality>();
+                    return true;
             }
             return false;
         }
@@ -22904,7 +24592,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (RemoveContacts)tlobj;
             if (name.SequenceEqual(propName_user_ids))
             {
-                obj.UserIds = reader.ReadInt32Array();
+                obj.UserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -22952,7 +24640,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (SharePhoneNumber)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -22969,7 +24657,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (GetUserProfilePhotos)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_offset))
@@ -23420,6 +25108,23 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
+    [TLType("getAnimatedEmoji")]
+    partial class GetAnimatedEmojiConverter : TLObjectConverter<GetAnimatedEmoji>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetAnimatedEmojiConverter();
+        public override TLObject CreateObjectInstance() => new GetAnimatedEmoji();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetAnimatedEmoji)tlobj;
+            if (name.SequenceEqual(propName_emoji))
+            {
+                obj.Emoji = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
     [TLType("getEmojiSuggestionsUrl")]
     partial class GetEmojiSuggestionsUrlConverter : TLObjectConverter<GetEmojiSuggestionsUrl>
     {
@@ -23724,9 +25429,63 @@ namespace TDLibCore.JsonClient.ObjectConverter
         public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
         {
             var obj = (SetCommands)tlobj;
+            if (name.SequenceEqual(propName_scope))
+            {
+                obj.Scope = reader.ReadTLObject<BotCommandScope>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_language_code))
+            {
+                obj.LanguageCode = reader.ReadString();
+                return true;
+            }
             if (name.SequenceEqual(propName_commands))
             {
                 obj.Commands = reader.ReadObjectArray<BotCommand>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("deleteCommands")]
+    partial class DeleteCommandsConverter : TLObjectConverter<DeleteCommands>
+    {
+        public static BaseConverter CreateConverterInstance() => new DeleteCommandsConverter();
+        public override TLObject CreateObjectInstance() => new DeleteCommands();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (DeleteCommands)tlobj;
+            if (name.SequenceEqual(propName_scope))
+            {
+                obj.Scope = reader.ReadTLObject<BotCommandScope>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_language_code))
+            {
+                obj.LanguageCode = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("getCommands")]
+    partial class GetCommandsConverter : TLObjectConverter<GetCommands>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetCommandsConverter();
+        public override TLObject CreateObjectInstance() => new GetCommands();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetCommands)tlobj;
+            if (name.SequenceEqual(propName_scope))
+            {
+                obj.Scope = reader.ReadTLObject<BotCommandScope>();
+                return true;
+            }
+            if (name.SequenceEqual(propName_language_code))
+            {
+                obj.LanguageCode = reader.ReadString();
                 return true;
             }
             return false;
@@ -23805,7 +25564,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (SetSupergroupUsername)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_username))
@@ -23827,7 +25586,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (SetSupergroupStickerSet)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_sticker_set_id))
@@ -23849,7 +25608,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ToggleSupergroupSignMessages)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_sign_messages))
@@ -23871,7 +25630,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ToggleSupergroupIsAllHistoryAvailable)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_is_all_history_available))
@@ -23893,7 +25652,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ToggleSupergroupIsBroadcastGroup)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             return false;
@@ -23910,12 +25669,12 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (ReportSupergroupSpam)tlobj;
             if (name.SequenceEqual(propName_supergroup_id))
             {
-                obj.SupergroupId = reader.ReadInt();
+                obj.SupergroupId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_message_ids))
@@ -23939,7 +25698,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x94EF2CB7u when name.SequenceEqual(propName_supergroup_id):
-                    obj.SupergroupId = reader.ReadInt();
+                    obj.SupergroupId = reader.ReadLong();
                     return true;
                 case 0x10835EEFu when name.SequenceEqual(propName_filter):
                     obj.Filter = reader.ReadTLObject<SupergroupMembersFilter>();
@@ -23999,7 +25758,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     obj.Filters = reader.ReadTLObject<ChatEventLogFilters>();
                     return true;
                 case 0xAB68903Fu when name.SequenceEqual(propName_user_ids):
-                    obj.UserIds = reader.ReadInt32Array();
+                    obj.UserIds = reader.ReadInt53Array();
                     return true;
             }
             return false;
@@ -24438,7 +26197,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             }
             if (name.SequenceEqual(propName_other_user_ids))
             {
-                obj.OtherUserIds = reader.ReadInt32Array();
+                obj.OtherUserIds = reader.ReadInt53Array();
                 return true;
             }
             return false;
@@ -24683,33 +26442,6 @@ namespace TDLibCore.JsonClient.ObjectConverter
                 case 0x2F5319E1u when name.SequenceEqual(propName_text):
                     obj.Text = reader.ReadString();
                     return true;
-            }
-            return false;
-        }
-    }
-
-    [TLType("getChatStatisticsUrl")]
-    partial class GetChatStatisticsUrlConverter : TLObjectConverter<GetChatStatisticsUrl>
-    {
-        public static BaseConverter CreateConverterInstance() => new GetChatStatisticsUrlConverter();
-        public override TLObject CreateObjectInstance() => new GetChatStatisticsUrl();
-        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
-        {
-            var obj = (GetChatStatisticsUrl)tlobj;
-            if (name.SequenceEqual(propName_chat_id))
-            {
-                obj.ChatId = reader.ReadLong();
-                return true;
-            }
-            if (name.SequenceEqual(propName_parameters))
-            {
-                obj.Parameters = reader.ReadString();
-                return true;
-            }
-            if (name.SequenceEqual(propName_is_dark))
-            {
-                obj.IsDark = reader.ReadBool();
-                return true;
             }
             return false;
         }
@@ -25057,7 +26789,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (SetPassportElementErrors)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_errors))
@@ -25185,7 +26917,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x05547AC3u when name.SequenceEqual(propName_bot_user_id):
-                    obj.BotUserId = reader.ReadInt();
+                    obj.BotUserId = reader.ReadLong();
                     return true;
                 case 0x31D5C826u when name.SequenceEqual(propName_scope):
                     obj.Scope = reader.ReadString();
@@ -25328,12 +27060,46 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (UploadStickerFile)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
-            if (name.SequenceEqual(propName_png_sticker))
+            if (name.SequenceEqual(propName_sticker))
             {
-                obj.PngSticker = reader.ReadTLObject<InputFile>();
+                obj.Sticker = reader.ReadTLObject<InputSticker>();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("getSuggestedStickerSetName")]
+    partial class GetSuggestedStickerSetNameConverter : TLObjectConverter<GetSuggestedStickerSetName>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetSuggestedStickerSetNameConverter();
+        public override TLObject CreateObjectInstance() => new GetSuggestedStickerSetName();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetSuggestedStickerSetName)tlobj;
+            if (name.SequenceEqual(propName_title))
+            {
+                obj.Title = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("checkStickerSetName")]
+    partial class CheckStickerSetNameConverter : TLObjectConverter<CheckStickerSetName>
+    {
+        public static BaseConverter CreateConverterInstance() => new CheckStickerSetNameConverter();
+        public override TLObject CreateObjectInstance() => new CheckStickerSetName();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (CheckStickerSetName)tlobj;
+            if (name.SequenceEqual(propName_name))
+            {
+                obj.Name = reader.ReadString();
                 return true;
             }
             return false;
@@ -25352,7 +27118,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             switch (keyhash)
             {
                 case 0x5F1741E9u when name.SequenceEqual(propName_user_id):
-                    obj.UserId = reader.ReadInt();
+                    obj.UserId = reader.ReadLong();
                     return true;
                 case 0x9E0656DCu when name.SequenceEqual(propName_title):
                     obj.Title = reader.ReadString();
@@ -25365,6 +27131,9 @@ namespace TDLibCore.JsonClient.ObjectConverter
                     return true;
                 case 0xD5CED7ABu when name.SequenceEqual(propName_stickers):
                     obj.Stickers = reader.ReadObjectArray<InputSticker>();
+                    return true;
+                case 0xA3A22F95u when name.SequenceEqual(propName_source):
+                    obj.Source = reader.ReadString();
                     return true;
             }
             return false;
@@ -25381,7 +27150,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (AddStickerToSet)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_name))
@@ -25408,7 +27177,7 @@ namespace TDLibCore.JsonClient.ObjectConverter
             var obj = (SetStickerSetThumbnail)tlobj;
             if (name.SequenceEqual(propName_user_id))
             {
-                obj.UserId = reader.ReadInt();
+                obj.UserId = reader.ReadLong();
                 return true;
             }
             if (name.SequenceEqual(propName_name))
@@ -25607,11 +27376,33 @@ namespace TDLibCore.JsonClient.ObjectConverter
         }
     }
 
-    [TLType("getInviteText")]
-    partial class GetInviteTextConverter : TLObjectConverter<GetInviteText>
+    [TLType("getPhoneNumberInfoSync")]
+    partial class GetPhoneNumberInfoSyncConverter : TLObjectConverter<GetPhoneNumberInfoSync>
     {
-        public static BaseConverter CreateConverterInstance() => new GetInviteTextConverter();
-        public override TLObject CreateObjectInstance() => new GetInviteText();
+        public static BaseConverter CreateConverterInstance() => new GetPhoneNumberInfoSyncConverter();
+        public override TLObject CreateObjectInstance() => new GetPhoneNumberInfoSync();
+        public override bool TdJsonReadItem(ref TdJsonReader reader, TLObject tlobj, ReadOnlySpan<byte> name)
+        {
+            var obj = (GetPhoneNumberInfoSync)tlobj;
+            if (name.SequenceEqual(propName_language_code))
+            {
+                obj.LanguageCode = reader.ReadString();
+                return true;
+            }
+            if (name.SequenceEqual(propName_phone_number_prefix))
+            {
+                obj.PhoneNumberPrefix = reader.ReadString();
+                return true;
+            }
+            return false;
+        }
+    }
+
+    [TLType("getApplicationDownloadLink")]
+    partial class GetApplicationDownloadLinkConverter : TLObjectConverter<GetApplicationDownloadLink>
+    {
+        public static BaseConverter CreateConverterInstance() => new GetApplicationDownloadLinkConverter();
+        public override TLObject CreateObjectInstance() => new GetApplicationDownloadLink();
     }
 
     [TLType("getDeepLinkInfo")]

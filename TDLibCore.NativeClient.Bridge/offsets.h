@@ -52,6 +52,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(passwordState, has_recovery_email_address_), // passwordState::has_recovery_email_address
     (uint32_t)__builtin_offsetof(passwordState, has_passport_data_), // passwordState::has_passport_data
     (uint32_t)__builtin_offsetof(passwordState, recovery_email_address_code_info_), // passwordState::recovery_email_address_code_info
+    (uint32_t)__builtin_offsetof(passwordState, pending_reset_date_), // passwordState::pending_reset_date
     (uint32_t)__builtin_offsetof(recoveryEmailAddress, recovery_email_address_), // recoveryEmailAddress::recovery_email_address
     (uint32_t)__builtin_offsetof(temporaryPasswordState, has_password_), // temporaryPasswordState::has_password
     (uint32_t)__builtin_offsetof(temporaryPasswordState, valid_for_), // temporaryPasswordState::valid_for
@@ -95,6 +96,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(maskPosition, x_shift_), // maskPosition::x_shift
     (uint32_t)__builtin_offsetof(maskPosition, y_shift_), // maskPosition::y_shift
     (uint32_t)__builtin_offsetof(maskPosition, scale_), // maskPosition::scale
+    (uint32_t)__builtin_offsetof(colorReplacement, old_color_), // colorReplacement::old_color
+    (uint32_t)__builtin_offsetof(colorReplacement, new_color_), // colorReplacement::new_color
     (uint32_t)__builtin_offsetof(closedVectorPath, commands_), // closedVectorPath::commands
     (uint32_t)__builtin_offsetof(pollOption, text_), // pollOption::text
     (uint32_t)__builtin_offsetof(pollOption, voter_count_), // pollOption::voter_count
@@ -158,6 +161,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(voiceNote, waveform_), // voiceNote::waveform
     (uint32_t)__builtin_offsetof(voiceNote, mime_type_), // voiceNote::mime_type
     (uint32_t)__builtin_offsetof(voiceNote, voice_), // voiceNote::voice
+    (uint32_t)__builtin_offsetof(animatedEmoji, sticker_), // animatedEmoji::sticker
+    (uint32_t)__builtin_offsetof(animatedEmoji, color_replacements_), // animatedEmoji::color_replacements
+    (uint32_t)__builtin_offsetof(animatedEmoji, sound_), // animatedEmoji::sound
     (uint32_t)__builtin_offsetof(contact, phone_number_), // contact::phone_number
     (uint32_t)__builtin_offsetof(contact, first_name_), // contact::first_name
     (uint32_t)__builtin_offsetof(contact, last_name_), // contact::last_name
@@ -205,8 +211,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(userTypeBot, need_location_), // userTypeBot::need_location
     (uint32_t)__builtin_offsetof(botCommand, command_), // botCommand::command
     (uint32_t)__builtin_offsetof(botCommand, description_), // botCommand::description
-    (uint32_t)__builtin_offsetof(botInfo, description_), // botInfo::description
-    (uint32_t)__builtin_offsetof(botInfo, commands_), // botInfo::commands
+    (uint32_t)__builtin_offsetof(botCommands, bot_user_id_), // botCommands::bot_user_id
+    (uint32_t)__builtin_offsetof(botCommands, commands_), // botCommands::commands
     (uint32_t)__builtin_offsetof(chatLocation, location_), // chatLocation::location
     (uint32_t)__builtin_offsetof(chatLocation, address_), // chatLocation::address
     (uint32_t)__builtin_offsetof(animatedChatPhoto, length_), // animatedChatPhoto::length
@@ -248,8 +254,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(userFullInfo, need_phone_number_privacy_exception_), // userFullInfo::need_phone_number_privacy_exception
     (uint32_t)__builtin_offsetof(userFullInfo, bio_), // userFullInfo::bio
     (uint32_t)__builtin_offsetof(userFullInfo, share_text_), // userFullInfo::share_text
+    (uint32_t)__builtin_offsetof(userFullInfo, description_), // userFullInfo::description
     (uint32_t)__builtin_offsetof(userFullInfo, group_in_common_count_), // userFullInfo::group_in_common_count
-    (uint32_t)__builtin_offsetof(userFullInfo, bot_info_), // userFullInfo::bot_info
+    (uint32_t)__builtin_offsetof(userFullInfo, commands_), // userFullInfo::commands
     (uint32_t)__builtin_offsetof(users, total_count_), // users::total_count
     (uint32_t)__builtin_offsetof(users, user_ids_), // users::user_ids
     (uint32_t)__builtin_offsetof(chatAdministrator, user_id_), // chatAdministrator::user_id
@@ -278,7 +285,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatMemberStatusAdministrator, can_restrict_members_), // chatMemberStatusAdministrator::can_restrict_members
     (uint32_t)__builtin_offsetof(chatMemberStatusAdministrator, can_pin_messages_), // chatMemberStatusAdministrator::can_pin_messages
     (uint32_t)__builtin_offsetof(chatMemberStatusAdministrator, can_promote_members_), // chatMemberStatusAdministrator::can_promote_members
-    (uint32_t)__builtin_offsetof(chatMemberStatusAdministrator, can_manage_voice_chats_), // chatMemberStatusAdministrator::can_manage_voice_chats
+    (uint32_t)__builtin_offsetof(chatMemberStatusAdministrator, can_manage_video_chats_), // chatMemberStatusAdministrator::can_manage_video_chats
     (uint32_t)__builtin_offsetof(chatMemberStatusAdministrator, is_anonymous_), // chatMemberStatusAdministrator::is_anonymous
     (uint32_t)__builtin_offsetof(chatMemberStatusRestricted, is_member_), // chatMemberStatusRestricted::is_member
     (uint32_t)__builtin_offsetof(chatMemberStatusRestricted, restricted_until_date_), // chatMemberStatusRestricted::restricted_until_date
@@ -288,7 +295,6 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatMember, inviter_user_id_), // chatMember::inviter_user_id
     (uint32_t)__builtin_offsetof(chatMember, joined_chat_date_), // chatMember::joined_chat_date
     (uint32_t)__builtin_offsetof(chatMember, status_), // chatMember::status
-    (uint32_t)__builtin_offsetof(chatMember, bot_info_), // chatMember::bot_info
     (uint32_t)__builtin_offsetof(chatMembers, total_count_), // chatMembers::total_count
     (uint32_t)__builtin_offsetof(chatMembers, members_), // chatMembers::members
     (uint32_t)__builtin_offsetof(chatMembersFilterMention, message_thread_id_), // chatMembersFilterMention::message_thread_id
@@ -299,12 +305,15 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(supergroupMembersFilterMention, query_), // supergroupMembersFilterMention::query
     (uint32_t)__builtin_offsetof(supergroupMembersFilterMention, message_thread_id_), // supergroupMembersFilterMention::message_thread_id
     (uint32_t)__builtin_offsetof(chatInviteLink, invite_link_), // chatInviteLink::invite_link
+    (uint32_t)__builtin_offsetof(chatInviteLink, name_), // chatInviteLink::name
     (uint32_t)__builtin_offsetof(chatInviteLink, creator_user_id_), // chatInviteLink::creator_user_id
     (uint32_t)__builtin_offsetof(chatInviteLink, date_), // chatInviteLink::date
     (uint32_t)__builtin_offsetof(chatInviteLink, edit_date_), // chatInviteLink::edit_date
     (uint32_t)__builtin_offsetof(chatInviteLink, expire_date_), // chatInviteLink::expire_date
     (uint32_t)__builtin_offsetof(chatInviteLink, member_limit_), // chatInviteLink::member_limit
     (uint32_t)__builtin_offsetof(chatInviteLink, member_count_), // chatInviteLink::member_count
+    (uint32_t)__builtin_offsetof(chatInviteLink, pending_join_request_count_), // chatInviteLink::pending_join_request_count
+    (uint32_t)__builtin_offsetof(chatInviteLink, creates_join_request_), // chatInviteLink::creates_join_request
     (uint32_t)__builtin_offsetof(chatInviteLink, is_primary_), // chatInviteLink::is_primary
     (uint32_t)__builtin_offsetof(chatInviteLink, is_revoked_), // chatInviteLink::is_revoked
     (uint32_t)__builtin_offsetof(chatInviteLinks, total_count_), // chatInviteLinks::total_count
@@ -315,6 +324,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatInviteLinkCounts, invite_link_counts_), // chatInviteLinkCounts::invite_link_counts
     (uint32_t)__builtin_offsetof(chatInviteLinkMember, user_id_), // chatInviteLinkMember::user_id
     (uint32_t)__builtin_offsetof(chatInviteLinkMember, joined_chat_date_), // chatInviteLinkMember::joined_chat_date
+    (uint32_t)__builtin_offsetof(chatInviteLinkMember, approver_user_id_), // chatInviteLinkMember::approver_user_id
     (uint32_t)__builtin_offsetof(chatInviteLinkMembers, total_count_), // chatInviteLinkMembers::total_count
     (uint32_t)__builtin_offsetof(chatInviteLinkMembers, members_), // chatInviteLinkMembers::members
     (uint32_t)__builtin_offsetof(chatInviteLinkInfo, chat_id_), // chatInviteLinkInfo::chat_id
@@ -322,9 +332,18 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatInviteLinkInfo, type_), // chatInviteLinkInfo::type
     (uint32_t)__builtin_offsetof(chatInviteLinkInfo, title_), // chatInviteLinkInfo::title
     (uint32_t)__builtin_offsetof(chatInviteLinkInfo, photo_), // chatInviteLinkInfo::photo
+    (uint32_t)__builtin_offsetof(chatInviteLinkInfo, description_), // chatInviteLinkInfo::description
     (uint32_t)__builtin_offsetof(chatInviteLinkInfo, member_count_), // chatInviteLinkInfo::member_count
     (uint32_t)__builtin_offsetof(chatInviteLinkInfo, member_user_ids_), // chatInviteLinkInfo::member_user_ids
+    (uint32_t)__builtin_offsetof(chatInviteLinkInfo, creates_join_request_), // chatInviteLinkInfo::creates_join_request
     (uint32_t)__builtin_offsetof(chatInviteLinkInfo, is_public_), // chatInviteLinkInfo::is_public
+    (uint32_t)__builtin_offsetof(chatJoinRequest, user_id_), // chatJoinRequest::user_id
+    (uint32_t)__builtin_offsetof(chatJoinRequest, date_), // chatJoinRequest::date
+    (uint32_t)__builtin_offsetof(chatJoinRequest, bio_), // chatJoinRequest::bio
+    (uint32_t)__builtin_offsetof(chatJoinRequests, total_count_), // chatJoinRequests::total_count
+    (uint32_t)__builtin_offsetof(chatJoinRequests, requests_), // chatJoinRequests::requests
+    (uint32_t)__builtin_offsetof(chatJoinRequestsInfo, total_count_), // chatJoinRequestsInfo::total_count
+    (uint32_t)__builtin_offsetof(chatJoinRequestsInfo, user_ids_), // chatJoinRequestsInfo::user_ids
     (uint32_t)__builtin_offsetof(basicGroup, id_), // basicGroup::id
     (uint32_t)__builtin_offsetof(basicGroup, member_count_), // basicGroup::member_count
     (uint32_t)__builtin_offsetof(basicGroup, status_), // basicGroup::status
@@ -335,6 +354,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(basicGroupFullInfo, creator_user_id_), // basicGroupFullInfo::creator_user_id
     (uint32_t)__builtin_offsetof(basicGroupFullInfo, members_), // basicGroupFullInfo::members
     (uint32_t)__builtin_offsetof(basicGroupFullInfo, invite_link_), // basicGroupFullInfo::invite_link
+    (uint32_t)__builtin_offsetof(basicGroupFullInfo, bot_commands_), // basicGroupFullInfo::bot_commands
     (uint32_t)__builtin_offsetof(supergroup, id_), // supergroup::id
     (uint32_t)__builtin_offsetof(supergroup, username_), // supergroup::username
     (uint32_t)__builtin_offsetof(supergroup, date_), // supergroup::date
@@ -368,6 +388,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(supergroupFullInfo, sticker_set_id_), // supergroupFullInfo::sticker_set_id
     (uint32_t)__builtin_offsetof(supergroupFullInfo, location_), // supergroupFullInfo::location
     (uint32_t)__builtin_offsetof(supergroupFullInfo, invite_link_), // supergroupFullInfo::invite_link
+    (uint32_t)__builtin_offsetof(supergroupFullInfo, bot_commands_), // supergroupFullInfo::bot_commands
     (uint32_t)__builtin_offsetof(supergroupFullInfo, upgraded_from_basic_group_id_), // supergroupFullInfo::upgraded_from_basic_group_id
     (uint32_t)__builtin_offsetof(supergroupFullInfo, upgraded_from_max_message_id_), // supergroupFullInfo::upgraded_from_max_message_id
     (uint32_t)__builtin_offsetof(secretChat, id_), // secretChat::id
@@ -418,6 +439,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(message, can_be_deleted_for_all_users_), // message::can_be_deleted_for_all_users
     (uint32_t)__builtin_offsetof(message, can_get_statistics_), // message::can_get_statistics
     (uint32_t)__builtin_offsetof(message, can_get_message_thread_), // message::can_get_message_thread
+    (uint32_t)__builtin_offsetof(message, can_get_viewers_), // message::can_get_viewers
+    (uint32_t)__builtin_offsetof(message, can_get_media_timestamp_links_), // message::can_get_media_timestamp_links
+    (uint32_t)__builtin_offsetof(message, has_timestamped_media_), // message::has_timestamped_media
     (uint32_t)__builtin_offsetof(message, is_channel_post_), // message::is_channel_post
     (uint32_t)__builtin_offsetof(message, contains_unread_mention_), // message::contains_unread_mention
     (uint32_t)__builtin_offsetof(message, date_), // message::date
@@ -440,6 +464,20 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(foundMessages, total_count_), // foundMessages::total_count
     (uint32_t)__builtin_offsetof(foundMessages, messages_), // foundMessages::messages
     (uint32_t)__builtin_offsetof(foundMessages, next_offset_), // foundMessages::next_offset
+    (uint32_t)__builtin_offsetof(messagePosition, position_), // messagePosition::position
+    (uint32_t)__builtin_offsetof(messagePosition, message_id_), // messagePosition::message_id
+    (uint32_t)__builtin_offsetof(messagePosition, date_), // messagePosition::date
+    (uint32_t)__builtin_offsetof(messagePositions, total_count_), // messagePositions::total_count
+    (uint32_t)__builtin_offsetof(messagePositions, positions_), // messagePositions::positions
+    (uint32_t)__builtin_offsetof(messageCalendarDay, total_count_), // messageCalendarDay::total_count
+    (uint32_t)__builtin_offsetof(messageCalendarDay, message_), // messageCalendarDay::message
+    (uint32_t)__builtin_offsetof(messageCalendar, total_count_), // messageCalendar::total_count
+    (uint32_t)__builtin_offsetof(messageCalendar, days_), // messageCalendar::days
+    (uint32_t)__builtin_offsetof(sponsoredMessage, id_), // sponsoredMessage::id
+    (uint32_t)__builtin_offsetof(sponsoredMessage, sponsor_chat_id_), // sponsoredMessage::sponsor_chat_id
+    (uint32_t)__builtin_offsetof(sponsoredMessage, link_), // sponsoredMessage::link
+    (uint32_t)__builtin_offsetof(sponsoredMessage, content_), // sponsoredMessage::content
+    (uint32_t)__builtin_offsetof(sponsoredMessages, messages_), // sponsoredMessages::messages
     (uint32_t)__builtin_offsetof(chatNotificationSettings, use_default_mute_for_), // chatNotificationSettings::use_default_mute_for
     (uint32_t)__builtin_offsetof(chatNotificationSettings, mute_for_), // chatNotificationSettings::mute_for
     (uint32_t)__builtin_offsetof(chatNotificationSettings, use_default_sound_), // chatNotificationSettings::use_default_sound
@@ -491,9 +529,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatPosition, order_), // chatPosition::order
     (uint32_t)__builtin_offsetof(chatPosition, is_pinned_), // chatPosition::is_pinned
     (uint32_t)__builtin_offsetof(chatPosition, source_), // chatPosition::source
-    (uint32_t)__builtin_offsetof(voiceChat, group_call_id_), // voiceChat::group_call_id
-    (uint32_t)__builtin_offsetof(voiceChat, has_participants_), // voiceChat::has_participants
-    (uint32_t)__builtin_offsetof(voiceChat, default_participant_id_), // voiceChat::default_participant_id
+    (uint32_t)__builtin_offsetof(videoChat, group_call_id_), // videoChat::group_call_id
+    (uint32_t)__builtin_offsetof(videoChat, has_participants_), // videoChat::has_participants
+    (uint32_t)__builtin_offsetof(videoChat, default_participant_id_), // videoChat::default_participant_id
     (uint32_t)__builtin_offsetof(chat, id_), // chat::id
     (uint32_t)__builtin_offsetof(chat, type_), // chat::type
     (uint32_t)__builtin_offsetof(chat, title_), // chat::title
@@ -514,8 +552,10 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chat, unread_mention_count_), // chat::unread_mention_count
     (uint32_t)__builtin_offsetof(chat, notification_settings_), // chat::notification_settings
     (uint32_t)__builtin_offsetof(chat, message_ttl_setting_), // chat::message_ttl_setting
+    (uint32_t)__builtin_offsetof(chat, theme_name_), // chat::theme_name
     (uint32_t)__builtin_offsetof(chat, action_bar_), // chat::action_bar
-    (uint32_t)__builtin_offsetof(chat, voice_chat_), // chat::voice_chat
+    (uint32_t)__builtin_offsetof(chat, video_chat_), // chat::video_chat
+    (uint32_t)__builtin_offsetof(chat, pending_join_requests_), // chat::pending_join_requests
     (uint32_t)__builtin_offsetof(chat, reply_markup_message_id_), // chat::reply_markup_message_id
     (uint32_t)__builtin_offsetof(chat, draft_message_), // chat::draft_message
     (uint32_t)__builtin_offsetof(chat, client_data_), // chat::client_data
@@ -544,10 +584,12 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(inlineKeyboardButton, type_), // inlineKeyboardButton::type
     (uint32_t)__builtin_offsetof(replyMarkupRemoveKeyboard, is_personal_), // replyMarkupRemoveKeyboard::is_personal
     (uint32_t)__builtin_offsetof(replyMarkupForceReply, is_personal_), // replyMarkupForceReply::is_personal
+    (uint32_t)__builtin_offsetof(replyMarkupForceReply, input_field_placeholder_), // replyMarkupForceReply::input_field_placeholder
     (uint32_t)__builtin_offsetof(replyMarkupShowKeyboard, rows_), // replyMarkupShowKeyboard::rows
     (uint32_t)__builtin_offsetof(replyMarkupShowKeyboard, resize_keyboard_), // replyMarkupShowKeyboard::resize_keyboard
     (uint32_t)__builtin_offsetof(replyMarkupShowKeyboard, one_time_), // replyMarkupShowKeyboard::one_time
     (uint32_t)__builtin_offsetof(replyMarkupShowKeyboard, is_personal_), // replyMarkupShowKeyboard::is_personal
+    (uint32_t)__builtin_offsetof(replyMarkupShowKeyboard, input_field_placeholder_), // replyMarkupShowKeyboard::input_field_placeholder
     (uint32_t)__builtin_offsetof(replyMarkupInlineKeyboard, rows_), // replyMarkupInlineKeyboard::rows
     (uint32_t)__builtin_offsetof(loginUrlInfoOpen, url_), // loginUrlInfoOpen::url
     (uint32_t)__builtin_offsetof(loginUrlInfoOpen, skip_confirm_), // loginUrlInfoOpen::skip_confirm
@@ -558,6 +600,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messageThreadInfo, chat_id_), // messageThreadInfo::chat_id
     (uint32_t)__builtin_offsetof(messageThreadInfo, message_thread_id_), // messageThreadInfo::message_thread_id
     (uint32_t)__builtin_offsetof(messageThreadInfo, reply_info_), // messageThreadInfo::reply_info
+    (uint32_t)__builtin_offsetof(messageThreadInfo, unread_message_count_), // messageThreadInfo::unread_message_count
     (uint32_t)__builtin_offsetof(messageThreadInfo, messages_), // messageThreadInfo::messages
     (uint32_t)__builtin_offsetof(messageThreadInfo, draft_message_), // messageThreadInfo::draft_message
     (uint32_t)__builtin_offsetof(richTextPlain, text_), // richTextPlain::text
@@ -675,6 +718,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(webPageInstantView, version_), // webPageInstantView::version
     (uint32_t)__builtin_offsetof(webPageInstantView, is_rtl_), // webPageInstantView::is_rtl
     (uint32_t)__builtin_offsetof(webPageInstantView, is_full_), // webPageInstantView::is_full
+    (uint32_t)__builtin_offsetof(webPageInstantView, feedback_link_), // webPageInstantView::feedback_link
     (uint32_t)__builtin_offsetof(webPage, url_), // webPage::url
     (uint32_t)__builtin_offsetof(webPage, display_url_), // webPage::display_url
     (uint32_t)__builtin_offsetof(webPage, type_), // webPage::type
@@ -906,6 +950,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messageLocation, proximity_alert_radius_), // messageLocation::proximity_alert_radius
     (uint32_t)__builtin_offsetof(messageVenue, venue_), // messageVenue::venue
     (uint32_t)__builtin_offsetof(messageContact, contact_), // messageContact::contact
+    (uint32_t)__builtin_offsetof(messageAnimatedEmoji, animated_emoji_), // messageAnimatedEmoji::animated_emoji
+    (uint32_t)__builtin_offsetof(messageAnimatedEmoji, emoji_), // messageAnimatedEmoji::emoji
     (uint32_t)__builtin_offsetof(messageDice, initial_state_), // messageDice::initial_state
     (uint32_t)__builtin_offsetof(messageDice, final_state_), // messageDice::final_state
     (uint32_t)__builtin_offsetof(messageDice, emoji_), // messageDice::emoji
@@ -925,12 +971,12 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messageCall, is_video_), // messageCall::is_video
     (uint32_t)__builtin_offsetof(messageCall, discard_reason_), // messageCall::discard_reason
     (uint32_t)__builtin_offsetof(messageCall, duration_), // messageCall::duration
-    (uint32_t)__builtin_offsetof(messageVoiceChatScheduled, group_call_id_), // messageVoiceChatScheduled::group_call_id
-    (uint32_t)__builtin_offsetof(messageVoiceChatScheduled, start_date_), // messageVoiceChatScheduled::start_date
-    (uint32_t)__builtin_offsetof(messageVoiceChatStarted, group_call_id_), // messageVoiceChatStarted::group_call_id
-    (uint32_t)__builtin_offsetof(messageVoiceChatEnded, duration_), // messageVoiceChatEnded::duration
-    (uint32_t)__builtin_offsetof(messageInviteVoiceChatParticipants, group_call_id_), // messageInviteVoiceChatParticipants::group_call_id
-    (uint32_t)__builtin_offsetof(messageInviteVoiceChatParticipants, user_ids_), // messageInviteVoiceChatParticipants::user_ids
+    (uint32_t)__builtin_offsetof(messageVideoChatScheduled, group_call_id_), // messageVideoChatScheduled::group_call_id
+    (uint32_t)__builtin_offsetof(messageVideoChatScheduled, start_date_), // messageVideoChatScheduled::start_date
+    (uint32_t)__builtin_offsetof(messageVideoChatStarted, group_call_id_), // messageVideoChatStarted::group_call_id
+    (uint32_t)__builtin_offsetof(messageVideoChatEnded, duration_), // messageVideoChatEnded::duration
+    (uint32_t)__builtin_offsetof(messageInviteVideoChatParticipants, group_call_id_), // messageInviteVideoChatParticipants::group_call_id
+    (uint32_t)__builtin_offsetof(messageInviteVideoChatParticipants, user_ids_), // messageInviteVideoChatParticipants::user_ids
     (uint32_t)__builtin_offsetof(messageBasicGroupChatCreate, title_), // messageBasicGroupChatCreate::title
     (uint32_t)__builtin_offsetof(messageBasicGroupChatCreate, member_user_ids_), // messageBasicGroupChatCreate::member_user_ids
     (uint32_t)__builtin_offsetof(messageSupergroupChatCreate, title_), // messageSupergroupChatCreate::title
@@ -942,6 +988,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(messageChatUpgradeFrom, title_), // messageChatUpgradeFrom::title
     (uint32_t)__builtin_offsetof(messageChatUpgradeFrom, basic_group_id_), // messageChatUpgradeFrom::basic_group_id
     (uint32_t)__builtin_offsetof(messagePinMessage, message_id_), // messagePinMessage::message_id
+    (uint32_t)__builtin_offsetof(messageChatSetTheme, theme_name_), // messageChatSetTheme::theme_name
     (uint32_t)__builtin_offsetof(messageChatSetTtl, ttl_), // messageChatSetTtl::ttl
     (uint32_t)__builtin_offsetof(messageCustomServiceAction, text_), // messageCustomServiceAction::text
     (uint32_t)__builtin_offsetof(messageGameScore, game_message_id_), // messageGameScore::game_message_id
@@ -968,6 +1015,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(textEntityTypePreCode, language_), // textEntityTypePreCode::language
     (uint32_t)__builtin_offsetof(textEntityTypeTextUrl, url_), // textEntityTypeTextUrl::url
     (uint32_t)__builtin_offsetof(textEntityTypeMentionName, user_id_), // textEntityTypeMentionName::user_id
+    (uint32_t)__builtin_offsetof(textEntityTypeMediaTimestamp, media_timestamp_), // textEntityTypeMediaTimestamp::media_timestamp
     (uint32_t)__builtin_offsetof(inputThumbnail, thumbnail_), // inputThumbnail::thumbnail
     (uint32_t)__builtin_offsetof(inputThumbnail, width_), // inputThumbnail::width
     (uint32_t)__builtin_offsetof(inputThumbnail, height_), // inputThumbnail::height
@@ -1064,6 +1112,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatActionUploadingPhoto, progress_), // chatActionUploadingPhoto::progress
     (uint32_t)__builtin_offsetof(chatActionUploadingDocument, progress_), // chatActionUploadingDocument::progress
     (uint32_t)__builtin_offsetof(chatActionUploadingVideoNote, progress_), // chatActionUploadingVideoNote::progress
+    (uint32_t)__builtin_offsetof(chatActionWatchingAnimations, emoji_), // chatActionWatchingAnimations::emoji
     (uint32_t)__builtin_offsetof(userStatusOnline, expires_), // userStatusOnline::expires
     (uint32_t)__builtin_offsetof(userStatusOffline, was_online_), // userStatusOffline::was_online
     (uint32_t)__builtin_offsetof(stickers, stickers_), // stickers::stickers
@@ -1138,33 +1187,24 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(groupCall, participant_count_), // groupCall::participant_count
     (uint32_t)__builtin_offsetof(groupCall, loaded_all_participants_), // groupCall::loaded_all_participants
     (uint32_t)__builtin_offsetof(groupCall, recent_speakers_), // groupCall::recent_speakers
+    (uint32_t)__builtin_offsetof(groupCall, is_my_video_enabled_), // groupCall::is_my_video_enabled
+    (uint32_t)__builtin_offsetof(groupCall, is_my_video_paused_), // groupCall::is_my_video_paused
+    (uint32_t)__builtin_offsetof(groupCall, can_enable_video_), // groupCall::can_enable_video
     (uint32_t)__builtin_offsetof(groupCall, mute_new_participants_), // groupCall::mute_new_participants
-    (uint32_t)__builtin_offsetof(groupCall, can_change_mute_new_participants_), // groupCall::can_change_mute_new_participants
+    (uint32_t)__builtin_offsetof(groupCall, can_toggle_mute_new_participants_), // groupCall::can_toggle_mute_new_participants
     (uint32_t)__builtin_offsetof(groupCall, record_duration_), // groupCall::record_duration
+    (uint32_t)__builtin_offsetof(groupCall, is_video_recorded_), // groupCall::is_video_recorded
     (uint32_t)__builtin_offsetof(groupCall, duration_), // groupCall::duration
-    (uint32_t)__builtin_offsetof(groupCallPayloadFingerprint, hash_), // groupCallPayloadFingerprint::hash
-    (uint32_t)__builtin_offsetof(groupCallPayloadFingerprint, setup_), // groupCallPayloadFingerprint::setup
-    (uint32_t)__builtin_offsetof(groupCallPayloadFingerprint, fingerprint_), // groupCallPayloadFingerprint::fingerprint
-    (uint32_t)__builtin_offsetof(groupCallPayload, ufrag_), // groupCallPayload::ufrag
-    (uint32_t)__builtin_offsetof(groupCallPayload, pwd_), // groupCallPayload::pwd
-    (uint32_t)__builtin_offsetof(groupCallPayload, fingerprints_), // groupCallPayload::fingerprints
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, port_), // groupCallJoinResponseCandidate::port
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, protocol_), // groupCallJoinResponseCandidate::protocol
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, network_), // groupCallJoinResponseCandidate::network
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, generation_), // groupCallJoinResponseCandidate::generation
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, id_), // groupCallJoinResponseCandidate::id
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, component_), // groupCallJoinResponseCandidate::component
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, foundation_), // groupCallJoinResponseCandidate::foundation
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, priority_), // groupCallJoinResponseCandidate::priority
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, ip_), // groupCallJoinResponseCandidate::ip
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, type_), // groupCallJoinResponseCandidate::type
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, tcp_type_), // groupCallJoinResponseCandidate::tcp_type
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, rel_addr_), // groupCallJoinResponseCandidate::rel_addr
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseCandidate, rel_port_), // groupCallJoinResponseCandidate::rel_port
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseWebrtc, payload_), // groupCallJoinResponseWebrtc::payload
-    (uint32_t)__builtin_offsetof(groupCallJoinResponseWebrtc, candidates_), // groupCallJoinResponseWebrtc::candidates
+    (uint32_t)__builtin_offsetof(groupCallVideoSourceGroup, semantics_), // groupCallVideoSourceGroup::semantics
+    (uint32_t)__builtin_offsetof(groupCallVideoSourceGroup, source_ids_), // groupCallVideoSourceGroup::source_ids
+    (uint32_t)__builtin_offsetof(groupCallParticipantVideoInfo, source_groups_), // groupCallParticipantVideoInfo::source_groups
+    (uint32_t)__builtin_offsetof(groupCallParticipantVideoInfo, endpoint_id_), // groupCallParticipantVideoInfo::endpoint_id
+    (uint32_t)__builtin_offsetof(groupCallParticipantVideoInfo, is_paused_), // groupCallParticipantVideoInfo::is_paused
     (uint32_t)__builtin_offsetof(groupCallParticipant, participant_id_), // groupCallParticipant::participant_id
-    (uint32_t)__builtin_offsetof(groupCallParticipant, source_), // groupCallParticipant::source
+    (uint32_t)__builtin_offsetof(groupCallParticipant, audio_source_id_), // groupCallParticipant::audio_source_id
+    (uint32_t)__builtin_offsetof(groupCallParticipant, screen_sharing_audio_source_id_), // groupCallParticipant::screen_sharing_audio_source_id
+    (uint32_t)__builtin_offsetof(groupCallParticipant, video_info_), // groupCallParticipant::video_info
+    (uint32_t)__builtin_offsetof(groupCallParticipant, screen_sharing_video_info_), // groupCallParticipant::screen_sharing_video_info
     (uint32_t)__builtin_offsetof(groupCallParticipant, bio_), // groupCallParticipant::bio
     (uint32_t)__builtin_offsetof(groupCallParticipant, is_current_user_), // groupCallParticipant::is_current_user
     (uint32_t)__builtin_offsetof(groupCallParticipant, is_speaking_), // groupCallParticipant::is_speaking
@@ -1357,6 +1397,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatEventMessagePinned, message_), // chatEventMessagePinned::message
     (uint32_t)__builtin_offsetof(chatEventMessageUnpinned, message_), // chatEventMessageUnpinned::message
     (uint32_t)__builtin_offsetof(chatEventMemberJoinedByInviteLink, invite_link_), // chatEventMemberJoinedByInviteLink::invite_link
+    (uint32_t)__builtin_offsetof(chatEventMemberJoinedByRequest, approver_user_id_), // chatEventMemberJoinedByRequest::approver_user_id
+    (uint32_t)__builtin_offsetof(chatEventMemberJoinedByRequest, invite_link_), // chatEventMemberJoinedByRequest::invite_link
     (uint32_t)__builtin_offsetof(chatEventMemberInvited, user_id_), // chatEventMemberInvited::user_id
     (uint32_t)__builtin_offsetof(chatEventMemberInvited, status_), // chatEventMemberInvited::status
     (uint32_t)__builtin_offsetof(chatEventMemberPromoted, user_id_), // chatEventMemberPromoted::user_id
@@ -1392,13 +1434,13 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatEventInviteLinkEdited, new_invite_link_), // chatEventInviteLinkEdited::new_invite_link
     (uint32_t)__builtin_offsetof(chatEventInviteLinkRevoked, invite_link_), // chatEventInviteLinkRevoked::invite_link
     (uint32_t)__builtin_offsetof(chatEventInviteLinkDeleted, invite_link_), // chatEventInviteLinkDeleted::invite_link
-    (uint32_t)__builtin_offsetof(chatEventVoiceChatCreated, group_call_id_), // chatEventVoiceChatCreated::group_call_id
-    (uint32_t)__builtin_offsetof(chatEventVoiceChatDiscarded, group_call_id_), // chatEventVoiceChatDiscarded::group_call_id
-    (uint32_t)__builtin_offsetof(chatEventVoiceChatParticipantIsMutedToggled, participant_id_), // chatEventVoiceChatParticipantIsMutedToggled::participant_id
-    (uint32_t)__builtin_offsetof(chatEventVoiceChatParticipantIsMutedToggled, is_muted_), // chatEventVoiceChatParticipantIsMutedToggled::is_muted
-    (uint32_t)__builtin_offsetof(chatEventVoiceChatParticipantVolumeLevelChanged, participant_id_), // chatEventVoiceChatParticipantVolumeLevelChanged::participant_id
-    (uint32_t)__builtin_offsetof(chatEventVoiceChatParticipantVolumeLevelChanged, volume_level_), // chatEventVoiceChatParticipantVolumeLevelChanged::volume_level
-    (uint32_t)__builtin_offsetof(chatEventVoiceChatMuteNewParticipantsToggled, mute_new_participants_), // chatEventVoiceChatMuteNewParticipantsToggled::mute_new_participants
+    (uint32_t)__builtin_offsetof(chatEventVideoChatCreated, group_call_id_), // chatEventVideoChatCreated::group_call_id
+    (uint32_t)__builtin_offsetof(chatEventVideoChatDiscarded, group_call_id_), // chatEventVideoChatDiscarded::group_call_id
+    (uint32_t)__builtin_offsetof(chatEventVideoChatParticipantIsMutedToggled, participant_id_), // chatEventVideoChatParticipantIsMutedToggled::participant_id
+    (uint32_t)__builtin_offsetof(chatEventVideoChatParticipantIsMutedToggled, is_muted_), // chatEventVideoChatParticipantIsMutedToggled::is_muted
+    (uint32_t)__builtin_offsetof(chatEventVideoChatParticipantVolumeLevelChanged, participant_id_), // chatEventVideoChatParticipantVolumeLevelChanged::participant_id
+    (uint32_t)__builtin_offsetof(chatEventVideoChatParticipantVolumeLevelChanged, volume_level_), // chatEventVideoChatParticipantVolumeLevelChanged::volume_level
+    (uint32_t)__builtin_offsetof(chatEventVideoChatMuteNewParticipantsToggled, mute_new_participants_), // chatEventVideoChatMuteNewParticipantsToggled::mute_new_participants
     (uint32_t)__builtin_offsetof(chatEvent, id_), // chatEvent::id
     (uint32_t)__builtin_offsetof(chatEvent, date_), // chatEvent::date
     (uint32_t)__builtin_offsetof(chatEvent, user_id_), // chatEvent::user_id
@@ -1415,7 +1457,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(chatEventLogFilters, info_changes_), // chatEventLogFilters::info_changes
     (uint32_t)__builtin_offsetof(chatEventLogFilters, setting_changes_), // chatEventLogFilters::setting_changes
     (uint32_t)__builtin_offsetof(chatEventLogFilters, invite_link_changes_), // chatEventLogFilters::invite_link_changes
-    (uint32_t)__builtin_offsetof(chatEventLogFilters, voice_chat_changes_), // chatEventLogFilters::voice_chat_changes
+    (uint32_t)__builtin_offsetof(chatEventLogFilters, video_chat_changes_), // chatEventLogFilters::video_chat_changes
     (uint32_t)__builtin_offsetof(languagePackStringValueOrdinary, value_), // languagePackStringValueOrdinary::value
     (uint32_t)__builtin_offsetof(languagePackStringValuePluralized, zero_value_), // languagePackStringValuePluralized::zero_value
     (uint32_t)__builtin_offsetof(languagePackStringValuePluralized, one_value_), // languagePackStringValuePluralized::one_value
@@ -1462,10 +1504,12 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(backgroundFillGradient, top_color_), // backgroundFillGradient::top_color
     (uint32_t)__builtin_offsetof(backgroundFillGradient, bottom_color_), // backgroundFillGradient::bottom_color
     (uint32_t)__builtin_offsetof(backgroundFillGradient, rotation_angle_), // backgroundFillGradient::rotation_angle
+    (uint32_t)__builtin_offsetof(backgroundFillFreeformGradient, colors_), // backgroundFillFreeformGradient::colors
     (uint32_t)__builtin_offsetof(backgroundTypeWallpaper, is_blurred_), // backgroundTypeWallpaper::is_blurred
     (uint32_t)__builtin_offsetof(backgroundTypeWallpaper, is_moving_), // backgroundTypeWallpaper::is_moving
     (uint32_t)__builtin_offsetof(backgroundTypePattern, fill_), // backgroundTypePattern::fill
     (uint32_t)__builtin_offsetof(backgroundTypePattern, intensity_), // backgroundTypePattern::intensity
+    (uint32_t)__builtin_offsetof(backgroundTypePattern, is_inverted_), // backgroundTypePattern::is_inverted
     (uint32_t)__builtin_offsetof(backgroundTypePattern, is_moving_), // backgroundTypePattern::is_moving
     (uint32_t)__builtin_offsetof(backgroundTypeFill, fill_), // backgroundTypeFill::fill
     (uint32_t)__builtin_offsetof(background, id_), // background::id
@@ -1477,9 +1521,19 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(backgrounds, backgrounds_), // backgrounds::backgrounds
     (uint32_t)__builtin_offsetof(inputBackgroundLocal, background_), // inputBackgroundLocal::background
     (uint32_t)__builtin_offsetof(inputBackgroundRemote, background_id_), // inputBackgroundRemote::background_id
+    (uint32_t)__builtin_offsetof(themeSettings, accent_color_), // themeSettings::accent_color
+    (uint32_t)__builtin_offsetof(themeSettings, background_), // themeSettings::background
+    (uint32_t)__builtin_offsetof(themeSettings, outgoing_message_fill_), // themeSettings::outgoing_message_fill
+    (uint32_t)__builtin_offsetof(themeSettings, animate_outgoing_message_fill_), // themeSettings::animate_outgoing_message_fill
+    (uint32_t)__builtin_offsetof(themeSettings, outgoing_message_accent_color_), // themeSettings::outgoing_message_accent_color
+    (uint32_t)__builtin_offsetof(chatTheme, name_), // chatTheme::name
+    (uint32_t)__builtin_offsetof(chatTheme, light_settings_), // chatTheme::light_settings
+    (uint32_t)__builtin_offsetof(chatTheme, dark_settings_), // chatTheme::dark_settings
     (uint32_t)__builtin_offsetof(hashtags, hashtags_), // hashtags::hashtags
     (uint32_t)__builtin_offsetof(canTransferOwnershipResultPasswordTooFresh, retry_after_), // canTransferOwnershipResultPasswordTooFresh::retry_after
     (uint32_t)__builtin_offsetof(canTransferOwnershipResultSessionTooFresh, retry_after_), // canTransferOwnershipResultSessionTooFresh::retry_after
+    (uint32_t)__builtin_offsetof(resetPasswordResultPending, pending_reset_date_), // resetPasswordResultPending::pending_reset_date
+    (uint32_t)__builtin_offsetof(resetPasswordResultDeclined, retry_date_), // resetPasswordResultDeclined::retry_date
     (uint32_t)__builtin_offsetof(messageFileTypePrivate, name_), // messageFileTypePrivate::name
     (uint32_t)__builtin_offsetof(messageFileTypeGroup, title_), // messageFileTypeGroup::title
     (uint32_t)__builtin_offsetof(pushMessageContentHidden, is_pinned_), // pushMessageContentHidden::is_pinned
@@ -1525,6 +1579,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(pushMessageContentChatAddMembers, is_current_user_), // pushMessageContentChatAddMembers::is_current_user
     (uint32_t)__builtin_offsetof(pushMessageContentChatAddMembers, is_returned_), // pushMessageContentChatAddMembers::is_returned
     (uint32_t)__builtin_offsetof(pushMessageContentChatChangeTitle, title_), // pushMessageContentChatChangeTitle::title
+    (uint32_t)__builtin_offsetof(pushMessageContentChatSetTheme, theme_name_), // pushMessageContentChatSetTheme::theme_name
     (uint32_t)__builtin_offsetof(pushMessageContentChatDeleteMember, member_name_), // pushMessageContentChatDeleteMember::member_name
     (uint32_t)__builtin_offsetof(pushMessageContentChatDeleteMember, is_current_user_), // pushMessageContentChatDeleteMember::is_current_user
     (uint32_t)__builtin_offsetof(pushMessageContentChatDeleteMember, is_left_), // pushMessageContentChatDeleteMember::is_left
@@ -1592,11 +1647,42 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(connectedWebsite, ip_), // connectedWebsite::ip
     (uint32_t)__builtin_offsetof(connectedWebsite, location_), // connectedWebsite::location
     (uint32_t)__builtin_offsetof(connectedWebsites, websites_), // connectedWebsites::websites
+    (uint32_t)__builtin_offsetof(internalLinkTypeAuthenticationCode, code_), // internalLinkTypeAuthenticationCode::code
+    (uint32_t)__builtin_offsetof(internalLinkTypeBackground, background_name_), // internalLinkTypeBackground::background_name
+    (uint32_t)__builtin_offsetof(internalLinkTypeBotStart, bot_username_), // internalLinkTypeBotStart::bot_username
+    (uint32_t)__builtin_offsetof(internalLinkTypeBotStart, start_parameter_), // internalLinkTypeBotStart::start_parameter
+    (uint32_t)__builtin_offsetof(internalLinkTypeBotStartInGroup, bot_username_), // internalLinkTypeBotStartInGroup::bot_username
+    (uint32_t)__builtin_offsetof(internalLinkTypeBotStartInGroup, start_parameter_), // internalLinkTypeBotStartInGroup::start_parameter
+    (uint32_t)__builtin_offsetof(internalLinkTypeChatInvite, invite_link_), // internalLinkTypeChatInvite::invite_link
+    (uint32_t)__builtin_offsetof(internalLinkTypeGame, bot_username_), // internalLinkTypeGame::bot_username
+    (uint32_t)__builtin_offsetof(internalLinkTypeGame, game_short_name_), // internalLinkTypeGame::game_short_name
+    (uint32_t)__builtin_offsetof(internalLinkTypeLanguagePack, language_pack_id_), // internalLinkTypeLanguagePack::language_pack_id
+    (uint32_t)__builtin_offsetof(internalLinkTypeMessage, url_), // internalLinkTypeMessage::url
+    (uint32_t)__builtin_offsetof(internalLinkTypeMessageDraft, text_), // internalLinkTypeMessageDraft::text
+    (uint32_t)__builtin_offsetof(internalLinkTypeMessageDraft, contains_link_), // internalLinkTypeMessageDraft::contains_link
+    (uint32_t)__builtin_offsetof(internalLinkTypePassportDataRequest, bot_user_id_), // internalLinkTypePassportDataRequest::bot_user_id
+    (uint32_t)__builtin_offsetof(internalLinkTypePassportDataRequest, scope_), // internalLinkTypePassportDataRequest::scope
+    (uint32_t)__builtin_offsetof(internalLinkTypePassportDataRequest, public_key_), // internalLinkTypePassportDataRequest::public_key
+    (uint32_t)__builtin_offsetof(internalLinkTypePassportDataRequest, nonce_), // internalLinkTypePassportDataRequest::nonce
+    (uint32_t)__builtin_offsetof(internalLinkTypePassportDataRequest, callback_url_), // internalLinkTypePassportDataRequest::callback_url
+    (uint32_t)__builtin_offsetof(internalLinkTypePhoneNumberConfirmation, hash_), // internalLinkTypePhoneNumberConfirmation::hash
+    (uint32_t)__builtin_offsetof(internalLinkTypePhoneNumberConfirmation, phone_number_), // internalLinkTypePhoneNumberConfirmation::phone_number
+    (uint32_t)__builtin_offsetof(internalLinkTypeProxy, server_), // internalLinkTypeProxy::server
+    (uint32_t)__builtin_offsetof(internalLinkTypeProxy, port_), // internalLinkTypeProxy::port
+    (uint32_t)__builtin_offsetof(internalLinkTypeProxy, type_), // internalLinkTypeProxy::type
+    (uint32_t)__builtin_offsetof(internalLinkTypePublicChat, chat_username_), // internalLinkTypePublicChat::chat_username
+    (uint32_t)__builtin_offsetof(internalLinkTypeStickerSet, sticker_set_name_), // internalLinkTypeStickerSet::sticker_set_name
+    (uint32_t)__builtin_offsetof(internalLinkTypeTheme, theme_name_), // internalLinkTypeTheme::theme_name
+    (uint32_t)__builtin_offsetof(internalLinkTypeUnknownDeepLink, link_), // internalLinkTypeUnknownDeepLink::link
+    (uint32_t)__builtin_offsetof(internalLinkTypeVideoChat, chat_username_), // internalLinkTypeVideoChat::chat_username
+    (uint32_t)__builtin_offsetof(internalLinkTypeVideoChat, invite_hash_), // internalLinkTypeVideoChat::invite_hash
+    (uint32_t)__builtin_offsetof(internalLinkTypeVideoChat, is_live_stream_), // internalLinkTypeVideoChat::is_live_stream
     (uint32_t)__builtin_offsetof(messageLink, link_), // messageLink::link
     (uint32_t)__builtin_offsetof(messageLink, is_public_), // messageLink::is_public
     (uint32_t)__builtin_offsetof(messageLinkInfo, is_public_), // messageLinkInfo::is_public
     (uint32_t)__builtin_offsetof(messageLinkInfo, chat_id_), // messageLinkInfo::chat_id
     (uint32_t)__builtin_offsetof(messageLinkInfo, message_), // messageLinkInfo::message
+    (uint32_t)__builtin_offsetof(messageLinkInfo, media_timestamp_), // messageLinkInfo::media_timestamp
     (uint32_t)__builtin_offsetof(messageLinkInfo, for_album_), // messageLinkInfo::for_album
     (uint32_t)__builtin_offsetof(messageLinkInfo, for_comment_), // messageLinkInfo::for_comment
     (uint32_t)__builtin_offsetof(filePart, data_), // filePart::data
@@ -1728,6 +1814,10 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(vectorPathCommandCubicBezierCurve, start_control_point_), // vectorPathCommandCubicBezierCurve::start_control_point
     (uint32_t)__builtin_offsetof(vectorPathCommandCubicBezierCurve, end_control_point_), // vectorPathCommandCubicBezierCurve::end_control_point
     (uint32_t)__builtin_offsetof(vectorPathCommandCubicBezierCurve, end_point_), // vectorPathCommandCubicBezierCurve::end_point
+    (uint32_t)__builtin_offsetof(botCommandScopeChat, chat_id_), // botCommandScopeChat::chat_id
+    (uint32_t)__builtin_offsetof(botCommandScopeChatAdministrators, chat_id_), // botCommandScopeChatAdministrators::chat_id
+    (uint32_t)__builtin_offsetof(botCommandScopeChatMember, chat_id_), // botCommandScopeChatMember::chat_id
+    (uint32_t)__builtin_offsetof(botCommandScopeChatMember, user_id_), // botCommandScopeChatMember::user_id
     (uint32_t)__builtin_offsetof(updateAuthorizationState, authorization_state_), // updateAuthorizationState::authorization_state
     (uint32_t)__builtin_offsetof(updateNewMessage, message_), // updateNewMessage::message
     (uint32_t)__builtin_offsetof(updateMessageSendAcknowledged, chat_id_), // updateMessageSendAcknowledged::chat_id
@@ -1776,8 +1866,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(updateChatIsBlocked, is_blocked_), // updateChatIsBlocked::is_blocked
     (uint32_t)__builtin_offsetof(updateChatHasScheduledMessages, chat_id_), // updateChatHasScheduledMessages::chat_id
     (uint32_t)__builtin_offsetof(updateChatHasScheduledMessages, has_scheduled_messages_), // updateChatHasScheduledMessages::has_scheduled_messages
-    (uint32_t)__builtin_offsetof(updateChatVoiceChat, chat_id_), // updateChatVoiceChat::chat_id
-    (uint32_t)__builtin_offsetof(updateChatVoiceChat, voice_chat_), // updateChatVoiceChat::voice_chat
+    (uint32_t)__builtin_offsetof(updateChatVideoChat, chat_id_), // updateChatVideoChat::chat_id
+    (uint32_t)__builtin_offsetof(updateChatVideoChat, video_chat_), // updateChatVideoChat::video_chat
     (uint32_t)__builtin_offsetof(updateChatDefaultDisableNotification, chat_id_), // updateChatDefaultDisableNotification::chat_id
     (uint32_t)__builtin_offsetof(updateChatDefaultDisableNotification, default_disable_notification_), // updateChatDefaultDisableNotification::default_disable_notification
     (uint32_t)__builtin_offsetof(updateChatReadInbox, chat_id_), // updateChatReadInbox::chat_id
@@ -1795,6 +1885,10 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(updateChatMessageTtlSetting, message_ttl_setting_), // updateChatMessageTtlSetting::message_ttl_setting
     (uint32_t)__builtin_offsetof(updateChatActionBar, chat_id_), // updateChatActionBar::chat_id
     (uint32_t)__builtin_offsetof(updateChatActionBar, action_bar_), // updateChatActionBar::action_bar
+    (uint32_t)__builtin_offsetof(updateChatTheme, chat_id_), // updateChatTheme::chat_id
+    (uint32_t)__builtin_offsetof(updateChatTheme, theme_name_), // updateChatTheme::theme_name
+    (uint32_t)__builtin_offsetof(updateChatPendingJoinRequests, chat_id_), // updateChatPendingJoinRequests::chat_id
+    (uint32_t)__builtin_offsetof(updateChatPendingJoinRequests, pending_join_requests_), // updateChatPendingJoinRequests::pending_join_requests
     (uint32_t)__builtin_offsetof(updateChatReplyMarkup, chat_id_), // updateChatReplyMarkup::chat_id
     (uint32_t)__builtin_offsetof(updateChatReplyMarkup, reply_markup_message_id_), // updateChatReplyMarkup::reply_markup_message_id
     (uint32_t)__builtin_offsetof(updateChatDraftMessage, chat_id_), // updateChatDraftMessage::chat_id
@@ -1873,6 +1967,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(updateSavedAnimations, animation_ids_), // updateSavedAnimations::animation_ids
     (uint32_t)__builtin_offsetof(updateSelectedBackground, for_dark_theme_), // updateSelectedBackground::for_dark_theme
     (uint32_t)__builtin_offsetof(updateSelectedBackground, background_), // updateSelectedBackground::background
+    (uint32_t)__builtin_offsetof(updateChatThemes, chat_themes_), // updateChatThemes::chat_themes
     (uint32_t)__builtin_offsetof(updateLanguagePackStrings, localization_target_), // updateLanguagePackStrings::localization_target
     (uint32_t)__builtin_offsetof(updateLanguagePackStrings, language_pack_id_), // updateLanguagePackStrings::language_pack_id
     (uint32_t)__builtin_offsetof(updateLanguagePackStrings, strings_), // updateLanguagePackStrings::strings
@@ -1881,6 +1976,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(updateTermsOfService, terms_of_service_), // updateTermsOfService::terms_of_service
     (uint32_t)__builtin_offsetof(updateUsersNearby, users_nearby_), // updateUsersNearby::users_nearby
     (uint32_t)__builtin_offsetof(updateDiceEmojis, emojis_), // updateDiceEmojis::emojis
+    (uint32_t)__builtin_offsetof(updateAnimatedEmojiMessageClicked, chat_id_), // updateAnimatedEmojiMessageClicked::chat_id
+    (uint32_t)__builtin_offsetof(updateAnimatedEmojiMessageClicked, message_id_), // updateAnimatedEmojiMessageClicked::message_id
+    (uint32_t)__builtin_offsetof(updateAnimatedEmojiMessageClicked, sticker_), // updateAnimatedEmojiMessageClicked::sticker
     (uint32_t)__builtin_offsetof(updateAnimationSearchParameters, provider_), // updateAnimationSearchParameters::provider
     (uint32_t)__builtin_offsetof(updateAnimationSearchParameters, emojis_), // updateAnimationSearchParameters::emojis
     (uint32_t)__builtin_offsetof(updateSuggestedActions, added_actions_), // updateSuggestedActions::added_actions
@@ -1932,6 +2030,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(updateChatMember, invite_link_), // updateChatMember::invite_link
     (uint32_t)__builtin_offsetof(updateChatMember, old_chat_member_), // updateChatMember::old_chat_member
     (uint32_t)__builtin_offsetof(updateChatMember, new_chat_member_), // updateChatMember::new_chat_member
+    (uint32_t)__builtin_offsetof(updateNewChatJoinRequest, chat_id_), // updateNewChatJoinRequest::chat_id
+    (uint32_t)__builtin_offsetof(updateNewChatJoinRequest, request_), // updateNewChatJoinRequest::request
+    (uint32_t)__builtin_offsetof(updateNewChatJoinRequest, invite_link_), // updateNewChatJoinRequest::invite_link
     (uint32_t)__builtin_offsetof(updates, updates_), // updates::updates
     (uint32_t)__builtin_offsetof(logStreamFile, path_), // logStreamFile::path
     (uint32_t)__builtin_offsetof(logStreamFile, max_file_size_), // logStreamFile::max_file_size
@@ -1954,7 +2055,10 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(registerUser, first_name_), // registerUser::first_name
     (uint32_t)__builtin_offsetof(registerUser, last_name_), // registerUser::last_name
     (uint32_t)__builtin_offsetof(checkAuthenticationPassword, password_), // checkAuthenticationPassword::password
+    (uint32_t)__builtin_offsetof(checkAuthenticationPasswordRecoveryCode, recovery_code_), // checkAuthenticationPasswordRecoveryCode::recovery_code
     (uint32_t)__builtin_offsetof(recoverAuthenticationPassword, recovery_code_), // recoverAuthenticationPassword::recovery_code
+    (uint32_t)__builtin_offsetof(recoverAuthenticationPassword, new_password_), // recoverAuthenticationPassword::new_password
+    (uint32_t)__builtin_offsetof(recoverAuthenticationPassword, new_hint_), // recoverAuthenticationPassword::new_hint
     (uint32_t)__builtin_offsetof(checkAuthenticationBotToken, token_), // checkAuthenticationBotToken::token
     (uint32_t)__builtin_offsetof(confirmQrCodeAuthentication, link_), // confirmQrCodeAuthentication::link
     (uint32_t)__builtin_offsetof(setDatabaseEncryptionKey, new_encryption_key_), // setDatabaseEncryptionKey::new_encryption_key
@@ -1967,7 +2071,10 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(setRecoveryEmailAddress, password_), // setRecoveryEmailAddress::password
     (uint32_t)__builtin_offsetof(setRecoveryEmailAddress, new_recovery_email_address_), // setRecoveryEmailAddress::new_recovery_email_address
     (uint32_t)__builtin_offsetof(checkRecoveryEmailAddressCode, code_), // checkRecoveryEmailAddressCode::code
+    (uint32_t)__builtin_offsetof(checkPasswordRecoveryCode, recovery_code_), // checkPasswordRecoveryCode::recovery_code
     (uint32_t)__builtin_offsetof(recoverPassword, recovery_code_), // recoverPassword::recovery_code
+    (uint32_t)__builtin_offsetof(recoverPassword, new_password_), // recoverPassword::new_password
+    (uint32_t)__builtin_offsetof(recoverPassword, new_hint_), // recoverPassword::new_hint
     (uint32_t)__builtin_offsetof(createTemporaryPassword, password_), // createTemporaryPassword::password
     (uint32_t)__builtin_offsetof(createTemporaryPassword, valid_for_), // createTemporaryPassword::valid_for
     (uint32_t)__builtin_offsetof(getUser, user_id_), // getUser::user_id
@@ -1992,12 +2099,14 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(getMessages, message_ids_), // getMessages::message_ids
     (uint32_t)__builtin_offsetof(getMessageThread, chat_id_), // getMessageThread::chat_id
     (uint32_t)__builtin_offsetof(getMessageThread, message_id_), // getMessageThread::message_id
+    (uint32_t)__builtin_offsetof(getMessageViewers, chat_id_), // getMessageViewers::chat_id
+    (uint32_t)__builtin_offsetof(getMessageViewers, message_id_), // getMessageViewers::message_id
     (uint32_t)__builtin_offsetof(getFile, file_id_), // getFile::file_id
     (uint32_t)__builtin_offsetof(getRemoteFile, remote_file_id_), // getRemoteFile::remote_file_id
     (uint32_t)__builtin_offsetof(getRemoteFile, file_type_), // getRemoteFile::file_type
+    (uint32_t)__builtin_offsetof(loadChats, chat_list_), // loadChats::chat_list
+    (uint32_t)__builtin_offsetof(loadChats, limit_), // loadChats::limit
     (uint32_t)__builtin_offsetof(getChats, chat_list_), // getChats::chat_list
-    (uint32_t)__builtin_offsetof(getChats, offset_order_), // getChats::offset_order
-    (uint32_t)__builtin_offsetof(getChats, offset_chat_id_), // getChats::offset_chat_id
     (uint32_t)__builtin_offsetof(getChats, limit_), // getChats::limit
     (uint32_t)__builtin_offsetof(searchPublicChat, username_), // searchPublicChat::username
     (uint32_t)__builtin_offsetof(searchPublicChats, query_), // searchPublicChats::query
@@ -2012,6 +2121,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(removeTopChat, chat_id_), // removeTopChat::chat_id
     (uint32_t)__builtin_offsetof(addRecentlyFoundChat, chat_id_), // addRecentlyFoundChat::chat_id
     (uint32_t)__builtin_offsetof(removeRecentlyFoundChat, chat_id_), // removeRecentlyFoundChat::chat_id
+    (uint32_t)__builtin_offsetof(getRecentlyOpenedChats, limit_), // getRecentlyOpenedChats::limit
     (uint32_t)__builtin_offsetof(checkChatUsername, chat_id_), // checkChatUsername::chat_id
     (uint32_t)__builtin_offsetof(checkChatUsername, username_), // checkChatUsername::username
     (uint32_t)__builtin_offsetof(getCreatedPublicChats, type_), // getCreatedPublicChats::type
@@ -2063,6 +2173,13 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(searchChatRecentLocationMessages, limit_), // searchChatRecentLocationMessages::limit
     (uint32_t)__builtin_offsetof(getChatMessageByDate, chat_id_), // getChatMessageByDate::chat_id
     (uint32_t)__builtin_offsetof(getChatMessageByDate, date_), // getChatMessageByDate::date
+    (uint32_t)__builtin_offsetof(getChatSparseMessagePositions, chat_id_), // getChatSparseMessagePositions::chat_id
+    (uint32_t)__builtin_offsetof(getChatSparseMessagePositions, filter_), // getChatSparseMessagePositions::filter
+    (uint32_t)__builtin_offsetof(getChatSparseMessagePositions, from_message_id_), // getChatSparseMessagePositions::from_message_id
+    (uint32_t)__builtin_offsetof(getChatSparseMessagePositions, limit_), // getChatSparseMessagePositions::limit
+    (uint32_t)__builtin_offsetof(getChatMessageCalendar, chat_id_), // getChatMessageCalendar::chat_id
+    (uint32_t)__builtin_offsetof(getChatMessageCalendar, filter_), // getChatMessageCalendar::filter
+    (uint32_t)__builtin_offsetof(getChatMessageCalendar, from_message_id_), // getChatMessageCalendar::from_message_id
     (uint32_t)__builtin_offsetof(getChatMessageCount, chat_id_), // getChatMessageCount::chat_id
     (uint32_t)__builtin_offsetof(getChatMessageCount, filter_), // getChatMessageCount::filter
     (uint32_t)__builtin_offsetof(getChatMessageCount, return_local_), // getChatMessageCount::return_local
@@ -2071,12 +2188,16 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(getMessagePublicForwards, message_id_), // getMessagePublicForwards::message_id
     (uint32_t)__builtin_offsetof(getMessagePublicForwards, offset_), // getMessagePublicForwards::offset
     (uint32_t)__builtin_offsetof(getMessagePublicForwards, limit_), // getMessagePublicForwards::limit
+    (uint32_t)__builtin_offsetof(getChatSponsoredMessages, chat_id_), // getChatSponsoredMessages::chat_id
+    (uint32_t)__builtin_offsetof(viewSponsoredMessage, chat_id_), // viewSponsoredMessage::chat_id
+    (uint32_t)__builtin_offsetof(viewSponsoredMessage, sponsored_message_id_), // viewSponsoredMessage::sponsored_message_id
     (uint32_t)__builtin_offsetof(removeNotification, notification_group_id_), // removeNotification::notification_group_id
     (uint32_t)__builtin_offsetof(removeNotification, notification_id_), // removeNotification::notification_id
     (uint32_t)__builtin_offsetof(removeNotificationGroup, notification_group_id_), // removeNotificationGroup::notification_group_id
     (uint32_t)__builtin_offsetof(removeNotificationGroup, max_notification_id_), // removeNotificationGroup::max_notification_id
     (uint32_t)__builtin_offsetof(getMessageLink, chat_id_), // getMessageLink::chat_id
     (uint32_t)__builtin_offsetof(getMessageLink, message_id_), // getMessageLink::message_id
+    (uint32_t)__builtin_offsetof(getMessageLink, media_timestamp_), // getMessageLink::media_timestamp
     (uint32_t)__builtin_offsetof(getMessageLink, for_album_), // getMessageLink::for_album
     (uint32_t)__builtin_offsetof(getMessageLink, for_comment_), // getMessageLink::for_comment
     (uint32_t)__builtin_offsetof(getMessageEmbeddingCode, chat_id_), // getMessageEmbeddingCode::chat_id
@@ -2110,6 +2231,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(forwardMessages, options_), // forwardMessages::options
     (uint32_t)__builtin_offsetof(forwardMessages, send_copy_), // forwardMessages::send_copy
     (uint32_t)__builtin_offsetof(forwardMessages, remove_caption_), // forwardMessages::remove_caption
+    (uint32_t)__builtin_offsetof(forwardMessages, only_preview_), // forwardMessages::only_preview
     (uint32_t)__builtin_offsetof(resendMessages, chat_id_), // resendMessages::chat_id
     (uint32_t)__builtin_offsetof(resendMessages, message_ids_), // resendMessages::message_ids
     (uint32_t)__builtin_offsetof(sendChatScreenshotTakenNotification, chat_id_), // sendChatScreenshotTakenNotification::chat_id
@@ -2123,6 +2245,10 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(deleteMessages, revoke_), // deleteMessages::revoke
     (uint32_t)__builtin_offsetof(deleteChatMessagesFromUser, chat_id_), // deleteChatMessagesFromUser::chat_id
     (uint32_t)__builtin_offsetof(deleteChatMessagesFromUser, user_id_), // deleteChatMessagesFromUser::user_id
+    (uint32_t)__builtin_offsetof(deleteChatMessagesByDate, chat_id_), // deleteChatMessagesByDate::chat_id
+    (uint32_t)__builtin_offsetof(deleteChatMessagesByDate, min_date_), // deleteChatMessagesByDate::min_date
+    (uint32_t)__builtin_offsetof(deleteChatMessagesByDate, max_date_), // deleteChatMessagesByDate::max_date
+    (uint32_t)__builtin_offsetof(deleteChatMessagesByDate, revoke_), // deleteChatMessagesByDate::revoke
     (uint32_t)__builtin_offsetof(editMessageText, chat_id_), // editMessageText::chat_id
     (uint32_t)__builtin_offsetof(editMessageText, message_id_), // editMessageText::message_id
     (uint32_t)__builtin_offsetof(editMessageText, reply_markup_), // editMessageText::reply_markup
@@ -2250,6 +2376,9 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(viewMessages, force_read_), // viewMessages::force_read
     (uint32_t)__builtin_offsetof(openMessageContent, chat_id_), // openMessageContent::chat_id
     (uint32_t)__builtin_offsetof(openMessageContent, message_id_), // openMessageContent::message_id
+    (uint32_t)__builtin_offsetof(clickAnimatedEmojiMessage, chat_id_), // clickAnimatedEmojiMessage::chat_id
+    (uint32_t)__builtin_offsetof(clickAnimatedEmojiMessage, message_id_), // clickAnimatedEmojiMessage::message_id
+    (uint32_t)__builtin_offsetof(getInternalLinkType, link_), // getInternalLinkType::link
     (uint32_t)__builtin_offsetof(getExternalLinkInfo, link_), // getExternalLinkInfo::link
     (uint32_t)__builtin_offsetof(getExternalLink, link_), // getExternalLink::link
     (uint32_t)__builtin_offsetof(getExternalLink, allow_write_access_), // getExternalLink::allow_write_access
@@ -2288,6 +2417,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(setChatMessageTtlSetting, ttl_), // setChatMessageTtlSetting::ttl
     (uint32_t)__builtin_offsetof(setChatPermissions, chat_id_), // setChatPermissions::chat_id
     (uint32_t)__builtin_offsetof(setChatPermissions, permissions_), // setChatPermissions::permissions
+    (uint32_t)__builtin_offsetof(setChatTheme, chat_id_), // setChatTheme::chat_id
+    (uint32_t)__builtin_offsetof(setChatTheme, theme_name_), // setChatTheme::theme_name
     (uint32_t)__builtin_offsetof(setChatDraftMessage, chat_id_), // setChatDraftMessage::chat_id
     (uint32_t)__builtin_offsetof(setChatDraftMessage, message_thread_id_), // setChatDraftMessage::message_thread_id
     (uint32_t)__builtin_offsetof(setChatDraftMessage, draft_message_), // setChatDraftMessage::draft_message
@@ -2358,6 +2489,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(getFileDownloadedPrefixSize, offset_), // getFileDownloadedPrefixSize::offset
     (uint32_t)__builtin_offsetof(cancelDownloadFile, file_id_), // cancelDownloadFile::file_id
     (uint32_t)__builtin_offsetof(cancelDownloadFile, only_if_pending_), // cancelDownloadFile::only_if_pending
+    (uint32_t)__builtin_offsetof(getSuggestedFileName, file_id_), // getSuggestedFileName::file_id
+    (uint32_t)__builtin_offsetof(getSuggestedFileName, directory_), // getSuggestedFileName::directory
     (uint32_t)__builtin_offsetof(uploadFile, file_), // uploadFile::file
     (uint32_t)__builtin_offsetof(uploadFile, file_type_), // uploadFile::file_type
     (uint32_t)__builtin_offsetof(uploadFile, priority_), // uploadFile::priority
@@ -2381,12 +2514,16 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(importMessages, attached_files_), // importMessages::attached_files
     (uint32_t)__builtin_offsetof(replacePrimaryChatInviteLink, chat_id_), // replacePrimaryChatInviteLink::chat_id
     (uint32_t)__builtin_offsetof(createChatInviteLink, chat_id_), // createChatInviteLink::chat_id
+    (uint32_t)__builtin_offsetof(createChatInviteLink, name_), // createChatInviteLink::name
     (uint32_t)__builtin_offsetof(createChatInviteLink, expire_date_), // createChatInviteLink::expire_date
     (uint32_t)__builtin_offsetof(createChatInviteLink, member_limit_), // createChatInviteLink::member_limit
+    (uint32_t)__builtin_offsetof(createChatInviteLink, creates_join_request_), // createChatInviteLink::creates_join_request
     (uint32_t)__builtin_offsetof(editChatInviteLink, chat_id_), // editChatInviteLink::chat_id
     (uint32_t)__builtin_offsetof(editChatInviteLink, invite_link_), // editChatInviteLink::invite_link
+    (uint32_t)__builtin_offsetof(editChatInviteLink, name_), // editChatInviteLink::name
     (uint32_t)__builtin_offsetof(editChatInviteLink, expire_date_), // editChatInviteLink::expire_date
     (uint32_t)__builtin_offsetof(editChatInviteLink, member_limit_), // editChatInviteLink::member_limit
+    (uint32_t)__builtin_offsetof(editChatInviteLink, creates_join_request_), // editChatInviteLink::creates_join_request
     (uint32_t)__builtin_offsetof(getChatInviteLink, chat_id_), // getChatInviteLink::chat_id
     (uint32_t)__builtin_offsetof(getChatInviteLink, invite_link_), // getChatInviteLink::invite_link
     (uint32_t)__builtin_offsetof(getChatInviteLinkCounts, chat_id_), // getChatInviteLinkCounts::chat_id
@@ -2408,6 +2545,15 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(deleteAllRevokedChatInviteLinks, creator_user_id_), // deleteAllRevokedChatInviteLinks::creator_user_id
     (uint32_t)__builtin_offsetof(checkChatInviteLink, invite_link_), // checkChatInviteLink::invite_link
     (uint32_t)__builtin_offsetof(joinChatByInviteLink, invite_link_), // joinChatByInviteLink::invite_link
+    (uint32_t)__builtin_offsetof(getChatJoinRequests, chat_id_), // getChatJoinRequests::chat_id
+    (uint32_t)__builtin_offsetof(getChatJoinRequests, invite_link_), // getChatJoinRequests::invite_link
+    (uint32_t)__builtin_offsetof(getChatJoinRequests, query_), // getChatJoinRequests::query
+    (uint32_t)__builtin_offsetof(getChatJoinRequests, offset_request_), // getChatJoinRequests::offset_request
+    (uint32_t)__builtin_offsetof(getChatJoinRequests, limit_), // getChatJoinRequests::limit
+    (uint32_t)__builtin_offsetof(approveChatJoinRequest, chat_id_), // approveChatJoinRequest::chat_id
+    (uint32_t)__builtin_offsetof(approveChatJoinRequest, user_id_), // approveChatJoinRequest::user_id
+    (uint32_t)__builtin_offsetof(declineChatJoinRequest, chat_id_), // declineChatJoinRequest::chat_id
+    (uint32_t)__builtin_offsetof(declineChatJoinRequest, user_id_), // declineChatJoinRequest::user_id
     (uint32_t)__builtin_offsetof(createCall, user_id_), // createCall::user_id
     (uint32_t)__builtin_offsetof(createCall, protocol_), // createCall::protocol
     (uint32_t)__builtin_offsetof(createCall, is_video_), // createCall::is_video
@@ -2426,22 +2572,29 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(sendCallRating, problems_), // sendCallRating::problems
     (uint32_t)__builtin_offsetof(sendCallDebugInformation, call_id_), // sendCallDebugInformation::call_id
     (uint32_t)__builtin_offsetof(sendCallDebugInformation, debug_information_), // sendCallDebugInformation::debug_information
-    (uint32_t)__builtin_offsetof(getVoiceChatAvailableParticipants, chat_id_), // getVoiceChatAvailableParticipants::chat_id
-    (uint32_t)__builtin_offsetof(setVoiceChatDefaultParticipant, chat_id_), // setVoiceChatDefaultParticipant::chat_id
-    (uint32_t)__builtin_offsetof(setVoiceChatDefaultParticipant, default_participant_id_), // setVoiceChatDefaultParticipant::default_participant_id
-    (uint32_t)__builtin_offsetof(createVoiceChat, chat_id_), // createVoiceChat::chat_id
-    (uint32_t)__builtin_offsetof(createVoiceChat, title_), // createVoiceChat::title
-    (uint32_t)__builtin_offsetof(createVoiceChat, start_date_), // createVoiceChat::start_date
+    (uint32_t)__builtin_offsetof(getVideoChatAvailableParticipants, chat_id_), // getVideoChatAvailableParticipants::chat_id
+    (uint32_t)__builtin_offsetof(setVideoChatDefaultParticipant, chat_id_), // setVideoChatDefaultParticipant::chat_id
+    (uint32_t)__builtin_offsetof(setVideoChatDefaultParticipant, default_participant_id_), // setVideoChatDefaultParticipant::default_participant_id
+    (uint32_t)__builtin_offsetof(createVideoChat, chat_id_), // createVideoChat::chat_id
+    (uint32_t)__builtin_offsetof(createVideoChat, title_), // createVideoChat::title
+    (uint32_t)__builtin_offsetof(createVideoChat, start_date_), // createVideoChat::start_date
     (uint32_t)__builtin_offsetof(getGroupCall, group_call_id_), // getGroupCall::group_call_id
     (uint32_t)__builtin_offsetof(startScheduledGroupCall, group_call_id_), // startScheduledGroupCall::group_call_id
     (uint32_t)__builtin_offsetof(toggleGroupCallEnabledStartNotification, group_call_id_), // toggleGroupCallEnabledStartNotification::group_call_id
     (uint32_t)__builtin_offsetof(toggleGroupCallEnabledStartNotification, enabled_start_notification_), // toggleGroupCallEnabledStartNotification::enabled_start_notification
     (uint32_t)__builtin_offsetof(joinGroupCall, group_call_id_), // joinGroupCall::group_call_id
     (uint32_t)__builtin_offsetof(joinGroupCall, participant_id_), // joinGroupCall::participant_id
+    (uint32_t)__builtin_offsetof(joinGroupCall, audio_source_id_), // joinGroupCall::audio_source_id
     (uint32_t)__builtin_offsetof(joinGroupCall, payload_), // joinGroupCall::payload
-    (uint32_t)__builtin_offsetof(joinGroupCall, source_), // joinGroupCall::source
     (uint32_t)__builtin_offsetof(joinGroupCall, is_muted_), // joinGroupCall::is_muted
+    (uint32_t)__builtin_offsetof(joinGroupCall, is_my_video_enabled_), // joinGroupCall::is_my_video_enabled
     (uint32_t)__builtin_offsetof(joinGroupCall, invite_hash_), // joinGroupCall::invite_hash
+    (uint32_t)__builtin_offsetof(startGroupCallScreenSharing, group_call_id_), // startGroupCallScreenSharing::group_call_id
+    (uint32_t)__builtin_offsetof(startGroupCallScreenSharing, audio_source_id_), // startGroupCallScreenSharing::audio_source_id
+    (uint32_t)__builtin_offsetof(startGroupCallScreenSharing, payload_), // startGroupCallScreenSharing::payload
+    (uint32_t)__builtin_offsetof(toggleGroupCallScreenSharingIsPaused, group_call_id_), // toggleGroupCallScreenSharingIsPaused::group_call_id
+    (uint32_t)__builtin_offsetof(toggleGroupCallScreenSharingIsPaused, is_paused_), // toggleGroupCallScreenSharingIsPaused::is_paused
+    (uint32_t)__builtin_offsetof(endGroupCallScreenSharing, group_call_id_), // endGroupCallScreenSharing::group_call_id
     (uint32_t)__builtin_offsetof(setGroupCallTitle, group_call_id_), // setGroupCallTitle::group_call_id
     (uint32_t)__builtin_offsetof(setGroupCallTitle, title_), // setGroupCallTitle::title
     (uint32_t)__builtin_offsetof(toggleGroupCallMuteNewParticipants, group_call_id_), // toggleGroupCallMuteNewParticipants::group_call_id
@@ -2453,9 +2606,15 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(getGroupCallInviteLink, can_self_unmute_), // getGroupCallInviteLink::can_self_unmute
     (uint32_t)__builtin_offsetof(startGroupCallRecording, group_call_id_), // startGroupCallRecording::group_call_id
     (uint32_t)__builtin_offsetof(startGroupCallRecording, title_), // startGroupCallRecording::title
+    (uint32_t)__builtin_offsetof(startGroupCallRecording, record_video_), // startGroupCallRecording::record_video
+    (uint32_t)__builtin_offsetof(startGroupCallRecording, use_portrait_orientation_), // startGroupCallRecording::use_portrait_orientation
     (uint32_t)__builtin_offsetof(endGroupCallRecording, group_call_id_), // endGroupCallRecording::group_call_id
+    (uint32_t)__builtin_offsetof(toggleGroupCallIsMyVideoPaused, group_call_id_), // toggleGroupCallIsMyVideoPaused::group_call_id
+    (uint32_t)__builtin_offsetof(toggleGroupCallIsMyVideoPaused, is_my_video_paused_), // toggleGroupCallIsMyVideoPaused::is_my_video_paused
+    (uint32_t)__builtin_offsetof(toggleGroupCallIsMyVideoEnabled, group_call_id_), // toggleGroupCallIsMyVideoEnabled::group_call_id
+    (uint32_t)__builtin_offsetof(toggleGroupCallIsMyVideoEnabled, is_my_video_enabled_), // toggleGroupCallIsMyVideoEnabled::is_my_video_enabled
     (uint32_t)__builtin_offsetof(setGroupCallParticipantIsSpeaking, group_call_id_), // setGroupCallParticipantIsSpeaking::group_call_id
-    (uint32_t)__builtin_offsetof(setGroupCallParticipantIsSpeaking, source_), // setGroupCallParticipantIsSpeaking::source
+    (uint32_t)__builtin_offsetof(setGroupCallParticipantIsSpeaking, audio_source_), // setGroupCallParticipantIsSpeaking::audio_source
     (uint32_t)__builtin_offsetof(setGroupCallParticipantIsSpeaking, is_speaking_), // setGroupCallParticipantIsSpeaking::is_speaking
     (uint32_t)__builtin_offsetof(toggleGroupCallParticipantIsMuted, group_call_id_), // toggleGroupCallParticipantIsMuted::group_call_id
     (uint32_t)__builtin_offsetof(toggleGroupCallParticipantIsMuted, participant_id_), // toggleGroupCallParticipantIsMuted::participant_id
@@ -2473,6 +2632,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(getGroupCallStreamSegment, group_call_id_), // getGroupCallStreamSegment::group_call_id
     (uint32_t)__builtin_offsetof(getGroupCallStreamSegment, time_offset_), // getGroupCallStreamSegment::time_offset
     (uint32_t)__builtin_offsetof(getGroupCallStreamSegment, scale_), // getGroupCallStreamSegment::scale
+    (uint32_t)__builtin_offsetof(getGroupCallStreamSegment, channel_id_), // getGroupCallStreamSegment::channel_id
+    (uint32_t)__builtin_offsetof(getGroupCallStreamSegment, video_quality_), // getGroupCallStreamSegment::video_quality
     (uint32_t)__builtin_offsetof(toggleMessageSenderIsBlocked, sender_), // toggleMessageSenderIsBlocked::sender
     (uint32_t)__builtin_offsetof(toggleMessageSenderIsBlocked, is_blocked_), // toggleMessageSenderIsBlocked::is_blocked
     (uint32_t)__builtin_offsetof(blockMessageSenderFromReplies, message_id_), // blockMessageSenderFromReplies::message_id
@@ -2527,6 +2688,7 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(searchEmojis, text_), // searchEmojis::text
     (uint32_t)__builtin_offsetof(searchEmojis, exact_match_), // searchEmojis::exact_match
     (uint32_t)__builtin_offsetof(searchEmojis, input_language_codes_), // searchEmojis::input_language_codes
+    (uint32_t)__builtin_offsetof(getAnimatedEmoji, emoji_), // getAnimatedEmoji::emoji
     (uint32_t)__builtin_offsetof(getEmojiSuggestionsUrl, language_code_), // getEmojiSuggestionsUrl::language_code
     (uint32_t)__builtin_offsetof(addSavedAnimation, animation_), // addSavedAnimation::animation
     (uint32_t)__builtin_offsetof(removeSavedAnimation, animation_), // removeSavedAnimation::animation
@@ -2546,7 +2708,13 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(changePhoneNumber, phone_number_), // changePhoneNumber::phone_number
     (uint32_t)__builtin_offsetof(changePhoneNumber, settings_), // changePhoneNumber::settings
     (uint32_t)__builtin_offsetof(checkChangePhoneNumberCode, code_), // checkChangePhoneNumberCode::code
+    (uint32_t)__builtin_offsetof(setCommands, scope_), // setCommands::scope
+    (uint32_t)__builtin_offsetof(setCommands, language_code_), // setCommands::language_code
     (uint32_t)__builtin_offsetof(setCommands, commands_), // setCommands::commands
+    (uint32_t)__builtin_offsetof(deleteCommands, scope_), // deleteCommands::scope
+    (uint32_t)__builtin_offsetof(deleteCommands, language_code_), // deleteCommands::language_code
+    (uint32_t)__builtin_offsetof(getCommands, scope_), // getCommands::scope
+    (uint32_t)__builtin_offsetof(getCommands, language_code_), // getCommands::language_code
     (uint32_t)__builtin_offsetof(terminateSession, session_id_), // terminateSession::session_id
     (uint32_t)__builtin_offsetof(disconnectWebsite, website_id_), // disconnectWebsite::website_id
     (uint32_t)__builtin_offsetof(setSupergroupUsername, supergroup_id_), // setSupergroupUsername::supergroup_id
@@ -2630,9 +2798,6 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(reportChatPhoto, file_id_), // reportChatPhoto::file_id
     (uint32_t)__builtin_offsetof(reportChatPhoto, reason_), // reportChatPhoto::reason
     (uint32_t)__builtin_offsetof(reportChatPhoto, text_), // reportChatPhoto::text
-    (uint32_t)__builtin_offsetof(getChatStatisticsUrl, chat_id_), // getChatStatisticsUrl::chat_id
-    (uint32_t)__builtin_offsetof(getChatStatisticsUrl, parameters_), // getChatStatisticsUrl::parameters
-    (uint32_t)__builtin_offsetof(getChatStatisticsUrl, is_dark_), // getChatStatisticsUrl::is_dark
     (uint32_t)__builtin_offsetof(getChatStatistics, chat_id_), // getChatStatistics::chat_id
     (uint32_t)__builtin_offsetof(getChatStatistics, is_dark_), // getChatStatistics::is_dark
     (uint32_t)__builtin_offsetof(getMessageStatistics, chat_id_), // getMessageStatistics::chat_id
@@ -2686,12 +2851,15 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(setBotUpdatesStatus, pending_update_count_), // setBotUpdatesStatus::pending_update_count
     (uint32_t)__builtin_offsetof(setBotUpdatesStatus, error_message_), // setBotUpdatesStatus::error_message
     (uint32_t)__builtin_offsetof(uploadStickerFile, user_id_), // uploadStickerFile::user_id
-    (uint32_t)__builtin_offsetof(uploadStickerFile, png_sticker_), // uploadStickerFile::png_sticker
+    (uint32_t)__builtin_offsetof(uploadStickerFile, sticker_), // uploadStickerFile::sticker
+    (uint32_t)__builtin_offsetof(getSuggestedStickerSetName, title_), // getSuggestedStickerSetName::title
+    (uint32_t)__builtin_offsetof(checkStickerSetName, name_), // checkStickerSetName::name
     (uint32_t)__builtin_offsetof(createNewStickerSet, user_id_), // createNewStickerSet::user_id
     (uint32_t)__builtin_offsetof(createNewStickerSet, title_), // createNewStickerSet::title
     (uint32_t)__builtin_offsetof(createNewStickerSet, name_), // createNewStickerSet::name
     (uint32_t)__builtin_offsetof(createNewStickerSet, is_masks_), // createNewStickerSet::is_masks
     (uint32_t)__builtin_offsetof(createNewStickerSet, stickers_), // createNewStickerSet::stickers
+    (uint32_t)__builtin_offsetof(createNewStickerSet, source_), // createNewStickerSet::source
     (uint32_t)__builtin_offsetof(addStickerToSet, user_id_), // addStickerToSet::user_id
     (uint32_t)__builtin_offsetof(addStickerToSet, name_), // addStickerToSet::name
     (uint32_t)__builtin_offsetof(addStickerToSet, sticker_), // addStickerToSet::sticker
@@ -2714,6 +2882,8 @@ const uint32_t td_bridge_offsets[] = {
     (uint32_t)__builtin_offsetof(answerCustomQuery, data_), // answerCustomQuery::data
     (uint32_t)__builtin_offsetof(setAlarm, seconds_), // setAlarm::seconds
     (uint32_t)__builtin_offsetof(getPhoneNumberInfo, phone_number_prefix_), // getPhoneNumberInfo::phone_number_prefix
+    (uint32_t)__builtin_offsetof(getPhoneNumberInfoSync, language_code_), // getPhoneNumberInfoSync::language_code
+    (uint32_t)__builtin_offsetof(getPhoneNumberInfoSync, phone_number_prefix_), // getPhoneNumberInfoSync::phone_number_prefix
     (uint32_t)__builtin_offsetof(getDeepLinkInfo, link_), // getDeepLinkInfo::link
     (uint32_t)__builtin_offsetof(saveApplicationLogEvent, type_), // saveApplicationLogEvent::type
     (uint32_t)__builtin_offsetof(saveApplicationLogEvent, chat_id_), // saveApplicationLogEvent::chat_id

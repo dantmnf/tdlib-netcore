@@ -24,7 +24,7 @@ namespace TDLibCore.Api
     public abstract class ThumbnailFormat : TLObject { }
 
     /// <summary>
-    /// Part of the face, relative to which a mask should be placed
+    /// Part of the face, relative to which a mask is placed
     /// </summary>
     public abstract class MaskPoint : TLObject { }
 
@@ -79,7 +79,7 @@ namespace TDLibCore.Api
     public abstract class MessageSendingState : TLObject { }
 
     /// <summary>
-    /// Describes the types of chats to which notification settings are applied
+    /// Describes the types of chats to which notification settings are relevant
     /// </summary>
     public abstract class NotificationSettingsScope : TLObject { }
 
@@ -104,7 +104,7 @@ namespace TDLibCore.Api
     public abstract class PublicChatType : TLObject { }
 
     /// <summary>
-    /// Describes actions which should be possible to do through a chat action bar
+    /// Describes actions which must be possible to do through a chat action bar
     /// </summary>
     public abstract class ChatActionBar : TLObject { }
 
@@ -229,9 +229,9 @@ namespace TDLibCore.Api
     public abstract class CallState : TLObject { }
 
     /// <summary>
-    /// Describes a group call join response
+    /// Describes the quality of a group call video
     /// </summary>
-    public abstract class GroupCallJoinResponse : TLObject { }
+    public abstract class GroupCallVideoQuality : TLObject { }
 
     /// <summary>
     /// Describes the exact type of a problem with a call
@@ -239,7 +239,7 @@ namespace TDLibCore.Api
     public abstract class CallProblem : TLObject { }
 
     /// <summary>
-    /// Contains animated stickers which should be used for dice animation rendering
+    /// Contains animated stickers which must be used for dice animation rendering
     /// </summary>
     public abstract class DiceStickers : TLObject { }
 
@@ -299,6 +299,16 @@ namespace TDLibCore.Api
     public abstract class CheckChatUsernameResult : TLObject { }
 
     /// <summary>
+    /// Represents result of checking whether a name can be used for a new sticker set
+    /// </summary>
+    public abstract class CheckStickerSetNameResult : TLObject { }
+
+    /// <summary>
+    /// Represents result of 2-step verification password reset
+    /// </summary>
+    public abstract class ResetPasswordResult : TLObject { }
+
+    /// <summary>
     /// Contains information about a file with messages exported from another app
     /// </summary>
     public abstract class MessageFileType : TLObject { }
@@ -344,6 +354,11 @@ namespace TDLibCore.Api
     public abstract class ChatReportReason : TLObject { }
 
     /// <summary>
+    /// Describes an internal https://t.me or tg: link, which must be processed by the app in a special way
+    /// </summary>
+    public abstract class InternalLinkType : TLObject { }
+
+    /// <summary>
     /// Represents the type of a file
     /// </summary>
     public abstract class FileType : TLObject { }
@@ -379,7 +394,7 @@ namespace TDLibCore.Api
     public abstract class SuggestedAction : TLObject { }
 
     /// <summary>
-    /// Describes the way the text should be parsed for TextEntities
+    /// Describes the way the text needs to be parsed for TextEntities
     /// </summary>
     public abstract class TextParseMode : TLObject { }
 
@@ -407,6 +422,11 @@ namespace TDLibCore.Api
     /// Represents a vector path command
     /// </summary>
     public abstract class VectorPathCommand : TLObject { }
+
+    /// <summary>
+    /// Represents the scope to which bot commands are relevant
+    /// </summary>
+    public abstract class BotCommandScope : TLObject { }
 
     /// <summary>
     /// Contains notifications about data changes
@@ -561,7 +581,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// An authentication code is delivered by an immediately cancelled call to the specified phone number. The number from which the call was made is the code
+    /// An authentication code is delivered by an immediately canceled call to the specified phone number. The number from which the call was made is the code
     /// </summary>
     public partial class AuthenticationCodeTypeFlashCall : AuthenticationCodeType
     {
@@ -583,17 +603,17 @@ namespace TDLibCore.Api
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Describes the way the code was sent to the user
+        /// The way the code was sent to the user
         /// </summary>
         public AuthenticationCodeType Type { get; set; }
 
         /// <summary>
-        /// Describes the way the next code will be sent to the user; may be null
+        /// The way the next code will be sent to the user; may be null
         /// </summary>
         public AuthenticationCodeType NextType { get; set; }
 
         /// <summary>
-        /// Timeout before the code should be re-sent, in seconds
+        /// Timeout before the code can be re-sent, in seconds
         /// </summary>
         public int Timeout { get; set; }
 
@@ -795,7 +815,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// TDLib client is in its final state. All databases are closed and all resources are released. No other updates will be received after this. All queries will be responded to -with error code 500. To continue working, one should create a new instance of the TDLib client
+    /// TDLib client is in its final state. All databases are closed and all resources are released. No other updates will be received after this. All queries will be responded to -with error code 500. To continue working, one must create a new instance of the TDLib client
     /// </summary>
     public partial class AuthorizationStateClosed : AuthorizationState
     {
@@ -830,6 +850,11 @@ namespace TDLibCore.Api
         /// Information about the recovery email address to which the confirmation email was sent; may be null
         /// </summary>
         public EmailAddressAuthenticationCodeInfo RecoveryEmailAddressCodeInfo { get; set; }
+
+        /// <summary>
+        /// If not 0, point in time (Unix timestamp) after which the password can be reset immediately using resetPassword
+        /// </summary>
+        public int PendingResetDate { get; set; }
 
     }
 
@@ -898,12 +923,12 @@ namespace TDLibCore.Api
         public int DownloadOffset { get; set; }
 
         /// <summary>
-        /// If is_downloading_completed is false, then only some prefix of the file starting from download_offset is ready to be read. downloaded_prefix_size is the size of that prefix
+        /// If is_downloading_completed is false, then only some prefix of the file starting from download_offset is ready to be read. downloaded_prefix_size is the size of that prefix in bytes
         /// </summary>
         public int DownloadedPrefixSize { get; set; }
 
         /// <summary>
-        /// Total downloaded file bytes. Should be used only for calculating download progress. The actual file size may be bigger, and some parts of it may contain garbage
+        /// Total downloaded file size, in bytes. Can be used only for calculating download progress. The actual file size may be bigger, and some parts of it may contain garbage
         /// </summary>
         public int DownloadedSize { get; set; }
 
@@ -915,7 +940,7 @@ namespace TDLibCore.Api
     public partial class RemoteFile : TLObject
     {
         /// <summary>
-        /// Remote file identifier; may be empty. Can be used by the current user across application restarts or even from other devices. Uniquely identifies a file, but a file can have a lot of different valid identifiers. -If the ID starts with "http://" or "https://", it represents the HTTP URL of the file. TDLib is currently unable to download files if only their URL is known. -If downloadFile is called on such a file or if it is sent to a secret chat, TDLib starts a file generation process by sending updateFileGenerationStart to the application with the HTTP URL in the original_path and "#url#" as the conversion string. Application should generate the file by downloading it to the specified location
+        /// Remote file identifier; may be empty. Can be used by the current user across application restarts or even from other devices. Uniquely identifies a file, but a file can have a lot of different valid identifiers. -If the ID starts with "http://" or "https://", it represents the HTTP URL of the file. TDLib is currently unable to download files if only their URL is known. -If downloadFile is called on such a file or if it is sent to a secret chat, TDLib starts a file generation process by sending updateFileGenerationStart to the application with the HTTP URL in the original_path and "#url#" as the conversion string. Application must generate the file by downloading it to the specified location
         /// </summary>
         public string Id { get; set; }
 
@@ -935,7 +960,7 @@ namespace TDLibCore.Api
         public bool IsUploadingCompleted { get; set; }
 
         /// <summary>
-        /// Size of the remote available part of the file; 0 if unknown
+        /// Size of the remote available part of the file, in bytes; 0 if unknown
         /// </summary>
         public int UploadedSize { get; set; }
 
@@ -952,12 +977,12 @@ namespace TDLibCore.Api
         public int Id { get; set; }
 
         /// <summary>
-        /// File size; 0 if unknown
+        /// File size, in bytes; 0 if unknown
         /// </summary>
         public int Size { get; set; }
 
         /// <summary>
-        /// Expected file size in case the exact file size is unknown, but an approximate size is known. Can be used to show download/upload progress
+        /// Approximate file size in bytes in case the exact file size is unknown. Can be used to show download/upload progress
         /// </summary>
         public int ExpectedSize { get; set; }
 
@@ -1020,12 +1045,12 @@ namespace TDLibCore.Api
         public string OriginalPath { get; set; }
 
         /// <summary>
-        /// String specifying the conversion applied to the original file; should be persistent across application restarts. Conversions beginning with '#' are reserved for internal TDLib usage
+        /// String specifying the conversion applied to the original file; must be persistent across application restarts. Conversions beginning with '#' are reserved for internal TDLib usage
         /// </summary>
         public string Conversion { get; set; }
 
         /// <summary>
-        /// Expected size of the generated file; 0 if unknown
+        /// Expected size of the generated file, in bytes; 0 if unknown
         /// </summary>
         public int ExpectedSize { get; set; }
 
@@ -1057,7 +1082,7 @@ namespace TDLibCore.Api
         public int Height { get; set; }
 
         /// <summary>
-        /// Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image
+        /// Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image; in bytes
         /// </summary>
         public int[] ProgressiveSizes { get; set; }
 
@@ -1155,40 +1180,40 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A mask should be placed relatively to the forehead
+    /// The mask is placed relatively to the forehead
     /// </summary>
     public partial class MaskPointForehead : MaskPoint
     {
     }
 
     /// <summary>
-    /// A mask should be placed relatively to the eyes
+    /// The mask is placed relatively to the eyes
     /// </summary>
     public partial class MaskPointEyes : MaskPoint
     {
     }
 
     /// <summary>
-    /// A mask should be placed relatively to the mouth
+    /// The mask is placed relatively to the mouth
     /// </summary>
     public partial class MaskPointMouth : MaskPoint
     {
     }
 
     /// <summary>
-    /// A mask should be placed relatively to the chin
+    /// The mask is placed relatively to the chin
     /// </summary>
     public partial class MaskPointChin : MaskPoint
     {
     }
 
     /// <summary>
-    /// Position on a photo where a mask should be placed
+    /// Position on a photo where a mask is placed
     /// </summary>
     public partial class MaskPosition : TLObject
     {
         /// <summary>
-        /// Part of the face, relative to which the mask should be placed
+        /// Part of the face, relative to which the mask is placed
         /// </summary>
         public MaskPoint Point { get; set; }
 
@@ -1206,6 +1231,23 @@ namespace TDLibCore.Api
         /// Mask scaling coefficient. (For example, 2.0 means a doubled size)
         /// </summary>
         public double Scale { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a color replacement for animated emoji
+    /// </summary>
+    public partial class ColorReplacement : TLObject
+    {
+        /// <summary>
+        /// Original animated emoji color in the RGB24 format
+        /// </summary>
+        public int OldColor { get; set; }
+
+        /// <summary>
+        /// Replacement animated emoji color in the RGB24 format
+        /// </summary>
+        public int NewColor { get; set; }
 
     }
 
@@ -1370,7 +1412,7 @@ namespace TDLibCore.Api
         public Minithumbnail AlbumCoverMinithumbnail { get; set; }
 
         /// <summary>
-        /// The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null
+        /// The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail is supposed to be extracted from the downloaded file; may be null
         /// </summary>
         public Thumbnail AlbumCoverThumbnail { get; set; }
 
@@ -1471,7 +1513,7 @@ namespace TDLibCore.Api
         public bool IsMask { get; set; }
 
         /// <summary>
-        /// Position where the mask should be placed; may be null
+        /// Position where the mask is placed; may be null
         /// </summary>
         public MaskPosition MaskPosition { get; set; }
 
@@ -1528,7 +1570,7 @@ namespace TDLibCore.Api
         public bool HasStickers { get; set; }
 
         /// <summary>
-        /// True, if the video should be tried to be streamed
+        /// True, if the video is supposed to be streamed
         /// </summary>
         public bool SupportsStreaming { get; set; }
 
@@ -1609,6 +1651,28 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Describes an animated representation of an emoji
+    /// </summary>
+    public partial class AnimatedEmoji : TLObject
+    {
+        /// <summary>
+        /// Animated sticker for the emoji
+        /// </summary>
+        public Sticker Sticker { get; set; }
+
+        /// <summary>
+        /// List of colors to be replaced while the sticker is rendered
+        /// </summary>
+        public ColorReplacement[] ColorReplacements { get; set; }
+
+        /// <summary>
+        /// File containing the sound to be played when the animated emoji is clicked if any; may be null. The sound is encoded with the Opus codec, and stored inside an OGG container
+        /// </summary>
+        public File Sound { get; set; }
+
+    }
+
+    /// <summary>
     /// Describes a user contact
     /// </summary>
     public partial class Contact : TLObject
@@ -1636,7 +1700,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user, if known; otherwise 0
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -1769,7 +1833,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifiers of recent voters, if the poll is non-anonymous
         /// </summary>
-        public int[] RecentVoterUserIds { get; set; }
+        public long[] RecentVoterUserIds { get; set; }
 
         /// <summary>
         /// True, if the poll is anonymous
@@ -1897,7 +1961,7 @@ namespace TDLibCore.Api
         public string InlineQueryPlaceholder { get; set; }
 
         /// <summary>
-        /// True, if the location of the user should be sent with every inline query to this bot
+        /// True, if the location of the user is expected to be sent with every inline query to this bot
         /// </summary>
         public bool NeedLocation { get; set; }
 
@@ -1928,17 +1992,17 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Provides information about a bot and its supported commands
+    /// Contains a list of bot commands
     /// </summary>
-    public partial class BotInfo : TLObject
+    public partial class BotCommands : TLObject
     {
         /// <summary>
-        /// Provides information about a bot and its supported commands
+        /// Bot's user identifier
         /// </summary>
-        public string Description { get; set; }
+        public long BotUserId { get; set; }
 
         /// <summary>
-        /// A list of commands supported by the bot
+        /// List of bot commands
         /// </summary>
         public BotCommand[] Commands { get; set; }
 
@@ -2081,7 +2145,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// First name of the user
@@ -2206,9 +2270,14 @@ namespace TDLibCore.Api
         public string Bio { get; set; }
 
         /// <summary>
-        /// For bots, the text that is included with the link when users share the bot
+        /// For bots, the text that is shown on the bot's profile page and is sent together with the link when users share the bot
         /// </summary>
         public string ShareText { get; set; }
+
+        /// <summary>
+        /// Contains full information about a user
+        /// </summary>
+        public string Description { get; set; }
 
         /// <summary>
         /// Number of group chats where both the other user and the current user are a member; 0 for the current user
@@ -2216,9 +2285,9 @@ namespace TDLibCore.Api
         public int GroupInCommonCount { get; set; }
 
         /// <summary>
-        /// If the user is a bot, information about the bot; may be null
+        /// For bots, list of the bot commands
         /// </summary>
-        public BotInfo BotInfo { get; set; }
+        public BotCommand[] Commands { get; set; }
 
     }
 
@@ -2235,7 +2304,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// A list of user identifiers
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
@@ -2247,7 +2316,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the administrator
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Custom title of the administrator
@@ -2321,7 +2390,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The user is the owner of a chat and has all the administrator privileges
+    /// The user is the owner of the chat and has all the administrator privileges
     /// </summary>
     public partial class ChatMemberStatusCreator : ChatMemberStatus
     {
@@ -2343,7 +2412,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The user is a member of a chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, ban unprivileged members, and manage voice chats. In supergroups and channels, there are more detailed options for administrator privileges
+    /// The user is a member of the chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, ban unprivileged members, and manage video chats. In supergroups and channels, there are more detailed options for administrator privileges
     /// </summary>
     public partial class ChatMemberStatusAdministrator : ChatMemberStatus
     {
@@ -2388,7 +2457,7 @@ namespace TDLibCore.Api
         public bool CanInviteUsers { get; set; }
 
         /// <summary>
-        /// True, if the administrator can restrict, ban, or unban chat members
+        /// True, if the administrator can restrict, ban, or unban chat members; always true for channels
         /// </summary>
         public bool CanRestrictMembers { get; set; }
 
@@ -2403,9 +2472,9 @@ namespace TDLibCore.Api
         public bool CanPromoteMembers { get; set; }
 
         /// <summary>
-        /// True, if the administrator can manage voice chats
+        /// True, if the administrator can manage video chats
         /// </summary>
-        public bool CanManageVoiceChats { get; set; }
+        public bool CanManageVideoChats { get; set; }
 
         /// <summary>
         /// True, if the administrator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only
@@ -2415,7 +2484,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The user is a member of a chat, without any additional privileges or restrictions
+    /// The user is a member of the chat, without any additional privileges or restrictions
     /// </summary>
     public partial class ChatMemberStatusMember : ChatMemberStatus
     {
@@ -2451,7 +2520,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The user or the chat was banned (and hence is not a member of the chat). Implies the user can't return to the chat, view messages, or be used as a participant identifier to join a voice chat of the chat
+    /// The user or the chat was banned (and hence is not a member of the chat). Implies the user can't return to the chat, view messages, or be used as a participant identifier to join a video chat of the chat
     /// </summary>
     public partial class ChatMemberStatusBanned : ChatMemberStatus
     {
@@ -2463,7 +2532,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Information about a user or a chat as a member of another chat
+    /// Describes a user or a chat as a member of another chat
     /// </summary>
     public partial class ChatMember : TLObject
     {
@@ -2475,7 +2544,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of a user that invited/promoted/banned this member in the chat; 0 if unknown
         /// </summary>
-        public int InviterUserId { get; set; }
+        public long InviterUserId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the user joined the chat
@@ -2486,11 +2555,6 @@ namespace TDLibCore.Api
         /// Status of the member in the chat
         /// </summary>
         public ChatMemberStatus Status { get; set; }
-
-        /// <summary>
-        /// If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not the chat member
-        /// </summary>
-        public BotInfo BotInfo { get; set; }
 
     }
 
@@ -2662,9 +2726,14 @@ namespace TDLibCore.Api
         public string InviteLink { get; set; }
 
         /// <summary>
+        /// Name of the link
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// User identifier of an administrator created the link
         /// </summary>
-        public int CreatorUserId { get; set; }
+        public long CreatorUserId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the link was created
@@ -2682,7 +2751,7 @@ namespace TDLibCore.Api
         public int ExpireDate { get; set; }
 
         /// <summary>
-        /// The maximum number of members, which can join the chat using the link simultaneously; 0 if not limited
+        /// The maximum number of members, which can join the chat using the link simultaneously; 0 if not limited. Always 0 if the link requires approval
         /// </summary>
         public int MemberLimit { get; set; }
 
@@ -2692,7 +2761,17 @@ namespace TDLibCore.Api
         public int MemberCount { get; set; }
 
         /// <summary>
-        /// True, if the link is primary. Primary invite link can't have expire date or usage limit. There is exactly one primary invite link for each administrator with can_invite_users right at a given time
+        /// Number of pending join requests created using this link
+        /// </summary>
+        public int PendingJoinRequestCount { get; set; }
+
+        /// <summary>
+        /// True, if the link only creates join request. If true, total number of joining members will be unlimited
+        /// </summary>
+        public bool CreatesJoinRequest { get; set; }
+
+        /// <summary>
+        /// True, if the link is primary. Primary invite link can't have name, expire date or usage limit. There is exactly one primary invite link for each administrator with can_invite_users right at a given time
         /// </summary>
         public bool IsPrimary { get; set; }
 
@@ -2728,7 +2807,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Administrator's user identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Number of active invite links
@@ -2748,7 +2827,7 @@ namespace TDLibCore.Api
     public partial class ChatInviteLinkCounts : TLObject
     {
         /// <summary>
-        /// List of invite linkcounts
+        /// List of invite link counts
         /// </summary>
         public ChatInviteLinkCount[] InviteLinkCounts { get; set; }
 
@@ -2762,12 +2841,17 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the user joined the chat
         /// </summary>
         public int JoinedChatDate { get; set; }
+
+        /// <summary>
+        /// User identifier of the chat administrator, approved user join request
+        /// </summary>
+        public long ApproverUserId { get; set; }
 
     }
 
@@ -2804,7 +2888,7 @@ namespace TDLibCore.Api
         public int AccessibleFor { get; set; }
 
         /// <summary>
-        /// Contains information about the type of the chat
+        /// Type of the chat
         /// </summary>
         public ChatType Type { get; set; }
 
@@ -2819,6 +2903,11 @@ namespace TDLibCore.Api
         public ChatPhotoInfo Photo { get; set; }
 
         /// <summary>
+        /// Contains information about a chat invite link
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
         /// Number of members in the chat
         /// </summary>
         public int MemberCount { get; set; }
@@ -2826,12 +2915,73 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifiers of some chat members that may be known to the current user
         /// </summary>
-        public int[] MemberUserIds { get; set; }
+        public long[] MemberUserIds { get; set; }
+
+        /// <summary>
+        /// True, if the link only creates join request
+        /// </summary>
+        public bool CreatesJoinRequest { get; set; }
 
         /// <summary>
         /// True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup
         /// </summary>
         public bool IsPublic { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a user that sent a join request and waits for administrator approval
+    /// </summary>
+    public partial class ChatJoinRequest : TLObject
+    {
+        /// <summary>
+        /// User identifier
+        /// </summary>
+        public long UserId { get; set; }
+
+        /// <summary>
+        /// Point in time (Unix timestamp) when the user sent the join request
+        /// </summary>
+        public int Date { get; set; }
+
+        /// <summary>
+        /// A short bio of the user
+        /// </summary>
+        public string Bio { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains a list of chat join requests
+    /// </summary>
+    public partial class ChatJoinRequests : TLObject
+    {
+        /// <summary>
+        /// Approximate total count of requests found
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// List of the requests
+        /// </summary>
+        public ChatJoinRequest[] Requests { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about pending chat join requests
+    /// </summary>
+    public partial class ChatJoinRequestsInfo : TLObject
+    {
+        /// <summary>
+        /// Total number of pending join requests
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// Identifiers of users sent the newest pending join requests
+        /// </summary>
+        public long[] UserIds { get; set; }
 
     }
 
@@ -2843,7 +2993,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Group identifier
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Number of members in the group
@@ -2863,7 +3013,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the supergroup to which this group was upgraded; 0 if none
         /// </summary>
-        public int UpgradedToSupergroupId { get; set; }
+        public long UpgradedToSupergroupId { get; set; }
 
     }
 
@@ -2885,7 +3035,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the creator of the group; 0 if unknown
         /// </summary>
-        public int CreatorUserId { get; set; }
+        public long CreatorUserId { get; set; }
 
         /// <summary>
         /// Group members
@@ -2897,6 +3047,11 @@ namespace TDLibCore.Api
         /// </summary>
         public ChatInviteLink InviteLink { get; set; }
 
+        /// <summary>
+        /// List of commands of bots in the group
+        /// </summary>
+        public BotCommands[] BotCommands { get; set; }
+
     }
 
     /// <summary>
@@ -2907,7 +3062,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Username of the supergroup or channel; empty for private supergroups or channels
@@ -2940,7 +3095,7 @@ namespace TDLibCore.Api
         public bool HasLocation { get; set; }
 
         /// <summary>
-        /// True, if messages sent to the channel should contain information about the sender. This field is only applicable to channels
+        /// True, if messages sent to the channel need to contain information about the sender. This field is only applicable to channels
         /// </summary>
         public bool SignMessages { get; set; }
 
@@ -3077,9 +3232,14 @@ namespace TDLibCore.Api
         public ChatInviteLink InviteLink { get; set; }
 
         /// <summary>
+        /// List of commands of bots in the group
+        /// </summary>
+        public BotCommands[] BotCommands { get; set; }
+
+        /// <summary>
         /// Identifier of the basic group from which supergroup was upgraded; 0 if none
         /// </summary>
-        public int UpgradedFromBasicGroupId { get; set; }
+        public long UpgradedFromBasicGroupId { get; set; }
 
         /// <summary>
         /// Identifier of the last message in the basic group from which supergroup was upgraded; 0 if none
@@ -3122,7 +3282,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the chat partner
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// State of the secret chat
@@ -3140,7 +3300,7 @@ namespace TDLibCore.Api
         public Memory<byte> KeyHash { get; set; }
 
         /// <summary>
-        /// Secret chat layer; determines features supported by the chat partner's application. Video notes are supported if the layer &gt;= 66; nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101
+        /// Secret chat layer; determines features supported by the chat partner's application. Nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101
         /// </summary>
         public int Layer { get; set; }
 
@@ -3154,7 +3314,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user that sent the message
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -3195,7 +3355,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user that originally sent the message
         /// </summary>
-        public int SenderUserId { get; set; }
+        public long SenderUserId { get; set; }
 
     }
 
@@ -3342,7 +3502,7 @@ namespace TDLibCore.Api
         public int ForwardCount { get; set; }
 
         /// <summary>
-        /// Contains information about direct or indirect replies to the message; may be null. Currently, available only in channels with a discussion supergroup and discussion supergroups for messages, which are not replies itself
+        /// Information about direct or indirect replies to the message; may be null. Currently, available only in channels with a discussion supergroup and discussion supergroups for messages, which are not replies itself
         /// </summary>
         public MessageReplyInfo ReplyInfo { get; set; }
 
@@ -3403,12 +3563,12 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Information about the sending state of the message; may be null
+        /// The sending state of the message; may be null
         /// </summary>
         public MessageSendingState SendingState { get; set; }
 
         /// <summary>
-        /// Information about the scheduling state of the message; may be null
+        /// The scheduling state of the message; may be null
         /// </summary>
         public MessageSchedulingState SchedulingState { get; set; }
 
@@ -3451,6 +3611,21 @@ namespace TDLibCore.Api
         /// True, if the message thread info is available
         /// </summary>
         public bool CanGetMessageThread { get; set; }
+
+        /// <summary>
+        /// True, if chat members already viewed the message can be received through getMessageViewers
+        /// </summary>
+        public bool CanGetViewers { get; set; }
+
+        /// <summary>
+        /// True, if media timestamp links can be generated for media timestamp entities in the message text, caption or web page description
+        /// </summary>
+        public bool CanGetMediaTimestampLinks { get; set; }
+
+        /// <summary>
+        /// True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
+        /// </summary>
+        public bool HasTimestampedMedia { get; set; }
 
         /// <summary>
         /// True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
@@ -3503,14 +3678,14 @@ namespace TDLibCore.Api
         public int Ttl { get; set; }
 
         /// <summary>
-        /// Time left before the message expires, in seconds
+        /// Time left before the message expires, in seconds. If the TTL timer isn't started yet, equals to the value of the ttl field
         /// </summary>
         public double TtlExpiresIn { get; set; }
 
         /// <summary>
         /// If non-zero, the user identifier of the bot through which this message was sent
         /// </summary>
-        public int ViaBotUserId { get; set; }
+        public long ViaBotUserId { get; set; }
 
         /// <summary>
         /// For channel posts and anonymous group messages, optional author signature
@@ -3579,6 +3754,118 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Contains information about a message in a specific position
+    /// </summary>
+    public partial class MessagePosition : TLObject
+    {
+        /// <summary>
+        /// 0-based message position in the full list of suitable messages
+        /// </summary>
+        public int Position { get; set; }
+
+        /// <summary>
+        /// Message identifier
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// Point in time (Unix timestamp) when the message was sent
+        /// </summary>
+        public int Date { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains a list of message positions
+    /// </summary>
+    public partial class MessagePositions : TLObject
+    {
+        /// <summary>
+        /// Total count of messages found
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// List of message positions
+        /// </summary>
+        public MessagePosition[] Positions { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about found messages sent in a specific day
+    /// </summary>
+    public partial class MessageCalendarDay : TLObject
+    {
+        /// <summary>
+        /// Total number of found messages sent in the day
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// First message sent in the day
+        /// </summary>
+        public Message Message { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains information about found messages, splitted by days according to the option "utc_time_offset"
+    /// </summary>
+    public partial class MessageCalendar : TLObject
+    {
+        /// <summary>
+        /// Total number of found messages
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// Information about messages sent
+        /// </summary>
+        public MessageCalendarDay[] Days { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a sponsored message
+    /// </summary>
+    public partial class SponsoredMessage : TLObject
+    {
+        /// <summary>
+        /// Unique sponsored message identifier
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long SponsorChatId { get; set; }
+
+        /// <summary>
+        /// An internal link to be opened when the sponsored message is clicked; may be null. If null, the sponsor chat needs to be opened instead
+        /// </summary>
+        public InternalLinkType Link { get; set; }
+
+        /// <summary>
+        /// Content of the message
+        /// </summary>
+        public MessageContent Content { get; set; }
+
+    }
+
+    /// <summary>
+    /// Contains a list of sponsored messages
+    /// </summary>
+    public partial class SponsoredMessages : TLObject
+    {
+        /// <summary>
+        /// List of sponsored messages
+        /// </summary>
+        public SponsoredMessage[] Messages { get; set; }
+
+    }
+
+    /// <summary>
     /// Notification settings applied to all private and secret chats when the corresponding chat setting has a default value
     /// </summary>
     public partial class NotificationSettingsScopePrivateChats : NotificationSettingsScope
@@ -3630,7 +3917,7 @@ namespace TDLibCore.Api
         public bool UseDefaultShowPreview { get; set; }
 
         /// <summary>
-        /// True, if message content should be displayed in notifications
+        /// True, if message content must be displayed in notifications
         /// </summary>
         public bool ShowPreview { get; set; }
 
@@ -3672,7 +3959,7 @@ namespace TDLibCore.Api
         public string Sound { get; set; }
 
         /// <summary>
-        /// True, if message content should be displayed in notifications
+        /// True, if message content must be displayed in notifications
         /// </summary>
         public bool ShowPreview { get; set; }
 
@@ -3704,7 +3991,7 @@ namespace TDLibCore.Api
         public int Date { get; set; }
 
         /// <summary>
-        /// Content of the message draft; this should always be of type inputMessageText
+        /// Content of the message draft; must be of the type inputMessageText
         /// </summary>
         public InputMessageContent InputMessageText { get; set; }
 
@@ -3718,31 +4005,31 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
     /// <summary>
-    /// A basic group (i.e., a chat with 0-200 other users)
+    /// A basic group (a chat with 0-200 other users)
     /// </summary>
     public partial class ChatTypeBasicGroup : ChatType
     {
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int BasicGroupId { get; set; }
+        public long BasicGroupId { get; set; }
 
     }
 
     /// <summary>
-    /// A supergroup (i.e. a chat with up to GetOption("supergroup_max_size") other users), or channel (with unlimited members)
+    /// A supergroup or channel (with unlimited members)
     /// </summary>
     public partial class ChatTypeSupergroup : ChatType
     {
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// True, if the supergroup is a channel
@@ -3764,7 +4051,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the secret chat peer
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -3981,22 +4268,22 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Describes a voice chat
+    /// Describes a video chat
     /// </summary>
-    public partial class VoiceChat : TLObject
+    public partial class VideoChat : TLObject
     {
         /// <summary>
-        /// Group call identifier of an active voice chat; 0 if none. Full informationa about the voice chat can be received through the method getGroupCall
+        /// Group call identifier of an active video chat; 0 if none. Full information about the video chat can be received through the method getGroupCall
         /// </summary>
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// True, if the voice chat has participants
+        /// True, if the video chat has participants
         /// </summary>
         public bool HasParticipants { get; set; }
 
         /// <summary>
-        /// Default group call participant identifier to join the voice chat; may be null
+        /// Default group call participant identifier to join the video chat; may be null
         /// </summary>
         public MessageSender DefaultParticipantId { get; set; }
 
@@ -4108,14 +4395,24 @@ namespace TDLibCore.Api
         public int MessageTtlSetting { get; set; }
 
         /// <summary>
-        /// Describes actions which should be possible to do through a chat action bar; may be null
+        /// If non-empty, name of a theme, set for the chat
+        /// </summary>
+        public string ThemeName { get; set; }
+
+        /// <summary>
+        /// Information about actions which must be possible to do through the chat action bar; may be null
         /// </summary>
         public ChatActionBar ActionBar { get; set; }
 
         /// <summary>
-        /// Contains information about voice chat of the chat
+        /// Information about video chat of the chat
         /// </summary>
-        public VoiceChat VoiceChat { get; set; }
+        public VideoChat VideoChat { get; set; }
+
+        /// <summary>
+        /// Information about pending join requests; may be null
+        /// </summary>
+        public ChatJoinRequestsInfo PendingJoinRequests { get; set; }
 
         /// <summary>
         /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
@@ -4128,7 +4425,7 @@ namespace TDLibCore.Api
         public DraftMessage DraftMessage { get; set; }
 
         /// <summary>
-        /// Contains application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used
+        /// Application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used
         /// </summary>
         public string ClientData { get; set; }
 
@@ -4226,7 +4523,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The chat is a private or secret chat, which can be reported using the method reportChat, or the other user can be blocked using the method blockUser, or the other user can be added to the contact list using the method addContact
+    /// The chat is a private or secret chat, which can be reported using the method reportChat, or the other user can be blocked using the method toggleMessageSenderIsBlocked, or the other user can be added to the contact list using the method addContact
     /// </summary>
     public partial class ChatActionBarReportAddBlock : ChatActionBar
     {
@@ -4257,7 +4554,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A simple button, with text that should be sent when the button is pressed
+    /// A simple button, with text that must be sent when the button is pressed
     /// </summary>
     public partial class KeyboardButtonTypeText : KeyboardButtonType
     {
@@ -4336,7 +4633,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Unique button identifier
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// If non-empty, new text of the button in forwarded messages
@@ -4387,7 +4684,7 @@ namespace TDLibCore.Api
         public string Query { get; set; }
 
         /// <summary>
-        /// True, if the inline query should be sent from the current chat
+        /// True, if the inline query must be sent from the current chat
         /// </summary>
         public bool InCurrentChat { get; set; }
 
@@ -4439,6 +4736,11 @@ namespace TDLibCore.Api
         /// </summary>
         public bool IsPersonal { get; set; }
 
+        /// <summary>
+        /// If non-empty, the placeholder to be shown in the input field when the reply is active; 0-64 characters
+        /// </summary>
+        public string InputFieldPlaceholder { get; set; }
+
     }
 
     /// <summary>
@@ -4465,6 +4767,11 @@ namespace TDLibCore.Api
         /// True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply
         /// </summary>
         public bool IsPersonal { get; set; }
+
+        /// <summary>
+        /// If non-empty, the placeholder to be shown in the input field when the keyboard is active; 0-64 characters
+        /// </summary>
+        public string InputFieldPlaceholder { get; set; }
 
     }
 
@@ -4515,7 +4822,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of a bot linked with the website
         /// </summary>
-        public int BotUserId { get; set; }
+        public long BotUserId { get; set; }
 
         /// <summary>
         /// True, if the user needs to be requested to give the permission to the bot to send them messages
@@ -4540,9 +4847,14 @@ namespace TDLibCore.Api
         public long MessageThreadId { get; set; }
 
         /// <summary>
-        /// Contains information about the message thread
+        /// Information about the message thread
         /// </summary>
         public MessageReplyInfo ReplyInfo { get; set; }
+
+        /// <summary>
+        /// Approximate number of unread messages in the message thread
+        /// </summary>
+        public int UnreadMessageCount { get; set; }
 
         /// <summary>
         /// The messages from which the thread starts. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
@@ -4731,12 +5043,12 @@ namespace TDLibCore.Api
         public Document Document { get; set; }
 
         /// <summary>
-        /// Width of a bounding box in which the image should be shown; 0 if unknown
+        /// Width of a bounding box in which the image must be shown; 0 if unknown
         /// </summary>
         public int Width { get; set; }
 
         /// <summary>
-        /// Height of a bounding box in which the image should be shown; 0 if unknown
+        /// Height of a bounding box in which the image must be shown; 0 if unknown
         /// </summary>
         public int Height { get; set; }
 
@@ -4787,7 +5099,7 @@ namespace TDLibCore.Api
         public RichText Text { get; set; }
 
         /// <summary>
-        /// The anchor name. If the name is empty, the link should bring back to top
+        /// The anchor name. If the name is empty, the link must bring back to top
         /// </summary>
         public string AnchorName { get; set; }
 
@@ -4845,42 +5157,42 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The content should be left-aligned
+    /// The content must be left-aligned
     /// </summary>
     public partial class PageBlockHorizontalAlignmentLeft : PageBlockHorizontalAlignment
     {
     }
 
     /// <summary>
-    /// The content should be center-aligned
+    /// The content must be center-aligned
     /// </summary>
     public partial class PageBlockHorizontalAlignmentCenter : PageBlockHorizontalAlignment
     {
     }
 
     /// <summary>
-    /// The content should be right-aligned
+    /// The content must be right-aligned
     /// </summary>
     public partial class PageBlockHorizontalAlignmentRight : PageBlockHorizontalAlignment
     {
     }
 
     /// <summary>
-    /// The content should be top-aligned
+    /// The content must be top-aligned
     /// </summary>
     public partial class PageBlockVerticalAlignmentTop : PageBlockVerticalAlignment
     {
     }
 
     /// <summary>
-    /// The content should be middle-aligned
+    /// The content must be middle-aligned
     /// </summary>
     public partial class PageBlockVerticalAlignmentMiddle : PageBlockVerticalAlignment
     {
     }
 
     /// <summary>
-    /// The content should be bottom-aligned
+    /// The content must be bottom-aligned
     /// </summary>
     public partial class PageBlockVerticalAlignmentBottom : PageBlockVerticalAlignment
     {
@@ -4892,7 +5204,7 @@ namespace TDLibCore.Api
     public partial class PageBlockTableCell : TLObject
     {
         /// <summary>
-        /// Cell text; may be null. If the text is null, then the cell should be invisible
+        /// Cell text; may be null. If the text is null, then the cell must be invisible
         /// </summary>
         public RichText Text { get; set; }
 
@@ -4902,12 +5214,12 @@ namespace TDLibCore.Api
         public bool IsHeader { get; set; }
 
         /// <summary>
-        /// The number of columns the cell should span
+        /// The number of columns the cell spans
         /// </summary>
         public int Colspan { get; set; }
 
         /// <summary>
-        /// The number of rows the cell should span
+        /// The number of rows the cell spans
         /// </summary>
         public int Rowspan { get; set; }
 
@@ -5060,7 +5372,7 @@ namespace TDLibCore.Api
         public RichText Text { get; set; }
 
         /// <summary>
-        /// Programming language for which the text should be formatted
+        /// Programming language for which the text needs to be formatted
         /// </summary>
         public string Language { get; set; }
 
@@ -5159,7 +5471,7 @@ namespace TDLibCore.Api
         public PageBlockCaption Caption { get; set; }
 
         /// <summary>
-        /// True, if the animation should be played automatically
+        /// True, if the animation must be played automatically
         /// </summary>
         public bool NeedAutoplay { get; set; }
 
@@ -5220,12 +5532,12 @@ namespace TDLibCore.Api
         public PageBlockCaption Caption { get; set; }
 
         /// <summary>
-        /// True, if the video should be played automatically
+        /// True, if the video must be played automatically
         /// </summary>
         public bool NeedAutoplay { get; set; }
 
         /// <summary>
-        /// True, if the video should be looped
+        /// True, if the video must be looped
         /// </summary>
         public bool IsLooped { get; set; }
 
@@ -5296,12 +5608,12 @@ namespace TDLibCore.Api
         public PageBlockCaption Caption { get; set; }
 
         /// <summary>
-        /// True, if the block should be full width
+        /// True, if the block must be full width
         /// </summary>
         public bool IsFullWidth { get; set; }
 
         /// <summary>
-        /// True, if scrolling should be allowed
+        /// True, if scrolling needs to be allowed
         /// </summary>
         public bool AllowScrolling { get; set; }
 
@@ -5394,7 +5706,7 @@ namespace TDLibCore.Api
         public ChatPhotoInfo Photo { get; set; }
 
         /// <summary>
-        /// Chat username, by which all other information about the chat should be resolved
+        /// Chat username, by which all other information about the chat can be resolved
         /// </summary>
         public string Username { get; set; }
 
@@ -5527,6 +5839,11 @@ namespace TDLibCore.Api
         /// True, if the instant view contains the full page. A network request might be needed to get the full web page instant view
         /// </summary>
         public bool IsFull { get; set; }
+
+        /// <summary>
+        /// An internal link to be opened to leave feedback about the instant view
+        /// </summary>
+        public InternalLinkType FeedbackLink { get; set; }
 
     }
 
@@ -5663,7 +5980,7 @@ namespace TDLibCore.Api
         public string EnglishName { get; set; }
 
         /// <summary>
-        /// True, if the country should be hidden from the list of all countries
+        /// True, if the country must be hidden from the list of all countries
         /// </summary>
         public bool IsHidden { get; set; }
 
@@ -5702,7 +6019,7 @@ namespace TDLibCore.Api
         public string CountryCallingCode { get; set; }
 
         /// <summary>
-        /// The phone number without country calling code formatted accordingly to local rules
+        /// The phone number without country calling code formatted accordingly to local rules. Expected digits are returned as '-', but even more digits might be entered by the user
         /// </summary>
         public string FormattedPhoneNumber { get; set; }
 
@@ -5947,7 +6264,7 @@ namespace TDLibCore.Api
     public partial class InputCredentialsNew : InputCredentials
     {
         /// <summary>
-        /// Contains JSON-encoded data with a credential identifier from the payment provider
+        /// JSON-encoded data with the credential identifier from the payment provider
         /// </summary>
         public string Data { get; set; }
 
@@ -6035,7 +6352,7 @@ namespace TDLibCore.Api
         public int LinkColor { get; set; }
 
         /// <summary>
-        /// A color of thebuttons in the RGB24 format
+        /// A color of the buttons in the RGB24 format
         /// </summary>
         public int ButtonColor { get; set; }
 
@@ -6069,15 +6386,15 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the seller bot
         /// </summary>
-        public int SellerBotUserId { get; set; }
+        public long SellerBotUserId { get; set; }
 
         /// <summary>
         /// User identifier of the payment provider bot
         /// </summary>
-        public int PaymentsProviderUserId { get; set; }
+        public long PaymentsProviderUserId { get; set; }
 
         /// <summary>
-        /// Contains information about the payment provider, if available, to support it natively without the need for opening the URL; may be null
+        /// Information about the payment provider, if available, to support it natively without the need for opening the URL; may be null
         /// </summary>
         public PaymentsProviderStripe PaymentsProvider { get; set; }
 
@@ -6087,7 +6404,7 @@ namespace TDLibCore.Api
         public OrderInfo SavedOrderInfo { get; set; }
 
         /// <summary>
-        /// Contains information about saved card credentials; may be null
+        /// Information about saved card credentials; may be null
         /// </summary>
         public SavedCredentials SavedCredentials { get; set; }
 
@@ -6126,7 +6443,7 @@ namespace TDLibCore.Api
     public partial class PaymentResult : TLObject
     {
         /// <summary>
-        /// True, if the payment request was successful; otherwise the verification_url will be not empty
+        /// True, if the payment request was successful; otherwise the verification_url will be non-empty
         /// </summary>
         public bool Success { get; set; }
 
@@ -6165,15 +6482,15 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the seller bot
         /// </summary>
-        public int SellerBotUserId { get; set; }
+        public long SellerBotUserId { get; set; }
 
         /// <summary>
         /// User identifier of the payment provider bot
         /// </summary>
-        public int PaymentsProviderUserId { get; set; }
+        public long PaymentsProviderUserId { get; set; }
 
         /// <summary>
-        /// Contains information about the invoice
+        /// Information about the invoice
         /// </summary>
         public Invoice Invoice { get; set; }
 
@@ -6397,7 +6714,7 @@ namespace TDLibCore.Api
         public string Number { get; set; }
 
         /// <summary>
-        /// Document expiry date; may be null
+        /// Document expiry date; may be null if not applicable
         /// </summary>
         public Date ExpiryDate { get; set; }
 
@@ -6407,7 +6724,7 @@ namespace TDLibCore.Api
         public DatedFile FrontSide { get; set; }
 
         /// <summary>
-        /// Reverse side of the document; only for driver license and identity card
+        /// Reverse side of the document; only for driver license and identity card; may be null
         /// </summary>
         public DatedFile ReverseSide { get; set; }
 
@@ -6434,7 +6751,7 @@ namespace TDLibCore.Api
         public string Number { get; set; }
 
         /// <summary>
-        /// Document expiry date, if available
+        /// Document expiry date; pass null if not applicable
         /// </summary>
         public Date ExpiryDate { get; set; }
 
@@ -6444,12 +6761,12 @@ namespace TDLibCore.Api
         public InputFile FrontSide { get; set; }
 
         /// <summary>
-        /// Reverse side of the document; only for driver license and identity card
+        /// Reverse side of the document; only for driver license and identity card; pass null otherwise
         /// </summary>
         public InputFile ReverseSide { get; set; }
 
         /// <summary>
-        /// Selfie with the document, if available
+        /// Selfie with the document; pass null if unavailable
         /// </summary>
         public InputFile Selfie { get; set; }
 
@@ -6968,7 +7285,7 @@ namespace TDLibCore.Api
         public int Id { get; set; }
 
         /// <summary>
-        /// Information about the Telegram Passport elements that must be provided to complete the form
+        /// Telegram Passport elements that must be provided to complete the form
         /// </summary>
         public PassportRequiredElement[] RequiredElements { get; set; }
 
@@ -7449,6 +7766,23 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// A message with an animated emoji
+    /// </summary>
+    public partial class MessageAnimatedEmoji : MessageContent
+    {
+        /// <summary>
+        /// The animated emoji
+        /// </summary>
+        public AnimatedEmoji AnimatedEmoji { get; set; }
+
+        /// <summary>
+        /// The corresponding emoji
+        /// </summary>
+        public string Emoji { get; set; }
+
+    }
+
+    /// <summary>
     /// A dice message. The dice value is randomly generated by the server
     /// </summary>
     public partial class MessageDice : MessageContent
@@ -7545,7 +7879,7 @@ namespace TDLibCore.Api
         public bool IsTest { get; set; }
 
         /// <summary>
-        /// True, if the shipping address should be specified
+        /// True, if the shipping address must be specified
         /// </summary>
         public bool NeedShippingAddress { get; set; }
 
@@ -7579,12 +7913,12 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A new voice chat was scheduled
+    /// A new video chat was scheduled
     /// </summary>
-    public partial class MessageVoiceChatScheduled : MessageContent
+    public partial class MessageVideoChatScheduled : MessageContent
     {
         /// <summary>
-        /// Identifier of the voice chat. The voice chat can be received through the method getGroupCall
+        /// Identifier of the video chat. The video chat can be received through the method getGroupCall
         /// </summary>
         public int GroupCallId { get; set; }
 
@@ -7596,43 +7930,43 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A newly created voice chat
+    /// A newly created video chat
     /// </summary>
-    public partial class MessageVoiceChatStarted : MessageContent
+    public partial class MessageVideoChatStarted : MessageContent
     {
         /// <summary>
-        /// Identifier of the voice chat. The voice chat can be received through the method getGroupCall
+        /// Identifier of the video chat. The video chat can be received through the method getGroupCall
         /// </summary>
         public int GroupCallId { get; set; }
 
     }
 
     /// <summary>
-    /// A message with information about an ended voice chat
+    /// A message with information about an ended video chat
     /// </summary>
-    public partial class MessageVoiceChatEnded : MessageContent
+    public partial class MessageVideoChatEnded : MessageContent
     {
         /// <summary>
-        /// Call duration
+        /// Call duration, in seconds
         /// </summary>
         public int Duration { get; set; }
 
     }
 
     /// <summary>
-    /// A message with information about an invite to a voice chat
+    /// A message with information about an invite to a video chat
     /// </summary>
-    public partial class MessageInviteVoiceChatParticipants : MessageContent
+    public partial class MessageInviteVideoChatParticipants : MessageContent
     {
         /// <summary>
-        /// Identifier of the voice chat. The voice chat can be received through the method getGroupCall
+        /// Identifier of the video chat. The video chat can be received through the method getGroupCall
         /// </summary>
         public int GroupCallId { get; set; }
 
         /// <summary>
         /// Invited user identifiers
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
@@ -7649,7 +7983,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifiers of members in the basic group
         /// </summary>
-        public int[] MemberUserIds { get; set; }
+        public long[] MemberUserIds { get; set; }
 
     }
 
@@ -7704,7 +8038,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifiers of the new members
         /// </summary>
-        public int[] MemberUserIds { get; set; }
+        public long[] MemberUserIds { get; set; }
 
     }
 
@@ -7716,6 +8050,13 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// A new member was accepted to the chat by an administrator
+    /// </summary>
+    public partial class MessageChatJoinByRequest : MessageContent
+    {
+    }
+
+    /// <summary>
     /// A chat member was deleted
     /// </summary>
     public partial class MessageChatDeleteMember : MessageContent
@@ -7723,7 +8064,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the deleted chat member
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -7735,7 +8076,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the supergroup to which the basic group was upgraded
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
     }
 
@@ -7752,7 +8093,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The identifier of the original basic group
         /// </summary>
-        public int BasicGroupId { get; set; }
+        public long BasicGroupId { get; set; }
 
     }
 
@@ -7773,6 +8114,18 @@ namespace TDLibCore.Api
     /// </summary>
     public partial class MessageScreenshotTaken : MessageContent
     {
+    }
+
+    /// <summary>
+    /// A theme in the chat has been changed
+    /// </summary>
+    public partial class MessageChatSetTheme : MessageContent
+    {
+        /// <summary>
+        /// If non-empty, name of a new theme, set for the chat. Otherwise chat theme was reset to the default one
+        /// </summary>
+        public string ThemeName { get; set; }
+
     }
 
     /// <summary>
@@ -7982,14 +8335,14 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A cashtag text, beginning with "$" and consisting of capital english letters (i.e. "$USD")
+    /// A cashtag text, beginning with "$" and consisting of capital English letters (e.g., "$USD")
     /// </summary>
     public partial class TextEntityTypeCashtag : TextEntityType
     {
     }
 
     /// <summary>
-    /// A bot command, beginning with "/". This shouldn't be highlighted if there are no bots in the chat
+    /// A bot command, beginning with "/"
     /// </summary>
     public partial class TextEntityTypeBotCommand : TextEntityType
     {
@@ -8097,7 +8450,19 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the mentioned user
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
+
+    }
+
+    /// <summary>
+    /// A media timestamp
+    /// </summary>
+    public partial class TextEntityTypeMediaTimestamp : TextEntityType
+    {
+        /// <summary>
+        /// Timestamp from which a video/audio/video note/voice note playing must start, in seconds. The media can be in the content or the web page preview of the current message, or in the same places in the replied message
+        /// </summary>
+        public int MediaTimestamp { get; set; }
 
     }
 
@@ -8158,19 +8523,19 @@ namespace TDLibCore.Api
         public bool FromBackground { get; set; }
 
         /// <summary>
-        /// Message scheduling state. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
+        /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
         /// </summary>
         public MessageSchedulingState SchedulingState { get; set; }
 
     }
 
     /// <summary>
-    /// Options to be used when a message content is copied without a link to the original message. Service messages and messageInvoice can't be copied
+    /// Options to be used when a message content is copied without reference to the original sender. Service messages and messageInvoice can't be copied
     /// </summary>
     public partial class MessageCopyOptions : TLObject
     {
         /// <summary>
-        /// True, if content of the message needs to be copied without a link to the original message. Always true if the message is forwarded to a secret chat
+        /// True, if content of the message needs to be copied without reference to the original sender. Always true if the message is forwarded to a secret chat or is local
         /// </summary>
         public bool SendCopy { get; set; }
 
@@ -8180,7 +8545,7 @@ namespace TDLibCore.Api
         public bool ReplaceCaption { get; set; }
 
         /// <summary>
-        /// New message caption. Ignored if replace_caption is false
+        /// New message caption; pass null to copy message without caption. Ignored if replace_caption is false
         /// </summary>
         public FormattedText NewCaption { get; set; }
 
@@ -8197,12 +8562,12 @@ namespace TDLibCore.Api
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// True, if rich web page previews for URLs in the message text should be disabled
+        /// True, if rich web page previews for URLs in the message text must be disabled
         /// </summary>
         public bool DisableWebPagePreview { get; set; }
 
         /// <summary>
-        /// True, if a chat message draft should be deleted
+        /// True, if a chat message draft must be deleted
         /// </summary>
         public bool ClearDraft { get; set; }
 
@@ -8219,7 +8584,7 @@ namespace TDLibCore.Api
         public InputFile Animation { get; set; }
 
         /// <summary>
-        /// Animation thumbnail, if available
+        /// Animation thumbnail; pass null to skip thumbnail uploading
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
 
@@ -8244,7 +8609,7 @@ namespace TDLibCore.Api
         public int Height { get; set; }
 
         /// <summary>
-        /// Animation caption; 0-GetOption("message_caption_length_max") characters
+        /// Animation caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -8261,7 +8626,7 @@ namespace TDLibCore.Api
         public InputFile Audio { get; set; }
 
         /// <summary>
-        /// Thumbnail of the cover for the album, if available
+        /// Thumbnail of the cover for the album; pass null to skip thumbnail uploading
         /// </summary>
         public InputThumbnail AlbumCoverThumbnail { get; set; }
 
@@ -8281,7 +8646,7 @@ namespace TDLibCore.Api
         public string Performer { get; set; }
 
         /// <summary>
-        /// Audio caption; 0-GetOption("message_caption_length_max") characters
+        /// Audio caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -8298,7 +8663,7 @@ namespace TDLibCore.Api
         public InputFile Document { get; set; }
 
         /// <summary>
-        /// Document thumbnail, if available
+        /// Document thumbnail; pass null to skip thumbnail uploading
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
 
@@ -8308,7 +8673,7 @@ namespace TDLibCore.Api
         public bool DisableContentTypeDetection { get; set; }
 
         /// <summary>
-        /// Document caption; 0-GetOption("message_caption_length_max") characters
+        /// Document caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -8325,7 +8690,7 @@ namespace TDLibCore.Api
         public InputFile Photo { get; set; }
 
         /// <summary>
-        /// Photo thumbnail to be sent, this is sent to the other party in secret chats only
+        /// Photo thumbnail to be sent; pass null to skip thumbnail uploading. The thumbnail is sent to the other party only in secret chats
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
 
@@ -8345,7 +8710,7 @@ namespace TDLibCore.Api
         public int Height { get; set; }
 
         /// <summary>
-        /// Photo caption; 0-GetOption("message_caption_length_max") characters
+        /// Photo caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -8367,7 +8732,7 @@ namespace TDLibCore.Api
         public InputFile Sticker { get; set; }
 
         /// <summary>
-        /// Sticker thumbnail, if available
+        /// Sticker thumbnail; pass null to skip thumbnail uploading
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
 
@@ -8399,7 +8764,7 @@ namespace TDLibCore.Api
         public InputFile Video { get; set; }
 
         /// <summary>
-        /// Video thumbnail, if available
+        /// Video thumbnail; pass null to skip thumbnail uploading
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
 
@@ -8424,12 +8789,12 @@ namespace TDLibCore.Api
         public int Height { get; set; }
 
         /// <summary>
-        /// True, if the video should be tried to be streamed
+        /// True, if the video is supposed to be streamed
         /// </summary>
         public bool SupportsStreaming { get; set; }
 
         /// <summary>
-        /// Video caption; 0-GetOption("message_caption_length_max") characters
+        /// Video caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -8451,7 +8816,7 @@ namespace TDLibCore.Api
         public InputFile VideoNote { get; set; }
 
         /// <summary>
-        /// Video thumbnail, if available
+        /// Video thumbnail; pass null to skip thumbnail uploading
         /// </summary>
         public InputThumbnail Thumbnail { get; set; }
 
@@ -8488,7 +8853,7 @@ namespace TDLibCore.Api
         public Memory<byte> Waveform { get; set; }
 
         /// <summary>
-        /// Voice note caption; 0-GetOption("message_caption_length_max") characters
+        /// Voice note caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -8505,7 +8870,7 @@ namespace TDLibCore.Api
         public Location Location { get; set; }
 
         /// <summary>
-        /// Period for which the location can be updated, in seconds; should be between 60 and 86400 for a live location and 0 otherwise
+        /// Period for which the location can be updated, in seconds; must be between 60 and 86400 for a live location and 0 otherwise
         /// </summary>
         public int LivePeriod { get; set; }
 
@@ -8556,7 +8921,7 @@ namespace TDLibCore.Api
         public string Emoji { get; set; }
 
         /// <summary>
-        /// True, if a chat message draft should be deleted
+        /// True, if the chat message draft must be deleted
         /// </summary>
         public bool ClearDraft { get; set; }
 
@@ -8570,7 +8935,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the bot that owns the game
         /// </summary>
-        public int BotUserId { get; set; }
+        public long BotUserId { get; set; }
 
         /// <summary>
         /// Short name of the game
@@ -8699,12 +9064,12 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// True, if a game message should be shared within a launched game; applies only to game messages
+        /// True, if a game message is being shared from a launched game; applies only to game messages
         /// </summary>
         public bool InGameShare { get; set; }
 
         /// <summary>
-        /// Options to be used to copy content of the message without a link to the original message
+        /// Options to be used to copy content of the message without reference to the original sender; pass null to try to forward the message as usual
         /// </summary>
         public MessageCopyOptions CopyOptions { get; set; }
 
@@ -8906,6 +9271,13 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// The user is picking a sticker to send
+    /// </summary>
+    public partial class ChatActionChoosingSticker : ChatAction
+    {
+    }
+
+    /// <summary>
     /// The user is picking a location or venue to send
     /// </summary>
     public partial class ChatActionChoosingLocation : ChatAction
@@ -8946,7 +9318,19 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The user has cancelled the previous action
+    /// The user is watching animations sent by the other party by clicking on an animated emoji
+    /// </summary>
+    public partial class ChatActionWatchingAnimations : ChatAction
+    {
+        /// <summary>
+        /// The animated emoji
+        /// </summary>
+        public string Emoji { get; set; }
+
+    }
+
+    /// <summary>
+    /// The user has canceled the previous action
     /// </summary>
     public partial class ChatActionCancel : ChatAction
     {
@@ -9166,7 +9550,7 @@ namespace TDLibCore.Api
         public int Size { get; set; }
 
         /// <summary>
-        /// Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested
+        /// Up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full sticker set needs to be requested
         /// </summary>
         public Sticker[] Covers { get; set; }
 
@@ -9197,7 +9581,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The call was ended before the conversation started. It was cancelled by the caller or missed by the other party
+    /// The call was ended before the conversation started. It was canceled by the caller or missed by the other party
     /// </summary>
     public partial class CallDiscardReasonMissed : CallDiscardReason
     {
@@ -9430,12 +9814,12 @@ namespace TDLibCore.Api
         public CallDiscardReason Reason { get; set; }
 
         /// <summary>
-        /// True, if the call rating should be sent to the server
+        /// True, if the call rating must be sent to the server
         /// </summary>
         public bool NeedRating { get; set; }
 
         /// <summary>
-        /// True, if the call debug information should be sent to the server
+        /// True, if the call debug information must be sent to the server
         /// </summary>
         public bool NeedDebugInformation { get; set; }
 
@@ -9451,6 +9835,27 @@ namespace TDLibCore.Api
         /// </summary>
         public Error Error { get; set; }
 
+    }
+
+    /// <summary>
+    /// The worst available video quality
+    /// </summary>
+    public partial class GroupCallVideoQualityThumbnail : GroupCallVideoQuality
+    {
+    }
+
+    /// <summary>
+    /// The medium video quality
+    /// </summary>
+    public partial class GroupCallVideoQualityMedium : GroupCallVideoQuality
+    {
+    }
+
+    /// <summary>
+    /// The best available video quality
+    /// </summary>
+    public partial class GroupCallVideoQualityFull : GroupCallVideoQuality
+    {
     }
 
     /// <summary>
@@ -9531,6 +9936,21 @@ namespace TDLibCore.Api
         public GroupCallRecentSpeaker[] RecentSpeakers { get; set; }
 
         /// <summary>
+        /// True, if the current user's video is enabled
+        /// </summary>
+        public bool IsMyVideoEnabled { get; set; }
+
+        /// <summary>
+        /// True, if the current user's video is paused
+        /// </summary>
+        public bool IsMyVideoPaused { get; set; }
+
+        /// <summary>
+        /// True, if the current user can broadcast video or share screen
+        /// </summary>
+        public bool CanEnableVideo { get; set; }
+
+        /// <summary>
         /// True, if only group call administrators can unmute new participants
         /// </summary>
         public bool MuteNewParticipants { get; set; }
@@ -9538,7 +9958,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// True, if the current user can enable or disable mute_new_participants setting
         /// </summary>
-        public bool CanChangeMuteNewParticipants { get; set; }
+        public bool CanToggleMuteNewParticipants { get; set; }
 
         /// <summary>
         /// Duration of the ongoing group call recording, in seconds; 0 if none. An updateGroupCall update is not triggered when value of this field changes, but the same recording goes on
@@ -9546,150 +9966,54 @@ namespace TDLibCore.Api
         public int RecordDuration { get; set; }
 
         /// <summary>
-        /// Call duration; for ended calls only
+        /// True, if a video file is being recorded for the call
+        /// </summary>
+        public bool IsVideoRecorded { get; set; }
+
+        /// <summary>
+        /// Call duration, in seconds; for ended calls only
         /// </summary>
         public int Duration { get; set; }
 
     }
 
     /// <summary>
-    /// Describes a payload fingerprint for interaction with tgcalls
+    /// Describes a group of video synchronization source identifiers
     /// </summary>
-    public partial class GroupCallPayloadFingerprint : TLObject
+    public partial class GroupCallVideoSourceGroup : TLObject
     {
         /// <summary>
-        /// Value of the field hash
+        /// The semantics of sources, one of "SIM" or "FID"
         /// </summary>
-        public string Hash { get; set; }
+        public string Semantics { get; set; }
 
         /// <summary>
-        /// Value of the field setup
+        /// The list of synchronization source identifiers
         /// </summary>
-        public string Setup { get; set; }
-
-        /// <summary>
-        /// Value of the field fingerprint
-        /// </summary>
-        public string Fingerprint { get; set; }
+        public int[] SourceIds { get; set; }
 
     }
 
     /// <summary>
-    /// Describes a payload for interaction with tgcalls
+    /// Contains information about a group call participant's video channel
     /// </summary>
-    public partial class GroupCallPayload : TLObject
+    public partial class GroupCallParticipantVideoInfo : TLObject
     {
         /// <summary>
-        /// Value of the field ufrag
+        /// List of synchronization source groups of the video
         /// </summary>
-        public string Ufrag { get; set; }
+        public GroupCallVideoSourceGroup[] SourceGroups { get; set; }
 
         /// <summary>
-        /// Value of the field pwd
+        /// Video channel endpoint identifier
         /// </summary>
-        public string Pwd { get; set; }
+        public string EndpointId { get; set; }
 
         /// <summary>
-        /// The list of fingerprints
+        /// True if the video is paused. This flag needs to be ignored, if new video frames are received
         /// </summary>
-        public GroupCallPayloadFingerprint[] Fingerprints { get; set; }
+        public bool IsPaused { get; set; }
 
-    }
-
-    /// <summary>
-    /// Describes a join response candidate for interaction with tgcalls
-    /// </summary>
-    public partial class GroupCallJoinResponseCandidate : TLObject
-    {
-        /// <summary>
-        /// Value of the field port
-        /// </summary>
-        public string Port { get; set; }
-
-        /// <summary>
-        /// Value of the field protocol
-        /// </summary>
-        public string Protocol { get; set; }
-
-        /// <summary>
-        /// Value of the field network
-        /// </summary>
-        public string Network { get; set; }
-
-        /// <summary>
-        /// Value of the field generation
-        /// </summary>
-        public string Generation { get; set; }
-
-        /// <summary>
-        /// Value of the field id
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Value of the field component
-        /// </summary>
-        public string Component { get; set; }
-
-        /// <summary>
-        /// Value of the field foundation
-        /// </summary>
-        public string Foundation { get; set; }
-
-        /// <summary>
-        /// Value of the field priority
-        /// </summary>
-        public string Priority { get; set; }
-
-        /// <summary>
-        /// Value of the field ip
-        /// </summary>
-        public string Ip { get; set; }
-
-        /// <summary>
-        /// Value of the field type
-        /// </summary>
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Value of the field tcp_type
-        /// </summary>
-        public string TcpType { get; set; }
-
-        /// <summary>
-        /// Value of the field rel_addr
-        /// </summary>
-        public string RelAddr { get; set; }
-
-        /// <summary>
-        /// Value of the field rel_port
-        /// </summary>
-        public string RelPort { get; set; }
-
-    }
-
-    /// <summary>
-    /// Contains data needed to join the group call with WebRTC
-    /// </summary>
-    public partial class GroupCallJoinResponseWebrtc : GroupCallJoinResponse
-    {
-        /// <summary>
-        /// Group call payload to pass to tgcalls
-        /// </summary>
-        public GroupCallPayload Payload { get; set; }
-
-        /// <summary>
-        /// Join response candidates to pass to tgcalls
-        /// </summary>
-        public GroupCallJoinResponseCandidate[] Candidates { get; set; }
-
-    }
-
-    /// <summary>
-    /// Describes that group call needs to be joined as a stream
-    /// </summary>
-    public partial class GroupCallJoinResponseStream : GroupCallJoinResponse
-    {
     }
 
     /// <summary>
@@ -9703,9 +10027,24 @@ namespace TDLibCore.Api
         public MessageSender ParticipantId { get; set; }
 
         /// <summary>
-        /// User's synchronization source
+        /// User's audio channel synchronization source identifier
         /// </summary>
-        public int Source { get; set; }
+        public int AudioSourceId { get; set; }
+
+        /// <summary>
+        /// User's screen sharing audio channel synchronization source identifier
+        /// </summary>
+        public int ScreenSharingAudioSourceId { get; set; }
+
+        /// <summary>
+        /// Information about user's video channel; may be null if there is no active video
+        /// </summary>
+        public GroupCallParticipantVideoInfo VideoInfo { get; set; }
+
+        /// <summary>
+        /// Information about user's screen sharing video channel; may be null if there is no active screen sharing video
+        /// </summary>
+        public GroupCallParticipantVideoInfo ScreenSharingVideoInfo { get; set; }
 
         /// <summary>
         /// The participant user's bio or the participant chat's description
@@ -9733,7 +10072,7 @@ namespace TDLibCore.Api
         public bool CanBeMutedForAllUsers { get; set; }
 
         /// <summary>
-        /// True, if the current user can allow the participant to unmute themself or unmute the participant (if the participant is the current user)
+        /// True, if the current user can allow the participant to unmute themselves or unmute the participant (if the participant is the current user)
         /// </summary>
         public bool CanBeUnmutedForAllUsers { get; set; }
 
@@ -9758,7 +10097,7 @@ namespace TDLibCore.Api
         public bool IsMutedForCurrentUser { get; set; }
 
         /// <summary>
-        /// True, if the participant is muted for all users, but can unmute themself
+        /// True, if the participant is muted for all users, but can unmute themselves
         /// </summary>
         public bool CanUnmuteSelf { get; set; }
 
@@ -9850,7 +10189,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Peer user identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// True, if the call is outgoing
@@ -9955,7 +10294,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifiers of the imported contacts in the same order as they were specified in the request; 0 if the contact is not yet a registered user
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
         /// <summary>
         /// The number of users that imported the corresponding contact; 0 for already registered users or if unavailable
@@ -9977,7 +10316,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Represents a link to an animated GIF or an animated (i.e. without sound) H.264/MPEG-4 AVC video
+    /// Represents a link to an animated GIF or an animated (i.e., without sound) H.264/MPEG-4 AVC video
     /// </summary>
     public partial class InputInlineQueryResultAnimation : InputInlineQueryResult
     {
@@ -10027,7 +10366,7 @@ namespace TDLibCore.Api
         public int VideoHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10084,7 +10423,7 @@ namespace TDLibCore.Api
         public int ThumbnailHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10126,7 +10465,7 @@ namespace TDLibCore.Api
         public int AudioDuration { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10168,7 +10507,7 @@ namespace TDLibCore.Api
         public int ThumbnailHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10225,7 +10564,7 @@ namespace TDLibCore.Api
         public int ThumbnailHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10252,7 +10591,7 @@ namespace TDLibCore.Api
         public string GameShortName { get; set; }
 
         /// <summary>
-        /// Message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10299,7 +10638,7 @@ namespace TDLibCore.Api
         public int ThumbnailHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10351,7 +10690,7 @@ namespace TDLibCore.Api
         public int PhotoHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10393,7 +10732,7 @@ namespace TDLibCore.Api
         public int StickerHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10435,7 +10774,7 @@ namespace TDLibCore.Api
         public int ThumbnailHeight { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10497,7 +10836,7 @@ namespace TDLibCore.Api
         public int VideoDuration { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10534,7 +10873,7 @@ namespace TDLibCore.Api
         public int VoiceNoteDuration { get; set; }
 
         /// <summary>
-        /// The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+        /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -10850,7 +11189,7 @@ namespace TDLibCore.Api
         public InlineQueryResult[] Results { get; set; }
 
         /// <summary>
-        /// If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter
+        /// If non-empty, this text must be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter
         /// </summary>
         public string SwitchPmText { get; set; }
 
@@ -10913,7 +11252,7 @@ namespace TDLibCore.Api
         public string Text { get; set; }
 
         /// <summary>
-        /// True, if an alert should be shown to the user instead of a toast notification
+        /// True, if an alert must be shown to the user instead of a toast notification
         /// </summary>
         public bool ShowAlert { get; set; }
 
@@ -10949,7 +11288,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// User score
@@ -11055,6 +11394,23 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// A new member was accepted to the chat by an administrator
+    /// </summary>
+    public partial class ChatEventMemberJoinedByRequest : ChatEventAction
+    {
+        /// <summary>
+        /// User identifier of the chat administrator, approved user join request
+        /// </summary>
+        public long ApproverUserId { get; set; }
+
+        /// <summary>
+        /// Invite link used to join the chat; may be null
+        /// </summary>
+        public ChatInviteLink InviteLink { get; set; }
+
+    }
+
+    /// <summary>
     /// A member left the chat
     /// </summary>
     public partial class ChatEventMemberLeft : ChatEventAction
@@ -11069,7 +11425,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// New member user identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// New member status
@@ -11086,7 +11442,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Affected chat member user identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Previous status of the chat member
@@ -11242,12 +11598,12 @@ namespace TDLibCore.Api
     public partial class ChatEventSlowModeDelayChanged : ChatEventAction
     {
         /// <summary>
-        /// Previous value of slow_mode_delay
+        /// Previous value of slow_mode_delay, in seconds
         /// </summary>
         public int OldSlowModeDelay { get; set; }
 
         /// <summary>
-        /// New value of slow_mode_delay
+        /// New value of slow_mode_delay, in seconds
         /// </summary>
         public int NewSlowModeDelay { get; set; }
 
@@ -11370,33 +11726,33 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A voice chat was created
+    /// A video chat was created
     /// </summary>
-    public partial class ChatEventVoiceChatCreated : ChatEventAction
+    public partial class ChatEventVideoChatCreated : ChatEventAction
     {
         /// <summary>
-        /// Identifier of the voice chat. The voice chat can be received through the method getGroupCall
+        /// Identifier of the video chat. The video chat can be received through the method getGroupCall
         /// </summary>
         public int GroupCallId { get; set; }
 
     }
 
     /// <summary>
-    /// A voice chat was discarded
+    /// A video chat was discarded
     /// </summary>
-    public partial class ChatEventVoiceChatDiscarded : ChatEventAction
+    public partial class ChatEventVideoChatDiscarded : ChatEventAction
     {
         /// <summary>
-        /// Identifier of the voice chat. The voice chat can be received through the method getGroupCall
+        /// Identifier of the video chat. The video chat can be received through the method getGroupCall
         /// </summary>
         public int GroupCallId { get; set; }
 
     }
 
     /// <summary>
-    /// A voice chat participant was muted or unmuted
+    /// A video chat participant was muted or unmuted
     /// </summary>
-    public partial class ChatEventVoiceChatParticipantIsMutedToggled : ChatEventAction
+    public partial class ChatEventVideoChatParticipantIsMutedToggled : ChatEventAction
     {
         /// <summary>
         /// Identifier of the affected group call participant
@@ -11411,9 +11767,9 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A voice chat participant volume level was changed
+    /// A video chat participant volume level was changed
     /// </summary>
-    public partial class ChatEventVoiceChatParticipantVolumeLevelChanged : ChatEventAction
+    public partial class ChatEventVideoChatParticipantVolumeLevelChanged : ChatEventAction
     {
         /// <summary>
         /// Identifier of the affected group call participant
@@ -11428,9 +11784,9 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The mute_new_participants setting of a voice chat was toggled
+    /// The mute_new_participants setting of a video chat was toggled
     /// </summary>
-    public partial class ChatEventVoiceChatMuteNewParticipantsToggled : ChatEventAction
+    public partial class ChatEventVideoChatMuteNewParticipantsToggled : ChatEventAction
     {
         /// <summary>
         /// New value of the mute_new_participants setting
@@ -11457,7 +11813,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user who performed the action that triggered the event
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Action performed by the user
@@ -11484,64 +11840,64 @@ namespace TDLibCore.Api
     public partial class ChatEventLogFilters : TLObject
     {
         /// <summary>
-        /// True, if message edits should be returned
+        /// True, if message edits need to be returned
         /// </summary>
         public bool MessageEdits { get; set; }
 
         /// <summary>
-        /// True, if message deletions should be returned
+        /// True, if message deletions need to be returned
         /// </summary>
         public bool MessageDeletions { get; set; }
 
         /// <summary>
-        /// True, if pin/unpin events should be returned
+        /// True, if pin/unpin events need to be returned
         /// </summary>
         public bool MessagePins { get; set; }
 
         /// <summary>
-        /// True, if members joining events should be returned
+        /// True, if members joining events need to be returned
         /// </summary>
         public bool MemberJoins { get; set; }
 
         /// <summary>
-        /// True, if members leaving events should be returned
+        /// True, if members leaving events need to be returned
         /// </summary>
         public bool MemberLeaves { get; set; }
 
         /// <summary>
-        /// True, if invited member events should be returned
+        /// True, if invited member events need to be returned
         /// </summary>
         public bool MemberInvites { get; set; }
 
         /// <summary>
-        /// True, if member promotion/demotion events should be returned
+        /// True, if member promotion/demotion events need to be returned
         /// </summary>
         public bool MemberPromotions { get; set; }
 
         /// <summary>
-        /// True, if member restricted/unrestricted/banned/unbanned events should be returned
+        /// True, if member restricted/unrestricted/banned/unbanned events need to be returned
         /// </summary>
         public bool MemberRestrictions { get; set; }
 
         /// <summary>
-        /// True, if changes in chat information should be returned
+        /// True, if changes in chat information need to be returned
         /// </summary>
         public bool InfoChanges { get; set; }
 
         /// <summary>
-        /// True, if changes in chat settings should be returned
+        /// True, if changes in chat settings need to be returned
         /// </summary>
         public bool SettingChanges { get; set; }
 
         /// <summary>
-        /// True, if changes to invite links should be returned
+        /// True, if changes to invite links need to be returned
         /// </summary>
         public bool InviteLinkChanges { get; set; }
 
         /// <summary>
-        /// True, if voice chat actions should be returned
+        /// True, if video chat actions need to be returned
         /// </summary>
-        public bool VoiceChatChanges { get; set; }
+        public bool VideoChatChanges { get; set; }
 
     }
 
@@ -11595,7 +11951,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A deleted language pack string, the value should be taken from the built-in english language pack
+    /// A deleted language pack string, the value must be taken from the built-in English language pack
     /// </summary>
     public partial class LanguagePackStringValueDeleted : LanguagePackStringValue
     {
@@ -11612,7 +11968,7 @@ namespace TDLibCore.Api
         public string Key { get; set; }
 
         /// <summary>
-        /// String value
+        /// String value; pass null if the string needs to be taken from the built-in English language pack
         /// </summary>
         public LanguagePackStringValue Value { get; set; }
 
@@ -11641,7 +11997,7 @@ namespace TDLibCore.Api
         public string Id { get; set; }
 
         /// <summary>
-        /// Identifier of a base language pack; may be empty. If a string is missed in the language pack, then it should be fetched from base language pack. Unsupported in custom language packs
+        /// Identifier of a base language pack; may be empty. If a string is missed in the language pack, then it must be fetched from base language pack. Unsupported in custom language packs
         /// </summary>
         public string BaseLanguagePackId { get; set; }
 
@@ -11725,7 +12081,7 @@ namespace TDLibCore.Api
         public string Token { get; set; }
 
         /// <summary>
-        /// True, if push notifications should be additionally encrypted
+        /// True, if push notifications must be additionally encrypted
         /// </summary>
         public bool Encrypt { get; set; }
 
@@ -11764,7 +12120,7 @@ namespace TDLibCore.Api
         public bool IsAppSandbox { get; set; }
 
         /// <summary>
-        /// True, if push notifications should be additionally encrypted
+        /// True, if push notifications must be additionally encrypted
         /// </summary>
         public bool Encrypt { get; set; }
 
@@ -11916,9 +12272,21 @@ namespace TDLibCore.Api
         public int BottomColor { get; set; }
 
         /// <summary>
-        /// Clockwise rotation angle of the gradient, in degrees; 0-359. Should be always divisible by 45
+        /// Clockwise rotation angle of the gradient, in degrees; 0-359. Must be always divisible by 45
         /// </summary>
         public int RotationAngle { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a freeform gradient fill of a background
+    /// </summary>
+    public partial class BackgroundFillFreeformGradient : BackgroundFill
+    {
+        /// <summary>
+        /// A list of 3 or 4 colors of the freeform gradients in the RGB24 format
+        /// </summary>
+        public int[] Colors { get; set; }
 
     }
 
@@ -11945,14 +12313,19 @@ namespace TDLibCore.Api
     public partial class BackgroundTypePattern : BackgroundType
     {
         /// <summary>
-        /// Description of the background fill
+        /// Fill of the background
         /// </summary>
         public BackgroundFill Fill { get; set; }
 
         /// <summary>
-        /// Intensity of the pattern when it is shown above the filled background; 0-100
+        /// Intensity of the pattern when it is shown above the filled background; 0-100.
         /// </summary>
         public int Intensity { get; set; }
+
+        /// <summary>
+        /// True, if the background fill must be applied only to the pattern itself. All other pixels are black in this case. For dark themes only
+        /// </summary>
+        public bool IsInverted { get; set; }
 
         /// <summary>
         /// True, if the background needs to be slightly moved when device is tilted
@@ -11967,7 +12340,7 @@ namespace TDLibCore.Api
     public partial class BackgroundTypeFill : BackgroundType
     {
         /// <summary>
-        /// Description of the background fill
+        /// The background fill
         /// </summary>
         public BackgroundFill Fill { get; set; }
 
@@ -12047,6 +12420,60 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Describes theme settings
+    /// </summary>
+    public partial class ThemeSettings : TLObject
+    {
+        /// <summary>
+        /// Theme accent color in ARGB format
+        /// </summary>
+        public int AccentColor { get; set; }
+
+        /// <summary>
+        /// The background to be used in chats; may be null
+        /// </summary>
+        public Background Background { get; set; }
+
+        /// <summary>
+        /// The fill to be used as a background for outgoing messages
+        /// </summary>
+        public BackgroundFill OutgoingMessageFill { get; set; }
+
+        /// <summary>
+        /// If true, the freeform gradient fill needs to be animated on every sent message
+        /// </summary>
+        public bool AnimateOutgoingMessageFill { get; set; }
+
+        /// <summary>
+        /// Accent color of outgoing messages in ARGB format
+        /// </summary>
+        public int OutgoingMessageAccentColor { get; set; }
+
+    }
+
+    /// <summary>
+    /// Describes a chat theme
+    /// </summary>
+    public partial class ChatTheme : TLObject
+    {
+        /// <summary>
+        /// Theme name
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Theme settings for a light chat theme
+        /// </summary>
+        public ThemeSettings LightSettings { get; set; }
+
+        /// <summary>
+        /// Theme settings for a dark chat theme
+        /// </summary>
+        public ThemeSettings DarkSettings { get; set; }
+
+    }
+
+    /// <summary>
     /// Contains a list of hashtags
     /// </summary>
     public partial class Hashtags : TLObject
@@ -12118,7 +12545,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// The user has too much chats with username, one of them should be made private first
+    /// The user has too much chats with username, one of them must be made private first
     /// </summary>
     public partial class CheckChatUsernameResultPublicChatsTooMuch : CheckChatUsernameResult
     {
@@ -12129,6 +12556,58 @@ namespace TDLibCore.Api
     /// </summary>
     public partial class CheckChatUsernameResultPublicGroupsUnavailable : CheckChatUsernameResult
     {
+    }
+
+    /// <summary>
+    /// The name can be set
+    /// </summary>
+    public partial class CheckStickerSetNameResultOk : CheckStickerSetNameResult
+    {
+    }
+
+    /// <summary>
+    /// The name is invalid
+    /// </summary>
+    public partial class CheckStickerSetNameResultNameInvalid : CheckStickerSetNameResult
+    {
+    }
+
+    /// <summary>
+    /// The name is occupied
+    /// </summary>
+    public partial class CheckStickerSetNameResultNameOccupied : CheckStickerSetNameResult
+    {
+    }
+
+    /// <summary>
+    /// The password was reset
+    /// </summary>
+    public partial class ResetPasswordResultOk : ResetPasswordResult
+    {
+    }
+
+    /// <summary>
+    /// The password reset request is pending
+    /// </summary>
+    public partial class ResetPasswordResultPending : ResetPasswordResult
+    {
+        /// <summary>
+        /// Point in time (Unix timestamp) after which the password can be reset immediately using resetPassword
+        /// </summary>
+        public int PendingResetDate { get; set; }
+
+    }
+
+    /// <summary>
+    /// The password reset request was declined
+    /// </summary>
+    public partial class ResetPasswordResultDeclined : ResetPasswordResult
+    {
+        /// <summary>
+        /// Point in time (Unix timestamp) when the password reset can be retried
+        /// </summary>
+        public int RetryDate { get; set; }
+
     }
 
     /// <summary>
@@ -12506,7 +12985,7 @@ namespace TDLibCore.Api
         public bool IsCurrentUser { get; set; }
 
         /// <summary>
-        /// True, if the user has returned to the group themself
+        /// True, if the user has returned to the group themselves
         /// </summary>
         public bool IsReturned { get; set; }
 
@@ -12532,6 +13011,18 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// A chat theme was edited
+    /// </summary>
+    public partial class PushMessageContentChatSetTheme : PushMessageContent
+    {
+        /// <summary>
+        /// If non-empty, name of a new theme, set for the chat. Otherwise chat theme was reset to the default one
+        /// </summary>
+        public string ThemeName { get; set; }
+
+    }
+
+    /// <summary>
     /// A chat member was deleted
     /// </summary>
     public partial class PushMessageContentChatDeleteMember : PushMessageContent
@@ -12547,7 +13038,7 @@ namespace TDLibCore.Api
         public bool IsCurrentUser { get; set; }
 
         /// <summary>
-        /// True, if the user has left the group themself
+        /// True, if the user has left the group themselves
         /// </summary>
         public bool IsLeft { get; set; }
 
@@ -12557,6 +13048,13 @@ namespace TDLibCore.Api
     /// A new member joined the chat by invite link
     /// </summary>
     public partial class PushMessageContentChatJoinByLink : PushMessageContent
+    {
+    }
+
+    /// <summary>
+    /// A new member was accepted to the chat by an administrator
+    /// </summary>
+    public partial class PushMessageContentChatJoinByRequest : PushMessageContent
     {
     }
 
@@ -12903,7 +13401,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The user identifiers, total number of users in all rules must not exceed 1000
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
@@ -12941,7 +13439,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The user identifiers, total number of users in all rules must not exceed 1000
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
@@ -13031,14 +13529,14 @@ namespace TDLibCore.Api
     public partial class AccountTtl : TLObject
     {
         /// <summary>
-        /// Number of days of inactivity before the account will be flagged for deletion; should range from 30-366 days
+        /// Number of days of inactivity before the account will be flagged for deletion; 30-366 days
         /// </summary>
         public int Days { get; set; }
 
     }
 
     /// <summary>
-    /// Contains information about one session in a Telegram application used by the current user. Sessions should be shown to the user in the returned order
+    /// Contains information about one session in a Telegram application used by the current user. Sessions must be shown to the user in the returned order
     /// </summary>
     public partial class Session : TLObject
     {
@@ -13149,7 +13647,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of a bot linked with the website
         /// </summary>
-        public int BotUserId { get; set; }
+        public long BotUserId { get; set; }
 
         /// <summary>
         /// The version of a browser used to log in
@@ -13252,6 +13750,324 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// The link is a link to the active sessions section of the app. Use getActiveSessions to handle the link
+    /// </summary>
+    public partial class InternalLinkTypeActiveSessions : InternalLinkType
+    {
+    }
+
+    /// <summary>
+    /// The link contains an authentication code. Call checkAuthenticationCode with the code if the current authorization state is authorizationStateWaitCode
+    /// </summary>
+    public partial class InternalLinkTypeAuthenticationCode : InternalLinkType
+    {
+        /// <summary>
+        /// The authentication code
+        /// </summary>
+        public string Code { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a background. Call searchBackground with the given background name to process the link
+    /// </summary>
+    public partial class InternalLinkTypeBackground : InternalLinkType
+    {
+        /// <summary>
+        /// Name of the background
+        /// </summary>
+        public string BackgroundName { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a chat with a Telegram bot. Call searchPublicChat with the given bot username, check that the user is a bot, show START button in the chat with the bot, -and then call sendBotStartMessage with the given start parameter after the button is pressed
+    /// </summary>
+    public partial class InternalLinkTypeBotStart : InternalLinkType
+    {
+        /// <summary>
+        /// Username of the bot
+        /// </summary>
+        public string BotUsername { get; set; }
+
+        /// <summary>
+        /// The parameter to be passed to sendBotStartMessage
+        /// </summary>
+        public string StartParameter { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a Telegram bot, which is supposed to be added to a group chat. Call searchPublicChat with the given bot username, check that the user is a bot and can be added to groups, -ask the current user to select a group to add the bot to, and then call sendBotStartMessage with the given start parameter and the chosen group chat. Bots can be added to a public group only by administrators of the group
+    /// </summary>
+    public partial class InternalLinkTypeBotStartInGroup : InternalLinkType
+    {
+        /// <summary>
+        /// Username of the bot
+        /// </summary>
+        public string BotUsername { get; set; }
+
+        /// <summary>
+        /// The parameter to be passed to sendBotStartMessage
+        /// </summary>
+        public string StartParameter { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to the change phone number section of the app
+    /// </summary>
+    public partial class InternalLinkTypeChangePhoneNumber : InternalLinkType
+    {
+    }
+
+    /// <summary>
+    /// The link is a chat invite link. Call checkChatInviteLink with the given invite link to process the link
+    /// </summary>
+    public partial class InternalLinkTypeChatInvite : InternalLinkType
+    {
+        /// <summary>
+        /// Internal representation of the invite link
+        /// </summary>
+        public string InviteLink { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to the filter settings section of the app
+    /// </summary>
+    public partial class InternalLinkTypeFilterSettings : InternalLinkType
+    {
+    }
+
+    /// <summary>
+    /// The link is a link to a game. Call searchPublicChat with the given bot username, check that the user is a bot, ask the current user to select a chat to send the game, and then call sendMessage with inputMessageGame
+    /// </summary>
+    public partial class InternalLinkTypeGame : InternalLinkType
+    {
+        /// <summary>
+        /// Username of the bot that owns the game
+        /// </summary>
+        public string BotUsername { get; set; }
+
+        /// <summary>
+        /// Short name of the game
+        /// </summary>
+        public string GameShortName { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a language pack. Call getLanguagePackInfo with the given language pack identifier to process the link
+    /// </summary>
+    public partial class InternalLinkTypeLanguagePack : InternalLinkType
+    {
+        /// <summary>
+        /// Language pack identifier
+        /// </summary>
+        public string LanguagePackId { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a Telegram message. Call getMessageLinkInfo with the given URL to process the link
+    /// </summary>
+    public partial class InternalLinkTypeMessage : InternalLinkType
+    {
+        /// <summary>
+        /// URL to be passed to getMessageLinkInfo
+        /// </summary>
+        public string Url { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link contains a message draft text. A share screen needs to be shown to the user, then the chosen chat must be opened and the text is added to the input field
+    /// </summary>
+    public partial class InternalLinkTypeMessageDraft : InternalLinkType
+    {
+        /// <summary>
+        /// Message draft text
+        /// </summary>
+        public FormattedText Text { get; set; }
+
+        /// <summary>
+        /// True, if the first line of the text contains a link. If true, the input field needs to be focused and the text after the link must be selected
+        /// </summary>
+        public bool ContainsLink { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link contains a request of Telegram passport data. Call getPassportAuthorizationForm with the given parameters to process the link if the link was received from outside of the app, otherwise ignore it
+    /// </summary>
+    public partial class InternalLinkTypePassportDataRequest : InternalLinkType
+    {
+        /// <summary>
+        /// User identifier of the service's bot
+        /// </summary>
+        public long BotUserId { get; set; }
+
+        /// <summary>
+        /// Telegram Passport element types requested by the service
+        /// </summary>
+        public string Scope { get; set; }
+
+        /// <summary>
+        /// Service's public key
+        /// </summary>
+        public string PublicKey { get; set; }
+
+        /// <summary>
+        /// Unique request identifier provided by the service
+        /// </summary>
+        public string Nonce { get; set; }
+
+        /// <summary>
+        /// An HTTP URL to open once the request is finished or canceled with the parameter tg_passport=success or tg_passport=cancel respectively. If empty, then the link tgbot{bot_user_id}://passport/success or tgbot{bot_user_id}://passport/cancel needs to be opened instead
+        /// </summary>
+        public string CallbackUrl { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link can be used to confirm ownership of a phone number to prevent account deletion. Call sendPhoneNumberConfirmationCode with the given hash and phone number to process the link
+    /// </summary>
+    public partial class InternalLinkTypePhoneNumberConfirmation : InternalLinkType
+    {
+        /// <summary>
+        /// Hash value from the link
+        /// </summary>
+        public string Hash { get; set; }
+
+        /// <summary>
+        /// Phone number value from the link
+        /// </summary>
+        public string PhoneNumber { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a proxy. Call addProxy with the given parameters to process the link and add the proxy
+    /// </summary>
+    public partial class InternalLinkTypeProxy : InternalLinkType
+    {
+        /// <summary>
+        /// Proxy server IP address
+        /// </summary>
+        public string Server { get; set; }
+
+        /// <summary>
+        /// Proxy server port
+        /// </summary>
+        public int Port { get; set; }
+
+        /// <summary>
+        /// Type of the proxy
+        /// </summary>
+        public ProxyType Type { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a chat by its username. Call searchPublicChat with the given chat username to process the link
+    /// </summary>
+    public partial class InternalLinkTypePublicChat : InternalLinkType
+    {
+        /// <summary>
+        /// Username of the chat
+        /// </summary>
+        public string ChatUsername { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link can be used to login the current user on another device, but it must be scanned from QR-code using in-app camera. An alert similar to -"This code can be used to allow someone to log in to your Telegram account. To confirm Telegram login, please go to Settings &gt; Devices &gt; Scan QR and scan the code" needs to be shown
+    /// </summary>
+    public partial class InternalLinkTypeQrCodeAuthentication : InternalLinkType
+    {
+    }
+
+    /// <summary>
+    /// The link is a link to app settings
+    /// </summary>
+    public partial class InternalLinkTypeSettings : InternalLinkType
+    {
+    }
+
+    /// <summary>
+    /// The link is a link to a sticker set. Call searchStickerSet with the given sticker set name to process the link and show the sticker set
+    /// </summary>
+    public partial class InternalLinkTypeStickerSet : InternalLinkType
+    {
+        /// <summary>
+        /// Name of the sticker set
+        /// </summary>
+        public string StickerSetName { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to a theme. TDLib has no theme support yet
+    /// </summary>
+    public partial class InternalLinkTypeTheme : InternalLinkType
+    {
+        /// <summary>
+        /// Name of the theme
+        /// </summary>
+        public string ThemeName { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to the theme settings section of the app
+    /// </summary>
+    public partial class InternalLinkTypeThemeSettings : InternalLinkType
+    {
+    }
+
+    /// <summary>
+    /// The link is an unknown tg: link. Call getDeepLinkInfo to process the link
+    /// </summary>
+    public partial class InternalLinkTypeUnknownDeepLink : InternalLinkType
+    {
+        /// <summary>
+        /// Link to be passed to getDeepLinkInfo
+        /// </summary>
+        public string Link { get; set; }
+
+    }
+
+    /// <summary>
+    /// The link is a link to an unsupported proxy. An alert can be shown to the user
+    /// </summary>
+    public partial class InternalLinkTypeUnsupportedProxy : InternalLinkType
+    {
+    }
+
+    /// <summary>
+    /// The link is a link to a video chat. Call searchPublicChat with the given chat username, and then joinGoupCall with the given invite hash to process the link
+    /// </summary>
+    public partial class InternalLinkTypeVideoChat : InternalLinkType
+    {
+        /// <summary>
+        /// Username of the chat with the video chat
+        /// </summary>
+        public string ChatUsername { get; set; }
+
+        /// <summary>
+        /// If non-empty, invite hash to be used to join the video chat without being muted by administrators
+        /// </summary>
+        public string InviteHash { get; set; }
+
+        /// <summary>
+        /// True, if the video chat is expected to be a live stream in a channel or a broadcast group
+        /// </summary>
+        public bool IsLiveStream { get; set; }
+
+    }
+
+    /// <summary>
     /// Contains an HTTPS link to a message in a supergroup or channel
     /// </summary>
     public partial class MessageLink : TLObject
@@ -13287,6 +14103,11 @@ namespace TDLibCore.Api
         /// If found, the linked message; may be null
         /// </summary>
         public Message Message { get; set; }
+
+        /// <summary>
+        /// Timestamp from which the video/audio/video note/voice note playing must start, in seconds; 0 if not specified. The media can be in the message content or in its web page preview
+        /// </summary>
+        public int MediaTimestamp { get; set; }
 
         /// <summary>
         /// True, if the whole media album to which the message belongs is linked
@@ -13435,7 +14256,7 @@ namespace TDLibCore.Api
         public FileType FileType { get; set; }
 
         /// <summary>
-        /// Total size of the files
+        /// Total size of the files, in bytes
         /// </summary>
         public long Size { get; set; }
 
@@ -13457,7 +14278,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Total size of the files in the chat
+        /// Total size of the files in the chat, in bytes
         /// </summary>
         public long Size { get; set; }
 
@@ -13479,7 +14300,7 @@ namespace TDLibCore.Api
     public partial class StorageStatistics : TLObject
     {
         /// <summary>
-        /// Total size of files
+        /// Total size of files, in bytes
         /// </summary>
         public long Size { get; set; }
 
@@ -13501,7 +14322,7 @@ namespace TDLibCore.Api
     public partial class StorageStatisticsFast : TLObject
     {
         /// <summary>
-        /// Approximate total size of files
+        /// Approximate total size of files, in bytes
         /// </summary>
         public long FilesSize { get; set; }
 
@@ -13580,7 +14401,7 @@ namespace TDLibCore.Api
     public partial class NetworkStatisticsEntryFile : NetworkStatisticsEntry
     {
         /// <summary>
-        /// Type of the file the data is part of
+        /// Type of the file the data is part of; pass null if the data isn't related to files
         /// </summary>
         public FileType FileType { get; set; }
 
@@ -13656,22 +14477,22 @@ namespace TDLibCore.Api
         public bool IsAutoDownloadEnabled { get; set; }
 
         /// <summary>
-        /// The maximum size of a photo file to be auto-downloaded
+        /// The maximum size of a photo file to be auto-downloaded, in bytes
         /// </summary>
         public int MaxPhotoFileSize { get; set; }
 
         /// <summary>
-        /// The maximum size of a video file to be auto-downloaded
+        /// The maximum size of a video file to be auto-downloaded, in bytes
         /// </summary>
         public int MaxVideoFileSize { get; set; }
 
         /// <summary>
-        /// The maximum size of other file types to be auto-downloaded
+        /// The maximum size of other file types to be auto-downloaded, in bytes
         /// </summary>
         public int MaxOtherFileSize { get; set; }
 
         /// <summary>
-        /// The maximum suggested bitrate for uploaded videos
+        /// The maximum suggested bitrate for uploaded videos, in kbit/s
         /// </summary>
         public int VideoUploadBitrate { get; set; }
 
@@ -13693,7 +14514,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Contains auto-download settings presets for the user
+    /// Contains auto-download settings presets for the current user
     /// </summary>
     public partial class AutoDownloadSettingsPresets : TLObject
     {
@@ -13806,7 +14627,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -13883,7 +14704,14 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Suggests the user to check authorization phone number and change the phone number if it is inaccessible
+    /// Suggests the user to check whether 2-step verification password is still remembered
+    /// </summary>
+    public partial class SuggestedActionCheckPassword : SuggestedAction
+    {
+    }
+
+    /// <summary>
+    /// Suggests the user to check whether authorization phone number is correct and change the phone number if it is inaccessible
     /// </summary>
     public partial class SuggestedActionCheckPhoneNumber : SuggestedAction
     {
@@ -13904,7 +14732,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Supergroup identifier
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
     }
 
@@ -13945,7 +14773,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Contains information about a tg:// deep link
+    /// Contains information about a tg: deep link
     /// </summary>
     public partial class DeepLinkInfo : TLObject
     {
@@ -13955,7 +14783,7 @@ namespace TDLibCore.Api
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// True, if user should be asked to update the application
+        /// True, if the user must be asked to update the application
         /// </summary>
         public bool NeedUpdateApplication { get; set; }
 
@@ -14096,7 +14924,7 @@ namespace TDLibCore.Api
         public string Emojis { get; set; }
 
         /// <summary>
-        /// For masks, position where the mask should be placed; may be null
+        /// For masks, position where the mask is placed; pass null if unspecified
         /// </summary>
         public MaskPosition MaskPosition { get; set; }
 
@@ -14229,7 +15057,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Number of sent messages
@@ -14237,7 +15065,7 @@ namespace TDLibCore.Api
         public int SentMessageCount { get; set; }
 
         /// <summary>
-        /// Average number of characters in sent messages
+        /// Average number of characters in sent messages; 0 if unknown
         /// </summary>
         public int AverageCharacterCount { get; set; }
 
@@ -14251,7 +15079,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Administrator user identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Number of messages deleted by the administrator
@@ -14278,7 +15106,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Number of new members invited by the user
@@ -14520,6 +15348,75 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// A scope covering all users
+    /// </summary>
+    public partial class BotCommandScopeDefault : BotCommandScope
+    {
+    }
+
+    /// <summary>
+    /// A scope covering all private chats
+    /// </summary>
+    public partial class BotCommandScopeAllPrivateChats : BotCommandScope
+    {
+    }
+
+    /// <summary>
+    /// A scope covering all group and supergroup chats
+    /// </summary>
+    public partial class BotCommandScopeAllGroupChats : BotCommandScope
+    {
+    }
+
+    /// <summary>
+    /// A scope covering all group and supergroup chat administrators
+    /// </summary>
+    public partial class BotCommandScopeAllChatAdministrators : BotCommandScope
+    {
+    }
+
+    /// <summary>
+    /// A scope covering all members of a chat
+    /// </summary>
+    public partial class BotCommandScopeChat : BotCommandScope
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+    }
+
+    /// <summary>
+    /// A scope covering all administrators of a chat
+    /// </summary>
+    public partial class BotCommandScopeChatAdministrators : BotCommandScope
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+    }
+
+    /// <summary>
+    /// A scope covering a member of a chat
+    /// </summary>
+    public partial class BotCommandScopeChatMember : BotCommandScope
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// User identifier
+        /// </summary>
+        public long UserId { get; set; }
+
+    }
+
+    /// <summary>
     /// The user authorization state has changed
     /// </summary>
     public partial class UpdateAuthorizationState : Update
@@ -14566,7 +15463,7 @@ namespace TDLibCore.Api
     public partial class UpdateMessageSendSucceeded : Update
     {
         /// <summary>
-        /// Information about the sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change
+        /// The sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change
         /// </summary>
         public Message Message { get; set; }
 
@@ -14583,7 +15480,7 @@ namespace TDLibCore.Api
     public partial class UpdateMessageSendFailed : Update
     {
         /// <summary>
-        /// Contains information about the message which failed to send
+        /// The failed to send message
         /// </summary>
         public Message Message { get; set; }
 
@@ -14907,9 +15804,9 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A chat voice chat state has changed
+    /// A chat video chat state has changed
     /// </summary>
-    public partial class UpdateChatVoiceChat : Update
+    public partial class UpdateChatVideoChat : Update
     {
         /// <summary>
         /// Chat identifier
@@ -14917,9 +15814,9 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New value of voice_chat
+        /// New value of video_chat
         /// </summary>
-        public VoiceChat VoiceChat { get; set; }
+        public VideoChat VideoChat { get; set; }
 
     }
 
@@ -14941,7 +15838,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Incoming messages were read or number of unread messages has been changed
+    /// Incoming messages were read or the number of unread messages has been changed
     /// </summary>
     public partial class UpdateChatReadInbox : Update
     {
@@ -15065,6 +15962,40 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// The chat theme was changed
+    /// </summary>
+    public partial class UpdateChatTheme : Update
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// The new name of the chat theme; may be empty if theme was reset to default
+        /// </summary>
+        public string ThemeName { get; set; }
+
+    }
+
+    /// <summary>
+    /// The chat pending join requests were changed
+    /// </summary>
+    public partial class UpdateChatPendingJoinRequests : Update
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// The new data about pending join requests; may be null
+        /// </summary>
+        public ChatJoinRequestsInfo PendingJoinRequests { get; set; }
+
+    }
+
+    /// <summary>
     /// The default chat reply markup was changed. Can occur because new messages with reply markup were received or because an old reply markup was hidden by the user
     /// </summary>
     public partial class UpdateChatReplyMarkup : Update
@@ -15082,7 +16013,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// A chat draft has changed. Be aware that the update may come in the currently opened chat but with old content of the draft. If the user has changed the content of the draft, this update shouldn't be applied
+    /// A chat draft has changed. Be aware that the update may come in the currently opened chat but with old content of the draft. If the user has changed the content of the draft, this update mustn't be applied
     /// </summary>
     public partial class UpdateChatDraftMessage : Update
     {
@@ -15175,7 +16106,7 @@ namespace TDLibCore.Api
         public long NotificationSettingsChatId { get; set; }
 
         /// <summary>
-        /// True, if the notifications should be shown without sound
+        /// True, if the notifications must be shown without sound
         /// </summary>
         public bool IsSilent { get; set; }
 
@@ -15270,7 +16201,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of a user performing an action
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The action description
@@ -15287,7 +16218,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// New status of the user
@@ -15352,7 +16283,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// New full information about the user
@@ -15369,7 +16300,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of a basic group
         /// </summary>
-        public int BasicGroupId { get; set; }
+        public long BasicGroupId { get; set; }
 
         /// <summary>
         /// New full information about the group
@@ -15386,7 +16317,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// New full information about the supergroup
@@ -15401,7 +16332,7 @@ namespace TDLibCore.Api
     public partial class UpdateServiceNotification : Update
     {
         /// <summary>
-        /// Notification type. If type begins with "AUTH_KEY_DROP_", then two buttons "Cancel" and "Log out" should be shown under notification; if user presses the second, all local data should be destroyed using Destroy method
+        /// Notification type. If type begins with "AUTH_KEY_DROP_", then two buttons "Cancel" and "Log out" must be shown under notification; if user presses the second, all local data must be destroyed using Destroy method
         /// </summary>
         public string Type { get; set; }
 
@@ -15440,12 +16371,12 @@ namespace TDLibCore.Api
         public string OriginalPath { get; set; }
 
         /// <summary>
-        /// The path to a file that should be created and where the new file should be generated
+        /// The path to a file that must be created and where the new file is generated
         /// </summary>
         public string DestinationPath { get; set; }
 
         /// <summary>
-        /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the application
+        /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which must be downloaded by the application
         /// </summary>
         public string Conversion { get; set; }
 
@@ -15714,6 +16645,18 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// The list of available chat themes has changed
+    /// </summary>
+    public partial class UpdateChatThemes : Update
+    {
+        /// <summary>
+        /// The new list of chat themes
+        /// </summary>
+        public ChatTheme[] ChatThemes { get; set; }
+
+    }
+
+    /// <summary>
     /// Some language pack strings have been updated
     /// </summary>
     public partial class UpdateLanguagePackStrings : Update
@@ -15748,7 +16691,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// New terms of service must be accepted by the user. If the terms of service are declined, then the deleteAccount method should be called with the reason "Decline ToS update"
+    /// New terms of service must be accepted by the user. If the terms of service are declined, then the deleteAccount method must be called with the reason "Decline ToS update"
     /// </summary>
     public partial class UpdateTermsOfService : Update
     {
@@ -15785,6 +16728,28 @@ namespace TDLibCore.Api
         /// The new list of supported dice emojis
         /// </summary>
         public string[] Emojis { get; set; }
+
+    }
+
+    /// <summary>
+    /// Some animated emoji message was clicked and a big animated sticker must be played if the message is visible on the screen. chatActionWatchingAnimations with the text of the message needs to be sent if the sticker is played
+    /// </summary>
+    public partial class UpdateAnimatedEmojiMessageClicked : Update
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Message identifier
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// The animated sticker to be played
+        /// </summary>
+        public Sticker Sticker { get; set; }
 
     }
 
@@ -15835,7 +16800,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int SenderUserId { get; set; }
+        public long SenderUserId { get; set; }
 
         /// <summary>
         /// User location; may be null
@@ -15843,7 +16808,7 @@ namespace TDLibCore.Api
         public Location UserLocation { get; set; }
 
         /// <summary>
-        /// Contains information about the type of the chat, from which the query originated; may be null if unknown
+        /// The type of the chat, from which the query originated; may be null if unknown
         /// </summary>
         public ChatType ChatType { get; set; }
 
@@ -15867,7 +16832,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int SenderUserId { get; set; }
+        public long SenderUserId { get; set; }
 
         /// <summary>
         /// User location; may be null
@@ -15904,7 +16869,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int SenderUserId { get; set; }
+        public long SenderUserId { get; set; }
 
         /// <summary>
         /// Identifier of the chat where the query was sent
@@ -15941,7 +16906,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int SenderUserId { get; set; }
+        public long SenderUserId { get; set; }
 
         /// <summary>
         /// Identifier of the inline message, from which the query originated
@@ -15973,7 +16938,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int SenderUserId { get; set; }
+        public long SenderUserId { get; set; }
 
         /// <summary>
         /// Invoice payload
@@ -16000,7 +16965,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user who sent the query
         /// </summary>
-        public int SenderUserId { get; set; }
+        public long SenderUserId { get; set; }
 
         /// <summary>
         /// Currency for the product price
@@ -16088,7 +17053,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The user, who changed the answer to the poll
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// 0-based identifiers of answer options, chosen by the user
@@ -16110,7 +17075,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user, changing the rights
         /// </summary>
-        public int ActorUserId { get; set; }
+        public long ActorUserId { get; set; }
 
         /// <summary>
         /// Point in time (Unix timestamp) when the user rights was changed
@@ -16131,6 +17096,28 @@ namespace TDLibCore.Api
         /// New chat member
         /// </summary>
         public ChatMember NewChatMember { get; set; }
+
+    }
+
+    /// <summary>
+    /// A user sent a join request to a chat; for bots only
+    /// </summary>
+    public partial class UpdateNewChatJoinRequest : Update
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Join request
+        /// </summary>
+        public ChatJoinRequest Request { get; set; }
+
+        /// <summary>
+        /// The invite link, which was used to send join request; may be null
+        /// </summary>
+        public ChatInviteLink InviteLink { get; set; }
 
     }
 
@@ -16164,7 +17151,7 @@ namespace TDLibCore.Api
         public string Path { get; set; }
 
         /// <summary>
-        /// The maximum size of the file to where the internal TDLib log is written before the file will be auto-rotated
+        /// The maximum size of the file to where the internal TDLib log is written before the file will be auto-rotated, in bytes
         /// </summary>
         public long MaxFileSize { get; set; }
 
@@ -16303,7 +17290,7 @@ namespace TDLibCore.Api
     public partial class SetTdlibParameters : Function<Ok>
     {
         /// <summary>
-        /// Parameters
+        /// Parameters for TDLib initialization
         /// </summary>
         public TdlibParameters Parameters { get; set; }
 
@@ -16332,14 +17319,14 @@ namespace TDLibCore.Api
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Settings for the authentication of the user's phone number
+        /// Settings for the authentication of the user's phone number; pass null to use default settings
         /// </summary>
         public PhoneNumberAuthenticationSettings Settings { get; set; }
 
     }
 
     /// <summary>
-    /// Re-sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode and the next_code_type of the result is not null
+    /// Re-sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null and the server-specified timeout has passed
     /// </summary>
     public partial class ResendAuthenticationCode : Function<Ok>
     {
@@ -16365,7 +17352,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// List of user identifiers of other users currently using the application
         /// </summary>
-        public int[] OtherUserIds { get; set; }
+        public long[] OtherUserIds { get; set; }
 
     }
 
@@ -16406,6 +17393,18 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Checks whether a password recovery code sent to an email address is valid. Works only when the current authorization state is authorizationStateWaitPassword
+    /// </summary>
+    public partial class CheckAuthenticationPasswordRecoveryCode : Function<Ok>
+    {
+        /// <summary>
+        /// Recovery code to check
+        /// </summary>
+        public string RecoveryCode { get; set; }
+
+    }
+
+    /// <summary>
     /// Recovers the password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
     /// </summary>
     public partial class RecoverAuthenticationPassword : Function<Ok>
@@ -16414,6 +17413,16 @@ namespace TDLibCore.Api
         /// Recovery code to check
         /// </summary>
         public string RecoveryCode { get; set; }
+
+        /// <summary>
+        /// New password of the user; may be empty to remove the password
+        /// </summary>
+        public string NewPassword { get; set; }
+
+        /// <summary>
+        /// New password hint; may be empty
+        /// </summary>
+        public string NewHint { get; set; }
 
     }
 
@@ -16489,7 +17498,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Changes the password for the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+    /// Changes the password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
     /// </summary>
     public partial class SetPassword : Function<PasswordState>
     {
@@ -16509,7 +17518,7 @@ namespace TDLibCore.Api
         public string NewHint { get; set; }
 
         /// <summary>
-        /// Pass true if the recovery email address should be changed
+        /// Pass true if the recovery email address must be changed
         /// </summary>
         public bool SetRecoveryEmailAddress { get; set; }
 
@@ -16569,14 +17578,26 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Requests to send a password recovery code to an email address that was previously set up
+    /// Requests to send a 2-step verification password recovery code to an email address that was previously set up
     /// </summary>
     public partial class RequestPasswordRecovery : Function<EmailAddressAuthenticationCodeInfo>
     {
     }
 
     /// <summary>
-    /// Recovers the password using a recovery code sent to an email address that was previously set up
+    /// Checks whether a 2-step verification password recovery code sent to an email address is valid
+    /// </summary>
+    public partial class CheckPasswordRecoveryCode : Function<Ok>
+    {
+        /// <summary>
+        /// Recovery code to check
+        /// </summary>
+        public string RecoveryCode { get; set; }
+
+    }
+
+    /// <summary>
+    /// Recovers the 2-step verification password using a recovery code sent to an email address that was previously set up
     /// </summary>
     public partial class RecoverPassword : Function<PasswordState>
     {
@@ -16585,6 +17606,30 @@ namespace TDLibCore.Api
         /// </summary>
         public string RecoveryCode { get; set; }
 
+        /// <summary>
+        /// New password of the user; may be empty to remove the password
+        /// </summary>
+        public string NewPassword { get; set; }
+
+        /// <summary>
+        /// New password hint; may be empty
+        /// </summary>
+        public string NewHint { get; set; }
+
+    }
+
+    /// <summary>
+    /// Removes 2-step verification password without previous password and access to recovery email address. The password can't be reset immediately and the request needs to be repeated after the specified time
+    /// </summary>
+    public partial class ResetPassword : Function<ResetPasswordResult>
+    {
+    }
+
+    /// <summary>
+    /// Cancels reset of 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
+    /// </summary>
+    public partial class CancelPasswordReset : Function<Ok>
+    {
     }
 
     /// <summary>
@@ -16598,7 +17643,7 @@ namespace TDLibCore.Api
         public string Password { get; set; }
 
         /// <summary>
-        /// Time during which the temporary password will be valid, in seconds; should be between 60 and 86400
+        /// Time during which the temporary password will be valid, in seconds; must be between 60 and 86400
         /// </summary>
         public int ValidFor { get; set; }
 
@@ -16626,7 +17671,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -16638,7 +17683,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -16650,7 +17695,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int BasicGroupId { get; set; }
+        public long BasicGroupId { get; set; }
 
     }
 
@@ -16662,7 +17707,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int BasicGroupId { get; set; }
+        public long BasicGroupId { get; set; }
 
     }
 
@@ -16674,7 +17719,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
     }
 
@@ -16686,7 +17731,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
     }
 
@@ -16759,7 +17804,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the message reply to which to get
+        /// Identifier of the reply message
         /// </summary>
         public long MessageId { get; set; }
 
@@ -16834,6 +17879,23 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Returns viewers of a recent outgoing message in a basic group or a supergroup chat. For video notes and voice notes only users, opened content of the message, are returned. The method can be called if message.can_get_viewers == true
+    /// </summary>
+    public partial class GetMessageViewers : Function<Users>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Identifier of the message
+        /// </summary>
+        public long MessageId { get; set; }
+
+    }
+
+    /// <summary>
     /// Returns information about a file; this is an offline request
     /// </summary>
     public partial class GetFile : Function<File>
@@ -16856,34 +17918,41 @@ namespace TDLibCore.Api
         public string RemoteFileId { get; set; }
 
         /// <summary>
-        /// File type, if known
+        /// File type; pass null if unknown
         /// </summary>
         public FileType FileType { get; set; }
 
     }
 
     /// <summary>
-    /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). -For optimal performance the number of returned chats is chosen by the library
+    /// Loads more chats from a chat list. The loaded chats and their positions in the chat list will be sent through updates. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. Returns a 404 error if all chats have been loaded
     /// </summary>
-    public partial class GetChats : Function<Chats>
+    public partial class LoadChats : Function<Ok>
     {
         /// <summary>
-        /// The chat list in which to return chats
+        /// The chat list in which to load chats; pass null to load chats from the main chat list
         /// </summary>
         public ChatList ChatList { get; set; }
 
         /// <summary>
-        /// Chat order to return chats from
+        /// The maximum number of chats to be loaded. For optimal performance, the number of loaded chats is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached
         /// </summary>
-        public long OffsetOrder { get; set; }
+        public int Limit { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
+    /// </summary>
+    public partial class GetChats : Function<Chats>
+    {
+        /// <summary>
+        /// The chat list in which to return chats; pass null to get chats from the main chat list
+        /// </summary>
+        public ChatList ChatList { get; set; }
 
         /// <summary>
-        /// Chat identifier to return chats from
-        /// </summary>
-        public long OffsetChatId { get; set; }
-
-        /// <summary>
-        /// The maximum number of chats to be returned. It is possible that fewer chats than the limit are returned even if the end of the list is not reached
+        /// The maximum number of chats to be returned
         /// </summary>
         public int Limit { get; set; }
 
@@ -16902,7 +17971,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Searches public chats by looking for specified query in their username and title. Currently only private chats, supergroups and channels can be public. Returns a meaningful number of results. Returns nothing if the length of the searched username prefix is less than 5. Excludes private chats with contacts and chats from the chat list from the results
+    /// Searches public chats by looking for specified query in their username and title. Currently only private chats, supergroups and channels can be public. Returns a meaningful number of results. -Excludes private chats with contacts and chats from the chat list from the results
     /// </summary>
     public partial class SearchPublicChats : Function<Chats>
     {
@@ -16919,7 +17988,7 @@ namespace TDLibCore.Api
     public partial class SearchChats : Function<Chats>
     {
         /// <summary>
-        /// Query to search for. If the query is empty, returns up to 20 recently found chats
+        /// Query to search for. If the query is empty, returns up to 50 recently found chats
         /// </summary>
         public string Query { get; set; }
 
@@ -16948,7 +18017,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats
+    /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request must be sent again every 25 seconds with adjusted location to not miss new chats
     /// </summary>
     public partial class SearchChatsNearby : Function<ChatsNearby>
     {
@@ -17025,12 +18094,24 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Returns recently opened chats, this is an offline request. Returns chats in the order of last opening
+    /// </summary>
+    public partial class GetRecentlyOpenedChats : Function<Chats>
+    {
+        /// <summary>
+        /// The maximum number of chats to be returned
+        /// </summary>
+        public int Limit { get; set; }
+
+    }
+
+    /// <summary>
     /// Checks whether a username can be set for a chat
     /// </summary>
     public partial class CheckChatUsername : Function<CheckChatUsernameResult>
     {
         /// <summary>
-        /// Chat identifier; should be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if chat is being created
+        /// Chat identifier; must be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if the chat is being created
         /// </summary>
         public long ChatId { get; set; }
 
@@ -17087,7 +18168,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Chat identifier starting from which to return chats; use 0 for the first request
@@ -17102,7 +18183,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). -For optimal performance the number of returned messages is chosen by the library. This is an offline request if only_local is true
+    /// Returns messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). -For optimal performance, the number of returned messages is chosen by TDLib. This is an offline request if only_local is true
     /// </summary>
     public partial class GetChatHistory : Function<Messages>
     {
@@ -17122,7 +18203,7 @@ namespace TDLibCore.Api
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public int Limit { get; set; }
 
@@ -17134,7 +18215,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns messages in a message thread of a message. Can be used only if message.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup. -The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). For optimal performance the number of returned messages is chosen by the library
+    /// Returns messages in a message thread of a message. Can be used only if message.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup. -The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public partial class GetMessageThreadHistory : Function<Messages>
     {
@@ -17159,14 +18240,14 @@ namespace TDLibCore.Api
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message thread history has not been reached
+        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public int Limit { get; set; }
 
     }
 
     /// <summary>
-    /// Deletes all messages in the chat. Use Chat.can_be_deleted_only_for_self and Chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
+    /// Deletes all messages in the chat. Use chat.can_be_deleted_only_for_self and chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
     /// </summary>
     public partial class DeleteChatHistory : Function<Ok>
     {
@@ -17176,7 +18257,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Pass true if the chat should be removed from the chat list
+        /// Pass true if the chat needs to be removed from the chat list
         /// </summary>
         public bool RemoveFromChatList { get; set; }
 
@@ -17200,7 +18281,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query -(searchSecretMessages should be used instead), or without an enabled message database. For optimal performance the number of returned messages is chosen by the library
+    /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query -(searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
     /// </summary>
     public partial class SearchChatMessages : Function<Messages>
     {
@@ -17215,7 +18296,7 @@ namespace TDLibCore.Api
         public string Query { get; set; }
 
         /// <summary>
-        /// If not null, only messages sent by the specified sender will be returned. Not supported in secret chats
+        /// Sender of messages to search for; pass null to search for messages from any sender. Not supported in secret chats
         /// </summary>
         public MessageSender Sender { get; set; }
 
@@ -17230,12 +18311,12 @@ namespace TDLibCore.Api
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public int Limit { get; set; }
 
         /// <summary>
-        /// Filter for message content in the search results
+        /// Additional filter for messages to search; pass null to search for all messages
         /// </summary>
         public SearchMessagesFilter Filter { get; set; }
 
@@ -17247,7 +18328,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)). -For optimal performance the number of returned messages is chosen by the library
+    /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)). -For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
     /// </summary>
     public partial class SearchMessages : Function<Messages>
     {
@@ -17262,7 +18343,7 @@ namespace TDLibCore.Api
         public string Query { get; set; }
 
         /// <summary>
-        /// The date of the message starting from which the results should be fetched. Use 0 or any date in the future to get results from the last message
+        /// The date of the message starting from which the results need to be fetched. Use 0 or any date in the future to get results from the last message
         /// </summary>
         public int OffsetDate { get; set; }
 
@@ -17277,12 +18358,12 @@ namespace TDLibCore.Api
         public long OffsetMessageId { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+        /// The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public int Limit { get; set; }
 
         /// <summary>
-        /// Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function
+        /// Additional filter for messages to search; pass null to search for all messages. Filters searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function
         /// </summary>
         public SearchMessagesFilter Filter { get; set; }
 
@@ -17299,7 +18380,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance the number of returned messages is chosen by the library
+    /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public partial class SearchSecretMessages : Function<FoundMessages>
     {
@@ -17309,7 +18390,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Query to search for. If empty, searchChatMessages should be used instead
+        /// Query to search for. If empty, searchChatMessages must be used instead
         /// </summary>
         public string Query { get; set; }
 
@@ -17319,19 +18400,19 @@ namespace TDLibCore.Api
         public string Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+        /// The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public int Limit { get; set; }
 
         /// <summary>
-        /// A filter for message content in the search results
+        /// Additional filter for messages to search; pass null to search for all messages
         /// </summary>
         public SearchMessagesFilter Filter { get; set; }
 
     }
 
     /// <summary>
-    /// Searches for call messages. Returns the results in reverse chronological order (i. e., in order of decreasing message_id). For optimal performance the number of returned messages is chosen by the library
+    /// Searches for call messages. Returns the results in reverse chronological order (i. e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public partial class SearchCallMessages : Function<Messages>
     {
@@ -17341,7 +18422,7 @@ namespace TDLibCore.Api
         public long FromMessageId { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+        /// The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public int Limit { get; set; }
 
@@ -17382,7 +18463,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns all active live locations that should be updated by the application. The list is persistent across application restarts only if the message database is used
+    /// Returns all active live locations that need to be updated by the application. The list is persistent across application restarts only if the message database is used
     /// </summary>
     public partial class GetActiveLiveLocationMessages : Function<Messages>
     {
@@ -17402,6 +18483,55 @@ namespace TDLibCore.Api
         /// Point in time (Unix timestamp) relative to which to search for messages
         /// </summary>
         public int Date { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns sparse positions of messages of the specified type in the chat to be used for shared media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). -Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
+    /// </summary>
+    public partial class GetChatSparseMessagePositions : Function<MessagePositions>
+    {
+        /// <summary>
+        /// Identifier of the chat in which to return information about message positions
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Filter for message content. Filters searchMessagesFilterEmpty, searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention and searchMessagesFilterUnreadMention are unsupported in this function
+        /// </summary>
+        public SearchMessagesFilter Filter { get; set; }
+
+        /// <summary>
+        /// The message identifier from which to return information about message positions
+        /// </summary>
+        public long FromMessageId { get; set; }
+
+        /// <summary>
+        /// The expected number of message positions to be returned; 50-2000. A smaller number of positions can be returned, if there are not enough appropriate messages
+        /// </summary>
+        public int Limit { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns information about the next messages of the specified type in the chat splitted by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
+    /// </summary>
+    public partial class GetChatMessageCalendar : Function<MessageCalendar>
+    {
+        /// <summary>
+        /// Identifier of the chat in which to return information about messages
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Filter for message content. Filters searchMessagesFilterEmpty, searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention and searchMessagesFilterUnreadMention are unsupported in this function
+        /// </summary>
+        public SearchMessagesFilter Filter { get; set; }
+
+        /// <summary>
+        /// The message identifier from which to return information about messages; use 0 to get results from the last message
+        /// </summary>
+        public long FromMessageId { get; set; }
 
     }
 
@@ -17440,7 +18570,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns forwarded copies of a channel message to different public channels. For optimal performance the number of returned messages is chosen by the library
+    /// Returns forwarded copies of a channel message to different public channels. For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public partial class GetMessagePublicForwards : Function<FoundMessages>
     {
@@ -17460,9 +18590,38 @@ namespace TDLibCore.Api
         public string Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. Fewer messages may be returned than specified by the limit, even if the end of the list has not been reached
+        /// The maximum number of messages to be returned; must be positive and can't be greater than 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public int Limit { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns sponsored messages to be shown in a chat; for channel chats only
+    /// </summary>
+    public partial class GetChatSponsoredMessages : Function<SponsoredMessages>
+    {
+        /// <summary>
+        /// Identifier of the chat
+        /// </summary>
+        public long ChatId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Informs TDLib that a sponsored message was viewed by the user
+    /// </summary>
+    public partial class ViewSponsoredMessage : Function<Ok>
+    {
+        /// <summary>
+        /// Identifier of the chat with the sponsored message
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// The identifier of the sponsored message being viewed
+        /// </summary>
+        public int SponsoredMessageId { get; set; }
 
     }
 
@@ -17501,7 +18660,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request
+    /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels, or if message.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request
     /// </summary>
     public partial class GetMessageLink : Function<MessageLink>
     {
@@ -17514,6 +18673,11 @@ namespace TDLibCore.Api
         /// Identifier of the message
         /// </summary>
         public long MessageId { get; set; }
+
+        /// <summary>
+        /// If not 0, timestamp from which the video/audio/video note/voice note playing must start, in seconds. The media can be in the message content or in its web page preview
+        /// </summary>
+        public int MediaTimestamp { get; set; }
 
         /// <summary>
         /// Pass true to create a link for the whole media album
@@ -17550,12 +18714,12 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns information about a public or private message link
+    /// Returns information about a public or private message link. Can be called for any internal link of the type internalLinkTypeMessage
     /// </summary>
     public partial class GetMessageLinkInfo : Function<MessageLinkInfo>
     {
         /// <summary>
-        /// The message link in the format "https://t.me/c/...", or "tg://privatepost?...", or "https://t.me/username/...", or "tg://resolve?..."
+        /// The message link
         /// </summary>
         public string Url { get; set; }
 
@@ -17582,12 +18746,12 @@ namespace TDLibCore.Api
         public long ReplyToMessageId { get; set; }
 
         /// <summary>
-        /// Options to be used to send the message
+        /// Options to be used to send the message; pass null to use default options
         /// </summary>
         public MessageSendOptions Options { get; set; }
 
         /// <summary>
-        /// Markup for replying to the message; for bots only
+        /// Markup for replying to the message; pass null if none; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -17619,7 +18783,7 @@ namespace TDLibCore.Api
         public long ReplyToMessageId { get; set; }
 
         /// <summary>
-        /// Options to be used to send the messages
+        /// Options to be used to send the messages; pass null to use default options
         /// </summary>
         public MessageSendOptions Options { get; set; }
 
@@ -17638,7 +18802,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the bot
         /// </summary>
-        public int BotUserId { get; set; }
+        public long BotUserId { get; set; }
 
         /// <summary>
         /// Identifier of the target chat
@@ -17673,7 +18837,7 @@ namespace TDLibCore.Api
         public long ReplyToMessageId { get; set; }
 
         /// <summary>
-        /// Options to be used to send the message
+        /// Options to be used to send the message; pass null to use default options
         /// </summary>
         public MessageSendOptions Options { get; set; }
 
@@ -17715,19 +18879,24 @@ namespace TDLibCore.Api
         public long[] MessageIds { get; set; }
 
         /// <summary>
-        /// Options to be used to send the messages
+        /// Options to be used to send the messages; pass null to use default options
         /// </summary>
         public MessageSendOptions Options { get; set; }
 
         /// <summary>
-        /// True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat
+        /// If true, content of the messages will be copied without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
         /// </summary>
         public bool SendCopy { get; set; }
 
         /// <summary>
-        /// True, if media caption of message copies needs to be removed. Ignored if send_copy is false
+        /// If true, media caption of message copies will be removed. Ignored if send_copy is false
         /// </summary>
         public bool RemoveCaption { get; set; }
+
+        /// <summary>
+        /// If true, messages will not be forwarded and instead fake messages will be returned
+        /// </summary>
+        public bool OnlyPreview { get; set; }
 
     }
 
@@ -17771,7 +18940,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// The sender sender of the message
+        /// The sender of the message
         /// </summary>
         public MessageSender Sender { get; set; }
 
@@ -17827,7 +18996,34 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Deletes all messages between the specified dates in a chat. Supported only for private chats and basic groups. Messages sent in the last 30 seconds will not be deleted
+    /// </summary>
+    public partial class DeleteChatMessagesByDate : Function<Ok>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// The minimum date of the messages to delete
+        /// </summary>
+        public int MinDate { get; set; }
+
+        /// <summary>
+        /// The maximum date of the messages to delete
+        /// </summary>
+        public int MaxDate { get; set; }
+
+        /// <summary>
+        /// Pass true to try to delete chat messages for all users; private chats only
+        /// </summary>
+        public bool Revoke { get; set; }
 
     }
 
@@ -17847,12 +19043,12 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup; for bots only
+        /// The new message reply markup; pass null if none; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New text content of the message. Should be of type inputMessageText
+        /// New text content of the message. Must be of type inputMessageText
         /// </summary>
         public InputMessageContent InputMessageContent { get; set; }
 
@@ -17874,12 +19070,12 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup; for bots only
+        /// The new message reply markup; pass null if none; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New location content of the message; may be null. Pass null to stop sharing the live location
+        /// New location content of the message; pass null to stop sharing the live location
         /// </summary>
         public Location Location { get; set; }
 
@@ -17896,7 +19092,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Edits the content of a message with an animation, an audio, a document, a photo or a video. The media in the message can't be replaced if the message was set to self-destruct. Media can't be replaced by self-destructing media. Media in an album can be edited only to contain a photo or a video. Returns the edited message after the edit is completed on the server side
+    /// Edits the content of a message with an animation, an audio, a document, a photo or a video, including message caption. If only the caption needs to be edited, use editMessageCaption instead. -The media can't be edited if the message was set to self-destruct or to a self-destructing media. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa. Returns the edited message after the edit is completed on the server side
     /// </summary>
     public partial class EditMessageMedia : Function<Message>
     {
@@ -17911,7 +19107,7 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup; for bots only
+        /// The new message reply markup; pass null if none; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -17938,12 +19134,12 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup; for bots only
+        /// The new message reply markup; pass null if none; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New message content caption; 0-GetOption("message_caption_length_max") characters
+        /// New message content caption; 0-GetOption("message_caption_length_max") characters; pass null to remove caption
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -17965,7 +19161,7 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup
+        /// The new message reply markup; pass null if none
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -17982,12 +19178,12 @@ namespace TDLibCore.Api
         public string InlineMessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup
+        /// The new message reply markup; pass null if none
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New text content of the message. Should be of type inputMessageText
+        /// New text content of the message. Must be of type inputMessageText
         /// </summary>
         public InputMessageContent InputMessageContent { get; set; }
 
@@ -18004,12 +19200,12 @@ namespace TDLibCore.Api
         public string InlineMessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup
+        /// The new message reply markup; pass null if none
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New location content of the message; may be null. Pass null to stop sharing the live location
+        /// New location content of the message; pass null to stop sharing the live location
         /// </summary>
         public Location Location { get; set; }
 
@@ -18036,7 +19232,7 @@ namespace TDLibCore.Api
         public string InlineMessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup; for bots only
+        /// The new message reply markup; pass null if none; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -18058,12 +19254,12 @@ namespace TDLibCore.Api
         public string InlineMessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup
+        /// The new message reply markup; pass null if none
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New message content caption; 0-GetOption("message_caption_length_max") characters
+        /// New message content caption; pass null to remove caption; 0-GetOption("message_caption_length_max") characters
         /// </summary>
         public FormattedText Caption { get; set; }
 
@@ -18080,7 +19276,7 @@ namespace TDLibCore.Api
         public string InlineMessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup
+        /// The new message reply markup; pass null if none
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -18102,7 +19298,7 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The new message scheduling state. Pass null to send the message immediately
+        /// The new message scheduling state; pass null to send the message immediately
         /// </summary>
         public MessageSchedulingState SchedulingState { get; set; }
 
@@ -18271,7 +19467,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns users voted for the specified option in a non-anonymous polls. For the optimal performance the number of returned users is chosen by the library
+    /// Returns users voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
     /// </summary>
     public partial class GetPollVoters : Function<Users>
     {
@@ -18296,7 +19492,7 @@ namespace TDLibCore.Api
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of users to be returned; must be positive and can't be greater than 50. Fewer users may be returned than specified by the limit, even if the end of the voter list has not been reached
+        /// The maximum number of users to be returned; must be positive and can't be greater than 50. For optimal performance, the number of returned users is chosen by TDLib and can be smaller than the specified limit, even if the end of the voter list has not been reached
         /// </summary>
         public int Limit { get; set; }
 
@@ -18318,7 +19514,7 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The new message reply markup; for bots only
+        /// The new message reply markup; pass null if none; for bots only
         /// </summary>
         public ReplyMarkup ReplyMarkup { get; set; }
 
@@ -18354,7 +19550,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Button identifier
         /// </summary>
-        public int ButtonId { get; set; }
+        public long ButtonId { get; set; }
 
     }
 
@@ -18376,7 +19572,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Button identifier
         /// </summary>
-        public int ButtonId { get; set; }
+        public long ButtonId { get; set; }
 
         /// <summary>
         /// True, if the user allowed the bot to send them messages
@@ -18393,7 +19589,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The identifier of the target bot
         /// </summary>
-        public int BotUserId { get; set; }
+        public long BotUserId { get; set; }
 
         /// <summary>
         /// Identifier of the chat where the query was sent
@@ -18401,7 +19597,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Location of the user, only if needed
+        /// Location of the user; pass null if unknown or the bot doesn't need user's location
         /// </summary>
         public Location UserLocation { get; set; }
 
@@ -18448,7 +19644,7 @@ namespace TDLibCore.Api
         public string NextOffset { get; set; }
 
         /// <summary>
-        /// If non-empty, this text should be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter
+        /// If non-empty, this text must be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter
         /// </summary>
         public string SwitchPmText { get; set; }
 
@@ -18497,7 +19693,7 @@ namespace TDLibCore.Api
         public string Text { get; set; }
 
         /// <summary>
-        /// If true, an alert should be shown to the user instead of a toast notification
+        /// If true, an alert must be shown to the user instead of a toast notification
         /// </summary>
         public bool ShowAlert { get; set; }
 
@@ -18568,14 +19764,14 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// True, if the message should be edited
+        /// True, if the message needs to be edited
         /// </summary>
         public bool EditMessage { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The new score
@@ -18600,14 +19796,14 @@ namespace TDLibCore.Api
         public string InlineMessageId { get; set; }
 
         /// <summary>
-        /// True, if the message should be edited
+        /// True, if the message needs to be edited
         /// </summary>
         public bool EditMessage { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The new score
@@ -18639,7 +19835,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -18656,12 +19852,12 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
     /// <summary>
-    /// Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup will be changed
+    /// Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup is changed
     /// </summary>
     public partial class DeleteChatReplyMarkup : Function<Ok>
     {
@@ -18693,7 +19889,7 @@ namespace TDLibCore.Api
         public long MessageThreadId { get; set; }
 
         /// <summary>
-        /// The action description
+        /// The action description; pass null to cancel the currently active action
         /// </summary>
         public ChatAction Action { get; set; }
 
@@ -18744,7 +19940,7 @@ namespace TDLibCore.Api
         public long[] MessageIds { get; set; }
 
         /// <summary>
-        /// True, if messages in closed chats should be marked as read by the request
+        /// True, if messages in closed chats must be marked as read by the request
         /// </summary>
         public bool ForceRead { get; set; }
 
@@ -18768,12 +19964,41 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns information about an action to be done when the current user clicks an HTTP link. This method can be used to automatically authorize the current user on a website. Don't use this method for links from secret chats if link preview is disabled in secret chats
+    /// Informs TDLib that a message with an animated emoji was clicked by the user. Returns a big animated sticker to be played or a 404 error if usual animation needs to be played
+    /// </summary>
+    public partial class ClickAnimatedEmojiMessage : Function<Sticker>
+    {
+        /// <summary>
+        /// Chat identifier of the message
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Identifier of the clicked message
+        /// </summary>
+        public long MessageId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns information about the type of an internal link. Returns a 404 error if the link is not internal. Can be called before authorization
+    /// </summary>
+    public partial class GetInternalLinkType : Function<InternalLinkType>
+    {
+        /// <summary>
+        /// The link
+        /// </summary>
+        public string Link { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns information about an action to be done when the current user clicks an external link. Don't use this method for links from secret chats if web page preview is disabled in secret chats
     /// </summary>
     public partial class GetExternalLinkInfo : Function<LoginUrlInfo>
     {
         /// <summary>
-        /// The HTTP link
+        /// The link
         /// </summary>
         public string Link { get; set; }
 
@@ -18816,7 +20041,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
@@ -18833,7 +20058,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Basic group identifier
         /// </summary>
-        public int BasicGroupId { get; set; }
+        public long BasicGroupId { get; set; }
 
         /// <summary>
         /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
@@ -18850,7 +20075,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Supergroup or channel identifier
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
@@ -18879,7 +20104,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifiers of users to be added to the basic group
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
         /// <summary>
         /// Title of the new basic group; 1-128 characters
@@ -18909,7 +20134,7 @@ namespace TDLibCore.Api
         public string Description { get; set; }
 
         /// <summary>
-        /// Chat location if a location-based supergroup is being created
+        /// Chat location if a location-based supergroup is being created; pass null to create an ordinary supergroup chat
         /// </summary>
         public ChatLocation Location { get; set; }
 
@@ -18928,7 +20153,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the target user
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -19085,7 +20310,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New chat photo. Pass null to delete the chat photo
+        /// New chat photo; pass null to delete the chat photo
         /// </summary>
         public InputChatPhoto Photo { get; set; }
 
@@ -19102,7 +20327,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New TTL value, in seconds; must be one of 0, 86400, 604800 unless chat is secret
+        /// New TTL value, in seconds; must be one of 0, 86400, 7 * 86400, or 31 * 86400 unless the chat is secret
         /// </summary>
         public int Ttl { get; set; }
 
@@ -19126,6 +20351,23 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Changes the chat theme. Supported only in private and secret chats
+    /// </summary>
+    public partial class SetChatTheme : Function<Ok>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Name of the new chat theme; pass an empty string to return the default theme
+        /// </summary>
+        public string ThemeName { get; set; }
+
+    }
+
+    /// <summary>
     /// Changes the draft message in a chat
     /// </summary>
     public partial class SetChatDraftMessage : Function<Ok>
@@ -19141,7 +20383,7 @@ namespace TDLibCore.Api
         public long MessageThreadId { get; set; }
 
         /// <summary>
-        /// New draft message; may be null
+        /// New draft message; pass null to remove the draft
         /// </summary>
         public DraftMessage DraftMessage { get; set; }
 
@@ -19277,7 +20519,7 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New slow mode delay for the chat; must be one of 0, 10, 30, 60, 300, 900, 3600
+        /// New slow mode delay for the chat, in seconds; must be one of 0, 10, 30, 60, 300, 900, 3600
         /// </summary>
         public int SlowModeDelay { get; set; }
 
@@ -19299,7 +20541,7 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats
+        /// True, if there must be no notification about the pinned message. Notifications are always disabled in channels and private chats
         /// </summary>
         public bool DisableNotification { get; set; }
 
@@ -19376,10 +20618,10 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
-        /// The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels
+        /// The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels, or if the added user is a bot
         /// </summary>
         public int ForwardLimit { get; set; }
 
@@ -19398,12 +20640,12 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
     /// <summary>
-    /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership
+    /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead. Use addChatMember or banChatMember if some additional parameters needs to be passed
     /// </summary>
     public partial class SetChatMemberStatus : Function<Ok>
     {
@@ -19445,7 +20687,7 @@ namespace TDLibCore.Api
         public int BannedUntilDate { get; set; }
 
         /// <summary>
-        /// Pass true to delete all messages in the chat for the user. Always true for supergroups and channels
+        /// Pass true to delete all messages in the chat for the user that is being removed. Always true for supergroups and channels
         /// </summary>
         public bool RevokeMessages { get; set; }
 
@@ -19471,7 +20713,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The password of the current user
@@ -19513,12 +20755,12 @@ namespace TDLibCore.Api
         public string Query { get; set; }
 
         /// <summary>
-        /// The maximum number of users to be returned
+        /// The maximum number of users to be returned; up to 200
         /// </summary>
         public int Limit { get; set; }
 
         /// <summary>
-        /// The type of users to return. By default, chatMembersFilterMembers
+        /// The type of users to search for; pass null to search among all chat members
         /// </summary>
         public ChatMembersFilter Filter { get; set; }
 
@@ -19554,7 +20796,7 @@ namespace TDLibCore.Api
     public partial class GetChatNotificationSettingsExceptions : Function<Chats>
     {
         /// <summary>
-        /// If specified, only chats from the specified scope will be returned
+        /// If specified, only chats from the scope will be returned; pass null to return chats from all scopes
         /// </summary>
         public NotificationSettingsScope Scope { get; set; }
 
@@ -19656,24 +20898,24 @@ namespace TDLibCore.Api
         public int Priority { get; set; }
 
         /// <summary>
-        /// The starting position from which the file should be downloaded
+        /// The starting position from which the file needs to be downloaded
         /// </summary>
         public int Offset { get; set; }
 
         /// <summary>
-        /// Number of bytes which should be downloaded starting from the "offset" position before the download will be automatically cancelled; use 0 to download without a limit
+        /// Number of bytes which need to be downloaded starting from the "offset" position before the download will be automatically canceled; use 0 to download without a limit
         /// </summary>
         public int Limit { get; set; }
 
         /// <summary>
-        /// If false, this request returns file state just after the download has been started. If true, this request returns file state only after -the download has succeeded, has failed, has been cancelled or a new downloadFile request with different offset/limit parameters was sent
+        /// If false, this request returns file state just after the download has been started. If true, this request returns file state only after -the download has succeeded, has failed, has been canceled or a new downloadFile request with different offset/limit parameters was sent
         /// </summary>
         public bool Synchronous { get; set; }
 
     }
 
     /// <summary>
-    /// Returns file downloaded prefix size from a given offset
+    /// Returns file downloaded prefix size from a given offset, in bytes
     /// </summary>
     public partial class GetFileDownloadedPrefixSize : Function<Count>
     {
@@ -19683,7 +20925,7 @@ namespace TDLibCore.Api
         public int FileId { get; set; }
 
         /// <summary>
-        /// Offset from which downloaded prefix size should be calculated
+        /// Offset from which downloaded prefix size needs to be calculated
         /// </summary>
         public int Offset { get; set; }
 
@@ -19707,6 +20949,23 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Returns suggested name for saving a file in a given directory
+    /// </summary>
+    public partial class GetSuggestedFileName : Function<Text>
+    {
+        /// <summary>
+        /// Identifier of the file
+        /// </summary>
+        public int FileId { get; set; }
+
+        /// <summary>
+        /// Directory in which the file is supposed to be saved
+        /// </summary>
+        public string Directory { get; set; }
+
+    }
+
+    /// <summary>
     /// Asynchronously uploads a file to the cloud without sending it in a message. updateFile will be used to notify about upload progress and successful completion of the upload. The file will not have a persistent remote identifier until it will be sent in a message
     /// </summary>
     public partial class UploadFile : Function<File>
@@ -19717,7 +20976,7 @@ namespace TDLibCore.Api
         public InputFile File { get; set; }
 
         /// <summary>
-        /// File type
+        /// File type; pass null if unknown
         /// </summary>
         public FileType FileType { get; set; }
 
@@ -19795,7 +21054,7 @@ namespace TDLibCore.Api
         public long GenerationId { get; set; }
 
         /// <summary>
-        /// If set, means that file generation has failed and should be terminated
+        /// If passed, the file generation has failed and must be terminated; pass null if the file generation succeeded
         /// </summary>
         public Error Error { get; set; }
 
@@ -19904,6 +21163,11 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
+        /// Invite link name; 0-32 characters
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// Point in time (Unix timestamp) when the link will expire; pass 0 if never
         /// </summary>
         public int ExpireDate { get; set; }
@@ -19912,6 +21176,11 @@ namespace TDLibCore.Api
         /// The maximum number of chat members that can join the chat by the link simultaneously; 0-99999; pass 0 if not limited
         /// </summary>
         public int MemberLimit { get; set; }
+
+        /// <summary>
+        /// True, if the link only creates join request. If true, member_limit must not be specified
+        /// </summary>
+        public bool CreatesJoinRequest { get; set; }
 
     }
 
@@ -19931,6 +21200,11 @@ namespace TDLibCore.Api
         public string InviteLink { get; set; }
 
         /// <summary>
+        /// Invite link name; 0-32 characters
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// Point in time (Unix timestamp) when the link will expire; pass 0 if never
         /// </summary>
         public int ExpireDate { get; set; }
@@ -19939,6 +21213,11 @@ namespace TDLibCore.Api
         /// The maximum number of chat members that can join the chat by the link simultaneously; 0-99999; pass 0 if not limited
         /// </summary>
         public int MemberLimit { get; set; }
+
+        /// <summary>
+        /// True, if the link only creates join request. If true, member_limit must not be specified
+        /// </summary>
+        public bool CreatesJoinRequest { get; set; }
 
     }
 
@@ -19984,7 +21263,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of a chat administrator. Must be an identifier of the current user for non-owner
         /// </summary>
-        public int CreatorUserId { get; set; }
+        public long CreatorUserId { get; set; }
 
         /// <summary>
         /// Pass true if revoked links needs to be returned instead of active or expired
@@ -20002,7 +21281,7 @@ namespace TDLibCore.Api
         public string OffsetInviteLink { get; set; }
 
         /// <summary>
-        /// The maximum number of invite links to return
+        /// The maximum number of invite links to return; up to 100
         /// </summary>
         public int Limit { get; set; }
 
@@ -20024,12 +21303,12 @@ namespace TDLibCore.Api
         public string InviteLink { get; set; }
 
         /// <summary>
-        /// A chat member from which to return next chat members; use null to get results from the beginning
+        /// A chat member from which to return next chat members; pass null to get results from the beginning
         /// </summary>
         public ChatInviteLinkMember OffsetMember { get; set; }
 
         /// <summary>
-        /// The maximum number of chat members to return
+        /// The maximum number of chat members to return; up to 100
         /// </summary>
         public int Limit { get; set; }
 
@@ -20082,7 +21361,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of a chat administrator, which links will be deleted. Must be an identifier of the current user for non-owner
         /// </summary>
-        public int CreatorUserId { get; set; }
+        public long CreatorUserId { get; set; }
 
     }
 
@@ -20092,7 +21371,7 @@ namespace TDLibCore.Api
     public partial class CheckChatInviteLink : Function<ChatInviteLinkInfo>
     {
         /// <summary>
-        /// Invite link to be checked; must have URL "t.me", "telegram.me", or "telegram.dog" and query beginning with "/joinchat/" or "/+"
+        /// Invite link to be checked
         /// </summary>
         public string InviteLink { get; set; }
 
@@ -20104,9 +21383,75 @@ namespace TDLibCore.Api
     public partial class JoinChatByInviteLink : Function<Chat>
     {
         /// <summary>
-        /// Invite link to import; must have URL "t.me", "telegram.me", or "telegram.dog" and query beginning with "/joinchat/" or "/+"
+        /// Invite link to use
         /// </summary>
         public string InviteLink { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns pending join requests in a chat
+    /// </summary>
+    public partial class GetChatJoinRequests : Function<ChatJoinRequests>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Invite link for which to return join requests. If empty, all join requests will be returned. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// </summary>
+        public string InviteLink { get; set; }
+
+        /// <summary>
+        /// A query to search for in the first names, last names and usernames of the users to return
+        /// </summary>
+        public string Query { get; set; }
+
+        /// <summary>
+        /// A chat join request from which to return next requests; pass null to get results from the beginning
+        /// </summary>
+        public ChatJoinRequest OffsetRequest { get; set; }
+
+        /// <summary>
+        /// The maximum number of chat join requests to return
+        /// </summary>
+        public int Limit { get; set; }
+
+    }
+
+    /// <summary>
+    /// Approves pending join request in a chat
+    /// </summary>
+    public partial class ApproveChatJoinRequest : Function<Ok>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Identifier of the user, which request will be approved
+        /// </summary>
+        public long UserId { get; set; }
+
+    }
+
+    /// <summary>
+    /// Declines pending join request in a chat
+    /// </summary>
+    public partial class DeclineChatJoinRequest : Function<Ok>
+    {
+        /// <summary>
+        /// Chat identifier
+        /// </summary>
+        public long ChatId { get; set; }
+
+        /// <summary>
+        /// Identifier of the user, which request will be declined
+        /// </summary>
+        public long UserId { get; set; }
 
     }
 
@@ -20118,10 +21463,10 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user to be called
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
-        /// Description of the call protocols supported by the application
+        /// The call protocols supported by the application
         /// </summary>
         public CallProtocol Protocol { get; set; }
 
@@ -20143,7 +21488,7 @@ namespace TDLibCore.Api
         public int CallId { get; set; }
 
         /// <summary>
-        /// Description of the call protocols supported by the application
+        /// The call protocols supported by the application
         /// </summary>
         public CallProtocol Protocol { get; set; }
 
@@ -20243,9 +21588,9 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns list of participant identifiers, which can be used to join voice chats in a chat
+    /// Returns list of participant identifiers, which can be used to join video chats in a chat
     /// </summary>
-    public partial class GetVoiceChatAvailableParticipants : Function<MessageSenders>
+    public partial class GetVideoChatAvailableParticipants : Function<MessageSenders>
     {
         /// <summary>
         /// Chat identifier
@@ -20255,9 +21600,9 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Changes default participant identifier, which can be used to join voice chats in a chat
+    /// Changes default participant identifier, which can be used to join video chats in a chat
     /// </summary>
-    public partial class SetVoiceChatDefaultParticipant : Function<Ok>
+    public partial class SetVideoChatDefaultParticipant : Function<Ok>
     {
         /// <summary>
         /// Chat identifier
@@ -20265,19 +21610,19 @@ namespace TDLibCore.Api
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Default group call participant identifier to join the voice chats
+        /// Default group call participant identifier to join the video chats
         /// </summary>
         public MessageSender DefaultParticipantId { get; set; }
 
     }
 
     /// <summary>
-    /// Creates a voice chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_voice_chats rights
+    /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats rights
     /// </summary>
-    public partial class CreateVoiceChat : Function<GroupCallId>
+    public partial class CreateVideoChat : Function<GroupCallId>
     {
         /// <summary>
-        /// Chat identifier, in which the voice chat will be created
+        /// Chat identifier, in which the video chat will be created
         /// </summary>
         public long ChatId { get; set; }
 
@@ -20287,7 +21632,7 @@ namespace TDLibCore.Api
         public string Title { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the voice chat immediately. The date must be at least 10 seconds and at most 8 days in the future
+        /// Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future
         /// </summary>
         public int StartDate { get; set; }
 
@@ -20335,9 +21680,9 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Joins an active group call
+    /// Joins an active group call. Returns join response payload for tgcalls
     /// </summary>
-    public partial class JoinGroupCall : Function<GroupCallJoinResponse>
+    public partial class JoinGroupCall : Function<Text>
     {
         /// <summary>
         /// Group call identifier
@@ -20345,19 +21690,19 @@ namespace TDLibCore.Api
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// Identifier of a group call participant, which will be used to join the call; voice chats only
+        /// Identifier of a group call participant, which will be used to join the call; pass null to join as self; video chats only
         /// </summary>
         public MessageSender ParticipantId { get; set; }
 
         /// <summary>
-        /// Group join payload; received from tgcalls
+        /// Caller audio channel synchronization source identifier; received from tgcalls
         /// </summary>
-        public GroupCallPayload Payload { get; set; }
+        public int AudioSourceId { get; set; }
 
         /// <summary>
-        /// Caller synchronization source identifier; received from tgcalls
+        /// Group call join payload; received from tgcalls
         /// </summary>
-        public int Source { get; set; }
+        public string Payload { get; set; }
 
         /// <summary>
         /// True, if the user's microphone is muted
@@ -20365,9 +21710,65 @@ namespace TDLibCore.Api
         public bool IsMuted { get; set; }
 
         /// <summary>
+        /// True, if the user's video is enabled
+        /// </summary>
+        public bool IsMyVideoEnabled { get; set; }
+
+        /// <summary>
         /// If non-empty, invite hash to be used to join the group call without being muted by administrators
         /// </summary>
         public string InviteHash { get; set; }
+
+    }
+
+    /// <summary>
+    /// Starts screen sharing in a joined group call. Returns join response payload for tgcalls
+    /// </summary>
+    public partial class StartGroupCallScreenSharing : Function<Text>
+    {
+        /// <summary>
+        /// Group call identifier
+        /// </summary>
+        public int GroupCallId { get; set; }
+
+        /// <summary>
+        /// Screen sharing audio channel synchronization source identifier; received from tgcalls
+        /// </summary>
+        public int AudioSourceId { get; set; }
+
+        /// <summary>
+        /// Group call join payload; received from tgcalls
+        /// </summary>
+        public string Payload { get; set; }
+
+    }
+
+    /// <summary>
+    /// Pauses or unpauses screen sharing in a joined group call
+    /// </summary>
+    public partial class ToggleGroupCallScreenSharingIsPaused : Function<Ok>
+    {
+        /// <summary>
+        /// Group call identifier
+        /// </summary>
+        public int GroupCallId { get; set; }
+
+        /// <summary>
+        /// True if screen sharing is paused
+        /// </summary>
+        public bool IsPaused { get; set; }
+
+    }
+
+    /// <summary>
+    /// Ends screen sharing in a joined group call
+    /// </summary>
+    public partial class EndGroupCallScreenSharing : Function<Ok>
+    {
+        /// <summary>
+        /// Group call identifier
+        /// </summary>
+        public int GroupCallId { get; set; }
 
     }
 
@@ -20389,7 +21790,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Toggles whether new participants of a group call can be unmuted only by administrators of the group call. Requires groupCall.can_change_mute_new_participants group call flag
+    /// Toggles whether new participants of a group call can be unmuted only by administrators of the group call. Requires groupCall.can_toggle_mute_new_participants group call flag
     /// </summary>
     public partial class ToggleGroupCallMuteNewParticipants : Function<Ok>
     {
@@ -20418,7 +21819,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Invites users to an active group call. Sends a service message of type messageInviteToGroupCall for voice chats
+    /// Invites users to an active group call. Sends a service message of type messageInviteToGroupCall for video chats
     /// </summary>
     public partial class InviteGroupCallParticipants : Function<Ok>
     {
@@ -20430,12 +21831,12 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifiers. At most 10 users can be invited simultaneously
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
     /// <summary>
-    /// Returns invite link to a voice chat in a public chat
+    /// Returns invite link to a video chat in a public chat
     /// </summary>
     public partial class GetGroupCallInviteLink : Function<HttpUrl>
     {
@@ -20445,7 +21846,7 @@ namespace TDLibCore.Api
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// Pass true if the invite_link should contain an invite hash, passing which to joinGroupCall would allow the invited user to unmute themself. Requires groupCall.can_be_managed group call flag
+        /// Pass true if the invite link needs to contain an invite hash, passing which to joinGroupCall would allow the invited user to unmute themselves. Requires groupCall.can_be_managed group call flag
         /// </summary>
         public bool CanSelfUnmute { get; set; }
 
@@ -20466,6 +21867,16 @@ namespace TDLibCore.Api
         /// </summary>
         public string Title { get; set; }
 
+        /// <summary>
+        /// Pass true to record a video file instead of an audio file
+        /// </summary>
+        public bool RecordVideo { get; set; }
+
+        /// <summary>
+        /// Pass true to use portrait orientation for video instead of landscape one
+        /// </summary>
+        public bool UsePortraitOrientation { get; set; }
+
     }
 
     /// <summary>
@@ -20481,7 +21892,41 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Informs TDLib that a participant of an active group call speaking state has changed
+    /// Toggles whether current user's video is paused
+    /// </summary>
+    public partial class ToggleGroupCallIsMyVideoPaused : Function<Ok>
+    {
+        /// <summary>
+        /// Group call identifier
+        /// </summary>
+        public int GroupCallId { get; set; }
+
+        /// <summary>
+        /// Pass true if the current user's video is paused
+        /// </summary>
+        public bool IsMyVideoPaused { get; set; }
+
+    }
+
+    /// <summary>
+    /// Toggles whether current user's video is enabled
+    /// </summary>
+    public partial class ToggleGroupCallIsMyVideoEnabled : Function<Ok>
+    {
+        /// <summary>
+        /// Group call identifier
+        /// </summary>
+        public int GroupCallId { get; set; }
+
+        /// <summary>
+        /// Pass true if the current user's video is enabled
+        /// </summary>
+        public bool IsMyVideoEnabled { get; set; }
+
+    }
+
+    /// <summary>
+    /// Informs TDLib that speaking state of a participant of an active group has changed
     /// </summary>
     public partial class SetGroupCallParticipantIsSpeaking : Function<Ok>
     {
@@ -20491,9 +21936,9 @@ namespace TDLibCore.Api
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// Group call participant's synchronization source identifier, or 0 for the current user
+        /// Group call participant's synchronization audio source identifier, or 0 for the current user
         /// </summary>
-        public int Source { get; set; }
+        public int AudioSource { get; set; }
 
         /// <summary>
         /// True, if the user is speaking
@@ -20503,7 +21948,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themself
+    /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves
     /// </summary>
     public partial class ToggleGroupCallParticipantIsMuted : Function<Ok>
     {
@@ -20525,7 +21970,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Changes volume level of a participant of an active group call. If the current user can manage the group call, then the participant's volume level will be changed for all users with default volume level
+    /// Changes volume level of a participant of an active group call. If the current user can manage the group call, then the participant's volume level will be changed for all users with the default volume level
     /// </summary>
     public partial class SetGroupCallParticipantVolumeLevel : Function<Ok>
     {
@@ -20562,14 +22007,14 @@ namespace TDLibCore.Api
         public MessageSender ParticipantId { get; set; }
 
         /// <summary>
-        /// Pass true if the user's hand should be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand
+        /// Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand
         /// </summary>
         public bool IsHandRaised { get; set; }
 
     }
 
     /// <summary>
-    /// Loads more participants of a group call. The loaded participants will be received through updates. Use the field groupCall.loaded_all_participants to check whether all participants has already been loaded
+    /// Loads more participants of a group call. The loaded participants will be received through updates. Use the field groupCall.loaded_all_participants to check whether all participants have already been loaded
     /// </summary>
     public partial class LoadGroupCallParticipants : Function<Ok>
     {
@@ -20579,7 +22024,7 @@ namespace TDLibCore.Api
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// The maximum number of participants to load
+        /// The maximum number of participants to load; up to 100
         /// </summary>
         public int Limit { get; set; }
 
@@ -20610,7 +22055,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns a file with a segment of a group call stream in a modified OGG format
+    /// Returns a file with a segment of a group call stream in a modified OGG format for audio or MPEG-4 format for video
     /// </summary>
     public partial class GetGroupCallStreamSegment : Function<FilePart>
     {
@@ -20628,6 +22073,16 @@ namespace TDLibCore.Api
         /// Segment duration scale; 0-1. Segment's duration is 1000/(2**scale) milliseconds
         /// </summary>
         public int Scale { get; set; }
+
+        /// <summary>
+        /// Identifier of an audio/video channel to get as received from tgcalls
+        /// </summary>
+        public int ChannelId { get; set; }
+
+        /// <summary>
+        /// Video quality as received from tgcalls; pass null to get the worst available quality
+        /// </summary>
+        public GroupCallVideoQuality VideoQuality { get; set; }
 
     }
 
@@ -20703,7 +22158,7 @@ namespace TDLibCore.Api
         public Contact Contact { get; set; }
 
         /// <summary>
-        /// True, if the new contact needs to be allowed to see current user's phone number. A corresponding rule to userPrivacySettingShowPhoneNumber will be added if needed. Use the field UserFullInfo.need_phone_number_privacy_exception to check whether the current user needs to be asked to share their phone number
+        /// True, if the new contact needs to be allowed to see current user's phone number. A corresponding rule to userPrivacySettingShowPhoneNumber will be added if needed. Use the field userFullInfo.need_phone_number_privacy_exception to check whether the current user needs to be asked to share their phone number
         /// </summary>
         public bool SharePhoneNumber { get; set; }
 
@@ -20753,7 +22208,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifiers of users to be deleted
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
@@ -20791,7 +22246,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the user with whom to share the phone number. The user must be a mutual contact
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
     }
 
@@ -20803,7 +22258,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The number of photos to skip; must be non-negative
@@ -20818,7 +22273,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is not empty, favorite and recently used stickers may also be returned
+    /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is non-empty, favorite and recently used stickers may also be returned
     /// </summary>
     public partial class GetStickers : Function<Stickers>
     {
@@ -20879,14 +22334,14 @@ namespace TDLibCore.Api
         public long OffsetStickerSetId { get; set; }
 
         /// <summary>
-        /// The maximum number of sticker sets to return
+        /// The maximum number of sticker sets to return; up to 100
         /// </summary>
         public int Limit { get; set; }
 
     }
 
     /// <summary>
-    /// Returns a list of trending sticker sets. For the optimal performance the number of returned sticker sets is chosen by the library
+    /// Returns a list of trending sticker sets. For optimal performance, the number of returned sticker sets is chosen by TDLib
     /// </summary>
     public partial class GetTrendingStickerSets : Function<StickerSets>
     {
@@ -20896,7 +22351,7 @@ namespace TDLibCore.Api
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of sticker sets to be returned; must be non-negative. Fewer sticker sets may be returned than specified by the limit, even if the end of the list has not been reached
+        /// The maximum number of sticker sets to be returned; up to 100. For optimal performance, the number of returned sticker sets is chosen by TDLib and can be smaller than the specified limit, even if the end of the list has not been reached
         /// </summary>
         public int Limit { get; set; }
 
@@ -21147,6 +22602,18 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
+    /// Returns an animated emoji corresponding to a given emoji. Returns a 404 error if the emoji has no animated emoji
+    /// </summary>
+    public partial class GetAnimatedEmoji : Function<AnimatedEmoji>
+    {
+        /// <summary>
+        /// The emoji
+        /// </summary>
+        public string Emoji { get; set; }
+
+    }
+
+    /// <summary>
     /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
     /// </summary>
     public partial class GetEmojiSuggestionsUrl : Function<HttpUrl>
@@ -21171,7 +22638,7 @@ namespace TDLibCore.Api
     public partial class AddSavedAnimation : Function<Ok>
     {
         /// <summary>
-        /// The animation file to be added. Only animations known to the server (i.e. successfully sent via a message) can be added to the list
+        /// The animation file to be added. Only animations known to the server (i.e., successfully sent via a message) can be added to the list
         /// </summary>
         public InputFile Animation { get; set; }
 
@@ -21284,12 +22751,12 @@ namespace TDLibCore.Api
     public partial class SetName : Function<Ok>
     {
         /// <summary>
-        /// The new value of the first name for the user; 1-64 characters
+        /// The new value of the first name for the current user; 1-64 characters
         /// </summary>
         public string FirstName { get; set; }
 
         /// <summary>
-        /// The new value of the optional last name for the user; 0-64 characters
+        /// The new value of the optional last name for the current user; 0-64 characters
         /// </summary>
         public string LastName { get; set; }
 
@@ -21342,14 +22809,14 @@ namespace TDLibCore.Api
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Settings for the authentication of the user's phone number
+        /// Settings for the authentication of the user's phone number; pass null to use default settings
         /// </summary>
         public PhoneNumberAuthenticationSettings Settings { get; set; }
 
     }
 
     /// <summary>
-    /// Re-sends the authentication code sent to confirm a new phone number for the user. Works only if the previously received authenticationCodeInfo next_code_type was not null
+    /// Re-sends the authentication code sent to confirm a new phone number for the current user. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
     /// </summary>
     public partial class ResendChangePhoneNumberCode : Function<AuthenticationCodeInfo>
     {
@@ -21368,14 +22835,58 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Sets the list of commands supported by the bot; for bots only
+    /// Sets the list of commands supported by the bot for the given user scope and language; for bots only
     /// </summary>
     public partial class SetCommands : Function<Ok>
     {
         /// <summary>
+        /// The scope to which the commands are relevant; pass null to change commands in the default bot command scope
+        /// </summary>
+        public BotCommandScope Scope { get; set; }
+
+        /// <summary>
+        /// A two-letter ISO 639-1 country code. If empty, the commands will be applied to all users from the given scope, for which language there are no dedicated commands
+        /// </summary>
+        public string LanguageCode { get; set; }
+
+        /// <summary>
         /// List of the bot's commands
         /// </summary>
         public BotCommand[] Commands { get; set; }
+
+    }
+
+    /// <summary>
+    /// Deletes commands supported by the bot for the given user scope and language; for bots only
+    /// </summary>
+    public partial class DeleteCommands : Function<Ok>
+    {
+        /// <summary>
+        /// The scope to which the commands are relevant; pass null to delete commands in the default bot command scope
+        /// </summary>
+        public BotCommandScope Scope { get; set; }
+
+        /// <summary>
+        /// A two-letter ISO 639-1 country code or an empty string
+        /// </summary>
+        public string LanguageCode { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns the list of commands supported by the bot for the given user scope and language; for bots only
+    /// </summary>
+    public partial class GetCommands : Function<BotCommands>
+    {
+        /// <summary>
+        /// The scope to which the commands are relevant; pass null to get commands in the default bot command scope
+        /// </summary>
+        public BotCommandScope Scope { get; set; }
+
+        /// <summary>
+        /// A two-letter ISO 639-1 country code or an empty string
+        /// </summary>
+        public string LanguageCode { get; set; }
 
     }
 
@@ -21439,7 +22950,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// New value of the username. Use an empty string to remove the username
@@ -21456,7 +22967,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the supergroup
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set
@@ -21473,7 +22984,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the channel
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// New value of sign_messages
@@ -21490,7 +23001,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// The identifier of the supergroup
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// The new value of is_all_history_available
@@ -21507,7 +23018,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Identifier of the supergroup
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
     }
 
@@ -21519,12 +23030,12 @@ namespace TDLibCore.Api
         /// <summary>
         /// Supergroup identifier
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Identifiers of messages sent in the supergroup by the user. This list must be non-empty
@@ -21534,17 +23045,17 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
+    /// Returns information about members or banned users in a supergroup or channel. Can be used only if supergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
     /// </summary>
     public partial class GetSupergroupMembers : Function<ChatMembers>
     {
         /// <summary>
         /// Identifier of the supergroup or channel
         /// </summary>
-        public int SupergroupId { get; set; }
+        public long SupergroupId { get; set; }
 
         /// <summary>
-        /// The type of users to return. By default, supergroupMembersFilterRecent
+        /// The type of users to return; pass null to use supergroupMembersFilterRecent
         /// </summary>
         public SupergroupMembersFilter Filter { get; set; }
 
@@ -21598,19 +23109,19 @@ namespace TDLibCore.Api
         public int Limit { get; set; }
 
         /// <summary>
-        /// The types of events to return. By default, all types will be returned
+        /// The types of events to return; pass null to get chat events of all types
         /// </summary>
         public ChatEventLogFilters Filters { get; set; }
 
         /// <summary>
         /// User identifiers by which to filter events. By default, events relating to all users will be returned
         /// </summary>
-        public int[] UserIds { get; set; }
+        public long[] UserIds { get; set; }
 
     }
 
     /// <summary>
-    /// Returns an invoice payment form. This method should be called when the user presses inlineKeyboardButtonBuy
+    /// Returns an invoice payment form. This method must be called when the user presses inlineKeyboardButtonBuy
     /// </summary>
     public partial class GetPaymentForm : Function<PaymentForm>
     {
@@ -21625,7 +23136,7 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Preferred payment form theme
+        /// Preferred payment form theme; pass null to use the default theme
         /// </summary>
         public PaymentFormTheme Theme { get; set; }
 
@@ -21647,7 +23158,7 @@ namespace TDLibCore.Api
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The order information, provided by the user
+        /// The order information, provided by the user; pass null if empty
         /// </summary>
         public OrderInfo OrderInfo { get; set; }
 
@@ -21792,12 +23303,12 @@ namespace TDLibCore.Api
     public partial class SetBackground : Function<Background>
     {
         /// <summary>
-        /// The input background to use, null for filled backgrounds
+        /// The input background to use; pass null to create a new filled backgrounds or to remove the current background
         /// </summary>
         public InputBackground Background { get; set; }
 
         /// <summary>
-        /// Background type; null for default background. The method will return error 404 if type is null
+        /// Background type; pass null to use the default type of the remote background or to remove the current background
         /// </summary>
         public BackgroundType Type { get; set; }
 
@@ -21869,7 +23380,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Fetches the latest versions of all strings from a language pack in the current localization target from the server. This method shouldn't be called explicitly for the current used/base language packs. Can be called before authorization
+    /// Fetches the latest versions of all strings from a language pack in the current localization target from the server. This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
     /// </summary>
     public partial class SynchronizeLanguagePack : Function<Ok>
     {
@@ -21963,7 +23474,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// List of user identifiers of other users currently using the application
         /// </summary>
-        public int[] OtherUserIds { get; set; }
+        public long[] OtherUserIds { get; set; }
 
     }
 
@@ -22055,7 +23566,7 @@ namespace TDLibCore.Api
         public string Name { get; set; }
 
         /// <summary>
-        /// The new value of the option
+        /// The new value of the option; pass null to reset option value to a default value
         /// </summary>
         public OptionValue Value { get; set; }
 
@@ -22159,29 +23670,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns an HTTP URL with the chat statistics. Currently this method of getting the statistics are disabled and can be deleted in the future
-    /// </summary>
-    public partial class GetChatStatisticsUrl : Function<HttpUrl>
-    {
-        /// <summary>
-        /// Chat identifier
-        /// </summary>
-        public long ChatId { get; set; }
-
-        /// <summary>
-        /// Parameters from "tg://statsrefresh?params=******" link
-        /// </summary>
-        public string Parameters { get; set; }
-
-        /// <summary>
-        /// Pass true if a URL with the dark theme must be returned
-        /// </summary>
-        public bool IsDark { get; set; }
-
-    }
-
-    /// <summary>
-    /// Returns detailed statistics about a chat. Currently this method can be used only for supergroups and channels. Can be used only if SupergroupFullInfo.can_get_statistics == true
+    /// Returns detailed statistics about a chat. Currently this method can be used only for supergroups and channels. Can be used only if supergroupFullInfo.can_get_statistics == true
     /// </summary>
     public partial class GetChatStatistics : Function<ChatStatistics>
     {
@@ -22198,7 +23687,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true
+    /// Returns detailed statistics about a message. Can be used only if message.can_get_statistics == true
     /// </summary>
     public partial class GetMessageStatistics : Function<MessageStatistics>
     {
@@ -22247,7 +23736,7 @@ namespace TDLibCore.Api
     public partial class GetStorageStatistics : Function<StorageStatistics>
     {
         /// <summary>
-        /// The maximum number of chats with the largest storage usage for which separate statistics should be returned. All other chats will be grouped in entries with chat_id == 0. If the chat info database is not used, the chat_limit is ignored and is always set to 0
+        /// The maximum number of chats with the largest storage usage for which separate statistics need to be returned. All other chats will be grouped in entries with chat_id == 0. If the chat info database is not used, the chat_limit is ignored and is always set to 0
         /// </summary>
         public int ChatLimit { get; set; }
 
@@ -22273,7 +23762,7 @@ namespace TDLibCore.Api
     public partial class OptimizeStorage : Function<StorageStatistics>
     {
         /// <summary>
-        /// Limit on the total size of files after deletion. Pass -1 to use the default limit
+        /// Limit on the total size of files after deletion, in bytes. Pass -1 to use the default limit
         /// </summary>
         public long Size { get; set; }
 
@@ -22293,17 +23782,17 @@ namespace TDLibCore.Api
         public int ImmunityDelay { get; set; }
 
         /// <summary>
-        /// If not empty, only files with the given type(s) are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted
+        /// If non-empty, only files with the given types are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted
         /// </summary>
         public FileType[] FileTypes { get; set; }
 
         /// <summary>
-        /// If not empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)
+        /// If non-empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)
         /// </summary>
         public long[] ChatIds { get; set; }
 
         /// <summary>
-        /// If not empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)
+        /// If non-empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)
         /// </summary>
         public long[] ExcludeChatIds { get; set; }
 
@@ -22320,12 +23809,12 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Sets the current network type. Can be called before authorization. Calling this method forces all network connections to reopen, mitigating the delay in switching between different networks, so it should be called whenever the network is changed, even if the network type remains the same. -Network type is used to check whether the library can use the network at all and also for collecting detailed network data usage statistics
+    /// Sets the current network type. Can be called before authorization. Calling this method forces all network connections to reopen, mitigating the delay in switching between different networks, so it must be called whenever the network is changed, even if the network type remains the same. -Network type is used to check whether the library can use the network at all and also for collecting detailed network data usage statistics
     /// </summary>
     public partial class SetNetworkType : Function<Ok>
     {
         /// <summary>
-        /// The new network type. By default, networkTypeOther
+        /// The new network type; pass null to set network type to networkTypeOther
         /// </summary>
         public NetworkType Type { get; set; }
 
@@ -22380,7 +23869,7 @@ namespace TDLibCore.Api
         public AutoDownloadSettings Settings { get; set; }
 
         /// <summary>
-        /// Type of the network for which the new settings are applied
+        /// Type of the network for which the new settings are relevant
         /// </summary>
         public NetworkType Type { get; set; }
 
@@ -22464,7 +23953,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The errors
@@ -22474,7 +23963,7 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns an IETF language tag of the language preferred in the country, which should be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
+    /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
     /// </summary>
     public partial class GetPreferredCountryLanguage : Function<Text>
     {
@@ -22496,7 +23985,7 @@ namespace TDLibCore.Api
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Settings for the authentication of the user's phone number
+        /// Settings for the authentication of the user's phone number; pass null to use default settings
         /// </summary>
         public PhoneNumberAuthenticationSettings Settings { get; set; }
 
@@ -22560,7 +24049,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// User identifier of the service's bot
         /// </summary>
-        public int BotUserId { get; set; }
+        public long BotUserId { get; set; }
 
         /// <summary>
         /// Telegram Passport element types requested by the service
@@ -22568,12 +24057,12 @@ namespace TDLibCore.Api
         public string Scope { get; set; }
 
         /// <summary>
-        /// Service's public_key
+        /// Service's public key
         /// </summary>
         public string PublicKey { get; set; }
 
         /// <summary>
-        /// Authorization form nonce provided by the service
+        /// Unique request identifier provided by the service
         /// </summary>
         public string Nonce { get; set; }
 
@@ -22614,22 +24103,22 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Sends phone number confirmation code. Should be called when user presses "https://t.me/confirmphone?phone=*******&amp;hash=**********" or "tg://confirmphone?phone=*******&amp;hash=**********" link
+    /// Sends phone number confirmation code to handle links of the type internalLinkTypePhoneNumberConfirmation
     /// </summary>
     public partial class SendPhoneNumberConfirmationCode : Function<AuthenticationCodeInfo>
     {
         /// <summary>
-        /// Value of the "hash" parameter from the link
+        /// Hash value from the link
         /// </summary>
         public string Hash { get; set; }
 
         /// <summary>
-        /// Value of the "phone" parameter from the link
+        /// Phone number value from the link
         /// </summary>
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Settings for the authentication of the user's phone number
+        /// Settings for the authentication of the user's phone number; pass null to use default settings
         /// </summary>
         public PhoneNumberAuthenticationSettings Settings { get; set; }
 
@@ -22672,31 +24161,55 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Uploads a PNG image with a sticker; for bots only; returns the uploaded file
+    /// Uploads a PNG image with a sticker; returns the uploaded file
     /// </summary>
     public partial class UploadStickerFile : Function<File>
     {
         /// <summary>
-        /// Sticker file owner
+        /// Sticker file owner; ignored for regular users
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
-        /// PNG image with the sticker; must be up to 512 KB in size and fit in 512x512 square
+        /// Sticker file to upload
         /// </summary>
-        public InputFile PngSticker { get; set; }
+        public InputSticker Sticker { get; set; }
 
     }
 
     /// <summary>
-    /// Creates a new sticker set; for bots only. Returns the newly created sticker set
+    /// Returns a suggested name for a new sticker set with a given title
+    /// </summary>
+    public partial class GetSuggestedStickerSetName : Function<Text>
+    {
+        /// <summary>
+        /// Sticker set title; 1-64 characters
+        /// </summary>
+        public string Title { get; set; }
+
+    }
+
+    /// <summary>
+    /// Checks whether a name can be used for a new sticker set
+    /// </summary>
+    public partial class CheckStickerSetName : Function<CheckStickerSetNameResult>
+    {
+        /// <summary>
+        /// Name to be checked
+        /// </summary>
+        public string Name { get; set; }
+
+    }
+
+    /// <summary>
+    /// Creates a new sticker set. Returns the newly created sticker set
     /// </summary>
     public partial class CreateNewStickerSet : Function<StickerSet>
     {
         /// <summary>
-        /// Sticker set owner
+        /// Sticker set owner; ignored for regular users
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Sticker set title; 1-64 characters
@@ -22704,7 +24217,7 @@ namespace TDLibCore.Api
         public string Title { get; set; }
 
         /// <summary>
-        /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive); 1-64 characters
+        /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive) for bots; 1-64 characters
         /// </summary>
         public string Name { get; set; }
 
@@ -22714,9 +24227,14 @@ namespace TDLibCore.Api
         public bool IsMasks { get; set; }
 
         /// <summary>
-        /// List of stickers to be added to the set; must be non-empty. All stickers must be of the same type
+        /// List of stickers to be added to the set; must be non-empty. All stickers must be of the same type. For animated stickers, uploadStickerFile must be used before the sticker is shown
         /// </summary>
         public InputSticker[] Stickers { get; set; }
+
+        /// <summary>
+        /// Source of the sticker set; may be empty if unknown
+        /// </summary>
+        public string Source { get; set; }
 
     }
 
@@ -22728,7 +24246,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Sticker set owner
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Sticker set name
@@ -22750,7 +24268,7 @@ namespace TDLibCore.Api
         /// <summary>
         /// Sticker set owner
         /// </summary>
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Sticker set name
@@ -22758,7 +24276,7 @@ namespace TDLibCore.Api
         public string Name { get; set; }
 
         /// <summary>
-        /// Thumbnail to set in PNG or TGS format. Animated thumbnail must be set for animated sticker sets and only for them. Pass a zero InputFileId to delete the thumbnail
+        /// Thumbnail to set in PNG or TGS format; pass null to remove the sticker set thumbnail. Animated thumbnail must be set for animated sticker sets and only for them
         /// </summary>
         public InputFile Thumbnail { get; set; }
 
@@ -22915,9 +24433,26 @@ namespace TDLibCore.Api
     }
 
     /// <summary>
-    /// Returns the default text for invitation messages to be used as a placeholder when the current user invites friends to Telegram
+    /// Returns information about a phone number by its prefix synchronously. getCountries must be called at least once after changing localization to the specified language if properly localized country information is expected. Can be called synchronously
     /// </summary>
-    public partial class GetInviteText : Function<Text>
+    public partial class GetPhoneNumberInfoSync : Function<PhoneNumberInfo>
+    {
+        /// <summary>
+        /// A two-letter ISO 639-1 country code for country information localization
+        /// </summary>
+        public string LanguageCode { get; set; }
+
+        /// <summary>
+        /// The phone number prefix
+        /// </summary>
+        public string PhoneNumberPrefix { get; set; }
+
+    }
+
+    /// <summary>
+    /// Returns the link for downloading official Telegram application to be used when the current user invites friends to Telegram
+    /// </summary>
+    public partial class GetApplicationDownloadLink : Function<HttpUrl>
     {
     }
 
@@ -22978,7 +24513,7 @@ namespace TDLibCore.Api
         public int Port { get; set; }
 
         /// <summary>
-        /// True, if the proxy should be enabled
+        /// True, if the proxy needs to be enabled
         /// </summary>
         public bool Enable { get; set; }
 
@@ -23010,7 +24545,7 @@ namespace TDLibCore.Api
         public int Port { get; set; }
 
         /// <summary>
-        /// True, if the proxy should be enabled
+        /// True, if the proxy needs to be enabled
         /// </summary>
         public bool Enable { get; set; }
 
