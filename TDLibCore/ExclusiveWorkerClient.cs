@@ -172,7 +172,7 @@ namespace TDLibCore
                 {
                     _ = InvokeAsync(new TestCallEmpty());  // to make Receive return;
                 });
-                while (clientClosed && !ct.IsCancellationRequested)
+                while (!clientClosed && !ct.IsCancellationRequested)
                 {
                     var (seq, obj) = binding.Receive(10.0);
                     if (obj == null) continue;
