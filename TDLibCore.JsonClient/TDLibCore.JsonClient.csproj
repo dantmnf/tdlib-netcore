@@ -10,8 +10,8 @@
         <DefineConstants Condition="'$(TargetFramework)' == 'net5.0'">X86_INTRINSICS;ARM_INTRINSICS;</DefineConstants>
     </PropertyGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-        <PackageReference Include="System.Text.Json" Version="4.7.2" />
-        <PackageReference Include="System.Memory" Version="4.5.4" />
+        <PackageReference Include="System.Text.Json" Version="8.0.4" />
+        <PackageReference Include="System.Memory" Version="4.5.5" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\TDLibCore\TDLibCore.csproj" />
